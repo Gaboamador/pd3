@@ -1,0 +1,26 @@
+@use "./variables.scss" as *;
+@use "./fonts.scss" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  // height: 100%;
+}
+
+body {
+  font-family: 'Rift', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: $bg-gradient;
+  color: $text;
+}
+
+button, input, select, textarea, label, .font-din {
+  font-family: 'DIN2014';
+}

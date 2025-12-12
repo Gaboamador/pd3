@@ -1,0 +1,252 @@
+@use "./variables.scss" as *;
+@use "sass:color";
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  // background: rgba(10, 12, 20, 0.94);
+  border-radius: 20px;
+  // box-shadow: $shadow-soft;
+  // border: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.confettiContainer {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+}
+
+.confettiParticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.hudNotification {
+  position: fixed;
+  top: 16px;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 420px;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: rgba(15, 18, 30, 0.85);
+  color: $accent;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(87,166,255,0.4);
+  box-shadow: 0 0 18px rgba(87,166,255,0.35);
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.primaryButton,
+.secondaryButton,
+.resetButton {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.primaryButton {
+  background: $accent;
+  color: #020308;
+  box-shadow: 0 10px 25px rgba(87, 166, 255, 0.5);
+}
+
+.primaryButton:hover {
+  background: color.adjust($accent, $lightness: 4%);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(87, 166, 255, 0.6);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 24px rgba(87, 166, 255, 0.55);
+}
+
+.secondaryButton {
+  background: #181a25;
+  color: $text;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.secondaryButton:hover {
+  background: #1f2230;
+  transform: translateY(-1px);
+}
+
+.secondaryButton:active {
+  transform: translateY(0);
+}
+
+.resetButton {
+  background: rgba(255,0,0,0.5);
+  color: $text;
+  border: 1px solid rgba(255, 0, 0, 0.8);
+}
+
+.resetButton:hover {
+  background: rgba(255,0,0,0.7);
+  transform: translateY(-1px);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+.weaponFilterPanel {
+  display: flex ;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+}
+
+.weaponFilters {
+  padding: 0.5rem;
+  border-radius: 14px;
+  background: rgba(10, 12, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 0.85rem;
+  justify-content: space-evenly;
+}
+
+.weaponFilters > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.weaponFilters h4 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $text-muted;
+}
+
+.weaponFilters label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.weaponFilters label:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.weaponFilters input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: $accent;
+}
+
+.weaponTypeContainer {
+  // background-color: red;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.collapsibleTitle {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s ease;
+  text-align: center;
+}
+
+.collapsibleTitle:hover {
+  color: $accent;
+}
+
+.filterBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  // margin-top: 4px;
+}
+
+.globalControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  // margin: 10px 0 18px;
+}
+
+.globalControls button {
+  flex: 1;
+  min-width: 140px;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+
+    .primaryButton,
+    .secondaryButton {
+      min-width: 210px;
+    }
+  }
+
+    .weaponFilters {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 16px;
+  }
+
+  .weaponFilters > div {
+    min-width: 0;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+    .globalControls {
+    flex-wrap: nowrap;
+  }
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,69 @@
+@use "./variables.scss" as *;
+@use "sass:color";
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  background: rgba(15, 17, 25, 0.95);
+  padding: 20px 24px;
+  border-radius: 16px;
+  width: min(90vw, 380px);
+  color: $text;
+  text-align: center;
+  border: 1px solid rgba(87, 166, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+
+  h3 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.1rem;
+    color: $accent;
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin: 0 0 16px;
+    opacity: 0.85;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cancelButton,
+.confirmButton {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.cancelButton {
+  background: rgba(255, 255, 255, 0.08);
+  color: $text;
+}
+
+.confirmButton {
+  background: $accent;
+  color: #020308;
+}
+
+.confirmButton:hover {
+  background: color.adjust($accent, $lightness: 4%);
+}

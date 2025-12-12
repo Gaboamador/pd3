@@ -1,0 +1,45 @@
+@use "./variables.scss" as *;
+
+.armorSlot {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+}
+
+.armorSlot > :first-child {
+  position: relative;
+  padding-right: 6px; // mitad del gap para ajustar el pseudo-elemento
+}
+
+.armorSlot > :first-child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background: #555; // color del divisor
+}
+
+.armorType {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.armorIcons {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.armorPlates {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.separador {
+    color: $text-muted
+}

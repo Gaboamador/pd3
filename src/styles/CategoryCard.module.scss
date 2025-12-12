@@ -1,0 +1,110 @@
+@use "./variables.scss" as *;
+
+.card {
+  background: $card-bg;
+  border-radius: $radius-lg;
+  padding: 10px 11px;
+  border: 1px solid $card-border;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardHighlight {
+  border-color: $card-border-highlight;
+  box-shadow: 0 0 0 1px rgba(87, 166, 255, 0.4),
+    0 12px 30px rgba(25, 104, 210, 0.65);
+}
+
+.dataLabel {
+  border-color: $card-border-data;
+}
+
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.headerRow:hover .label {
+  color: $accent;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $text-muted;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardBody > div {
+  flex: 1;
+}
+
+.rerollButton {
+  border: none;
+  background-color: transparent;
+  color: $text;
+  border-radius: $radius-md;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.rerollButton:hover {
+  background: #262a3b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.rerollButton:active {
+  transform: translateY(0);
+  box-shadow: none;
+  animation: spinOnce 1s ease-out;
+}
+
+.slotWrapper {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.slot {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $text;
+  padding: 4px 6px;
+  border-radius: $radius-md;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 166, 255, 0.06),
+    rgba(87, 166, 255, 0)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.emptyCard {
+  opacity: 0.4;
+  border-color: rgba(255,255,255,0.08);
+}
+
+@keyframes spinOnce {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
