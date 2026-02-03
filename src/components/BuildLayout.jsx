@@ -11,7 +11,7 @@ import { armorPlateCount } from "../data/armor.js";
 import { GiShoulderArmor } from "react-icons/gi";
 
 function BuildLayout() {
-  const { build, generateFullBuild, rerollField, resetBuild } = useBuildGenerator();
+  const { build, generateFullBuild, rerollField, resetBuild, sourceMap } = useBuildGenerator();
 const [collapsePrimaryFilters, setCollapsePrimaryFilters] = useState(false);
 const [collapseSecondaryFilters, setCollapseSecondaryFilters] = useState(false);
 const [confettiTrigger, setConfettiTrigger] = useState(0);
@@ -35,6 +35,10 @@ const initialCardCollapse = {
 };
 
 const [cardCollapse, setCardCollapse] = useState(initialCardCollapse);
+
+// Duraciones efectos
+const CONFETTI_DURATION = 1350; // ms — debe coincidir con ConfettiBurst
+const HUD_DELAY_AFTER_CONFETTI = 500;
 
 
 // Tipos disponibles
@@ -142,25 +146,63 @@ const getValueForKey = key => {
   return build[key];
 };
 
+function getOptionsForCategory(key) {
+  switch (key) {
+
+    case "primary":
+      return sourceMap.primary
+        .filter(w => primaryTypes.includes(w.type))
+        .map(w => w.name);
+
+    case "secondary":
+      return sourceMap.secondary
+        .filter(w => secondaryTypes.includes(w.type))
+        .map(w => w.name);
+
+    case "overkill":
+      return sourceMap.overkill;
+
+    case "throwable":
+      return sourceMap.throwable;
+
+    case "deployable":
+      return sourceMap.deployable;
+
+    case "tool":
+      return sourceMap.tool;
+
+    case "heist":
+      return sourceMap.heist;
+
+    case "armor":
+      // solo mostramos tipos, no plates
+      return Object.keys(armorPlateCount);
+
+    default:
+      return [];
+  }
+}
 
 function triggerVisualFeedback() {
-  if (randomizeBtnRef.current) {
-    const rect = randomizeBtnRef.current.getBoundingClientRect();
-    setConfettiOrigin({
-      x: rect.left + rect.width / 2,   // centro horizontal del botón
-      y: rect.top + rect.height / 2    // centro vertical del botón
-    });
-  }
+  setConfettiOrigin({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
+  });
 
-  // Disparar confetti inmediatamente
+  // dispara confetti
   setConfettiTrigger(prev => prev + 1);
 
-  // HUD notification después de animación de confetti
+  // HUD: cuando TERMINA el confetti + 1s
   setTimeout(() => {
     setHudVisible(true);
-    setTimeout(() => setHudVisible(false), 1200);
-  }, 650);
+
+    setTimeout(() => {
+      setHudVisible(false);
+    }, 1200);
+
+  }, CONFETTI_DURATION + HUD_DELAY_AFTER_CONFETTI);
 }
+
 
 
 function isBuildEmpty(build) {
@@ -307,12 +349,25 @@ function isBuildEmpty(build) {
               animKey = displayValue;
             }
 
+            const options = getOptionsForCategory(cat.key);
+
+            let finalLabel = "";
+            if (cat.key === "primary" || cat.key === "secondary") {
+              finalLabel = build[cat.key]?.name || "";
+            } else if (cat.key === "armor") {
+              finalLabel = (build.armor.type || "").trim();
+            } else {
+              finalLabel = typeof displayValue === "string" ? displayValue : "";
+            }
+
             return (
             <CategoryCard
               key={cat.key}
               label={cat.label}
               value={displayValue}
               animationKey={animKey}
+              options={options}
+              finalLabel={finalLabel}
               hasData={!!displayValue}
               collapsed={cardCollapse[cat.key]}
               onToggleCollapse={() =>

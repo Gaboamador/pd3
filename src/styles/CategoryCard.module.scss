@@ -78,13 +78,22 @@
   animation: spinOnce 1s ease-out;
 }
 
+// .slotWrapper {
+//   min-height: 28px;
+//   display: flex;
+//   align-items: center;
+// }
 .slotWrapper {
-  min-height: 28px;
+  height: 50px;
+  overflow: hidden;          // 🔒 recorta la rueda
+  position: relative;
   display: flex;
-  align-items: center;
+  // align-items: center;
 }
 
+
 .slot {
+  min-height: 50px;
   flex: 1;
   font-size: 0.9rem;
   font-weight: 400;
@@ -97,7 +106,31 @@
     rgba(87, 166, 255, 0)
   );
   border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
 }
+
+// .slot {
+//   height: 28px;              // 🔒 misma altura que slotWrapper
+//   display: flex;
+//   // align-items: center;
+//   justify-content: center;
+// }
+
+// .slotTrack {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.slotTrack {
+  position: absolute;        // 🔑 no afecta layout
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .emptyCard {
   opacity: 0.4;

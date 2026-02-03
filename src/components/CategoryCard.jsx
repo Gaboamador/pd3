@@ -3,7 +3,7 @@ import AnimatedSlot from "./AnimatedSlot.jsx";
 import styles from "../styles/CategoryCard.module.scss";
 import { LuRefreshCw } from "react-icons/lu";
 
-function CategoryCard({ label, value, onReroll, collapsed, onToggleCollapse, highlight = false, hasData, animationKey }) {
+function CategoryCard({ label, value, options, onReroll, collapsed, onToggleCollapse, highlight = false, hasData, animationKey }) {
 
   return (
     <motion.div
@@ -25,7 +25,13 @@ function CategoryCard({ label, value, onReroll, collapsed, onToggleCollapse, hig
       {/* BODY SOLO SI NO ESTÁ COLAPSADO */}
       {!collapsed && (
         <div className={styles.cardBody}>
-          <AnimatedSlot value={animationKey ?? value} display={value}/>
+          {/* <AnimatedSlot value={animationKey ?? value} display={value} options={options}/> */}
+          <AnimatedSlot
+  spinKey={animationKey ?? String(value ?? "")}
+  finalLabel={typeof value === "string" ? value : ""}  // para armor la seteamos desde BuildLayout
+  display={value}
+  options={options}
+/>
           <button
             type="button"
             className={styles.rerollButton}

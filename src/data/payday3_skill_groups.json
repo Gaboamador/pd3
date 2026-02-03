@@ -1,0 +1,1532 @@
+{
+    "1": {
+        "id": 1,
+        "key": "TheSoldier",
+        "name": "Soldier",
+        "position": 0,
+        "sprite": {
+            "r": 1,
+            "c": 1
+        },
+        "trees": {
+            "1": {
+                "id": 1,
+                "key": "Juggernaut",
+                "name": "Juggernaut",
+                "position": 0,
+                "skill_category_id": 1,
+                "skills": [
+                    {
+                        "id": 6,
+                        "key": "Bastion",
+                        "name": "Bastion",
+                        "sprite": {
+                            "r": 1,
+                            "c": 6
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 4
+                    },
+                    {
+                        "id": 5,
+                        "key": "ArmoredUpII",
+                        "name": "Armored Up II",
+                        "sprite": {
+                            "r": 1,
+                            "c": 5
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 3
+                    },
+                    {
+                        "id": 4,
+                        "key": "BeastOfBurdon",
+                        "name": "Beast Of Burden",
+                        "sprite": {
+                            "r": 1,
+                            "c": 4
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 3
+                    },
+                    {
+                        "id": 3,
+                        "key": "ArmoredUpI",
+                        "name": "Armored Up I",
+                        "sprite": {
+                            "r": 1,
+                            "c": 3
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 2
+                    },
+                    {
+                        "id": 2,
+                        "key": "LockedIn",
+                        "name": "Head Guard",
+                        "sprite": {
+                            "r": 1,
+                            "c": 2
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 2
+                    },
+                    {
+                        "id": 1,
+                        "key": "Bulwark",
+                        "name": "Extra Protection",
+                        "sprite": {
+                            "r": 1,
+                            "c": 1
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 1,
+                        "tier": 1
+                    }
+                ]
+            },
+            "2": {
+                "id": 2,
+                "key": "ARSpec",
+                "name": "Commando",
+                "position": 1,
+                "skill_category_id": 1,
+                "skills": [
+                    {
+                        "id": 12,
+                        "key": "AmmoFunnel",
+                        "name": "Ammo Funnel",
+                        "sprite": {
+                            "r": 2,
+                            "c": 6
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 4
+                    },
+                    {
+                        "id": 11,
+                        "key": "HollowPointRounds",
+                        "name": "Hollow-Point Rounds",
+                        "sprite": {
+                            "r": 2,
+                            "c": 5
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 3
+                    },
+                    {
+                        "id": 10,
+                        "key": "CrackOpen",
+                        "name": "Breaking Point",
+                        "sprite": {
+                            "r": 2,
+                            "c": 4
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 3
+                    },
+                    {
+                        "id": 9,
+                        "key": "ARPockets",
+                        "name": "Stockpile: Assault",
+                        "sprite": {
+                            "r": 2,
+                            "c": 3
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 2
+                    },
+                    {
+                        "id": 8,
+                        "key": "FocusFire",
+                        "name": "Focus Fire",
+                        "sprite": {
+                            "r": 2,
+                            "c": 2
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 2
+                    },
+                    {
+                        "id": 7,
+                        "key": "ARProficiency",
+                        "name": "Rifleman",
+                        "sprite": {
+                            "r": 2,
+                            "c": 1
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 2,
+                        "tier": 1
+                    }
+                ]
+            },
+            "3": {
+                "id": 3,
+                "key": "FragGrenade",
+                "name": "Grenadier",
+                "position": 2,
+                "skill_category_id": 1,
+                "skills": [
+                    {
+                        "id": 18,
+                        "key": "FragMaster",
+                        "name": "Mad Bomber",
+                        "sprite": {
+                            "r": 3,
+                            "c": 6
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 4
+                    },
+                    {
+                        "id": 17,
+                        "key": "ImpactGrenades",
+                        "name": "Sudden Impact",
+                        "sprite": {
+                            "r": 3,
+                            "c": 5
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 3
+                    },
+                    {
+                        "id": 16,
+                        "key": "Scrounger",
+                        "name": "Scavenger",
+                        "sprite": {
+                            "r": 3,
+                            "c": 4
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 3
+                    },
+                    {
+                        "id": 15,
+                        "key": "ExtraFrags",
+                        "name": "Stockpile: Frag Grenades",
+                        "sprite": {
+                            "r": 3,
+                            "c": 3
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 2
+                    },
+                    {
+                        "id": 14,
+                        "key": "Tenderize",
+                        "name": "Burn Damage",
+                        "sprite": {
+                            "r": 3,
+                            "c": 2
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 2
+                    },
+                    {
+                        "id": 13,
+                        "key": "FragProficiency",
+                        "name": "Bombs Away",
+                        "sprite": {
+                            "r": 3,
+                            "c": 1
+                        },
+                        "skill_category_id": 1,
+                        "skill_tree_id": 3,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    },
+    "2": {
+        "id": 2,
+        "key": "TheNinja",
+        "name": "Ninja",
+        "position": 1,
+        "sprite": {
+            "r": 1,
+            "c": 2
+        },
+        "trees": {
+            "4": {
+                "id": 4,
+                "key": "StealthSpec",
+                "name": "Ghost",
+                "position": 0,
+                "skill_category_id": 2,
+                "skills": [
+                    {
+                        "id": 24,
+                        "key": "OnTheRun",
+                        "name": "On the Run",
+                        "sprite": {
+                            "r": 4,
+                            "c": 6
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 4
+                    },
+                    {
+                        "id": 23,
+                        "key": "RiskTaker",
+                        "name": "Under Pressure",
+                        "sprite": {
+                            "r": 4,
+                            "c": 5
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 3
+                    },
+                    {
+                        "id": 22,
+                        "key": "LockMaster",
+                        "name": "Locksmith",
+                        "sprite": {
+                            "r": 4,
+                            "c": 4
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 3
+                    },
+                    {
+                        "id": 21,
+                        "key": "ConstantFlow",
+                        "name": "Flow State",
+                        "sprite": {
+                            "r": 4,
+                            "c": 3
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 2
+                    },
+                    {
+                        "id": 20,
+                        "key": "JudoChop",
+                        "name": "Judo Chop",
+                        "sprite": {
+                            "r": 4,
+                            "c": 2
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 2
+                    },
+                    {
+                        "id": 19,
+                        "key": "DodgeMaster",
+                        "name": "Dodge This",
+                        "sprite": {
+                            "r": 4,
+                            "c": 1
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 4,
+                        "tier": 1
+                    }
+                ]
+            },
+            "5": {
+                "id": 5,
+                "key": "SMGSpec",
+                "name": "Special Ops",
+                "position": 1,
+                "skill_category_id": 2,
+                "skills": [
+                    {
+                        "id": 30,
+                        "key": "SMGMaster",
+                        "name": "SMGenius",
+                        "sprite": {
+                            "r": 5,
+                            "c": 6
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 4
+                    },
+                    {
+                        "id": 29,
+                        "key": "EvenAim",
+                        "name": "Steady Hands",
+                        "sprite": {
+                            "r": 5,
+                            "c": 5
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 3
+                    },
+                    {
+                        "id": 28,
+                        "key": "BrickBuster",
+                        "name": "Cracked",
+                        "sprite": {
+                            "r": 5,
+                            "c": 4
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 3
+                    },
+                    {
+                        "id": 27,
+                        "key": "SMGPockets",
+                        "name": "Stockpile: SMG",
+                        "sprite": {
+                            "r": 5,
+                            "c": 3
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 2
+                    },
+                    {
+                        "id": 26,
+                        "key": "NimbleHands",
+                        "name": "Multitasker",
+                        "sprite": {
+                            "r": 5,
+                            "c": 2
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 2
+                    },
+                    {
+                        "id": 25,
+                        "key": "SMGProficiency",
+                        "name": "SMG Adept",
+                        "sprite": {
+                            "r": 5,
+                            "c": 1
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 5,
+                        "tier": 1
+                    }
+                ]
+            },
+            "6": {
+                "id": 6,
+                "key": "SmokeGrenade",
+                "name": "Fog Machine",
+                "position": 2,
+                "skill_category_id": 2,
+                "skills": [
+                    {
+                        "id": 36,
+                        "key": "SmokeMaster",
+                        "name": "Escape Artist",
+                        "sprite": {
+                            "r": 6,
+                            "c": 6
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 4
+                    },
+                    {
+                        "id": 35,
+                        "key": "ThickSmoke",
+                        "name": "Smokescreen",
+                        "sprite": {
+                            "r": 6,
+                            "c": 5
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 3
+                    },
+                    {
+                        "id": 34,
+                        "key": "PoisonCloud",
+                        "name": "Poisonous Gas",
+                        "sprite": {
+                            "r": 6,
+                            "c": 4
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 3
+                    },
+                    {
+                        "id": 33,
+                        "key": "ExtraSmokes",
+                        "name": "Stockpile: Smoke Grenades",
+                        "sprite": {
+                            "r": 6,
+                            "c": 3
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 2
+                    },
+                    {
+                        "id": 32,
+                        "key": "CoughingFit",
+                        "name": "Brain Fog",
+                        "sprite": {
+                            "r": 6,
+                            "c": 2
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 2
+                    },
+                    {
+                        "id": 31,
+                        "key": "SmokeProficiency",
+                        "name": "Heavy Smoker",
+                        "sprite": {
+                            "r": 6,
+                            "c": 1
+                        },
+                        "skill_category_id": 2,
+                        "skill_tree_id": 6,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    },
+    "3": {
+        "id": 3,
+        "key": "TheMechanic",
+        "name": "Mechanic",
+        "position": 2,
+        "sprite": {
+            "r": 1,
+            "c": 3
+        },
+        "trees": {
+            "7": {
+                "id": 7,
+                "key": "Engineer",
+                "name": "Engineer",
+                "position": 0,
+                "skill_category_id": 3,
+                "skills": [
+                    {
+                        "id": 42,
+                        "key": "LevelUp",
+                        "name": "Machine War",
+                        "sprite": {
+                            "r": 7,
+                            "c": 6
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 4
+                    },
+                    {
+                        "id": 41,
+                        "key": "ExtraTurrets",
+                        "name": "Sentry Squad",
+                        "sprite": {
+                            "r": 7,
+                            "c": 5
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 3
+                    },
+                    {
+                        "id": 40,
+                        "key": "ShieldedTurret",
+                        "name": "Shields Up",
+                        "sprite": {
+                            "r": 7,
+                            "c": 4
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 3
+                    },
+                    {
+                        "id": 39,
+                        "key": "QuickFixer",
+                        "name": "Repair Job",
+                        "sprite": {
+                            "r": 7,
+                            "c": 3
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 2
+                    },
+                    {
+                        "id": 38,
+                        "key": "TurretReinforcement",
+                        "name": "Artificial Ally",
+                        "sprite": {
+                            "r": 7,
+                            "c": 2
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 2
+                    },
+                    {
+                        "id": 37,
+                        "key": "DroneOperator",
+                        "name": "Sentry Operator",
+                        "sprite": {
+                            "r": 7,
+                            "c": 1
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 7,
+                        "tier": 1
+                    }
+                ]
+            },
+            "8": {
+                "id": 8,
+                "key": "ShotgunSpec",
+                "name": "Shotgunner",
+                "position": 1,
+                "skill_category_id": 3,
+                "skills": [
+                    {
+                        "id": 48,
+                        "key": "ShotgunTank",
+                        "name": "Berserker",
+                        "sprite": {
+                            "r": 8,
+                            "c": 6
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 4
+                    },
+                    {
+                        "id": 47,
+                        "key": "ShotgunObliterator",
+                        "name": "Annihilation",
+                        "sprite": {
+                            "r": 8,
+                            "c": 5
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 3
+                    },
+                    {
+                        "id": 46,
+                        "key": "ShotgunSpeedloader",
+                        "name": "Speedloader",
+                        "sprite": {
+                            "r": 8,
+                            "c": 4
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 3
+                    },
+                    {
+                        "id": 45,
+                        "key": "ShotgunPockets",
+                        "name": "Stockpile: Shotgun",
+                        "sprite": {
+                            "r": 8,
+                            "c": 3
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 2
+                    },
+                    {
+                        "id": 44,
+                        "key": "PointBlank",
+                        "name": "Point Blank",
+                        "sprite": {
+                            "r": 8,
+                            "c": 2
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 2
+                    },
+                    {
+                        "id": 43,
+                        "key": "ShotgunExpert",
+                        "name": "Calling Shotgun",
+                        "sprite": {
+                            "r": 8,
+                            "c": 1
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 8,
+                        "tier": 1
+                    }
+                ]
+            },
+            "9": {
+                "id": 9,
+                "key": "ShockGrenade",
+                "name": "Electrician",
+                "position": 2,
+                "skill_category_id": 3,
+                "skills": [
+                    {
+                        "id": 54,
+                        "key": "ArmorConductor",
+                        "name": "Highly Conductive",
+                        "sprite": {
+                            "r": 9,
+                            "c": 6
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 4
+                    },
+                    {
+                        "id": 53,
+                        "key": "PowerShockGrenades",
+                        "name": "Renewable Energy",
+                        "sprite": {
+                            "r": 9,
+                            "c": 5
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 3
+                    },
+                    {
+                        "id": 52,
+                        "key": "ElectricTenderizer",
+                        "name": "Electric Tenderizer",
+                        "sprite": {
+                            "r": 9,
+                            "c": 4
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 3
+                    },
+                    {
+                        "id": 51,
+                        "key": "ElectricCapacity",
+                        "name": "Stockpile: Shock Grenades",
+                        "sprite": {
+                            "r": 9,
+                            "c": 3
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 2
+                    },
+                    {
+                        "id": 50,
+                        "key": "ElectricStunner",
+                        "name": "Stunned",
+                        "sprite": {
+                            "r": 9,
+                            "c": 2
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 2
+                    },
+                    {
+                        "id": 49,
+                        "key": "Electrician",
+                        "name": "Shock Factor",
+                        "sprite": {
+                            "r": 9,
+                            "c": 1
+                        },
+                        "skill_category_id": 3,
+                        "skill_tree_id": 9,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    },
+    "4": {
+        "id": 4,
+        "key": "TheHacker",
+        "name": "Hacker",
+        "position": 3,
+        "sprite": {
+            "r": 1,
+            "c": 4
+        },
+        "trees": {
+            "10": {
+                "id": 10,
+                "key": "Hacking",
+                "name": "Black Hat",
+                "position": 0,
+                "skill_category_id": 4,
+                "skills": [
+                    {
+                        "id": 60,
+                        "key": "ElectricInterference",
+                        "name": "Electrical Interference",
+                        "sprite": {
+                            "r": 10,
+                            "c": 6
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 4
+                    },
+                    {
+                        "id": 59,
+                        "key": "DefensiveMeasuress",
+                        "name": "High Marks",
+                        "sprite": {
+                            "r": 10,
+                            "c": 5
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 3
+                    },
+                    {
+                        "id": 58,
+                        "key": "RadioExpert",
+                        "name": "Radio Star",
+                        "sprite": {
+                            "r": 10,
+                            "c": 4
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 3
+                    },
+                    {
+                        "id": 57,
+                        "key": "ECMExpert",
+                        "name": "Pump the Jam",
+                        "sprite": {
+                            "r": 10,
+                            "c": 3
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 2
+                    },
+                    {
+                        "id": 56,
+                        "key": "HackLooper",
+                        "name": "Playback",
+                        "sprite": {
+                            "r": 10,
+                            "c": 2
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 2
+                    },
+                    {
+                        "id": 55,
+                        "key": "HackingExpert",
+                        "name": "Security Expert",
+                        "sprite": {
+                            "r": 10,
+                            "c": 1
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 1
+                    }
+                ]
+            },
+            "11": {
+                "id": 11,
+                "key": "PistolSpec",
+                "name": "Hitman",
+                "position": 1,
+                "skill_category_id": 4,
+                "skills": [
+                    {
+                        "id": 66,
+                        "key": "BountyHunter",
+                        "name": "Bounty Hunter",
+                        "sprite": {
+                            "r": 11,
+                            "c": 6
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 4
+                    },
+                    {
+                        "id": 65,
+                        "key": "PistolExploiter",
+                        "name": "Cheap Trick",
+                        "sprite": {
+                            "r": 11,
+                            "c": 5
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 3
+                    },
+                    {
+                        "id": 64,
+                        "key": "PistolRecon",
+                        "name": "Spatial Awareness",
+                        "sprite": {
+                            "r": 11,
+                            "c": 4
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 3
+                    },
+                    {
+                        "id": 63,
+                        "key": "PistolPockets",
+                        "name": "Stockpile: Handgun",
+                        "sprite": {
+                            "r": 11,
+                            "c": 3
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 2
+                    },
+                    {
+                        "id": 62,
+                        "key": "PistolPrecision",
+                        "name": "Quick Draw",
+                        "sprite": {
+                            "r": 11,
+                            "c": 2
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 2
+                    },
+                    {
+                        "id": 61,
+                        "key": "PistolExpert",
+                        "name": "Bullseye",
+                        "sprite": {
+                            "r": 11,
+                            "c": 1
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 11,
+                        "tier": 1
+                    }
+                ]
+            },
+            "12": {
+                "id": 12,
+                "key": "Flashbang",
+                "name": "Flashpoint",
+                "position": 2,
+                "skill_category_id": 4,
+                "skills": [
+                    {
+                        "id": 72,
+                        "key": "FlashbangMaster",
+                        "name": "Sunburn",
+                        "sprite": {
+                            "r": 12,
+                            "c": 6
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 4
+                    },
+                    {
+                        "id": 71,
+                        "key": "EMPFlashbang",
+                        "name": "Hypersensitive",
+                        "sprite": {
+                            "r": 12,
+                            "c": 5
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 3
+                    },
+                    {
+                        "id": 70,
+                        "key": "FlashbangExposer",
+                        "name": "Spotlight",
+                        "sprite": {
+                            "r": 12,
+                            "c": 4
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 3
+                    },
+                    {
+                        "id": 69,
+                        "key": "ExtraFlashbangs",
+                        "name": "Stockpile: Flashbang Grenades",
+                        "sprite": {
+                            "r": 12,
+                            "c": 3
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 2
+                    },
+                    {
+                        "id": 68,
+                        "key": "RiotControl",
+                        "name": "Flash Mob",
+                        "sprite": {
+                            "r": 12,
+                            "c": 2
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 2
+                    },
+                    {
+                        "id": 67,
+                        "key": "FlashbangExpert",
+                        "name": "Shine On",
+                        "sprite": {
+                            "r": 12,
+                            "c": 1
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 12,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    },
+    "5": {
+        "id": 5,
+        "key": "TheConman",
+        "name": "Conman",
+        "position": 4,
+        "sprite": {
+            "r": 1,
+            "c": 5
+        },
+        "trees": {
+            "13": {
+                "id": 13,
+                "key": "Casing",
+                "name": "Imposter",
+                "position": 0,
+                "skill_category_id": 5,
+                "skills": [
+                    {
+                        "id": 78,
+                        "key": "HulkOut",
+                        "name": "Seeing Red",
+                        "sprite": {
+                            "r": 13,
+                            "c": 6
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 4
+                    },
+                    {
+                        "id": 77,
+                        "key": "Clipboard",
+                        "name": "Hall Pass",
+                        "sprite": {
+                            "r": 13,
+                            "c": 5
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 3
+                    },
+                    {
+                        "id": 76,
+                        "key": "StrongArm",
+                        "name": "Strong-Armed",
+                        "sprite": {
+                            "r": 13,
+                            "c": 4
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 3
+                    },
+                    {
+                        "id": 75,
+                        "key": "WalkingTall",
+                        "name": "Plain Sight",
+                        "sprite": {
+                            "r": 13,
+                            "c": 3
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 2
+                    },
+                    {
+                        "id": 74,
+                        "key": "Focused",
+                        "name": "Thrill Seeker",
+                        "sprite": {
+                            "r": 13,
+                            "c": 2
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 2
+                    },
+                    {
+                        "id": 73,
+                        "key": "UnmaskedExpert",
+                        "name": "Adrenaline Junkie",
+                        "sprite": {
+                            "r": 13,
+                            "c": 1
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 13,
+                        "tier": 1
+                    }
+                ]
+            },
+            "14": {
+                "id": 14,
+                "key": "MedicSpec",
+                "name": "Pill Pusher",
+                "position": 1,
+                "skill_category_id": 5,
+                "skills": [
+                    {
+                        "id": 84,
+                        "key": "FieldTriage",
+                        "name": "Health Guru",
+                        "sprite": {
+                            "r": 14,
+                            "c": 6
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 4
+                    },
+                    {
+                        "id": 83,
+                        "key": "MeatBag",
+                        "name": "Scar Tissue",
+                        "sprite": {
+                            "r": 14,
+                            "c": 5
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 3
+                    },
+                    {
+                        "id": 82,
+                        "key": "Painmonger",
+                        "name": "Pain Tolerance",
+                        "sprite": {
+                            "r": 14,
+                            "c": 4
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 3
+                    },
+                    {
+                        "id": 81,
+                        "key": "DoctoredUpII",
+                        "name": "Field Medic II",
+                        "sprite": {
+                            "r": 14,
+                            "c": 3
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 2
+                    },
+                    {
+                        "id": 80,
+                        "key": "DoctoredUpI",
+                        "name": "Field Medic I",
+                        "sprite": {
+                            "r": 14,
+                            "c": 2
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 2
+                    },
+                    {
+                        "id": 79,
+                        "key": "MedicExpert",
+                        "name": "Doctor's Orders",
+                        "sprite": {
+                            "r": 14,
+                            "c": 1
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 14,
+                        "tier": 1
+                    }
+                ]
+            },
+            "15": {
+                "id": 15,
+                "key": "KnifeSpec",
+                "name": "Cutthroat",
+                "position": 2,
+                "skill_category_id": 5,
+                "skills": [
+                    {
+                        "id": 90,
+                        "key": "PunchingKnife",
+                        "name": "Hidden Blade",
+                        "sprite": {
+                            "r": 15,
+                            "c": 6
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 4
+                    },
+                    {
+                        "id": 89,
+                        "key": "FanThrow",
+                        "name": "Fan Throw",
+                        "sprite": {
+                            "r": 15,
+                            "c": 5
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 3
+                    },
+                    {
+                        "id": 88,
+                        "key": "HomemadeShiv",
+                        "name": "Prison Shiv",
+                        "sprite": {
+                            "r": 15,
+                            "c": 4
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 3
+                    },
+                    {
+                        "id": 87,
+                        "key": "DeepWounds",
+                        "name": "Deep Wounds",
+                        "sprite": {
+                            "r": 15,
+                            "c": 3
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 2
+                    },
+                    {
+                        "id": 86,
+                        "key": "Laceration",
+                        "name": "Laceration",
+                        "sprite": {
+                            "r": 15,
+                            "c": 2
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 2
+                    },
+                    {
+                        "id": 85,
+                        "key": "KnifeExpert",
+                        "name": "Knife Expert",
+                        "sprite": {
+                            "r": 15,
+                            "c": 1
+                        },
+                        "skill_category_id": 5,
+                        "skill_tree_id": 15,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    },
+    "6": {
+        "id": 6,
+        "key": "TheProfessional",
+        "name": "Professional",
+        "position": 5,
+        "sprite": {
+            "r": 1,
+            "c": 6
+        },
+        "trees": {
+            "16": {
+                "id": 16,
+                "key": "Manipulation",
+                "name": "Puppet Master",
+                "position": 0,
+                "skill_category_id": 6,
+                "skills": [
+                    {
+                        "id": 96,
+                        "key": "InsurancePlan",
+                        "name": "Insurance Plan",
+                        "sprite": {
+                            "r": 16,
+                            "c": 6
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 4
+                    },
+                    {
+                        "id": 95,
+                        "key": "Intimidator",
+                        "name": "Scare Tactics",
+                        "sprite": {
+                            "r": 16,
+                            "c": 5
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 3
+                    },
+                    {
+                        "id": 94,
+                        "key": "HumanResources",
+                        "name": "Human Resources",
+                        "sprite": {
+                            "r": 16,
+                            "c": 4
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 3
+                    },
+                    {
+                        "id": 93,
+                        "key": "MoreSnacks",
+                        "name": "Consumerism",
+                        "sprite": {
+                            "r": 16,
+                            "c": 3
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 2
+                    },
+                    {
+                        "id": 92,
+                        "key": "GroupieMagnet",
+                        "name": "Magnetic Charm",
+                        "sprite": {
+                            "r": 16,
+                            "c": 2
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 2
+                    },
+                    {
+                        "id": 91,
+                        "key": "TradingExpert",
+                        "name": "Trade Broker",
+                        "sprite": {
+                            "r": 16,
+                            "c": 1
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 16,
+                        "tier": 1
+                    }
+                ]
+            },
+            "17": {
+                "id": 17,
+                "key": "SniperSpec",
+                "name": "Longshot",
+                "position": 1,
+                "skill_category_id": 6,
+                "skills": [
+                    {
+                        "id": 102,
+                        "key": "Graze",
+                        "name": "Ricochet",
+                        "sprite": {
+                            "r": 17,
+                            "c": 6
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 4
+                    },
+                    {
+                        "id": 101,
+                        "key": "SniperFunnel",
+                        "name": "Return Policy",
+                        "sprite": {
+                            "r": 17,
+                            "c": 5
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 3
+                    },
+                    {
+                        "id": 100,
+                        "key": "PiercingAmmo",
+                        "name": "Armor-Piercing",
+                        "sprite": {
+                            "r": 17,
+                            "c": 4
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 3
+                    },
+                    {
+                        "id": 99,
+                        "key": "HeadshotExpert",
+                        "name": "Skull Trauma",
+                        "sprite": {
+                            "r": 17,
+                            "c": 3
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 2
+                    },
+                    {
+                        "id": 98,
+                        "key": "SniperPockets",
+                        "name": "Stockpile: Marksman",
+                        "sprite": {
+                            "r": 17,
+                            "c": 2
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 2
+                    },
+                    {
+                        "id": 97,
+                        "key": "SniperExpert",
+                        "name": "Head Games",
+                        "sprite": {
+                            "r": 17,
+                            "c": 1
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 17,
+                        "tier": 1
+                    }
+                ]
+            },
+            "18": {
+                "id": 18,
+                "key": "AmmoSpec",
+                "name": "Ammo Specialist",
+                "position": 2,
+                "skill_category_id": 6,
+                "skills": [
+                    {
+                        "id": 108,
+                        "key": "HighQualityBag",
+                        "name": "Premium Bag",
+                        "sprite": {
+                            "r": 18,
+                            "c": 6
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 4
+                    },
+                    {
+                        "id": 107,
+                        "key": "HighGrainAmmo",
+                        "name": "Bullet Frenzy",
+                        "sprite": {
+                            "r": 18,
+                            "c": 5
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 3
+                    },
+                    {
+                        "id": 106,
+                        "key": "GrenadeBelt",
+                        "name": "Utility Belt",
+                        "sprite": {
+                            "r": 18,
+                            "c": 4
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 3
+                    },
+                    {
+                        "id": 105,
+                        "key": "AmmoUpII",
+                        "name": "Ammo Up II",
+                        "sprite": {
+                            "r": 18,
+                            "c": 3
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 2
+                    },
+                    {
+                        "id": 104,
+                        "key": "AmmoUpI",
+                        "name": "Ammo Up I",
+                        "sprite": {
+                            "r": 18,
+                            "c": 2
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 2
+                    },
+                    {
+                        "id": 103,
+                        "key": "AmmoExpert",
+                        "name": "Munitions Expert",
+                        "sprite": {
+                            "r": 18,
+                            "c": 1
+                        },
+                        "skill_category_id": 6,
+                        "skill_tree_id": 18,
+                        "tier": 1
+                    }
+                ]
+            }
+        }
+    }
+}

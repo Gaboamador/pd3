@@ -1,0 +1,148 @@
+/* BuildLibrary.module.scss */
+@use "../styles/variables" as *;
+
+/* BuildLibrary.module.scss */
+
+.library {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-md;
+  background: $color-bg-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-text-primary;
+}
+
+.empty {
+  padding: $space-md;
+  color: $color-text-muted;
+  background: $color-bg-surface;
+  border: 1px dashed $color-border;
+  border-radius: $radius-lg;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: $space-sm;
+}
+
+.item {
+  padding: $space-sm;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg-elevated;
+  display: grid;
+  gap: $space-sm;
+}
+
+.active {
+  border-color: $color-accent;
+  box-shadow: 0 0 0 1px $color-accent;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+}
+
+.name {
+  font-size: 0.95rem;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+.slotBadge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  background: $color-bg-contrast;
+  border: 1px solid $color-border;
+  white-space: nowrap;
+}
+
+.slotEmpty {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-text-muted;
+  background: transparent;
+  border: 1px dashed $color-border;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
+}
+
+.slotSelect {
+  min-width: 180px;
+  padding: 6px 10px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+  background: $color-bg-surface;
+  color: $color-text-primary;
+  outline: none;
+
+  &:focus {
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px rgba($color-accent, 0.35);
+  }
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+  background: $color-bg-surface;
+  color: $color-text-primary;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btnDanger {
+  padding: 6px 10px;
+  border-radius: $radius-sm;
+  border: 1px solid rgba($color-danger, 0.4);
+  background: rgba($color-danger, 0.12);
+  color: $color-text-primary;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.activeHint {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-accent;
+}

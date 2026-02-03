@@ -166,6 +166,7 @@ export function useBuildGenerator() {
     build,
     generateFullBuild,
     rerollField,
-    resetBuild
+    resetBuild,
+    sourceMap
   };
 }

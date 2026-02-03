@@ -20,19 +20,6 @@
   gap: 10px;
 }
 
-.confettiContainer {
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 2000;
-}
-
-.confettiParticle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-}
 
 .hudNotification {
   position: fixed;

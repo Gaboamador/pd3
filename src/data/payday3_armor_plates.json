@@ -1,0 +1,35 @@
+{
+    "resistant": {
+        "name": "Resistant",
+        "key": "resistant",
+        "special": "% of damage taken is applied as permanent trauma damage",
+        "color": "#249EF1",
+        "stats": {
+            "DamageReduction": 0.6,
+            "RegenTime": 1,
+            "MaxDowns": 0
+        }
+    },
+    "adaptive": {
+        "name": "Adaptive",
+        "key": "adaptive",
+        "special": "Fully regenerates as long as the armor plate doesn't break",
+        "color": "#3AAB58",
+        "stats": {
+            "DamageReduction": 0.3,
+            "RegenTime": 1.5,
+            "MaxDowns": -1
+        }
+    },
+    "impact": {
+        "name": "Impact",
+        "key": "impact",
+        "special": "Fully regenerates even if the armor plate breaks",
+        "color": "#FBBE0D",
+        "stats": {
+            "DamageReduction": 0,
+            "RegenTime": 3,
+            "MaxDowns": -1
+        }
+    }
+}

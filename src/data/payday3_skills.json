@@ -1,0 +1,3489 @@
+{
+    "Bulwark": {
+        "id": 1,
+        "key": "Bulwark",
+        "name": "Extra Protection",
+        "base_description": "For every skill equipped in the Juggernaut branch, gain {ArmorReduction} damage reduction to armor plates.\n{ComputedArmorReduction}\n\nTotal damage reduction cannot exceed {MaxArmorReduction}.",
+        "aced_description": "For each point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
+        "values": {
+            "ArmorReduction": {
+                "value": 0.01,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedArmorReduction": {
+                "value": 0,
+                "type": "rate",
+                "text": "Damage reduction:"
+            },
+            "MaxArmorReduction": {
+                "value": 0.8,
+                "type": "rate"
+            },
+            "AcedArmorReduction": {
+                "value": 0.001,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedArmorReduction": {
+                "value": 0,
+                "type": "rate",
+                "text": "Damage reduction:"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 0,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 1,
+            "c": 1
+        }
+    },
+    "ARProficiency": {
+        "id": 7,
+        "key": "ARProficiency",
+        "name": "Rifleman",
+        "base_description": "For every skill equipped in the Commando branch, Assault Rifles and LMGs gain {IncreasedArmorPenetration} Armor Penetration.\n{ComputedIncreasedArmorPenetration}\n\nEach enemy wears a set number of armor layers. If your Armor Penetration is equal to or higher than that number, attacks damage their health directly. If not, attacks damage their armor layers.",
+        "aced_description": "Assault Rifle and LMG reload speed increases by {AcedIncreasedReloadSpeed} for every skill equipped in the Commando branch.\n{ComputedAcedIncreasedReloadSpeed}\n\nThis bonus doubles when reloading an empty magazine.",
+        "values": {
+            "IncreasedArmorPenetration": {
+                "value": 0.1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedIncreasedArmorPenetration": {
+                "value": 0,
+                "type": "flat",
+                "text": "Armor Penetration:"
+            },
+            "AcedIncreasedReloadSpeed": {
+                "value": 0.025,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedReloadSpeed": {
+                "value": 0,
+                "type": "rate",
+                "text": "Reload Speed:"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 1,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 2,
+            "c": 1
+        }
+    },
+    "FragProficiency": {
+        "id": 13,
+        "key": "FragProficiency",
+        "name": "Bombs Away",
+        "base_description": "For every skill equipped in the Grenadier branch, Frag Grenades deal {IncreasedDamage} more damage.\n{ComputedIncreasedDamage}",
+        "aced_description": "The blast radius of Frag Grenades increases by  {AcedIncreasedRange} meters for every skill equipped in the Grenadier branch.\n{ComputedAcedIncreasedRange}",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.075,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedDamage": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Damage:"
+            },
+            "AcedIncreasedRange": {
+                "value": 0.25,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedRange": {
+                "value": 0,
+                "type": "flat",
+                "text": "Bonus Radius:"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 2,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 3,
+            "c": 1
+        }
+    },
+    "DodgeMaster": {
+        "id": 19,
+        "key": "DodgeMaster",
+        "name": "Dodge This",
+        "base_description": "For every skill equipped in the Ghost branch, gain a permanent {IncreasedDodge} chance to Dodge incoming damage.\n{ComputedIncreasedDodge}\n\nYour maximum Dodge chance will cap at {MaxDodgeIncrease}. For each active armor plate, it will decrease by {DodgeArmorChunkReduction}.",
+        "aced_description": "Standing still for {AcedStillDuration} seconds increases your Dodge chance by {AcedIncreasedDodge} for every skill equipped in the Ghost branch.\n{ComputedAcedIncreasedDodge}\n\nOnce activated, this boost gradually drops back to <Skill>0%,</> over a period of {AcedDecayDuration} seconds.",
+        "values": {
+            "IncreasedDodge": {
+                "value": 0.02,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedDodge": {
+                "value": 0,
+                "type": "rate",
+                "text": "Dodge chance:"
+            },
+            "MaxDodgeIncrease": {
+                "value": 0.8,
+                "type": "rate"
+            },
+            "DodgeArmorChunkReduction": {
+                "value": 0.2,
+                "type": "rate"
+            },
+            "AcedStillDuration": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedIncreasedDodge": {
+                "value": 0.015,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedDodge": {
+                "value": 0,
+                "type": "rate",
+                "text": "Dodge chance:"
+            },
+            "AcedDecayDuration": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 18,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 4,
+            "c": 1
+        }
+    },
+    "SMGProficiency": {
+        "id": 25,
+        "key": "SMGProficiency",
+        "name": "SMG Adept",
+        "base_description": "For every skill equipped in the Special Ops branch, SMGs deal {IncreasedDamage} additional damage to enemy armor.\n{ComputedIncreasedDamage}",
+        "aced_description": "For every skill equipped in the Special Ops branch, SMG spread reduces by {AcedIncreasedAccuracy}.\n{ComputedAcedIncreasedAccuracy}",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.02,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedDamage": {
+                "value": 0,
+                "type": "rate",
+                "text": "Additional Damage:"
+            },
+            "AcedIncreasedAccuracy": {
+                "value": 0.06,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedAccuracy": {
+                "value": 0,
+                "type": "rate",
+                "text": "Reduced Spread:"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 19,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 5,
+            "c": 1
+        }
+    },
+    "SmokeProficiency": {
+        "id": 31,
+        "key": "SmokeProficiency",
+        "name": "Heavy Smoker",
+        "base_description": "For every skill equipped in the Fog Machine branch, the range of Smoke Grenades increases by {IncreasedRange}.\n{ComputedIncreasedRange}",
+        "aced_description": "The duration of Smoke Grenades increases by {AcedIncreasedDuration} for every skill equipped in the Fog Machine branch.\n{ComputedAcedIncreasedDuration}",
+        "values": {
+            "IncreasedRange": {
+                "value": 0.04,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedRange": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Range:"
+            },
+            "AcedIncreasedDuration": {
+                "value": 0.06,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedDuration": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Duration:"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 20,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 6,
+            "c": 1
+        }
+    },
+    "DroneOperator": {
+        "id": 37,
+        "key": "DroneOperator",
+        "name": "Sentry Operator",
+        "base_description": "The Sentry Turret's heat limit increases by {HeatLimit} for every skill equipped in the Engineer branch.\n{ComputedHeatLimit}\n\nTurrets build up heat during combat, and will shut down if overheated. Pick up your turret to cool it off.",
+        "aced_description": "The Sentry Turret's Armor Penetration raises by {AcedIncreasedArmorPenetration} for every skill equipped in the Engineer branch.\n{ComputedAcedIncreasedArmorPenetration}",
+        "values": {
+            "HeatLimit": {
+                "value": 0.1,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedHeatLimit": {
+                "value": 0,
+                "type": "rate",
+                "text": "Heat Limit:"
+            },
+            "AcedIncreasedArmorPenetration": {
+                "value": 0.1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedArmorPenetration": {
+                "value": 0,
+                "type": "flat",
+                "text": "Armor Penetration:"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 36,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 7,
+            "c": 1
+        }
+    },
+    "ShotgunExpert": {
+        "id": 43,
+        "key": "ShotgunExpert",
+        "name": "Calling Shotgun",
+        "base_description": "For every skill equipped in the Shotgunner branch, Shotgun pellets receive a {DecreasedDamageFalloff} reduction to damage falloff.\n{ComputedDecreasedDamageFalloff}",
+        "aced_description": "For every skill equipped in the Shotgunner branch, the spread of Shotgun pellets reduces by {AcedIncreasedAccuracy} while in ADS.\n{ComputedAcedIncreasedAccuracy}",
+        "values": {
+            "DecreasedDamageFalloff": {
+                "value": 0.025,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedDecreasedDamageFalloff": {
+                "value": 0,
+                "type": "rate",
+                "text": "Damage falloff reduction:"
+            },
+            "AcedIncreasedAccuracy": {
+                "value": 0.03,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedAccuracy": {
+                "value": 0,
+                "type": "rate",
+                "text": "Reduced Spread:"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 37,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 8,
+            "c": 1
+        }
+    },
+    "Electrician": {
+        "id": 49,
+        "key": "Electrician",
+        "name": "Shock Factor",
+        "base_description": "For every skill equipped in the Electrician branch, the blast radius of Shock Grenades increases by {IncreasedRange}.\n{ComputedIncreasedRange}",
+        "aced_description": "For every skill equipped in the Electrician branch, the electricity from Shock Grenades bounces {AcedBounces} additional time.\n{ComputedAcedBounces}",
+        "values": {
+            "IncreasedRange": {
+                "value": 0.04,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedRange": {
+                "value": 0,
+                "type": "rate",
+                "text": "Blast radius increase:"
+            },
+            "AcedBounces": {
+                "value": 1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAcedBounces": {
+                "value": 0,
+                "type": "flat",
+                "text": "Additional bounces:"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 38,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 9,
+            "c": 1
+        }
+    },
+    "HackingExpert": {
+        "id": 55,
+        "key": "HackingExpert",
+        "name": "Security Expert",
+        "base_description": "Hack cameras to view their CCTV network. Gain {BonusRuntime} Runtime to spend on Black Hat operations.\n\nFor every two skills equipped in the Black Hat branch beyond the first, receive {AdditionalRuntime} additional Runtime. You can obtain a maximum of {MaxRuntimeCount} Runtimes.\n{ComputedAdditionalRuntime}",
+        "aced_description": "Hack drones for <Skill>1</> Runtime. Once a hack wears off, the Runtime you spent will be refunded.\n\nStealth drones stop moving and go blind for {AcedDroneHackDuration} seconds. Combat drones fight on your side for {AcedDroneHackDuration} seconds, then self-destruct.",
+        "values": {
+            "BonusRuntime": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AdditionalRuntime": {
+                "value": 1,
+                "type": "flat",
+                "compute": 2,
+                "skip_first": 1,
+                "max": "MaxRuntimeCount"
+            },
+            "ComputedAdditionalRuntime": {
+                "value": 0,
+                "type": "flat",
+                "text": "Additional Runtimes:"
+            },
+            "MaxRuntimeCount": {
+                "value": 4,
+                "type": "flat"
+            },
+            "AcedDroneHackDuration": {
+                "value": 15,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 54,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 10,
+            "c": 1
+        }
+    },
+    "PistolExpert": {
+        "id": 61,
+        "key": "PistolExpert",
+        "name": "Bullseye",
+        "base_description": "For every skill equipped in the Hitman branch, Handguns deal {IncreasedDamage} more damage to unmarked targets, or {IncreasedDamageMarked} more damage to marked targets.\n{ComputedIncreasedDamage}\n{ComputedIncreasedDamageMarked}",
+        "aced_description": "For every skill equipped in the Hitman branch, Handguns receive an accuracy bonus of {AcedIncreasedAccuracy}.\n{ComputedAcedIncreasedAccuracy}",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.025,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedDamage": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Damage to unmarked targets:"
+            },
+            "IncreasedDamageMarked": {
+                "value": 0.1,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedDamageMarked": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Damage to marked targets:"
+            },
+            "AcedIncreasedAccuracy": {
+                "value": 0.05,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedAccuracy": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Accuracy:"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 55,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 11,
+            "c": 1
+        }
+    },
+    "FlashbangExpert": {
+        "id": 67,
+        "key": "FlashbangExpert",
+        "name": "Shine On",
+        "base_description": "For every skill equipped in the Flashpoint branch, the stun duration of Flashbang Grenades increases by {IncreasedStunnedDuration}.\n{ComputedIncreasedStunnedDuration}",
+        "aced_description": "The range of Flashbang Grenades increases by {AcedIncreasedRange} for every skill equipped in the Flashpoint branch.\n{ComputedAcedIncreasedRange}",
+        "values": {
+            "IncreasedStunnedDuration": {
+                "value": 0.075,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedStunnedDuration": {
+                "value": 0,
+                "type": "rate",
+                "text": "Increased Stun Duration:"
+            },
+            "AcedIncreasedRange": {
+                "value": 0.04,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedRange": {
+                "value": 0,
+                "type": "rate",
+                "text": "Increased Range:"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 56,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 12,
+            "c": 1
+        }
+    },
+    "UnmaskedExpert": {
+        "id": 73,
+        "key": "UnmaskedExpert",
+        "name": "Adrenaline Junkie",
+        "base_description": "For every skill equipped in the Imposter branch, all Adrenaline you gain increases by {IncreasedOverHeal}.\n{ComputedIncreasedOverHeal}",
+        "aced_description": "If you have no Adrenaline while at full health, walking unmasked within {AcedWithinRange} meter of a civilian will give you {AcedAdditionalOverHeal} Adrenaline.",
+        "values": {
+            "IncreasedOverHeal": {
+                "value": 0.04,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedOverHeal": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Adrenaline:"
+            },
+            "AcedWithinRange": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedAdditionalOverHeal": {
+                "value": 20,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 72,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 13,
+            "c": 1
+        }
+    },
+    "MedicExpert": {
+        "id": 79,
+        "key": "MedicExpert",
+        "name": "Doctor's Orders",
+        "base_description": "For every skill equipped in the Pill Pusher branch, revive crewmates {IncreasedReviveSpeed} faster.\n{ComputedIncreasedReviveSpeed}",
+        "aced_description": "Immediately after you revive a crewmate, both of you are immune to damage for a finite period: {AcedImmuneDuration} seconds for every skill equipped in the Pill Pusher branch.\n{ComputedAcedImmuneDuration}",
+        "values": {
+            "IncreasedReviveSpeed": {
+                "value": 0.05,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedReviveSpeed": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus revive speed:"
+            },
+            "AcedImmuneDuration": {
+                "value": 0.5,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAcedImmuneDuration": {
+                "value": 0,
+                "type": "flat",
+                "text": "Immunity period:"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 73,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 14,
+            "c": 1
+        }
+    },
+    "KnifeExpert": {
+        "id": 85,
+        "key": "KnifeExpert",
+        "name": "Knife Expert",
+        "base_description": "If your starting loadout contains Throwing Knives, receive {AdditionalKnifes} additional knife for every skill equipped in the Cutthroat branch.\n{ComputedAdditionalKnifes}",
+        "aced_description": "For every skill equipped in the Cutthroat branch, Throwing Knives will penetrate {EnemyPenetrationCount} enemy and hit whatever is behind them.\n{ComputedEnemyPenetrationCount}",
+        "values": {
+            "AdditionalKnifes": {
+                "value": 1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAdditionalKnifes": {
+                "value": 0,
+                "type": "flat",
+                "text": "Bonus knifes:"
+            },
+            "EnemyPenetrationCount": {
+                "value": 1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedEnemyPenetrationCount": {
+                "value": 0,
+                "type": "flat",
+                "text": "Enemies penetration count:"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 74,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 15,
+            "c": 1
+        }
+    },
+    "TradingExpert": {
+        "id": 91,
+        "key": "TradingExpert",
+        "name": "Trade Broker",
+        "base_description": "Each hostage you trade counts as {GainHostageCount} additional hostage. For every two skills equipped in the Puppet Master branch beyond the first, that count increases by {AdditionalHostageCount}.\n{ComputedAdditionalHostageCount}\n\nTrading hostages can delay a police assault, provide consumables, and free crewmates from custody.",
+        "aced_description": "For every skill equipped in the Puppet Master branch, tie and trade hostages {AcedIncreasedInteractionSpeed} faster.\n{ComputedAcedIncreasedInteractionSpeed}",
+        "values": {
+            "GainHostageCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AdditionalHostageCount": {
+                "value": 1,
+                "type": "flat",
+                "compute": 2,
+                "skip_first": 1
+            },
+            "ComputedAdditionalHostageCount": {
+                "value": 0,
+                "type": "flat",
+                "text": "Additional Hostages Count:"
+            },
+            "AcedIncreasedInteractionSpeed": {
+                "value": 0.075,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedInteractionSpeed": {
+                "value": 0,
+                "type": "rate",
+                "text": "Tie and Trade hostages speed:"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 90,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 16,
+            "c": 1
+        }
+    },
+    "SniperExpert": {
+        "id": 97,
+        "key": "SniperExpert",
+        "name": "Head Games",
+        "base_description": "For every skill equipped in the Longshot branch, your headshot multiplier with Marksman rifles increases by {AdditionalHeadshotMultiplier}.\n{ComputedAdditionalHeadshotMultiplier}",
+        "aced_description": "For each headshot you land with a Marksman rifle, your next shot will deal {AcedIncreasedDamage} more damage.\n{ComputedAcedIncreasedDamage}\n\nMissing a shot reduces the total bonus by {AcedDecreasedOutgoingDamage}.",
+        "values": {
+            "AdditionalHeadshotMultiplier": {
+                "value": 0.1,
+                "type": "flat",
+                "compute": 1
+            },
+            "ComputedAdditionalHeadshotMultiplier": {
+                "value": 0,
+                "type": "flat",
+                "text": "Bonus Headshot multiplier:"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.1,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedAcedIncreasedDamage": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus damage:"
+            },
+            "AcedDecreasedOutgoingDamage": {
+                "value": 0.1,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 91,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 17,
+            "c": 1
+        }
+    },
+    "AmmoExpert": {
+        "id": 103,
+        "key": "AmmoExpert",
+        "name": "Munitions Expert",
+        "base_description": "For every skill equipped in the Ammo Specialist branch, your Ammo Bags restore {IncreasedAmmo} additional ammo to all heisters.\n{ComputedIncreasedAmmo}",
+        "aced_description": "Your Ammo Bags restore {AcedExtraCount} additional throwable for every two skills equipped in the Ammo Specialist branch.\n{ComputedAcedExtraCount}\n\nThrowables can only be restored up to your maximum carrying capacity, which you may increase through other skills.",
+        "values": {
+            "IncreasedAmmo": {
+                "value": 0.05,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedAmmo": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Ammo restore:"
+            },
+            "AcedExtraCount": {
+                "value": 1,
+                "type": "flat",
+                "compute": 2
+            },
+            "ComputedAcedExtraCount": {
+                "value": 0,
+                "type": "flat",
+                "text": "Restore Throwables:"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 92,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 18,
+            "c": 1
+        }
+    },
+    "LockedIn": {
+        "id": 2,
+        "key": "LockedIn",
+        "name": "Head Guard",
+        "base_description": "Headshot kills reduce Armor Regeneration time by {RegenReductionTime} seconds.",
+        "aced_description": "Headshot kills now reduce Armor Regeneration time by {AcedRegenReductionTime} seconds.",
+        "values": {
+            "RegenReductionTime": {
+                "value": 0.2,
+                "type": "flat"
+            },
+            "AcedRegenReductionTime": {
+                "value": 0.6,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 3,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 1,
+            "c": 2
+        }
+    },
+    "FocusFire": {
+        "id": 8,
+        "key": "FocusFire",
+        "name": "Focus Fire",
+        "base_description": "Each hit with an Assault Rifle or LMG boosts your accuracy by {IncreasedAccuracy}, while each miss decreases it by {DecreasedAccuracy}.\n\nThis accuracy modifier resets when you reload or swap weapons.",
+        "aced_description": "Each hit with an Assault Rifle or LMG also boosts your stability by {AcedIncreasedStability}, while each miss decreases it by {AcedDecreasedStability}.\n\nThis stability modifier resets when you reload or swap weapons.",
+        "values": {
+            "IncreasedAccuracy": {
+                "value": 0.02,
+                "type": "rate"
+            },
+            "DecreasedAccuracy": {
+                "value": 0.02,
+                "type": "rate"
+            },
+            "AcedIncreasedStability": {
+                "value": 0.03,
+                "type": "rate"
+            },
+            "AcedDecreasedStability": {
+                "value": 0.01,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 5,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 2,
+            "c": 2
+        }
+    },
+    "Tenderize": {
+        "id": 14,
+        "key": "Tenderize",
+        "name": "Burn Damage",
+        "base_description": "Enemies injured by your Frag Grenades suffer an additional {IncreasedDamage} damage from all sources.",
+        "aced_description": "Raise your Frag Grenade damage bonus to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.15,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.3,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 7,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 3,
+            "c": 2
+        }
+    },
+    "JudoChop": {
+        "id": 20,
+        "key": "JudoChop",
+        "name": "Judo Chop",
+        "base_description": "Quick melee an unalerted guard to kill them instantly.",
+        "aced_description": "Guards must examine your Judo Chop victims closely before they realize a murder has taken place.",
+        "values": {
+            "AcedInvestigateDuration": {
+                "value": 20,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 21,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 4,
+            "c": 2
+        }
+    },
+    "NimbleHands": {
+        "id": 26,
+        "key": "NimbleHands",
+        "name": "Multitasker",
+        "base_description": "When you break an enemy's armor layer with an SMG, that enemy becomes heavily staggered.",
+        "aced_description": "Perform a quick melee on an enemy while wielding an SMG to reload it instantly.\n\nThis skill has a cooldown of {AcedSkillCooldown} seconds.",
+        "values": {
+            "AcedSkillCooldown": {
+                "value": 8,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 23,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 5,
+            "c": 2
+        }
+    },
+    "CoughingFit": {
+        "id": 32,
+        "key": "CoughingFit",
+        "name": "Brain Fog",
+        "base_description": "Enemies affected by your Smoke Grenade deal {DecreasedOutgoingDamage} less damage while caught in its cloud.\n\nThis effect will continue for {DecreasedOutgoingDamageDuration} seconds after they escape the smoke.",
+        "aced_description": "This damage penalty increases to {AcedDecreasedOutgoingDamage}.\n\nSmoke Grenades now mark affected enemies, as well as civilians.",
+        "values": {
+            "DecreasedOutgoingDamage": {
+                "value": 0.2,
+                "type": "rate"
+            },
+            "DecreasedOutgoingDamageDuration": {
+                "value": 4,
+                "type": "flat"
+            },
+            "AcedDecreasedOutgoingDamage": {
+                "value": 0.3,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 25,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 6,
+            "c": 2
+        }
+    },
+    "TurretReinforcement": {
+        "id": 38,
+        "key": "TurretReinforcement",
+        "name": "Artificial Ally",
+        "base_description": "Heisters receive {AmmoMultiplier} of an ammo pickup for every second they stand within {WithinRange} meters of your Sentry Turret.\n\nThere is a {PickupThrowableChance} chance that this pickup will restore a throwable.",
+        "aced_description": "Sentry Turrets can now rotate a full <Skill>360</> degrees.",
+        "values": {
+            "AmmoMultiplier": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "WithinRange": {
+                "value": 5,
+                "type": "flat"
+            },
+            "PickupThrowableChance": {
+                "value": 0.01,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 39,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 7,
+            "c": 2
+        }
+    },
+    "PointBlank": {
+        "id": 44,
+        "key": "PointBlank",
+        "name": "Point Blank",
+        "base_description": "Shotguns deal {IncreasedDamage} additional damage to enemies within {WithinRange} meters.",
+        "aced_description": "Raise your Shotgun's close-range damage bonus to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.2,
+                "type": "rate"
+            },
+            "WithinRange": {
+                "value": 5,
+                "type": "flat"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.5,
+                "type": "rate"
+            },
+            "AcedWithinRange": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 41,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 8,
+            "c": 2
+        }
+    },
+    "ElectricStunner": {
+        "id": 50,
+        "key": "ElectricStunner",
+        "name": "Stunned",
+        "base_description": "The stun duration from Shock Grenades increases by {IncreasedDuration}.",
+        "aced_description": "Raise the duration of Shock Grenade stuns by {AcedIncreasedDuration}.",
+        "values": {
+            "IncreasedDuration": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "AcedIncreasedDuration": {
+                "value": 0.6,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 43,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 9,
+            "c": 2
+        }
+    },
+    "HackLooper": {
+        "id": 56,
+        "key": "HackLooper",
+        "name": "Playback",
+        "base_description": "Spend <Skill>1</> Runtime to make a hacked security camera loop its footage. Looping cameras cannot detect your crew.\n\nIf a hacked camera is destroyed, the Runtime you spent will be refunded.",
+        "aced_description": "Spend <Skill>1</> Runtime to make a hacked camera automatically mark all guards or law enforcement within range.\n\nTargets stay marked for <Skill>12</> seconds after leaving the camera's field of view.",
+        "values": null,
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 57,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 10,
+            "c": 2
+        }
+    },
+    "PistolPrecision": {
+        "id": 62,
+        "key": "PistolPrecision",
+        "name": "Quick Draw",
+        "base_description": "While swapping to and from a Handgun, your weapon swap speed increases by {IncreasedEquipSpeed}. Your ADS speed with Handguns increases by {IncreasedADSSpeed}.",
+        "aced_description": "Your weapon swapping and ADS bonuses with Handguns increase to {AcedIncreasedEquipSpeed}.",
+        "values": {
+            "IncreasedEquipSpeed": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "IncreasedADSSpeed": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "AcedIncreasedEquipSpeed": {
+                "value": 0.7,
+                "type": "rate"
+            },
+            "AcedIncreasedADSSpeed": {
+                "value": 0.7,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 59,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 11,
+            "c": 2
+        }
+    },
+    "RiotControl": {
+        "id": 68,
+        "key": "RiotControl",
+        "name": "Flash Mob",
+        "base_description": "Flashbang Grenades are silent, making them undetectable to anyone outside the flash radius.",
+        "aced_description": "Civilians caught by your Flashbang Grenade cannot flee or receive help from Hostage Rescue for {AcedAffectedDuration} seconds.",
+        "values": {
+            "AcedAffectedDuration": {
+                "value": 120,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 61,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 12,
+            "c": 2
+        }
+    },
+    "Focused": {
+        "id": 74,
+        "key": "Focused",
+        "name": "Thrill Seeker",
+        "base_description": "While you are unmasked, your Adrenaline no longer decreases.",
+        "aced_description": "If you are unmasked and have Adrenaline, you will move faster.",
+        "values": null,
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 75,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 13,
+            "c": 2
+        }
+    },
+    "DoctoredUpI": {
+        "id": 80,
+        "key": "DoctoredUpI",
+        "name": "Field Medic I",
+        "base_description": "Your Medic Bag comes with {AdditionalCharges} additional charge.",
+        "aced_description": "Your Medic Bag gains {AcedAdditionalCharges} more {AcedAdditionalCharges}|plural(one=charge,other=charges).",
+        "values": {
+            "AdditionalCharges": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedAdditionalCharges": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 77,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 14,
+            "c": 2
+        }
+    },
+    "Laceration": {
+        "id": 86,
+        "key": "Laceration",
+        "name": "Laceration",
+        "base_description": "Throwing Knives cause Bleeding on targets. This does not apply to Dozers.\n\nOver a duration of {BleedDuration} seconds, Bleeding enemies will suffer twice the damage of a Throwing Knife hit directly to their health.",
+        "aced_description": "The time it takes for an enemy to suffer their full Bleeding damage shortens to {AcedBleedDuration} seconds.",
+        "values": {
+            "BleedDuration": {
+                "value": 8,
+                "type": "flat"
+            },
+            "IncreasedDamage": {
+                "value": 1,
+                "type": "rate"
+            },
+            "AcedBleedDuration": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 79,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 15,
+            "c": 2
+        }
+    },
+    "GroupieMagnet": {
+        "id": 92,
+        "key": "GroupieMagnet",
+        "name": "Magnetic Charm",
+        "base_description": "Every guard, employee or law enforcement you trade counts as <Skill>1</> additional hostage.",
+        "aced_description": "Command up to {AcedMaxAllowedFollowers} hostages to follow you at once.",
+        "values": {
+            "AcedMaxAllowedFollowers": {
+                "value": 5,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 93,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 16,
+            "c": 2
+        }
+    },
+    "SniperPockets": {
+        "id": 98,
+        "key": "SniperPockets",
+        "name": "Stockpile: Marksman",
+        "base_description": "Carry {IncreasedInventoryAmmo} more Marksman reserve ammo.",
+        "aced_description": "Raise your Marksman ammo bonus to {AcedIncreasedInventoryAmmo}.",
+        "values": {
+            "IncreasedInventoryAmmo": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedIncreasedInventoryAmmo": {
+                "value": 0.8,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 95,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 17,
+            "c": 2
+        }
+    },
+    "AmmoUpI": {
+        "id": 104,
+        "key": "AmmoUpI",
+        "name": "Ammo Up I",
+        "base_description": "Ammo Bags come with {AdditionalCharges} additional charge.",
+        "aced_description": "Ammo Bags gain {AcedAdditionalCharges} more {AcedAdditionalCharges}|plural(one=charge,other=charges).",
+        "values": {
+            "AdditionalCharges": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedAdditionalCharges": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 97,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 18,
+            "c": 2
+        }
+    },
+    "ArmoredUpI": {
+        "id": 3,
+        "key": "ArmoredUpI",
+        "name": "Armored Up I",
+        "base_description": "Armor Bags come with {AdditionalCharges} additional charge.",
+        "aced_description": "Armor Bags gain {AcedAdditionalCharges} more {AcedAdditionalCharges}|plural(one=charge,other=charges).",
+        "values": {
+            "AdditionalCharges": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedAdditionalCharges": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 4,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 1,
+            "c": 3
+        }
+    },
+    "ARPockets": {
+        "id": 9,
+        "key": "ARPockets",
+        "name": "Stockpile: Assault",
+        "base_description": "Carry {IncreasedInventoryAmmo} more Assault Rifle and LMG reserve ammo.",
+        "aced_description": "Raise your Assault Rifle and LMG ammo bonus to {AcedIncreasedInventoryAmmo}.",
+        "values": {
+            "IncreasedInventoryAmmo": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedIncreasedInventoryAmmo": {
+                "value": 0.8,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 6,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 2,
+            "c": 3
+        }
+    },
+    "ExtraFrags": {
+        "id": 15,
+        "key": "ExtraFrags",
+        "name": "Stockpile: Frag Grenades",
+        "base_description": "If your starting loadout contains Frag Grenades, receive {ExtraCount} additional Frag Grenade.",
+        "aced_description": "You now gain {AcedExtraCount} additional Frag {AcedExtraCount}|plural(one=Grenade,other=Grenades).",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 8,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 3,
+            "c": 3
+        }
+    },
+    "ConstantFlow": {
+        "id": 21,
+        "key": "ConstantFlow",
+        "name": "Flow State",
+        "base_description": "Taking non-environmental damage increases your Dodge chance by {IncreasedDodge} until you perform a successful Dodge.",
+        "aced_description": "Raise your Dodge bonus from damaged suffered to {AcedIncreasedDodge}.",
+        "values": {
+            "IncreasedDodge": {
+                "value": 0.02,
+                "type": "rate"
+            },
+            "AcedIncreasedDodge": {
+                "value": 0.06,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 22,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 4,
+            "c": 3
+        }
+    },
+    "SMGPockets": {
+        "id": 27,
+        "key": "SMGPockets",
+        "name": "Stockpile: SMG",
+        "base_description": "Carry {IncreasedInventoryAmmo} more SMG reserve ammo.",
+        "aced_description": "Raise your SMG ammo bonus to {AcedIncreasedInventoryAmmo}.",
+        "values": {
+            "IncreasedInventoryAmmo": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedIncreasedInventoryAmmo": {
+                "value": 0.8,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 24,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 5,
+            "c": 3
+        }
+    },
+    "ExtraSmokes": {
+        "id": 33,
+        "key": "ExtraSmokes",
+        "name": "Stockpile: Smoke Grenades",
+        "base_description": "If your starting loadout contains Smoke Grenades, receive {ExtraCount} additional Smoke Grenade.",
+        "aced_description": "You now gain {AcedExtraCount} additional Smoke {AcedExtraCount}|plural(one=Grenade,other=Grenades).",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 26,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 6,
+            "c": 3
+        }
+    },
+    "QuickFixer": {
+        "id": 39,
+        "key": "QuickFixer",
+        "name": "Repair Job",
+        "base_description": "Perform a quick melee on your Sentry Turret to reduce its heat buildup by {ReduceHeat}.",
+        "aced_description": "Your quick melee now reduces the Sentry Turret's heat buildup by {AcedReduceHeat}.\n\nZap your turret with a Shock Grenade to cool it down completely.",
+        "values": {
+            "ReduceHeat": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "AcedReduceHeat": {
+                "value": 0.2,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 40,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 7,
+            "c": 3
+        }
+    },
+    "ShotgunPockets": {
+        "id": 45,
+        "key": "ShotgunPockets",
+        "name": "Stockpile: Shotgun",
+        "base_description": "Carry {IncreasedInventoryAmmo} more Shotgun reserve ammo.",
+        "aced_description": "Raise your Shotgun ammo bonus to {AcedIncreasedInventoryAmmo}.",
+        "values": {
+            "IncreasedInventoryAmmo": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedIncreasedInventoryAmmo": {
+                "value": 0.8,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 42,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 8,
+            "c": 3
+        }
+    },
+    "ElectricCapacity": {
+        "id": 51,
+        "key": "ElectricCapacity",
+        "name": "Stockpile: Shock Grenades",
+        "base_description": "If your starting loadout contains Shock Grenades, receive {ExtraCount} additional Shock Grenade.",
+        "aced_description": "You now gain {AcedExtraCount} additional Shock {AcedExtraCount}|plural(one=Grenade,other=Grenades).",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 44,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 9,
+            "c": 3
+        }
+    },
+    "ECMExpert": {
+        "id": 57,
+        "key": "ECMExpert",
+        "name": "Pump the Jam",
+        "base_description": "Active ECM Jammers mark cameras, FBI vans, and all special-type enemies for your crew.",
+        "aced_description": "If your starting loadout contains ECM Jammers, receive {AcedExtraCount} additional ECM Jammer.",
+        "values": {
+            "AcedExtraCount": {
+                "value": 1,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 58,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 10,
+            "c": 3
+        }
+    },
+    "PistolPockets": {
+        "id": 63,
+        "key": "PistolPockets",
+        "name": "Stockpile: Handgun",
+        "base_description": "Carry {IncreasedInventoryAmmo} more Handgun reserve ammo.",
+        "aced_description": "Raise your Handgun ammo bonus to {AcedIncreasedInventoryAmmo}.",
+        "values": {
+            "IncreasedInventoryAmmo": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedIncreasedInventoryAmmo": {
+                "value": 0.8,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 60,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 11,
+            "c": 3
+        }
+    },
+    "ExtraFlashbangs": {
+        "id": 69,
+        "key": "ExtraFlashbangs",
+        "name": "Stockpile: Flashbang Grenades",
+        "base_description": "If your starting loadout contains Flashbang Grenades, receive {ExtraCount} additional Flashbang Grenade.",
+        "aced_description": "You now gain {AcedExtraCount} additional Flashbang {AcedExtraCount}|plural(one=Grenade,other=Grenades).",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 62,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 12,
+            "c": 3
+        }
+    },
+    "WalkingTall": {
+        "id": 75,
+        "key": "WalkingTall",
+        "name": "Plain Sight",
+        "base_description": "Cameras detect you {DecreasedDetectionSpeed} slower in Private areas while unmasked.",
+        "aced_description": "Employees detect you {AcedDecreasedDetectionSpeed} slower in Secure areas while unmasked.",
+        "values": {
+            "DecreasedDetectionSpeed": {
+                "value": 0.35,
+                "type": "rate"
+            },
+            "AcedDecreasedDetectionSpeed": {
+                "value": 0.35,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 76,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 13,
+            "c": 3
+        }
+    },
+    "DoctoredUpII": {
+        "id": 81,
+        "key": "DoctoredUpII",
+        "name": "Field Medic II",
+        "base_description": "Your Medic Bag comes with {AdditionalCharges} additional charge.",
+        "aced_description": "If your starting loadout contains a Medic Bag, receive {AcedExtraCount} additional Medic Bag.",
+        "values": {
+            "AdditionalCharges": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 1,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 78,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 14,
+            "c": 3
+        }
+    },
+    "DeepWounds": {
+        "id": 87,
+        "key": "DeepWounds",
+        "name": "Deep Wounds",
+        "base_description": "Throwing Knives deal {IncreasedDamage} more damage.",
+        "aced_description": "Increase your Throwing Knife damage bonus to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.2,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.5,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 80,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 15,
+            "c": 3
+        }
+    },
+    "MoreSnacks": {
+        "id": 93,
+        "key": "MoreSnacks",
+        "name": "Consumerism",
+        "base_description": "Increase your consumable capacity by {ExtraCount}.",
+        "aced_description": "Raise your consumable capacity bonus to {AcedExtraCount}.",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 94,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 16,
+            "c": 3
+        }
+    },
+    "HeadshotExpert": {
+        "id": 99,
+        "key": "HeadshotExpert",
+        "name": "Skull Trauma",
+        "base_description": "Headshots with Marksman rifles deal {IncreasedDamage} more damage.",
+        "aced_description": "Increase the reload speed of Marksman rifles by {AcedIncreasedReloadSpeed}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.15,
+                "type": "rate"
+            },
+            "AcedIncreasedReloadSpeed": {
+                "value": 0.2,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 96,
+        "req_points": {
+            "base": 1,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 17,
+            "c": 3
+        }
+    },
+    "AmmoUpII": {
+        "id": 105,
+        "key": "AmmoUpII",
+        "name": "Ammo Up II",
+        "base_description": "Ammo Bags come with {AdditionalCharges} additional charge.",
+        "aced_description": "If your starting loadout contains an Ammo Bag, receive {AcedExtraCount} additional Ammo Bag.",
+        "values": {
+            "AdditionalCharges": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 1,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 2,
+        "position": 3,
+        "overall_position": 98,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 18,
+            "c": 3
+        }
+    },
+    "BeastOfBurdon": {
+        "id": 4,
+        "key": "BeastOfBurdon",
+        "name": "Beast Of Burden",
+        "base_description": "You can carry [sk-val]2[/] bags at once. This will incur a movement penalty.",
+        "aced_description": "You no longer suffer a movement penalty while carrying [sk-val]2[/] bags.\n\nThis will not negate movement penalties from heavy bags.",
+        "values": null,
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 9,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 1,
+            "c": 4
+        }
+    },
+    "CrackOpen": {
+        "id": 10,
+        "key": "CrackOpen",
+        "name": "Breaking Point",
+        "base_description": "Armor Penetration for Assault Rifles and LMGs increases by {IncreasedArmorPenetration} for each hit that does not penetrate an enemy's armor.\n\nThis bonus stacks infinitely and ends once an enemy is killed.",
+        "aced_description": "This Armor Penetration bonus increases to {AcedIncreasedArmorPenetration}.",
+        "values": {
+            "IncreasedArmorPenetration": {
+                "value": 0.05,
+                "type": "flat"
+            },
+            "AcedIncreasedArmorPenetration": {
+                "value": 0.15,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 11,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 2,
+            "c": 4
+        }
+    },
+    "Scrounger": {
+        "id": 16,
+        "key": "Scrounger",
+        "name": "Scavenger",
+        "base_description": "Ammo pickups offer a {PickupChance} chance to restore <Skill>1</> throwable.\n\nThrowables can only be restored up to your maximum carrying capacity, which you may increase through other skills.",
+        "aced_description": "The chance to restore a throwable from an ammo pickup raises to {AcedPickupChance}.",
+        "values": {
+            "PickupChance": {
+                "value": 0.02,
+                "type": "rate"
+            },
+            "AcedPickupChance": {
+                "value": 0.05,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 13,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 3,
+            "c": 4
+        }
+    },
+    "LockMaster": {
+        "id": 22,
+        "key": "LockMaster",
+        "name": "Locksmith",
+        "base_description": "It only takes <Skill>1</> lockpick jiggle to successfully pick a lock.",
+        "aced_description": "Perform a quick melee to unlock doors and lockers.\n\nThis ability only works on locks that can be picked. If you melee a breachable door, it will unlock instead of breaking.",
+        "values": null,
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 27,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 4,
+            "c": 4
+        }
+    },
+    "BrickBuster": {
+        "id": 28,
+        "key": "BrickBuster",
+        "name": "Cracked",
+        "base_description": "When you break an enemy's armor layer with an SMG, that enemy suffers {IncreasedDamage} additional damage from all sources.",
+        "aced_description": "The extra damage enemies suffer when you break their armor with an SMG raises to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.3,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 29,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 5,
+            "c": 4
+        }
+    },
+    "PoisonCloud": {
+        "id": 34,
+        "key": "PoisonCloud",
+        "name": "Poisonous Gas",
+        "base_description": "Enemies suffer {DecreasedHealth} points of health damage per second while standing in your Smoke Grenade cloud.\n\nThis does not affect Dozers and Naders.",
+        "aced_description": "The damage from your smoke clouds increases to {AcedDecreasedHealth} health points per second.",
+        "values": {
+            "DecreasedHealth": {
+                "value": 15,
+                "type": "flat"
+            },
+            "AcedDecreasedHealth": {
+                "value": 40,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 31,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 6,
+            "c": 4
+        }
+    },
+    "ShieldedTurret": {
+        "id": 40,
+        "key": "ShieldedTurret",
+        "name": "Shields Up",
+        "base_description": "Sentry Turrets suffer {DecreasedIncomingHeatBuildup} less heat buildup from enemy attacks and interference.",
+        "aced_description": "The reduction to your Sentry Turret's heat buildup increases to {AcedDecreasedIncomingHeatBuildup}.",
+        "values": {
+            "DecreasedIncomingHeatBuildup": {
+                "value": 0.2,
+                "type": "rate"
+            },
+            "AcedDecreasedIncomingHeatBuildup": {
+                "value": 0.5,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 45,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 7,
+            "c": 4
+        }
+    },
+    "ShotgunSpeedloader": {
+        "id": 46,
+        "key": "ShotgunSpeedloader",
+        "name": "Speedloader",
+        "base_description": "For each Shotgun pellet that hits an enemy, your next Shotgun reload is {IncreasedReloadSpeed} faster, up to a maximum of {MaxReloadSpeed}.",
+        "aced_description": "Increase your reload bonus from Shotgun hits to {AcedIncreasedReloadSpeed}.",
+        "values": {
+            "IncreasedReloadSpeed": {
+                "value": 0.01,
+                "type": "rate"
+            },
+            "MaxReloadSpeed": {
+                "value": 0.7,
+                "type": "rate"
+            },
+            "AcedIncreasedReloadSpeed": {
+                "value": 0.025,
+                "type": "rate"
+            },
+            "AcedMaxReloadSpeed": {
+                "value": 0.7,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 47,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 8,
+            "c": 4
+        }
+    },
+    "ElectricTenderizer": {
+        "id": 52,
+        "key": "ElectricTenderizer",
+        "name": "Electric Tenderizer",
+        "base_description": "For each time a Shock Grenade blast hits the same enemy, that enemy will take {IncreasedIncomingDamage} additional damage from all sources.",
+        "aced_description": "The damage bonus Shock Grenades inflict on enemies increases to {AcedIncreasedIncomingDamage}.",
+        "values": {
+            "IncreasedIncomingDamage": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "AcedIncreasedIncomingDamage": {
+                "value": 0.25,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 49,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 9,
+            "c": 4
+        }
+    },
+    "RadioExpert": {
+        "id": 58,
+        "key": "RadioExpert",
+        "name": "Radio Star",
+        "base_description": "Hack a guard’s radio to cause a distraction. The distracted guard will pause any action for {GuardDistractTime} seconds.\n\nWhen the disturbance passes, the guard will return to their normal routine. You must keep a line of sight on the guard to hack their radio. This ability has a cooldown of {Cooldown} seconds.",
+        "aced_description": "Radio hacks now distract a guard for {AcedGuardDistractTime} seconds.\n\nThe cooldown reduces to {AcedCooldown} seconds.",
+        "values": {
+            "GuardDistractTime": {
+                "value": 5,
+                "type": "flat"
+            },
+            "Cooldown": {
+                "value": 60,
+                "type": "flat"
+            },
+            "AcedGuardDistractTime": {
+                "value": 10,
+                "type": "flat"
+            },
+            "AcedCooldown": {
+                "value": 20,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 63,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 10,
+            "c": 4
+        }
+    },
+    "PistolRecon": {
+        "id": 64,
+        "key": "PistolRecon",
+        "name": "Spatial Awareness",
+        "base_description": "Killing a marked enemy with a Handgun will ping the nearest unmarked target within {WithinRange} meters.",
+        "aced_description": "If you have one armor plate or less, killing a marked enemy with a Handgun will heal you for {AcedMinHealthToRestore} points, or {AcedMaxHealthToRestore} points if you are below {AcedMaxAllowedHealthToHealExtra} of your maximum health.\n\nIf you are already at max health, you will receive Adrenaline. ",
+        "values": {
+            "WithinRange": {
+                "value": 10,
+                "type": "flat"
+            },
+            "AcedMinHealthToRestore": {
+                "value": 5,
+                "type": "flat"
+            },
+            "AcedMaxHealthToRestore": {
+                "value": 30,
+                "type": "flat"
+            },
+            "AcedMaxAllowedHealthToHealExtra": {
+                "value": 0.75,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 65,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 11,
+            "c": 4
+        }
+    },
+    "FlashbangExposer": {
+        "id": 70,
+        "key": "FlashbangExposer",
+        "name": "Spotlight",
+        "base_description": "Enemies caught by your Flashbang Grenades are marked for the entire crew.",
+        "aced_description": "If you kill a marked enemy while they are stunned by your Flashbang Grenade, they will drop an additional ammo box.",
+        "values": null,
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 67,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 12,
+            "c": 4
+        }
+    },
+    "StrongArm": {
+        "id": 76,
+        "key": "StrongArm",
+        "name": "Strong-Armed",
+        "base_description": "You can use throwables while unmasked.\n\nThis is considered an illegal action.",
+        "aced_description": "Reduce the movement penalty from carrying heavy bags and items.",
+        "values": null,
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 81,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 13,
+            "c": 4
+        }
+    },
+    "Painmonger": {
+        "id": 82,
+        "key": "Painmonger",
+        "name": "Pain Tolerance",
+        "base_description": "Any damage inflicted on your Adrenaline is reduced by {DecreasedIncomingOverHeal}.",
+        "aced_description": "While at full health, you gain {AcedAdditionalOverHeal} Adrenaline when you steal loose cash, perform a takedown, kill an enemy with a Throwing Knife, revive a crewmate, or when a crewmate uses your Medic Bag.",
+        "values": {
+            "DecreasedIncomingOverHeal": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "AcedAdditionalOverHeal": {
+                "value": 25,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 83,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 14,
+            "c": 4
+        }
+    },
+    "HomemadeShiv": {
+        "id": 88,
+        "key": "HomemadeShiv",
+        "name": "Prison Shiv",
+        "base_description": "Every {PickupCount} ammo boxes you pick up will restore <Skill>1</> Throwing Knife, but you can no longer get knives from Ammo Bags.",
+        "aced_description": "It only takes {AcedPickupCount} ammo boxes to build a Throwing Knife.",
+        "values": {
+            "PickupCount": {
+                "value": 5,
+                "type": "flat"
+            },
+            "AcedPickupCount": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 85,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 15,
+            "c": 4
+        }
+    },
+    "HumanResources": {
+        "id": 94,
+        "key": "HumanResources",
+        "name": "Human Resources",
+        "base_description": "Your throwables do not affect hostages.",
+        "aced_description": "Your throwables do not affect any civilians.",
+        "values": null,
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 99,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 16,
+            "c": 4
+        }
+    },
+    "PiercingAmmo": {
+        "id": 100,
+        "key": "PiercingAmmo",
+        "name": "Armor-Piercing",
+        "base_description": "If you land a headshot with a Marksman rifle that breaks an enemy's armor layer, it will remove <Skill>1</> additional layer.",
+        "aced_description": "While aiming down sights with a Marksman rifle, your shots will penetrate through <Skill>1</> additional target.",
+        "values": null,
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 101,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 17,
+            "c": 4
+        }
+    },
+    "GrenadeBelt": {
+        "id": 106,
+        "key": "GrenadeBelt",
+        "name": "Utility Belt",
+        "base_description": "Increase the total number of throwables you can carry by {ExtraCount}.",
+        "aced_description": "The number of extra throwables you can carry raises to {AcedExtraCount}.",
+        "values": {
+            "ExtraCount": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedExtraCount": {
+                "value": 5,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 3,
+        "position": 4,
+        "overall_position": 103,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 18,
+            "c": 4
+        }
+    },
+    "ArmoredUpII": {
+        "id": 5,
+        "key": "ArmoredUpII",
+        "name": "Armored Up II",
+        "base_description": "If your starting loadout contains an Armor Bag, receive {ExtraCount} additional Armor Bag.",
+        "aced_description": "Deploying an Armor Bag fully restores armor for any heister within {AcedWithinRange} meters.",
+        "values": {
+            "ExtraCount": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedWithinRange": {
+                "value": 10,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 10,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 1,
+            "c": 5
+        }
+    },
+    "HollowPointRounds": {
+        "id": 11,
+        "key": "HollowPointRounds",
+        "name": "Hollow-Point Rounds",
+        "base_description": "Assault Rifles and LMGs deal {IncreasedHealthDamage} more health damage.",
+        "aced_description": "Raise your health damage bonus from Assault Rifles and LMGs to {AcedIncreasedHealthDamage}.",
+        "values": {
+            "IncreasedHealthDamage": {
+                "value": 0.15,
+                "type": "rate"
+            },
+            "AcedIncreasedHealthDamage": {
+                "value": 0.4,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 12,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 2,
+            "c": 5
+        }
+    },
+    "ImpactGrenades": {
+        "id": 17,
+        "key": "ImpactGrenades",
+        "name": "Sudden Impact",
+        "base_description": "Frag Grenades now explode on impact.",
+        "aced_description": "If a Frag Grenade explodes by colliding with an enemy, it deals an additional {AcedIncreasedDamage} damage.",
+        "values": {
+            "AcedIncreasedDamage": {
+                "value": 0.4,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 14,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 3,
+            "c": 5
+        }
+    },
+    "RiskTaker": {
+        "id": 23,
+        "key": "RiskTaker",
+        "name": "Under Pressure",
+        "base_description": "Successfully dodging any damage restores {AddedHealth} points of health.",
+        "aced_description": "When health is at maximum, these points are converted to Adrenaline.",
+        "values": {
+            "AddedHealth": {
+                "value": 2,
+                "type": "flat"
+            },
+            "IncreasedIncomingDamage": {
+                "value": 1,
+                "type": "rate"
+            },
+            "AcedAddedHealth": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedIncreasedIncomingDamage": {
+                "value": 1,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 28,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 4,
+            "c": 5
+        }
+    },
+    "EvenAim": {
+        "id": 29,
+        "key": "EvenAim",
+        "name": "Steady Hands",
+        "base_description": "When you use an SMG to kill an enemy within {BuffDistance} meters, gain a buff that increases your SMG's hip fire accuracy. For kills further than {BuffDistance} meters, gain a buff that increases ADS accuracy with SMGs. \n\nEach buff lasts {BuffDuration} seconds.",
+        "aced_description": "Killing an enemy with an SMG increases both hipfire and ADS accuracy, regardless of distance. \n\nThe duration of these buffs increases to {AcedBuffDuration} seconds.",
+        "values": {
+            "BuffDistance": {
+                "value": 6,
+                "type": "flat"
+            },
+            "BuffDuration": {
+                "value": 4,
+                "type": "flat"
+            },
+            "BuffHipFireAccuracy": {
+                "value": 0.35,
+                "type": "rate"
+            },
+            "BuffADSAccuracy": {
+                "value": 0.35,
+                "type": "rate"
+            },
+            "AcedBuffDuration": {
+                "value": 6,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 30,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 5,
+            "c": 5
+        }
+    },
+    "ThickSmoke": {
+        "id": 35,
+        "key": "ThickSmoke",
+        "name": "Smokescreen",
+        "base_description": "If you have any chance to Dodge, it doubles while you are standing in a Smoke Grenade's cloud.\n\nIf you have no chance to Dodge, you instead gain {IncreasedDodge} Dodge.",
+        "aced_description": "Your Smoke Grenade clouds apply this Dodge bonus to all crew members.\n\nMultiple instances of this skill do not stack.",
+        "values": {
+            "IncreasedDodge": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "DodgeMultiplier": {
+                "value": 2,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 32,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 6,
+            "c": 5
+        }
+    },
+    "ExtraTurrets": {
+        "id": 41,
+        "key": "ExtraTurrets",
+        "name": "Sentry Squad",
+        "base_description": "You can now deploy an additional Sentry Turret.",
+        "aced_description": "You can deploy <Skill>2</> additional Sentry Turrets, but all turrets build up {AcedIncreasedHeatBuildup} more heat.",
+        "values": {
+            "AcedIncreasedHeatBuildup": {
+                "value": 1,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 46,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 7,
+            "c": 5
+        }
+    },
+    "ShotgunObliterator": {
+        "id": 47,
+        "key": "ShotgunObliterator",
+        "name": "Annihilation",
+        "base_description": "Shotguns deal {IncreasedDamage} more damage for each pellet that hits the same target.",
+        "aced_description": "Increase your Shotgun's damage bonus from repeated hits to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.04,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.1,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 48,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 8,
+            "c": 5
+        }
+    },
+    "PowerShockGrenades": {
+        "id": 53,
+        "key": "PowerShockGrenades",
+        "name": "Renewable Energy",
+        "base_description": "Shock Grenades now detonate {AdditionalExplosion} additional {AdditionalExplosion}|plural(one=time,other=times) before expiring.",
+        "aced_description": "Destroying a Zapper's battery or landmine restores <Skill>1</> Shock Grenade.",
+        "values": {
+            "AdditionalExplosion": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 50,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 9,
+            "c": 5
+        }
+    },
+    "DefensiveMeasuress": {
+        "id": 59,
+        "key": "DefensiveMeasuress",
+        "name": "High Marks",
+        "base_description": "Take {DamageReduction} less damage for each marked enemy within {WithinRange} meters, up to a cap of {MaxDamageReduction}.",
+        "aced_description": "Your damage reduction from marked enemies now extends to your entire crew.\n\nMultiple instances of this skill do not stack.",
+        "values": {
+            "DamageReduction": {
+                "value": 0.04,
+                "type": "rate"
+            },
+            "WithinRange": {
+                "value": 10,
+                "type": "flat"
+            },
+            "MaxDamageReduction": {
+                "value": 0.4,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 64,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 10,
+            "c": 5
+        }
+    },
+    "PistolExploiter": {
+        "id": 65,
+        "key": "PistolExploiter",
+        "name": "Cheap Trick",
+        "base_description": "While you are holding a human shield and wielding a Handgun, take {DamageReduction} less damage.",
+        "aced_description": "Shooting stunned enemies with a Handgun deals double damage.",
+        "values": {
+            "DamageReduction": {
+                "value": 0.4,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 66,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 11,
+            "c": 5
+        }
+    },
+    "EMPFlashbang": {
+        "id": 71,
+        "key": "EMPFlashbang",
+        "name": "Hypersensitive",
+        "base_description": "If your Flashbang Grenade hits an enemy before colliding with an object or surface, it will detonate on impact.",
+        "aced_description": "If your Flashbang Grenade detonates on impact with an enemy, the Flashbang's stun duration will last twice as long.",
+        "values": null,
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 68,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 12,
+            "c": 5
+        }
+    },
+    "Clipboard": {
+        "id": 77,
+        "key": "Clipboard",
+        "name": "Hall Pass",
+        "base_description": "While you are unmasked, cameras will not detect you performing illegal actions.",
+        "aced_description": "Employees will not detect you performing illegal actions while you are unmasked.",
+        "values": null,
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 82,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 13,
+            "c": 5
+        }
+    },
+    "MeatBag": {
+        "id": 83,
+        "key": "MeatBag",
+        "name": "Scar Tissue",
+        "base_description": "Your maximum health increases by {AddedHealth} for each down you still have left.",
+        "aced_description": "Increase your maximum health bonus for each down to {AcedAddedHealth}.",
+        "values": {
+            "AddedHealth": {
+                "value": 20,
+                "type": "flat"
+            },
+            "AcedAddedHealth": {
+                "value": 40,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 84,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 14,
+            "c": 5
+        }
+    },
+    "FanThrow": {
+        "id": 89,
+        "key": "FanThrow",
+        "name": "Fan Throw",
+        "base_description": "Hurl {KnifeCount} Throwing Knives at once in a deadly arc.\n\nThis maneuver costs {KnifeConsumeCount} Throwing Knives.",
+        "aced_description": "The number of Throwing Knives you can toss at once increases to {AcedKnifeCount}. This will only cost {AcedKnifeConsumeCount} knives.",
+        "values": {
+            "KnifeCount": {
+                "value": 2,
+                "type": "flat"
+            },
+            "KnifeConsumeCount": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedKnifeCount": {
+                "value": 3,
+                "type": "flat"
+            },
+            "AcedKnifeConsumeCount": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 86,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 15,
+            "c": 5
+        }
+    },
+    "Intimidator": {
+        "id": 95,
+        "key": "Intimidator",
+        "name": "Scare Tactics",
+        "base_description": "Shout at nearby guards, SWAT or Heavy SWAT and force them to surrender. \n\nDealing damage or looking away from the target will cancel their surrender. Once taken hostage, the SWAT obeys all civilian rules. You cannot have more than <Skill>1</> SWAT hostage at a time.",
+        "aced_description": "You can now command up to {AcedMaxHostages} SWAT hostages at a time.",
+        "values": {
+            "AcedMaxHostages": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 100,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 16,
+            "c": 5
+        }
+    },
+    "SniperFunnel": {
+        "id": 101,
+        "key": "SniperFunnel",
+        "name": "Return Policy",
+        "base_description": "When you land a headshot with a Marksman rifle, <Skill>1</> bullet will return to your magazine.\n\nThis ability has a {Cooldown} second cooldown.",
+        "aced_description": "The cooldown for regaining a bullet reduces to {AcedCooldown} seconds.",
+        "values": {
+            "Cooldown": {
+                "value": 6,
+                "type": "flat"
+            },
+            "AcedCooldown": {
+                "value": 3,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 102,
+        "req_points": {
+            "base": 2,
+            "aced": 3
+        },
+        "sprite": {
+            "r": 17,
+            "c": 5
+        }
+    },
+    "HighGrainAmmo": {
+        "id": 107,
+        "key": "HighGrainAmmo",
+        "name": "Bullet Frenzy",
+        "base_description": "Once a heister interacts with your Ammo Bag, they deal {IncreasedDamage} more damage with the next magazine of their primary and secondary weapons, as well as their next throwable.",
+        "aced_description": "Raise the damage bonus from your Ammo Bags to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.1,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.5,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 3,
+        "position": 5,
+        "overall_position": 104,
+        "req_points": {
+            "base": 1,
+            "aced": 1
+        },
+        "sprite": {
+            "r": 18,
+            "c": 5
+        }
+    },
+    "Bastion": {
+        "id": 6,
+        "key": "Bastion",
+        "name": "Bastion",
+        "base_description": "Automatically deflect the Dozer's melee and Bull Rush attacks.\n\nYou also face no movement penalty from the Nader's gas cloud.",
+        "aced_description": "Disengage from Zapper and Cloaker stun attacks.\n\nThis ability has a {AcedCooldown} second cooldown.",
+        "values": {
+            "AcedCooldown": {
+                "value": 60,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 1,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 15,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 1,
+            "c": 6
+        }
+    },
+    "AmmoFunnel": {
+        "id": 12,
+        "key": "AmmoFunnel",
+        "name": "Ammo Funnel",
+        "base_description": "If you kill an enemy that still has armor intact with an Assault Rifle or LMG, you will automatically receive their ammo drop.",
+        "aced_description": "Ammo gained from this skill goes directly into your Assault Rifle or LMG's magazine.",
+        "values": null,
+        "skill_category_id": 1,
+        "skill_tree_id": 2,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 16,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 2,
+            "c": 6
+        }
+    },
+    "FragMaster": {
+        "id": 18,
+        "key": "FragMaster",
+        "name": "Mad Bomber",
+        "base_description": "When your Frag Grenade explodes, it grants a {RestoreChance} chance to restore <Skill>1</> Frag Grenade.",
+        "aced_description": "After exploding, your Frag Grenade will break into {AcedExtraCount} smaller {AcedExtraCount}|plural(one=grenade,other=grenades) that each deal {AcedDecreasedDamage} of the original grenade's damage.\n\nSmaller grenades have a {AcedRestoreChance} chance to restore <Skill>1</> Frag Grenade.",
+        "values": {
+            "RestoreChance": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "AcedExtraCount": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedDecreasedDamage": {
+                "value": 0.3,
+                "type": "rate"
+            },
+            "AcedRestoreChance": {
+                "value": 0.1,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 1,
+        "skill_tree_id": 3,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 17,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 3,
+            "c": 6
+        }
+    },
+    "OnTheRun": {
+        "id": 24,
+        "key": "OnTheRun",
+        "name": "On the Run",
+        "base_description": "While sprinting or sliding, and for {IncreasedDodgeDuration} seconds afterward, your Dodge chance increases by {IncreasedDodge}.",
+        "aced_description": "Shoot and reload SMGs while sprinting or sliding.",
+        "values": {
+            "IncreasedDodgeDuration": {
+                "value": 2,
+                "type": "flat"
+            },
+            "IncreasedDodge": {
+                "value": 0.15,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 4,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 33,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 4,
+            "c": 6
+        }
+    },
+    "SMGMaster": {
+        "id": 30,
+        "key": "SMGMaster",
+        "name": "SMGenius",
+        "base_description": "When you reload an empty magazine from your SMG, increase damage with SMGs by {IncreasedDamage}. \n\nThis buff can stack up to {BuffStack} times. Once the buff reaches its maximum stacks, it will expire after <Skill>10</> seconds.",
+        "aced_description": "The duration of this SMG damage bonus refreshes whenever you break an enemy's armor layer.\n\nThe buff now stacks up to {AcedBuffStack} times.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.05,
+                "type": "rate"
+            },
+            "BuffStack": {
+                "value": 10,
+                "type": "flat"
+            },
+            "AcedBuffStack": {
+                "value": 10,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 5,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 34,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 5,
+            "c": 6
+        }
+    },
+    "SmokeMaster": {
+        "id": 36,
+        "key": "SmokeMaster",
+        "name": "Escape Artist",
+        "base_description": "If you become downed with any Smoke Grenades in your possession, deploy one instead to gain a fixed {DodgeChance} chance to Dodge for {ImmuneDuration} seconds. \n\nThis ability refreshes after {SkillCooldown} seconds, and costs <Skill>1</> down. No other modifiers affect this Dodge chance. It does not apply to fall damage or Zapper stuns.",
+        "aced_description": "While this ability is active, any headshot damage you inflict while standing in a Smoke Grenade's cloud increases by {AcedIncreasedDamage}.",
+        "values": {
+            "DodgeChance": {
+                "value": 1,
+                "type": "rate"
+            },
+            "ImmuneDuration": {
+                "value": 5,
+                "type": "flat"
+            },
+            "SkillCooldown": {
+                "value": 180,
+                "type": "flat"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.04444,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 2,
+        "skill_tree_id": 6,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 35,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 6,
+            "c": 6
+        }
+    },
+    "LevelUp": {
+        "id": 42,
+        "key": "LevelUp",
+        "name": "Machine War",
+        "base_description": "When a Sentry Turret kills an enemy, its damage increases by {IncreasedDamage}.\n\nThis bonus ends if your turret overheats or is removed from the field.",
+        "aced_description": "The Sentry Turret's damage bonus increases to {AcedIncreasedDamage} and applies to all other turrets in your network.\n\nThis group bonus no longer ends if you pick up a turret, and any case of overheating only reduces the bonus by {AcedDecreasedOutgoingDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.025,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.05,
+                "type": "rate"
+            },
+            "AcedDecreasedOutgoingDamage": {
+                "value": 0.2,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 7,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 51,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 7,
+            "c": 6
+        }
+    },
+    "ShotgunTank": {
+        "id": 48,
+        "key": "ShotgunTank",
+        "name": "Berserker",
+        "base_description": "While reloading a Shotgun, and for {DecreasedDamageDuration} second afterward, you take {DecreasedDamage} less damage from enemies within {WithinRange} meters.",
+        "aced_description": "Reload and fire Shotguns while sprinting.\nYou now take {AcedDecreasedDamage} less damage for {AcedDecreasedDamageDuration} seconds after reloading a Shotgun.",
+        "values": {
+            "DecreasedDamageDuration": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AcedDecreasedDamage": {
+                "value": 0.5,
+                "type": "rate"
+            },
+            "AcedDecreasedDamageDuration": {
+                "value": 2.5,
+                "type": "flat"
+            },
+            "WithinRange": {
+                "value": 8,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 3,
+        "skill_tree_id": 8,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 52,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 8,
+            "c": 6
+        }
+    },
+    "ArmorConductor": {
+        "id": 54,
+        "key": "ArmorConductor",
+        "name": "Highly Conductive",
+        "base_description": "Each time a Shock Grenade blast hits an enemy, they lose <Skill>1</> layer of armor for as long as they are stunned.\n\nThe enemy regains these layers once the stun wears off.",
+        "aced_description": "Enemies killed while affected by your Shock Grenade will emit an electric blast.\n\nThis new blast benefits from all other Electrician skills, but only enemies impacted from an actual Shock Grenade will emit additional blasts.",
+        "values": null,
+        "skill_category_id": 3,
+        "skill_tree_id": 9,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 53,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 9,
+            "c": 6
+        }
+    },
+    "ElectricInterference": {
+        "id": 60,
+        "key": "ElectricInterference",
+        "name": "Electrical Interference",
+        "base_description": "While your ECM Jammer is active, enemies become stunned for {StunnedDuration} seconds after anyone in your crew shoots them.",
+        "aced_description": "When you destroy a Zapper’s battery, regain [sk-val]1[/] ECM Jammer.",
+        "values": {
+            "StunnedDuration": {
+                "value": 5,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 10,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 69,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 10,
+            "c": 6
+        }
+    },
+    "BountyHunter": {
+        "id": 66,
+        "key": "BountyHunter",
+        "name": "Bounty Hunter",
+        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\n<Hostile>Zappers</> restore <Skill>1</> tool.\n<Hostile>Naders</> restore <Skill>1</> throwable.\n<Hostile>Techies</> restore <Skill>1</> broken armor layer.",
+        "aced_description": "Add these marked special enemies to your bounty list.\nCloaker: Heal for {AcedAddedHealth} of your maximum health.\nDozer: Restore <Skill>1</> down.",
+        "values": {
+            "AcedAddedHealth": {
+                "value": 0.2,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 11,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 70,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 11,
+            "c": 6
+        }
+    },
+    "FlashbangMaster": {
+        "id": 72,
+        "key": "FlashbangMaster",
+        "name": "Sunburn",
+        "base_description": "Enemies affected by your Flashbang Grenades take {IncreasedIncomingDamage} more damage for every skill equipped in the Flashpoint branch.\n{ComputedIncreasedIncomingDamage}\n\nIf multiple heisters apply this skill to a single enemy, only the highest value will count.",
+        "aced_description": "Enemies affected by your Flashbang Grenades will lose half their armor layers.\n\nThis effect can only happen once per enemy.",
+        "values": {
+            "IncreasedIncomingDamage": {
+                "value": 0.1,
+                "type": "rate",
+                "compute": 1
+            },
+            "ComputedIncreasedIncomingDamage": {
+                "value": 0,
+                "type": "rate",
+                "text": "Bonus Damage:"
+            }
+        },
+        "skill_category_id": 4,
+        "skill_tree_id": 12,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 71,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 12,
+            "c": 6
+        }
+    },
+    "HulkOut": {
+        "id": 78,
+        "key": "HulkOut",
+        "name": "Seeing Red",
+        "base_description": "While you have Adrenaline, gain a {IncreasedDamage} damage bonus for every skill equipped in the Imposter branch.",
+        "aced_description": "Your Adrenaline damage bonus increases to {AcedIncreasedDamage}.",
+        "values": {
+            "IncreasedDamage": {
+                "value": 0.02,
+                "type": "rate"
+            },
+            "AcedIncreasedDamage": {
+                "value": 0.05,
+                "type": "rate"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 13,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 87,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 13,
+            "c": 6
+        }
+    },
+    "FieldTriage": {
+        "id": 84,
+        "key": "FieldTriage",
+        "name": "Health Guru",
+        "base_description": "Your Medic Bags now heal {HealPercentage} of a heister's maximum health.",
+        "aced_description": "Whenever you deploy a Medic Bag, you and all crewmates within {AcedWithinRange} meters of the bag return to full health.\n\nThis effect will revive any downed heisters within range.",
+        "values": {
+            "HealPercentage": {
+                "value": 1,
+                "type": "rate"
+            },
+            "AcedWithinRange": {
+                "value": 10,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 14,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 88,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 14,
+            "c": 6
+        }
+    },
+    "PunchingKnife": {
+        "id": 90,
+        "key": "PunchingKnife",
+        "name": "Hidden Blade",
+        "base_description": "If you have at least <Skill>1</> Throwing Knife, performing a quick melee on any enemy will spend the knife to instantly kill your target. \n\nThis does not apply to Dozers. Throwing Knives used this way cannot be retrieved.",
+        "aced_description": "If you are out of Throwing Knives, you may still quick-kill enemies after a {AcedSkillCooldown} second cooldown.",
+        "values": {
+            "AcedSkillCooldown": {
+                "value": 30,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 5,
+        "skill_tree_id": 15,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 89,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 15,
+            "c": 6
+        }
+    },
+    "InsurancePlan": {
+        "id": 96,
+        "key": "InsurancePlan",
+        "name": "Insurance Plan",
+        "base_description": "Your crew gains a {DamageReduction} damage reduction for every tied hostage within {WithinRange} meters, capping at {MaxDamageReduction}.\n\nMultiple instances of this skill will not stack.",
+        "aced_description": "Your damage reduction from tied hostages increases to {AcedDamageReduction}. The cap raises to {AcedMaxDamageReduction}.",
+        "values": {
+            "DamageReduction": {
+                "value": 0.03,
+                "type": "rate"
+            },
+            "WithinRange": {
+                "value": 15,
+                "type": "flat"
+            },
+            "MaxDamageReduction": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "AcedDamageReduction": {
+                "value": 0.05,
+                "type": "rate"
+            },
+            "AcedMaxDamageReduction": {
+                "value": 0.5,
+                "type": "rate"
+            },
+            "AcedWithinRange": {
+                "value": 15,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 16,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 105,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 16,
+            "c": 6
+        }
+    },
+    "Graze": {
+        "id": 102,
+        "key": "Graze",
+        "name": "Ricochet",
+        "base_description": "When you land a headshot with a Marksman rifle, all enemies within {WithinRange} meter of the target take {AdditionalDamage} of the original shot's damage.\n\nThis effect will not penetrate armor.",
+        "aced_description": "Enemies within range of the ricochet now take {AcedAdditionalDamage} of the original shot's damage.",
+        "values": {
+            "WithinRange": {
+                "value": 1.5,
+                "type": "flat"
+            },
+            "AdditionalDamage": {
+                "value": 0.25,
+                "type": "rate"
+            },
+            "AcedAdditionalDamage": {
+                "value": 0.8,
+                "type": "rate"
+            },
+            "AcedWithinRange": {
+                "value": 1.5,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 17,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 106,
+        "req_points": {
+            "base": 3,
+            "aced": 4
+        },
+        "sprite": {
+            "r": 17,
+            "c": 6
+        }
+    },
+    "HighQualityBag": {
+        "id": 108,
+        "key": "HighQualityBag",
+        "name": "Premium Bag",
+        "base_description": "When you deploy an Ammo Bag, all heisters within {WithinRange} meters regain {ExtraCount} throwables.",
+        "aced_description": "Once a heister interacts with your Ammo Bag, they gain {AcedIncreasedArmorPenetration} Armor Penetration on the next magazine of their primary and secondary weapons.",
+        "values": {
+            "WithinRange": {
+                "value": 5,
+                "type": "flat"
+            },
+            "ExtraCount": {
+                "value": 2,
+                "type": "flat"
+            },
+            "AcedIncreasedArmorPenetration": {
+                "value": 2,
+                "type": "flat"
+            }
+        },
+        "skill_category_id": 6,
+        "skill_tree_id": 18,
+        "tier": 4,
+        "position": 6,
+        "overall_position": 107,
+        "req_points": {
+            "base": 2,
+            "aced": 2
+        },
+        "sprite": {
+            "r": 18,
+            "c": 6
+        }
+    }
+}
