@@ -1,20 +1,3 @@
-// src/utils/skillsIndex.utils.js
-
-/**
- * Construye un índice para UI a partir de:
- * - skillsData: objeto { [skillKey]: SkillDef }
- * - skillGroupsData: objeto { [groupId]: { id,key,name,position,trees: {...} } }
- *
- * Resultado:
- * [
- *   {
- *     groupId, key, name, position,
- *     trees: [
- *       { treeId, key, name, position, skills: [ { ...skillDef, groupId, treeId } x6 ] }
- *     ]
- *   }
- * ]
- */
 export function buildSkillUIIndex(skillsData, skillGroupsData) {
   const groups = Object.values(skillGroupsData || {})
     .filter(Boolean)
@@ -23,6 +6,7 @@ export function buildSkillUIIndex(skillsData, skillGroupsData) {
       key: g.key,
       name: g.name,
       position: Number(g.position ?? 999),
+      sprite: g.sprite ?? null,
       treesRaw: g.trees || {},
     }))
     .sort((a, b) => a.position - b.position);
@@ -63,6 +47,13 @@ export function buildSkillUIIndex(skillsData, skillGroupsData) {
         return { ...t, skills };
       });
 
-    return { groupId: g.groupId, key: g.key, name: g.name, position: g.position, trees };
+    return {
+      groupId: g.groupId,
+      key: g.key,
+      name: g.name,
+      position: g.position,
+      sprite: g.sprite ?? null,
+      trees
+    };
   });
 }

@@ -1,0 +1,14 @@
+export const SKILL_GROUP_SPRITE_URL = "/sprites/skill-groups.png";
+
+// ⬇️ ajustar al PNG real
+export const SKILL_GROUP_SPRITE_IMAGE_W = 1536;
+export const SKILL_GROUP_SPRITE_IMAGE_H = 256;
+
+export const SKILL_GROUP_SPRITE_COLS = 6;
+export const SKILL_GROUP_SPRITE_ROWS = 1;
+
+export const SKILL_GROUP_SPRITE_TILE_W =
+  SKILL_GROUP_SPRITE_IMAGE_W / SKILL_GROUP_SPRITE_COLS;
+
+export const SKILL_GROUP_SPRITE_TILE_H =
+  SKILL_GROUP_SPRITE_IMAGE_H / SKILL_GROUP_SPRITE_ROWS;

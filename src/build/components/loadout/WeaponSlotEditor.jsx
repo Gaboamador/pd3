@@ -1,140 +1,122 @@
-import { useMemo, useState, useEffect } from "react";
-import WeaponModsEditor from "./WeaponModsEditor";
-import { getWeaponTypeLabel, WEAPON_TYPE_ORDER } from "../../utils/weaponTypes.utils";
+import { useMemo, useState } from "react";
+import WeaponCard from "../weapons/WeaponCard";
+import Modal from "../common/Modal";
+import {
+  buildWeaponTypeLabels,
+  getWeaponTypeLabel,
+  orderWeaponTypes,
+} from "../../utils/weaponTypeLabels";
+import styles from "./WeaponSlotEditor.module.scss";
 
-/**
- * Props:
- * - label: "Primary" | "Secondary"
- * - itemsByType: { [weaponType]: WeaponDef[] }
- * - value: { weaponKey: string|null, mods: {} }
- * - onChange: fn(nextValue)
- */
 export default function WeaponSlotEditor({
   label,
   itemsByType,
   value,
   onChange,
 }) {
-  // weaponType se deriva del arma seleccionada, si existe
-  const derivedType = useMemo(() => {
-    if (!value.weaponKey) return "";
-    for (const [type, weapons] of Object.entries(itemsByType)) {
-      if (weapons.some(w => w.key === value.weaponKey)) {
-        return type;
-      }
+  const [open, setOpen] = useState(false);
+  const [filterType, setFilterType] = useState("");
+
+  // tipos reales disponibles
+  const weaponTypes = useMemo(
+    () => Object.keys(itemsByType),
+    [itemsByType]
+  );
+
+  const orderedTypes = useMemo(
+    () => orderWeaponTypes(weaponTypes),
+    [weaponTypes]
+  );
+
+  const labelsMap = useMemo(
+    () => buildWeaponTypeLabels(weaponTypes),
+    [weaponTypes]
+  );
+
+  // arma actualmente seleccionada (si hay)
+  const weaponDef = useMemo(() => {
+    if (!value.weaponKey) return null;
+    for (const weapons of Object.values(itemsByType)) {
+      const found = weapons.find(w => w.key === value.weaponKey);
+      if (found) return found;
     }
-    return "";
+    return null;
   }, [value.weaponKey, itemsByType]);
 
-  const [weaponType, setWeaponType] = useState(derivedType);
-
-  // mantener sincronizado si el build viene cargado (import / reset)
-  useEffect(() => {
-    setWeaponType(derivedType);
-  }, [derivedType]);
-
-  const weaponsOfType = weaponType ? itemsByType[weaponType] ?? [] : [];
-
-  const weaponDef = useMemo(() => {
-    if (!weaponType || !value.weaponKey) return null;
-    return weaponsOfType.find(w => w.key === value.weaponKey) ?? null;
-  }, [weaponType, weaponsOfType, value.weaponKey]);
-
-  function handleWeaponTypeChange(type) {
-    setWeaponType(type);
-    // al cambiar tipo, se resetea el arma y los mods
-    onChange({
-      weaponKey: null,
-      preset: 0,
-      mods: {},
-    });
-  }
-
-  function handleWeaponChange(key) {
-    if (!key) {
-      onChange({ weaponKey: null, preset: 0,mods: {} });
-      return;
-    }
-
-    const def =
-      weaponsOfType.find(w => w.key === key) ?? null;
-
+  function handleSelectWeapon(def) {
     const emptyMods = {};
-    if (def?.mods) {
+    if (def.mods) {
       Object.keys(def.mods).forEach(slot => {
         emptyMods[slot] = null;
       });
     }
 
     onChange({
-      weaponKey: key,
-      preset: def?.preset ?? 0,
+      weaponKey: def.key,
+      preset: def.preset ?? 0,
       mods: emptyMods,
     });
 
+    setOpen(false);
+    setFilterType("");
   }
 
+  const weaponsToShow = useMemo(() => {
+    if (!filterType) {
+      return orderedTypes.flatMap(type => itemsByType[type] ?? []);
+    }
+    return itemsByType[filterType] ?? [];
+  }, [filterType, orderedTypes, itemsByType]);
+
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: 12,
-        padding: 12,
-        border: "1px solid rgba(255,255,255,0.12)",
-        borderRadius: 10,
-      }}
-    >
-      <div style={{ fontWeight: 700 }}>{label}</div>
+    <div className={styles.wrapper}>
+      <div className={styles.title}>{label}</div>
 
-      {/* Weapon type */}
-      <label style={{ display: "grid", gap: 6 }}>
-        <span style={{ fontWeight: 600 }}>Weapon type</span>
-        <select
-          value={weaponType}
-          onChange={e => handleWeaponTypeChange(e.target.value)}
-        >
-          <option value="">—</option>
-          {WEAPON_TYPE_ORDER
-            .filter(type => itemsByType[type])
-            .map(type => (
-              <option key={type} value={type}>
-                {getWeaponTypeLabel(type)}
-              </option>
-            ))}
-        </select>
-      </label>
+      {/* Slot clickable */}
+      <div
+        className={styles.slotButton}
+        onClick={() => setOpen(true)}
+      >
+        {weaponDef ? weaponDef.name : "Select weapon…"}
+      </div>
 
-      {/* Weapon */}
-      {weaponType && (
-        <label style={{ display: "grid", gap: 6 }}>
-          <span style={{ fontWeight: 600 }}>Weapon</span>
+      {/* Modal selector de armas */}
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        title={`Select ${label} weapon`}
+      >
+        <div className={styles.filterRow}>
           <select
-            value={value.weaponKey ?? ""}
-            onChange={e => handleWeaponChange(e.target.value)}
+            value={filterType}
+            onChange={e => setFilterType(e.target.value)}
           >
-            <option value="">—</option>
-            {weaponsOfType.map(w => (
-              <option key={w.key} value={w.key}>
-                {w.name}
+            <option value="">All types</option>
+            {orderedTypes.map(type => (
+              <option key={type} value={type}>
+                {getWeaponTypeLabel(type, labelsMap)}
               </option>
             ))}
           </select>
-        </label>
-      )}
+        </div>
 
-      {/* Mods */}
-      {weaponDef && weaponDef.mods && (
-        <WeaponModsEditor
-          weaponDef={weaponDef}
-          modsState={value.mods || {}}
-          onChangeMods={mods =>
-            onChange({
-              ...value,
-              mods,
-            })
-          }
-        />
-      )}
+        <div className={styles.weaponGrid}>
+          {weaponsToShow.map(w => (
+            <WeaponCard
+              key={w.key}
+              weaponDef={w}
+              modsState={value.mods}
+              onChangeMods={mods =>
+                onChange({
+                  ...value,
+                  mods,
+                })
+              }
+              onClick={() => handleSelectWeapon(w)}
+            />
+          ))}
+        </div>
+      </Modal>
     </div>
   );
 }

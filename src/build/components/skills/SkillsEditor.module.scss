@@ -1,0 +1,252 @@
+@use "../../../styles/variables" as *;
+
+/* =========================
+   Wrapper
+========================= */
+
+.wrapper {
+  display: grid;
+  gap: 14px;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.headerInfo {
+  display: grid;
+  gap: 8px;
+}
+
+.pointsSpent {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 1000;
+}
+
+.points {
+  font-size: 16px;
+  font-family: "DIN2014";
+  background-color: black;
+  border: 1px solid white;
+  color: $pd3-main;
+  border-radius: 4px;
+  min-width: 24px;
+  height: 24px;
+  padding: 3px;
+  margin: 0 10px;
+  text-align: center;
+}
+
+/* =========================
+   Header actions
+========================= */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+
+  background: transparent;
+  color: $text;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &.danger {
+    border-color: rgba(255, 90, 90, 0.6);
+    color: #ff6b6b;
+
+    &:hover {
+      background: rgba(255, 90, 90, 0.15);
+    }
+  }
+}
+
+/* =========================
+   Group selector
+========================= */
+
+.groupSelector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.groupItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+//   gap: 4px;
+}
+
+.groupButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: none;
+  background: transparent;
+  color: $text;
+
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+    --c: 8px;
+
+  clip-path: polygon(
+    var(--c) 0%,
+    100% 0%,
+    calc(100% - var(--c)) 100%,
+    0% 100%
+  );
+
+  &.groupButtonActive {
+    background: rgba($pd3-main, 1);
+  }
+
+    &:hover {
+     background: rgba($pd3-hover, 0.5);
+    }
+}
+
+.groupPoints {
+  min-width: 24px;
+  height: 24px;
+  padding: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "DIN2014";
+  font-size: 12px;
+  font-weight: 700;
+
+  color: $pd3-main;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+/* =========================
+   Body layout
+========================= */
+
+.body {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+
+.bodyDesktop {
+  grid-template-columns: 1fr 340px;
+}
+
+.bodyMobile {
+  grid-template-columns: 1fr;
+}
+
+/* =========================
+   Trees
+========================= */
+
+.treesWrapper {
+  min-width: 0;
+}
+
+.treesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.treeCard {
+  position: relative;
+  overflow: hidden;
+  background-color: $card-bg;
+
+  /* BACKGROUND IMAGE */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: var(--tree-bg);
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: calc(50% + 16px) calc(50% + 30px);
+
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  /* CONTENT ABOVE BACKGROUND */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.treeIndicator {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  z-index: 2;
+
+  padding: 2px 6px;
+
+  font-family: "DIN2014";
+  font-size: 11px;
+//   font-weight: 800;
+  letter-spacing: 0.08em;
+
+  color: $pd3-main;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  pointer-events: none;
+  
+}
+
+
+/* =========================
+   Details
+========================= */
+
+.detailsAside {
+  position: sticky;
+  top: 12px;
+}
+

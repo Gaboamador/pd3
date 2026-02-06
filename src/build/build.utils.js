@@ -30,3 +30,22 @@ export function saveBuildToSession(build) {
     console.warn("Failed to save build to sessionStorage", err);
   }
 }
+
+
+export function createEmptyBuild() {
+  return {
+    id: null,
+    name: "",
+    version: 1,
+    loadout: {
+      primary: null,
+      secondary: null,
+      overkill: null,
+      armor: { key: null, plates: [] },
+      deployable: null,
+      throwable: null,
+      tool: null,
+    },
+    skills: {},
+  };
+}

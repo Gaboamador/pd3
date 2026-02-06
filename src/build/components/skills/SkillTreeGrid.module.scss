@@ -1,0 +1,128 @@
+@use "../../../styles/variables" as *;
+
+.wrapper {
+  display: grid;
+//   gap: 12px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.titleBlock {
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  background-color: black;
+  border-bottom: 1px solid white;
+  padding: 10px 0;
+}
+
+.title {
+  font-family: "DIN2014";
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  border-bottom: 2px solid $pd3-main;
+}
+
+.treePoints {
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: $pd3-main;
+}
+
+/* =========================
+   Skill grid
+========================= */
+
+.grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: 32px 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+
+//   grid-template-areas:
+//     "p6 p6"
+//     "p4 p5"
+//     "p2 p3"
+//     "p1 p1";
+  grid-template-areas:
+    "t4 p6 p6"
+    "t3 p4 p5"
+    "t2 p2 p3"
+    "t1 p1 p1";
+
+    background: linear-gradient(to right, #689c8066 0%, #689c8011 15%, #689c8011 85%, #689c8066 100%);
+    background-image: linear-gradient(to right, rgba(104, 156, 128, 0.4) 0%, rgba(104, 156, 128, 0.067) 15%, rgba(104, 156, 128, 0.067) 85%, rgba(104, 156, 128, 0.4) 100%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+
+/* Separador entre tier 4 y 3 */
+.grid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Separador entre tier 3 y 2 */
+.grid::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Separador entre tier 2 y 1 */
+.tierDividerBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 75%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Slot contenedor del SkillCard */
+.skillSlot {
+  min-width: 0;
+}
+
+.tierLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+//   border-left: 1px solid white;
+  border-right: 1px solid white;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.tierText {
+  display: inline-block;
+
+  transform: rotate(-90deg);
+  transform-origin: center;
+
+  font-size: 20px;
+  opacity: 0.6;
+  white-space: nowrap;
+
+  color: $text-muted;
+}

@@ -7,7 +7,7 @@ import skillGroupsData from "../data/payday3_skill_groups.json";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
 
-import { loadBuildFromSession, saveBuildToSession } from "./build.utils";
+import { loadBuildFromSession, saveBuildToSession, createEmptyBuild } from "./build.utils";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "./build.buildUrl.utils";
 import { selectUsedSkillPoints } from "./build.selectors";
 import { buildSkillTree } from "./utils/skillTree.utils";
@@ -25,7 +25,12 @@ import BuildLibrary from "./BuildLibrary";
 export default function BuildEditor() {
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [library, setLibrary] = useState(() => loadBuildLibrary());
+  
+  const [library, setLibrary] = useState(() => {
+  const lib = loadBuildLibrary();
+  return Array.isArray(lib) ? lib : [];
+});
+
 
   const [build, setBuild] = useState(() => {
     const encoded = searchParams.get("b");
@@ -39,21 +44,23 @@ export default function BuildEditor() {
 
   const isFirstRender = useRef(true);
 
-  useEffect(() => {
-    // siempre persistimos en sessionStorage
-    saveBuildToSession(build);
+useEffect(() => {
+  saveBuildToSession(build);
 
-    const encoded = encodeBuildToUrl(build);
-    if (!encoded) return;
+  const encoded = encodeBuildToUrl(build);
+  if (!encoded) return;
 
-    // evitamos pisar la URL en el primer render
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+  if (isFirstRender.current) {
+    isFirstRender.current = false;
+    return;
+  }
 
-    setSearchParams({ b: encoded }, { replace: true });
-  }, [build, setSearchParams]);
+  const current = searchParams.get("b");
+  if (current === encoded) return; // 🔑 CLAVE
+
+  setSearchParams({ b: encoded }, { replace: true });
+}, [build, searchParams, setSearchParams]);
+
 
   const usedPoints = useMemo(
     () => selectUsedSkillPoints(build, skillsData),
@@ -117,7 +124,18 @@ function handleDeleteBuild(id) {
   }
 }
 
+function handleNewBuild() {
+  const draft = createEmptyBuild();
+  setBuild(draft);
+  saveBuildToSession(draft);
+
+  // opcional: limpiar la URL
+  setSearchParams({}, { replace: true });
+}
+
 const orderedLibrary = useMemo(() => {
+  if (!Array.isArray(library)) return [];
+
   return [...library].sort((a, b) => {
     if (a.slot == null && b.slot == null) return 0;
     if (a.slot == null) return 1;
@@ -125,6 +143,7 @@ const orderedLibrary = useMemo(() => {
     return a.slot - b.slot;
   });
 }, [library]);
+
 
 function handleAssignSlot(id, slot) {
   const next = assignBuildSlot(id, slot);
@@ -142,7 +161,12 @@ function handleAssignSlot(id, slot) {
     onAssignSlot={handleAssignSlot}
   />
 
-      <Section title="Build Name">
+<button onClick={handleNewBuild}>
+  New build
+</button>
+
+
+      <Section title="// BUILD NAME">
         <input
           type="text"
           placeholder="Build name"
@@ -156,7 +180,7 @@ function handleAssignSlot(id, slot) {
         />
       </Section>
 
-      <Section title="Build Editor">
+      {/* <Section title="Build Editor">
         <PointsCounter used={usedPoints} />
         {!validation.ok && (
           <div style={{ marginTop: 8 }}>
@@ -170,9 +194,9 @@ function handleAssignSlot(id, slot) {
             </ul>
           </div>
         )}
-      </Section>
+      </Section> */}
 
-      <Section title="Loadout">
+      <Section>
         <LoadoutEditor
           build={build}
           setBuild={setBuild}
@@ -182,7 +206,7 @@ function handleAssignSlot(id, slot) {
         />
       </Section>
 
-      <Section title="Skills">
+      <Section>
         <SkillsEditor
           build={build}
           setBuild={setBuild}

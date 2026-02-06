@@ -1,13 +1,13 @@
 // src/components/skills/SkillsEditor.jsx
 import { useMemo, useState } from "react";
 import { buildSkillUIIndex } from "../../utils/skillsIndex.utils";
+import styles from "./SkillsEditor.module.scss";
 import SkillTreeGrid from "./SkillTreeGrid";
 import SkillDetailsPanel from "./SkillDetailsPanel";
 import SkillDetailsModal from "./SkillDetailsModal";
+import SkillGroupSprite from "./SkillGroupSprite";
 import { calculateSkillPoints } from "../../utils/skillPoints.utils";
 import { MAX_SKILL_POINTS } from "../../build.constants";
-
-// Swiper (asegurate de tenerlo instalado)
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -27,7 +27,9 @@ function useIsMobile(breakpointPx = 920) {
 
 export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsData }) {
   const isMobile = useIsMobile(920);
-
+  
+  const [activeTreeIndex, setActiveTreeIndex] = useState(0);
+  
   const uiIndex = useMemo(() => {
     return buildSkillUIIndex(skillsData, skillGroupsData);
   }, [skillsData, skillGroupsData]);
@@ -59,33 +61,37 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
     setBuild(prev => ({ ...prev, skills: nextSkills }));
   }
 
-  function cycleUp(skill) {
-    const cur = build.skills?.[skill.key];
-    const next = { ...(build.skills || {}) };
+function cycleUp(skill) {
+  const cur = build.skills?.[skill.key];
+  const next = { ...(build.skills || {}) };
 
-    // none -> base
-    if (!cur?.base && !cur?.aced) {
-      const newPoints = totalPoints + (skill?.req_points?.base ?? 0);
-      if (newPoints > MAX_SKILL_POINTS) return;
+  const tier = getSkillTier(skill);
 
-      next[skill.key] = { base: true, aced: false };
-      patchSkills(next);
-      return;
-    }
+  if (!isTierUnlocked(tier, groupPoints)) return;
 
-    // base -> aced
-    if (cur?.base && !cur?.aced) {
-      const delta = (skill?.req_points?.aced ?? 0) - (skill?.req_points?.base ?? 0);
-      const newPoints = totalPoints + delta;
-      if (newPoints > MAX_SKILL_POINTS) return;
+  // none → base
+  if (!cur?.base && !cur?.aced) {
+    const cost = skill.req_points?.base ?? 0;
+    if (totalPoints + cost > MAX_SKILL_POINTS) return;
 
-      next[skill.key] = { base: true, aced: true };
-      patchSkills(next);
-      return;
-    }
-
-    // aced -> (no hace nada)
+    next[skill.key] = { base: true, aced: false };
+    patchSkills(next);
+    return;
   }
+
+  // base → aced
+  if (cur?.base && !cur?.aced) {
+    const cost = skill.req_points?.aced ?? 0;
+    if (totalPoints + cost > MAX_SKILL_POINTS) return;
+
+    next[skill.key] = { base: true, aced: true };
+    patchSkills(next);
+    return;
+  }
+
+  // aced → nada
+}
+
 
   function cycleDown(skill) {
     const cur = build.skills?.[skill.key];
@@ -111,28 +117,31 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
    * Devuelve el motivo por el cual el "cycleUp" debería estar bloqueado.
    * (lo usamos para UX en cards)
    */
-  function getCycleUpDisabledReason(skill, curState) {
-    // Si ya está aced, no hay upgrade posible, pero NO queremos bloquear la UI.
-    // Entonces: no devolvemos reason.
-    if (curState?.aced) return null;
+function getCycleUpDisabledReason(skill, curState) {
+  const tier = getSkillTier(skill);
 
-    // base -> aced: chequear delta de puntos
-    if (curState?.base && !curState?.aced) {
-      const delta = (skill?.req_points?.aced ?? 0) - (skill?.req_points?.base ?? 0);
-      if (totalPoints + delta > MAX_SKILL_POINTS) {
-        return `Skill points: ${totalPoints}/${MAX_SKILL_POINTS}`;
-      }
-      return null;
-    }
+  if (!isTierUnlocked(tier, groupPoints)) {
+    return `Tier ${tier} locked`;
+  }
 
-    // none -> base
-    const costBase = skill?.req_points?.base ?? 0;
-    if (totalPoints + costBase > MAX_SKILL_POINTS) {
+  if (curState?.aced) return null;
+
+  if (curState?.base) {
+    const cost = skill.req_points?.aced ?? 0;
+    if (totalPoints + cost > MAX_SKILL_POINTS) {
       return `Skill points: ${totalPoints}/${MAX_SKILL_POINTS}`;
     }
-
     return null;
   }
+
+  const cost = skill.req_points?.base ?? 0;
+  if (totalPoints + cost > MAX_SKILL_POINTS) {
+    return `Skill points: ${totalPoints}/${MAX_SKILL_POINTS}`;
+  }
+
+  return null;
+}
+
 
   function openInfo(skill) {
     setSelectedSkillKey(skill.key);
@@ -143,71 +152,237 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
     setSelectedSkillKey(skill.key);
   }
 
+
+  function calculateGroupPoints(group, skillsState) {
+  if (!group?.trees || !skillsState) return 0;
+
+  return group.trees.reduce((sum, tree) => {
+    return (
+      sum +
+      tree.skills.reduce((treeSum, skill) => {
+        const state = skillsState[skill.key];
+        if (!state) return treeSum;
+
+        const base = skill.req_points?.base ?? 0;
+        const aced = skill.req_points?.aced ?? 0;
+
+        if (state.aced) return treeSum + base + aced;
+        if (state.base) return treeSum + base;
+
+        return treeSum;
+      }, 0)
+    );
+  }, 0);
+}
+
+const groupPoints = useMemo(() => {
+  return calculateGroupPoints(activeGroup, build.skills);
+}, [activeGroup, build.skills]);
+
+function isTierUnlocked(tier, groupPoints) {
+  switch (tier) {
+    case 1:
+      return true;
+    case 2:
+      return groupPoints >= 2;
+    case 3:
+      return groupPoints >= 6;
+    case 4:
+      return groupPoints >= 11;
+    default:
+      return false;
+  }
+}
+
+function getSkillTier(skill) {
+  const pos = Number(skill.position);
+
+  if (pos === 1) return 1;
+  if (pos === 2 || pos === 3) return 2;
+  if (pos === 4 || pos === 5) return 3;
+  if (pos === 6) return 4;
+
+  return 1;
+}
+
+const groupPointsById = useMemo(() => {
+  const map = {};
+
+  uiIndex.forEach(group => {
+    map[group.groupId] = calculateGroupPoints(group, build.skills);
+  });
+
+  return map;
+}, [uiIndex, build.skills]);
+
+
+function clearActiveGroupSkills() {
+  if (!activeGroup) return;
+
+  setBuild(prev => {
+    const nextSkills = { ...(prev.skills || {}) };
+
+    activeGroup.trees.forEach(tree => {
+      tree.skills.forEach(skill => {
+        delete nextSkills[skill.key];
+      });
+    });
+
+    return {
+      ...prev,
+      skills: nextSkills,
+    };
+  });
+}
+
+function clearAllSkills() {
+  setBuild(prev => ({
+    ...prev,
+    skills: {},
+  }));
+}
+
+
+
   if (!activeGroup) return null;
 
   return (
-    <div style={{ display: "grid", gap: 14 }}>
-      {/* Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-        <div style={{ display: "grid", gap: 8 }}>
-          <div style={{ fontWeight: 1000, fontSize: 16 }}>Skills</div>
-          <div style={{ fontSize: 12, opacity: 0.8 }}>
-            Points: <b>{totalPoints}</b> / {MAX_SKILL_POINTS}
-          </div>
+  <div className={styles.wrapper}>
+    {/* Header */}
+    <div className={styles.header}>
+      <div className={styles.headerInfo}>
+        <div className={styles.pointsSpent}>
+          <div className={styles.title}>// TOTAL SKILL POINTS: </div>
+          <div className={styles.points}>{totalPoints}</div>
+          <div>(Max. {MAX_SKILL_POINTS})</div>
         </div>
 
-        {/* Group selector */}
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
-          {uiIndex.map(g => (
-            <button
-              key={g.groupId}
-              type="button"
-              onClick={() => {
-                setActiveGroupId(g.groupId);
-                setSelectedSkillKey(null);
-              }}
-              style={{
-                borderRadius: 999,
-                padding: "8px 12px",
-                cursor: "pointer",
-                border: "1px solid rgba(255,255,255,0.18)",
-                background: g.groupId === activeGroupId ? "rgba(255,255,255,0.12)" : "transparent",
-                color: "inherit",
-                fontWeight: 800,
-              }}
-            >
-              {g.name}
-            </button>
-          ))}
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.actionButton}
+            onClick={clearActiveGroupSkills}
+          >
+            CLEAR GROUP
+          </button>
+
+          <button
+            type="button"
+            className={`${styles.actionButton} ${styles.danger}`}
+            onClick={clearAllSkills}
+          >
+            CLEAR ALL
+          </button>
         </div>
+
+
       </div>
 
-      {/* Body: trees + details */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1fr 340px",
-          gap: 14,
-          alignItems: "start",
-        }}
-      >
-        {/* Trees */}
-        <div style={{ minWidth: 0 }}>
-          {!isMobile ? (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
-              {activeGroup.trees.map(tree => (
-                <div
-                  key={tree.treeId}
+      {/* Group selector */}
+      <div className={styles.groupSelector}>
+        {uiIndex.map((g) => {
+          const points = groupPointsById[g.groupId] ?? 0;
+
+          return (
+            <div key={g.groupId} className={styles.groupItem}>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveGroupId(g.groupId);
+                  setSelectedSkillKey(null);
+                  setActiveTreeIndex(0);
+                }}
+                className={`${styles.groupButton} ${
+                  g.groupId === activeGroupId ? styles.groupButtonActive : ""
+                }`}
+              >
+                <SkillGroupSprite spritePos={g.sprite} height={18} />
+                <span>{g.name?.toUpperCase()}</span>
+              </button>
+
+              <div className={styles.groupPoints}>{points}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* Body */}
+    <div
+      className={`${styles.body} ${
+        isMobile ? styles.bodyMobile : styles.bodyDesktop
+      }`}
+    >
+      {/* Trees */}
+      <div className={styles.treesWrapper}>
+        {!isMobile ? (
+          <div className={styles.treesGrid}>
+            {activeGroup.trees.map((tree, idx) => {
+              const treeBgUrl = `/bg/groupbg-${activeGroup.groupId}-${idx + 1}-v1.svg`;
+              return (
+              <div
+                key={tree.treeId}
+                className={styles.treeCard}
                   style={{
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: 12,
-                    padding: 12,
+                    "--tree-bg": `url(${treeBgUrl})`,
+                    "--tier-col-width": "32px",
+                    "--bg-offset-y": "12px",
                   }}
+              >
+                <SkillTreeGrid
+                  tree={tree}
+                  skillsState={build.skills || {}}
+                  isMobile={false}
+                  groupPoints={groupPoints}
+                  isTierUnlocked={isTierUnlocked}
+                  getSkillTier={getSkillTier}
+                  getCycleUpDisabledReason={getCycleUpDisabledReason}
+                  onCycleUpSkill={cycleUp}
+                  onCycleDownSkill={cycleDown}
+                  onSelectSkill={selectForDetails}
+                  onOpenInfo={openInfo}
+                />
+              </div>
+              )
+              })}
+          </div>
+        ) : (
+          <Swiper
+            spaceBetween={12}
+            slidesPerView={1}
+            threshold={10}
+            touchStartPreventDefault
+            preventClicks
+            preventClicksPropagation
+            onSlideChange={(swiper) => {
+              setActiveTreeIndex(swiper.activeIndex);
+            }}
+          >
+            {activeGroup.trees.map((tree, idx) => {
+          const treeBgUrl = `/bg/groupbg-${activeGroup.groupId}-${idx + 1}-v1.svg`;
+
+            return (
+              <SwiperSlide key={tree.treeId}>
+                <div
+                  className={styles.treeCard}
+                    style={{
+                      "--tree-bg": `url(${treeBgUrl})`,
+                      "--tier-col-width": "32px",
+                      "--bg-offset-y": "12px",
+                    }}
                 >
+
+                  <div className={styles.treeIndicator}>
+                    {activeTreeIndex + 1} / {activeGroup.trees.length}
+                  </div>
+
                   <SkillTreeGrid
                     tree={tree}
                     skillsState={build.skills || {}}
-                    isMobile={false}
+                    isMobile={true}
+                    groupPoints={groupPoints}
+                    isTierUnlocked={isTierUnlocked}
+                    getSkillTier={getSkillTier}
                     getCycleUpDisabledReason={getCycleUpDisabledReason}
                     onCycleUpSkill={cycleUp}
                     onCycleDownSkill={cycleDown}
@@ -215,53 +390,33 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
                     onOpenInfo={openInfo}
                   />
                 </div>
-              ))}
-            </div>
-          ) : (
-            <Swiper spaceBetween={12} slidesPerView={1}>
-              {activeGroup.trees.map(tree => (
-                <SwiperSlide key={tree.treeId}>
-                  <div
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      borderRadius: 12,
-                      padding: 12,
-                    }}
-                  >
-                    <SkillTreeGrid
-                      tree={tree}
-                      skillsState={build.skills || {}}
-                      isMobile={true}
-                      getCycleUpDisabledReason={getCycleUpDisabledReason}
-                      onCycleUpSkill={cycleUp}
-                      onCycleDownSkill={cycleDown}
-                      onSelectSkill={selectForDetails}
-                      onOpenInfo={openInfo}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
-        </div>
-
-        {/* Details (desktop aside) */}
-        {!isMobile && (
-          <aside style={{ position: "sticky", top: 12 }}>
-            <SkillDetailsPanel skill={selectedSkill} showAced={showAcedInDetails} />
-          </aside>
+              </SwiperSlide>
+              )
+            })}
+          </Swiper>
         )}
       </div>
 
-      {/* Modal (mobile) */}
-      {isMobile && selectedSkill && (
-        <SkillDetailsModal
-          open={modalOpen}
-          onClose={() => setModalOpen(false)}
-          skill={selectedSkill}
-          showAced={showAcedInDetails}
-        />
+      {/* Details desktop */}
+      {!isMobile && (
+        <aside className={styles.detailsAside}>
+          <SkillDetailsPanel
+            skill={selectedSkill}
+            showAced={showAcedInDetails}
+          />
+        </aside>
       )}
     </div>
-  );
+
+    {/* Modal mobile */}
+    {isMobile && selectedSkill && (
+      <SkillDetailsModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        skill={selectedSkill}
+        showAced={showAcedInDetails}
+      />
+    )}
+  </div>
+);
 }

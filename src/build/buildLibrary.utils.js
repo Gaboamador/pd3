@@ -1,13 +1,35 @@
 import { BUILDS_LIBRARY_KEY } from "./build.constants";
 
+// export function loadBuildLibrary() {
+//   try {
+//     const raw = localStorage.getItem(BUILDS_LIBRARY_KEY);
+//     return raw ? JSON.parse(raw) : [];
+//   } catch {
+//     return [];
+//   }
+// }
 export function loadBuildLibrary() {
   try {
     const raw = localStorage.getItem(BUILDS_LIBRARY_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
+    if (!raw) return [];
+
+    const parsed = JSON.parse(raw);
+
+    if (!Array.isArray(parsed)) {
+      console.warn(
+        "Build library corrupted, resetting.",
+        parsed
+      );
+      return [];
+    }
+
+    return parsed;
+  } catch (err) {
+    console.warn("Failed to load build library", err);
     return [];
   }
 }
+
 
 export function saveBuildLibrary(builds) {
   localStorage.setItem(

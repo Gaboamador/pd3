@@ -1,0 +1,88 @@
+@use "../../../styles/variables" as *;
+
+.card {
+  height: 100%;
+  position: relative;
+  border: 1px solid $card-border;
+  cursor: pointer;
+  user-select: none;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 6px;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-xs;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.category {
+  font-size: 12px;
+  color: #fbbe0D;
+  font-family: "DIN2014";
+}
+
+/* BODY */
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  align-items: flex-end;
+  background: black;
+  padding: $space-xs;
+  font-family: "DIN2014";
+}
+
+.name {
+  font-size: 13px;
+  color: $color-text-primary;
+}
+
+/* EDIT BUTTON */
+.editBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: $color-text-muted;
+  font-size: 14px;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.hidden {
+  visibility: hidden; /* 👈 mantiene el espacio */
+  pointer-events: none;
+}
+
+/* EXTRA CONTENT */
+.extra {
+  margin-top: 4px;
+}
