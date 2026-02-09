@@ -9,7 +9,7 @@
 
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 6px;
+  // gap: 6px;
 
   &:hover {
     border-color: $color-accent;
@@ -42,6 +42,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-top: 1px solid #262a3b;
+    padding-bottom: 10px;
 }
 
 /* FOOTER */

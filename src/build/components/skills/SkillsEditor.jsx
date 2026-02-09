@@ -29,6 +29,8 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
   const isMobile = useIsMobile(920);
   
   const [activeTreeIndex, setActiveTreeIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
   
   const uiIndex = useMemo(() => {
     return buildSkillUIIndex(skillsData, skillGroupsData);
@@ -67,7 +69,8 @@ function cycleUp(skill) {
 
   const tier = getSkillTier(skill);
 
-  if (!isTierUnlocked(tier, groupPoints)) return;
+  if (!isTierUnlocked(tier, groupEquipped)) return;
+
 
   // none → base
   if (!cur?.base && !cur?.aced) {
@@ -92,37 +95,89 @@ function cycleUp(skill) {
   // aced → nada
 }
 
+  function calculateEquippedBelowTier(
+  group,
+  skillsState,
+  maxTier
+) {
+  if (!group?.trees || !skillsState) return 0;
+
+  let count = 0;
+
+  group.trees.forEach(tree => {
+    tree.skills.forEach(skill => {
+      const tier = getSkillTier(skill);
+
+      // ❗ solo tiers inferiores
+      if (tier >= maxTier) return;
+
+      const state = skillsState[skill.key];
+      if (!state) return;
+
+      if (state.aced) count += 2;
+      else if (state.base) count += 1;
+    });
+  });
+
+  return count;
+}
+
+function breaksTierIntegrity(group, skillsState) {
+  if (!group?.trees) return false;
+
+  return group.trees.some(tree =>
+    tree.skills.some(skill => {
+      const state = skillsState[skill.key];
+      if (!state) return false;
+
+      const tier = getSkillTier(skill);
+      if (tier <= 1) return false;
+
+      const equippedBelow =
+        calculateEquippedBelowTier(
+          group,
+          skillsState,
+          tier
+        );
+
+      const required =
+        tier === 2 ? 2 :
+        tier === 3 ? 5 :
+        tier === 4 ? 8 :
+        0;
+
+      return equippedBelow < required;
+    })
+  );
+}
+
 
   function cycleDown(skill) {
-    const cur = build.skills?.[skill.key];
-    if (!cur) return;
+  const cur = build.skills?.[skill.key];
+  if (!cur) return;
 
-    const next = { ...(build.skills || {}) };
+  const simulatedSkills = { ...(build.skills || {}) };
 
-    // aced -> base
-    if (cur?.aced) {
-      next[skill.key] = { base: true, aced: false };
-      patchSkills(next);
-      return;
-    }
-
-    // base -> none
-    if (cur?.base) {
-      delete next[skill.key];
-      patchSkills(next);
-    }
+  if (cur.aced) {
+    simulatedSkills[skill.key] = { base: true, aced: false };
+  } else if (cur.base) {
+    delete simulatedSkills[skill.key];
   }
 
-  /**
-   * Devuelve el motivo por el cual el "cycleUp" debería estar bloqueado.
-   * (lo usamos para UX en cards)
-   */
+  const invalid = breaksTierIntegrity(activeGroup, simulatedSkills);
+  if (invalid) return;
+
+  patchSkills(simulatedSkills);
+}
+
+
 function getCycleUpDisabledReason(skill, curState) {
   const tier = getSkillTier(skill);
 
-  if (!isTierUnlocked(tier, groupPoints)) {
-    return `Tier ${tier} locked`;
-  }
+  if (!isTierUnlocked(tier, groupEquipped)) {
+  return `Tier ${tier} locked`;
+}
+
 
   if (curState?.aced) return null;
 
@@ -138,6 +193,21 @@ function getCycleUpDisabledReason(skill, curState) {
   if (totalPoints + cost > MAX_SKILL_POINTS) {
     return `Skill points: ${totalPoints}/${MAX_SKILL_POINTS}`;
   }
+
+  return null;
+}
+
+function getCycleDownDisabledReason(skill) {
+  const cur = build.skills?.[skill.key];
+  if (!cur) return null;
+
+  const simulated = { ...(build.skills || {}) };
+
+  if (cur.aced) simulated[skill.key] = { base: true, aced: false };
+  else delete simulated[skill.key];
+
+  const invalid = breaksTierIntegrity(activeGroup, simulated);
+  if (invalid) return "Removing this skill would lock an active tier";
 
   return null;
 }
@@ -174,24 +244,77 @@ function getCycleUpDisabledReason(skill, curState) {
     );
   }, 0);
 }
+function calculateGroupEquippedSkills(group, skillsState) {
+  if (!group?.trees || !skillsState) return 0;
 
-const groupPoints = useMemo(() => {
-  return calculateGroupPoints(activeGroup, build.skills);
+  let count = 0;
+
+  group.trees.forEach(tree => {
+    tree.skills.forEach(skill => {
+      const state = skillsState[skill.key];
+      if (!state) return;
+
+      if (state.aced) {
+        count += 2;
+      } else if (state.base) {
+        count +=1;
+      }
+    });
+  });
+
+  return count;
+}
+
+const groupEquipped = useMemo(() => {
+  return calculateGroupEquippedSkills(activeGroup, build.skills);
 }, [activeGroup, build.skills]);
 
-function isTierUnlocked(tier, groupPoints) {
+
+function isTierUnlocked(tier, equippedSkills) {
   switch (tier) {
     case 1:
       return true;
     case 2:
-      return groupPoints >= 2;
+      return equippedSkills >= 2;
     case 3:
-      return groupPoints >= 6;
+      return equippedSkills >= 5;
     case 4:
-      return groupPoints >= 11;
+      return equippedSkills >= 8;
     default:
       return false;
   }
+}
+
+function calculateGroupEquippedForTiers(group, skillsState) {
+  if (!group?.trees || !skillsState) return 0;
+
+  let count = 0;
+
+  group.trees.forEach(tree => {
+    tree.skills.forEach(skill => {
+      const state = skillsState[skill.key];
+      if (!state) return;
+
+      if (state.aced) count += 2;
+      else if (state.base) count += 1;
+    });
+  });
+
+  return count;
+}
+
+function hasActiveSkillsInLockedTiers(group, skillsState, equippedForTiers) {
+  if (!group?.trees) return false;
+
+  return group.trees.some(tree =>
+    tree.skills.some(skill => {
+      const state = skillsState[skill.key];
+      if (!state) return false;
+
+      const tier = getSkillTier(skill);
+      return !isTierUnlocked(tier, equippedForTiers);
+    })
+  );
 }
 
 function getSkillTier(skill) {
@@ -291,6 +414,7 @@ function clearAllSkills() {
                   setActiveGroupId(g.groupId);
                   setSelectedSkillKey(null);
                   setActiveTreeIndex(0);
+                  swiperInstance?.slideTo(0, 0);
                 }}
                 className={`${styles.groupButton} ${
                   g.groupId === activeGroupId ? styles.groupButtonActive : ""
@@ -333,10 +457,11 @@ function clearAllSkills() {
                   tree={tree}
                   skillsState={build.skills || {}}
                   isMobile={false}
-                  groupPoints={groupPoints}
+                  groupEquipped={groupEquipped}
                   isTierUnlocked={isTierUnlocked}
                   getSkillTier={getSkillTier}
                   getCycleUpDisabledReason={getCycleUpDisabledReason}
+                  getCycleDownDisabledReason={getCycleDownDisabledReason}
                   onCycleUpSkill={cycleUp}
                   onCycleDownSkill={cycleDown}
                   onSelectSkill={selectForDetails}
@@ -348,6 +473,7 @@ function clearAllSkills() {
           </div>
         ) : (
           <Swiper
+            onSwiper={setSwiperInstance}
             spaceBetween={12}
             slidesPerView={1}
             threshold={10}
@@ -380,10 +506,11 @@ function clearAllSkills() {
                     tree={tree}
                     skillsState={build.skills || {}}
                     isMobile={true}
-                    groupPoints={groupPoints}
+                    groupEquipped={groupEquipped}
                     isTierUnlocked={isTierUnlocked}
                     getSkillTier={getSkillTier}
                     getCycleUpDisabledReason={getCycleUpDisabledReason}
+                    getCycleDownDisabledReason={getCycleDownDisabledReason}
                     onCycleUpSkill={cycleUp}
                     onCycleDownSkill={cycleDown}
                     onSelectSkill={selectForDetails}

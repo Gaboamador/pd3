@@ -1,0 +1,77 @@
+/* =========================
+   Wrapper
+========================= */
+
+.wrapper {
+  display: grid;
+  gap: 16px;
+}
+
+/* =========================
+   Filter
+========================= */
+
+.filter {
+  width: 100%;
+}
+
+/* =========================
+   Grid
+========================= */
+
+.grid {
+  display: grid;
+  gap: 16px;
+
+  /* Grid lógico (igual que LoadoutGrid) */
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  align-items: start;
+}
+
+.cell {
+  min-width: 0;
+  grid-column: span 4;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .cell {
+    grid-column: span 3;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cell {
+    grid-column: span 1;
+  }
+}
+
+/* =========================
+   MOBILE SMALL
+========================= */
+
+@media (max-width: 425px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cell {
+    grid-column: span 1;
+  }
+}

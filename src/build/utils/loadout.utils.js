@@ -61,10 +61,17 @@ export function getWeaponModSlots(weaponDef) {
 
   // mods como objeto {slotName: {something}} o {slotName: [mods]}
   if (mods && typeof mods === "object" && !Array.isArray(mods)) {
-    return Object.entries(mods).map(([slot, slotMods]) => ({
-      slot,
-      options: normalizeModsList(slotMods),
-    }));
+    // return Object.entries(mods).map(([slot, slotMods]) => ({
+    //   slot,
+    //   options: normalizeModsList(slotMods),
+    // }));
+    return Object.entries(mods).map(([slot, slotMods]) => {
+      const options = normalizeModsList(slotMods);
+        return {
+          slot,
+          options: ensureDefaultOption(options),
+        };
+      });
   }
 
   // mods como array
@@ -76,10 +83,17 @@ export function getWeaponModSlots(weaponDef) {
       bySlot[slot] ??= [];
       bySlot[slot].push(m);
     }
-    return Object.entries(bySlot).map(([slot, arr]) => ({
-      slot,
-      options: normalizeModsList(arr),
-    }));
+    // return Object.entries(bySlot).map(([slot, arr]) => ({
+    //   slot,
+    //   options: normalizeModsList(arr),
+    // }));
+      return Object.entries(bySlot).map(([slot, arr]) => {
+        const options = normalizeModsList(arr);
+          return {
+            slot,
+            options: ensureDefaultOption(options),
+          };
+      });
   }
 
   return [];
@@ -184,13 +198,49 @@ function normalizeModsList(slotMods) {
   return [];
 }
 
+// function normalizeMod(m) {
+//   if (!m) return null;
+//   return {
+//     id: m.id ?? m.mod_id ?? m.key ?? null,
+//     name: m.name ?? m.title ?? String(m.id ?? m.key ?? "Mod"),
+//   };
+// }
 function normalizeMod(m) {
   if (!m) return null;
+
+  const id = m.id ?? m.mod_id ?? m.key ?? null;
+
+  const isDefault =
+    m.type === "default" ||
+    m.is_default === true ||
+    id === 0;
+
   return {
-    id: m.id ?? m.mod_id ?? m.key ?? null,
-    name: m.name ?? m.title ?? String(m.id ?? m.key ?? "Mod"),
+    id,
+    name: m.name ?? m.title ?? String(id ?? "Mod"),
+    isDefault,
   };
 }
+
+function ensureDefaultOption(options) {
+  const hasRealDefault = options.some(o => o.isDefault);
+
+  if (hasRealDefault) {
+    return options;
+  }
+
+  // no hay default real → agregamos "None"
+  return [
+    {
+      id: null,
+      name: "None",
+      isDefault: true,
+      isVirtual: true,
+    },
+    ...options,
+  ];
+}
+
 
 function isSlot(item, slot) {
   const s = item?.slot ?? item?.weapon_slot ?? item?.type_slot;

@@ -1,0 +1,28 @@
+@use '../../../styles/variables' as *;
+
+.row {
+  display: flex;
+  gap: 5px;
+  padding: 5px 0 5px 5px;
+}
+
+.icon {
+  display: inline-flex;
+  border: 1px solid $mod-slot-inactive;
+}
+
+/* solo afecta al sprite */
+.inactive {
+  filter: brightness(0) invert(0.5);
+  opacity: 0.6;
+}
+
+.active {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.icon > div {
+  display: flex;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}

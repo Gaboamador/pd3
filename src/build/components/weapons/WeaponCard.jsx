@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import WeaponSprite from "./WeaponSprite";
 import WeaponModsModal from "./WeaponModsModal";
 import { WEAPON_PLACEHOLDERS } from "../../utils/sprites/placeholders";
+import WeaponModSlotsRow from "./WeaponModSlotsRow";
 import styles from "./WeaponCard.module.scss";
 
 export default function WeaponCard({
@@ -32,14 +33,11 @@ export default function WeaponCard({
     }
   }, [forceOpenMods, weaponDef, onModsOpened]);
 
-  function handleEditClick(e) {
-    e.stopPropagation();
-    if (!weaponDef) return;
-
-    onBeforeEdit?.(weaponDef);
-    setOpenMods(true);
-  }
-  
+  function handleEditClick() {
+  if (!weaponDef) return;
+  onBeforeEdit?.(weaponDef);
+  setOpenMods(true);
+}
 
   function useIsMobile(breakpoint = 560) {
   const [isMobile, setIsMobile] = useState(
@@ -87,6 +85,15 @@ return (
       <div className={styles.body}>
         <WeaponSprite spritePos={spritePos} height={spriteHeight} />
       </div>
+      <div>
+        {weaponDef && (
+          <WeaponModSlotsRow
+            weaponDef={weaponDef}
+            modsState={modsState}
+            height={spriteHeight/5}
+          />
+        )}
+      </div>
 
       {/* FOOTER */}
       <div className={styles.footer}>
@@ -105,32 +112,4 @@ return (
     )}
   </>
 );
-  // return (
-  //   <>
-  //     <div className={styles.card} onClick={onClick}>
-  //       <WeaponSprite spritePos={spritePos} height={48} />
-
-  //       <div className={styles.name}>{name}</div>
-
-  //       {canEdit && (
-  //         <button
-  //           className={styles.modsBtn}
-  //           onClick={handleEditClick}
-  //         >
-  //           ⚙
-  //         </button>
-  //       )}
-  //     </div>
-
-  //     {weaponDef && onChangeMods && (
-  //       <WeaponModsModal
-  //         open={openMods}
-  //         onClose={() => setOpenMods(false)}
-  //         weaponDef={weaponDef}
-  //         modsState={modsState}
-  //         onChangeMods={onChangeMods}
-  //       />
-  //     )}
-  //   </>
-  // );
 }

@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import Modal from "../common/Modal";
+import styles from "./LoadoutItemPickerModal.module.scss";
 import {
   buildWeaponTypeLabels,
   getWeaponTypeLabel,
@@ -46,32 +47,61 @@ export default function LoadoutItemPickerModal({
   }
 
   return (
-    <Modal open={open} onClose={handleClose} title={title}>
-      <div style={{ display: "grid", gap: 12 }}>
-        {itemTypes.length > 1 && (
-          <select
-            value={filterType}
-            onChange={e => setFilterType(e.target.value)}
-          >
-            <option value="">All types</option>
-            {orderedTypes.map(type => (
-              <option key={type} value={type}>
-                {getWeaponTypeLabel(type, labelsMap)}
-              </option>
-            ))}
-          </select>
-        )}
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-            gap: 12,
-          }}
+  <Modal open={open} onClose={handleClose} title={title}>
+    <div className={styles.wrapper}>
+      {itemTypes.length > 1 && (
+        <select
+          className={styles.filter}
+          value={filterType}
+          onChange={e => setFilterType(e.target.value)}
         >
-          {itemsToShow.map(def => renderCard(def))}
-        </div>
+          <option value="">All types</option>
+          {orderedTypes.map(type => (
+            <option key={type} value={type}>
+              {getWeaponTypeLabel(type, labelsMap)}
+            </option>
+          ))}
+        </select>
+      )}
+
+      <div className={styles.grid}>
+        {itemsToShow.map(def => (
+          <div key={def.key} className={styles.cell}>
+            {renderCard(def)}
+          </div>
+        ))}
       </div>
-    </Modal>
-  );
+    </div>
+  </Modal>
+);
+
+  // return (
+  //   <Modal open={open} onClose={handleClose} title={title}>
+  //     <div style={{ display: "grid", gap: 12 }}>
+  //       {itemTypes.length > 1 && (
+  //         <select
+  //           value={filterType}
+  //           onChange={e => setFilterType(e.target.value)}
+  //         >
+  //           <option value="">All types</option>
+  //           {orderedTypes.map(type => (
+  //             <option key={type} value={type}>
+  //               {getWeaponTypeLabel(type, labelsMap)}
+  //             </option>
+  //           ))}
+  //         </select>
+  //       )}
+
+  //       <div
+  //         style={{
+  //           display: "grid",
+  //           gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+  //           gap: 12,
+  //         }}
+  //       >
+  //         {itemsToShow.map(def => renderCard(def))}
+  //       </div>
+  //     </div>
+  //   </Modal>
+  // );
 }

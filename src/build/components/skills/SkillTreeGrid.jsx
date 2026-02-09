@@ -14,7 +14,7 @@ const AREA_BY_POSITION = {
 export default function SkillTreeGrid({
   tree,
   skillsState,
-  groupPoints,
+  groupEquipped,
   isTierUnlocked,
   getSkillTier,
   onCycleUpSkill,
@@ -23,6 +23,7 @@ export default function SkillTreeGrid({
   onOpenInfo,
   isMobile,
   getCycleUpDisabledReason,
+  getCycleDownDisabledReason,
 }) {
   // =========================
   // Points spent in this tree
@@ -43,6 +44,36 @@ export default function SkillTreeGrid({
       return sum;
     }, 0);
   }, [tree?.skills, skillsState]);
+
+
+  const protectedTiers = useMemo(() => {
+  const map = {};
+
+  tree.skills.forEach(skill => {
+    const tier = getSkillTier(skill);
+
+    const state = skillsState?.[skill.key];
+    if (!state) return;
+
+    const reason = getCycleDownDisabledReason(skill);
+    if (!reason) return;
+
+    // solo marcar si el tier está actualmente unlocked
+    if (isTierUnlocked(tier, groupEquipped)) {
+      map[tier] = true;
+    }
+  });
+
+  return map;
+}, [
+  tree.skills,
+  skillsState,
+  getCycleDownDisabledReason,
+  getSkillTier,
+  isTierUnlocked,
+  groupEquipped,
+]);
+
 
   return (
     <div className={styles.wrapper}>
@@ -68,15 +99,24 @@ export default function SkillTreeGrid({
           <span className={styles.tierText}>TIER 4</span>
         </div>
 
-        <div className={styles.tierLabel} style={{ gridArea: "t3" }}>
+        <div
+          className={`${styles.tierLabel} ${protectedTiers[3] ? styles.tierProtected : ""}`}
+          style={{ gridArea: "t3" }}
+        >
           <span className={styles.tierText}>TIER 3</span>
         </div>
 
-        <div className={styles.tierLabel} style={{ gridArea: "t2" }}>
+        <div
+          className={`${styles.tierLabel} ${protectedTiers[2] ? styles.tierProtected : ""}`}
+          style={{ gridArea: "t2" }}
+        >
           <span className={styles.tierText}>TIER 2</span>
         </div>
 
-        <div className={styles.tierLabel} style={{ gridArea: "t1" }}>
+        <div
+          className={`${styles.tierLabel} ${protectedTiers[1] ? styles.tierProtected : ""}`}
+          style={{ gridArea: "t1" }}
+        >
           <span className={styles.tierText}>TIER 1</span>
         </div>
 
@@ -92,8 +132,11 @@ export default function SkillTreeGrid({
 
           const canCycleUp = !reason;
 
+          const downDisabledReason = getCycleDownDisabledReason(skill);
+          const downDisabled = !!downDisabledReason;
+
           const tier = getSkillTier(skill);
-          const isLocked = !isTierUnlocked(tier, groupPoints);
+          const isLocked = !isTierUnlocked(tier, groupEquipped);
 
           return (
             <div
@@ -107,7 +150,9 @@ export default function SkillTreeGrid({
                 isLocked={isLocked}
                 isMobile={isMobile}
                 canCycleUp={canCycleUp}
+                canCycleDown={!downDisabled}
                 cycleUpDisabledReason={reason}
+                cycleDownDisabledReason={downDisabledReason}
                 onCycleUp={() => onCycleUpSkill(skill)}
                 onCycleDown={() => onCycleDownSkill(skill)}
                 onSelectForDetails={() =>

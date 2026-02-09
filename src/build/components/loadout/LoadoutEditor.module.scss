@@ -81,3 +81,14 @@
     grid-column: span 1;
   }
 }
+
+/* ===== MOBILE SMALL ===== */
+@media (max-width: 425px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cell {
+    grid-column: span 1;
+  }
+}

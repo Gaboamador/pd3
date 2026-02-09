@@ -9,7 +9,7 @@ export default function WeaponModsModal({
   modsState,
   onChangeMods,
 }) {
-  // if (!weaponDef) return null;
+  
   if (!weaponDef) {
   return (
     <div className={styles.emptyCard} onClick={onClick}>
@@ -27,7 +27,7 @@ export default function WeaponModsModal({
       [slot]: id,
     });
   }
-
+console.log(modSlots, "modSlots")
   return (
     <Modal
       open={open}
@@ -48,21 +48,25 @@ export default function WeaponModsModal({
               <div className={styles.slotTitle}>{ms.slot}</div>
 
               <div className={styles.optionsGrid}>
-                {/* Default */}
-                <div
+
+                {/* <div
                   className={`${styles.option} ${
                     activeId == null ? styles.active : ""
                   }`}
                   onClick={() => setMod(ms.slot, null)}
                 >
                   Default
-                </div>
+                </div> */}
 
                 {ms.options.map(opt => (
                   <div
-                    key={opt.id}
+                    // key={opt.id}
+                    key={String(opt.id)}
+                    // className={`${styles.option} ${
+                    //   activeId === opt.id ? styles.active : ""
+                    // }`}
                     className={`${styles.option} ${
-                      activeId === opt.id ? styles.active : ""
+                      modsState?.[ms.slot] === opt.id ? styles.active : ""
                     }`}
                     onClick={() => setMod(ms.slot, opt.id)}
                   >

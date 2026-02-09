@@ -103,13 +103,13 @@
 }
 
 .tierLabel {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: black;
-//   border-left: 1px solid white;
   border-right: 1px solid white;
-
   pointer-events: none;
   user-select: none;
 }
@@ -125,4 +125,27 @@
   white-space: nowrap;
 
   color: $text-muted;
+}
+
+/* Marca visual cuando el tier está "required" */
+.tierProtected::after {
+  content: "// REQUIRED"; // o "///" o "REQUIRED" si quisieras texto
+  position: absolute;
+  font-family: "DIN2014";
+  /* a la derecha del label */
+  right: -15px;
+
+  /* centrado vertical */
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+
+  writing-mode: vertical-rl;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: #ffcc66;
+  opacity: 0.85;
+
+  pointer-events: none;
 }
