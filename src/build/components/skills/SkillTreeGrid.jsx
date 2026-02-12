@@ -94,27 +94,56 @@ export default function SkillTreeGrid({
          Skill grid
       ========================= */}
       <div className={styles.grid}>
+
+        {/* Tier background strips (por fila) */}
+<div
+  className={`${styles.tierStrip} ${styles.tier4} ${
+    isTierUnlocked(4, groupEquipped) ? styles.tierStripActive : ""
+  }`}
+/>
+<div
+  className={`${styles.tierStrip} ${styles.tier3} ${
+    isTierUnlocked(3, groupEquipped) ? styles.tierStripActive : ""
+  }`}
+/>
+<div
+  className={`${styles.tierStrip} ${styles.tier2} ${
+    isTierUnlocked(2, groupEquipped) ? styles.tierStripActive : ""
+  }`}
+/>
+<div
+  className={`${styles.tierStrip} ${styles.tier1} ${
+    isTierUnlocked(1, groupEquipped) ? styles.tierStripActive : ""
+  }`}
+/>
+
+
         {/* Tier labels */}
-        <div className={styles.tierLabel} style={{ gridArea: "t4" }}>
+        <div
+          className={`${styles.tierLabel} ${
+            isTierUnlocked(4, groupEquipped) ? styles.tierActive : ""
+          }`}
+          style={{ gridArea: "t4" }}
+        >
           <span className={styles.tierText}>TIER 4</span>
         </div>
 
         <div
-          className={`${styles.tierLabel} ${protectedTiers[3] ? styles.tierProtected : ""}`}
+          className={`${styles.tierLabel} ${protectedTiers[3] ? styles.tierProtected : ""} ${isTierUnlocked(3, groupEquipped) ? styles.tierActive : ""}`}
           style={{ gridArea: "t3" }}
         >
           <span className={styles.tierText}>TIER 3</span>
         </div>
 
         <div
-          className={`${styles.tierLabel} ${protectedTiers[2] ? styles.tierProtected : ""}`}
+          className={`${styles.tierLabel} ${protectedTiers[2] ? styles.tierProtected : ""} ${isTierUnlocked(2, groupEquipped) ? styles.tierActive : ""}`}
           style={{ gridArea: "t2" }}
         >
           <span className={styles.tierText}>TIER 2</span>
         </div>
 
         <div
-          className={`${styles.tierLabel} ${protectedTiers[1] ? styles.tierProtected : ""}`}
+          className={`${styles.tierLabel} ${protectedTiers[1] ? styles.tierProtected : ""} ${isTierUnlocked(1, groupEquipped) ? styles.tierActive : ""}`}
           style={{ gridArea: "t1" }}
         >
           <span className={styles.tierText}>TIER 1</span>

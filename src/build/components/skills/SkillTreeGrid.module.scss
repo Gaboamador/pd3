@@ -42,27 +42,20 @@
   grid-template-columns: 32px 1fr 1fr;
   grid-template-rows: auto auto auto auto;
 
-//   grid-template-areas:
-//     "p6 p6"
-//     "p4 p5"
-//     "p2 p3"
-//     "p1 p1";
   grid-template-areas:
     "t4 p6 p6"
     "t3 p4 p5"
     "t2 p2 p3"
     "t1 p1 p1";
 
-    background: linear-gradient(to right, #689c8066 0%, #689c8011 15%, #689c8011 85%, #689c8066 100%);
-    background-image: linear-gradient(to right, rgba(104, 156, 128, 0.4) 0%, rgba(104, 156, 128, 0.067) 15%, rgba(104, 156, 128, 0.067) 85%, rgba(104, 156, 128, 0.4) 100%);
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: initial;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(18, 90, 55, 0.15) 0px,
+      rgba(18, 90, 55, 0.15) 2px,
+      transparent 2px,
+      transparent 5.5px
+  );
 }
 
 /* Separador entre tier 4 y 3 */
@@ -87,6 +80,40 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* =========================
+   Tier background strips
+   (por fila, condicional)
+========================= */
+
+.tierStrip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 25%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0; // por default apagado
+}
+
+.tierStripActive {
+  opacity: 1;
+  background: linear-gradient(
+    to right,
+    rgba(104, 156, 128, 0.4) 0%,
+    rgba(104, 156, 128, 0.067) 15%,
+    rgba(104, 156, 128, 0.067) 85%,
+    rgba(104, 156, 128, 0.4) 100%
+  );
+}
+
+
+/* Posiciones (cada tier es 25% del alto del grid) */
+.tier4 { top: 0%; }
+.tier3 { top: 25%; }
+.tier2 { top: 50%; }
+.tier1 { top: 75%; }
+
+
 /* Separador entre tier 2 y 1 */
 .tierDividerBottom {
   position: absolute;
@@ -100,11 +127,14 @@
 /* Slot contenedor del SkillCard */
 .skillSlot {
   min-width: 0;
+  
+    position: relative;
+  z-index: 1;
 }
 
 .tierLabel {
   position: relative;
-
+ z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,6 +142,7 @@
   border-right: 1px solid white;
   pointer-events: none;
   user-select: none;
+  
 }
 
 .tierText {
@@ -126,6 +157,12 @@
 
   color: $text-muted;
 }
+
+.tierActive .tierText {
+  color: white;
+  opacity: 1;
+}
+
 
 /* Marca visual cuando el tier está "required" */
 .tierProtected::after {

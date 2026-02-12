@@ -206,7 +206,7 @@
 .treeCard {
   position: relative;
   overflow: hidden;
-  background-color: $card-bg;
+  // background-color: $card-bg;
 
   /* BACKGROUND IMAGE */
   &::after {
@@ -214,6 +214,7 @@
     position: absolute;
     inset: 0;
 
+    background-color: rgb(18, 31, 18);
     background-image: var(--tree-bg);
     background-repeat: no-repeat;
     background-size: 65%;

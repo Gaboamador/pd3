@@ -57,7 +57,7 @@ export default function BuildLayout() {
 
   const [primaryTypes, setPrimaryTypes] = useState(ALL_PRIMARY_TYPES);
   const [secondaryTypes, setSecondaryTypes] = useState(ALL_SECONDARY_TYPES);
-  const [filtersOpen, setFiltersOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [activeSpin, setActiveSpin] = useState(null);
 
   const orderedPrimaryTypes = useMemo(
