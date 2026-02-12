@@ -1,0 +1,320 @@
+@use "../styles/variables" as *;
+
+.page {
+  min-height: 100vh;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  display: grid;
+  gap: 16px;
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  align-items: start;
+}
+
+.cell {
+  min-width: 0;
+}
+
+/* ===== DESKTOP ===== */
+/* Fila 1 → 3 cards grandes */
+.primary {
+  grid-column: span 4;
+}
+.secondary {
+  grid-column: span 4;
+}
+.overkill {
+  grid-column: span 4;
+}
+
+/* Fila 2 → 4 cards normales */
+.armor {
+  grid-column: span 3;
+}
+.throwable {
+  grid-column: span 3;
+}
+.deployable {
+  grid-column: span 3;
+}
+.tool {
+  grid-column: span 3;
+}
+
+/* Fila 3 → Heist full width */
+.heist {
+  grid-column: span 12;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .primary,
+  .secondary {
+    grid-column: span 3;
+  }
+
+  .overkill {
+    grid-column: span 6;
+  }
+
+  .armor,
+  .throwable,
+  .deployable,
+  .tool {
+    grid-column: span 3;
+  }
+
+  .heist {
+    grid-column: span 6;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cell {
+    grid-column: span 1;
+  }
+
+  .heist {
+    grid-column: span 2;
+  }
+}
+
+/* ===== MOBILE SMALL ===== */
+@media (max-width: 425px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cell {
+    grid-column: span 1;
+  }
+
+  .heist {
+    grid-column: span 1;
+  }
+}
+
+
+/* =========================
+   Weapon Filters Wrapper
+========================= */
+
+// .weaponFilters {
+//   display: flex;
+//   flex-direction: column; // Primary arriba, Secondary abajo
+//   gap: $space-xl;
+
+//   padding: $space-lg;
+//   background: $color-bg-elevated;
+//   border: 1px solid $color-border;
+//   border-radius: $radius-md;
+// }
+
+// /* =========================
+//    Each group
+// ========================= */
+
+// .filterGroup {
+//   display: flex;
+//   flex-direction: column;
+//   gap: $space-md;
+// }
+
+// .filterTitle {
+//   font-size: 14px;
+//   font-weight: 700;
+//   letter-spacing: 0.5px;
+//   color: $color-text-primary;
+//   text-transform: uppercase;
+// }
+
+// /* =========================
+//    Checkbox list
+// ========================= */
+
+// .filterList {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: $space-md $space-lg;
+// }
+
+// .filterItem {
+//   display: flex;
+//   align-items: center;
+//   gap: $space-sm;
+//   font-size: 13px;
+//   color: $color-text-muted;
+//   cursor: pointer;
+//   user-select: none;
+
+//   transition: color 0.15s ease;
+
+//   &:hover {
+//     color: $color-text-primary;
+//   }
+
+//   input[type="checkbox"] {
+//     accent-color: $pd3-main;
+//     cursor: pointer;
+//   }
+// }
+.weaponFilters {
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+/* =========================
+   Header
+========================= */
+
+.filtersHeader {
+  clip-path: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-lg;
+  padding: $space-sm;
+
+  font-size: 14px;
+  font-weight: 700;
+  // text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  background: $color-bg-contrast;
+  color: $color-text-primary;
+  border: none;
+  cursor: pointer;
+}
+
+.filtersHeaderTitle {
+  font-family: 'DIN2014';
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;   // importante: tamaño fijo
+  height: 16px;  // importante: tamaño fijo
+
+  font-size: 14px;
+  color: $color-text-muted;
+
+  transform-origin: center; // 🔥 clave
+}
+
+
+/* =========================
+   Content
+========================= */
+
+.filtersContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  padding: $space-lg;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.filterTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: $color-text-primary;
+  text-transform: uppercase;
+}
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+/* =========================
+   TOGGLE CHIP
+========================= */
+
+.toggleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: 6px 12px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+
+  background: $color-bg-surface;
+  color: $color-text-muted;
+  font-size: 12px;
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $pd3-main;
+    color: $color-text-primary;
+  }
+}
+
+/* Indicator dot */
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-border;
+  transition: all 0.15s ease;
+}
+
+/* ON STATE */
+
+.on {
+  background: rgba($pd3-main, 0.12);
+  border-color: $pd3-main;
+  color: $pd3-main;
+
+  .indicator {
+    background: $pd3-main;
+  }
+}
+
+.labelText {
+  white-space: nowrap;
+}

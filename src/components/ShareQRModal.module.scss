@@ -1,0 +1,132 @@
+@use "../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+// .modal {
+//   background: #0b0d16;
+//   border: 1px solid #2c2f45;
+//   padding: 20px;
+//   border-radius: 8px;
+//   display: grid;
+//   gap: 14px;
+//   text-align: center;
+//   min-width: 280px;
+// }
+.modal {
+  position: relative;
+
+  background: #0b0d16;
+  border: 1px solid #2c2f45;
+  border-radius: 8px;
+
+  padding: 20px;
+
+  display: grid;
+  gap: 14px;
+  text-align: center;
+
+  min-width: 280px;
+  max-width: 100%;
+
+  // 🔑 límite vertical + scroll interno
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+
+  // mejor scroll en iOS
+  -webkit-overflow-scrolling: touch;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  // sticky header
+  position: sticky;
+  top: 0;
+
+  background: #0b0d16;
+  padding-bottom: 8px;
+  z-index: 2;
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.close {
+  clip-path: none;
+  border-radius: $space-xs;
+  padding: $space-xs $space-sm;
+
+  // alineación
+  margin-left: auto;
+
+  // sticky real
+  position: sticky;
+  top: 0;
+
+  z-index: 1;
+}
+
+
+.qrWrapper {
+  position: relative;
+  background: white;
+  padding: 12px;
+  display: inline-block;
+}
+
+.qrLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;              // 🔑 ~18% de 240px
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.url {
+  font-size: 12px;
+  word-break: break-all;
+  opacity: 0.7;
+}
+
+.copyButtonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-height: 500px) {
+  .modal {
+    padding: 14px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+    .overlay {
+    padding: 10px;
+    }
+  .modal {
+    padding: 10px;
+    gap: 8px;
+  }
+}

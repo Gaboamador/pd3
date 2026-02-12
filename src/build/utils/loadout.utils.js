@@ -106,6 +106,41 @@ export function buildEmptyModsStateForWeapon(weaponDef) {
   return state;
 }
 
+export function buildInitialModsStateForWeapon(weaponDef) {
+  const slots = getWeaponModSlots(weaponDef);
+  const state = {};
+
+  const isPreset = weaponDef?.preset === 1;
+
+  for (const s of slots) {
+    if (!isPreset) {
+      state[s.slot] = null;
+      continue;
+    }
+
+    // Buscar opciones reales (no virtuales)
+    const realOptions = (s.options || []).filter(
+      o => !o.isVirtual
+    );
+
+    if (!realOptions.length) {
+      state[s.slot] = null;
+      continue;
+    }
+
+    // En preset, siempre tomar la PRIMERA opción real
+    const firstReal = realOptions[0];
+
+    state[s.slot] = firstReal.isDefault
+      ? null
+      : firstReal.id;
+  }
+
+  return state;
+}
+
+
+
 export function validateWeaponMods(loadoutState, loadoutData) {
   const issues = [];
   const items = flattenLoadoutItems(loadoutData);
@@ -198,13 +233,6 @@ function normalizeModsList(slotMods) {
   return [];
 }
 
-// function normalizeMod(m) {
-//   if (!m) return null;
-//   return {
-//     id: m.id ?? m.mod_id ?? m.key ?? null,
-//     name: m.name ?? m.title ?? String(m.id ?? m.key ?? "Mod"),
-//   };
-// }
 function normalizeMod(m) {
   if (!m) return null;
 

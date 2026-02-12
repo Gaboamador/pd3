@@ -16,7 +16,9 @@ export default function WeaponModSlotsRow({ weaponDef, modsState, height }) {
         const spritePos = WEAPON_MOD_SLOT_SPRITES[ms.slot];
         if (!spritePos) return null;
 
-        const isActive = modsState?.[ms.slot] != null;
+        // const isActive = modsState?.[ms.slot] != null;
+        const v = modsState?.[ms.slot] ?? null;
+        const isActive = v != null && v !== "";
 
         return (
           <div key={ms.slot} className={styles.icon}>

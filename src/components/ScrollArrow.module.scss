@@ -1,0 +1,26 @@
+@use "../styles/variables" as *;
+
+.arrow {
+    clip-path: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+
+  width: 44px;
+  height: 44px;
+padding: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.8);
+  color: $pd3-main;
+  border: 1px solid $pd3-main;;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.sentinel {
+  width: 100%;
+  height: 1px;
+}

@@ -1,0 +1,101 @@
+@use "../../../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+}
+
+.modal {
+  width: min(760px, 100%);
+  max-height: min(78vh, 780px);
+
+  overflow: auto;
+
+  border-radius: 14px;
+  padding: 16px;
+
+  background: rgba(20, 20, 20, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  display: grid;
+  gap: 16px;
+
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.title {
+  font-weight: 1000;
+  font-size: 18px;
+}
+
+.closeButton {
+    font-family: 'Rift';
+    clip-path: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: inherit;
+
+  border-radius: 10px;
+  padding: 6px 12px;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.section {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 14px;
+
+  display: grid;
+  gap: 5px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $pd3-main;
+}
+
+.sectionTitle {
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.sectionCost {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'DIN2014';
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}

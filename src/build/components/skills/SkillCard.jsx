@@ -155,7 +155,7 @@ export default function SkillCard({
         )}
 
         {/* INFO BUTTON (keep behavior) */}
-        <button
+        <div
           type="button"
           className={styles.infoButton}
           onClick={(e) => {
@@ -163,11 +163,14 @@ export default function SkillCard({
             if (isMobile) onOpenInfo?.();
             else onSelectForDetails?.();
           }}
+          onPointerDown={(e) => e.stopPropagation()}
+          onPointerUp={(e) => e.stopPropagation()}
+          onContextMenu={(e) => e.stopPropagation()}
           aria-label="Info"
           title="Info"
         >
           ℹ️
-        </button>
+        </div>
 
         {/* LABEL INSIDE SLOT */}
         {isAced && <div className={styles.stateLabel} data-kind="aced">// ACED</div>}

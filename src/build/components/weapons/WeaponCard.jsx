@@ -14,8 +14,16 @@ export default function WeaponCard({
   onBeforeEdit,
   forceOpenMods,
   onModsOpened,
+  showWeaponMods = false,
+  mode,
+  spriteOverlay,
+  isSpinning = false,
+  spinningLabel = "RANDOMIZING...",
 }) {
   const [openMods, setOpenMods] = useState(false);
+
+  const isItemPicker = mode === "item-picker";
+const isLoadoutEditor = !isItemPicker; // default
 
   // 🔒 derivaciones SEGURAS
   const spritePos = weaponDef
@@ -60,12 +68,14 @@ const spriteHeight = isMobile ? 80 : 110;
 
 return (
   <>
-    <div className={styles.card} onClick={onClick}>
+    <div className={`${styles.card} ${isSpinning ? styles.spinning : ""}`} onClick={onClick}>
       {/* HEADER */}
       <div className={styles.header}>
         <div className={styles.headerTitle}>
           <span>//</span>
-          <span className={styles.category}>{slot.toUpperCase()} WEAPON</span>
+          <span className={styles.category}>
+            {isItemPicker ? name : `${slot.toUpperCase()} WEAPON`}
+          </span>
         </div>
         <button
           className={`${styles.modsBtn} ${!canEdit ? styles.hidden : ""}`}
@@ -82,11 +92,22 @@ return (
       </div>
 
       {/* BODY */}
-      <div className={styles.body}>
-        <WeaponSprite spritePos={spritePos} height={spriteHeight} />
+      <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper}`}>
+        {/* <WeaponSprite spritePos={spritePos} height={spriteHeight} /> */}
+        {!isSpinning && (
+          <WeaponSprite spritePos={spritePos} height={spriteHeight} />
+        )}
+        
+        {spriteOverlay && (
+          <div className={styles.spriteOverlay}>
+            {spriteOverlay}
+          </div>
+        )}
+
+        {isSpinning && <div className={styles.reelMask} />}
       </div>
       <div>
-        {weaponDef && (
+        {weaponDef && showWeaponMods && (
           <WeaponModSlotsRow
             weaponDef={weaponDef}
             modsState={modsState}
@@ -96,9 +117,15 @@ return (
       </div>
 
       {/* FOOTER */}
+      {isLoadoutEditor && (
       <div className={styles.footer}>
-        <div className={styles.name}>{name}</div>
+        {/* <div className={styles.name}>{name}</div> */}
+        <div className={styles.name}>
+          {isSpinning ? spinningLabel : name}
+        </div>
       </div>
+      )}
+
     </div>
 
     {weaponDef && onChangeMods && (

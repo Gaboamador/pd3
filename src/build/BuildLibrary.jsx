@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
 import styles from "./BuildLibrary.module.scss";
+import { IoIosRadioButtonOff, IoIosCheckmarkCircle } from "react-icons/io";
+
+
 
 function SlotBadge({ slot }) {
   if (slot == null) {
@@ -12,9 +16,6 @@ function SlotBadge({ slot }) {
   );
 }
 
-/**
- * Selector de slot
- */
 function SlotSelect({ slot, onChange }) {
   return (
     <select
@@ -47,7 +48,6 @@ function SlotSelect({ slot, onChange }) {
   );
 }
 
-
 export default function BuildLibrary({
   builds,
   currentBuildId,
@@ -55,17 +55,20 @@ export default function BuildLibrary({
   onDeleteBuild,
   onAssignSlot,
 }) {
+  const [expandedId, setExpandedId] = useState(null);
+
   if (!builds.length) {
-    return <div>No saved builds</div>;
+    return <div className={styles.empty}>No saved builds</div>;
   }
 
- return (
+  return (
     <div className={styles.library}>
       <h3 className={styles.title}>Saved Builds</h3>
 
       <ul className={styles.list}>
         {builds.map((build) => {
           const isActive = build.id === currentBuildId;
+          const isExpanded = expandedId === build.id;
 
           return (
             <li
@@ -74,38 +77,65 @@ export default function BuildLibrary({
                 isActive ? styles.active : ""
               }`}
             >
-              {/* Header */}
               <div className={styles.header}>
-                <strong className={styles.name}>
-                  {build.name || "Unnamed build"}
-                </strong>
-
-                <SlotBadge slot={build.slot} />
-              </div>
-
-              {/* Controls */}
-              <div className={styles.controls}>
-                <SlotSelect
-                  slot={build.slot}
-                  onChange={(slot) =>
-                    onAssignSlot(build.id, slot)
+                <div
+                  className={styles.headerMain}
+                  onClick={() =>
+                    setExpandedId(
+                      isExpanded ? null : build.id
+                    )
                   }
-                />
-
-                <button
-                  className={styles.btn}
-                  onClick={() => onLoadBuild(build)}
                 >
-                  Load
-                </button>
+                  <div className={styles.headerLeft}>
+                    <strong className={styles.name}>
+                      {build.name || "Unnamed build"}
+                    </strong>
+                  </div>
 
-                <button
-                  className={styles.btnDanger}
-                  onClick={() => onDeleteBuild(build.id)}
-                >
-                  Delete
-                </button>
+                  <div className={styles.headerRight}>
+                    <SlotBadge slot={build.slot} />
+                    <span className={styles.chevron}>
+                      {isExpanded ? "▾" : "▸"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* BOTÓN ACTIVO DIRECTO */}
+                {!isActive ? (
+                  <button
+                    className={styles.activateBtn}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onLoadBuild(build);
+                    }}
+                  >
+                    {/* Set Active */}
+                    <IoIosRadioButtonOff />
+                  </button>
+                ) : (
+                    <IoIosCheckmarkCircle/>
+                )}
               </div>
+
+              {/* CONTROLES (ON DEMAND) */}
+              {isExpanded && (
+                <div className={styles.controls}>
+                  <SlotSelect
+                    slot={build.slot}
+                    onChange={(slot) =>
+                      onAssignSlot(build.id, slot)
+                    }
+                  />
+                  <button
+                    className="danger"
+                    onClick={() =>
+                      onDeleteBuild(build.id)
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
 
               {isActive && (
                 <div className={styles.activeHint}>

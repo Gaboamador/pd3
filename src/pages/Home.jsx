@@ -1,18 +1,31 @@
 import { Link } from "react-router-dom";
+import styles from "./Home.module.scss";
 
 export default function Home() {
   return (
-    <div style={{ padding: 16 }}>
-      <h1>PD3</h1>
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Build tools & randomizers</h1>
+        {/* <p className={styles.subtitle}>
+          Payday 3 – Build tools & randomizers
+        </p> */}
+      </header>
 
-      <ul style={{ display: "grid", gap: 12, paddingLeft: 18 }}>
-        <li>
-          <Link to="/randomizer">Randomizer</Link>
-        </li>
-        <li>
-          <Link to="/build-editor">Build Editor</Link>
-        </li>
-      </ul>
+      <nav className={styles.grid}>
+        <Link to="/build-editor" className={styles.card}>
+          <div className={styles.cardTitle}>Build Editor</div>
+          <div className={styles.cardDesc}>
+            Manually create and edit builds, skills and loadouts.
+          </div>
+        </Link>
+
+        <Link to="/randomizer" className={styles.card}>
+          <div className={styles.cardTitle}>Randomizer</div>
+          <div className={styles.cardDesc}>
+            Generate random builds with configurable rules.
+          </div>
+        </Link>
+      </nav>
     </div>
   );
 }

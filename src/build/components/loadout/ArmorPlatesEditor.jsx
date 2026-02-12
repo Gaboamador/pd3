@@ -7,7 +7,7 @@ import {
 import PlateOrderEditor from "./PlateOrderEditor";
 
 export default function ArmorPlatesEditor({
-  value,        // { key, plates }
+  value,
   platesData,
   loadoutData,
   onChange,

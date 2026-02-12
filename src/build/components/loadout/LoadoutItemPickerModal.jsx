@@ -50,18 +50,21 @@ export default function LoadoutItemPickerModal({
   <Modal open={open} onClose={handleClose} title={title}>
     <div className={styles.wrapper}>
       {itemTypes.length > 1 && (
-        <select
-          className={styles.filter}
-          value={filterType}
-          onChange={e => setFilterType(e.target.value)}
-        >
-          <option value="">All types</option>
-          {orderedTypes.map(type => (
-            <option key={type} value={type}>
-              {getWeaponTypeLabel(type, labelsMap)}
-            </option>
-          ))}
-        </select>
+        <div className={styles.selectWrapper}>
+          <span className={styles.selectLabel}>Weapon Type</span>
+          <select
+            className={styles.filter}
+            value={filterType}
+            onChange={e => setFilterType(e.target.value)}
+          >
+            <option value="">All</option>
+            {orderedTypes.map(type => (
+              <option key={type} value={type}>
+                {getWeaponTypeLabel(type, labelsMap)}
+              </option>
+            ))}
+          </select>
+        </div>
       )}
 
       <div className={styles.grid}>
@@ -74,34 +77,4 @@ export default function LoadoutItemPickerModal({
     </div>
   </Modal>
 );
-
-  // return (
-  //   <Modal open={open} onClose={handleClose} title={title}>
-  //     <div style={{ display: "grid", gap: 12 }}>
-  //       {itemTypes.length > 1 && (
-  //         <select
-  //           value={filterType}
-  //           onChange={e => setFilterType(e.target.value)}
-  //         >
-  //           <option value="">All types</option>
-  //           {orderedTypes.map(type => (
-  //             <option key={type} value={type}>
-  //               {getWeaponTypeLabel(type, labelsMap)}
-  //             </option>
-  //           ))}
-  //         </select>
-  //       )}
-
-  //       <div
-  //         style={{
-  //           display: "grid",
-  //           gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-  //           gap: 12,
-  //         }}
-  //       >
-  //         {itemsToShow.map(def => renderCard(def))}
-  //       </div>
-  //     </div>
-  //   </Modal>
-  // );
 }

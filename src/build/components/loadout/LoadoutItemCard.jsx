@@ -9,6 +9,10 @@ export default function LoadoutItemCard({
   onClick,
   onEdit,
   headerExtra,
+  mode,
+  spriteOverlay,
+  isSpinning = false,
+  spinningLabel = "RANDOMIZING...",
 }) {
   const spritePos = itemDef
     ? itemDef.sprite_pos
@@ -17,6 +21,9 @@ export default function LoadoutItemCard({
   const name = itemDef
     ? itemDef.name ?? itemDef.key
     : "Select item";
+
+      const isItemPicker = mode === "item-picker";
+const isLoadoutEditor = !isItemPicker; // default
 
   const canEdit = Boolean(itemDef && onEdit);
 
@@ -41,16 +48,22 @@ export default function LoadoutItemCard({
 
 
   return (
-  <div className={styles.card} onClick={onClick}>
+  <div className={`${styles.card} ${isSpinning ? styles.spinning : ""}`} onClick={onClick}>
   {/* HEADER */}
   <div className={styles.header}>
     <div className={styles.headerTitle}>
       <span>//</span>
-      <span className={styles.category}>{slot.toUpperCase()} {slot==="overkill" && 'WEAPON'}</span>
+      <span className={styles.category}>
+        {isItemPicker ? name : `${slot.toUpperCase()} ${slot==="overkill" ? 'WEAPON' : ""}`}
+      </span>
     </div>
 
     <div className={styles.headerRight}>
-      {headerExtra}
+      
+      {!isSpinning && headerExtra}
+
+  
+      {/* {headerExtra} */}
 
       <button
         type="button"
@@ -70,43 +83,49 @@ export default function LoadoutItemCard({
   </div>
 
   {/* BODY */}
-  <div className={styles.body}>
-    <SpriteComponent spritePos={spritePos} height={spriteHeight} />
+  <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper}`}>
+    {/* <SpriteComponent spritePos={spritePos} height={spriteHeight} /> */}
+
+    {/* {SpriteComponent ? (
+      <SpriteComponent spritePos={spritePos} height={48} />
+    ) : (
+      <div className={styles.noSprite}>
+        {name}
+      </div>
+    )} */}
+
+    {!isSpinning && (
+      SpriteComponent ? (
+        <SpriteComponent spritePos={spritePos} height={spriteHeight} />
+      ) : (
+        <div className={styles.noSprite}>
+          {name}
+        </div>
+      )
+    )}
+
+    {spriteOverlay && (
+      <div className={styles.spriteOverlay}>
+        {spriteOverlay}
+      </div>
+    )}
+
+    {isSpinning && <div className={styles.reelMask} />}
+
   </div>
 
   {/* FOOTER */}
-  <div className={styles.footer}>
-    <div className={styles.name}>{name}</div>
-  </div>
+    {isLoadoutEditor && (
+    <div className={styles.footer}>
+      {/* <div className={styles.name}>{name}</div> */}
+      <div className={styles.name}>
+        {isSpinning ? spinningLabel : name}
+      </div>
+    </div>
+    )}
+
+
 </div>
 
 );
-
-  // return (
-  //   <div className={styles.card} onClick={onClick}>
-  //     <SpriteComponent spritePos={spritePos} height={48} />
-
-  //     <div className={styles.name}>{name}</div>
-
-  //     {canEdit && (
-  //       <button
-  //         type="button"
-  //         className={styles.editBtn}
-  //         onClick={e => {
-  //           e.stopPropagation();
-  //           onEdit();
-  //         }}
-  //         aria-label="Edit"
-  //       >
-  //         ⚙
-  //       </button>
-  //     )}
-
-  //     {itemDef && extraContent && (
-  //       <div className={styles.extra}>
-  //         {extraContent}
-  //       </div>
-  //     )}
-  //   </div>
-  // );
 }

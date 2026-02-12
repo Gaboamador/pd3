@@ -1,11 +1,11 @@
 {
-  "name": "PD3 Random Build Generator",
-  "short_name": "PD3 Build",
+  "name": "PD3 Companion App",
+  "short_name": "PD3 Builds",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "description": "Random Build Generator for Payday 3",
+  "description": "Companion App for Payday 3",
   "icons": [
     {
       "src": "/icons/icon-192.png",

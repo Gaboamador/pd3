@@ -92,7 +92,7 @@
         "key": "FragProficiency",
         "name": "Bombs Away",
         "base_description": "For every skill equipped in the Grenadier branch, Frag Grenades deal {IncreasedDamage} more damage.\n{ComputedIncreasedDamage}",
-        "aced_description": "The blast radius of Frag Grenades increases by  {AcedIncreasedRange} meters for every skill equipped in the Grenadier branch.\n{ComputedAcedIncreasedRange}",
+        "aced_description": "The blast radius of Frag Grenades increases by {AcedIncreasedRange} meters for every skill equipped in the Grenadier branch.\n{ComputedAcedIncreasedRange}",
         "values": {
             "IncreasedDamage": {
                 "value": 0.075,
@@ -1878,8 +1878,8 @@
         "id": 4,
         "key": "BeastOfBurdon",
         "name": "Beast Of Burden",
-        "base_description": "You can carry [sk-val]2[/] bags at once. This will incur a movement penalty.",
-        "aced_description": "You no longer suffer a movement penalty while carrying [sk-val]2[/] bags.\n\nThis will not negate movement penalties from heavy bags.",
+        "base_description": "You can carry 2 bags at once. This will incur a movement penalty.",
+        "aced_description": "You no longer suffer a movement penalty while carrying 2 bags.\n\nThis will not negate movement penalties from heavy bags.",
         "values": null,
         "skill_category_id": 1,
         "skill_tree_id": 1,
@@ -3150,6 +3150,10 @@
                 "value": 1,
                 "type": "flat"
             },
+            "DecreasedDamage": {
+                "value": 0.5,
+                "type": "rate"
+            },
             "AcedDecreasedDamage": {
                 "value": 0.5,
                 "type": "rate"
@@ -3203,7 +3207,7 @@
         "key": "ElectricInterference",
         "name": "Electrical Interference",
         "base_description": "While your ECM Jammer is active, enemies become stunned for {StunnedDuration} seconds after anyone in your crew shoots them.",
-        "aced_description": "When you destroy a Zapper’s battery, regain [sk-val]1[/] ECM Jammer.",
+        "aced_description": "When you destroy a Zapper’s battery, regain 1 ECM Jammer.",
         "values": {
             "StunnedDuration": {
                 "value": 5,
@@ -3228,7 +3232,7 @@
         "id": 66,
         "key": "BountyHunter",
         "name": "Bounty Hunter",
-        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\n<Hostile>Zappers</> restore <Skill>1</> tool.\n<Hostile>Naders</> restore <Skill>1</> throwable.\n<Hostile>Techies</> restore <Skill>1</> broken armor layer.",
+        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\nZappers restore <Skill>1</> tool.\nNaders restore <Skill>1</> throwable.\nTechies restore <Skill>1</> broken armor layer.",
         "aced_description": "Add these marked special enemies to your bounty list.\nCloaker: Heal for {AcedAddedHealth} of your maximum health.\nDozer: Restore <Skill>1</> down.",
         "values": {
             "AcedAddedHealth": {

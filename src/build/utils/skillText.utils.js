@@ -59,7 +59,8 @@ export function renderSkillText(template, valuesMap) {
     if (pluralWord == null) return match;
 
     // reemplazamos solo el sufijo plural, pero el {Key} lo dejamos para el paso 2
-    return `{${key}} ${pluralWord}`;
+    // return `{${key}} ${pluralWord}`;
+    return pluralWord;
   });
 
   // 2) tokens {Key}

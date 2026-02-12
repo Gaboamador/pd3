@@ -1,4 +1,5 @@
 // useLoadoutItemController.js
+import { buildInitialModsStateForWeapon } from "../build/utils/loadout.utils";
 import { useState } from "react";
 
 export function useLoadoutItemController({
@@ -11,18 +12,21 @@ export function useLoadoutItemController({
 
   function handleSelectItem(def) {
     if (allowEdit) {
-      const emptyMods = {};
-      if (def.mods) {
-        Object.keys(def.mods).forEach(s => {
-          emptyMods[s] = null;
-        });
-      }
+      
+      const initialMods = buildInitialModsStateForWeapon(def);
+      // const emptyMods = {};
+      // if (def.mods) {
+      //   Object.keys(def.mods).forEach(s => {
+      //     emptyMods[s] = null;
+      //   });
+      // }
 
       updateLoadout({
         [slotKey]: {
           weaponKey: def.key,
           preset: def.preset ?? 0,
-          mods: emptyMods,
+          // mods: emptyMods,
+          mods: initialMods,
         },
       });
     } else {

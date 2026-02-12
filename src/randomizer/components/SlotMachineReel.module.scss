@@ -1,0 +1,15 @@
+.viewport {
+  overflow: hidden;
+  position: relative;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+}
+
+.reelItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

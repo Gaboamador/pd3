@@ -1,4 +1,4 @@
-@use "./variables.scss" as *;
+@use "../styles/variables" as *;
 
 .header {
   width: 100%;
@@ -34,7 +34,8 @@
   padding: 0 12px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
+    justify-content: space-between;
   gap: 12px;
 }
 
@@ -48,6 +49,10 @@
 .logo {
   height: 42px;
   vertical-align: middle;
+}
+
+.authIcon {
+  color: gray;
 }
 
 @media (min-width: 600px) {

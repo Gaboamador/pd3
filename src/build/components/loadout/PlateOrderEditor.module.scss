@@ -19,12 +19,18 @@
 }
 
 .row {
-  display: grid;
-  grid-template-columns: 16px repeat(3, 1fr);
+  // display: grid;
+  // grid-template-columns: 16px repeat(3, auto);
+  // gap: 8px;
+  // justify-content: center;
+  display: flex;       // Pasamos a flex
+  align-items: center; // Alineación vertical
   gap: 8px;
+  width: 100%;
 }
 
 .slotIndex {
+  flex: 0 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +39,17 @@
   opacity: 0.75;
 }
 
+.optionsContainer {
+  display: flex;       // Sub-contenedor flex
+  flex: 1;             // Toma todo el espacio restante
+  justify-content: center; // ¡Aquí está tu centrado!
+  gap: 8px;            // Espacio entre botones
+}
+
 .option {
+  flex: 1;             // Esto hace que los 3 botones midan lo mismo
+  max-width: 120px;
+  clip-path: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +58,7 @@
   padding: 10px 8px;
   border-radius: 8px;
 //   border: 1px solid rgba(255, 255, 255, 0.18);
-border: none;
+  border: none;
   background: rgba(255, 255, 255, 0.04);
 
   font: inherit;

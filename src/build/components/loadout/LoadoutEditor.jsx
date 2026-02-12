@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import styles from "./LoadoutEditor.module.scss";
-import ArmorEditor from "./ArmorEditor";
 import WeaponCard from "../weapons/WeaponCard";
 import LoadoutItemPickerModal from "./LoadoutItemPickerModal";
 import LoadoutItemCard from "./LoadoutItemCard";
@@ -14,7 +13,6 @@ import Modal from "../common/Modal";
 import ArmorPlatesEditor from "./ArmorPlatesEditor";
 import { getArmorByKey, getArmorMaxPlates, buildEmptyPlateSlots } from "../../utils/armor.utils";
 import { useLoadoutItemController } from "../../../hooks/useLoadoutItemController";
-import { createEmptyBuild } from "../../build.utils";
 
 export default function LoadoutEditor({
   build,
@@ -173,8 +171,6 @@ const hasAnyPlateSelected = armorPlates.some(p => p != null);
 
 return (
   <div className={styles.wrapper}>
-    <div className={styles.title}>// LOADOUT</div>
-
     <div className={styles.grid}>
       {/* PRIMARY */}
       <div className={`${styles.cell} ${styles.primary}`}>
@@ -193,6 +189,7 @@ return (
           onClick={() => setOpenPicker("primary")}
           forceOpenMods={primaryCtrl.requestEdit}
           onModsOpened={primaryCtrl.consumeEditRequest}
+          showWeaponMods={true}
         />
 
         <LoadoutItemPickerModal
@@ -204,6 +201,7 @@ return (
             <WeaponCard
               key={def.key}
               slot="primary"
+              mode="item-picker"
               weaponDef={def}
               onClick={() => {
                 primaryCtrl.handleSelectItem(def);
@@ -235,6 +233,7 @@ return (
           onClick={() => setOpenPicker("secondary")}
           forceOpenMods={secondaryCtrl.requestEdit}
           onModsOpened={secondaryCtrl.consumeEditRequest}
+          showWeaponMods={true}
         />
 
         <LoadoutItemPickerModal
@@ -246,6 +245,7 @@ return (
             <WeaponCard
               key={def.key}
               slot="secondary"
+              mode="item-picker"
               weaponDef={def}
               onClick={() => {
                 secondaryCtrl.handleSelectItem(def);
@@ -278,6 +278,7 @@ return (
             <LoadoutItemCard
               key={def.key}
               slot="overkill"
+              mode="item-picker"
               itemDef={def}
               SpriteComponent={OverkillSprite}
               onClick={() => {
@@ -297,11 +298,6 @@ return (
           SpriteComponent={ArmorSprite}
           onClick={() => setOpenPicker("armor")}
           onEdit={() => setOpenArmorEditor(true)}
-          // extraContent={
-          //   hasAnyPlateSelected ? (
-          //     <ArmorPlatesPreview plates={armorPlates} platesData={platesData} />
-          //   ) : null
-          // }
           headerExtra={
             hasAnyPlateSelected ? (
               <ArmorPlatesPreview
@@ -321,6 +317,7 @@ return (
             <LoadoutItemCard
               key={def.key}
               slot="armor"
+              mode="item-picker"
               itemDef={def}
               SpriteComponent={ArmorSprite}
               onClick={() => {
@@ -369,6 +366,7 @@ return (
             <LoadoutItemCard
               key={def.key}
               slot="throwable"
+              mode="item-picker"
               itemDef={def}
               SpriteComponent={ThrowableSprite}
               onClick={() => {
@@ -398,6 +396,7 @@ return (
             <LoadoutItemCard
               key={def.key}
               slot="deployable"
+              mode="item-picker"
               itemDef={def}
               SpriteComponent={DeployableSprite}
               onClick={() => {
@@ -427,6 +426,7 @@ return (
             <LoadoutItemCard
               key={def.key}
               slot="tool"
+              mode="item-picker"
               itemDef={def}
               SpriteComponent={ToolSprite}
               onClick={() => {
@@ -440,260 +440,4 @@ return (
     </div>
   </div>
 );
-
-//   return (
-//     <div style={{ display: "grid", gap: 16 }}>
-//       <div style={{ display: "grid", gap: 10 }}>
-//         <div style={{ fontWeight: 700 }}>// LOADOUT</div>
-
-//         {/* PRIMARY */}
-//         <WeaponCard
-//           slot="primary"
-//           weaponDef={primaryWeaponDef}
-//           modsState={build.loadout.primary?.mods}
-//           onChangeMods={mods =>
-//             updateLoadout({
-//               primary: {
-//                 ...build.loadout.primary,
-//                 mods,
-//               },
-//             })
-//           }
-//           onClick={() => setOpenPicker("primary")}
-//           forceOpenMods={primaryCtrl.requestEdit}
-//           onModsOpened={primaryCtrl.consumeEditRequest}
-//         />
-
-//         <LoadoutItemPickerModal
-//           open={openPicker === "primary"}
-//           onClose={() => setOpenPicker(null)}
-//           title="Select Primary weapon"
-//           itemsByType={weaponsPrimaryByType}
-//           renderCard={def => (
-//           <WeaponCard
-//             key={def.key}
-//             slot="primary"
-//             weaponDef={def}
-//             onClick={() => {
-//               primaryCtrl.handleSelectItem(def);
-//               setOpenPicker(null);
-//             }}
-//             onBeforeEdit={weaponDef => {
-//               primaryCtrl.handleEditItem(weaponDef);
-//               setOpenPicker(null);
-//             }}
-//           />
-//           )}
-//         />
-
-//         {/* SECONDARY */}
-//         <WeaponCard
-//           slot="secondary"
-//           weaponDef={secondaryWeaponDef}
-//           modsState={build.loadout.secondary?.mods}
-//           onChangeMods={mods =>
-//             updateLoadout({
-//               secondary: {
-//                 ...build.loadout.secondary,
-//                 mods,
-//               },
-//             })
-//           }
-//           onClick={() => setOpenPicker("secondary")}
-//           forceOpenMods={secondaryCtrl.requestEdit}
-//           onModsOpened={secondaryCtrl.consumeEditRequest}
-//         />
-
-//         <LoadoutItemPickerModal
-//           open={openPicker === "secondary"}
-//           onClose={() => setOpenPicker(null)}
-//           title="Select Secondary weapon"
-//           itemsByType={weaponsSecondaryByType}
-//           renderCard={def => (
-//             <WeaponCard
-//               key={def.key}
-//               slot="secondary"
-//               weaponDef={def}
-//               onClick={() => {
-//                 secondaryCtrl.handleSelectItem(def);
-//                 setOpenPicker(null);
-//               }}
-//               onBeforeEdit={weaponDef => {
-//                 secondaryCtrl.handleEditItem(weaponDef);
-//                 setOpenPicker(null);
-//               }}
-//             />
-//           )}
-//         />
-//       </div>
-
-
-// {/* OVERKILL */}
-//   <LoadoutItemCard
-//     slot="overkill"
-//     itemDef={overkillDef}
-//     SpriteComponent={OverkillSprite}
-//     onClick={() => setOpenPicker("overkill")}
-//   />
-
-//   <LoadoutItemPickerModal
-//     open={openPicker === "overkill"}
-//     onClose={() => setOpenPicker(null)}
-//     title="Select Overkill Weapon"
-//     itemsByType={{ all: loadoutNormalized.overkill }}
-//     renderCard={def => (
-//       <LoadoutItemCard
-//         key={def.key}
-//         slot="overkill"
-//         itemDef={def}
-//         SpriteComponent={OverkillSprite}
-//         onClick={() => {
-//           overkillCtrl.handleSelectItem(def);
-//           setOpenPicker(null);
-//         }}
-//       />
-//     )}
-//   />
-
-// {/* ARMOR */}
-// <LoadoutItemCard
-//   slot="armor"
-//   itemDef={armorDef}
-//   SpriteComponent={ArmorSprite}
-//   onClick={() => setOpenPicker("armor")}
-//   onEdit={() => setOpenArmorEditor(true)}
-//   extraContent={
-//       hasAnyPlateSelected ? (
-//         <ArmorPlatesPreview
-//           plates={armorPlates}
-//           platesData={platesData}
-//         />
-//       ) : null
-//     }
-// />
-
-// <LoadoutItemPickerModal
-//   open={openPicker === "armor"}
-//   onClose={() => setOpenPicker(null)}
-//   title="Select Armor Frame"
-//   itemsByType={{ all: armors }}
-//   renderCard={def => (
-//     <LoadoutItemCard
-//       key={def.key}
-//       slot="armor"
-//       itemDef={def}
-//       SpriteComponent={ArmorSprite}
-//       onClick={() => {
-//         setArmorFrame(def.key);
-//         setOpenPicker(null);
-//       }}
-//       // opcional: permitir ⚙ también dentro del picker (igual que weapons)
-//       onEdit={() => {
-//         setArmorFrame(def.key);
-//         setOpenPicker(null);
-//         setOpenArmorEditor(true);
-//       }}
-//     />
-//   )}
-// />
-
-// <Modal
-//   open={openArmorEditor}
-//   onClose={() => setOpenArmorEditor(false)}
-//   title={`Edit Armor Plates${armorDef?.name ? ` – ${armorDef.name}` : ""}`}
-//   width="720px"
-// >
-//   <ArmorPlatesEditor
-//     value={build.loadout.armor}
-//     platesData={platesData}
-//     loadoutData={loadoutData}
-//     onChange={armor => updateLoadout({ armor })}
-//   />
-// </Modal>
-
-
-//   {/* DEPLOYABLE */}
-//   <LoadoutItemCard
-//     slot="deployable"
-//     itemDef={deployableDef}
-//     SpriteComponent={DeployableSprite}
-//     onClick={() => setOpenPicker("deployable")}
-//   />
-
-//   <LoadoutItemPickerModal
-//     open={openPicker === "deployable"}
-//     onClose={() => setOpenPicker(null)}
-//     title="Select Deployable"
-//     itemsByType={{ all: loadoutNormalized.deployable }}
-//     renderCard={def => (
-//       <LoadoutItemCard
-//         key={def.key}
-//         slot="deployable"
-//         itemDef={def}
-//         SpriteComponent={DeployableSprite}
-//         onClick={() => {
-//           deployableCtrl.handleSelectItem(def);
-//           setOpenPicker(null);
-//         }}
-//       />
-//     )}
-//   />
-
-//   {/* THROWABLES */}
-//   <LoadoutItemCard
-//     slot="throwable"
-//     itemDef={throwableDef}
-//     SpriteComponent={ThrowableSprite}
-//     onClick={() => setOpenPicker("throwable")}
-//   />
-
-//   <LoadoutItemPickerModal
-//     open={openPicker === "throwable"}
-//     onClose={() => setOpenPicker(null)}
-//     title="Select Throwable"
-//     itemsByType={{ all: loadoutNormalized.throwable }}
-//     renderCard={def => (
-//       <LoadoutItemCard
-//         key={def.key}
-//         slot="throwable"
-//         itemDef={def}
-//         SpriteComponent={ThrowableSprite}
-//         onClick={() => {
-//           throwableCtrl.handleSelectItem(def);
-//           setOpenPicker(null);
-//         }}
-//       />
-//     )}
-//   />
-
-// {/* TOOLS */}
-//   <LoadoutItemCard
-//     slot="tool"
-//     itemDef={toolDef}
-//     SpriteComponent={ToolSprite}
-//     onClick={() => setOpenPicker("tool")}
-//   />
-
-//   <LoadoutItemPickerModal
-//     open={openPicker === "tool"}
-//     onClose={() => setOpenPicker(null)}
-//     title="Select Tool"
-//     itemsByType={{ all: loadoutNormalized.tool }}
-//     renderCard={def => (
-//       <LoadoutItemCard
-//         key={def.key}
-//         slot="tool"
-//         itemDef={def}
-//         SpriteComponent={ToolSprite}
-//         onClick={() => {
-//           toolCtrl.handleSelectItem(def);
-//           setOpenPicker(null);
-//         }}
-//       />
-//     )}
-//   />
-
-
-//     </div>
-//   );
 }

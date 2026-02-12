@@ -6,11 +6,14 @@
 .library {
   display: flex;
   flex-direction: column;
-  gap: $space-md;
+  // gap: $space-xs;
   padding: $space-md;
   background: $color-bg-surface;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-top: 0;
 }
 
 .title {
@@ -18,6 +21,13 @@
   font-size: 1rem;
   font-weight: 700;
   color: $color-text-primary;
+
+    position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background: $color-bg-surface;
+  padding: $space-md $space-xs;
 }
 
 .empty {
@@ -52,9 +62,63 @@
 
 .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255,255,255,0.05);
+  padding: 2px 4px;
+  border-radius: $radius-sm;
+}
+
+.headerMain {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.activateBtn {
+  clip-path: none;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  // border: 1px solid #3c7fff;
+  color: $pd3-main;
+  font-size: 1rem;
+  padding: 0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(60, 127, 255, 0.15);
+  }
+}
+
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.chevron {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.controls {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $space-sm;
+  flex-wrap: wrap;
+  padding-top: $space-xs;
 }
 
 .name {
@@ -107,39 +171,6 @@
   }
 }
 
-.btn {
-  padding: 6px 10px;
-  border-radius: $radius-sm;
-  border: 1px solid $color-border;
-  background: $color-bg-surface;
-  color: $color-text-primary;
-  cursor: pointer;
-
-  &:hover {
-    filter: brightness(1.05);
-  }
-
-  &:active {
-    transform: translateY(1px);
-  }
-}
-
-.btnDanger {
-  padding: 6px 10px;
-  border-radius: $radius-sm;
-  border: 1px solid rgba($color-danger, 0.4);
-  background: rgba($color-danger, 0.12);
-  color: $color-text-primary;
-  cursor: pointer;
-
-  &:hover {
-    filter: brightness(1.05);
-  }
-
-  &:active {
-    transform: translateY(1px);
-  }
-}
 
 .activeHint {
   font-size: 0.75rem;

@@ -11,6 +11,17 @@
   grid-template-rows: auto 1fr auto;
   // gap: 6px;
 
+  &.spinning {
+  box-shadow:
+    0 0 0 1px #3c7fff,
+    0 0 12px rgba(60,127,255,0.6),
+    inset 0 0 12px rgba(60,127,255,0.25);
+
+    & .body {
+      transform: scaleY(0.98);
+    }
+  }
+
   &:hover {
     border-color: $color-accent;
   }
@@ -22,6 +33,9 @@
   align-items: center;
   justify-content: space-between;
   padding: $space-xs;
+  background-color: rgba(38, 42, 59, 0.5);
+  height: 35px;
+  
 }
 
 .headerTitle {
@@ -38,19 +52,27 @@
 
 /* BODY */
 .body {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-top: 1px solid #262a3b;
-    padding-bottom: 10px;
+  padding-bottom: 10px;
+  min-height: 120px;
+  @media (max-width: 560px) {
+    min-height: 90px;
+  }
+  &.itemPicker {
+    background: $bg-gradient;
+  }
 }
 
 /* FOOTER */
 .footer {
   display: flex;
   align-items: flex-end;
-  background: black;
+  background: rgba($pd3-hover, 0.25);
   padding: $space-xs;
   font-family: "DIN2014";
 }
@@ -76,4 +98,65 @@
 .hidden {
   visibility: hidden;   /* mantiene el espacio */
   pointer-events: none;
+}
+
+.spriteWrapper {
+  position: relative;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.spriteOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Oscurece arriba y abajo */
+.reelMask {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+
+  /* Curvatura vertical */
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 60%,
+    rgba(0,0,0,0.7) 75%,
+    rgba(0,0,0,0.3) 85%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 60%,
+    rgba(0,0,0,0.7) 75%,
+    rgba(0,0,0,0.3) 85%,
+    transparent 100%
+  );
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.3) 20%,
+      rgba(0,0,0,0) 40%,
+      rgba(0,0,0,0) 60%,
+      rgba(0,0,0,0.3) 80%,
+      rgba(0,0,0,0.75) 100%
+    );
+}
+
+.reelMask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.08) 40%,
+    transparent 70%
+  );
+
+  mix-blend-mode: overlay;
 }

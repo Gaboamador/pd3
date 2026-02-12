@@ -1,3 +1,4 @@
+@use "../../../styles/variables" as *;
 /* =========================
    Wrapper
 ========================= */
@@ -7,12 +8,26 @@
   gap: 16px;
 }
 
+.selectWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.selectLabel {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 /* =========================
    Filter
 ========================= */
 
 .filter {
   width: 100%;
+  padding: 6px 4px;
+  // background-color: rgba(128,128,128,0.2);
+  border-radius: $radius-sm;
 }
 
 /* =========================
@@ -32,6 +47,7 @@
 .cell {
   min-width: 0;
   grid-column: span 4;
+  background-color: rgba(255,255,255,0.25);
 }
 
 /* =========================

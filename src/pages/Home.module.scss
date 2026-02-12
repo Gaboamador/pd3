@@ -1,0 +1,83 @@
+/* Layout general */
+.wrapper {
+  min-height: 100vh;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  display: grid;
+  gap: 8px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+/* Grid de opciones */
+.grid {
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+
+  background: #141620;
+  border: 1px solid #262a3b;
+  border-radius: 14px;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #3c7fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cardDesc {
+  font-size: 14px;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .grid {
+    gap: 14px;
+  }
+}

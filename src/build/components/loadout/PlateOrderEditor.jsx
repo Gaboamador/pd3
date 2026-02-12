@@ -19,31 +19,34 @@ export default function PlateOrderEditor({ plates, platesData, onChangePlates })
       <div className={styles.list}>
         {plates.map((activeKey, slotIndex) => (
           <div key={slotIndex} className={styles.row}>
-            <div className={styles.slotIndex}>{slotIndex + 1}</div>
-            {plateKeys.map(plateKey => {
-              const plate = platesData[plateKey];
-              const isActive = plateKey === activeKey;
 
-              return (
-                <button
-                  key={plateKey}
-                  type="button"
-                  className={`${styles.option} ${
-                    isActive ? styles.optionActive : ""
-                  }`}
-                  style={{ borderColor: plate.color }}
-                  onClick={() => setPlateAt(slotIndex, plateKey)}
-                >
-                  <span
-                    className={isActive ? styles.dot : styles.dotInactive}
-                    style={{ background: plate.color }}
-                  />
-                  <span className={styles.optionLabel}>
-                    {plate.name}
-                  </span>
-                </button>
-              );
-            })}
+              <div className={styles.slotIndex}>{slotIndex + 1}</div>
+
+              <div className={styles.optionsContainer}>
+                {plateKeys.map(plateKey => {
+                  const plate = platesData[plateKey];
+                  const isActive = plateKey === activeKey;
+                  return (
+                    <button
+                      key={plateKey}
+                      type="button"
+                      className={`${styles.option} ${
+                        isActive ? styles.optionActive : ""
+                      }`}
+                      style={{ borderColor: plate.color }}
+                      onClick={() => setPlateAt(slotIndex, plateKey)}
+                    >
+                      <span
+                        className={isActive ? styles.dot : styles.dotInactive}
+                        style={{ background: plate.color }}
+                      />
+                      <span className={styles.optionLabel}>
+                        {plate.name}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
           </div>
         ))}
       </div>

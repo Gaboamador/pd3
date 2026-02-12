@@ -373,7 +373,9 @@ function clearAllSkills() {
   <div className={styles.wrapper}>
     {/* Header */}
     <div className={styles.header}>
+
       <div className={styles.headerInfo}>
+        
         <div className={styles.pointsSpent}>
           <div className={styles.title}>// TOTAL SKILL POINTS: </div>
           <div className={styles.points}>{totalPoints}</div>
