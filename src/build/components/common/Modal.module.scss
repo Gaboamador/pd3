@@ -51,14 +51,13 @@
   color: $text-muted;
 
   cursor: pointer;
-  padding: $space-xs;
-  border-radius: $radius-sm;
+  padding: $space-sm;
 
   transition: color 0.15s ease, background 0.15s ease;
 
   &:hover {
     color: $text;
-    background: $accent-soft;
+    // background: $accent-soft;
   }
 }
 

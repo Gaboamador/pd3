@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import pd3_logo_alt from "../assets/pd3_logo_alt.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import { logout } from "../../firebaseAuth";
 import { IoPersonCircleSharp } from "react-icons/io5";
@@ -9,11 +9,21 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 export default function Header() {
   
   const { isAuthenticated } = useAuth();
-  
+  const location = useLocation();
+
   function handleLogout() {
     logout();
   }
 
+  const pathname = location.pathname;
+
+  let subtitle = null;
+
+  if (pathname.startsWith("/build-editor")) {
+    subtitle = "Build Editor";
+  } else if (pathname.startsWith("/randomizer")) {
+    subtitle = "Randomizer";
+  }
 
   return (
     <header className={styles.header}>
@@ -25,8 +35,10 @@ export default function Header() {
             className={styles.logo}
           />
         </Link>
-        {/* <span className={styles.subtitle}>Random Build Generator</span> */}
-
+        
+        {subtitle && (
+          <span className={styles.subtitle}>{subtitle}</span>
+        )}
 
       {isAuthenticated ? (
         <button onClick={handleLogout}>LOGOUT</button>

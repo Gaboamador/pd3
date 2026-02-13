@@ -419,6 +419,7 @@ function applyResult(slot, result) {
 
         <div className={`${styles.cell} ${styles.primary}`}>
           <WeaponCard
+          use='randomizer'
           slot="primary"
           weaponDef={primaryWeaponDef}
           onClick={() => spinSlot("primary")}
@@ -440,6 +441,7 @@ function applyResult(slot, result) {
         {/* SECONDARY */}
         <div className={`${styles.cell} ${styles.secondary}`}>
           <WeaponCard
+            use='randomizer'
             slot="secondary"
             weaponDef={secondaryWeaponDef}
             onClick={() => spinSlot("secondary")}
@@ -461,6 +463,7 @@ function applyResult(slot, result) {
         {/* OVERKILL */}
         <div className={`${styles.cell} ${styles.overkill}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="overkill"
             itemDef={overkillDef}
             SpriteComponent={OverkillSprite}
@@ -482,6 +485,7 @@ function applyResult(slot, result) {
         {/* ARMOR */}
         <div className={`${styles.cell} ${styles.armor}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="armor"
             itemDef={armorDef}
             SpriteComponent={ArmorSprite}
@@ -511,6 +515,7 @@ function applyResult(slot, result) {
         {/* THROWABLE */}
         <div className={`${styles.cell} ${styles.throwable}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="throwable"
             itemDef={throwableDef}
             SpriteComponent={ThrowableSprite}
@@ -532,6 +537,7 @@ function applyResult(slot, result) {
         {/* DEPLOYABLE */}
         <div className={`${styles.cell} ${styles.deployable}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="deployable"
             itemDef={deployableDef}
             SpriteComponent={DeployableSprite}
@@ -553,6 +559,7 @@ function applyResult(slot, result) {
         {/* TOOL */}
         <div className={`${styles.cell} ${styles.tool}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="tool"
             itemDef={toolDef}
             SpriteComponent={ToolSprite}

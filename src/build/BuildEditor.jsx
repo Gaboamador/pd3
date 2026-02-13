@@ -2,6 +2,9 @@ import { useMemo, useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import { nanoid } from "nanoid";
+import { useToast } from "../context/ToastContext";
+import { AnimatePresence, motion } from "framer-motion";
+import { FaFolder, FaFolderOpen } from "react-icons/fa";
 import styles from "./BuildEditor.module.scss";
 import skillsData from "../data/payday3_skills.json";
 import skillGroupsData from "../data/payday3_skill_groups.json";
@@ -40,6 +43,9 @@ export default function BuildEditor({mode}) {
 
   const [showAuthRequired, setShowAuthRequired] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
+
+  const [saving, setSaving] = useState(false);
+  const { showToast } = useToast();
 
   function normalizeOwnedBuild(build) {
   const clean = { ...build };
@@ -142,79 +148,131 @@ const [build, setBuild] = useState(() => {
   }, [build]);
 
 
-async function handleSaveBuild() {
+  async function handleSaveBuild() {
 
-  const ok = requireAuthForAction({
-    uid,
-    navigate,
-    location,
-    onAuthRequired: () => setShowAuthRequired(true),
-    autoRedirect: false,
-  });
+    if (!canSave) return;
 
-  if (!ok) return;
+    const ok = requireAuthForAction({
+      uid,
+      navigate,
+      location,
+      onAuthRequired: () => setShowAuthRequired(true),
+      autoRedirect: false,
+    });
 
-  const isShared = Boolean(build.__shared);
-  const isNew = !build.id;
+    if (!ok) return;
 
-  const nextRaw = {
-    ...build,
-    id: (isShared || isNew) ? nanoid() : build.id,
-    slot: isShared ? null : build.slot ?? null,
-  };
+    try {
+      setSaving(true);
 
-  const next = normalizeOwnedBuild(nextRaw);
+      const isShared = Boolean(build.__shared);
+      const isNew = !build.id;
 
-  const updated = await BuildLibraryService.save(uid, next);
-  setLibrary(updated);
-  setBuild(next);
+      const nextRaw = {
+        ...build,
+        id: (isShared || isNew) ? nanoid() : build.id,
+        slot: isShared ? null : build.slot ?? null,
+      };
 
-  const nextEncoded = encodeBuildToUrl(next);
-  if (nextEncoded) {
-    navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
+      const next = normalizeOwnedBuild(nextRaw);
+
+      const updated = await BuildLibraryService.save(uid, next);
+      setLibrary(updated);
+      setBuild(next);
+
+      const nextEncoded = encodeBuildToUrl(next);
+      if (nextEncoded) {
+        navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
+      }
+
+        showToast({
+        type: "success",
+        message: isShared || isNew ? "Build saved" : "Build updated",
+        });
+      } catch (err) {
+        console.error(err);
+        showToast({
+          type: "error",
+          message: "Failed to save build",
+        });
+      } finally {
+        setSaving(false);
+      }
   }
-}
 
 
-async function handleSaveAs() {
+  async function handleSaveAs() {
 
-  const ok = requireAuthForAction({
-    uid,
-    navigate,
-    location,
-    onAuthRequired: () => setShowAuthRequired(true),
-    autoRedirect: false,
-  });
+    const ok = requireAuthForAction({
+      uid,
+      navigate,
+      location,
+      onAuthRequired: () => setShowAuthRequired(true),
+      autoRedirect: false,
+    });
 
-  if (!ok) return;
+    if (!ok) return;
 
-  const nextName = makeCopyNameIfNeeded(build.name, library);
+    try {
+      setSaving(true);
 
-  const duplicatedRaw = {
-    ...build,
-    id: nanoid(),
-    slot: null,
-    name: nextName,
-  };
+      const nextName = makeCopyNameIfNeeded(build.name, library);
 
-  const duplicated = normalizeOwnedBuild(duplicatedRaw);
+      const duplicatedRaw = {
+        ...build,
+        id: nanoid(),
+        slot: null,
+        name: nextName,
+      };
 
-  const updated = await BuildLibraryService.save(uid, duplicated);
-  setLibrary(updated);
-  setBuild(duplicated);
-}
+      const duplicated = normalizeOwnedBuild(duplicatedRaw);
 
-async function handleDeleteBuild(id) {
+      const updated = await BuildLibraryService.save(uid, duplicated);
+      setLibrary(updated);
+      setBuild(duplicated);
 
-  const nextLibrary = await BuildLibraryService.delete(uid, id);
-  setLibrary(nextLibrary);
-
-
-  if (id === build.id) {
-    const fallback = nextLibrary[0] ?? loadBuildFromSession();
-    setBuild(fallback);
+        showToast({
+          type: "success",
+          message: "Build saved as new",
+        });
+      } catch (err) {
+        console.error(err);
+        showToast({
+          type: "error",
+          message: "Failed to save build as new",
+        });
+      } finally {
+        setSaving(false);
+      }
   }
-}
+
+  async function handleDeleteBuild(id) {
+    try {
+      setSaving(true);
+
+      const nextLibrary = await BuildLibraryService.delete(uid, id);
+      setLibrary(nextLibrary);
+
+      if (id === build.id) {
+        const fallback = nextLibrary[0] ?? loadBuildFromSession();
+        setBuild(fallback);
+      }
+
+      showToast({
+        type: "success",
+        message: "Build deleted",
+      });
+    } catch (err) {
+      console.error(err);
+      showToast({
+        type: "error",
+        message: "Failed to delete build",
+      });
+    } finally {
+      setSaving(false);
+    }
+  }
+
 
 function handleNewBuild() {
   const draft = normalizeOwnedBuild(createEmptyBuild());
@@ -245,15 +303,36 @@ const orderedLibrary = useMemo(() => {
 }, [library]);
 
 
-async function handleAssignSlot(id, slot) {
-  const next = await BuildLibraryService.assignSlot(uid, id, slot);
-  setLibrary(next);
-}
+  async function handleAssignSlot(id, slot) {
+    try {
+      setSaving(true);
+
+      const next = await BuildLibraryService.assignSlot(uid, id, slot);
+      setLibrary(next);
+
+      showToast({
+        type: "success",
+        message: "Slot updated",
+      });
+    } catch (err) {
+      console.error(err);
+      showToast({
+        type: "error",
+        message: "Failed to update slot",
+      });
+    } finally {
+      setSaving(false);
+    }
+  }
+
 
 if (libraryLoading) {
   return <Spinner label="Loading builds…" />;
 }
 
+const canSave =
+  Boolean(build.id) &&
+  !build.__shared;
 
 return (
     <div className={styles.page}>
@@ -277,8 +356,43 @@ return (
       <button
         className="secondary"
         onClick={() => setShowLibrary(v => !v)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+        }}
       >
-        📁 BUILDS ({orderedLibrary.length})
+        <div style={{ position: "relative", width: 18, height: 18 }}>
+          <AnimatePresence mode="wait">
+            {showLibrary ? (
+              <motion.div
+                key="open"
+                initial={{ opacity: 0, rotate: -10, scale: 0.85 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 10, scale: 0.85 }}
+                transition={{ duration: 0.18 }}
+                style={{ position: "absolute" }}
+              >
+                <FaFolderOpen size={18} className={styles.folderIcon}/>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="closed"
+                initial={{ opacity: 0, rotate: 10, scale: 0.85 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: -10, scale: 0.85 }}
+                transition={{ duration: 0.18 }}
+                style={{ position: "absolute" }}
+              >
+                <FaFolder size={18} className={styles.folderIcon}/>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <span>
+          BUILDS ({orderedLibrary.length})
+        </span>
       </button>
 
       <button onClick={handleNewBuild}>
@@ -289,43 +403,65 @@ return (
         SHARE BUILD
       </button>
 
-      <button onClick={handleSaveBuild}>
-        SAVE
-      </button>
+      <div className={styles.handleSaveActionsWrapper}>
+        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? "Save is only available for existing builds" : ""}>
+          SAVE
+        </button>
+        <span className={styles.handleSaveActionsMessage}>(Update current build)</span>
+      </div>
       
-      <button onClick={handleSaveAs}>
-        SAVE AS
-      </button>
+      <div className={styles.handleSaveActionsWrapper}>
+        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
+          SAVE AS
+        </button>
+        <span className={styles.handleSaveActionsMessage}>(Save as new build)</span>
+      </div>
 
-      {showAuthRequired && (
-        <>
-          <span>Log in to save builds to your library</span>
-          
-          <button onClick={() => navigate("/auth")}>
-            LOG IN
-          </button>
-        </>
-      )}
+      {saving && <Spinner label="Saving..." />}
+
+      <div className={styles.handleLoginWrapper}>
+        {showAuthRequired && (
+          <>
+            <span>Log in to save builds to your library</span>
+            
+            <button onClick={() => navigate("/auth")}>
+              LOG IN
+            </button>
+          </>
+        )}
+      </div>
+
     </Section>
 
+  <AnimatePresence>
     {showLibrary && (
-      <BuildLibrary
-        builds={orderedLibrary}
-        currentBuildId={build.id}
-        onLoadBuild={(b) => {
-          const clean = normalizeOwnedBuild(b);
-          userHasEditedRef.current = true;
-          setBuild(clean);
-          setShowLibrary(false);
-          const nextEncoded = encodeBuildToUrl(clean);
-          if (nextEncoded) {
-            navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
-          }
-        }}
-        onDeleteBuild={handleDeleteBuild}
-        onAssignSlot={handleAssignSlot}
-      />
+      <motion.div
+        key="build-library"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        exit={{ opacity: 0, height: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        style={{ overflow: "hidden" }}
+      >
+        <BuildLibrary
+          builds={orderedLibrary}
+          currentBuildId={build.id}
+          onLoadBuild={(b) => {
+            const clean = normalizeOwnedBuild(b);
+            userHasEditedRef.current = true;
+            setBuild(clean);
+            setShowLibrary(false);
+            const nextEncoded = encodeBuildToUrl(clean);
+            if (nextEncoded) {
+              navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
+            }
+          }}
+          onDeleteBuild={handleDeleteBuild}
+          onAssignSlot={handleAssignSlot}
+        />
+      </motion.div>
     )}
+  </AnimatePresence>
 
       <Section title="//BUILD_NAME">
         <input

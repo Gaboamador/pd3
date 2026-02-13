@@ -25,7 +25,7 @@
         "name": "Impact",
         "key": "impact",
         "special": "Fully regenerates even if the armor plate breaks",
-        "color": "#FBBE0D",
+        "color": "#A6DE33",
         "stats": {
             "DamageReduction": 0,
             "RegenTime": 3,

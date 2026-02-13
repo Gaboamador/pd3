@@ -43,7 +43,7 @@
 
 .active {
   border-color: $color-accent;
-  background: rgba(77, 163, 255, 0.2);
+  background: rgba($pd3-hover, 0.2);
 }
 
 .empty {
@@ -96,4 +96,64 @@
 .presetBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.confirmBody {
+  font-family: 'DIN2014';
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 6px 2px 14px;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.confirmPrimary,
+.confirmSecondary {
+  clip-path: none;
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+.confirmSecondary {
+  background: #0b0f18;
+  color: #e5e7eb;
+}
+
+.confirmPrimary {
+  background: #111;
+  color: #fff;
+  border-color: $pd3-main;
+}
+
+.confirmPrimary:disabled,
+.confirmSecondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.authPrompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-top: 1px solid $pd3-main;
+  border-bottom: 1px solid $pd3-main;
+}
+
+.authLoginBtn {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
 }

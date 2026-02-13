@@ -1,20 +1,15 @@
-// src/components/skills/SkillDetailsPanel.jsx
 import { renderSkillText } from "../../utils/skillText.utils";
+import styles from "./SkillDetailsPanel.module.scss";
 
 export default function SkillDetailsPanel({ skill }) {
   if (!skill) {
     return (
-      <div
-        style={{
-          border: "1px solid rgba(255,255,255,0.12)",
-          borderRadius: 12,
-          padding: 12,
-          opacity: 0.85,
-        }}
-      >
-        <div style={{ fontWeight: 900, marginBottom: 6 }}>Skill details</div>
-        <div style={{ fontSize: 13 }}>
-          Seleccioná una skill para ver la descripción.
+      <div className={styles.wrapper}>
+        <div className={styles.emptyTitle}>
+          Skill details
+        </div>
+        <div className={styles.emptyText}>
+          Select a skill to see its description.
         </div>
       </div>
     );
@@ -24,60 +19,55 @@ export default function SkillDetailsPanel({ skill }) {
     skill.base_description,
     skill.values || {}
   );
+
   const acedRendered = renderSkillText(
     skill.aced_description,
     skill.values || {}
   );
 
   return (
-    <div
-      style={{
-        border: "1px solid rgba(255,255,255,0.12)",
-        borderRadius: 12,
-        padding: 12,
-        display: "grid",
-        gap: 12,
-        alignContent: "start",
-      }}
-    >
-      <div style={{ fontWeight: 1000 }}>
-        {skill.name}
-        <div style={{ fontSize: 12, opacity: 0.75, fontWeight: 600 }}>
-          Cost {skill?.req_points?.base ?? 0}/{skill?.req_points?.aced ?? 0}
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <div className={styles.title}>
+          {skill.name}
         </div>
       </div>
 
-      <Section title="Base">
-        <pre style={preStyle}>{baseRendered}</pre>
+      <Section
+        title="Base"
+        cost={skill?.req_points?.base ?? 0}
+      >
+        <pre className={styles.pre}>
+          {baseRendered}
+        </pre>
       </Section>
 
-      <Section title="Aced">
-        <pre style={preStyle}>{acedRendered}</pre>
+      <Section
+        title="Aced"
+        cost={skill?.req_points?.aced ?? 0}
+      >
+        <pre className={styles.pre}>
+          {acedRendered}
+        </pre>
       </Section>
     </div>
   );
 }
 
-function Section({ title, children }) {
+function Section({ title, cost, children }) {
   return (
-    <div
-      style={{
-        border: "1px solid rgba(255,255,255,0.10)",
-        borderRadius: 12,
-        padding: 10,
-      }}
-    >
-      <div style={{ fontWeight: 900, marginBottom: 6 }}>{title}</div>
+    <div className={styles.section}>
+      <div className={styles.sectionHeader}>
+        <span className={styles.sectionTitle}>
+          {title}
+        </span>
+
+        <span className={styles.sectionCost}>
+          Cost {cost}
+        </span>
+      </div>
+
       {children}
     </div>
   );
 }
-
-const preStyle = {
-  margin: 0,
-  whiteSpace: "pre-wrap",
-  fontFamily: "inherit",
-  fontSize: 13,
-  lineHeight: 1.35,
-  opacity: 0.95,
-};

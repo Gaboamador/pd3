@@ -7,6 +7,7 @@ import BuildEditor from "./build/BuildEditor.jsx";
 import Home from "./pages/Home.jsx";
 import Spinner from "./components/Spinner.jsx";
 import MigrationPrompt from "./components/MigrationPrompt.jsx";
+import { ToastProvider } from "./context/ToastContext.jsx";
 
 function App() {
 
@@ -18,8 +19,8 @@ function App() {
   }
 
   return (
+    <ToastProvider>
     <>
-      
       <MigrationPrompt />
       <Header />
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
+    </ToastProvider>
   );
 }
 

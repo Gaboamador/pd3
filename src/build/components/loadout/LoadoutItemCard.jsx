@@ -13,14 +13,22 @@ export default function LoadoutItemCard({
   spriteOverlay,
   isSpinning = false,
   spinningLabel = "RANDOMIZING...",
+  use,
 }) {
   const spritePos = itemDef
     ? itemDef.sprite_pos
     : LOADOUT_PLACEHOLDERS[slot];
 
   const name = itemDef
-    ? itemDef.name ?? itemDef.key
-    : "Select item";
+  ? itemDef.name ?? itemDef.key
+  : use === "randomizer"
+    ? slot === "overkill"
+      ? "Randomize overkill weapon"
+      : "Randomize item"
+    : slot === "overkill"
+      ? "Select overkill weapon"
+      : "Select item";
+
 
       const isItemPicker = mode === "item-picker";
 const isLoadoutEditor = !isItemPicker; // default
@@ -119,7 +127,7 @@ const isLoadoutEditor = !isItemPicker; // default
     <div className={styles.footer}>
       {/* <div className={styles.name}>{name}</div> */}
       <div className={styles.name}>
-        {isSpinning ? spinningLabel : name}
+        {isSpinning ? spinningLabel : slot==="heist" ? 'Randomize heist' : name}
       </div>
     </div>
     )}

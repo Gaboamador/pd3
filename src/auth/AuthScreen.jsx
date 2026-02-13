@@ -6,20 +6,23 @@ import {
   recoverPassword,
   firebaseErrorMessages,
 } from "../../firebaseAuth";
-
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from "./AuthScreen.module.scss";
 
 export default function AuthScreen() {
   const [mode, setMode] = useState("login"); 
-  // "login" | "register" | "recovery"
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [firstName, setFirstName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("If the email exists you will receive a recovery message");
 
   const resetErrors = () => setError("");
 
@@ -84,11 +87,12 @@ export default function AuthScreen() {
   const handleRecovery = async (e) => {
     e.preventDefault();
     resetErrors();
+    setMessage("");
 
     try {
       setLoading(true);
       await recoverPassword(email);
-      setError(
+      setMessage(
         "If the email exists you will receive a recovery message"
       );
     } catch (err) {
@@ -123,14 +127,24 @@ export default function AuthScreen() {
             required
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
-            required
-          />
+          <div className={styles.passwordWrapper}>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+              required
+            />
+            <button
+              type="button"
+              className={styles.eyeButton}
+              onClick={() => setShowPassword(v => !v)}
+              tabIndex={-1}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </div>
 
           <div className={styles.loginButtonWrapper}>
             <button
@@ -189,29 +203,49 @@ export default function AuthScreen() {
             required
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
-            required
-          />
+          <div className={styles.passwordWrapper}>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+              required
+            />
+            <button
+              type="button"
+              className={styles.eyeButton}
+              onClick={() => setShowPassword(v => !v)}
+              tabIndex={-1}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </div>
 
-          <input
-            type="password"
-            placeholder="Repeat Password"
-            value={repeatPassword}
-            onChange={(e) => setRepeatPassword(e.target.value)}
-            className={styles.input}
-            required
-          />
+          <div className={styles.passwordWrapper}>
+            <input
+              type={showRepeatPassword ? "text" : "password"}
+              placeholder="Repeat Password"
+              value={repeatPassword}
+              onChange={(e) => setRepeatPassword(e.target.value)}
+              className={styles.input}
+              required
+            />
+            <button
+              type="button"
+              className={styles.eyeButton}
+              onClick={() => setShowRepeatPassword(v => !v)}
+              tabIndex={-1}
+            >
+              {showRepeatPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </div>
 
           <button
             className={styles.primaryButton}
             disabled={loading}
           >
-            Crear cuenta
+            Create account
           </button>
 
           <div className={styles.authLinks}>
@@ -223,7 +257,7 @@ export default function AuthScreen() {
                 setMode("login");
               }}
             >
-              Ya tengo cuenta
+              I already have an account
             </button>
           </div>
         </form>
@@ -247,7 +281,7 @@ export default function AuthScreen() {
             className={styles.primaryButton}
             disabled={loading}
           >
-            Enviar correo
+            Send password recovery email
           </button>
 
           <div className={styles.authLinks}>
@@ -259,17 +293,15 @@ export default function AuthScreen() {
                 setMode("login");
               }}
             >
-              Volver al login
+              Back to login
             </button>
           </div>
         </form>
       )}
 
-      {error && (
-        <div className={styles.error}>
-          {error}
-        </div>
-      )}
+      {error && <div className={styles.error}>{error}</div>}
+
+      {message && <div className={styles.success}>{message}</div>}
     </div>
   );
 }

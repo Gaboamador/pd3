@@ -1,6 +1,8 @@
 import Modal from "../common/Modal";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../auth/useAuth";
+import { useToast } from "../../../context/ToastContext";
 import Spinner from "../../../components/Spinner";
 import { WeaponPresetService } from "../../../services/weaponPresetService";
 import { getWeaponModSlots } from "../../utils/loadout.utils";
@@ -40,10 +42,13 @@ export default function WeaponModsModal({
   
   // estados
   const { uid } = useAuth();
-
+  const navigate = useNavigate();
+  const [authRequired, setAuthRequired] = useState(false);
+  const { showToast } = useToast();
   const [checkingPreset, setCheckingPreset] = useState(false);
   const [presetLoading, setPresetLoading] = useState(false);
   const [existingPreset, setExistingPreset] = useState(null);
+  const [confirmReplaceOpen, setConfirmReplaceOpen] = useState(false);
 
   if (!weaponDef) {
   return (
@@ -110,21 +115,11 @@ export default function WeaponModsModal({
     }
   }
 
-  async function handleSavePreset() {
+  async function performSavePreset() {
     if (!uid || isGamePresetWeapon) return;
 
     try {
       setPresetLoading(true);
-
-      if (existingPreset) {
-        const confirmReplace = window.confirm(
-          "A personal preset already exists for this weapon.\n\nReplace it?"
-        );
-        if (!confirmReplace) {
-          setPresetLoading(false);
-          return;
-        }
-      }
 
       const saved = await WeaponPresetService.save(
         uid,
@@ -133,11 +128,40 @@ export default function WeaponModsModal({
       );
 
       setExistingPreset(saved);
+
+      // ✅ Toast SOLO si guardó realmente
+      showToast({
+        type: "success",
+        message: "Personal preset saved",
+      });
     } catch (err) {
       console.error("Error saving weapon preset:", err);
+      showToast({
+        type: "error",
+        message: "Failed to save personal preset",
+      });
     } finally {
       setPresetLoading(false);
     }
+  }
+
+  async function handleSavePreset() {
+    // if (!uid || isGamePresetWeapon) return;
+    if (isGamePresetWeapon) return;
+
+    if (!uid) {
+      setAuthRequired(true);
+      return;
+    }
+
+    // Si ya existe → pedir confirm con modal (no guardar aún)
+    if (existingPreset) {
+      setConfirmReplaceOpen(true);
+      return;
+    }
+
+    // No existe → guardar directo
+    await performSavePreset();
   }
 
   return (
@@ -154,34 +178,51 @@ export default function WeaponModsModal({
       )}
 
       {!isGamePresetWeapon && (
-        <div className={`${styles.personalPresetActions} ${checkingPreset ? styles.checkingPresetSpinner : ''}`}>
-          {checkingPreset ? (
-            <Spinner label="Checking presets…"/>
-          ) : (
-            <>
-            <div className={styles.presetTitle}>
-              <span>PERSONAL PRESET</span>
-            </div>
-            <div className={styles.presetBtnWrapper}>
-              <button
-                className={styles.presetBtn}
-                onClick={handleLoadPreset}
-                disabled={!hasPersonalPreset || presetLoading}
-              >
-                LOAD
-              </button>
+        <>
 
+          {authRequired && (
+            <div className={styles.authPrompt}>
+              <span>Log in to save personal weapon presets</span>
               <button
-                className={styles.presetBtn}
-                onClick={handleSavePreset}
-                disabled={presetLoading}
+                className={styles.authLoginBtn}
+                onClick={() => navigate("/auth")}
               >
-                SAVE
+                LOG IN
               </button>
             </div>
-            </>
           )}
-        </div>
+
+          <div className={`${styles.personalPresetActions} ${(checkingPreset || presetLoading) ? styles.checkingPresetSpinner : ""}`}>
+            {checkingPreset ? (
+              <Spinner size="sm" label="Checking presets…" />
+            ) : presetLoading ? (
+              <Spinner size="sm" label="Saving preset…" />
+            ) : (
+              <>
+                <div className={styles.presetTitle}>
+                  <span>PERSONAL PRESET</span>
+                </div>
+
+                <div className={styles.presetBtnWrapper}>
+                  <button
+                    className={styles.presetBtn}
+                    onClick={handleLoadPreset}
+                    disabled={!hasPersonalPreset}
+                  >
+                    LOAD
+                  </button>
+
+                  <button
+                    className={styles.presetBtn}
+                    onClick={handleSavePreset}
+                  >
+                    SAVE
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </>
       )}
 
       {!modSlots.length && (
@@ -223,6 +264,40 @@ export default function WeaponModsModal({
         })}
 
       </div>
+
+        {/* MODAL QUE PREGUNTA SI SE QUIERE REEMPLAZAR PERSONAL PRESET O NO */}
+        <Modal
+          open={confirmReplaceOpen}
+          onClose={() => setConfirmReplaceOpen(false)}
+          title="Replace personal preset?"
+          width="520px"
+        >
+          <div className={styles.confirmBody}>
+            A personal preset already exists for this weapon. Replacing it will overwrite your current preset.
+          </div>
+
+          <div className={styles.confirmActions}>
+            <button
+              className={styles.confirmSecondary}
+              onClick={() => setConfirmReplaceOpen(false)}
+              disabled={presetLoading}
+            >
+              CANCEL
+            </button>
+
+            <button
+              className={styles.confirmPrimary}
+              onClick={async () => {
+                setConfirmReplaceOpen(false);
+                await performSavePreset();
+              }}
+              disabled={presetLoading}
+            >
+              REPLACE
+            </button>
+          </div>
+        </Modal>
+
     </Modal>
   );
 }

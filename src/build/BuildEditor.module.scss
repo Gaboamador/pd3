@@ -17,3 +17,36 @@
   padding: $space-xs $space-xs;
   font-size: 1rem;
 }
+
+.handleLoginWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: $space-md;
+}
+
+.handleSaveActionsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba($pd3-main, 0.5);
+  padding: $space-xs;
+  border-radius: 4px;
+}
+
+.handleSaveActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.handleSaveActionsMessage {
+  font-family: 'DIN2014';
+  font-size: 0.7rem;
+  color: $pd3-main;
+}
+
+.folderIcon {
+  color: $pd3-main;
+}

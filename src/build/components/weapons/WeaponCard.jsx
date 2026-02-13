@@ -19,6 +19,7 @@ export default function WeaponCard({
   spriteOverlay,
   isSpinning = false,
   spinningLabel = "RANDOMIZING...",
+  use,
 }) {
   const [openMods, setOpenMods] = useState(false);
 
@@ -30,7 +31,8 @@ const isLoadoutEditor = !isItemPicker; // default
     ? weaponDef.sprite_pos
     : WEAPON_PLACEHOLDERS[slot];
 
-  const name = weaponDef ? weaponDef.name : "Select weapon";
+  // const name = weaponDef ? weaponDef.name : "Select weapon";
+  const name = weaponDef ? weaponDef.name : use === "randomizer" ? "Randomize weapon": "Select weapon";
 
   const canEdit = Boolean(weaponDef && (onBeforeEdit || onChangeMods));
 
