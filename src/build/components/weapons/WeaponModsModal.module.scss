@@ -55,3 +55,45 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+.personalPresetActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-lg;
+  padding-bottom: 6px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $pd3-main;
+
+  &.checkingPresetSpinner {
+    justify-content: center;
+  }
+}
+
+.presetTitle {
+  color: $pd3-hover;
+}
+
+.presetBtnWrapper {
+  display: flex;
+}
+
+.presetBtn {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: $pd3-main;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.presetBtn:hover:not(:disabled) {
+  border-color: #57a6ff;
+}
+
+.presetBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
