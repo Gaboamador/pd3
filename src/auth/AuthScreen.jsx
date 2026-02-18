@@ -22,7 +22,7 @@ export default function AuthScreen() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [message, setMessage] = useState("If the email exists you will receive a recovery message");
+  const [message, setMessage] = useState("");
 
   const resetErrors = () => setError("");
 
