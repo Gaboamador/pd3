@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.page {
+  min-height: 100vh;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  display: grid;
+  gap: 16px;
+}
+
+.controlAndResult {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.result {
+    color: $pd3-lightgreen;
+    font-size: 1.3rem;
+    font-weight: 600;
+}

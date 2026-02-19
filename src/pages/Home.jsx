@@ -25,6 +25,20 @@ export default function Home() {
             Generate random builds with configurable rules.
           </div>
         </Link>
+
+        <Link to="/library-explorer" className={styles.card}>
+          <div className={styles.cardTitle}>Library Explorer</div>
+          <div className={styles.cardDesc}>
+            .
+          </div>
+        </Link>
+
+        <Link to="/library-roulette" className={styles.card}>
+          <div className={styles.cardTitle}>Library Roulette</div>
+          <div className={styles.cardDesc}>
+            .
+          </div>
+        </Link>
       </nav>
     </div>
   );

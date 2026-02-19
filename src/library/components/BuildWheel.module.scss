@@ -1,0 +1,59 @@
+@use "../../styles/variables" as *;
+
+.wrapper {
+  position: relative;
+  width: min(80vw, 400px);
+  aspect-ratio: 1 / 1;
+  margin: 2rem auto;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 4s cubic-bezier(0.08, 0.6, 0.2, 1);
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid $color-accent;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+.label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 0;
+}
+
+.label span {
+  white-space: nowrap;
+  padding: 4px 8px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 4px;
+  font-size: clamp(10px, 2vw, 12px);
+  transform: translateX(-50%);
+}
+
+.pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 24px solid $pd3-hover;
+}

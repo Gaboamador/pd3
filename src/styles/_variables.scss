@@ -52,3 +52,7 @@ $color-accent: $pd3-lightgreen;
 
 /* Semantic */
 $color-danger: #e05252;
+
+:root {
+  --pd3-main: #{$pd3-main};
+}
