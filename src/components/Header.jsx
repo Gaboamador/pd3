@@ -17,13 +17,14 @@ export default function Header() {
 
   const pathname = location.pathname;
 
-  let subtitle = null;
+  const SUBTITLE_ROUTES = [
+    { match: "/build-editor", label: "Build Editor" },
+    { match: "/randomizer", label: "Randomizer" },
+    { match: "/library-explorer", label: "Library Explorer" },
+    { match: "/library-roulette", label: "Library Roulette" },
+  ];
 
-  if (pathname.startsWith("/build-editor")) {
-    subtitle = "Build Editor";
-  } else if (pathname.startsWith("/randomizer")) {
-    subtitle = "Randomizer";
-  }
+  const subtitle = SUBTITLE_ROUTES.find(r => pathname.startsWith(r.match))?.label ?? "";
 
   return (
     <header className={styles.header}>

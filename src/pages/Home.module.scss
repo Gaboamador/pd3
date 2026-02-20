@@ -74,6 +74,11 @@
   line-height: 1.4;
 }
 
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* Mobile tweaks */
 @media (max-width: 520px) {
   .title {

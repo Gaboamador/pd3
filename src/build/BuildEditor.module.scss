@@ -50,3 +50,17 @@
 .folderIcon {
   color: $pd3-main;
 }
+
+.backToExplorerWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+}

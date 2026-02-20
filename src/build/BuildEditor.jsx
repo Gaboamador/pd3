@@ -1,10 +1,11 @@
 import { useMemo, useState, useEffect, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import { nanoid } from "nanoid";
 import { useToast } from "../context/ToastContext";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaFolder, FaFolderOpen } from "react-icons/fa";
+import { IoChevronBackCircleSharp } from "react-icons/io5";
 import styles from "./BuildEditor.module.scss";
 import skillsData from "../data/payday3_skills.json";
 import skillGroupsData from "../data/payday3_skill_groups.json";
@@ -35,7 +36,8 @@ export default function BuildEditor({mode}) {
   const navigate = useNavigate();
   const { encoded } = useParams();
   const userHasEditedRef = useRef(false);
-
+  const location = useLocation();
+  const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
   const [shareUrl, setShareUrl] = useState(null);
 
   const [library, setLibrary] = useState([]);
@@ -337,20 +339,30 @@ const canSave =
 return (
     <div className={styles.page}>
 
-  {mode === "share" && (
-    <div className={styles.sharedBanner}>
-      Viewing a shared build.  
-      Save it to add it to your library.
-    </div>
-  )}
+    {mode === "share" && (
+      <div className={styles.sharedBanner}>
+        Viewing a shared build.  
+        Save it to add it to your library.
+      </div>
+    )}
 
+    {shareUrl && (
+      <ShareQrModal
+        url={shareUrl}
+        onClose={() => setShareUrl(null)}
+      />
+    )}
 
-  {shareUrl && (
-    <ShareQrModal
-      url={shareUrl}
-      onClose={() => setShareUrl(null)}
-    />
-  )}
+    {fromExplorerSearch && (
+        <Section >
+          <div className={styles.backToExplorerWrapper}>
+            <button onClick={() => navigate(`/library-explorer${fromExplorerSearch}`)} className={styles.backBtn}>
+              <IoChevronBackCircleSharp />
+            </button>
+            <span>BACK TO EXPLORER</span>
+          </div>
+        </Section>
+    )}
 
     <Section title="//Manage_builds">
       <button

@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./LibraryRoulette.module.scss";
-
+import { IoChevronBackCircleSharp } from "react-icons/io5";
+import { IoMdOpen } from "react-icons/io";
 import Section from "../../build/components/common/Section";
+import { useLoadBuild } from "../../hooks/useLoadBuild";
 import { useUserLibrary } from "../hooks/useUserLibrary";
 import { attachSearchIndexToBuilds } from "../utils/buildSearchIndex";
 import { filterBuilds } from "../utils/librarySearchEngine";
@@ -15,8 +17,10 @@ import BuildWheel from "../components/BulidWheel";
 
 export default function LibraryRoulette() {
   const { library, loading } = useUserLibrary();
+  const { loadBuild } = useLoadBuild();
   const location = useLocation();
   const navigate = useNavigate();
+  const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
   const [selected, setSelected] = useState(null);
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
@@ -112,41 +116,56 @@ export default function LibraryRoulette() {
         <div className={styles.wrapper}>
         
 
-            <Section title="//Back to explorer">
-                <button
-                className={styles.backBtn}
-                onClick={() => navigate(`/library-explorer${location.search}`)}
-                >
-                    Back to Explorer
-                </button>
+        <Section >
+          <div className={styles.backToExplorerAndPoolWrapper}>
+            {fromExplorerSearch && (
+            <div className={styles.backToExplorerWrapper}>
+              <button onClick={() => navigate(`/library-explorer${location.search}`)} className={styles.backBtn}>
+                <IoChevronBackCircleSharp />
+              </button>
+              <span>BACK TO EXPLORER</span>
+            </div>
+            )}
+            <div className={styles.resultsLength}>{pool.length} build{pool.length !== 1 ? "s" : ""} in pool</div>
+          </div>
+        </Section>
 
-                <span>{pool.length} build{pool.length !== 1 ? "s" : ""} in pool</span>
-            </Section>
-
+        
         <Section title="//Library Roulette">
+        <div className={styles.rouletteSection}>
+          <div className={styles.controlAndResult}>
+              <div>
+                  <button
+                      className={styles.spinBtn}
+                      disabled={!pool.length || spinning}
+                      onClick={spin}
+                  >
+                      {spinning ? "Spinning..." : "SPIN"}
+                  </button>
+              </div>
 
-        <div className={styles.controlAndResult}>
-            <div>
-                <button
-                    className={styles.spinBtn}
-                    disabled={!pool.length || spinning}
-                    onClick={spin}
-                >
-                    {spinning ? "Spinning..." : "SPIN"}
-                </button>
-            </div>
-
-            <div className={styles.result}>
-                <div>{selected?.name}</div>
-            </div>
+              <div className={styles.resultWrapper}>
+                  {selected &&
+                  <div className={styles.btnWrapper}>
+                    <div>OPEN</div>
+                    <button 
+                    className={styles.btn}
+                    onClick={() => loadBuild(selected, {fromExplorer: location.search,})}
+                    >
+                      <IoMdOpen />
+                    </button>
+                  </div>
+                  }
+                  <div className={styles.result}>{selected?.name}</div>
+              </div>
+          </div>
+          
+          <BuildWheel
+              builds={pool}
+              rotation={rotation}
+              selectedIndex={selectedIndex}
+          />
         </div>
-        
-        <BuildWheel
-            builds={pool}
-            rotation={rotation}
-            selectedIndex={selectedIndex}
-        />
-        
         </Section>
 
         </div>
