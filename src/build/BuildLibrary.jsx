@@ -29,7 +29,7 @@ function SlotSelect({ slot, onChange }) {
     >
       <option value="">Unassigned</option>
 
-      <optgroup label="Titulares (0–9)">
+      <optgroup label="Main builds (0–9)">
         {Array.from({ length: 10 }).map((_, i) => (
           <option key={i} value={i}>
             Loadout {i}
@@ -37,7 +37,7 @@ function SlotSelect({ slot, onChange }) {
         ))}
       </optgroup>
 
-      <optgroup label="Suplentes (10+)">
+      <optgroup label="Alternative builds (10+)">
         {Array.from({ length: 20 }).map((_, i) => (
           <option key={i + 10} value={i + 10}>
             Alt {i + 10}

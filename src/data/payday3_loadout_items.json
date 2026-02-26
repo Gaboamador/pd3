@@ -22951,6 +22951,45 @@
                 "c": 1
             },
             "dlc_id": null,
+            "description": "Performing a body shot with the HET deals 20% of the original shot's damage and performing a headshot deals 60% of the original shot's damage to all enemies within 3 meters of your target. This additional damage does not bypass enemy armor.",
+            "abilities": [
+            {
+                "tier": 0,
+                "name": "Base Skill",
+                "exp": 0,
+                "description": "Performing a body shot with the HET deals 20% of the original shot's damage and performing a headshot deals 60% of the original shot's damage to all enemies within 3 meters of your target. This additional damage does not bypass enemy armor."
+            },
+            {
+                "tier": 1,
+                "name": "Spotter",
+                "exp": 1500,
+                "description": "All targets currently viewed through your HET scope are marked for your crew. When they are no longer in your line of sight, the marking ends. Other marking effects, such as manual marking from other players, will still be in effect."
+            },
+            {
+                "tier": 2,
+                "name": "Tungsten Core",
+                "exp": 3500,
+                "description": "You can penetrate through 4 more surfaces."
+            },
+            {
+                "tier": 3,
+                "name": "HESH Rounds",
+                "exp": 7500,
+                "description": "The range of your base skill is increased to 5 meters."
+            },
+            {
+                "tier": 4,
+                "name": "DU Core",
+                "exp": 11500,
+                "description": "You can penetrate through 4 additional surfaces."
+            },
+            {
+                "tier": 5,
+                "name": "HEIAP Rounds",
+                "exp": 16500,
+                "description": "Your base skill now deals 60% of the original shot's damage to additional targets if the initial shot is a body shot and 100% if it is a headshot."
+            }
+            ],
             "stats": {
                 "damage": 200,
                 "damage_distance": [
@@ -23081,6 +23120,45 @@
                 "c": 1
             },
             "dlc_id": null,
+            "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 0.25 of the original explosion damage.",
+            "abilities": [
+                {
+                "tier": 0,
+                "name": "Base Skill",
+                "exp": 0,
+                "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 0.25 of the original explosion damage."
+                },
+                {
+                "tier": 1,
+                "name": "Shockwave",
+                "exp": 1500,
+                "description": "Increases each Mamba explosion radius by 20%."
+                },
+                {
+                "tier": 2,
+                "name": "Precise Detonation",
+                "exp": 3500,
+                "description": "Explosions from the Mamba no longer harm civilians."
+                },
+                {
+                "tier": 3,
+                "name": "Drum Loader",
+                "exp": 7500,
+                "description": "You reload the Mamba 50% faster."
+                },
+                {
+                "tier": 4,
+                "name": "Hardened",
+                "exp": 11500,
+                "description": "You no longer take damage from your Mamba explosions."
+                },
+                {
+                "tier": 5,
+                "name": "Blast Trauma",
+                "exp": 16500,
+                "description": "Enemies within 15 meters of a Mamba explosion have their accuracy permanently reduced by 20%. (This effect does not stack)."
+                }
+            ],
             "stats": {
                 "damage": 250,
                 "damage_distance": [
@@ -23306,6 +23384,45 @@
                 "c": 3
             },
             "dlc_id": null,
+            "description": "For every second you fire the minigun, your armor gains 1% additional damage reduction. Every second you do not fire the minigun, you lose 1% of this bonus damage reduction. Your total damage reduction can't exceed 90%. Unequipping the minigun will end all active bonuses.",
+            "abilities": [
+            {
+                "tier": 0,
+                "name": "Base Skill",
+                "exp": 0,
+                "description": "For every second you fire the minigun, your armor gains 1% additional damage reduction. Every second you do not fire the minigun, you lose 1% of this bonus damage reduction. Your total damage reduction can't exceed 90%. Unequipping the minigun will end all active bonuses."
+            },
+            {
+                "tier": 1,
+                "name": "Kill Momentum",
+                "exp": 1500,
+                "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction."
+            },
+            {
+                "tier": 2,
+                "name": "Tanking Up",
+                "exp": 3500,
+                "description": "If you have 0 armor plates left and your damage reduction bonus reaches 30%, you'll restore 1 armor plate. This effect won't trigger again until you call in a new OVERKILL minigun."
+            },
+            {
+                "tier": 3,
+                "name": "Battle Ready",
+                "exp": 7500,
+                "description": "As long as you are spinning the minigun's barrel, your bonus to armor damage reduction won't go down."
+            },
+            {
+                "tier": 4,
+                "name": "Death Merchant",
+                "exp": 11500,
+                "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction if you are wearing a 2 plate armor or less, or 2% if you are wearing a 3 plate armor or higher."
+            },
+            {
+                "tier": 5,
+                "name": "Killer Armor",
+                "exp": 16500,
+                "description": "Your armor damage reduction bonus will not end when you unequip the minigun; however, the bonus will decrease over time as though you were not firing the minigun."
+            }
+            ],
             "stats": {
                 "damage": 33,
                 "damage_distance": [
@@ -23555,6 +23672,45 @@
                 "c": 1
             },
             "dlc_id": null,
+            "description": "As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill's effect will end. You can only use this skill once per heist and only if the alarm hasn't been raised. (This ability replaces your OVERKILL weapon).",
+            "abilities": [
+            {
+                "tier": 0,
+                "name": "Base Skill",
+                "exp": 0,
+                "description": "As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill's effect will end. You can only use this skill once per heist and only if the alarm hasn't been raised. (This ability replaces your OVERKILL weapon)."
+            },
+            {
+                "tier": 1,
+                "name": "Threat Mapping",
+                "exp": 1500,
+                "description": "This skill now also marks all guards and cameras while active."
+            },
+            {
+                "tier": 2,
+                "name": "Power Efficiency",
+                "exp": 3500,
+                "description": "Decrease the rate at which your OVERKILL meter drains by 25%."
+            },
+            {
+                "tier": 3,
+                "name": "Signal Block",
+                "exp": 7500,
+                "description": "While this skill is active, radios can't go off, and any currently active radios will not expire. Once this skill's effect ends, any pending radios will activate, and any active radios will expire."
+            },
+            {
+                "tier": 4,
+                "name": "Backup Power",
+                "exp": 11500,
+                "description": "Decreases the rate at which your OVERKILL meter drains by an additional 25%."
+            },
+            {
+                "tier": 5,
+                "name": "Spam Call",
+                "exp": 16500,
+                "description": "While this skill is active, every guard's phone will activate, distracting them from their actions. If a guard is escorting a player, the guard will return to patrolling after this effect ends. If the guard is about to detain a player, the guard will go into Search mode instead."
+            }
+            ],
             "stats": null,
             "dlc": null,
             "mods": []
@@ -23571,24 +23727,66 @@
                 "c": 4
             },
             "dlc_id": 5,
+
+            "description": "If you have a full OVERKILL meter, you pull out a baseball bat on activation and drop any bag or body you are currently carrying. While you're wielding the baseball bat, all incoming damage is done to your OVERKILL meter instead. You can use light or heavy swings with the bat, inflicting light or heavy damage. You'll wield the bat until your OVERKILL meter reaches 0 or until you are downed. If you press the OVERKILL button while wielding the bat, your OVERKILL meter drops to 0. (This ability replaces your OVERKILL weapon).",
+            "abilities": [
+                {
+                "tier": 0,
+                "name": "Base Skill",
+                "exp": 0,
+                "description": "Base activation ability described above."
+                },
+                {
+                "tier": 1,
+                "name": "Frenzy",
+                "exp": 1500,
+                "description": "When there are 3 enemies within 5 meters of you while using this ability, you take 20% less damage."
+                },
+                {
+                "tier": 2,
+                "name": "Bloodlust",
+                "exp": 3500,
+                "description": "Killing an enemy while this ability is active will restore 20% of your OVERKILL meter."
+                },
+                {
+                "tier": 3,
+                "name": "Rabid",
+                "exp": 7500,
+                "description": "As long as you are wielding your baseball bat, you are immune to stagger, stun, slow, disabling effects, and effects that prevent you from sprinting."
+                },
+                {
+                "tier": 4,
+                "name": "Berserker",
+                "exp": 11500,
+                "description": "Killing an enemy while this ability is active will restore 5 health points."
+                },
+                {
+                "tier": 5,
+                "name": "Master of Mayhem",
+                "exp": 16500,
+                "description": "Whenever you kill an enemy with a bat, enemies within 5 meters of that enemy will enter panic and miss all their shots for 5 seconds."
+                }
+            ],
             "stats": {
                 "lightAttack": {
-                    "damage": 300,
-                    "maxTargets": 3
+                "damage": 300,
+                "maxTargets": 3
                 },
                 "heavyAttack": {
-                    "damage": 400,
-                    "maxTargets": 7
+                "damage": 400,
+                "maxTargets": 7
                 },
                 "ArmorPenetration": 1
             },
+
             "dlc": {
                 "id": 5,
                 "name": "Jacked Character Pack",
                 "release_date": "2025-02-03"
             },
+
             "mods": []
-        }
+            }
     },
     "throwable": {
         "1": {
@@ -23895,7 +24093,8 @@
                 "MaxDownCount": 4,
                 "LoadoutWeight": 10,
                 "ConsumableCount": 4,
-                "AmmoCapacityScale": 0.8
+                "AmmoCapacityScale": 0.8,
+                "SpeedPenalty": "None"
             },
             "description": "First Aid Kits replenish an additional {FirstAidPackHealthPerCharge} health {FirstAidPackHealthPerCharge}|plural(one=point,other=points).",
             "desc_values": {
@@ -23919,6 +24118,7 @@
                 "MaxDownCount": 4,
                 "LoadoutWeight": 30,
                 "ConsumableCount": 3,
+                "AmmoCapacityScale": 1,
                 "SpeedPenalty": "Light"
             },
             "description": "If you have a tool in your loadout, you start the heist with {ToolCount} additional {ToolCount}|plural(one=tool,other=tools) of that type. (This is applied before the Extra Pockets skill.)",

@@ -1,0 +1,39 @@
+.card {
+  background: rgba(0,0,0,0.6);
+  padding: 12px;
+  border-radius: 12px;
+  font-family: 'DIN2014';
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Rift';
+}
+
+.kindLabel {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section h3 {
+  margin-bottom: 0.5rem;
+}

@@ -1,34 +1,18 @@
-// import { normalize } from "./normalize";
-
-// export function getSuggestions(query, catalog, activeChips = []) {
-//   if (!query) return [];
-
-//   const q = normalize(query);
-
-//   const alreadySelected = new Set(
-//     activeChips.map(c => `${c.kind}:${c.key}`)
-//   );
-
-//   const matches = catalog
-//     .filter(item => item.searchText.includes(q))
-//     .filter(item => !alreadySelected.has(`${item.kind}:${item.key}`))
-//     .map(item => {
-//       const startsWith = item.searchText.startsWith(q);
-//       const score = startsWith ? 2 : 1;
-
-//       return { ...item, score };
-//     })
-//     .sort((a, b) => b.score - a.score)
-//     .slice(0, 12);
-
-//   return matches;
-// }
 import { normalize } from "./normalize";
 
+  const KIND_BASE_WEIGHT = {
+    weaponType: 40,
+    armor: 25,
+    plate: 20,
+    throwable: 15,
+    deployable: 10,
+    tool: 5,
+    skill: 0
+  };
+  
 export function getSuggestions(query, catalog, activeChips = []) {
-//   const q = normalize(query);
-const q = normalize(query).trim().replace(/\s+/g, " ");
-const qNoSpace = q.replace(/\s+/g, "");
+  const q = normalize(query).trim().replace(/\s+/g, " ");
+  const qNoSpace = q.replace(/\s+/g, "");
 
   if (!q) return [];
 
@@ -51,7 +35,8 @@ const qNoSpace = q.replace(/\s+/g, "");
 
     // Prioridad de tipo de sugerencia
     // Querés que "pistol" muestre primero Weapon Type, después pistolas por nombre.
-    if (item.kind === "weaponType") score += 100;
+    // if (item.kind === "weaponType") score += 100;
+    score += KIND_BASE_WEIGHT[item.kind] ?? 0;
 
     // Mejor si el label empieza con el query (más “typeahead”)
     const labelNorm = normalize(item.label);

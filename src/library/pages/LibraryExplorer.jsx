@@ -14,11 +14,37 @@ import { getSuggestions } from "../utils/getSuggestions";
 import { buildWeaponTypeIndex } from "../utils/buildWeaponTypeIndex";
 import { normalize } from "../utils/normalize";
 import { encodeFilters, decodeFilters } from "../utils/filterSerialization";
+import { formatWeaponTypeWithSlot, getChipLabel, getChipKindLabel, getChipKindColor, formatKindLabel, buildSuggestionsWithDividers } from "../../utils/searchPresentation.utils";
 
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
 import Spinner from "../../components/Spinner";
+
+  const NAME_BY_KEY = buildNameByKey(skillsData, loadoutData, platesData);
+
+  function buildNameByKey(skillsData, loadoutData, platesData) {
+    const map = {};
+
+    // skillsData (es un diccionario plano key -> skill)
+    Object.values(skillsData || {}).forEach((skill) => {
+      if (skill?.key && skill?.name) map[skill.key] = skill.name;
+    });
+
+    // loadoutData: sections (primary/secondary/overkill/throwable/deployable/tool/armor)
+    Object.values(loadoutData || {}).forEach((section) => {
+      Object.values(section || {}).forEach((item) => {
+        if (item?.key && item?.name) map[item.key] = item.name;
+      });
+    });
+
+    // platesData
+    Object.values(platesData || {}).forEach((plate) => {
+      if (plate?.key && plate?.name) map[plate.key] = plate.name;
+    });
+
+    return map;
+  }
 
 export default function LibraryExplorer() {
   const { library, loading } = useUserLibrary();
@@ -121,7 +147,6 @@ export default function LibraryExplorer() {
             kind: "skill",
             key: f.key,
             state: f.state,
-            label: f.key, // temporal, luego podemos enriquecer con name real
           };
 
         case "weaponType":
@@ -130,7 +155,6 @@ export default function LibraryExplorer() {
             slot: f.slot,
             weaponType: f.weaponType,
             key: `${f.slot}:${f.weaponType}`,
-            label: `Weapon Type: ${f.weaponType}`,
           };
 
         case "buildName":
@@ -144,7 +168,6 @@ export default function LibraryExplorer() {
           return {
             kind: f.k,
             key: f.key,
-            label: f.key,
           };
       }
     });
@@ -172,29 +195,29 @@ export default function LibraryExplorer() {
     );
   }, [activeChips]);
 
-  function buildSuggestionsWithDividers(list) {
-  if (!Array.isArray(list) || list.length === 0) return [];
+//   function buildSuggestionsWithDividers(list) {
+//   if (!Array.isArray(list) || list.length === 0) return [];
 
-  const result = [];
-  let lastKind = null;
+//   const result = [];
+//   let lastKind = null;
 
-  for (const item of list) {
-    if (item.kind !== lastKind) {
-      result.push({
-        __type: "divider",
-        kind: item.kind,
-      });
-      lastKind = item.kind;
-    }
+//   for (const item of list) {
+//     if (item.kind !== lastKind) {
+//       result.push({
+//         __type: "divider",
+//         kind: item.kind,
+//       });
+//       lastKind = item.kind;
+//     }
 
-    result.push({
-      __type: "item",
-      ...item,
-    });
-  }
+//     result.push({
+//       __type: "item",
+//       ...item,
+//     });
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 const suggestionsWithDividers = useMemo(() => {
   return buildSuggestionsWithDividers(suggestions);
@@ -257,20 +280,19 @@ const suggestionsWithDividers = useMemo(() => {
                             key: s.key,
                             slot: s.slot,
                             weaponType: s.weaponType,
-                            label: s.label,
                           },
+                        ]);
+                      } else if (s.kind === "buildName") {
+                        setActiveChips((prev) => [
+                          ...prev,
+                          { kind: "buildName", key: s.key, label: s.label },
                         ]);
                       } else {
                         setActiveChips((prev) => [
                           ...prev,
-                          {
-                            kind: s.kind,
-                            key: s.key,
-                            label: s.label,
-                          },
+                          { kind: s.kind, key: s.key },
                         ]);
                       }
-
                       setQuery("");
                     }}
                   >
@@ -279,9 +301,6 @@ const suggestionsWithDividers = useMemo(() => {
                         ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
                         : s.label}
                     </strong>
-                    {/* <span className={styles.kind}>
-                      {s.kind === "weaponType" ? "Weapon Type" : s.kind}
-                    </span> */}
                   </div>
                 );
               })}
@@ -298,7 +317,8 @@ const suggestionsWithDividers = useMemo(() => {
                   {/* <span>{formatChipLabel(chip)}</span> */}
                   <div className={styles.chipContent}>
                     <span className={styles.chipLabel}>
-                      {getChipLabel(chip)}
+                      {/* {getChipLabel(chip)} */}
+                      {getChipLabel(chip, NAME_BY_KEY)}
                     </span>
                     <span className={styles.chipKindBadge} style={{ background: getChipKindColor(chip.kind) }}>
                       {getChipKindLabel(chip)}
@@ -365,117 +385,123 @@ const suggestionsWithDividers = useMemo(() => {
   );
 }
 
-function capitalizeKind(k) {
-  if (!k) return "";
-  return k[0].toUpperCase() + k.slice(1);
-}
+// function capitalizeKind(k) {
+//   if (!k) return "";
+//   return k[0].toUpperCase() + k.slice(1);
+// }
 
-function capitalizeFirst(str) {
-  if (!str || typeof str !== "string") return "";
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-function formatWeaponSlotLabel(slot) {
-  if (!slot) return "";
+// function capitalizeFirst(str) {
+//   if (!str || typeof str !== "string") return "";
+//   return str.charAt(0).toUpperCase() + str.slice(1);
+// }
+// function formatWeaponSlotLabel(slot) {
+//   if (!slot) return "";
 
-  const map = {
-    primary: "Primary",
-    secondary: "Secondary",
-    overkill: "Overkill"
-  };
+//   const map = {
+//     primary: "Primary",
+//     secondary: "Secondary",
+//     overkill: "Overkill"
+//   };
 
-  return map[slot] ?? capitalizeFirst(slot);
-}
+//   return map[slot] ?? capitalizeFirst(slot);
+// }
 
-function formatWeaponTypeWithSlot(slot, type) {
-  const typeLabel = formatWeaponTypeLabel(type);
-  const slotLabel = formatWeaponSlotLabel(slot);
+// function formatWeaponTypeWithSlot(slot, type) {
+//   const typeLabel = formatWeaponTypeLabel(type);
+//   const slotLabel = formatWeaponSlotLabel(slot);
 
-  if (!slotLabel) return typeLabel;
+//   if (!slotLabel) return typeLabel;
 
-  // return `${slotLabel} ${typeLabel}`;
-  return `${typeLabel} (${slotLabel})`;
-}
+//   // return `${slotLabel} ${typeLabel}`;
+//   return `${typeLabel} (${slotLabel})`;
+// }
 
-function formatWeaponTypeLabel(type) {
-  if (!type) return "";
+// function formatWeaponTypeLabel(type) {
+//   if (!type) return "";
 
-  const map = {
-    assaultrifle: "Assault Rifle",
-    smg: "SMG",
-    lmg: "LMG",
-    shotgun: "Shotgun",
-    handgun: "Handgun",
-    marksmanrifle: "Marksman Rifle",
-    sniper: "Sniper Rifle",
-    overkill: "Overkill"
-  };
+//   const map = {
+//     assaultrifle: "Assault Rifle",
+//     smg: "SMG",
+//     lmg: "LMG",
+//     shotgun: "Shotgun",
+//     handgun: "Handgun",
+//     marksmanrifle: "Marksman Rifle",
+//     sniper: "Sniper Rifle",
+//     overkill: "Overkill"
+//   };
 
-  if (map[type]) return map[type];
+//   if (map[type]) return map[type];
 
-  // fallback genérico por si agregás más tipos
-  return type
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/([a-z])([0-9])/g, "$1 $2")
-    .replace(/^./, s => s.toUpperCase());
-}
+//   // fallback genérico por si agregás más tipos
+//   return type
+//     .replace(/([a-z])([A-Z])/g, "$1 $2")
+//     .replace(/([a-z])([0-9])/g, "$1 $2")
+//     .replace(/^./, s => s.toUpperCase());
+// }
 
-function getChipLabel(chip) {
-  if (!chip) return "";
+// function getChipLabel(chip) {
+//   if (!chip) return "";
 
-  if (chip.kind === "weaponType") {
-    return formatWeaponTypeWithSlot(
-    chip.slot,
-    chip.weaponType
-  );
-  }
+//   if (chip.kind === "weaponType") {
+//     return formatWeaponTypeWithSlot(
+//     chip.slot,
+//     chip.weaponType
+//   );
+//   }
 
-  return capitalizeFirst(chip.label);;
-}
+//    if (chip.kind === "buildName") {
+//     return chip.label; // buildName sí es texto real
+//   }
 
-function getChipKindLabel(chip) {
-  if (!chip) return "";
+//     // para TODO lo demás: resolve por key -> name
+//   return NAME_BY_KEY[chip.key] ?? chip.key;
+//   // return capitalizeFirst(chip.label);
+// }
 
-  switch (chip.kind) {
-    case "skill":
-      return "Skill";
-    case "weaponType":
-      return "Weapon Type";
-    case "buildName":
-      return "Build";
-    default:
-      return capitalizeKind(chip.kind);
-  }
-}
+// function getChipKindLabel(chip) {
+//   if (!chip) return "";
 
-function getChipKindColor(kind) {
-  switch (kind) {
-    case "skill": return "var(--color-skill)";
-    case "weaponType": return "var(--color-weapon)";
-    case "primary": return "var(--color-weapon)";
-    case "secondary": return "var(--color-weapon)";
-    case "overkill": return "var(--color-weapon)";
-    case "armor": return "var(--color-armor)";
-    case "plate": return "var(--color-armor)";
-    case "throwable": return "var(--color-throwable)";
-    case "deployable": return "var(--color-deployable)";
-    case "tool": return "var(--color-tool)";
-    case "buildName": return "var(--color-build)";
-    default: return "rgba(255,255,255,0.08)";
-  }
-}
+//   switch (chip.kind) {
+//     case "skill":
+//       return "Skill";
+//     case "weaponType":
+//       return "Weapon Type";
+//     case "buildName":
+//       return "Build";
+//     default:
+//       return capitalizeKind(chip.kind);
+//   }
+// }
 
-function formatKindLabel(kind) {
-  const map = {
-    buildName: "Builds",
-    skill: "Skills",
-    weaponType: "Weapons",
-    overkill: "Overkill Weapon",
-    armor: "Armor",
-    plate: "Plates",
-    throwable: "Throwables",
-    deployable: "Deployables",
-    tool: "Tools"
-  };
+// function getChipKindColor(kind) {
+//   switch (kind) {
+//     case "skill": return "var(--color-skill)";
+//     case "weaponType": return "var(--color-weapon)";
+//     case "primary": return "var(--color-weapon)";
+//     case "secondary": return "var(--color-weapon)";
+//     case "overkill": return "var(--color-weapon)";
+//     case "armor": return "var(--color-armor)";
+//     case "plate": return "var(--color-armor)";
+//     case "throwable": return "var(--color-throwable)";
+//     case "deployable": return "var(--color-deployable)";
+//     case "tool": return "var(--color-tool)";
+//     case "buildName": return "var(--color-build)";
+//     default: return "rgba(255,255,255,0.08)";
+//   }
+// }
 
-  return map[kind] ?? capitalizeKind(kind);
-}
+// function formatKindLabel(kind) {
+//   const map = {
+//     buildName: "Builds",
+//     skill: "Skills",
+//     weaponType: "Weapons",
+//     overkill: "Overkill Weapon",
+//     armor: "Armor",
+//     plate: "Plates",
+//     throwable: "Throwables",
+//     deployable: "Deployables",
+//     tool: "Tools"
+//   };
+
+//   return map[kind] ?? capitalizeKind(kind);
+// }

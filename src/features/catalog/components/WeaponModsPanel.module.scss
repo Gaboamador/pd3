@@ -1,0 +1,27 @@
+.wrapper {
+  margin-top: 2rem;
+}
+
+.slotBlock {
+  margin-bottom: 1.5rem;
+}
+
+.modsRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.modBtn {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.modActive {
+  background: var(--color-weapon);
+  color: black;
+  border: none;
+  padding: 0.4rem 0.8rem;
+}

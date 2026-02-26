@@ -336,6 +336,7 @@ const canSave =
   Boolean(build.id) &&
   !build.__shared;
 
+  console.log(build)
 return (
     <div className={styles.page}>
 

@@ -1,0 +1,39 @@
+.wrapper {
+  margin-top: 16px;
+}
+
+.description {
+  margin-bottom: 16px;
+  line-height: 1.4;
+  color: #ccc;
+}
+
+.table {
+  display: grid;
+  gap: 0.4rem 1rem;
+  font-family: 'DIN2014';
+  font-size: 0.85rem;
+}
+
+.headerRow {
+  display: contents;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.row {
+  display: contents;
+}
+
+.row span {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.positive {
+  color: #4caf50;
+}
+
+.negative {
+  color: #e53935;
+}

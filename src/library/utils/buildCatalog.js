@@ -92,7 +92,7 @@
 //   return catalog;
 // }
 import { normalize } from "./normalize";
-
+import { renderSkillText } from "../../build/utils/skillText.utils";
 /**
  * Catalog = lista de entidades "elegibles" desde el typeahead.
  * Incluye:
@@ -122,6 +122,14 @@ export function buildCatalog({
       kind: "skill",
       key: skill.key,
       label: skill.name,
+      base_description_rendered: renderSkillText(
+        skill.base_description,
+        skill.values || {}
+      ),
+      aced_description_rendered: renderSkillText(
+        skill.aced_description,
+        skill.values || {}
+      ),
       searchText,
     });
   });

@@ -1,0 +1,70 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- BASE OVERSKILL ---------- */
+
+.baseBlock {
+  padding: 16px;
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid #c62828; // rojo agresivo tipo Sociopath
+  border-radius: 6px;
+}
+
+.baseTitle {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.baseDescription {
+  line-height: 1.5;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+/* ---------- TIERS ---------- */
+
+.tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tierCard {
+  padding: 14px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+}
+
+.tierHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.tierLabel {
+  font-weight: 600;
+}
+
+.exp {
+  font-weight: 500;
+}
+
+.tierName {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tierDescription {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  text-align: justify;
+}

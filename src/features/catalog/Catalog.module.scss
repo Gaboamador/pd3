@@ -1,0 +1,81 @@
+@use "../../styles/variables" as *;
+
+.page {
+  min-height: 100vh;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  display: grid;
+  gap: 16px;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.4);
+  color: white;
+}
+
+// .suggestions {
+//   margin-top: 0.5rem;
+//   background: rgba(0,0,0,0.6);
+//   border-radius: 8px;
+//   overflow: hidden;
+// }
+
+// .suggestion {
+//   padding: 0.7rem 1rem;
+//   cursor: pointer;
+//   transition: background 0.2s ease;
+// }
+
+// .suggestion:hover {
+//   background: rgba(255,255,255,0.08);
+// }
+.suggestions {
+  border: 1px solid #333;
+  background: #111;
+  width: 100%;
+  font-family: 'DIN2014';
+}
+
+.suggestionDivider {
+  position: relative;
+  margin: 14px 0 10px;
+  text-align: center;
+}
+
+.suggestionDivider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.suggestionDivider span {
+  position: relative;
+  padding: 0 12px;
+  background: $card-bg;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.suggestion {
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background: #222;
+  }
+}
