@@ -195,30 +195,6 @@ export default function LibraryExplorer() {
     );
   }, [activeChips]);
 
-//   function buildSuggestionsWithDividers(list) {
-//   if (!Array.isArray(list) || list.length === 0) return [];
-
-//   const result = [];
-//   let lastKind = null;
-
-//   for (const item of list) {
-//     if (item.kind !== lastKind) {
-//       result.push({
-//         __type: "divider",
-//         kind: item.kind,
-//       });
-//       lastKind = item.kind;
-//     }
-
-//     result.push({
-//       __type: "item",
-//       ...item,
-//     });
-//   }
-
-//   return result;
-// }
-
 const suggestionsWithDividers = useMemo(() => {
   return buildSuggestionsWithDividers(suggestions);
 }, [suggestions]);
@@ -314,10 +290,8 @@ const suggestionsWithDividers = useMemo(() => {
             <div className={styles.chips}>
               {activeChips.map((chip, i) => (
                 <div key={`${chip.kind}-${chip.key}`} className={styles.chip}>
-                  {/* <span>{formatChipLabel(chip)}</span> */}
                   <div className={styles.chipContent}>
                     <span className={styles.chipLabel}>
-                      {/* {getChipLabel(chip)} */}
                       {getChipLabel(chip, NAME_BY_KEY)}
                     </span>
                     <span className={styles.chipKindBadge} style={{ background: getChipKindColor(chip.kind) }}>
@@ -384,124 +358,3 @@ const suggestionsWithDividers = useMemo(() => {
     </div>
   );
 }
-
-// function capitalizeKind(k) {
-//   if (!k) return "";
-//   return k[0].toUpperCase() + k.slice(1);
-// }
-
-// function capitalizeFirst(str) {
-//   if (!str || typeof str !== "string") return "";
-//   return str.charAt(0).toUpperCase() + str.slice(1);
-// }
-// function formatWeaponSlotLabel(slot) {
-//   if (!slot) return "";
-
-//   const map = {
-//     primary: "Primary",
-//     secondary: "Secondary",
-//     overkill: "Overkill"
-//   };
-
-//   return map[slot] ?? capitalizeFirst(slot);
-// }
-
-// function formatWeaponTypeWithSlot(slot, type) {
-//   const typeLabel = formatWeaponTypeLabel(type);
-//   const slotLabel = formatWeaponSlotLabel(slot);
-
-//   if (!slotLabel) return typeLabel;
-
-//   // return `${slotLabel} ${typeLabel}`;
-//   return `${typeLabel} (${slotLabel})`;
-// }
-
-// function formatWeaponTypeLabel(type) {
-//   if (!type) return "";
-
-//   const map = {
-//     assaultrifle: "Assault Rifle",
-//     smg: "SMG",
-//     lmg: "LMG",
-//     shotgun: "Shotgun",
-//     handgun: "Handgun",
-//     marksmanrifle: "Marksman Rifle",
-//     sniper: "Sniper Rifle",
-//     overkill: "Overkill"
-//   };
-
-//   if (map[type]) return map[type];
-
-//   // fallback genérico por si agregás más tipos
-//   return type
-//     .replace(/([a-z])([A-Z])/g, "$1 $2")
-//     .replace(/([a-z])([0-9])/g, "$1 $2")
-//     .replace(/^./, s => s.toUpperCase());
-// }
-
-// function getChipLabel(chip) {
-//   if (!chip) return "";
-
-//   if (chip.kind === "weaponType") {
-//     return formatWeaponTypeWithSlot(
-//     chip.slot,
-//     chip.weaponType
-//   );
-//   }
-
-//    if (chip.kind === "buildName") {
-//     return chip.label; // buildName sí es texto real
-//   }
-
-//     // para TODO lo demás: resolve por key -> name
-//   return NAME_BY_KEY[chip.key] ?? chip.key;
-//   // return capitalizeFirst(chip.label);
-// }
-
-// function getChipKindLabel(chip) {
-//   if (!chip) return "";
-
-//   switch (chip.kind) {
-//     case "skill":
-//       return "Skill";
-//     case "weaponType":
-//       return "Weapon Type";
-//     case "buildName":
-//       return "Build";
-//     default:
-//       return capitalizeKind(chip.kind);
-//   }
-// }
-
-// function getChipKindColor(kind) {
-//   switch (kind) {
-//     case "skill": return "var(--color-skill)";
-//     case "weaponType": return "var(--color-weapon)";
-//     case "primary": return "var(--color-weapon)";
-//     case "secondary": return "var(--color-weapon)";
-//     case "overkill": return "var(--color-weapon)";
-//     case "armor": return "var(--color-armor)";
-//     case "plate": return "var(--color-armor)";
-//     case "throwable": return "var(--color-throwable)";
-//     case "deployable": return "var(--color-deployable)";
-//     case "tool": return "var(--color-tool)";
-//     case "buildName": return "var(--color-build)";
-//     default: return "rgba(255,255,255,0.08)";
-//   }
-// }
-
-// function formatKindLabel(kind) {
-//   const map = {
-//     buildName: "Builds",
-//     skill: "Skills",
-//     weaponType: "Weapons",
-//     overkill: "Overkill Weapon",
-//     armor: "Armor",
-//     plate: "Plates",
-//     throwable: "Throwables",
-//     deployable: "Deployables",
-//     tool: "Tools"
-//   };
-
-//   return map[kind] ?? capitalizeKind(kind);
-// }

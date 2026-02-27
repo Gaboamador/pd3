@@ -27,6 +27,13 @@ const { isAuthenticated } = useAuth();
           </div>
         </Link>
 
+        <Link to="/catalog" className={styles.card}>
+          <div className={styles.cardTitle}>Catalog</div>
+          <div className={styles.cardDesc}>
+            Search the full PD3 database: skills, weapons, armor, equipment and more.
+          </div>
+        </Link>
+
         <Link to="/library-explorer" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
           <div className={styles.cardTitle}>Library Explorer</div>
           <div className={styles.cardDesc}>
@@ -36,13 +43,6 @@ const { isAuthenticated } = useAuth();
 
         <Link to="/library-roulette" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
           <div className={styles.cardTitle}>Library Roulette</div>
-          <div className={styles.cardDesc}>
-            {!isAuthenticated ? `Sign in to spin between your saved builds.`:`Spin a wheel using filtered builds from your library.`}
-          </div>
-        </Link>
-
-        <Link to="/catalog" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
-          <div className={styles.cardTitle}>Catalog</div>
           <div className={styles.cardDesc}>
             {!isAuthenticated ? `Sign in to spin between your saved builds.`:`Spin a wheel using filtered builds from your library.`}
           </div>

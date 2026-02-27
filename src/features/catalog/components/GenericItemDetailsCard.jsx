@@ -8,15 +8,23 @@ import ThrowableSprite from "../../../build/components/loadout/ThrowableSprite";
 import DeployableSprite from "../../../build/components/loadout/DeployableSprite";
 import ToolSprite from "../../../build/components/loadout/ToolSprite";
 
+import SkillSection from "../../../components/SkillSection";
 import WeaponStatsSection from "./WeaponStatsSection";
 import OverkillStatsSection from "./OverkillsStatsSection";
 import ArmorStatsSection from "./ArmorStatsSection";
 import PlateStatsSection from "./PlateStatsSection";
 import DeployableStatsSection from "./DeployableStatsSection";
+import ThrowableStatsSection from "./ThrowableStatsSection";
+import OtherItemsSection from "./OtherItemsSection";
 
 export default function GenericItemDetailsCard({ item }) {
   const isMobile = useIsMobile();
   const spriteHeight = isMobile ? 80 : 110;
+
+  const isOtherItem =
+  item?.type === "throwable" ||
+  item?.type === "deployable" ||
+  item?.type === "tool";
 
   const { def, kind } = resolveCatalogItem(item);
 
@@ -35,7 +43,7 @@ export default function GenericItemDetailsCard({ item }) {
         )}
 
         <div>
-          <h2>{def.name}</h2>
+          <div className={styles.itemName}>{def.name}</div>
           <div className={styles.kindLabel}>{kind}</div>
         </div>
       </div>
@@ -78,16 +86,7 @@ function getSpriteComponent(kind) {
 function renderDetails(kind, def, item) {
   switch (kind) {
     case "skill":
-      return (
-        <>
-          <Section title="Base">
-            {item.base_description_rendered}
-          </Section>
-          <Section title="Aced">
-            {item.aced_description_rendered}
-          </Section>
-        </>
-      );
+      return <SkillSection skill={def} showMeta/>;
 
     case "primary":
     case "secondary":
@@ -102,29 +101,7 @@ function renderDetails(kind, def, item) {
     case "plate":
       return <PlateStatsSection plate={def} />;
 
-    case "deployable":
-      return <DeployableStatsSection deployable={def} />;
-
     default:
-      return (
-        <div className={styles.stats}>
-          {def.stats &&
-            Object.entries(def.stats).map(([k, v]) => (
-              <div key={k} className={styles.statRow}>
-                <span>{prettifyKey(k)}</span>
-                <strong>{String(v)}</strong>
-              </div>
-            ))}
-        </div>
-      );
+      return <OtherItemsSection item={def} />;
   }
-}
-
-function Section({ title, children }) {
-  return (
-    <div className={styles.section}>
-      <h3>{title}</h3>
-      <p>{children}</p>
-    </div>
-  );
 }

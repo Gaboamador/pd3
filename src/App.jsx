@@ -37,6 +37,7 @@ function App() {
         <Route path="/library-roulette" element={<LibraryRoulette />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:key" element={<Catalog />} />
+        <Route path="/catalog/type/:slot/:weaponType" element={<Catalog />} />
         <Route path="/auth" element={<AuthScreen/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

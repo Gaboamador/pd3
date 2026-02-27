@@ -20,22 +20,6 @@
   color: white;
 }
 
-// .suggestions {
-//   margin-top: 0.5rem;
-//   background: rgba(0,0,0,0.6);
-//   border-radius: 8px;
-//   overflow: hidden;
-// }
-
-// .suggestion {
-//   padding: 0.7rem 1rem;
-//   cursor: pointer;
-//   transition: background 0.2s ease;
-// }
-
-// .suggestion:hover {
-//   background: rgba(255,255,255,0.08);
-// }
 .suggestions {
   border: 1px solid #333;
   background: #111;
@@ -78,4 +62,25 @@
   &:hover {
     background: #222;
   }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 0.9rem;
+  color: $pd3-main;
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.checkbox {
+  accent-color: $pd3-lightgreen;
+  cursor: pointer;
 }

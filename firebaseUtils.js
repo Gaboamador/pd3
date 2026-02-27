@@ -24,7 +24,8 @@ export const saveBuild = async (uid, build) => {
 
   const buildRef = doc(db, "users", uid, "builds", build.id);
 
-  await setDoc(buildRef, build, { merge: true });
+  // await setDoc(buildRef, build, { merge: true });
+  await setDoc(buildRef, build);
 };
 
 /**
@@ -112,21 +113,3 @@ export const clearBuildSlot = async (uid, buildId) => {
   await saveBuild(uid, { ...build, slot: null });
   return await getAllBuilds(uid);
 };
-
-
-// export async function markUserMigrated(uid) {
-//   const userRef = doc(db, "users", uid);
-//   await setDoc(
-//     userRef,
-//     { hasMigratedLocalBuilds: true },
-//     { merge: true }
-//   );
-// }
-
-// export async function getUserMigrationStatus(uid) {
-//   const userRef = doc(db, "users", uid);
-//   const snap = await getDoc(userRef);
-//   return snap.exists()
-//     ? snap.data().hasMigratedLocalBuilds === true
-//     : false;
-// }

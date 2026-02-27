@@ -11,7 +11,7 @@
   background: $color-bg-surface;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
-  max-height: 60vh;
+  max-height: 80vh;
   overflow-y: auto;
   padding-top: 0;
 }
@@ -120,22 +120,22 @@
   padding-top: $space-xs;
 }
 
-.name {
-  font-size: 0.95rem;
-  color: $color-text-primary;
-  line-height: 1.2;
-}
+// .name {
+//   font-size: 0.95rem;
+//   color: $color-text-primary;
+//   line-height: 1.2;
+// }
 
-.slotBadge {
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: $color-text-primary;
-  background: $color-bg-contrast;
-  border: 1px solid $color-border;
-  white-space: nowrap;
-}
+// .slotBadge {
+//   padding: 2px 8px;
+//   border-radius: 999px;
+//   font-size: 0.75rem;
+//   font-weight: 700;
+//   color: $color-text-primary;
+//   background: $color-bg-contrast;
+//   border: 1px solid $color-border;
+//   white-space: nowrap;
+// }
 
 .slotEmpty {
   padding: 2px 8px;
@@ -175,4 +175,160 @@
   font-size: 0.75rem;
   font-weight: 700;
   color: $color-accent;
+}
+
+
+/**/
+.item {
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-bg-elevated;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.item:hover {
+  border-color: color-mix(in srgb, $color-accent 50%, $color-border);
+}
+
+.active {
+  background: color-mix(in srgb, $color-accent 8%, $color-bg-elevated);
+  border-color: $color-accent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: $color-accent;
+    border-top-left-radius: $radius-md;
+    border-bottom-left-radius: $radius-md;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.left {
+  // display: flex;
+  // align-items: center;
+  // gap: 12px;
+  // min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: $color-text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subline {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.slotBadge {
+  font-family: 'DIN2014';
+  font-weight: 800;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $pd3-main;
+  color: black;
+font-size: 0.7rem;
+padding: 4px 8px;
+}
+
+.activeLabel {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: $color-accent;
+}
+
+.activateBtn {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+}
+
+.deleteBtn {
+  clip-path: none;
+  font-size: 0.75rem;
+  background: transparent;
+  border: 1px solid #a33;
+  color: #a33;
+  padding: 4px 8px;
+  border-radius: 6px;
+
+  &:hover {
+    background: #a33;
+    color: white;
+  }
+}
+
+.preview {
+  font-size: 0.7rem;
+  color: $color-text-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.85;
+  font-family: 'DIN2014';
+}
+.plate {
+  opacity: 0.7;
+}
+
+.left {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; // 🔥 clave
+}
+
+.preview {
+  min-width: 0; // 🔥 clave
+  white-space: normal;
+  word-break: break-word;
 }

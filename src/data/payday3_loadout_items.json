@@ -12,6 +12,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 90.0, "medium": 85.0, "far": 80.0, "ap": 2 },
             "stats": {
                 "damage": 30.4,
                 "damage_distance": [
@@ -709,6 +710,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 70.0, "medium": 65.0, "far": 65.0, "ap": 2.2 },
             "stats": {
                 "damage": 28,
                 "damage_distance": [
@@ -1370,6 +1372,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 120.0, "medium": 100.0, "far": 90.0, "ap": 1.75 },
             "stats": {
                 "damage": 40.2,
                 "damage_distance": [
@@ -2086,6 +2089,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 130.0, "medium": 120.0, "far": 110.0, "ap": 2.5 },
             "stats": {
                 "damage": 36.4,
                 "damage_distance": [
@@ -2796,6 +2800,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 92.0, "medium": 88.0, "far": 80.0, "ap": 3 },
             "stats": {
                 "damage": 50,
                 "damage_distance": [
@@ -3408,6 +3413,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 280.0, "medium": 280.0, "far": 270.0, "ap": 7 },
             "stats": {
                 "damage": 160,
                 "damage_distance": [
@@ -3771,6 +3777,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 65.2, "medium": 35.0, "far": 29.0, "ap": 1.3 },
             "stats": {
                 "damage": 32.5,
                 "damage_distance": [
@@ -4396,6 +4403,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 60.0, "medium": 55.2, "far": 42.0, "ap": 0.8 },
             "stats": {
                 "damage": 42,
                 "damage_distance": [
@@ -4905,6 +4913,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 59.2, "medium": 38.0, "far": 32.0, "ap": 1.4 },
             "stats": {
                 "damage": 24,
                 "damage_distance": [
@@ -5424,6 +5433,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": "10 x 47.6", "medium": "10 x 24", "far": "10 x 20", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -5837,6 +5847,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": "10 x 67.125", "medium": "10 x 42", "far": "10 x 30", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -6179,6 +6190,7 @@
                 "c": 3
             },
             "dlc_id": 1,
+            "newStats": { "close": 86.4, "medium": 51.0, "far": 43.0, "ap": 0.9 },
             "stats": {
                 "damage": 35,
                 "damage_distance": [
@@ -6804,6 +6816,7 @@
                 "c": 4
             },
             "dlc_id": 1,
+            "newStats": { "close": "8 x 34.125", "medium": "8 x 21", "far": "8 x 13.72", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -7400,6 +7413,7 @@
                 "c": 1
             },
             "dlc_id": 1,
+            "newStats": { "close": 54.0, "medium": 39.0, "far": 39.0, "ap": 1.5 },
             "stats": {
                 "damage": 33,
                 "damage_distance": [
@@ -8064,6 +8078,7 @@
                 "c": 2
             },
             "dlc_id": 2,
+            "newStats": { "close": 104.6, "medium": 100.0, "far": 95.0, "ap": 2 },
             "stats": {
                 "damage": 42,
                 "damage_distance": [
@@ -8770,6 +8785,7 @@
                 "c": 1
             },
             "dlc_id": 2,
+            "newStats": { "close": 79.2, "medium": 38.0, "far": 28.0, "ap": 1.15 },
             "stats": {
                 "damage": 31.3,
                 "damage_distance": [
@@ -9365,6 +9381,7 @@
                 "c": 3
             },
             "dlc_id": 2,
+            "newStats": { "close": 66.7, "medium": 43.0, "far": 31.0, "ap": 1.5 },
             "stats": {
                 "damage": 28,
                 "damage_distance": [
@@ -10084,6 +10101,7 @@
                 "c": 2
             },
             "dlc_id": 3,
+            "newStats": { "close": 85.0, "medium": 80.0, "far": 70.0, "ap": 2.8 },
             "stats": {
                 "damage": 36.4,
                 "damage_distance": [
@@ -10759,6 +10777,7 @@
                 "c": 4
             },
             "dlc_id": 3,
+            "newStats": { "close": "10 x 43.6", "medium": "10 x 22", "far": "10 x 22", "ap": 0 },
             "stats": {
                 "damage": 20,
                 "damage_distance": [
@@ -11242,6 +11261,7 @@
                 "c": 1
             },
             "dlc_id": 4,
+            "newStats": { "close": "10 x 52", "medium": "10 x 22", "far": "10 x 18", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -11626,6 +11646,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 100.0, "medium": 95.0, "far": 90.0, "ap": 2.6 },
             "stats": {
                 "damage": 100,
                 "damage_distance": [
@@ -12291,6 +12312,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 90.0, "medium": 85.0, "far": 80.0, "ap": 2 },
             "stats": {
                 "damage": 30.4,
                 "damage_distance": [
@@ -12600,6 +12622,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 280.0, "medium": 280.0, "far": 270.0, "ap": 7 },
             "stats": {
                 "damage": 160,
                 "damage_distance": [
@@ -12773,6 +12796,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 120.0, "medium": 100.0, "far": 90.0, "ap": 1.75 },
             "stats": {
                 "damage": 40.2,
                 "damage_distance": [
@@ -13385,6 +13409,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": "10 x 67.125", "medium": "10 x 42", "far": "10 x 30", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -13582,6 +13607,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 60.0, "medium": 55.2, "far": 42.0, "ap": 0.8 },
             "stats": {
                 "damage": 42,
                 "damage_distance": [
@@ -13868,6 +13894,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 130.0, "medium": 120.0, "far": 110.0, "ap": 2.5 },
             "stats": {
                 "damage": 36.4,
                 "damage_distance": [
@@ -14155,6 +14182,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": "10 x 47.6", "medium": "10 x 24", "far": "10 x 20", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -14361,6 +14389,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 90.0, "medium": 85.0, "far": 80.0, "ap": 2 },
             "stats": {
                 "damage": 30.4,
                 "damage_distance": [
@@ -14671,6 +14700,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 59.2, "medium": 38.0, "far": 32.0, "ap": 1.4 },
             "stats": {
                 "damage": 24,
                 "damage_distance": [
@@ -15001,6 +15031,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 90.0, "medium": 85.0, "far": 80.0, "ap": 2 },
             "stats": {
                 "damage": 30.4,
                 "damage_distance": [
@@ -15345,6 +15376,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": "10 x 67.125", "medium": "10 x 42", "far": "10 x 30", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -15573,6 +15605,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 70.0, "medium": 65.0, "far": 65.0, "ap": 2.2 },
             "stats": {
                 "damage": 28,
                 "damage_distance": [
@@ -15904,6 +15937,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 280.0, "medium": 280.0, "far": 270.0, "ap": 7 },
             "stats": {
                 "damage": 160,
                 "damage_distance": [
@@ -16090,6 +16124,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 65.2, "medium": 35.0, "far": 29.0, "ap": 1.3 },
             "stats": {
                 "damage": 32.5,
                 "damage_distance": [
@@ -16400,6 +16435,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 90.1, "medium": 56.0, "far": 42.0, "ap": 1.6 },
             "stats": {
                 "damage": 50,
                 "damage_distance": [
@@ -16822,6 +16858,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 66.0, "medium": 49.0, "far": 38.0, "ap": 1.6 },
             "stats": {
                 "damage": 50,
                 "damage_distance": [
@@ -17235,6 +17272,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 60.6, "medium": 30.0, "far": 22.0, "ap": 1.8 },
             "stats": {
                 "damage": 44,
                 "damage_distance": [
@@ -17632,6 +17670,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 116.1, "medium": 80.0, "far": 60.0, "ap": 2.1 },
             "stats": {
                 "damage": 80,
                 "damage_distance": [
@@ -18056,6 +18095,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 160.1, "medium": 102.0, "far": 77.0, "ap": 2 },
             "stats": {
                 "damage": 91,
                 "damage_distance": [
@@ -18440,6 +18480,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 155.6, "medium": 81.0, "far": 58.0, "ap": 4 },
             "stats": {
                 "damage": 65,
                 "damage_distance": [
@@ -18769,6 +18810,7 @@
                 "c": 4
             },
             "dlc_id": 2,
+            "newStats": { "close": 212.0, "medium": 167.0, "far": 130.0, "ap": 5 },
             "stats": {
                 "damage": 150,
                 "damage_distance": [
@@ -19142,6 +19184,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 49.3, "medium": 30.0, "far": 22.0, "ap": 1.3 },
             "stats": {
                 "damage": 26,
                 "damage_distance": [
@@ -19584,6 +19627,7 @@
                 "c": 4
             },
             "dlc_id": 3,
+            "newStats": { "close": 49.3, "medium": 30.0, "far": 22.0, "ap": 1.3 },
             "stats": {
                 "damage": 44,
                 "damage_distance": [
@@ -20022,6 +20066,7 @@
                 "c": 1
             },
             "dlc_id": 4,
+            "newStats": { "close": 137.0, "medium": 56.0, "far": 42.0, "ap": 5 },
             "stats": {
                 "damage": 125,
                 "damage_distance": [
@@ -20361,6 +20406,7 @@
                 "c": 2
             },
             "dlc_id": 4,
+            "newStats": { "close": 100.6, "medium": 52.0, "far": 37.0, "ap": 1.4 },
             "stats": {
                 "damage": 125,
                 "damage_distance": [
@@ -20793,6 +20839,7 @@
                 "c": 2
             },
             "dlc_id": 6,
+            "newStats": { "close": "8 x 44", "medium": "8 x 49.125", "far": "8 x 31", "ap": 0 },
             "stats": {
                 "damage": 40,
                 "damage_distance": [
@@ -21156,6 +21203,7 @@
                 "c": 4
             },
             "dlc_id": null,
+            "newStats": { "close": 155.6, "medium": 81.0, "far": 58.0, "ap": 4 },
             "stats": {
                 "damage": 65,
                 "damage_distance": [
@@ -21372,6 +21420,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 90.1, "medium": 56.0, "far": 42.0, "ap": 1.6 },
             "stats": {
                 "damage": 50,
                 "damage_distance": [
@@ -21620,6 +21669,7 @@
                 "c": 3
             },
             "dlc_id": null,
+            "newStats": { "close": 60.6, "medium": 30.0, "far": 22.0, "ap": 1.8 },
             "stats": {
                 "damage": 44,
                 "damage_distance": [
@@ -21858,6 +21908,7 @@
                 "c": 2
             },
             "dlc_id": null,
+            "newStats": { "close": 116.1, "medium": 80.0, "far": 60.0, "ap": 2.1 },
             "stats": {
                 "damage": 80,
                 "damage_distance": [
@@ -22132,6 +22183,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 160.1, "medium": 102.0, "far": 77.0, "ap": 2 },
             "stats": {
                 "damage": 91,
                 "damage_distance": [
@@ -22375,6 +22427,7 @@
                 "c": 1
             },
             "dlc_id": null,
+            "newStats": { "close": 116.1, "medium": 80.0, "far": 60.0, "ap": 2.1 },
             "stats": {
                 "damage": 80,
                 "damage_distance": [
@@ -22672,6 +22725,7 @@
                 "c": 2
             },
             "dlc_id": 5,
+            "newStats": { "close": 49.3, "medium": 30.0, "far": 22.0, "ap": 1.3 },
             "stats": {
                 "damage": 26,
                 "damage_distance": [
@@ -23818,7 +23872,7 @@
                 "ArmorPenetration": 2,
                 "SelfDamage": 0.69
             },
-            "description": null,
+            "description": "Throw the grenade, grenade goes boom. Hold it longer, it'll go boom faster. Tale as old as time.",
             "desc_values": null
         },
         "2": {
@@ -23836,7 +23890,7 @@
                 "StunTime": 5,
                 "Range": 8
             },
-            "description": null,
+            "description": "Stun your enemies with a blinding light! Flashbanged cops make the best human shields.",
             "desc_values": null
         },
         "3": {
@@ -23858,7 +23912,7 @@
                     "Vertical": 8
                 }
             },
-            "description": null,
+            "description": "Enemies caught in your smokescreen will aim worse and move slower. If they've got asthma, they're screwed.",
             "desc_values": null
         },
         "4": {
@@ -23877,7 +23931,7 @@
                 "Crit": 2,
                 "ArmorPenetration": 1.5
             },
-            "description": null,
+            "description": "Use this ninja shit for a quiet kill, but remember to retrieve it from the body. Knives ain't cheap.",
             "desc_values": null
         },
         "13": {
@@ -23897,7 +23951,7 @@
                 "ExplosionCount": 3,
                 "RepeatDelay": 1.5
             },
-            "description": null,
+            "description": "If you want your bacon extra crispy, this is just the thing for you. Throw it into a pack of cops, and watch them fry!",
             "desc_values": null
         }
     },
@@ -23916,7 +23970,7 @@
                 "InitialCharges": 2,
                 "ArmorChunkSizePerCharge": 100
             },
-            "description": null,
+            "description": "Repairs your lost armor. Bite the bullet before the bullet bites you.",
             "desc_values": null
         },
         "6": {
@@ -23933,7 +23987,7 @@
                 "InitialCharges": 2,
                 "HealthGainedPerCharge": 50
             },
-            "description": null,
+            "description": "Replenishes some of your health and number of downs. You'll never need a doctor again!\nIf you heal beyond your maximum health, you gain Adrenaline, which acts as a temporary layer of extra health.",
             "desc_values": null
         },
         "7": {
@@ -23951,7 +24005,7 @@
                 "NumberOfMagazinesPerCharge": 3,
                 "NumberOfGrenadesPerCharge": 2
             },
-            "description": null,
+            "description": "Restocks a portion of your ammo and throwables, which are key ingredients to not dying.",
             "desc_values": null
         },
         "12": {
@@ -23995,7 +24049,7 @@
                 "ExplosionRange": 8,
                 "ExplosionArmorPenetration": 3
             },
-            "description": null,
+            "description": "An automated ally for shootouts. The singularity's coming, so enjoy friendly robots while you can!",
             "desc_values": null
         }
     },
@@ -24013,7 +24067,7 @@
                 "ToolInventory": 2,
                 "ToolInventoryMax": 10
             },
-            "description": null,
+            "description": "Drop this spy camera anywhere, access it any time. Good for marking enemies and stalking crushes.\n\nYou can place 4 Micro Cams at a time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
             "desc_values": null
         },
         "9": {
@@ -24029,7 +24083,7 @@
                 "ToolInventory": 2,
                 "ToolInventoryMax": 10
             },
-            "description": null,
+            "description": "Marks up to 15 enemies in a 3-meter range. If someone's voguing, you'll be the first to know.\n\nYou can place 4 Motion Sensors at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
             "desc_values": null
         },
         "10": {
@@ -24045,7 +24099,7 @@
                 "ToolInventory": 1,
                 "ToolInventoryMax": 1
             },
-            "description": null,
+            "description": "Let's jam! While active, all cameras and radios work stupid slow. Stack for stronger effects.\n\nYou can place 2 ECM Jammers at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
             "desc_values": null
         },
         "11": {
@@ -24058,7 +24112,7 @@
                 "c": 1
             },
             "stats": null,
-            "description": null,
+            "description": "A sonic stun device, audible only to your victims. Be ready to shut them up when it wears off.\n\nYou can place 10 Infrasonic Mines at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
             "desc_values": null
         },
         "18": {
@@ -24074,7 +24128,7 @@
                 "ToolInventory": 1,
                 "ToolInventoryMax": 2
             },
-            "description": null,
+            "description": "Slap this nifty lil' guy on a wall, and its sensor will mark anyone who passes by for ten seconds.\n\nYou can place 2 Trip Lasers at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
             "desc_values": null
         }
     },

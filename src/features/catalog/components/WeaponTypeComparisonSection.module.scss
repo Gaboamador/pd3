@@ -1,0 +1,98 @@
+@use "../../../styles/variables.scss" as *;
+
+.wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: 'DIN2014';
+  font-size: 0.9rem;
+}
+
+/* Column widths */
+.colWeapon {
+  width: 40%;
+}
+
+.colStat {
+  width: 15%;
+}
+
+th {
+  text-align: left;
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 2px solid $pd3-lightgreen;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.active {
+  color: $pd3-lightgreen;
+  font-weight: 600;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid $pd3-main;
+}
+
+/* Números alineados */
+td:nth-child(n + 2),
+th:nth-child(n + 2) {
+  text-align: right;
+}
+
+tbody tr:hover {
+  background: var(--color-bg-hover);
+}
+
+.headerContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.sortIcon {
+  display: flex;
+  align-items: center;
+  height: 16px;
+}
+
+/* ---------- Alineación general ---------- */
+
+/* Primera columna: izquierda */
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+/* Columnas numéricas: derecha */
+th:nth-child(n + 2),
+td:nth-child(n + 2) {
+  text-align: right;
+}
+
+/* ---------- Header interno ---------- */
+
+/* Primera columna: texto + icon alineados izquierda */
+th:first-child .headerContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-start;
+}
+
+/* Columnas numéricas: texto + icon alineados derecha */
+th:nth-child(n + 2) .headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 100%;
+}

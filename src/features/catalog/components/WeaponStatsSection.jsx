@@ -1,174 +1,100 @@
-// // import { useState, useMemo } from "react";
-// // import StatsGrid from "./common/StatsGrid";
-// // import styles from "./common/StatsGrid.module.scss";
-// // import { computeWeaponStats } from "./utils/computeWeaponStats";
-// // import WeaponModsPanel from "./WeaponModsPanel";
-
-// // export default function WeaponStatsSection({ weapon }) {
-// //   const [selectedMods, setSelectedMods] = useState({});
-
-// //   const computed = useMemo(() => {
-// //     return computeWeaponStats(weapon, selectedMods);
-// //   }, [weapon, selectedMods]);
-
-// //   if (!computed) return null;
-
-// //   const rows = Object.entries(computed).map(([key, val]) => {
-// //     const deltaClass =
-// //       typeof val.delta === "string"
-// //         ? val.delta.startsWith("+")
-// //           ? styles.positive
-// //           : val.delta.startsWith("-")
-// //           ? styles.negative
-// //           : ""
-// //         : val.delta > 0
-// //         ? styles.positive
-// //         : val.delta < 0
-// //         ? styles.negative
-// //         : "";
-
-// //     return [
-// //       { value: key },
-// //       { value: val.base },
-// //       {
-// //         value: val.delta !== 0 ? val.delta : "-",
-// //         className: deltaClass,
-// //       },
-// //       { value: val.final },
-// //     ];
-// //   });
-
-// //   return (
-// //     <>
-// //       <StatsGrid
-// //         columns={["Stat", "Base", "Δ", "Final"]}
-// //         rows={rows}
-// //       />
-
-// //       <WeaponModsPanel
-// //         weaponDef={weapon}
-// //         selectedMods={selectedMods}
-// //         onChange={setSelectedMods}
-// //       />
-// //     </>
-// //   );
-// // }
-// import { useState, useMemo } from "react";
-// import StatsGrid from "./common/StatsGrid";
-// import styles from "./common/StatsGrid.module.scss";
-// import { computeWeaponStats } from "./utils/computeWeaponStats";
-// import WeaponModsPanel from "./WeaponModsPanel";
-// import { prettifyKey } from "./utils/prettifyKey";
-
-// export default function WeaponStatsSection({ weapon }) {
-//   const [selectedMods, setSelectedMods] = useState({});
-
-//   const computed = useMemo(() => {
-//     return computeWeaponStats(weapon, selectedMods);
-//   }, [weapon, selectedMods]);
-
-//   if (!computed) return null;
-
-//   const rows = Object.entries(computed).map(([key, val]) => {
-//     const deltaClass =
-//       typeof val.delta === "string"
-//         ? val.delta.startsWith("+")
-//           ? styles.positive
-//           : val.delta.startsWith("-")
-//           ? styles.negative
-//           : ""
-//         : val.delta > 0
-//         ? styles.positive
-//         : val.delta < 0
-//         ? styles.negative
-//         : "";
-
-//     return [
-//       { value: prettifyKey(key) },
-//       { value: val.final },   // 1️⃣ TOTAL
-//       { value: val.base },    // 2️⃣ BASE
-//       {
-//         value: val.delta !== 0 ? val.delta : null, // 3️⃣ DELTA
-//         className: deltaClass,
-//       }
-//     ];
-//   });
-
-//   return (
-//     <>
-//       <StatsGrid
-//         columns={["Stat", "Total", "Base", "Δ"]}
-//         rows={rows}
-//       />
-
-//       <WeaponModsPanel
-//         weaponDef={weapon}
-//         selectedMods={selectedMods}
-//         onChange={setSelectedMods}
-//       />
-//     </>
-//   );
-// }
-import { useState, useMemo, useEffect } from "react";
 import StatsGrid from "./common/StatsGrid";
-import styles from "./common/StatsGrid.module.scss";
-import { computeWeaponStats } from "./utils/computeWeaponStats";
-import { getWeaponModSlots, buildEmptyModsStateForWeapon } from "../../../build/utils/loadout.utils";
-import WeaponModsPanel from "./WeaponModsPanel";
 import { prettifyKey } from "./utils/prettifyKey";
+import styles from "./WeaponStatsSection.module.scss";
+import { formatNumber, formatDamageValue, formatAP } from "./utils/newStatsFormat";
+
+// Orden “humano” típico (ajustalo si querés)
+const MOD_SLOT_ORDER = [
+  "Magazine",
+  "Barrel",
+  "BarrelExtension",
+  "ForeGrip",
+  "Stock",
+  "Sight",
+  "Receiver",
+  "Grip",
+];
+
+function buildNewStatsRows(newStats) {
+  if (!newStats) return [];
+
+  return [
+    ["Damage Close", formatDamageValue(newStats.close)],
+    ["Damage Medium", formatDamageValue(newStats.medium)],
+    ["Damage Far", formatDamageValue(newStats.far)],
+    ["Armor Penetration", formatNumber(newStats.ap)],
+  ]
+    .filter(([_, v]) => v != null)
+    .map(([k, v]) => [{ value: k }, { value: v }]);
+}
+
+function buildModsInfo(weapon) {
+  const modsBySlot = weapon?.mods;
+  if (!modsBySlot || typeof modsBySlot !== "object") return [];
+
+  const entries = Object.entries(modsBySlot)
+    .filter(([_, slotMods]) => slotMods && typeof slotMods === "object")
+    .map(([slot, slotMods]) => {
+      const names = Object.values(slotMods)
+        .map((m) => m?.name)
+        .filter(Boolean);
+
+      return { slot, names };
+    })
+    .filter((x) => x.names.length > 0);
+
+  // Ordenar slots (primero los conocidos, después alfabético)
+  entries.sort((a, b) => {
+    const ia = MOD_SLOT_ORDER.indexOf(a.slot);
+    const ib = MOD_SLOT_ORDER.indexOf(b.slot);
+
+    const aKnown = ia !== -1;
+    const bKnown = ib !== -1;
+
+    if (aKnown && bKnown) return ia - ib;
+    if (aKnown) return -1;
+    if (bKnown) return 1;
+    return a.slot.localeCompare(b.slot);
+  });
+
+  return entries;
+}
 
 export default function WeaponStatsSection({ weapon }) {
-  const [modsState, setModsState] = useState({});
+  if (!weapon) return null;
 
-  // cuando cambia arma, resetear estado
-  useEffect(() => {
-    if (!weapon) return;
-    setModsState(buildEmptyModsStateForWeapon(weapon));
-  }, [weapon]);
+  const rows = buildNewStatsRows(weapon.newStats);
+  if (rows.length === 0) return null;
 
-  const computed = useMemo(() => {
-    return computeWeaponStats(weapon, modsState);
-  }, [weapon, modsState]);
-
-  if (!computed) return null;
-
-  const rows = Object.entries(computed).map(([key, val]) => {
-    const deltaClass =
-      typeof val.delta === "string"
-        ? val.delta.startsWith("+")
-          ? styles.positive
-          : val.delta.startsWith("-")
-          ? styles.negative
-          : ""
-        : val.delta > 0
-        ? styles.positive
-        : val.delta < 0
-        ? styles.negative
-        : "";
-
-    return [
-      { value: prettifyKey(key) },
-      { value: val.final },
-      { value: val.base },
-      {
-        value: val.delta !== 0 ? val.delta : null,
-        className: deltaClass,
-      },
-    ];
-  });
+  const modsInfo = buildModsInfo(weapon);
 
   return (
     <>
-      <StatsGrid
-        columns={["Stat", "Total", "Base", "Δ"]}
-        rows={rows}
-      />
+      <StatsGrid columns={["Stat", "Value"]} rows={rows} />
 
-      <WeaponModsPanel
-        weaponDef={weapon}
-        modsState={modsState}
-        onChange={setModsState}
-      />
+      {modsInfo.length > 0 && (
+        <div className={styles.modsSection}>
+          <div className={styles.modsTitle}>Mods Available</div>
+
+          <div className={styles.modsGrid}>
+            {modsInfo.map(({ slot, names }) => (
+              <div key={slot} className={styles.modRow}>
+                <div className={styles.modSlot}>
+                  {prettifyKey(slot)}
+                </div>
+
+                <div className={styles.modNames}>
+                  {names.map((name) => (
+                    <span key={name} className={styles.modChip}>
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }

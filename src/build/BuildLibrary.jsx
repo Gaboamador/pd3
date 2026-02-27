@@ -1,8 +1,31 @@
 import { useEffect, useState } from "react";
 import styles from "./BuildLibrary.module.scss";
 import { IoIosRadioButtonOff, IoIosCheckmarkCircle } from "react-icons/io";
+import loadoutData from "../data/payday3_loadout_items.json";
+import platesData from "../data/payday3_armor_plates.json";
 
+const loadoutIndex = Object.values(loadoutData)
+  .flatMap(category => Object.values(category))
+  .reduce((acc, item) => {
+    if (item?.key) {
+      acc[item.key] = item;
+    }
+    return acc;
+  }, {});
 
+function normalizeItemName(name) {
+  if (!name) return name;
+
+  // Eliminar " Frame" al final
+  return name.replace(/\s+Frame$/, "");
+}
+
+function getItemNameByKey(key) {
+  if (!key) return null;
+
+  const name = loadoutIndex[key]?.name ?? null;
+  return normalizeItemName(name);
+}
 
 function SlotBadge({ slot }) {
   if (slot == null) {
@@ -11,7 +34,7 @@ function SlotBadge({ slot }) {
 
   return (
     <span className={styles.slotBadge}>
-      {slot <= 9 ? `Loadout ${slot}` : `Alt ${slot}`}
+      {slot <= 9 ? `${slot}` : `Alt ${slot}`}
     </span>
   );
 }
@@ -48,6 +71,31 @@ function SlotSelect({ slot, onChange }) {
   );
 }
 
+function formatPlates(plates) {
+  if (!Array.isArray(plates) || plates.length === 0) {
+    return null;
+  }
+
+  const counts = {};
+
+  plates.forEach((plateKey) => {
+    counts[plateKey] = (counts[plateKey] || 0) + 1;
+  });
+
+  const parts = Object.entries(counts).map(
+    ([plateKey, count]) => {
+      const plateName =
+        platesData[plateKey]?.name ?? plateKey;
+
+      return count > 1
+        ? `${plateName} x${count}`
+        : plateName;
+    }
+  );
+
+  return parts.join(" + ");
+}
+
 export default function BuildLibrary({
   builds,
   currentBuildId,
@@ -70,54 +118,180 @@ export default function BuildLibrary({
           const isActive = build.id === currentBuildId;
           const isExpanded = expandedId === build.id;
 
+const loadout = build.loadout ?? {};
+
+const primaryName = getItemNameByKey(
+  loadout.primary?.weaponKey ?? loadout.primary
+);
+
+const secondaryName = getItemNameByKey(
+  loadout.secondary?.weaponKey ?? loadout.secondary
+);
+
+const overkillName = getItemNameByKey(
+  loadout.overkill?.weaponKey ?? loadout.overkill
+);
+
+const armorName = getItemNameByKey(
+  loadout.armor?.key ?? loadout.armor
+);
+
+const plateText = formatPlates(
+  loadout.armor?.plates
+);
+
+let armorFull = null;
+
+if (armorName && plateText) {
+  armorFull = `${armorName} (${plateText})`;
+} else if (armorName) {
+  armorFull = armorName;
+}
+
+const throwableName = getItemNameByKey(
+  loadout.throwableName?.weaponKey ?? loadout.throwableName
+);
+
+const deployableName = getItemNameByKey(
+  loadout.deployable?.key ?? loadout.deployable
+);
+
+const toolName = getItemNameByKey(
+  loadout.tool?.key ?? loadout.tool
+);
+
+const previewParts = [
+  primaryName,
+  secondaryName,
+  overkillName,
+  armorFull,
+  throwableName,
+  deployableName,
+  toolName,
+].filter(Boolean);
           return (
+            // <li
+            //   key={build.id}
+            //   className={`${styles.item} ${
+            //     isActive ? styles.active : ""
+            //   }`}
+            // >
+            //   <div className={styles.header}>
+            //     <div
+            //       className={styles.headerMain}
+            //       onClick={() =>
+            //         setExpandedId(
+            //           isExpanded ? null : build.id
+            //         )
+            //       }
+            //     >
+            //       <div className={styles.headerLeft}>
+            //         <strong className={styles.name}>
+            //           {build.name || "Unnamed build"}
+            //         </strong>
+            //       </div>
+
+            //       <div className={styles.headerRight}>
+            //         <SlotBadge slot={build.slot} />
+            //         <span className={styles.chevron}>
+            //           {isExpanded ? "▾" : "▸"}
+            //         </span>
+            //       </div>
+            //     </div>
+
+            //     {/* BOTÓN ACTIVO DIRECTO */}
+            //     {!isActive ? (
+            //       <button
+            //         className={styles.activateBtn}
+            //         onClick={(e) => {
+            //           e.stopPropagation();
+            //           onLoadBuild(build);
+            //         }}
+            //       >
+            //         {/* Set Active */}
+            //         <IoIosRadioButtonOff />
+            //       </button>
+            //     ) : (
+            //         <IoIosCheckmarkCircle/>
+            //     )}
+            //   </div>
+
+            //   {/* CONTROLES (ON DEMAND) */}
+            //   {isExpanded && (
+            //     <div className={styles.controls}>
+            //       <SlotSelect
+            //         slot={build.slot}
+            //         onChange={(slot) =>
+            //           onAssignSlot(build.id, slot)
+            //         }
+            //       />
+            //       <button
+            //         className="danger"
+            //         onClick={() =>
+            //           onDeleteBuild(build.id)
+            //         }
+            //       >
+            //         Delete
+            //       </button>
+            //     </div>
+            //   )}
+
+            //   {isActive && (
+            //     <div className={styles.activeHint}>
+            //       Active
+            //     </div>
+            //   )}
+            // </li>
             <li
               key={build.id}
               className={`${styles.item} ${
                 isActive ? styles.active : ""
               }`}
             >
-              <div className={styles.header}>
-                <div
-                  className={styles.headerMain}
-                  onClick={() =>
-                    setExpandedId(
-                      isExpanded ? null : build.id
-                    )
-                  }
-                >
-                  <div className={styles.headerLeft}>
-                    <strong className={styles.name}>
+              <div
+                className={styles.row}
+                onClick={() =>
+                  setExpandedId(isExpanded ? null : build.id)
+                }
+              >
+                <div className={styles.left}>
+                  <SlotBadge slot={build.slot} />
+                  <div className={styles.meta}>
+                    <div className={styles.name}>
                       {build.name || "Unnamed build"}
-                    </strong>
-                  </div>
+                    </div>
 
-                  <div className={styles.headerRight}>
-                    <SlotBadge slot={build.slot} />
-                    <span className={styles.chevron}>
-                      {isExpanded ? "▾" : "▸"}
-                    </span>
+                    {previewParts.length > 0 && (
+                      <div className={styles.preview}>
+                        {previewParts.join(" • ")}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                {/* BOTÓN ACTIVO DIRECTO */}
-                {!isActive ? (
-                  <button
-                    className={styles.activateBtn}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onLoadBuild(build);
-                    }}
-                  >
-                    {/* Set Active */}
-                    <IoIosRadioButtonOff />
-                  </button>
-                ) : (
-                    <IoIosCheckmarkCircle/>
-                )}
+                <div className={styles.right}>
+                  {isActive ? (
+                    <span className={styles.activeLabel}>
+                      ACTIVE
+                    </span>
+                  ) : (
+                    <button
+                      className={styles.activateBtn}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onLoadBuild(build);
+                      }}
+                    >
+                      Set Active
+                    </button>
+                  )}
+
+                  <span className={styles.chevron}>
+                    {isExpanded ? "▾" : "▸"}
+                  </span>
+                </div>
               </div>
 
-              {/* CONTROLES (ON DEMAND) */}
               {isExpanded && (
                 <div className={styles.controls}>
                   <SlotSelect
@@ -126,20 +300,15 @@ export default function BuildLibrary({
                       onAssignSlot(build.id, slot)
                     }
                   />
+
                   <button
-                    className="danger"
+                    className={styles.deleteBtn}
                     onClick={() =>
                       onDeleteBuild(build.id)
                     }
                   >
                     Delete
                   </button>
-                </div>
-              )}
-
-              {isActive && (
-                <div className={styles.activeHint}>
-                  Active
                 </div>
               )}
             </li>

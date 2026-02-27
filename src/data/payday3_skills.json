@@ -4,7 +4,7 @@
         "key": "Bulwark",
         "name": "Extra Protection",
         "base_description": "For every skill equipped in the Juggernaut branch, gain {ArmorReduction} damage reduction to armor plates.\n{ComputedArmorReduction}\n\nTotal damage reduction cannot exceed {MaxArmorReduction}.",
-        "aced_description": "For each point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
+        "aced_description": "For every point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
         "values": {
             "ArmorReduction": {
                 "value": 0.01,
@@ -712,8 +712,8 @@
         "id": 97,
         "key": "SniperExpert",
         "name": "Head Games",
-        "base_description": "For every skill equipped in the Longshot branch, your headshot multiplier with Marksman rifles increases by {AdditionalHeadshotMultiplier}.\n{ComputedAdditionalHeadshotMultiplier}",
-        "aced_description": "For each headshot you land with a Marksman rifle, your next shot will deal {AcedIncreasedDamage} more damage.\n{ComputedAcedIncreasedDamage}\n\nMissing a shot reduces the total bonus by {AcedDecreasedOutgoingDamage}.",
+        "base_description": "For every skill equipped in the Longshot branch, your headshot multiplier with Sniper and Marksman rifles increases by {AdditionalHeadshotMultiplier}.\n{ComputedAdditionalHeadshotMultiplier}",
+        "aced_description": "For each headshot you land with a Marksman rifle, your next shot will deal {AcedIncreasedDamage} more damage. This bonus cannot exceed {MaxIncreasedDamage}.\n{ComputedAcedIncreasedDamage}\n\nMissing a shot reduces the total bonus by {AcedDecreasedOutgoingDamage}.",
         "values": {
             "AdditionalHeadshotMultiplier": {
                 "value": 0.1,
@@ -726,7 +726,7 @@
                 "text": "Bonus Headshot multiplier:"
             },
             "AcedIncreasedDamage": {
-                "value": 0.1,
+                "value": 0.075,
                 "type": "rate",
                 "compute": 1
             },
@@ -736,7 +736,11 @@
                 "text": "Bonus damage:"
             },
             "AcedDecreasedOutgoingDamage": {
-                "value": 0.1,
+                "value": 0.075,
+                "type": "rate"
+            },
+            "MaxIncreasedDamage": {
+                "value": 0.75,
                 "type": "rate"
             }
         },
@@ -1959,9 +1963,14 @@
         "id": 22,
         "key": "LockMaster",
         "name": "Locksmith",
-        "base_description": "It only takes <Skill>1</> lockpick jiggle to successfully pick a lock.",
+        "base_description": "While lockpicking, successful inputs fill the progress bar {LockpickingTime} higher.",
         "aced_description": "Perform a quick melee to unlock doors and lockers.\n\nThis ability only works on locks that can be picked. If you melee a breachable door, it will unlock instead of breaking.",
-        "values": null,
+        "values": {
+            "LockpickingTime": {
+                "value": 0.5,
+                "type": "rate"
+            }
+        },
         "skill_category_id": 2,
         "skill_tree_id": 4,
         "tier": 3,
@@ -3109,8 +3118,8 @@
         "id": 42,
         "key": "LevelUp",
         "name": "Machine War",
-        "base_description": "When a Sentry Turret kills an enemy, its damage increases by {IncreasedDamage}.\n\nThis bonus ends if your turret overheats or is removed from the field.",
-        "aced_description": "The Sentry Turret's damage bonus increases to {AcedIncreasedDamage} and applies to all other turrets in your network.\n\nThis group bonus no longer ends if you pick up a turret, and any case of overheating only reduces the bonus by {AcedDecreasedOutgoingDamage}.",
+        "base_description": "When a Sentry Turret kills an enemy, its damage increases by {IncreasedDamage}.\n\nThis bonus cannot exceed {MaxIncreasedDamageBonus}, and it will reset if your turret overheats or is removed from the field.",
+        "aced_description": "The Sentry Turret's damage bonus increases to {AcedIncreasedDamage} and applies to all other turrets in your network.\n\nThis group bonus no longer ends if you pick up a turret, and any case of overheating only reduces the bonus by {AcedDecreasedOutgoingDamage}. The bonus still caps at {MaxIncreasedDamageBonus}.",
         "values": {
             "IncreasedDamage": {
                 "value": 0.025,
@@ -3122,6 +3131,10 @@
             },
             "AcedDecreasedOutgoingDamage": {
                 "value": 0.2,
+                "type": "rate"
+            },
+            "MaxIncreasedDamageBonus": {
+                "value": 1.5,
                 "type": "rate"
             }
         },

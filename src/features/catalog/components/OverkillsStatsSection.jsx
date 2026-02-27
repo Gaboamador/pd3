@@ -1,7 +1,3 @@
-import { useState, useMemo } from "react";
-import StatsGrid from "./common/StatsGrid";
-import { computeWeaponStats } from "./utils/computeWeaponStats";
-import { prettifyKey } from "./utils/prettifyKey";
 import styles from "./OverkillStatsSection.module.scss";
 
 function toRoman(num) {
@@ -16,22 +12,7 @@ function toRoman(num) {
 }
 
 export default function OverkillStatsSection({ weapon }) {
-  const [selectedMods] = useState({});
 
-  // ---------- NUMERIC STATS ----------
-  const computed = useMemo(() => {
-    if (!weapon?.stats) return null;
-    return computeWeaponStats(weapon, selectedMods);
-  }, [weapon, selectedMods]);
-
-  const statRows = computed
-    ? Object.entries(computed).map(([key, val]) => [
-        { value: prettifyKey(key) },
-        { value: val.base },
-      ])
-    : [];
-
-  const hasStats = statRows.length > 0;
   const hasAbilities = Array.isArray(weapon?.abilities);
 
   // separar tier 0 del resto
@@ -87,14 +68,6 @@ export default function OverkillStatsSection({ weapon }) {
           ))}
         </div>
       )}
-
-        {/* ---------- NUMERIC STATS (si existen) ---------- */}
-        {hasStats && (
-            <StatsGrid
-            columns={["Stat", "Base"]}
-            rows={statRows}
-            />
-        )}
     </div>
   );
 }

@@ -1,0 +1,68 @@
+@use "../styles/variables" as *;
+
+.wrapper {
+  display: grid;
+  gap: 12px;
+}
+
+.section {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 14px;
+
+  display: grid;
+  gap: 5px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $pd3-main;
+}
+
+.sectionTitle {
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.sectionCost {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: "DIN2014";
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metaChip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+
+  font-size: 12px;
+  opacity: 0.95;
+
+  strong {
+    font-weight: 900;
+  }
+}
