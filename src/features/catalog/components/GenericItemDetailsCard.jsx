@@ -2,8 +2,10 @@ import styles from "./GenericItemDetailsCard.module.scss";
 import useIsMobile from "../../../hooks/useIsMobile";
 import { resolveCatalogItem } from "./utils/resolveCatalogItem";
 
+import SkillSprite from "../../../build/components/skills/SkillSprite";
 import WeaponSprite from "../../../build/components/weapons/WeaponSprite";
 import ArmorSprite from "../../../build/components/loadout/ArmorSprite";
+import PlateSprite from "../../../build/components/loadout/PlateSprite";
 import ThrowableSprite from "../../../build/components/loadout/ThrowableSprite";
 import DeployableSprite from "../../../build/components/loadout/DeployableSprite";
 import ToolSprite from "../../../build/components/loadout/ToolSprite";
@@ -13,18 +15,11 @@ import WeaponStatsSection from "./WeaponStatsSection";
 import OverkillStatsSection from "./OverkillsStatsSection";
 import ArmorStatsSection from "./ArmorStatsSection";
 import PlateStatsSection from "./PlateStatsSection";
-import DeployableStatsSection from "./DeployableStatsSection";
-import ThrowableStatsSection from "./ThrowableStatsSection";
 import OtherItemsSection from "./OtherItemsSection";
 
 export default function GenericItemDetailsCard({ item }) {
   const isMobile = useIsMobile();
   const spriteHeight = isMobile ? 80 : 110;
-
-  const isOtherItem =
-  item?.type === "throwable" ||
-  item?.type === "deployable" ||
-  item?.type === "tool";
 
   const { def, kind } = resolveCatalogItem(item);
 
@@ -36,10 +31,12 @@ export default function GenericItemDetailsCard({ item }) {
     <div className={styles.card}>
       <div className={styles.header}>
         {SpriteComponent && def.sprite_pos && (
-          <SpriteComponent
-            spritePos={def.sprite_pos}
-            height={spriteHeight}
-          />
+          <div className={styles.spriteWrapper}>
+            <SpriteComponent
+              spritePos={def.sprite_pos}
+              height={spriteHeight}
+            />
+          </div>
         )}
 
         <div>
@@ -63,6 +60,9 @@ function getSpriteComponent(kind) {
     case "armor":
       return ArmorSprite;
 
+    case "plate":
+      return PlateSprite;
+
     case "throwable":
       return ThrowableSprite;
 
@@ -72,15 +72,12 @@ function getSpriteComponent(kind) {
     case "tool":
       return ToolSprite;
 
+    case "skill":
+      return SkillSprite;
+
     default:
       return null;
   }
-}
-
-  function prettifyKey(key) {
-  return key
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, s => s.toUpperCase());
 }
 
 function renderDetails(kind, def, item) {

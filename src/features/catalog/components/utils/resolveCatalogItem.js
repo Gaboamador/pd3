@@ -9,7 +9,15 @@ export function resolveCatalogItem(item) {
 
   switch (kind) {
     case "skill":
-      return { def: skillsData[key], kind };
+      const skill = skillsData[key];
+      if (!skill) return { def: null, kind };
+      return {
+        def: {
+          ...skill,
+          sprite_pos: skill.sprite ?? null,
+        },
+        kind,
+      };
 
     case "plate":
       return { def: platesData[key], kind };

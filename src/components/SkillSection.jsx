@@ -33,7 +33,7 @@ export default function SkillSection({ skill, showMeta = false }) {
         {showMeta && (
             <div className={styles.metaRow}>
             <span className={styles.metaChip}>
-                Group: <strong>{meta?.groupName ?? "Unknown"}</strong>
+                Category: <strong>{meta?.groupName ?? "Unknown"}</strong>
             </span>
 
             <span className={styles.metaChip}>

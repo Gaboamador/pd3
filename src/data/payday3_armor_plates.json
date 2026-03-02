@@ -8,6 +8,10 @@
             "DamageReduction": 0.6,
             "RegenTime": 1,
             "MaxDowns": 0
+        },
+        "sprite_pos": {
+            "r": 2,
+            "c": 2
         }
     },
     "adaptive": {
@@ -19,6 +23,10 @@
             "DamageReduction": 0.3,
             "RegenTime": 1.5,
             "MaxDowns": -1
+        },
+        "sprite_pos": {
+            "r": 2,
+            "c": 3
         }
     },
     "impact": {
@@ -30,6 +38,10 @@
             "DamageReduction": 0,
             "RegenTime": 3,
             "MaxDowns": -1
+        },
+        "sprite_pos": {
+            "r": 2,
+            "c": 4
         }
     }
 }

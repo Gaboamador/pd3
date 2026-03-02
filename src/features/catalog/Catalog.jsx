@@ -26,15 +26,6 @@ export default function Catalog() {
   const [selectedWeaponType, setSelectedWeaponType] = useState(null);
   const [hidePresetVariants, setHidePresetVariants] = useState(false);
 
-  // const selectedWeapons = useMemo(() => {
-  //   if (!selectedWeaponType) return [];
-
-  //   return getWeaponsByTypeSelection(
-  //     loadoutData,
-  //     selectedWeaponType,
-  //     { onlyWithNewStats: true }
-  //   );
-  // }, [selectedWeaponType]);
   const selectedWeapons = useMemo(() => {
     if (!selectedWeaponType) return [];
 

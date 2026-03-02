@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { FaRandom } from "react-icons/fa";
 import { IoMdOpen } from "react-icons/io";
+import { LuTarget } from "react-icons/lu";
 import Section from "../../build/components/common/Section";
 import { useUserLibrary } from "../hooks/useUserLibrary";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
@@ -210,7 +211,7 @@ const suggestionsWithDividers = useMemo(() => {
             className={styles.btn}
             onClick={() => navigate({pathname: "/library-roulette",search: location.search,},{state: { fromExplorer: true },})}
           >
-            <FaRandom />
+            <LuTarget />
           </button>
           <div className={styles.rouletteBtnText}>Spin roulette with current filtered builds</div>
         </div>

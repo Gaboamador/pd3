@@ -3,6 +3,7 @@ import WeaponSprite from "./WeaponSprite";
 import WeaponModsModal from "./WeaponModsModal";
 import { WEAPON_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import WeaponModSlotsRow from "./WeaponModSlotsRow";
+import useIsMobile from "../../../hooks/useIsMobile";
 import styles from "./WeaponCard.module.scss";
 
 export default function WeaponCard({
@@ -49,20 +50,6 @@ const isLoadoutEditor = !isItemPicker; // default
   setOpenMods(true);
 }
 
-  function useIsMobile(breakpoint = 560) {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" && window.innerWidth <= breakpoint
-  );
-
-  useEffect(() => {
-    const onResize = () =>
-      setIsMobile(window.innerWidth <= breakpoint);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [breakpoint]);
-
-  return isMobile;
-}
 const isMobile = useIsMobile();
 
 const spriteHeight = isMobile ? 80 : 110;

@@ -122,65 +122,6 @@
    Weapon Filters Wrapper
 ========================= */
 
-// .weaponFilters {
-//   display: flex;
-//   flex-direction: column; // Primary arriba, Secondary abajo
-//   gap: $space-xl;
-
-//   padding: $space-lg;
-//   background: $color-bg-elevated;
-//   border: 1px solid $color-border;
-//   border-radius: $radius-md;
-// }
-
-// /* =========================
-//    Each group
-// ========================= */
-
-// .filterGroup {
-//   display: flex;
-//   flex-direction: column;
-//   gap: $space-md;
-// }
-
-// .filterTitle {
-//   font-size: 14px;
-//   font-weight: 700;
-//   letter-spacing: 0.5px;
-//   color: $color-text-primary;
-//   text-transform: uppercase;
-// }
-
-// /* =========================
-//    Checkbox list
-// ========================= */
-
-// .filterList {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: $space-md $space-lg;
-// }
-
-// .filterItem {
-//   display: flex;
-//   align-items: center;
-//   gap: $space-sm;
-//   font-size: 13px;
-//   color: $color-text-muted;
-//   cursor: pointer;
-//   user-select: none;
-
-//   transition: color 0.15s ease;
-
-//   &:hover {
-//     color: $color-text-primary;
-//   }
-
-//   input[type="checkbox"] {
-//     accent-color: $pd3-main;
-//     cursor: pointer;
-//   }
-// }
 .weaponFilters {
   display: flex;
   flex-direction: column;

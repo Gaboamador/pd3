@@ -288,7 +288,8 @@ function handleShare() {
   if (!encoded) return;
 
   const url =
-    `${window.location.origin}/build-editor/share/${encoded}`;
+    // `${window.location.origin}/build-editor/share/${encoded}`;
+    `${window.location.origin}/s/${encoded}`;
 
   setShareUrl(url);
 }
@@ -336,7 +337,7 @@ const canSave =
   Boolean(build.id) &&
   !build.__shared;
 
-  console.log(build)
+
 return (
     <div className={styles.page}>
 

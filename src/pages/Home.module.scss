@@ -65,6 +65,20 @@
 .cardTitle {
   font-size: 18px;
   font-weight: 700;
+  display: flex;
+  gap: $space-sm;
+}
+
+.homeIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+  transition: color 0.2s ease;
+
+  svg {
+    stroke-width: 2.2;
+  }
 }
 
 .cardDesc {
@@ -77,6 +91,28 @@
 .disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+/* ===== SERVICE COLORS ===== */
+
+.homeIcon[data-service="editor"] {
+  color: $color-build;
+}
+
+.homeIcon[data-service="random"] {
+  color: $color-throwable;
+}
+
+.homeIcon[data-service="catalog"] {
+  color: $color-weapon;
+}
+
+.homeIcon[data-service="explorer"] {
+  color: $color-tool;
+}
+
+.homeIcon[data-service="roulette"] {
+  color: $color-skill;
 }
 
 /* Mobile tweaks */

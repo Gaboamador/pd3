@@ -1,7 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import styles from "./LibraryRoulette.module.scss";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
+import { FaCircleChevronDown } from "react-icons/fa6";
 import { IoMdOpen } from "react-icons/io";
 import Section from "../../build/components/common/Section";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
@@ -25,6 +27,8 @@ export default function LibraryRoulette() {
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [manualMode, setManualMode] = useState("all");
+  const [manualSelectedIds, setManualSelectedIds] = useState([]);
 
   const indexedBuilds = useMemo(
     () => attachSearchIndexToBuilds(library ?? []),
@@ -72,12 +76,25 @@ export default function LibraryRoulette() {
   }, [location.search]);
 
   // 2️⃣ Filtrar pool
-  const pool = useMemo(() => {
+  const basePool = useMemo(() => {
     return filterBuilds(indexedBuilds, filters, {
       weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
     });
   }, [indexedBuilds, filters, weaponTypeIndex]);
 
+  const pool = useMemo(() => {
+    if (manualMode === "all") return basePool;
+
+    return basePool.filter(b => manualSelectedIds.includes(b.id));
+  }, [basePool, manualMode, manualSelectedIds]);
+
+  useEffect(() => {
+    if (manualMode === "custom") {
+      setManualSelectedIds(prev =>
+        prev.filter(id => basePool.some(b => b.id === id))
+      );
+    }
+  }, [basePool]);
 
     function spin() {
     if (!pool.length) return;
@@ -108,7 +125,6 @@ export default function LibraryRoulette() {
     }, 4000);
     }
 
-
   if (loading) return <Spinner label="Loading builds…" />;
 
   return (
@@ -116,21 +132,115 @@ export default function LibraryRoulette() {
         <div className={styles.wrapper}>
         
 
-        <Section >
+        <Section>
           <div className={styles.backToExplorerAndPoolWrapper}>
             {fromExplorerSearch && (
-            <div className={styles.backToExplorerWrapper}>
-              <button onClick={() => navigate(`/library-explorer${location.search}`)} className={styles.backBtn}>
-                <IoChevronBackCircleSharp />
-              </button>
-              <span>BACK TO EXPLORER</span>
-            </div>
+              <div className={styles.backToExplorerWrapper}>
+                <button
+                  onClick={() => navigate(`/library-explorer${location.search}`)}
+                  className={styles.backBtn}
+                >
+                  <IoChevronBackCircleSharp />
+                </button>
+                <span>BACK TO EXPLORER</span>
+              </div>
             )}
-            <div className={styles.resultsLength}>{pool.length} build{pool.length !== 1 ? "s" : ""} in pool</div>
+
+            <div className={styles.poolHeader}>
+              <div className={styles.resultsLength}>
+                {pool.length} build{pool.length !== 1 ? "s" : ""} in pool
+              </div>
+
+              <div className={styles.switchWrapper}>
+                <span className={styles.switchLabel}>
+                  {manualMode === "all"
+                    ? "All filtered"
+                    : `${manualSelectedIds.length}/${basePool.length} selected`}
+                </span>
+
+                <button
+                  type="button"
+                  className={`${styles.switch} ${
+                    manualMode === "custom" ? styles.active : ""
+                  }`}
+                  onClick={() => {
+                    if (manualMode === "all") {
+                      // pasar a manual
+                      const ids = basePool.map((b) => b.id);
+                      setManualSelectedIds((prev) => (prev.length ? prev : ids));
+                      setManualMode("custom");
+                    } else {
+                      // volver a all
+                      setManualMode("all");
+                    }
+                  }}
+                >
+                  <span className={styles.thumb} />
+                </button>
+              </div>
+            </div>
           </div>
+
+          {/* EXPANSIÓN CONTROLADA SOLO POR manualMode */}
+          <AnimatePresence initial={false}>
+            {manualMode === "custom" && (
+              <motion.div
+                key="manual-panel"
+                className={styles.manualPanel}
+                initial={{ opacity: 0, y: -8, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: "auto" }}
+                exit={{ opacity: 0, y: -8, height: 0 }}
+                transition={{
+                  opacity: { duration: 0.18, ease: "easeOut" },
+                  y: { duration: 0.18, ease: "easeOut" },
+                  height: { duration: 0.25, ease: "easeOut" },
+                }}
+                style={{ overflow: "hidden" }}
+              >
+                <div className={styles.manualActions}>
+                  <button
+                    type="button"
+                    onClick={() => setManualSelectedIds(basePool.map((b) => b.id))}
+                  >
+                    Select all
+                  </button>
+
+                  <button type="button" onClick={() => setManualSelectedIds([])}>
+                    Deselect all
+                  </button>
+                </div>
+
+                <div className={styles.manualList}>
+                  {basePool.map((b) => {
+                    const active = manualSelectedIds.includes(b.id);
+
+                    return (
+                      <label
+                        key={b.id}
+                        className={`${styles.toggleChip} ${active ? styles.on : ""}`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={active}
+                          onChange={() =>
+                            setManualSelectedIds((prev) =>
+                              prev.includes(b.id)
+                                ? prev.filter((id) => id !== b.id)
+                                : [...prev, b.id]
+                            )
+                          }
+                        />
+                        <span className={styles.indicator} />
+                        <span className={styles.labelText}>{b.name}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Section>
 
-        
         <Section title="//Library Roulette">
         <div className={styles.rouletteSection}>
           <div className={styles.controlAndResult}>

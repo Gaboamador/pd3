@@ -48,10 +48,9 @@
   color: black;
 }
 
-
-.rouletteSection {
-  // gap: 0;
-}
+/* =========================
+   Roulette Section
+========================= */
 
 .controlAndResult {
   display: flex;
@@ -72,4 +71,162 @@
   color: $pd3-lightgreen;
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+/* =========================
+   Pool Header
+========================= */
+
+.poolHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.switchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.switchLabel {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* =========================
+   Switch
+========================= */
+
+.switch {
+  clip-path: none;
+  width: 48px;
+  height: 24px;
+  border-radius: 999px;
+  background: $color-bg-surface;
+  border: 1px solid $color-border;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.switch.active {
+  background: $pd3-hover;
+  border-color: $pd3-hover;
+}
+
+.thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  transition: all 0.2s ease;
+}
+
+.switch.active .thumb {
+  left: 26px;
+}
+
+/* =========================
+   Manual Panel
+========================= */
+
+.manualPanel {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   Manual Actions
+========================= */
+
+.manualActions {
+  display: flex;
+  gap: 12px;
+
+  button {
+    clip-path: none;
+    background: transparent;
+    border: 1px solid $color-border;
+    padding: 6px 10px;
+    border-radius: $radius-sm;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    border-color: $pd3-main;
+    color: $pd3-main;
+  }
+}
+
+/* =========================
+   Manual Chip List
+========================= */
+
+.manualList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+/* =========================
+   Toggle Chip
+========================= */
+
+.toggleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: 6px 12px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+
+  background: $color-bg-surface;
+  color: $color-text-muted;
+  font-size: 12px;
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $pd3-main;
+    color: $color-text-primary;
+  }
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-border;
+  transition: all 0.15s ease;
+}
+
+.on {
+  background: rgba($pd3-main, 0.12);
+  border-color: $pd3-main;
+  color: $pd3-main;
+
+  .indicator {
+    background: $pd3-main;
+  }
+}
+
+.labelText {
+  white-space: nowrap;
 }

@@ -1,4 +1,5 @@
 import styles from "./PlateOrderEditor.module.scss";
+import PlateSprite from "./PlateSprite";
 
 export default function PlateOrderEditor({ plates, platesData, onChangePlates }) {
   const plateKeys = Object.keys(platesData || {});
@@ -36,11 +37,12 @@ export default function PlateOrderEditor({ plates, platesData, onChangePlates })
                       style={{ borderColor: plate.color }}
                       onClick={() => setPlateAt(slotIndex, plateKey)}
                     >
-                      <span
+                      {/* <span
                         className={isActive ? styles.dot : styles.dotInactive}
                         style={{ background: plate.color }}
-                      />
-                      <span className={styles.optionLabel}>
+                      /> */}
+                      <PlateSprite spritePos={plate.sprite_pos} height={32}/>
+                      <span className={styles.optionLabel} style={{ color: plate.color }}>
                         {plate.name}
                       </span>
                     </button>

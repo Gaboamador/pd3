@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
 import styles from "./LoadoutItemCard.module.scss";
 import { LOADOUT_PLACEHOLDERS } from "../../utils/sprites/placeholders";
+import useIsMobile from "../../../hooks/useIsMobile";
 
 export default function LoadoutItemCard({
   slot,
@@ -35,21 +35,6 @@ const isLoadoutEditor = !isItemPicker; // default
 
   const canEdit = Boolean(itemDef && onEdit);
 
-
-  function useIsMobile(breakpoint = 560) {
-    const [isMobile, setIsMobile] = useState(
-      typeof window !== "undefined" && window.innerWidth <= breakpoint
-    );
-  
-    useEffect(() => {
-      const onResize = () =>
-        setIsMobile(window.innerWidth <= breakpoint);
-      window.addEventListener("resize", onResize);
-      return () => window.removeEventListener("resize", onResize);
-    }, [breakpoint]);
-  
-    return isMobile;
-  }
   const isMobile = useIsMobile();
   
   const spriteHeight = isMobile ? 80 : 110;

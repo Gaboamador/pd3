@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./BuildLibrary.module.scss";
-import { IoIosRadioButtonOff, IoIosCheckmarkCircle } from "react-icons/io";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+
 
 const loadoutIndex = Object.values(loadoutData)
   .flatMap(category => Object.values(category))
@@ -149,7 +150,7 @@ if (armorName && plateText) {
 }
 
 const throwableName = getItemNameByKey(
-  loadout.throwableName?.weaponKey ?? loadout.throwableName
+  loadout.throwable?.weaponKey ?? loadout.throwable
 );
 
 const deployableName = getItemNameByKey(
@@ -170,78 +171,6 @@ const previewParts = [
   toolName,
 ].filter(Boolean);
           return (
-            // <li
-            //   key={build.id}
-            //   className={`${styles.item} ${
-            //     isActive ? styles.active : ""
-            //   }`}
-            // >
-            //   <div className={styles.header}>
-            //     <div
-            //       className={styles.headerMain}
-            //       onClick={() =>
-            //         setExpandedId(
-            //           isExpanded ? null : build.id
-            //         )
-            //       }
-            //     >
-            //       <div className={styles.headerLeft}>
-            //         <strong className={styles.name}>
-            //           {build.name || "Unnamed build"}
-            //         </strong>
-            //       </div>
-
-            //       <div className={styles.headerRight}>
-            //         <SlotBadge slot={build.slot} />
-            //         <span className={styles.chevron}>
-            //           {isExpanded ? "▾" : "▸"}
-            //         </span>
-            //       </div>
-            //     </div>
-
-            //     {/* BOTÓN ACTIVO DIRECTO */}
-            //     {!isActive ? (
-            //       <button
-            //         className={styles.activateBtn}
-            //         onClick={(e) => {
-            //           e.stopPropagation();
-            //           onLoadBuild(build);
-            //         }}
-            //       >
-            //         {/* Set Active */}
-            //         <IoIosRadioButtonOff />
-            //       </button>
-            //     ) : (
-            //         <IoIosCheckmarkCircle/>
-            //     )}
-            //   </div>
-
-            //   {/* CONTROLES (ON DEMAND) */}
-            //   {isExpanded && (
-            //     <div className={styles.controls}>
-            //       <SlotSelect
-            //         slot={build.slot}
-            //         onChange={(slot) =>
-            //           onAssignSlot(build.id, slot)
-            //         }
-            //       />
-            //       <button
-            //         className="danger"
-            //         onClick={() =>
-            //           onDeleteBuild(build.id)
-            //         }
-            //       >
-            //         Delete
-            //       </button>
-            //     </div>
-            //   )}
-
-            //   {isActive && (
-            //     <div className={styles.activeHint}>
-            //       Active
-            //     </div>
-            //   )}
-            // </li>
             <li
               key={build.id}
               className={`${styles.item} ${
@@ -287,7 +216,11 @@ const previewParts = [
                   )}
 
                   <span className={styles.chevron}>
-                    {isExpanded ? "▾" : "▸"}
+                    {isExpanded ?
+                    <FaChevronUp />
+                    :
+                    <FaChevronDown />
+                    }
                   </span>
                 </div>
               </div>

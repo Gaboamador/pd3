@@ -33,6 +33,7 @@ function App() {
         <Route path="/build-editor" element={<BuildEditor mode="draft" />} />
         <Route path="/build-editor/b/:encoded" element={<BuildEditor mode="owned" />} />
         <Route path="/build-editor/share/:encoded" element={<BuildEditor mode="share" />} />
+        <Route path="/s/:encoded" element={<BuildEditor mode="share" />} />
         <Route path="/library-explorer" element={<LibraryExplorer />} />
         <Route path="/library-roulette" element={<LibraryRoulette />} />
         <Route path="/catalog" element={<Catalog />} />

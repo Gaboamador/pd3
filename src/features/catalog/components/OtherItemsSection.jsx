@@ -8,9 +8,6 @@ export default function OtherItemsSection({ item }) {
   if (!description) return null;
 
   return (
-    // <section>
-    //   <p style={{ margin: 0, whiteSpace: "pre-wrap" }}>{description}</p>
-    // </section>
                 <div className={styles.tierCard}>
                   <div className={styles.tierDescription} style={{ whiteSpace: "pre-wrap" }}>
                     {description}

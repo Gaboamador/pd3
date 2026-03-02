@@ -1,4 +1,4 @@
-export const SKILL_SPRITE_URL = "/sprites/skills.png";
+export const SKILL_SPRITE_URL = "/sprites/skillsNew.png";
 
 // ⬇️ AJUSTAR a tu PNG real
 export const SKILL_SPRITE_IMAGE_W = 1536;
