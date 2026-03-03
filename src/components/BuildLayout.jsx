@@ -11,6 +11,7 @@ import ArmorSprite from "../build/components/loadout/ArmorSprite";
 import DeployableSprite from "../build/components/loadout/DeployableSprite";
 import ThrowableSprite from "../build/components/loadout/ThrowableSprite";
 import ToolSprite from "../build/components/loadout/ToolSprite";
+import HeistSprite from "../build/components/loadout/HeistSprite";
 
 import { normalizeLoadoutData } from "../build/utils/loadout.utils";
 import { buildWeaponTypeLabels, getWeaponTypeLabel, orderWeaponTypes } from "../build/utils/weaponTypeLabels";
@@ -30,7 +31,24 @@ function randomFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildDeckFromItems(items) {
+  // deck = lista de keys en orden random
+  // items acá son objetos { key, ... }
+  return shuffleArray(items.map(it => it.key));
+}
+
+
 const RANDOMIZER_SESSION_KEY = "pd3_randomizer_build_v1";
+const RANDOMIZER_DECKS_KEY = "pd3_randomizer_decks_v1";
 
 export default function BuildLayout() {
   const loadoutNormalized = useMemo(
@@ -76,6 +94,22 @@ export default function BuildLayout() {
     }
   }, [build]);
 
+  const [decksBySlot, setDecksBySlot] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem(RANDOMIZER_DECKS_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return {}; // { [slot]: [key1, key2, ...] }
+  });
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(RANDOMIZER_DECKS_KEY, JSON.stringify(decksBySlot));
+    } catch (e) {
+      console.error("Randomizer decks persistence error:", e);
+    }
+  }, [decksBySlot]);
+
   const ALL_PRIMARY_TYPES = Object.keys(primary);
   const ALL_SECONDARY_TYPES = Object.keys(secondary);
 
@@ -102,15 +136,19 @@ export default function BuildLayout() {
   );
 
   function handleSpinFinish(result) {
-    if (!activeSpin) return;
+    // usamos setActiveSpin functional para evitar estados stale
+    setActiveSpin(prev => {
+      if (!prev) return prev;
 
-    const { slot, resolve } = activeSpin;
+      const { slot, resolve } = prev;
 
-    applyResult(slot, result);
+      applyResult(slot, result);
 
-    setActiveSpin(null);
+      // IMPORTANTE: resolvemos la promesa para randomizeFullSequential
+      resolve?.();
 
-    resolve?.(); // si venía de randomizeFullSequential
+      return null;
+    });
   }
 
   // ==============================
@@ -239,8 +277,8 @@ const filteredSecondaryWeapons = useMemo(() => {
         SpriteComponent = ToolSprite;
         break;
       case "heist":
-        items = heists.map(h => ({ key: h, name: h })); // sin sprite
-        SpriteComponent = null;
+        items = heists.map(h => ({ key: h, name: h }));
+        SpriteComponent = HeistSprite;
         break;
       default:
         break;
@@ -251,7 +289,48 @@ const filteredSecondaryWeapons = useMemo(() => {
       return;
     }
 
-    setActiveSpin({ slot, items, SpriteComponent, resolve });
+    // ------------
+    // DECK LOGIC (no repeat until pool is exhausted)
+    // ------------
+    const validKeys = items.map(it => it.key);
+
+    // tomamos deck actual del slot
+    let deck = Array.isArray(decksBySlot[slot]) ? decksBySlot[slot] : [];
+
+    // filtramos keys que ya no existan (por filtros, etc.)
+    deck = deck.filter(k => validKeys.includes(k));
+
+    // si se vació, regeneramos deck nuevo desde items actuales
+    if (deck.length === 0) {
+      deck = buildDeckFromItems(items);
+    }
+
+    // elegimos el próximo key a consumir
+    const nextKey = deck[0];
+
+    // persistimos deck consumido (quitamos el primero)
+    setDecksBySlot(prev => ({
+      ...prev,
+      [slot]: deck.slice(1),
+    }));
+
+    // buscamos el itemDef para ese key (el Reel necesita items, pero también necesitamos forzar el final)
+    const forcedItem = items.find(it => it.key === nextKey) ?? null;
+
+    // fallback ultra defensivo
+    if (!forcedItem) {
+      resolve?.();
+      return;
+    }
+
+    setActiveSpin({
+      slot,
+      items,
+      SpriteComponent,
+      resolve,
+      forcedKey: forcedItem.key,
+    });
+
   }
 
 function applyResult(slot, result) {
@@ -311,6 +390,9 @@ function applyResult(slot, result) {
 
   function resetRandomizer() {
     sessionStorage.removeItem(RANDOMIZER_SESSION_KEY);
+    sessionStorage.removeItem(RANDOMIZER_DECKS_KEY);
+
+    setDecksBySlot({});
 
     setBuild({
       version: 1,
@@ -472,6 +554,7 @@ function applyResult(slot, result) {
               <SlotMachineReel
                 items={activeSpin.items}
                 SpriteComponent={activeSpin.SpriteComponent}
+                forcedKey={activeSpin.forcedKey}
                 onFinish={handleSpinFinish}
               />
             )
@@ -494,6 +577,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -516,6 +600,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -546,6 +631,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -568,6 +654,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -590,6 +677,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -612,6 +700,7 @@ function applyResult(slot, result) {
                 <SlotMachineReel
                   items={activeSpin.items}
                   SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )
@@ -622,13 +711,15 @@ function applyResult(slot, result) {
         {/* HEIST */}
         <div className={`${styles.cell} ${styles.heist}`}>
           <LoadoutItemCard
+            use='randomizer'
             slot="heist"
+            isHeist
             itemDef={
               heistValue
                 ? { name: heistValue, key: heistValue }
                 : null
             }
-            SpriteComponent={null}
+            SpriteComponent={HeistSprite}
             onClick={() => spinSlot("heist")}
             isSpinning={activeSpin?.slot === "heist"}
             spinningLabel="RANDOMIZING..."
@@ -636,7 +727,8 @@ function applyResult(slot, result) {
               activeSpin?.slot === "heist" && (
                 <SlotMachineReel
                   items={activeSpin.items}
-                  SpriteComponent={null}
+                  SpriteComponent={activeSpin.SpriteComponent}
+                  forcedKey={activeSpin.forcedKey}
                   onFinish={handleSpinFinish}
                 />
               )

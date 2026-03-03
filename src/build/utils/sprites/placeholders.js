@@ -9,4 +9,5 @@ export const LOADOUT_PLACEHOLDERS = {
   deployable: { r: 1, c: 1 },
   throwable: { r: 1, c: 1 },
   tool: { r: 1, c: 1 },
+  heist: null
 };

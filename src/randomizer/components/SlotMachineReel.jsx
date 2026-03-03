@@ -24,7 +24,8 @@ export default function SlotMachineReel({
   SpriteComponent,
   height = 80,
   onFinish,
-  duration = 2,
+  duration = 3,
+  forcedKey = null,
 }) {
   const controls = useAnimation();
 
@@ -42,11 +43,21 @@ export default function SlotMachineReel({
   useEffect(() => {
     if (!items?.length) return;
 
-    const finalIndex = Math.floor(Math.random() * items.length);
+    let finalIndex = -1;
+
+    if (forcedKey) {
+      finalIndex = items.findIndex(it => it.key === forcedKey);
+    }
+
+    // fallback: si no hay forcedKey o no se encontró, random normal
+    if (finalIndex < 0) {
+      finalIndex = Math.floor(Math.random() * items.length);
+    }
 
     const totalItems = items.length * loops + finalIndex;
     const offset = totalItems * height;
 
+    controls.set({ y: 0 });
     controls
       .start({
         y: -offset,
@@ -71,6 +82,7 @@ export default function SlotMachineReel({
           >
             {SpriteComponent ? (
               <SpriteComponent
+                itemDef={item}
                 spritePos={item.sprite_pos}
                 height={height}
               />

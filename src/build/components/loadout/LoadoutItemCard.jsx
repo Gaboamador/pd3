@@ -14,20 +14,28 @@ export default function LoadoutItemCard({
   isSpinning = false,
   spinningLabel = "RANDOMIZING...",
   use,
+  isHeist,
 }) {
   const spritePos = itemDef
     ? itemDef.sprite_pos
     : LOADOUT_PLACEHOLDERS[slot];
 
-  const name = itemDef
-  ? itemDef.name ?? itemDef.key
-  : use === "randomizer"
-    ? slot === "overkill"
-      ? "Randomize overkill weapon"
-      : "Randomize item"
-    : slot === "overkill"
-      ? "Select overkill weapon"
-      : "Select item";
+  const name = (() => {
+    if (itemDef) {
+      return itemDef.name ?? itemDef.key;
+    }
+
+    if (use === "randomizer") {
+      if (slot === "overkill") return "Randomize overkill weapon";
+      if (slot === "heist") return "Randomize heist";
+      return "Randomize item";
+    }
+
+    if (slot === "overkill") return "Select overkill weapon";
+    if (slot === "heist") return "Select heist";
+
+    return "Select item";
+  })();
 
 
       const isItemPicker = mode === "item-picker";
@@ -41,7 +49,7 @@ const isLoadoutEditor = !isItemPicker; // default
 
 
   return (
-  <div className={`${styles.card} ${isSpinning ? styles.spinning : ""}`} onClick={onClick}>
+  <div className={`${styles.card} ${isSpinning ? styles.spinning : ""} ${isHeist ? styles.heist : ""}`} onClick={onClick}>
   {/* HEADER */}
   <div className={styles.header}>
     <div className={styles.headerTitle}>
@@ -54,9 +62,6 @@ const isLoadoutEditor = !isItemPicker; // default
     <div className={styles.headerRight}>
       
       {!isSpinning && headerExtra}
-
-  
-      {/* {headerExtra} */}
 
       <button
         type="button"
@@ -76,32 +81,14 @@ const isLoadoutEditor = !isItemPicker; // default
   </div>
 
   {/* BODY */}
-  <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper}`}>
-    {/* <SpriteComponent spritePos={spritePos} height={spriteHeight} /> */}
+  <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper} ${slot === "heist" ? styles.heist : ""}`}>
 
-    {/* {SpriteComponent ? (
-      <SpriteComponent spritePos={spritePos} height={48} />
-    ) : (
-      <div className={styles.noSprite}>
-        {name}
-      </div>
-    )} */}
-
-    {!isSpinning && (
-      SpriteComponent ? (
-        <SpriteComponent spritePos={spritePos} height={spriteHeight} />
-      ) : (
-        <div className={styles.noSprite}>
-          {name}
-        </div>
-      )
-    )}
-
-    {spriteOverlay && (
-      <div className={styles.spriteOverlay}>
-        {spriteOverlay}
-      </div>
-    )}
+    <div className={styles.spriteContainer}>
+      {isSpinning
+        ? spriteOverlay
+        : <SpriteComponent itemDef={itemDef} spritePos={spritePos} height={spriteHeight} />
+      }
+    </div>
 
     {isSpinning && <div className={styles.reelMask} />}
 
@@ -110,9 +97,8 @@ const isLoadoutEditor = !isItemPicker; // default
   {/* FOOTER */}
     {isLoadoutEditor && (
     <div className={styles.footer}>
-      {/* <div className={styles.name}>{name}</div> */}
       <div className={styles.name}>
-        {isSpinning ? spinningLabel : slot==="heist" ? 'Randomize heist' : name}
+        {isSpinning ? spinningLabel : name}
       </div>
     </div>
     )}
