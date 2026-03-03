@@ -22,6 +22,7 @@ export default function Header() {
     { match: "/randomizer", label: "Randomizer" },
     { match: "/library-explorer", label: "Library Explorer" },
     { match: "/library-roulette", label: "Library Roulette" },
+    { match: "/catalog", label: "Catalog" },
   ];
 
   const subtitle = SUBTITLE_ROUTES.find(r => pathname.startsWith(r.match))?.label ?? "";

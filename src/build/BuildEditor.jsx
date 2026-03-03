@@ -29,6 +29,7 @@ import BuildLibrary from "./BuildLibrary";
 import Spinner from "../components/Spinner";
 import ShareQrModal from "../components/ShareQRModal";
 import ScrollArrow from "../components/ScrollArrow";
+import Modal from "./components/common/Modal";
 
 export default function BuildEditor({mode}) {
 
@@ -48,6 +49,9 @@ export default function BuildEditor({mode}) {
 
   const [saving, setSaving] = useState(false);
   const { showToast } = useToast();
+
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
+  const [pendingDeleteId, setPendingDeleteId] = useState(null);
 
   function normalizeOwnedBuild(build) {
   const clean = { ...build };
@@ -248,14 +252,16 @@ const [build, setBuild] = useState(() => {
       }
   }
 
-  async function handleDeleteBuild(id) {
+  async function performDeleteBuild() {
+    if (!pendingDeleteId) return;
+
     try {
       setSaving(true);
 
-      const nextLibrary = await BuildLibraryService.delete(uid, id);
+      const nextLibrary = await BuildLibraryService.delete(uid, pendingDeleteId);
       setLibrary(nextLibrary);
 
-      if (id === build.id) {
+      if (pendingDeleteId === build.id) {
         const fallback = nextLibrary[0] ?? loadBuildFromSession();
         setBuild(fallback);
       }
@@ -264,6 +270,7 @@ const [build, setBuild] = useState(() => {
         type: "success",
         message: "Build deleted",
       });
+
     } catch (err) {
       console.error(err);
       showToast({
@@ -272,9 +279,15 @@ const [build, setBuild] = useState(() => {
       });
     } finally {
       setSaving(false);
+      setConfirmDeleteOpen(false);
+      setPendingDeleteId(null);
     }
   }
 
+  function handleDeleteBuild(id) {
+    setPendingDeleteId(id);
+    setConfirmDeleteOpen(true);
+  }
 
 function handleNewBuild() {
   const draft = normalizeOwnedBuild(createEmptyBuild());
@@ -512,6 +525,52 @@ return (
           skillGroupsData={skillGroupsData}
         />
       </Section>
+
+      {/* MODAL DE CONFIRMACIÓN DE ELIMINACIÓN */}
+      <Modal
+        open={confirmDeleteOpen}
+        onClose={() => {
+          if (!saving) {
+            setConfirmDeleteOpen(false);
+            setPendingDeleteId(null);
+          }
+        }}
+        title="Delete build?"
+        width="520px"
+      >
+        <div style={{ marginBottom: "20px" }}>
+          This action cannot be undone.  
+          The build will be permanently removed from your library.
+        </div>
+{saving && (
+  <div style={{ marginBottom: 16 }}>
+    <Spinner size="sm" label="Deleting build…" />
+  </div>
+)}
+        <div style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: "12px"
+        }}>
+          <button
+            className="secondary"
+            onClick={() => {
+              setConfirmDeleteOpen(false);
+              setPendingDeleteId(null);
+            }}
+            disabled={saving}
+          >
+            CANCEL
+          </button>
+
+          <button
+            onClick={performDeleteBuild}
+            disabled={saving}
+          >
+            {saving ? "DELETING..." : "DELETE"}
+          </button>
+        </div>
+      </Modal>
 
       <ScrollArrow/>
     </div>

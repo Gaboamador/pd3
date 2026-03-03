@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleChevronDown } from "react-icons/fa6";
 import styles from "./BuildLayout.module.scss";
@@ -30,6 +30,8 @@ function randomFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+const RANDOMIZER_SESSION_KEY = "pd3_randomizer_build_v1";
+
 export default function BuildLayout() {
   const loadoutNormalized = useMemo(
     () => normalizeLoadoutData(loadoutData),
@@ -38,7 +40,15 @@ export default function BuildLayout() {
 
   const { primary, secondary, armors } = loadoutNormalized;
 
-  const [build, setBuild] = useState({
+  const [build, setBuild] = useState(() => {
+  try {
+    const saved = sessionStorage.getItem(RANDOMIZER_SESSION_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch {}
+
+  return {
     version: 1,
     loadout: {
       primary: null,
@@ -50,7 +60,21 @@ export default function BuildLayout() {
       tool: null,
       heist: null,
     },
+  };
   });
+
+  useEffect(() => {
+    try {
+      if (build?.loadout) {
+        sessionStorage.setItem(
+          RANDOMIZER_SESSION_KEY,
+          JSON.stringify(build)
+        );
+      }
+    } catch (e) {
+      console.error("Randomizer persistence error:", e);
+    }
+  }, [build]);
 
   const ALL_PRIMARY_TYPES = Object.keys(primary);
   const ALL_SECONDARY_TYPES = Object.keys(secondary);
@@ -165,16 +189,6 @@ const filteredSecondaryWeapons = useMemo(() => {
   // ==============================
 
   async function randomizeFullSequential() {
-    // const order = [
-    //   "primary",
-    //   "secondary",
-    //   "overkill",
-    //   "armor",
-    //   "throwable",
-    //   "deployable",
-    //   "tool",
-    //   "heist",
-    // ];
     const order = [
       "tool",
       "deployable",
@@ -295,6 +309,23 @@ function applyResult(slot, result) {
   });
 }
 
+  function resetRandomizer() {
+    sessionStorage.removeItem(RANDOMIZER_SESSION_KEY);
+
+    setBuild({
+      version: 1,
+      loadout: {
+        primary: null,
+        secondary: null,
+        overkill: null,
+        armor: { key: null, plates: [] },
+        throwable: null,
+        deployable: null,
+        tool: null,
+        heist: null,
+      },
+    });
+  }
 
   // ==============================
   // RENDER
@@ -303,12 +334,22 @@ function applyResult(slot, result) {
   return (
   <div className={styles.page}>
     <div className={styles.wrapper}>
-      <button
-        className={styles.primaryButton}
-        onClick={randomizeFullSequential}
-      >
-        RANDOMIZE COMPLETE BUILD
-      </button>
+
+      <div className={styles.buttonsWrapper}>
+        <button
+          className={styles.primaryButton}
+          onClick={randomizeFullSequential}
+        >
+          RANDOMIZE COMPLETE BUILD
+        </button>
+
+        <button
+          className={styles.secondaryButton}
+          onClick={resetRandomizer}
+        >
+          RESET
+        </button>
+      </div>
 
       <div className={styles.weaponFilters}>
 
