@@ -33,13 +33,19 @@
   opacity: 0.75;
 }
 
-.pre {
+.textBlock {
   margin: 0;
   white-space: pre-wrap;
   font-family: "DIN2014";
   font-size: 0.8rem;
   line-height: 1.4;
   opacity: 0.95;
+  font-weight: 300;
+}
+
+.skillValueHighlight {
+  font-weight: 700;
+  // font-size: calc(1em + 0.1rem);
 }
 
 .metaRow {

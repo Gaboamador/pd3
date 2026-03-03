@@ -4,13 +4,17 @@ function formatValueByType(v, type) {
   if (v == null || Number.isNaN(Number(v))) return "";
   const n = Number(v);
 
+  // if (type === "rate") {
+  //   // en los json rate suele venir como 0.04 => 4%
+  //   const pct = n * 100;
+  //   // 2 decimales si hace falta
+  //   const s =
+  //     Math.abs(pct - Math.round(pct)) < 1e-9 ? String(Math.round(pct)) : pct.toFixed(2);
+  //   return `${s}%`;
+  // }
   if (type === "rate") {
-    // en los json rate suele venir como 0.04 => 4%
     const pct = n * 100;
-    // 2 decimales si hace falta
-    const s =
-      Math.abs(pct - Math.round(pct)) < 1e-9 ? String(Math.round(pct)) : pct.toFixed(2);
-    return `${s}%`;
+    return `${parseFloat(pct.toFixed(2))}%`;
   }
 
   // flat u otros

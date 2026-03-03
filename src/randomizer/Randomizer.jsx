@@ -1,8 +1,8 @@
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleChevronDown } from "react-icons/fa6";
-import styles from "./BuildLayout.module.scss";
-import SlotMachineReel from "../randomizer/components/SlotMachineReel";
+import styles from "./Randomizer.module.scss";
+import SlotMachineReel from "./components/SlotMachineReel";
 import WeaponCard from "../build/components/weapons/WeaponCard";
 import LoadoutItemCard from "../build/components/loadout/LoadoutItemCard";
 import WeaponSprite from "../build/components/weapons/WeaponSprite";
@@ -50,7 +50,7 @@ function buildDeckFromItems(items) {
 const RANDOMIZER_SESSION_KEY = "pd3_randomizer_build_v1";
 const RANDOMIZER_DECKS_KEY = "pd3_randomizer_decks_v1";
 
-export default function BuildLayout() {
+export default function Randomizer() {
   const loadoutNormalized = useMemo(
     () => normalizeLoadoutData(loadoutData),
     []

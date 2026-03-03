@@ -1,13 +1,30 @@
 import { useMemo } from "react";
 import { renderSkillText } from "../build/utils/skillText.utils";
+import { renderSkillTextWithTotals } from "../build/utils/skillScaling.utils.jsx";
 import styles from "./SkillSection.module.scss";
 import skillGroupsData from "../data/payday3_skill_groups.json";
 
-export default function SkillSection({ skill, showMeta = false }) {
+export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false }) {
   if (!skill) return null;
 
-  const baseRendered = renderSkillText(skill.base_description, skill.values || {});
-  const acedRendered = renderSkillText(skill.aced_description, skill.values || {});
+  const baseRendered = enableTotals
+  ? renderSkillTextWithTotals({
+      description: skill.base_description,
+      valuesMap: skill.values || {},
+      equippedCount,
+      highlightClass: styles.skillValueHighlight,
+    })
+  : renderSkillText(skill.base_description, skill.values || {});
+
+
+  const acedRendered = enableTotals
+  ? renderSkillTextWithTotals({
+      description: skill.aced_description,
+      valuesMap: skill.values || {},
+      equippedCount,
+      highlightClass: styles.skillValueHighlight,
+    })
+  : renderSkillText(skill.aced_description, skill.values || {});
 
   const meta = useMemo(() => {
     if (!showMeta) return null;
@@ -46,11 +63,11 @@ export default function SkillSection({ skill, showMeta = false }) {
             </div>
         )}
         <Section title="Base" cost={skill?.req_points?.base ?? 0}>
-            <pre className={styles.pre}>{baseRendered}</pre>
+            <div className={styles.textBlock}>{baseRendered}</div>
         </Section>
 
         <Section title="Aced" cost={skill?.req_points?.aced ?? 0}>
-            <pre className={styles.pre}>{acedRendered}</pre>
+            <div className={styles.textBlock}>{acedRendered}</div>
         </Section>
     </div>
   );

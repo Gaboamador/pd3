@@ -1,7 +1,7 @@
 import SkillSection from "../../../components/SkillSection";
 import styles from './SkillDetailsModal.module.scss'
 
-export default function SkillDetailsModal({ open, onClose, skill }) {
+export default function SkillDetailsModal({ open, onClose, skill, equippedCount, enableTotals = false }) {
   if (!open || !skill) return null;
 
   return (
@@ -14,7 +14,7 @@ export default function SkillDetailsModal({ open, onClose, skill }) {
           </button>
         </div>
 
-        <SkillSection skill={skill} />
+        <SkillSection skill={skill} equippedCount={equippedCount} enableTotals={enableTotals}/>
       </div>
     </div>
 );

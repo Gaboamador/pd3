@@ -25,6 +25,24 @@ function useIsMobile(breakpointPx = 920) {
   return isMobile;
 }
 
+function calculateTreeEquippedSkills(treeId, skillsState, skillsData) {
+  if (!treeId || !skillsState || !skillsData) return 0;
+
+  let count = 0;
+
+  for (const [skillKey, state] of Object.entries(skillsState)) {
+    const def = skillsData?.[skillKey];
+    if (!def) continue;
+
+    if (Number(def.skill_tree_id) !== Number(treeId)) continue;
+
+    if (state?.aced) count += 2;
+    else if (state?.base) count += 1;
+  }
+
+  return count;
+}
+
 export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsData }) {
   const isMobile = useIsMobile(920);
   
@@ -51,6 +69,15 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
     if (!selectedSkillKey) return null;
     return skillsData?.[selectedSkillKey] ?? null;
   }, [skillsData, selectedSkillKey]);
+
+  const selectedTreeEquipped = useMemo(() => {
+  if (!selectedSkill) return 0;
+  return calculateTreeEquippedSkills(
+    selectedSkill.skill_tree_id,
+    build.skills || {},
+    skillsData || {}
+  );
+}, [selectedSkill, build.skills, skillsData]);
 
   const selectedState = build?.skills?.[selectedSkillKey];
   const showAcedInDetails = !!selectedState?.aced;
@@ -532,6 +559,8 @@ function clearAllSkills() {
           <SkillDetailsPanel
             skill={selectedSkill}
             showAced={showAcedInDetails}
+            equippedCount={selectedTreeEquipped}
+            enableTotals={true}
           />
         </aside>
       )}
@@ -544,6 +573,8 @@ function clearAllSkills() {
         onClose={() => setModalOpen(false)}
         skill={selectedSkill}
         showAced={showAcedInDetails}
+        equippedCount={selectedTreeEquipped}
+        enableTotals={true}
       />
     )}
   </div>
