@@ -17,7 +17,7 @@ const { isAuthenticated } = useAuth();
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Build tools & randomizers</h1>
+        <div className={styles.title}>Build tools & randomizers</div>
       </header>
 
       <nav className={styles.grid}>
