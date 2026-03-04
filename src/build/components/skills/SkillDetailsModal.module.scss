@@ -35,8 +35,13 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .closeButton {

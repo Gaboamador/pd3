@@ -12,7 +12,8 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  transition: transform 4s cubic-bezier(0.08, 0.6, 0.2, 1);
+  // transition: transform 4s cubic-bezier(0.08, 0.6, 0.2, 1);
+  transition: transform 4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .background {
@@ -56,4 +57,5 @@
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-bottom: 24px solid $pd3-hover;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }

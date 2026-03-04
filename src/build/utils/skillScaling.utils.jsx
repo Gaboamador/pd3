@@ -1,133 +1,3 @@
-// // src/utils/skillScaling.utils.js
-// import React from "react";
-// import { renderSkillText } from "./skillText.utils";
-
-// /**
-//  * Extrae tokens {Key} usados en el template.
-//  * OJO: incluye ComputedX si aparece, pero abajo filtramos esos.
-//  */
-// function getTemplateTokenKeys(template) {
-//   if (!template) return [];
-//   const keys = [];
-//   template.replace(/\{([A-Za-z0-9_]+)\}/g, (_, k) => {
-//     keys.push(k);
-//     return _;
-//   });
-//   return keys;
-// }
-
-// /**
-//  * Entries que escalan: tienen "compute" y además están usados en el template.
-//  * Esto evita:
-//  * - que Bullseye base tome AcedIncreasedAccuracy (compute) y te muestre 3
-//  * - que base tome valores compute del aced, y viceversa
-//  */
-// function getScalingEntriesUsedByTemplate(valuesMap, template) {
-//   if (!valuesMap) return [];
-//   const usedKeys = new Set(getTemplateTokenKeys(template));
-
-//   return Object.entries(valuesMap)
-//     .filter(([key, v]) => {
-//       if (!v) return false;
-//       if (v.compute == null) return false;
-//       if (!usedKeys.has(key)) return false;
-//       if (key.startsWith("Computed")) return false; // nunca escalar estos
-//       return true;
-//     })
-//     .map(([key, v]) => ({ key, ...v }));
-// }
-
-// function formatTotal(total, type) {
-//   if (type === "rate") {
-//     const pct = total * 100;
-
-//     // hasta 2 decimales pero sin ceros innecesarios
-//     return `${parseFloat(pct.toFixed(2))}%`;
-//   }
-
-//   return parseFloat(total.toFixed(2));
-// }
-
-// function computeScaledValue({
-//   baseValue,
-//   compute,
-//   skipFirst = 0,
-//   maxKey,
-//   valuesMap,
-//   equippedCount,
-// }) {
-//   if (!compute) return null;
-
-//   let effectiveCount = equippedCount;
-
-//   if (skipFirst) {
-//     effectiveCount = Math.max(0, equippedCount - skipFirst);
-//   }
-
-//   const multiplier = compute === 2 ? Math.floor(effectiveCount / 2) : effectiveCount;
-
-//   let total = baseValue * multiplier;
-
-//   // max puede apuntar a otra key en values (ej MaxRuntimeCount)
-//   if (maxKey && valuesMap?.[maxKey]) {
-//     const maxVal = Number(valuesMap[maxKey].value);
-//     if (!Number.isNaN(maxVal)) total = Math.min(total, maxVal);
-//   }
-
-//   return total;
-// }
-
-// /**
-//  * Wrapper: renderiza el texto base y, si corresponde, agrega (Total: X) al final.
-//  * - NO rompe si valuesMap es null
-//  * - NO muestra totals si no hay tokens compute usados en ese template
-//  */
-// export function renderSkillTextWithTotals({
-//   description,
-//   valuesMap,
-//   equippedCount,
-// }) {
-//   const safeValues = valuesMap || {};
-//   const baseText = renderSkillText(description, safeValues);
-
-//   const scalingEntries = getScalingEntriesUsedByTemplate(safeValues, description);
-//   if (!scalingEntries.length) return baseText;
-
-//   const totals = scalingEntries
-//     .map(entry => {
-//       const total = computeScaledValue({
-//         baseValue: Number(entry.value),
-//         compute: entry.compute,
-//         skipFirst: entry.skip_first,
-//         maxKey: entry.max,
-//         valuesMap: safeValues,
-//         equippedCount: Number(equippedCount || 0),
-//       });
-
-//       if (total == null || Number.isNaN(total)) return null;
-//       return formatTotal(total, entry.type);
-//     })
-//     .filter(Boolean);
-
-//   if (!totals.length) return baseText;
-
-//   const label = totals.length > 1 ? "Totals" : "Total";
-//   /**
-//    * Caso especial: Bullseye base
-//    */
-//   if (
-//     totals.length === 2 &&
-//     description?.includes("unmarked targets") &&
-//     description?.includes("marked targets")
-//   ) {
-//     return `${baseText} (${label}: ${totals[0]} Unmarked | ${totals[1]} Marked)`;
-//   }
-
-//   return `${baseText} (${label}: ${totals.join(" | ")})`;
-// }
-// src/utils/skillScaling.utils.js
-
-// src/utils/skillScaling.utils.jsx
 import React from "react";
 import { renderSkillText } from "./skillText.utils";
 
@@ -169,36 +39,39 @@ function formatTotal(total, type) {
   return parseFloat(total.toFixed(2));
 }
 
-function computeScaledValue({
-  baseValue,
-  compute,
-  skipFirst = 0,
-  maxKey,
-  valuesMap,
-  equippedCount,
-}) {
-  if (!compute) return null;
+  function computeScaledValue({
+    baseValue,
+    compute,
+    skipFirst = 0,
+    maxKey,
+    valuesMap,
+    equippedCount,
+  }) {
+    if (!compute) return null;
 
-  let effectiveCount = equippedCount;
+    let multiplier = 0;
 
-  if (skipFirst) {
-    effectiveCount = Math.max(0, equippedCount - skipFirst);
-  }
-
-  const multiplier =
-    compute === 2 ? Math.floor(effectiveCount / 2) : effectiveCount;
-
-  let total = Number(baseValue) * Number(multiplier);
-
-  if (maxKey && valuesMap?.[maxKey]) {
-    const maxVal = Number(valuesMap[maxKey].value);
-    if (!Number.isNaN(maxVal)) {
-      total = Math.min(total, maxVal);
+    if (compute === 1) {
+      multiplier = equippedCount - skipFirst;
     }
-  }
 
-  return total;
-}
+    if (compute === 2) {
+      multiplier = Math.floor((equippedCount - skipFirst) / 2);
+    }
+
+    multiplier = Math.max(0, multiplier);
+
+    let total = Number(baseValue) * multiplier;
+
+    if (maxKey && valuesMap?.[maxKey]) {
+      const maxVal = Number(valuesMap[maxKey].value);
+      if (!Number.isNaN(maxVal)) {
+        total = Math.min(total, maxVal);
+      }
+    }
+
+    return total;
+  }
 
 /* =============================
    Public API
@@ -209,9 +82,12 @@ export function renderSkillTextWithTotals({
   valuesMap,
   equippedCount,
   highlightClass,
+  showTotals = true,
+  enemyClass
 }) {
   const safeValues = valuesMap || {};
   const baseText = renderSkillText(description, safeValues);
+  const hasEnemyTags = enemyClass && baseText.includes("<Enemy>");
 
   const highlight = (content, key) => (
     <span key={key} className={highlightClass}>
@@ -219,10 +95,44 @@ export function renderSkillTextWithTotals({
     </span>
   );
 
+const renderEnemyTags = (text) => {
+  if (!text) return text;
+
+  const parts = [];
+  let lastIndex = 0;
+
+  const regex = /<Enemy>(.*?)<\/>/g;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const start = match.index;
+    const end = regex.lastIndex;
+
+    // texto antes del tag
+    if (start > lastIndex) {
+      parts.push(text.slice(lastIndex, start));
+    }
+
+    // enemigo coloreado
+    parts.push(
+      <span key={parts.length} className={enemyClass}>
+        {match[1]}
+      </span>
+    );
+
+    lastIndex = end;
+  }
+
+  // resto del texto
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts;
+};
   const renderStyledNumbers = text => {
     if (!text) return text;
 
-    // const parts = text.split(/(\d+(\.\d+)?%?)/g);
     const parts = text.split(/(\d+(?:\.\d+)?%?)/g);
 
     return parts.map((part, index) => {
@@ -234,31 +144,108 @@ export function renderSkillTextWithTotals({
     });
   };
 
+  const renderStyledNumbersFromNodes = (node) => {
+
+    if (typeof node === "string") {
+      return renderStyledNumbers(node);
+    }
+
+    if (Array.isArray(node)) {
+      return node.map((child, idx) => (
+        <React.Fragment key={idx}>
+          {renderStyledNumbersFromNodes(child)}
+        </React.Fragment>
+      ));
+    }
+
+    return node;
+  };
+
   const scalingEntries =
     getScalingEntriesUsedByTemplate(safeValues, description);
 
-  if (!scalingEntries.length) {
-    return renderStyledNumbers(baseText);
+  if (!scalingEntries.length || !showTotals) {
+    const baseNode = hasEnemyTags ? renderEnemyTags(baseText) : baseText;
+    return renderStyledNumbersFromNodes(baseNode);
   }
 
-  const totals = scalingEntries
-    .map(entry => {
-      const total = computeScaledValue({
-        baseValue: Number(entry.value),
-        compute: entry.compute,
-        skipFirst: entry.skip_first,
-        maxKey: entry.max,
-        valuesMap: safeValues,
-        equippedCount: Number(equippedCount || 0),
-      });
+const totals = scalingEntries
+  .map(entry => {
+    const extraRaw = computeScaledValue({
+      baseValue: Number(entry.value),
+      compute: entry.compute,
+      skipFirst: entry.skip_first,
+      maxKey: entry.max,
+      valuesMap: safeValues,
+      equippedCount: Number(equippedCount || 0),
+    });
 
-      if (total == null || Number.isNaN(total)) return null;
+    if (extraRaw == null || Number.isNaN(extraRaw)) return null;
 
-      return formatTotal(total, entry.type);
-    })
-    .filter(Boolean);
+    // ============================
+    // Caso especial: "for every two skills ... beyond the first"
+    // Total = BaseToken + Extra (y el max aplica al TOTAL)
+    // ============================
+    const lower = (description || "").toLowerCase();
+    const isEveryTwoBeyondFirst =
+      entry.compute === 2 &&
+      Number(entry.skip_first || 0) === 1 &&
+      lower.includes("for every two skills") &&
+      lower.includes("beyond the first");
 
-  if (!totals.length) {
+    let finalRaw = extraRaw;
+
+    if (isEveryTwoBeyondFirst) {
+      // Tomamos el token inmediatamente anterior en el template (BonusRuntime / GainHostageCount)
+      const orderedKeys = getTemplateTokenKeys(description).filter(
+        k => !k.startsWith("Computed")
+      );
+
+      const idx = orderedKeys.indexOf(entry.key);
+      const baseKey = idx > 0 ? orderedKeys[idx - 1] : null;
+
+      const baseVal = baseKey ? Number(safeValues?.[baseKey]?.value) : NaN;
+
+      if (Number.isFinite(baseVal)) {
+        finalRaw = baseVal + extraRaw;
+
+        // Si hay max, en estas skills el max es cap del TOTAL (Security Expert)
+        if (entry.max && safeValues?.[entry.max]) {
+          const maxVal = Number(safeValues[entry.max].value);
+          if (Number.isFinite(maxVal)) {
+            finalRaw = Math.min(finalRaw, maxVal);
+          }
+        }
+      }
+    }
+
+    return {
+      key: entry.key,
+      raw: finalRaw,
+      text: formatTotal(finalRaw, entry.type),
+      unit: entry.unit || null
+    };
+  })
+  .filter(v => v !== null && v !== undefined);
+
+  const computedMatch = description?.match(/\{(Computed[A-Za-z0-9_]+)\}/);
+  const hasComputedMarker = Boolean(computedMatch);
+  let beforeComputed = baseText;
+  let afterComputed = "";
+
+  if (hasComputedMarker) {
+    const parts = baseText.split("\n");
+
+    const idx = parts.findIndex(line => line.trim() === "");
+
+    if (idx !== -1) {
+      beforeComputed = parts.slice(0, idx).join("\n");
+      afterComputed = parts.slice(idx).join("\n");
+    }
+  }
+
+
+  if (!totals.length || !showTotals) {
     return renderStyledNumbers(baseText);
   }
 
@@ -271,26 +258,38 @@ export function renderSkillTextWithTotals({
 
   return (
     <>
-      {renderStyledNumbers(baseText)}{" "}
+      {hasEnemyTags ? renderStyledNumbersFromNodes(renderEnemyTags(beforeComputed)) : renderStyledNumbers(beforeComputed)}{" "}
       (
       {label}:{" "}
       {isBullseye ? (
         <>
-          {highlight(totals[0], "u1")}{" "}
+          {highlight(totals[0].text, "u1")}{" "}
           {highlight("Unmarked", "u2")}
           {" | "}
-          {highlight(totals[1], "m1")}{" "}
+          {highlight(totals[1].text, "m1")}{" "}
           {highlight("Marked", "m2")}
         </>
       ) : (
         totals.map((t, i) => (
           <React.Fragment key={i}>
             {i > 0 && " | "}
-            {highlight(t, i)}
+            {highlight(t.text, i)}
+            {t.unit && <> {highlight(t.unit, `u-${i}`)}</>}
           </React.Fragment>
         ))
       )}
       )
+
+      {afterComputed && (
+      <>
+        {"\n"}
+        {
+          hasEnemyTags
+            ? renderStyledNumbersFromNodes(renderEnemyTags(afterComputed))
+            : renderStyledNumbers(afterComputed)
+        }
+      </>
+    )}
     </>
   );
 }

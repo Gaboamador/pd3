@@ -4,7 +4,7 @@
         "key": "Bulwark",
         "name": "Extra Protection",
         "base_description": "For every skill equipped in the Juggernaut branch, gain {ArmorReduction} damage reduction to armor plates.\n{ComputedArmorReduction}\n\nTotal damage reduction cannot exceed {MaxArmorReduction}.",
-        "aced_description": "For every point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
+        "aced_description": "For each point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
         "values": {
             "ArmorReduction": {
                 "value": 0.01,
@@ -49,7 +49,7 @@
         "id": 7,
         "key": "ARProficiency",
         "name": "Rifleman",
-        "base_description": "For every skill equipped in the Commando branch, Assault Rifles and LMGs gain {IncreasedArmorPenetration} Armor Penetration.\n{ComputedIncreasedArmorPenetration}\n\nEach enemy wears a set number of armor layers. If your Armor Penetration is equal to or higher than that number, attacks damage their health directly. If not, attacks damage their armor layers.",
+        "base_description": "For every skill equipped in the Commando branch, Assault Rifles and LMGs gain {IncreasedArmorPenetration} Armor Penetration.\n{ComputedIncreasedArmorPenetration}\n\nEach enemy wears a set number of armor layers. If your Armor Penetration equals or exceeds that number, attacks damage their health directly. If not, attacks damage their armor.",
         "aced_description": "Assault Rifle and LMG reload speed increases by {AcedIncreasedReloadSpeed} for every skill equipped in the Commando branch.\n{ComputedAcedIncreasedReloadSpeed}\n\nThis bonus doubles when reloading an empty magazine.",
         "values": {
             "IncreasedArmorPenetration": {
@@ -107,7 +107,8 @@
             "AcedIncreasedRange": {
                 "value": 0.25,
                 "type": "flat",
-                "compute": 1
+                "compute": 1,
+                "unit": "meters"
             },
             "ComputedAcedIncreasedRange": {
                 "value": 0,
@@ -545,7 +546,7 @@
         "aced_description": "If you have no Adrenaline while at full health, walking unmasked within {AcedWithinRange} meter of a civilian will give you {AcedAdditionalOverHeal} Adrenaline.",
         "values": {
             "IncreasedOverHeal": {
-                "value": 0.04,
+                "value": 0.05,
                 "type": "rate",
                 "compute": 1
             },
@@ -727,8 +728,7 @@
             },
             "AcedIncreasedDamage": {
                 "value": 0.075,
-                "type": "rate",
-                "compute": 1
+                "type": "rate"
             },
             "ComputedAcedIncreasedDamage": {
                 "value": 0,
@@ -2875,11 +2875,11 @@
         "aced_description": "The cooldown for regaining a bullet reduces to {AcedCooldown} seconds.",
         "values": {
             "Cooldown": {
-                "value": 6,
+                "value": 4,
                 "type": "flat"
             },
             "AcedCooldown": {
-                "value": 3,
+                "value": 2,
                 "type": "flat"
             }
         },
@@ -2905,7 +2905,7 @@
         "aced_description": "Raise the damage bonus from your Ammo Bags to {AcedIncreasedDamage}.",
         "values": {
             "IncreasedDamage": {
-                "value": 0.1,
+                "value": 0.2,
                 "type": "rate"
             },
             "AcedIncreasedDamage": {
@@ -3046,12 +3046,16 @@
         "id": 30,
         "key": "SMGMaster",
         "name": "SMGenius",
-        "base_description": "When you reload an empty magazine from your SMG, increase damage with SMGs by {IncreasedDamage}. \n\nThis buff can stack up to {BuffStack} times. Once the buff reaches its maximum stacks, it will expire after <Skill>10</> seconds.",
+        "base_description": "When you reload an empty magazine from your SMG, increase damage with SMGs by {IncreasedDamage} for {BuffDuration} seconds.\n\nThis buff can stack up to {BuffStack} times. Once the buff reaches its maximum stacks, it will expire after <Skill>10</> seconds.",
         "aced_description": "The duration of this SMG damage bonus refreshes whenever you break an enemy's armor layer.\n\nThe buff now stacks up to {AcedBuffStack} times.",
         "values": {
             "IncreasedDamage": {
-                "value": 0.05,
+                "value": 0.08,
                 "type": "rate"
+            },
+            "BuffDuration": {
+                "value": 10,
+                "type": "flat"
             },
             "BuffStack": {
                 "value": 10,
@@ -3245,8 +3249,8 @@
         "id": 66,
         "key": "BountyHunter",
         "name": "Bounty Hunter",
-        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\nZappers restore <Skill>1</> tool.\nNaders restore <Skill>1</> throwable.\nTechies restore <Skill>1</> broken armor layer.",
-        "aced_description": "Add these marked special enemies to your bounty list.\nCloaker: Heal for {AcedAddedHealth} of your maximum health.\nDozer: Restore <Skill>1</> down.",
+        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\n\n<Enemy>Zappers</> restore <Skill>1</> tool. <Enemy>Naders</> restore <Skill>1</> throwable. <Enemy>Techies</> restore <Skill>1</> broken armor layer.",
+        "aced_description": "Add these marked special enemies to your bounty list.\n\n<Enemy>Cloakers</> restore {AcedAddedHealth} of your maximum health.\n<Enemy>Dozers</> restore <Skill>1</> down.",
         "values": {
             "AcedAddedHealth": {
                 "value": 0.2,
@@ -3308,7 +3312,8 @@
         "values": {
             "IncreasedDamage": {
                 "value": 0.02,
-                "type": "rate"
+                "type": "rate",
+                "compute": 1
             },
             "AcedIncreasedDamage": {
                 "value": 0.05,

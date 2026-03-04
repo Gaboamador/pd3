@@ -13,8 +13,15 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
       valuesMap: skill.values || {},
       equippedCount,
       highlightClass: styles.skillValueHighlight,
+      enemyClass: styles.enemyHighlight,
     })
-  : renderSkillText(skill.base_description, skill.values || {});
+  : renderSkillTextWithTotals({
+    description: skill.base_description,
+    valuesMap: skill.values || {},
+    highlightClass: styles.skillValueHighlight,
+    enemyClass: styles.enemyHighlight,
+    showTotals: false,
+  });
 
 
   const acedRendered = enableTotals
@@ -23,8 +30,15 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
       valuesMap: skill.values || {},
       equippedCount,
       highlightClass: styles.skillValueHighlight,
+      enemyClass: styles.enemyHighlight,
     })
-  : renderSkillText(skill.aced_description, skill.values || {});
+  : renderSkillTextWithTotals({
+    description: skill.aced_description,
+    valuesMap: skill.values || {},
+    highlightClass: styles.skillValueHighlight,
+    enemyClass: styles.enemyHighlight,
+    showTotals: false,
+  });
 
   const meta = useMemo(() => {
     if (!showMeta) return null;

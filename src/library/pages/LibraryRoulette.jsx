@@ -17,6 +17,17 @@ import loadoutData from "../../data/payday3_loadout_items.json";
 import Spinner from "../../components/Spinner";
 import BuildWheel from "../components/BulidWheel";
 
+const ROULETTE_DECK_KEY = "pd3_library_roulette_deck_v1";
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function LibraryRoulette() {
   const { library, loading } = useUserLibrary();
   const { loadBuild } = useLoadBuild();
@@ -29,6 +40,14 @@ export default function LibraryRoulette() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [manualMode, setManualMode] = useState("all");
   const [manualSelectedIds, setManualSelectedIds] = useState([]);
+
+  const [rouletteDeck, setRouletteDeck] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem(ROULETTE_DECK_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return [];
+  });
 
   const indexedBuilds = useMemo(
     () => attachSearchIndexToBuilds(library ?? []),
@@ -88,6 +107,13 @@ export default function LibraryRoulette() {
     return basePool.filter(b => manualSelectedIds.includes(b.id));
   }, [basePool, manualMode, manualSelectedIds]);
 
+  const poolSignature = useMemo(() => {
+    return pool
+      .map(b => b.id)
+      .sort()
+      .join("|");
+  }, [pool]);
+
   useEffect(() => {
     if (manualMode === "custom") {
       setManualSelectedIds(prev =>
@@ -96,16 +122,70 @@ export default function LibraryRoulette() {
     }
   }, [basePool]);
 
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(
+        ROULETTE_DECK_KEY,
+        JSON.stringify(rouletteDeck)
+      );
+    } catch {}
+  }, [rouletteDeck]);
+
+  useEffect(() => {
+    const ids = pool.map(b => b.id);
+
+    if (!ids.length) {
+      setRouletteDeck([]);
+      return;
+    }
+
+    setRouletteDeck(shuffleArray(ids));
+  }, [poolSignature]);
+
+
     function spin() {
     if (!pool.length) return;
     setSpinning(true);
-    const randomIndex = Math.floor(Math.random() * pool.length);
+    // const randomIndex = Math.floor(Math.random() * pool.length);
+
+    // =========================
+    // DECK LOGIC (ex randomIndex)
+    // =========================
+    const validIds = pool.map(b => b.id);
+
+    // deck actual
+    let deck = Array.isArray(rouletteDeck) ? rouletteDeck : [];
+
+    // eliminar builds que ya no estén en pool (por filtros)
+    deck = deck.filter(id => validIds.includes(id));
+
+    // si se vació, regenerar
+    if (deck.length === 0) {
+      deck = shuffleArray(validIds);
+    }
+
+    // siguiente id a consumir
+    const nextId = deck[0];
+
+    // persistir deck consumido
+    setRouletteDeck(deck.slice(1));
+
+    // encontrar índice real en pool
+    const randomIndex = pool.findIndex(b => b.id === nextId);
+
+    // fallback defensivo
+    if (randomIndex === -1) {
+      return;
+    }
+    // =========================
+
     const segmentAngle = 360 / pool.length;
 
     const centerAngle =
         randomIndex * segmentAngle + segmentAngle / 2;
 
-    const spins = 5;
+    const spins = 4 + Math.floor(Math.random() * 3);
 
     setRotation(prev => {
         const normalizedPrev = prev % 360;

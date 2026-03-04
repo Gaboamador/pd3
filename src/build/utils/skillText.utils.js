@@ -1,32 +1,39 @@
-// src/utils/skillText.utils.js
-
 function formatValueByType(v, type) {
   if (v == null || Number.isNaN(Number(v))) return "";
   const n = Number(v);
 
-  // if (type === "rate") {
-  //   // en los json rate suele venir como 0.04 => 4%
-  //   const pct = n * 100;
-  //   // 2 decimales si hace falta
-  //   const s =
-  //     Math.abs(pct - Math.round(pct)) < 1e-9 ? String(Math.round(pct)) : pct.toFixed(2);
-  //   return `${s}%`;
-  // }
   if (type === "rate") {
     const pct = n * 100;
-    return `${parseFloat(pct.toFixed(2))}%`;
+
+    // hasta 3 decimales pero sin ceros innecesarios
+    return `${parseFloat(pct.toFixed(3))}%`;
   }
 
   // flat u otros
-  const s =
-    Math.abs(n - Math.round(n)) < 1e-9 ? String(Math.round(n)) : n.toFixed(2);
-  return s;
+    const rounded = parseFloat(n.toFixed(3));
+    if (Math.abs(rounded - Math.round(rounded)) < 1e-9) {
+      return String(Math.round(rounded));
+    }
+    return String(rounded);
 }
 
+// function stripSkillTags(text) {
+//   if (!text) return "";
+//   // <Skill>1</> => 1
+//   // return text.replace(/<\/?Skill>/g, "").replace(/<\/>/g, "");
+//   return text.replace(/<\/?Skill>/g, "");
+// }
 function stripSkillTags(text) {
   if (!text) return "";
-  // <Skill>1</> => 1
-  return text.replace(/<\/?Skill>/g, "").replace(/<\/>/g, "");
+
+  // Convierte <Skill>1</> en "1" (incluye el cierre </>)
+  // NO toca <Enemy>...</>
+  let out = text.replace(/<Skill>(.*?)<\/>/g, "$1");
+
+  // Por si quedara algún <Skill> suelto (sin cierre), lo removemos igual
+  out = out.replace(/<\/?Skill>/g, "");
+
+  return out;
 }
 
 function replacePluralToken(raw, tokenValue) {
@@ -84,8 +91,11 @@ export function renderSkillText(template, valuesMap) {
   text = text
     .split("\n")
     .map(l => l.trimEnd())
-    .filter(l => l.trim() !== "")
+    // .filter(l => l.trim() !== "")
     .join("\n");
+
+  // evita múltiples líneas en blanco cuando se eliminan tokens {Computed}
+  text = text.replace(/\n{3,}/g, "\n\n");
 
   return text;
 }

@@ -48,6 +48,11 @@
   // font-size: calc(1em + 0.1rem);
 }
 
+.enemyHighlight {
+  color: $color-danger;
+  // font-weight: 800;
+}
+
 .metaRow {
   display: flex;
   flex-wrap: wrap;
