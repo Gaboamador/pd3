@@ -291,7 +291,10 @@ export default function LibraryRoulette() {
                 </div>
 
                 <div className={styles.manualList}>
-                  {basePool.map((b) => {
+                  {/* {basePool.map((b) => { */}
+                  {[...basePool]
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((b) => {
                     const active = manualSelectedIds.includes(b.id);
 
                     return (

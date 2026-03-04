@@ -127,11 +127,23 @@ export default function LibraryExplorer() {
     });
   }, [activeChips]);
 
+  // const filteredBuilds = useMemo(() => {
+  //   return filterBuilds(indexedBuilds, filters, {
+  //     weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
+  //   });
+  // }, [indexedBuilds, filters, weaponTypeIndex]);
   const filteredBuilds = useMemo(() => {
-    return filterBuilds(indexedBuilds, filters, {
-      weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
-    });
-  }, [indexedBuilds, filters, weaponTypeIndex]);
+  const result = filterBuilds(indexedBuilds, filters, {
+    weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
+  });
+
+  return result.sort((a, b) => {
+    const slotA = a.slot ?? Infinity;
+    const slotB = b.slot ?? Infinity;
+
+    return slotA - slotB;
+  });
+}, [indexedBuilds, filters, weaponTypeIndex]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -335,7 +347,10 @@ const suggestionsWithDividers = useMemo(() => {
             <div className={styles.results}>
               {filteredBuilds.map((build) => (
                 <div key={build.id} className={styles.card}>
-                  <div className={styles.buildName}>{build.name || "(Unnamed Build)"}</div>
+                  <div className={styles.buildNameWrapper}>
+                    <span className={styles.slotNumber}>{build.slot ?? "—"}</span>
+                    <span className={styles.buildName}>{build.name || "(Unnamed Build)"}</span>
+                  </div>
 
                   <div className={styles.btnWrapper}>
                     <button
