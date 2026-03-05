@@ -1,0 +1,189 @@
+@use "../../styles/variables" as *;
+
+// .page {
+//   padding: 18px 18px 28px;
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   font-family: 'DIN2014';
+// }
+.page {
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  display: grid;
+  gap: 16px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.headerActions {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.headerTitle {
+  font-weight: 600;
+}
+
+.subtitle {
+  opacity: 0.75;
+}
+
+.buildChipsWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.buildChip {
+  display: flex;
+  flex-direction: column;
+}
+
+.buildChipTitle {
+font-size: 1.1rem;
+font-weight: 600;
+}
+
+.archetypes {
+
+}
+
+.archetypeBadgeWrapper {
+display: flex;
+gap: 5px;
+}
+
+.strengths {
+    font-family: 'DIN2014';
+}
+
+.empty {
+  padding: 16px;
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 12px;
+  opacity: 0.8;
+}
+
+.h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.highlights {
+  margin: 16px 0 18px;
+}
+
+.highlightGrid {
+//   display: grid;
+//   grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) );
+//   gap: 12px;
+}
+
+.highlightWrapper {
+display: flex;
+
+}
+
+
+.card {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  padding: 12px 12px 10px;
+}
+
+.cardTitle {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.block {
+//   margin-bottom: 12px;
+}
+
+.blockTitle {
+//   font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 6px;
+  color: $pd3-main;
+  font-weight: 700;
+}
+
+.list {
+  margin: 0;
+  padding-left: 16px;
+  font-family: 'DIN2014';
+}
+
+.pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.pill.aced {
+    color: $pd3-lightgreen;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.insights {
+  margin: 16px 0 18px;
+}
+
+.insightList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.insight {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  padding: 12px;
+}
+
+.insightTag {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.insightText {
+  opacity: 0.9;
+  font-family: 'DIN2014';
+  display: flex;
+  text-align: justify;
+}
+
+.muted {
+  opacity: 0.7;
+}

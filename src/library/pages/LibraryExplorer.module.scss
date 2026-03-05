@@ -129,6 +129,12 @@
 width: 100%;
 }
 
+.resultsLengthAndButtonCompare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .resultsLength {
   font-size: 1.1rem;
   font-weight: 700;
@@ -183,4 +189,11 @@ width: 100%;
   padding: 0.25rem 0.5rem;
   display: flex;
   align-items: center;
+}
+
+.compareCheckbox {
+  cursor: pointer;
+  accent-color: $pd3-lightgreen;
+  padding: 0;
+  margin: 0 auto;
 }

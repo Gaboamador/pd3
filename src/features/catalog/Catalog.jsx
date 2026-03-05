@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import styles from "./Catalog.module.scss";
+import { IoChevronBackCircleSharp } from "react-icons/io5";
 
 import Section from "../../build/components/common/Section";
 import WeaponTypeComparisonSection from "./components/WeaponTypeComparisonSection";
@@ -19,7 +20,10 @@ import CatalogDetails from "./components/CatalogDetails";
 export default function Catalog() {
   // const { key } = useParams();
   const { key, slot, weaponType } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const fromCompare = location.state?.fromCompare;
 
   const [query, setQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
@@ -102,6 +106,19 @@ export default function Catalog() {
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
+
+        {fromCompare && (
+            <Section >
+              <div className={styles.backToComparisonWrapper}>
+                <button onClick={() => navigate(-1)} className={styles.backBtn}>
+                  <IoChevronBackCircleSharp />
+                </button>
+                <span>BACK TO COMPARISON</span>
+              </div>
+          </Section>
+        )}
+
+        {!fromCompare &&
         <Section title="//Catalog_search">
           <input
             className={styles.input}
@@ -153,6 +170,7 @@ export default function Catalog() {
             </div>
           )}
         </Section>
+        }
 
         {selectedItem && (
           <CatalogDetails item={selectedItem} />

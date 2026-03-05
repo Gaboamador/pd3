@@ -84,3 +84,17 @@
   accent-color: $pd3-lightgreen;
   cursor: pointer;
 }
+
+.backToComparisonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+}

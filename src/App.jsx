@@ -11,6 +11,7 @@ import MigrationPrompt from "./components/MigrationPrompt.jsx";
 import { ToastProvider } from "./context/ToastContext.jsx";
 import LibraryRoulette from "./library/pages/LibraryRoulette.jsx";
 import Catalog from "./features/catalog/Catalog.jsx";
+import CompareBuilds from "./features/compareBuilds/CompareBuilds.jsx";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:key" element={<Catalog />} />
         <Route path="/catalog/type/:slot/:weaponType" element={<Catalog />} />
+        <Route path="/compare-builds" element={<CompareBuilds />} />
         <Route path="/auth" element={<AuthScreen/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

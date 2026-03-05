@@ -1,0 +1,136 @@
+@use "../../../styles/variables" as *;
+
+.meta {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+.tableWrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+//   border: 1px solid rgba(255,255,255,0.12);
+//   border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  min-width: 0;
+}
+
+th {
+  position: sticky;
+  top: 0;
+//   background: rgba(0,0,0,0.25);
+background-color: rgba($pd3-main, 0.15);
+//   backdrop-filter: blur(6px);
+//   z-index: 1;
+//   text-align: left;
+//   font-size: 0.85rem;
+//   letter-spacing: 0.02em;
+}
+
+.colFeature {
+  width: clamp(220px, 38%, 420px);
+}
+
+.colBuild {
+  width: auto;
+}
+
+.featureCol {
+//   width: 320px;
+width: auto;
+}
+
+.buildCol {
+//   width: 170px;
+// white-space: nowrap;
+white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.buildCol,
+.buildCol * {
+  min-width: 0;
+}
+
+.buildCol {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.featureCell {
+  font-size: 0.95rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.featureLabel {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.skillLink {
+    font-family: 'DIN2014';
+  color: inherit;
+//   text-decoration: underline;
+text-decoration: none;
+  cursor: pointer;
+
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.subLabel {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.cell {
+  text-align: center;
+}
+
+.badgeRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+//   white-space: nowrap;
+flex-wrap: wrap;
+min-width: 0;
+}
+
+.badge {
+  font-weight: 800;
+}
+
+.detail {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.detail.aced {
+color: $pd3-lightgreen;
+}
+
+.present {
+  background: rgba(79, 138, 114, 0.12); // your $color-build vibe
+}
+
+.absent {
+  opacity: 0.65;
+}

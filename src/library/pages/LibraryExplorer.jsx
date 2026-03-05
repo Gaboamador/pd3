@@ -16,6 +16,7 @@ import { buildWeaponTypeIndex } from "../utils/buildWeaponTypeIndex";
 import { normalize } from "../utils/normalize";
 import { encodeFilters, decodeFilters } from "../utils/filterSerialization";
 import { formatWeaponTypeWithSlot, getChipLabel, getChipKindLabel, getChipKindColor, formatKindLabel, buildSuggestionsWithDividers } from "../../utils/searchPresentation.utils";
+import { saveCompareBuilds } from "../../features/compareBuilds/utils/compareBuildsSession";
 
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
@@ -53,6 +54,35 @@ export default function LibraryExplorer() {
 
   const [query, setQuery] = useState("");
   const [activeChips, setActiveChips] = useState([]);
+
+  const [comparisonEnabled, setComparisonEnabled] = useState(false);
+    const [selectedIds, setSelectedIds] = useState([]);
+
+    const selectedBuilds = useMemo(() => {
+      if (!selectedIds.length) return [];
+      const byId = new Map((library ?? []).map(b => [b.id, b]));
+      return selectedIds.map(id => byId.get(id)).filter(Boolean);
+    }, [selectedIds, library]);
+
+
+    function toggleSelected(id) {
+      setSelectedIds(prev => {
+          if (prev.includes(id)) {
+            return prev.filter(x => x !== id);
+          }
+
+          if (prev.length >= 3) {
+            return prev; // no agregar más
+          }
+
+          return [...prev, id];
+        });
+    }
+
+    function clearSelected() {
+      setSelectedIds([]);
+      setComparisonEnabled(false);
+    }
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -208,9 +238,21 @@ export default function LibraryExplorer() {
     );
   }, [activeChips]);
 
-const suggestionsWithDividers = useMemo(() => {
-  return buildSuggestionsWithDividers(suggestions);
-}, [suggestions]);
+    useEffect(() => {
+      const allowed = new Set((filteredBuilds ?? []).map(b => b.id));
+      setSelectedIds(prev => prev.filter(id => allowed.has(id)));
+    }, [filteredBuilds]);
+
+    const suggestionsWithDividers = useMemo(() => {
+      return buildSuggestionsWithDividers(suggestions);
+    }, [suggestions]);
+
+  function goCompare(selectedBuilds) {
+    // selectedBuilds: array de builds JSON completos (como el ejemplo que pegaste)
+    saveCompareBuilds(selectedBuilds);
+    navigate("/compare-builds", { state: { builds: selectedBuilds } });
+  }
+
 
   if (loading) return <Spinner label="Loading builds…" />;
 
@@ -342,14 +384,65 @@ const suggestionsWithDividers = useMemo(() => {
         }
         <Section title="//Results">
           <div className={styles.resultsWrapper}>
-            <div className={styles.resultsLength}>{filteredBuilds.length} results</div>
+
+            <div className={styles.resultsLengthAndButtonCompare}>
+              
+              {/* BOTÓN COMPARE */}
+              <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 12 }}>
+                <button
+                  onClick={() => {
+                    if (!comparisonEnabled) {
+                      setComparisonEnabled(true);
+                      return;
+                    }
+
+                    if (selectedBuilds.length >= 2 && selectedBuilds.length <= 4) {
+                      goCompare(selectedBuilds);
+                    }
+                  }}
+                  disabled={comparisonEnabled && (selectedBuilds.length < 2 || selectedBuilds.length > 4)}
+                >
+                  {comparisonEnabled
+                    ? `COMPARE (${selectedBuilds.length})`
+                    : "COMPARE"}
+                </button>
+
+                {comparisonEnabled && (
+                  <button
+                    className="secondary"
+                    // disabled={selectedBuilds.length === 0}
+                    onClick={clearSelected}
+                  >
+                    CLEAR
+                  </button>
+                )}
+              </div>
+
+              {/* RESULTS LENGTH LINE */}
+              <div className={styles.resultsLength}>{filteredBuilds.length} results</div>
+
+            </div>
 
             <div className={styles.results}>
-              {filteredBuilds.map((build) => (
+              {filteredBuilds.map((build) => {
+                const checked = selectedIds.includes(build.id);
+                
+                return (
                 <div key={build.id} className={styles.card}>
                   <div className={styles.buildNameWrapper}>
+                  
+                    {comparisonEnabled && (
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleSelected(build.id)}
+                        className={styles.compareCheckbox}
+                      />
+                    )}
+
                     <span className={styles.slotNumber}>{build.slot ?? "—"}</span>
                     <span className={styles.buildName}>{build.name || "(Unnamed Build)"}</span>
+                  
                   </div>
 
                   <div className={styles.btnWrapper}>
@@ -366,7 +459,9 @@ const suggestionsWithDividers = useMemo(() => {
                     <div>OPEN</div>
                   </div>
                 </div>
-              ))}
+                )
+
+              })}
             </div>
           </div>
         </Section>
