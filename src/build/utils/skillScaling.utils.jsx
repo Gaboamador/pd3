@@ -182,21 +182,14 @@ const totals = scalingEntries
 
     if (extraRaw == null || Number.isNaN(extraRaw)) return null;
 
-    // ============================
-    // Caso especial: "for every two skills ... beyond the first"
-    // Total = BaseToken + Extra (y el max aplica al TOTAL)
-    // ============================
-    const lower = (description || "").toLowerCase();
-    const isEveryTwoBeyondFirst =
-      entry.compute === 2 &&
-      Number(entry.skip_first || 0) === 1 &&
-      lower.includes("for every two skills") &&
-      lower.includes("beyond the first");
-
     let finalRaw = extraRaw;
 
-    if (isEveryTwoBeyondFirst) {
-      // Tomamos el token inmediatamente anterior en el template (BonusRuntime / GainHostageCount)
+    // ============================
+    // Data-driven: include_base
+    // Si include_base=true, sumamos el token anterior del template
+    // y aplicamos max al TOTAL final.
+    // ============================
+    if (entry.include_base) {
       const orderedKeys = getTemplateTokenKeys(description).filter(
         k => !k.startsWith("Computed")
       );
@@ -209,7 +202,7 @@ const totals = scalingEntries
       if (Number.isFinite(baseVal)) {
         finalRaw = baseVal + extraRaw;
 
-        // Si hay max, en estas skills el max es cap del TOTAL (Security Expert)
+        // max cap sobre el TOTAL (caso Security Expert)
         if (entry.max && safeValues?.[entry.max]) {
           const maxVal = Number(safeValues[entry.max].value);
           if (Number.isFinite(maxVal)) {
@@ -223,24 +216,57 @@ const totals = scalingEntries
       key: entry.key,
       raw: finalRaw,
       text: formatTotal(finalRaw, entry.type),
-      unit: entry.unit || null
+      unit: entry.unit || null,
+      totalLabel: entry.total_label || null
     };
   })
   .filter(v => v !== null && v !== undefined);
 
+  // const computedMatch = description?.match(/\{(Computed[A-Za-z0-9_]+)\}/);
+  // const hasComputedMarker = Boolean(computedMatch);
+  // let beforeComputed = baseText;
+  // let afterComputed = "";
+
+  // if (hasComputedMarker) {
+  //   const parts = baseText.split("\n");
+
+  //   const idx = parts.findIndex(line => line.trim() === "");
+
+  //   if (idx !== -1) {
+  //     beforeComputed = parts.slice(0, idx).join("\n");
+  //     afterComputed = parts.slice(idx).join("\n");
+  //   }
+  // }
   const computedMatch = description?.match(/\{(Computed[A-Za-z0-9_]+)\}/);
-  const hasComputedMarker = Boolean(computedMatch);
+  const computedToken = computedMatch?.[1] || null;
+
   let beforeComputed = baseText;
   let afterComputed = "";
 
-  if (hasComputedMarker) {
-    const parts = baseText.split("\n");
+  if (computedToken) {
+    const marker = `{${computedToken}}`;
+    const markerIdx = description.indexOf(marker);
 
-    const idx = parts.findIndex(line => line.trim() === "");
+    if (markerIdx !== -1) {
+      const beforeTpl = description.slice(0, markerIdx);
+      const afterTpl = description.slice(markerIdx + marker.length);
 
-    if (idx !== -1) {
-      beforeComputed = parts.slice(0, idx).join("\n");
-      afterComputed = parts.slice(idx).join("\n");
+      // renderizamos ambos lados con la misma función que ya hace:
+      // - stripSkillTags
+      // - reemplazo tokens
+      // - eliminación de Computed*
+      // - normalización de \n
+      beforeComputed = renderSkillText(beforeTpl, safeValues);
+      afterComputed = renderSkillText(afterTpl, safeValues);
+
+      // evita que el Total quede en la línea siguiente
+      beforeComputed = beforeComputed.replace(/\n+$/, "");
+
+      // evita doble espacio entre párrafos
+      afterComputed = afterComputed.replace(/^\n*/, "\n");
+
+      // si after queda empezando con \n, perfecto: mantiene el salto de línea del template
+      // si querés evitar triples \n por tokens, lo ideal es que tu renderSkillText ya los normalice.
     }
   }
 
@@ -249,7 +275,10 @@ const totals = scalingEntries
     return renderStyledNumbers(baseText);
   }
 
-  const label = totals.length > 1 ? "Totals" : "Total";
+  const label =
+    totals.length > 1
+      ? "Totals"
+      : (totals[0]?.totalLabel || "Total");
 
   const isBullseye =
     totals.length === 2 &&

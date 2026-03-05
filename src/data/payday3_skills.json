@@ -402,7 +402,7 @@
         "id": 55,
         "key": "HackingExpert",
         "name": "Security Expert",
-        "base_description": "Hack cameras to view their CCTV network. Gain {BonusRuntime} Runtime to spend on Black Hat operations.\n\nFor every two skills equipped in the Black Hat branch beyond the first, receive {AdditionalRuntime} additional Runtime. You can obtain a maximum of {MaxRuntimeCount} Runtimes.\n{ComputedAdditionalRuntime}",
+        "base_description": "Hack cameras to view their CCTV network. Gain {BonusRuntime} Runtime to spend on Black Hat operations.\n\nFor every two skills equipped in the Black Hat branch beyond the first, receive {AdditionalRuntime} additional Runtime.\n{ComputedAdditionalRuntime}\n\nYou can obtain a maximum of {MaxRuntimeCount} Runtimes.",
         "aced_description": "Hack drones for <Skill>1</> Runtime. Once a hack wears off, the Runtime you spent will be refunded.\n\nStealth drones stop moving and go blind for {AcedDroneHackDuration} seconds. Combat drones fight on your side for {AcedDroneHackDuration} seconds, then self-destruct.",
         "values": {
             "BonusRuntime": {
@@ -414,7 +414,9 @@
                 "type": "flat",
                 "compute": 2,
                 "skip_first": 1,
-                "max": "MaxRuntimeCount"
+                "max": "MaxRuntimeCount",
+                "include_base": true,
+                "total_label": "Total Runtimes"
             },
             "ComputedAdditionalRuntime": {
                 "value": 0,
@@ -598,7 +600,8 @@
             "AcedImmuneDuration": {
                 "value": 0.5,
                 "type": "flat",
-                "compute": 1
+                "compute": 1,
+                "unit": "seconds"
             },
             "ComputedAcedImmuneDuration": {
                 "value": 0,
@@ -677,7 +680,7 @@
                 "value": 1,
                 "type": "flat",
                 "compute": 2,
-                "skip_first": 1
+                "skip_first": 0
             },
             "ComputedAdditionalHostageCount": {
                 "value": 0,
@@ -3249,7 +3252,7 @@
         "id": 66,
         "key": "BountyHunter",
         "name": "Bounty Hunter",
-        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\n\n<Enemy>Zappers</> restore <Skill>1</> tool. <Enemy>Naders</> restore <Skill>1</> throwable. <Enemy>Techies</> restore <Skill>1</> broken armor layer.",
+        "base_description": "Whenever you kill these marked special enemies with a Handgun, receive a bounty.\n\n<Enemy>Zappers</> restore <Skill>1</> tool. <Enemy>Naders</> restore <Skill>1</> throwable. <Enemy>Techies</> restore <Skill>1</> broken armor plate.",
         "aced_description": "Add these marked special enemies to your bounty list.\n\n<Enemy>Cloakers</> restore {AcedAddedHealth} of your maximum health.\n<Enemy>Dozers</> restore <Skill>1</> down.",
         "values": {
             "AcedAddedHealth": {
