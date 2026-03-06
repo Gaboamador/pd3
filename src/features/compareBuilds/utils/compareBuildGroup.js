@@ -23,7 +23,7 @@ import { analyzeBuildArchetype } from "./semantic/analyzeBuildArchetype";
  * }
  */
 
-const MAX_BUILDS = 4;
+const MAX_BUILDS = 3;
 
 const LOADOUT_SIMPLE_SLOTS = ["tool", "deployable", "throwable", "overkill"];
 const WEAPON_SLOTS = ["primary", "secondary"]; // you can add "overkill" if it ever becomes weapon-like

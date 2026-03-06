@@ -1,11 +1,5 @@
 @use "../../styles/variables" as *;
 
-// .page {
-//   padding: 18px 18px 28px;
-//   max-width: 1200px;
-//   margin: 0 auto;
-//   font-family: 'DIN2014';
-// }
 .page {
   justify-content: center;
   padding: 1rem;
@@ -49,9 +43,11 @@
 }
 
 .buildChipTitle {
-font-size: 1.1rem;
+// font-size: 1.1rem;
 font-weight: 600;
+border-bottom: 2px solid rgba($pd3-lightgreen, 0.5);
 }
+
 
 .archetypes {
 
@@ -79,14 +75,53 @@ gap: 5px;
   letter-spacing: 0.02em;
 }
 
-.highlights {
-  margin: 16px 0 18px;
+.buildChipsWrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 8px 20px;
+  font-family: 'DIN2014';
+}
+
+.buildChipTitle {
+  font-weight: 700;
+  border-bottom: 2px solid rgba($pd3-lightgreen, 0.5);
+}
+
+.strengthCell {
+  font-family: 'DIN2014';
+  padding-bottom: 5px;
+}
+
+.strengthCell:not(:empty) {
+  border-bottom: 1px solid $pd3-main;
 }
 
 .highlightGrid {
-//   display: grid;
-//   grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) );
-//   gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 12px 16px;
+  font-family: 'DIN2014';
+}
+
+.header {
+  font-weight: 700;
+  border-bottom: 2px solid rgba($pd3-lightgreen, 0.5);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+
+.cell:not(:empty) {
+  border-bottom: 1px solid $pd3-main;
+}
+
+
+.highlights {
+  margin: 16px 0 18px;
 }
 
 .highlightWrapper {
@@ -111,12 +146,17 @@ display: flex;
 //   margin-bottom: 12px;
 }
 
-.blockTitle {
-//   font-size: 0.85rem;
+.subHeader {
   opacity: 0.8;
-  margin-bottom: 6px;
+  // margin-bottom: 6px;
   color: $pd3-main;
   font-weight: 700;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.subHeader.hasSkills {
+  border: 1px solid $pd3-main;
 }
 
 .list {
@@ -127,12 +167,13 @@ display: flex;
 
 .pill {
   display: inline-block;
-  margin-left: 8px;
+  // margin-left: 8px;
   padding: 1px 8px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.18);
   font-size: 0.75rem;
   opacity: 0.85;
+  width: fit-content;
 }
 
 .pill.aced {
@@ -180,10 +221,20 @@ display: flex;
 .insightText {
   opacity: 0.9;
   font-family: 'DIN2014';
-  display: flex;
   text-align: justify;
+  white-space: normal;
 }
 
 .muted {
   opacity: 0.7;
+}
+
+.semanticHighlight {
+  color: $pd3-lightgreen;
+  font-weight: 600;
+}
+
+.buildHighlight {
+  color: $pd3-main;
+  font-weight: 700;
 }

@@ -39,6 +39,7 @@ export default function BuildEditor({mode}) {
   const userHasEditedRef = useRef(false);
   const location = useLocation();
   const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
+  const [fromComparison] = useState(() => location.state?.fromComparison ?? false);
   const [shareUrl, setShareUrl] = useState(null);
 
   const [library, setLibrary] = useState([]);
@@ -368,15 +369,27 @@ return (
       />
     )}
 
-    {fromExplorerSearch && (
-        <Section >
-          <div className={styles.backToExplorerWrapper}>
-            <button onClick={() => navigate(`/library-explorer${fromExplorerSearch}`)} className={styles.backBtn}>
-              <IoChevronBackCircleSharp />
-            </button>
-            <span>BACK TO EXPLORER</span>
-          </div>
-        </Section>
+    {(fromExplorerSearch !== null || fromComparison) && (
+      <Section>
+        <div className={styles.backToExplorerWrapper}>
+          <button
+            onClick={() => {
+              if (fromComparison) {
+                navigate(-1);
+              } else {
+                navigate(`/library-explorer${fromExplorerSearch}`);
+              }
+            }}
+            className={styles.backBtn}
+          >
+            <IoChevronBackCircleSharp />
+          </button>
+
+          <span>
+            {fromComparison ? "BACK TO COMPARISON" : "BACK TO EXPLORER"}
+          </span>
+        </div>
+      </Section>
     )}
 
     <Section title="//Manage_builds">

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./ComparisonGrid.module.scss";
+import { useLoadBuild } from "../../../hooks/useLoadBuild";
 
-export default function ComparisonGrid({ title, buildIds, buildLabels, rows, showLevel = true }) {
+export default function ComparisonGrid({ title, buildIds, builds, buildLabels, rows, showLevel = true }) {
+  
+  const {loadBuild} = useLoadBuild();
+  
   if (!rows || rows.length === 0) return null;
 
   return (
@@ -17,11 +21,27 @@ export default function ComparisonGrid({ title, buildIds, buildLabels, rows, sho
           <thead>
             <tr>
               <th className={styles.featureCol}>SKILL</th>
-              {buildIds.map((id) => (
-                <th key={id} className={styles.buildCol}>
-                  {buildLabels?.[id] || `Build ${id}`}
-                </th>
-              ))}
+              {buildIds.map((id) => {
+                const build = builds?.find(b => b.id === id);
+                return (
+                  <th
+                    key={id}
+                    className={styles.buildCol}
+                    onClick={() => {
+                      sessionStorage.setItem(
+                        "pd3_compare_scroll",
+                        String(window.scrollY)
+                      );
+                      loadBuild(build, {
+                        fromComparison: true
+                      });
+                    }}
+                    style={{ cursor: build ? "pointer" : "default" }}
+                  >
+                    {buildLabels?.[id] || `Build ${id}`}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
 
@@ -36,6 +56,12 @@ export default function ComparisonGrid({ title, buildIds, buildLabels, rows, sho
                             to={`/catalog/${r.key}`}
                             state={{ fromCompare: true }}
                             className={styles.skillLink}
+                            onClick={() => {
+                              sessionStorage.setItem(
+                                "pd3_compare_scroll",
+                                String(window.scrollY)
+                              );
+                            }}
                             >
                             {r.label}
                             </Link>

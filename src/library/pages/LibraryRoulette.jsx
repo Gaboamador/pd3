@@ -324,7 +324,7 @@ export default function LibraryRoulette() {
           </AnimatePresence>
         </Section>
 
-        <Section title="//Library Roulette">
+        <Section title="//Library_Roulette">
         <div className={styles.rouletteSection}>
           <div className={styles.controlAndResult}>
               <div>

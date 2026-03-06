@@ -7,6 +7,11 @@ export const TAGS = {
   AR_STABILITY: "AR_STABILITY",
   AR_AMMO: "AR_AMMO",
 
+  SMG_DAMAGE: "SMG_DAMAGE",
+  SMG_ACCURACY: "SMG_ACCURACY",
+  SMG_STABILITY: "SMG_STABILITY",
+  SMG_AMMO: "SMG_AMMO",
+
   SHOTGUN_DAMAGE: "SHOTGUN_DAMAGE",
   SHOTGUN_RELOAD: "SHOTGUN_RELOAD",
   SHOTGUN_SURVIVABILITY: "SHOTGUN_SURVIVABILITY",
@@ -39,6 +44,9 @@ export const TAGS = {
   FRAG_GRENADE: "FRAG_GRENADE",
   FRAG_VULN: "FRAG_VULN",
 
+  SMOKE_GRENADE: "SMOKE_GRENADE",
+  SMOKE_VULN: "SMOKE_VULN",
+
   // Stealth / hacking / marking
   MARKING: "MARKING",
   HACKING: "HACKING",
@@ -61,7 +69,25 @@ export const TAGS = {
   // “Resource economy”
   TOOL_RESTORE: "TOOL_RESTORE",
   THROWABLE_RESTORE: "THROWABLE_RESTORE",
-  AMMO_ECON: "AMMO_ECON"
+  AMMO_ECON: "AMMO_ECON",
+
+  // Nuevos
+  ADRENALINE: "ADRENALINE",
+
+  THROWING_KNIFE: "THROWING_KNIFE",
+  THROWING_KNIFE_DAMAGE: "THROWING_KNIFE_DAMAGE",
+
+  MARKSMAN_DAMAGE: "MARKSMAN_DAMAGE",
+  MARKSMAN_UTILITY: "MARKSMAN_UTILITY",
+
+  ARMOR_PENETRATION: "ARMOR_PENETRATION",
+
+  BLEED: "BLEED",
+  GAS_DAMAGE: "GAS_DAMAGE",
+
+  SURVIVABILITY: "SURVIVABILITY",
+  MOBILITY: "MOBILITY",
+  OBJECTIVE_INTERACTION: "OBJECTIVE_INTERACTION"
 };
 
 export const TAG_META = {
@@ -69,6 +95,11 @@ export const TAG_META = {
   [TAGS.AR_ACCURACY]: { label: "Assault Rifle accuracy" },
   [TAGS.AR_STABILITY]: { label: "Assault Rifle stability" },
   [TAGS.AR_AMMO]: { label: "Assault Rifle ammo reserve" },
+
+  [TAGS.SMG_DAMAGE]: { label: "SMG damage" },
+  [TAGS.SMG_ACCURACY]: { label: "SMG accuracy" },
+  [TAGS.SMG_STABILITY]: { label: "SMG stability" },
+  [TAGS.SMG_AMMO]: { label: "SMG ammo reserve" },
 
   [TAGS.SHOTGUN_DAMAGE]: { label: "Shotgun damage" },
   [TAGS.SHOTGUN_RELOAD]: { label: "Shotgun reload" },
@@ -86,7 +117,7 @@ export const TAG_META = {
   [TAGS.HEALTH_MAX]: { label: "Max health" },
   [TAGS.HEALING]: { label: "Healing" },
   [TAGS.DODGE]: { label: "Dodge" },
-  [TAGS.DOWNS]: { label: "Downs" },
+  // [TAGS.DOWNS]: { label: "Downs" },
   [TAGS.ARMOR_REPAIR]: { label: "Armor repair" },
 
   [TAGS.FLASHBANG]: { label: "Flashbang mechanics" },
@@ -99,6 +130,9 @@ export const TAG_META = {
 
   [TAGS.FRAG_GRENADE]: { label: "Frag Grenade mechanics" },
   [TAGS.FRAG_VULN]: { label: "Frag damage vulnerability" },
+
+  [TAGS.SMOKE_GRENADE]: { label: "Smoke Grenade mechanics" },
+  [TAGS.SMOKE_VULN]: { label: "Smoke damage vulnerability" },
 
   [TAGS.MARKING]: { label: "Marking" },
   [TAGS.HACKING]: { label: "Hacking / Runtime" },
@@ -118,5 +152,23 @@ export const TAG_META = {
 
   [TAGS.TOOL_RESTORE]: { label: "Tool restore" },
   [TAGS.THROWABLE_RESTORE]: { label: "Throwable restore" },
-  [TAGS.AMMO_ECON]: { label: "Ammo economy" }
+  [TAGS.AMMO_ECON]: { label: "Ammo economy" },
+
+
+  [TAGS.ADRENALINE]: { label: "Adrenaline" },
+
+  [TAGS.THROWING_KNIFE]: { label: "Throwing knives" },
+  [TAGS.THROWING_KNIFE_DAMAGE]: { label: "Throwing knife damage" },
+
+  [TAGS.MARKSMAN_DAMAGE]: { label: "Marksman rifle damage" },
+  [TAGS.MARKSMAN_UTILITY]: { label: "Marksman rifle utility" },
+
+  [TAGS.ARMOR_PENETRATION]: { label: "Armor penetration" },
+
+  [TAGS.BLEED]: { label: "Bleeding" },
+  [TAGS.GAS_DAMAGE]: { label: "Gas damage" },
+
+  [TAGS.SURVIVABILITY]: { label: "Survivability" },
+  [TAGS.MOBILITY]: { label: "Mobility" },
+  [TAGS.OBJECTIVE_INTERACTION]: { label: "Objective interaction speed" }
 };

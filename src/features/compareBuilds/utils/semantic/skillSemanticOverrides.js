@@ -1,10 +1,70 @@
-// src/features/compareBuilds/utils/semantic/skillSemanticOverrides.js
 import { TAGS } from "./semanticTags";
 
-// Only add what you need. Generator fills the rest.
 export const skillSemanticOverrides = {
-  // Examples (you can expand):
-  // FocusFire: [TAGS.AR_ACCURACY, TAGS.AR_STABILITY],
-  // ARPockets: [TAGS.AR_AMMO, TAGS.AMMO_ECON],
-  // HackLooper: [TAGS.HACKING, TAGS.CAMERA_LOOP, TAGS.MARKING],
+
+  SmokeMaster: [
+    TAGS.SURVIVABILITY
+  ],
+
+  Bastion: [
+    TAGS.SURVIVABILITY
+  ],
+
+  BeastOfBurdon: [
+    TAGS.MOBILITY,
+    TAGS.CARRY
+  ],
+
+  Clipboard: [
+    TAGS.STEALTH_UNMASKED,
+    TAGS.HACKING
+  ],
+
+  WalkingTall: [
+    TAGS.STEALTH_UNMASKED
+  ],
+
+  Intimidator: [
+    TAGS.HOSTAGES,
+    TAGS.SURVIVABILITY
+  ],
+
+  GroupieMagnet: [
+    TAGS.HOSTAGES
+  ],
+
+  TradingExpert: [
+    TAGS.HOSTAGES
+  ],
+
+  LockMaster: [
+    TAGS.STEALTH_UNMASKED,
+    TAGS.OBJECTIVE_INTERACTION
+  ],
+
+  FanThrow: [
+    TAGS.THROWING_KNIFE,
+    TAGS.THROWING_KNIFE_DAMAGE
+  ],
+
+  PunchingKnife: [
+    TAGS.THROWING_KNIFE,
+    TAGS.SURVIVABILITY
+  ],
+
+  StrongArm: [
+    TAGS.STEALTH_UNMASKED
+  ],
+
+  ECMExpert: [
+    TAGS.HACKING,
+    TAGS.MARKING
+  ],
+
+  HackLooper: [
+    TAGS.HACKING,
+    TAGS.CAMERA_LOOP,
+    TAGS.MARKING
+  ]
+
 };

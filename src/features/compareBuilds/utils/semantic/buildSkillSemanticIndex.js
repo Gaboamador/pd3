@@ -37,14 +37,41 @@ function addTag(outTags, outWeights, tag, amount) {
   outWeights[tag] = (outWeights[tag] || 0) + (amount || 1);
 }
 
+const normalizedOverrideIndex = new Map();
+
+function normalizeSkillRef(v) {
+  return String(v || "")
+    .toLowerCase()
+    .replace(/[_\s-]+/g, "");
+}
+
+for (const [ref, override] of Object.entries(skillSemanticOverrides)) {
+  normalizedOverrideIndex.set(normalizeSkillRef(ref), override);
+}
+// function getSkillOverride(skillKey, skill) {
+//   const byKey = normalizeSkillRef(skillKey);
+//   const byName = normalizeSkillRef(skill?.name);
+
+//   for (const [ref, override] of Object.entries(skillSemanticOverrides)) {
+//     const normalizedRef = normalizeSkillRef(ref);
+//     if (normalizedRef === byKey || normalizedRef === byName) {
+//       return override;
+//     }
+//   }
+
+//   return null;
+// }
+function getSkillOverride(skillKey, skill) {
+  const byKey = normalizedOverrideIndex.get(normalizeSkillRef(skillKey));
+  if (byKey) return byKey;
+
+  const byName = normalizedOverrideIndex.get(normalizeSkillRef(skill?.name));
+  if (byName) return byName;
+
+  return null;
+}
+
 function inferTagsForSkill(skillKey, skill) {
-  // overrides first
-  if (skillSemanticOverrides[skillKey]) {
-    const tags = new Set(skillSemanticOverrides[skillKey]);
-    const weights = {};
-    for (const t of tags) weights[t] = 1;
-    return { tags, weights, source: "override" };
-  }
 
   const t = textOfSkill(skill);
   const vals = extractValues(skill);
@@ -52,8 +79,15 @@ function inferTagsForSkill(skillKey, skill) {
   const tags = new Set();
   const weights = {};
 
+  const override = getSkillOverride(skillKey, skill);
+
+  if (Array.isArray(override)) {
+    override.forEach(tag => addTag(tags, weights, tag, 8));
+  }
+
   // -------- Weapons by mention
-  const mentionsAR = t.includes("assault rifle") || t.includes(" lmg");
+  const mentionsAR = /(assault rifle|lmg)/.test(t);
+  const mentionsSMG = t.includes("smg");
   const mentionsShotgun = t.includes("shotgun");
   const mentionsHandgun = t.includes("handgun");
   const mentionsMarksman = t.includes("marksman");
@@ -62,25 +96,34 @@ function inferTagsForSkill(skillKey, skill) {
   const mentionsAccuracy = t.includes("accuracy");
   const mentionsStability = t.includes("stability");
   const mentionsReload = t.includes("reload");
-  const mentionsDamage = t.includes("damage");
+  // const mentionsDamage = t.includes("damage");
+  const mentionsDamageBuff = /(deal|gain|increase|bonus).*damage|damage bonus|damage increases/.test(t);
+  const mentionsDamageTaken = /(take|takes|taking).*more damage|increased incoming damage|suffer.*more damage/.test(t);
   const mentionsArmorRegen = t.includes("armor regeneration");
   const mentionsDamageReduction = t.includes("take") && t.includes("less damage");
   const mentionsMarked = t.includes("marked");
-  const mentionsFlashbang = t.includes("flashbang");
+  const mentionsFlashbang = t.includes("flashbang grenade");
   const mentionsShock = t.includes("shock grenade");
   const mentionsFrag = t.includes("frag grenade");
+  const mentionsSmoke = t.includes("smoke grenade");
   const mentionsRuntime = t.includes("runtime");
   const mentionsCamera = t.includes("camera");
   const mentionsLoop = t.includes("loop");
   const mentionsTurret = t.includes("sentry turret");
   const mentionsHeat = t.includes("heat buildup") || t.includes("overheat");
   const mentionsHostage = t.includes("hostage") || t.includes("trade");
-  const mentionsCarry = t.includes("carry") || t.includes("bags");
+  const mentionsCarry = t.includes("carry 2 bags") || t.includes("carrying") || t.includes("carry two bags");
   const mentionsUnmasked = t.includes("unmasked");
   const mentionsRestoreTool = t.includes("restore") && t.includes("tool");
   const mentionsRestoreThrowable = t.includes("restore") && t.includes("throwable");
-  const mentionsArmorLayer = t.includes("armor layer");
+  // const mentionsArmorLayer = t.includes("armor layer");
+  const mentionsArmorRepair = t.includes("repair armor") || t.includes("restore armor") || t.includes("armor bag");
 //   const mentionsDown = t.includes("down");
+  const mentionsAdrenaline = t.includes("adrenaline");
+  const mentionsKnife = t.includes("throwing knife");
+  const mentionsBleed = t.includes("bleed");
+  const mentionsGas = t.includes("gas") || t.includes("poison");
+  const mentionsPenetration = t.includes("armor penetration") || t.includes("penetrate");
 
   // -------- Value signals (stronger than plain text)
   const hasAddedCharges = vals.some(v => v.key.toLowerCase().includes("additionalcharges"));
@@ -95,22 +138,29 @@ function inferTagsForSkill(skillKey, skill) {
   // -------- Assign tags + weights
   // AR
   if (mentionsAR) {
-    if (mentionsDamage) addTag(tags, weights, TAGS.AR_DAMAGE, 1);
+    if (mentionsDamageBuff) addTag(tags, weights, TAGS.AR_DAMAGE, 1);
     if (mentionsAccuracy) addTag(tags, weights, TAGS.AR_ACCURACY, 1);
     if (mentionsStability) addTag(tags, weights, TAGS.AR_STABILITY, 1);
     if (hasInventoryAmmo || t.includes("reserve ammo")) addTag(tags, weights, TAGS.AR_AMMO, 1);
   }
 
+  if (mentionsSMG) {
+    if (mentionsDamageBuff) addTag(tags, weights, TAGS.SMG_DAMAGE, 1);
+    if (mentionsAccuracy) addTag(tags, weights, TAGS.SMG_ACCURACY, 1);
+    if (mentionsStability) addTag(tags, weights, TAGS.SMG_STABILITY, 1);
+    if (hasInventoryAmmo || t.includes("reserve ammo")) addTag(tags, weights, TAGS.SMG_AMMO, 1);
+  }
+
   // Shotgun
   if (mentionsShotgun) {
-    if (mentionsDamage) addTag(tags, weights, TAGS.SHOTGUN_DAMAGE, 1);
+    if (mentionsDamageBuff) addTag(tags, weights, TAGS.SHOTGUN_DAMAGE, 1);
     if (mentionsReload) addTag(tags, weights, TAGS.SHOTGUN_RELOAD, 1);
     if (mentionsDamageReduction) addTag(tags, weights, TAGS.SHOTGUN_SURVIVABILITY, 1);
   }
 
   // Pistol
   if (mentionsHandgun) {
-    if (mentionsDamage) addTag(tags, weights, TAGS.PISTOL_DAMAGE, 1);
+    if (mentionsDamageBuff) addTag(tags, weights, TAGS.PISTOL_DAMAGE, 1);
     if (mentionsAccuracy) addTag(tags, weights, TAGS.PISTOL_ACCURACY, 1);
     if (mentionsDamageReduction) addTag(tags, weights, TAGS.PISTOL_SURVIVABILITY, 1);
     // restore/utility patterns in handgun skills often exist
@@ -118,38 +168,74 @@ function inferTagsForSkill(skillKey, skill) {
   }
 
   // Marksman
-  if (mentionsMarksman && (hasInventoryAmmo || t.includes("reserve ammo"))) {
-    addTag(tags, weights, TAGS.MARKSMAN_AMMO, 1);
-  }
+  if (mentionsMarksman && (hasInventoryAmmo || t.includes("reserve ammo"))) {addTag(tags, weights, TAGS.MARKSMAN_AMMO, 1);}
+  if (mentionsMarksman && mentionsDamageBuff) {addTag(tags, weights, TAGS.MARKSMAN_DAMAGE, 1);}
+  if (mentionsMarksman && mentionsPenetration) {addTag(tags, weights, TAGS.MARKSMAN_UTILITY, 1);}
 
   // Defense / sustain
   if (mentionsArmorRegen || hasRegenReductionTime) addTag(tags, weights, TAGS.ARMOR_REGEN, 1);
   if (mentionsDamageReduction || hasDamageReduction) addTag(tags, weights, TAGS.DAMAGE_REDUCTION, 1);
   if (t.includes("dodge")) addTag(tags, weights, TAGS.DODGE, 1);
   if (t.includes("maximum health")) addTag(tags, weights, TAGS.HEALTH_MAX, 1);
-  if (t.includes("heal")) addTag(tags, weights, TAGS.HEALING, 1);
-  if (mentionsArmorLayer) addTag(tags, weights, TAGS.ARMOR_REPAIR, 1);
+  // if (t.includes("heal")) addTag(tags, weights, TAGS.HEALING, 1);
+  if (/\bheal(s|ed|ing)?\b/.test(t)) addTag(tags, weights, TAGS.HEALING, 1);
+  if (mentionsArmorRepair) addTag(tags, weights, TAGS.ARMOR_REPAIR, 1);
 //   if (mentionsDown) addTag(tags, weights, TAGS.DOWNS, 1);
+
+  // Adrenaline
+  if (mentionsAdrenaline) addTag(tags, weights, TAGS.ADRENALINE, 1);
+
+  // Throwing knives
+  if (mentionsKnife) {
+    addTag(tags, weights, TAGS.THROWING_KNIFE, 1);
+    if (mentionsDamageBuff) addTag(tags, weights, TAGS.THROWING_KNIFE_DAMAGE, 1);
+  }
+
+  // Bleed
+  if (mentionsBleed) addTag(tags, weights, TAGS.BLEED, 1);
+
+  // Gas damage (smoke DOT)
+  if (mentionsGas && mentionsSmoke) addTag(tags, weights, TAGS.GAS_DAMAGE, 1);
+
+  // Armor penetration
+  if (mentionsPenetration) addTag(tags, weights, TAGS.ARMOR_PENETRATION, 1);
 
   // Marking
   if (mentionsMarked) addTag(tags, weights, TAGS.MARKING, 1);
 
-  // Flashbang / Shock / Frag
+  // Flashbang / Shock / Frag / Smoke
   if (mentionsFlashbang) {
     addTag(tags, weights, TAGS.FLASHBANG, 1);
-    if (hasDuration || t.includes("stun duration")) addTag(tags, weights, TAGS.FLASHBANG_STUN, 1);
-    if (hasIncomingDamage || t.includes("take") && t.includes("more damage")) addTag(tags, weights, TAGS.FLASHBANG_VULN, 1);
+
+    if (hasDuration || t.includes("stun duration"))
+      addTag(tags, weights, TAGS.FLASHBANG_STUN, 1);
+
+    if (hasIncomingDamage || mentionsDamageTaken)
+      addTag(tags, weights, TAGS.FLASHBANG_VULN, 1);
   }
 
   if (mentionsShock) {
     addTag(tags, weights, TAGS.SHOCK_GRENADE, 1);
-    if (hasDuration || t.includes("stun duration")) addTag(tags, weights, TAGS.SHOCK_STUN, 1);
-    if (hasIncomingDamage) addTag(tags, weights, TAGS.SHOCK_VULN, 1);
+
+    if (hasDuration || t.includes("stun duration"))
+      addTag(tags, weights, TAGS.SHOCK_STUN, 1);
+
+    if (hasIncomingDamage || mentionsDamageTaken)
+      addTag(tags, weights, TAGS.SHOCK_VULN, 1);
   }
 
   if (mentionsFrag) {
     addTag(tags, weights, TAGS.FRAG_GRENADE, 1);
-    if (hasIncomingDamage) addTag(tags, weights, TAGS.FRAG_VULN, 1);
+
+    if (hasIncomingDamage || mentionsDamageTaken)
+      addTag(tags, weights, TAGS.FRAG_VULN, 1);
+  }
+
+  if (mentionsSmoke) {
+    addTag(tags, weights, TAGS.SMOKE_GRENADE, 1);
+
+    if (hasIncomingDamage || mentionsDamageTaken)
+      addTag(tags, weights, TAGS.SMOKE_VULN, 1);
   }
 
   // Hacking / camera
@@ -183,13 +269,15 @@ function inferTagsForSkill(skillKey, skill) {
   // so stronger skills contribute more to their categories.
   const totalMag = vals.reduce((acc, x) => acc + valueMagnitude(x), 0);
   if (tags.size && totalMag > 0) {
-    const boost = totalMag / 50; // dampener; tune later
+    const boost = totalMag / 50;
     for (const tag of tags) {
       weights[tag] = (weights[tag] || 1) + boost;
     }
   }
 
-  return { tags, weights, source: "auto" };
+  const hasOverride = Array.isArray(override);
+
+  return { tags, weights, source: hasOverride ? "override+auto" : "auto" };
 }
 
 export function buildSkillSemanticIndex(skillsData) {

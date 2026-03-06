@@ -11,7 +11,7 @@ export function useLoadBuild() {
   const navigate = useNavigate();
 
   function loadBuild(build, opts = {}) {
-    const { replace = false, fromExplorer = null } = opts;
+    const { replace = false, fromExplorer = null, fromComparison = false } = opts;
 
     if (!build) return;
 
@@ -21,7 +21,11 @@ export function useLoadBuild() {
 
     navigate(`/build-editor/b/${encoded}`, {
       replace,
-      state: fromExplorer ? { fromExplorer } : undefined,
+      // state: fromExplorer ? { fromExplorer } : undefined,
+      state: {
+        ...(fromExplorer !== null ? { fromExplorer } : {}),
+        ...(fromComparison ? { fromComparison } : {}),
+      },
     });
   }
 

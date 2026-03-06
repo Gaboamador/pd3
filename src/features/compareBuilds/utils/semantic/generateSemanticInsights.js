@@ -14,6 +14,10 @@ function topContributorsText(contrib, skillNameByKey, max = 2) {
     .join(", ");
 }
 
+function getShortBuildLabel(build, idx) {
+  return build?.name || `Build ${idx + 1}`;
+}
+
 export function generateSemanticInsights({ builds, buildLabels, semanticIndex, profiles, skillsData }) {
   const tagMeta = semanticIndex?.tagMeta || {};
   const skillNameByKey = (key) => skillsData?.[key]?.name || key;
@@ -51,8 +55,16 @@ export function generateSemanticInsights({ builds, buildLabels, semanticIndex, p
     const top = ranked.filter(x => x.v >= best * 0.85); // allow ties-ish
     const rest = ranked.filter(x => x.v < best * 0.85);
 
-    const topLabels = top.map(x => buildLabels[x.id] || x.id);
-    const restLabels = rest.map(x => buildLabels[x.id] || x.id);
+    // const topLabels = top.map(x => buildLabels[x.id] || x.id);
+    // const restLabels = rest.map(x => buildLabels[x.id] || x.id);
+    const buildNameById = Object.fromEntries(
+      Object.entries(buildLabels).map(([id, label]) => {
+        const short = label.replace(/^\d+\s*·\s*/, "");
+        return [id, short];
+      })
+    );
+    const topLabels = top.map(x => `[[${buildNameById[x.id]}]]`);
+    const restLabels = rest.map(x => `[[${buildNameById[x.id]}]]`);
 
     const label = tagMeta?.[tag]?.label || tag;
 
