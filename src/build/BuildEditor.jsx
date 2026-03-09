@@ -12,6 +12,7 @@ import skillGroupsData from "../data/payday3_skill_groups.json";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
 
+import { useUserLibrary } from "../library/hooks/useUserLibrary";
 import { loadBuildFromSession, saveBuildToSession, createEmptyBuild } from "./build.utils";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "./build.buildUrl.utils";
 import { selectUsedSkillPoints } from "./build.selectors";
@@ -42,8 +43,9 @@ export default function BuildEditor({mode}) {
   const [fromComparison] = useState(() => location.state?.fromComparison ?? false);
   const [shareUrl, setShareUrl] = useState(null);
 
-  const [library, setLibrary] = useState([]);
-  const [libraryLoading, setLibraryLoading] = useState(true);
+  // const [library, setLibrary] = useState([]);
+  // const [libraryLoading, setLibraryLoading] = useState(true);
+  const { library, loading, setLibrary } = useUserLibrary();
 
   const [showAuthRequired, setShowAuthRequired] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
@@ -60,25 +62,25 @@ export default function BuildEditor({mode}) {
   return clean;
 }
 
-useEffect(() => {
-  let mounted = true;
+// useEffect(() => {
+//   let mounted = true;
 
-  async function loadLibrary() {
-    setLibraryLoading(true);
-    const data = await BuildLibraryService.getAll(uid);
+//   async function loadLibrary() {
+//     setLibraryLoading(true);
+//     const data = await BuildLibraryService.getAll(uid);
     
-    if (mounted) {
-      setLibrary(data);
-      setLibraryLoading(false);
-    }
-  }
+//     if (mounted) {
+//       setLibrary(data);
+//       setLibraryLoading(false);
+//     }
+//   }
 
-  loadLibrary();
+//   loadLibrary();
 
-  return () => {
-    mounted = false;
-  };
-}, [uid]);
+//   return () => {
+//     mounted = false;
+//   };
+// }, [uid]);
 
 const [build, setBuild] = useState(() => {
   if (encoded) {
@@ -343,7 +345,7 @@ const orderedLibrary = useMemo(() => {
   }
 
 
-if (libraryLoading) {
+if (loading) {
   return <Spinner label="Loading builds…" />;
 }
 
