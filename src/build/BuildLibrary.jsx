@@ -1,32 +1,33 @@
 import { useState } from "react";
 import styles from "./BuildLibrary.module.scss";
-import loadoutData from "../data/payday3_loadout_items.json";
-import platesData from "../data/payday3_armor_plates.json";
+// import loadoutData from "../data/payday3_loadout_items.json";
+// import platesData from "../data/payday3_armor_plates.json";
+import { buildPreviewParts } from "../utils/buildPreview";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 
-const loadoutIndex = Object.values(loadoutData)
-  .flatMap(category => Object.values(category))
-  .reduce((acc, item) => {
-    if (item?.key) {
-      acc[item.key] = item;
-    }
-    return acc;
-  }, {});
+// const loadoutIndex = Object.values(loadoutData)
+//   .flatMap(category => Object.values(category))
+//   .reduce((acc, item) => {
+//     if (item?.key) {
+//       acc[item.key] = item;
+//     }
+//     return acc;
+//   }, {});
 
-function normalizeItemName(name) {
-  if (!name) return name;
+// function normalizeItemName(name) {
+//   if (!name) return name;
 
-  // Eliminar " Frame" al final
-  return name.replace(/\s+Frame$/, "");
-}
+//   // Eliminar " Frame" al final
+//   return name.replace(/\s+Frame$/, "");
+// }
 
-function getItemNameByKey(key) {
-  if (!key) return null;
+// function getItemNameByKey(key) {
+//   if (!key) return null;
 
-  const name = loadoutIndex[key]?.name ?? null;
-  return normalizeItemName(name);
-}
+//   const name = loadoutIndex[key]?.name ?? null;
+//   return normalizeItemName(name);
+// }
 
 function SlotBadge({ slot }) {
   if (slot == null) {
@@ -72,30 +73,30 @@ function SlotSelect({ slot, onChange }) {
   );
 }
 
-function formatPlates(plates) {
-  if (!Array.isArray(plates) || plates.length === 0) {
-    return null;
-  }
+// function formatPlates(plates) {
+//   if (!Array.isArray(plates) || plates.length === 0) {
+//     return null;
+//   }
 
-  const counts = {};
+//   const counts = {};
 
-  plates.forEach((plateKey) => {
-    counts[plateKey] = (counts[plateKey] || 0) + 1;
-  });
+//   plates.forEach((plateKey) => {
+//     counts[plateKey] = (counts[plateKey] || 0) + 1;
+//   });
 
-  const parts = Object.entries(counts).map(
-    ([plateKey, count]) => {
-      const plateName =
-        platesData[plateKey]?.name ?? plateKey;
+//   const parts = Object.entries(counts).map(
+//     ([plateKey, count]) => {
+//       const plateName =
+//         platesData[plateKey]?.name ?? plateKey;
 
-      return count > 1
-        ? `${plateName} x${count}`
-        : plateName;
-    }
-  );
+//       return count > 1
+//         ? `${plateName} x${count}`
+//         : plateName;
+//     }
+//   );
 
-  return parts.join(" + ");
-}
+//   return parts.join(" + ");
+// }
 
 export default function BuildLibrary({
   builds,
@@ -104,6 +105,7 @@ export default function BuildLibrary({
   onDeleteBuild,
   onAssignSlot,
 }) {
+  
   const [expandedId, setExpandedId] = useState(null);
 
   if (!builds.length) {
@@ -118,58 +120,59 @@ export default function BuildLibrary({
         {builds.map((build) => {
           const isActive = build.id === currentBuildId;
           const isExpanded = expandedId === build.id;
+          const previewParts = buildPreviewParts(build);
+// const loadout = build.loadout ?? {};
 
-const loadout = build.loadout ?? {};
+// const primaryName = getItemNameByKey(
+//   loadout.primary?.weaponKey ?? loadout.primary
+// );
 
-const primaryName = getItemNameByKey(
-  loadout.primary?.weaponKey ?? loadout.primary
-);
+// const secondaryName = getItemNameByKey(
+//   loadout.secondary?.weaponKey ?? loadout.secondary
+// );
 
-const secondaryName = getItemNameByKey(
-  loadout.secondary?.weaponKey ?? loadout.secondary
-);
+// const overkillName = getItemNameByKey(
+//   loadout.overkill?.weaponKey ?? loadout.overkill
+// );
 
-const overkillName = getItemNameByKey(
-  loadout.overkill?.weaponKey ?? loadout.overkill
-);
+// const armorName = getItemNameByKey(
+//   loadout.armor?.key ?? loadout.armor
+// );
 
-const armorName = getItemNameByKey(
-  loadout.armor?.key ?? loadout.armor
-);
+// const plateText = formatPlates(
+//   loadout.armor?.plates
+// );
 
-const plateText = formatPlates(
-  loadout.armor?.plates
-);
+// let armorFull = null;
 
-let armorFull = null;
+// if (armorName && plateText) {
+//   armorFull = `${armorName} (${plateText})`;
+// } else if (armorName) {
+//   armorFull = armorName;
+// }
 
-if (armorName && plateText) {
-  armorFull = `${armorName} (${plateText})`;
-} else if (armorName) {
-  armorFull = armorName;
-}
+// const throwableName = getItemNameByKey(
+//   loadout.throwable?.weaponKey ?? loadout.throwable
+// );
 
-const throwableName = getItemNameByKey(
-  loadout.throwable?.weaponKey ?? loadout.throwable
-);
+// const deployableName = getItemNameByKey(
+//   loadout.deployable?.key ?? loadout.deployable
+// );
 
-const deployableName = getItemNameByKey(
-  loadout.deployable?.key ?? loadout.deployable
-);
+// const toolName = getItemNameByKey(
+//   loadout.tool?.key ?? loadout.tool
+// );
 
-const toolName = getItemNameByKey(
-  loadout.tool?.key ?? loadout.tool
-);
+// const previewParts = [
+//   primaryName,
+//   secondaryName,
+//   overkillName,
+//   armorFull,
+//   throwableName,
+//   deployableName,
+//   toolName,
+// ].filter(Boolean);
 
-const previewParts = [
-  primaryName,
-  secondaryName,
-  overkillName,
-  armorFull,
-  throwableName,
-  deployableName,
-  toolName,
-].filter(Boolean);
           return (
             <li
               key={build.id}

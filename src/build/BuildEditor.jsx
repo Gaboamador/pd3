@@ -368,6 +368,7 @@ return (
       <ShareQrModal
         url={shareUrl}
         onClose={() => setShareUrl(null)}
+        sharedBuild={build}
       />
     )}
 

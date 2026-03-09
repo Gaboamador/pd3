@@ -1,14 +1,19 @@
 import { QRCodeSVG } from "qrcode.react";
+import { buildPreviewParts } from "../utils/buildPreview";
 import styles from "./ShareQrModal.module.scss";
 
-export default function ShareQrModal({ url, onClose }) {
+export default function ShareQrModal({ url, onClose, sharedBuild }) {
+  
   if (!url) return null;
-
+  
+  const previewParts = buildPreviewParts(sharedBuild);
+  
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.modalHeader}>
-          <h3>Share build</h3>
+          <div className={styles.nameAndButtonWrapper}>
+            <div className={styles.name}>{sharedBuild.name}</div>
             <button
               className={styles.close}
               onClick={onClose}
@@ -16,6 +21,14 @@ export default function ShareQrModal({ url, onClose }) {
             >
               ✕
             </button>
+          </div>
+            <div className={styles.preview}>
+              {previewParts.map((p, i) => (
+                <span key={i} className={styles.previewChip}>
+                  {p}
+                </span>
+              ))}
+            </div>
         </div>
         <div className={styles.modalBody}>
                 <div className={styles.qrWrapper}>
