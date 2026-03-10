@@ -197,3 +197,47 @@ width: 100%;
   padding: 0;
   margin: 0 auto;
 }
+
+.suggestionLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.catalogBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.15s ease;
+
+  color: rgba(255,255,255,0.6);
+}
+
+.suggestion:hover .catalogBtn {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+.catalogBtn:hover {
+  opacity: 1;
+  color: white;
+}
+
+/* MOBILE / TOUCH DEVICES */
+@media (hover: none) {
+  .catalogBtn {
+    opacity: 0.8;
+    pointer-events: auto;
+  }
+  .catalogBtn svg {
+    font-size: 1.1rem;
+  }
+}

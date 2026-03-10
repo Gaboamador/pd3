@@ -24,6 +24,8 @@ export default function Catalog() {
   const navigate = useNavigate();
 
   const fromCompare = location.state?.fromCompare;
+  const fromExplorer = location.state?.fromExplorer;
+  const explorerQuery = location.state?.explorerQuery;
 
   const [query, setQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
@@ -118,7 +120,25 @@ export default function Catalog() {
           </Section>
         )}
 
-        {!fromCompare &&
+        {fromExplorer && (
+          <Section>
+            <div className={styles.backToExplorerWrapper}>
+              <button
+                  onClick={() =>
+                    navigate("/library-explorer", {
+                      state: { restoreQuery: explorerQuery, restoreScroll: true }
+                    })
+                  }
+                className={styles.backBtn}
+              >
+                <IoChevronBackCircleSharp />
+              </button>
+              <span>BACK TO EXPLORER</span>
+            </div>
+          </Section>
+        )}
+
+        {!fromCompare || !fromExplorer &&
         <Section title="//Catalog_search">
           <input
             className={styles.input}

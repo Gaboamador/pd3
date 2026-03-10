@@ -247,6 +247,28 @@ export default function LibraryExplorer() {
       return buildSuggestionsWithDividers(suggestions);
     }, [suggestions]);
 
+    useEffect(() => {
+  const restoreQuery = location.state?.restoreQuery;
+  if (restoreQuery) {
+    setQuery(restoreQuery);
+  }
+}, []);
+
+useEffect(() => {
+  const shouldRestoreScroll = location.state?.restoreScroll;
+  if (!shouldRestoreScroll) return;
+
+  const savedScroll = sessionStorage.getItem("pd3_library_explorer_scroll");
+  if (savedScroll == null) return;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, Number(savedScroll));
+      sessionStorage.removeItem("pd3_library_explorer_scroll");
+    });
+  });
+}, [query, activeChips.length, filteredBuilds.length]);
+
   function goCompare(selectedBuilds) {
     // selectedBuilds: array de builds JSON completos (como el ejemplo que pegaste)
     saveCompareBuilds(selectedBuilds);
@@ -299,6 +321,40 @@ export default function LibraryExplorer() {
                 const s = entry;
 
                 return (
+                  // <div
+                  //   key={`${s.kind}-${s.key}`}
+                  //   className={styles.suggestion}
+                  //   onClick={() => {
+                  //     if (s.kind === "weaponType") {
+                  //       setActiveChips((prev) => [
+                  //         ...prev,
+                  //         {
+                  //           kind: "weaponType",
+                  //           key: s.key,
+                  //           slot: s.slot,
+                  //           weaponType: s.weaponType,
+                  //         },
+                  //       ]);
+                  //     } else if (s.kind === "buildName") {
+                  //       setActiveChips((prev) => [
+                  //         ...prev,
+                  //         { kind: "buildName", key: s.key, label: s.label },
+                  //       ]);
+                  //     } else {
+                  //       setActiveChips((prev) => [
+                  //         ...prev,
+                  //         { kind: s.kind, key: s.key },
+                  //       ]);
+                  //     }
+                  //     setQuery("");
+                  //   }}
+                  // >
+                  //   <strong>
+                  //     {s.kind === "weaponType"
+                  //       ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
+                  //       : s.label}
+                  //   </strong>
+                  // </div>
                   <div
                     key={`${s.kind}-${s.key}`}
                     className={styles.suggestion}
@@ -324,14 +380,46 @@ export default function LibraryExplorer() {
                           { kind: s.kind, key: s.key },
                         ]);
                       }
+
                       setQuery("");
                     }}
                   >
-                    <strong>
-                      {s.kind === "weaponType"
-                        ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
-                        : s.label}
-                    </strong>
+                    <div className={styles.suggestionLabel}>
+                      <strong>
+                        {s.kind === "weaponType"
+                          ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
+                          : s.label}
+                      </strong>
+                    </div>
+
+                    {s.kind !== "buildName" && (
+                      <button
+                        className={styles.catalogBtn}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          
+                          if (s.kind === "buildName") return;
+                          
+                          sessionStorage.setItem(
+                            "pd3_library_explorer_scroll",
+                            String(window.scrollY)
+                          );
+
+                          if (s.kind === "weaponType") {
+                            navigate(
+                              `/catalog/type/${s.slot}/${encodeURIComponent(s.weaponType)}`,
+                              { state: { fromExplorer: true, explorerQuery: query } }
+                            );
+                          } else {
+                            navigate(
+                              `/catalog/${s.key}`,
+                              {state: { fromExplorer: true, explorerQuery: query }});
+                          }
+                        }}
+                      >
+                        <IoMdOpen />
+                      </button>
+                    )}
                   </div>
                 );
               })}
