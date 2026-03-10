@@ -1,6 +1,8 @@
 import { normalize } from "./normalize";
+import { searchSkillDescriptions } from "../../features/catalog/components/utils/searchSkillDescriptions";
 
   const KIND_BASE_WEIGHT = {
+    skillDescriptionSearch: 1000,
     weaponType: 40,
     category: 35,
     tree: 30,
@@ -12,11 +14,28 @@ import { normalize } from "./normalize";
     skill: 0
   };
   
-export function getSuggestions(query, catalog, activeChips = []) {
+export function getSuggestions(query, catalog, activeChips = [], skillsData) {
   const q = normalize(query).trim().replace(/\s+/g, " ");
+  const descriptionMatches =
+  q.length >= 3
+    ? searchSkillDescriptions(q, skillsData).length
+    : 0;
   const qNoSpace = q.replace(/\s+/g, "");
 
   if (!q) return [];
+
+  const suggestions = [];
+
+  // opción especial: search in skill descriptions, solo mostrar la opción si el query tiene ≥3 caracteres
+  if (q.length >= 3 && descriptionMatches > 0) {
+    suggestions.push({
+      kind: "skillDescriptionSearch",
+      key: `desc:${q}`,
+      label: `Search skill descriptions for "${query}" (${descriptionMatches})`,
+      query: query,
+      searchText: q
+    });
+  }
 
   const alreadySelected = new Set(activeChips.map((c) => signature(c)));
 
@@ -58,7 +77,11 @@ export function getSuggestions(query, catalog, activeChips = []) {
 
   scored.sort((a, b) => b.__score - a.__score);
 
-  return scored.slice(0, 12);
+  // return scored.slice(0, 12);
+  return [
+    ...suggestions,
+    ...scored.slice(0, 11)
+  ];
 }
 
 function signature(x) {

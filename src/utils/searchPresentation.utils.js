@@ -123,6 +123,7 @@ export function getChipKindColor(kind) {
 
 export function formatKindLabel(kind) {
   const map = {
+    skillDescriptionSearch: "Skill Text Search",
     buildName: "Builds",
     skill: "Skills",
     weaponType: "Weapons",

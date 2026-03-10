@@ -10,6 +10,7 @@ import { buildCatalog } from "../../library/utils/buildCatalog";
 import { getSuggestions } from "../../library/utils/getSuggestions";
 import { buildWeaponTypeIndex } from "../../library/utils/buildWeaponTypeIndex";
 import { buildSuggestionsWithDividers, formatKindLabel, formatWeaponTypeWithSlot } from "../../utils/searchPresentation.utils";
+import { searchSkillDescriptions } from "./components/utils/searchSkillDescriptions";
 
 import skillsData from "../../data/payday3_skills.json";
 import skillGroupsData from "../../data/payday3_skill_groups.json"
@@ -18,10 +19,11 @@ import platesData from "../../data/payday3_armor_plates.json";
 
 import CatalogDetails from "./components/CatalogDetails";
 import SkillsEditor from "../../build/components/skills/SkillsEditor";
-import SkillTreeGrid from "../../build/components/skills/SkillTreeGrid";
+import SkillDescriptionResults from "./components/SkillDescriptionResults";
+import ScrollArrow from "../../components/ScrollArrow";
 
 export default function Catalog() {
-  const { key, slot, weaponType, groupId, treeId } = useParams();
+  const { key, slot, weaponType, groupId, treeId, textQuery } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const highlightSkill = location.state?.highlightSkill ?? null;
@@ -70,12 +72,23 @@ export default function Catalog() {
   }, [weaponTypeIndex]);
 
   const suggestions = useMemo(() => {
-    return getSuggestions(query, catalog, []);
-  }, [query, catalog]);
+    return getSuggestions(query, catalog, [], skillsData);
+  }, [query, catalog, skillsData]);
 
   const suggestionsWithDividers = useMemo(() => {
     return buildSuggestionsWithDividers(suggestions);
   }, [suggestions]);
+
+  const decodedTextQuery = useMemo(() => {
+  return textQuery ? decodeURIComponent(textQuery) : null;
+}, [textQuery]);
+
+  const skillDescriptionMatches = useMemo(() => {
+  if (!decodedTextQuery) return [];
+
+  return searchSkillDescriptions(decodedTextQuery, skillsData);
+
+}, [decodedTextQuery]);
 
   const emptyBuild = { skills: {} };
 
@@ -163,6 +176,15 @@ useEffect(() => {
     }
   }, [slot, weaponType]);
 
+  useEffect(() => {
+  if (!textQuery) return;
+
+  setSelectedItem(null);
+  setSelectedWeaponType(null);
+  setSelectedCategory(null);
+  setSelectedTree(null);
+}, [textQuery]);
+
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
@@ -223,6 +245,11 @@ useEffect(() => {
                     key={`${s.kind}-${s.key}`}
                     className={styles.suggestion}
                     onClick={() => {
+                      if (s.kind === "skillDescriptionSearch") {
+                        navigate(`/catalog/skill-text/${encodeURIComponent(s.query)}`);
+                        setQuery("");
+                        return;
+                      }
                       if (s.kind === "weaponType") {
                         navigate(
                           `/catalog/type/${s.slot}/${encodeURIComponent(s.weaponType)}`
@@ -258,6 +285,14 @@ useEffect(() => {
               })}
             </div>
           )}
+{textQuery && (
+  <Section title={`//Skill text search: "${decodeURIComponent(textQuery)}"`}>
+    <SkillDescriptionResults
+      skills={skillDescriptionMatches}
+      query={decodeURIComponent(textQuery)}
+    />
+  </Section>
+)}
         </Section>
         }
 
@@ -320,6 +355,7 @@ useEffect(() => {
           </Section>
         )}
       </div>
+      <ScrollArrow/>
     </div>
   );
 }

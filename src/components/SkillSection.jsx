@@ -1,11 +1,10 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { renderSkillText } from "../build/utils/skillText.utils";
 import { renderSkillTextWithTotals } from "../build/utils/skillScaling.utils.jsx";
 import styles from "./SkillSection.module.scss";
 import skillGroupsData from "../data/payday3_skill_groups.json";
 
-export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false }) {
+export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false, textTransform }) {
   const navigate = useNavigate();
   if (!skill) return null;
 
@@ -41,6 +40,14 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
     enemyClass: styles.enemyHighlight,
     showTotals: false,
   });
+
+  const baseText = textTransform
+    ? textTransform(baseRendered)
+    : baseRendered;
+
+  const acedText = textTransform
+    ? textTransform(acedRendered)
+    : acedRendered;
 
   const meta = useMemo(() => {
     if (!showMeta) return null;
@@ -96,11 +103,11 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
             </div>
         )}
         <Section title="Base" cost={skill?.req_points?.base ?? 0}>
-            <div className={styles.textBlock}>{baseRendered}</div>
+            <div className={styles.textBlock}>{baseText}</div>
         </Section>
 
         <Section title="Aced" cost={skill?.req_points?.aced ?? 0}>
-            <div className={styles.textBlock}>{acedRendered}</div>
+            <div className={styles.textBlock}>{acedText}</div>
         </Section>
     </div>
   );
