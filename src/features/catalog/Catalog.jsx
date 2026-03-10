@@ -12,16 +12,20 @@ import { buildWeaponTypeIndex } from "../../library/utils/buildWeaponTypeIndex";
 import { buildSuggestionsWithDividers, formatKindLabel, formatWeaponTypeWithSlot } from "../../utils/searchPresentation.utils";
 
 import skillsData from "../../data/payday3_skills.json";
+import skillGroupsData from "../../data/payday3_skill_groups.json"
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
 
 import CatalogDetails from "./components/CatalogDetails";
+import SkillsEditor from "../../build/components/skills/SkillsEditor";
+import SkillTreeGrid from "../../build/components/skills/SkillTreeGrid";
 
 export default function Catalog() {
-  // const { key } = useParams();
-  const { key, slot, weaponType } = useParams();
+  const { key, slot, weaponType, groupId, treeId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+  const highlightSkill = location.state?.highlightSkill ?? null;
+  const highlightTree = location.state?.highlightTree ?? null;
 
   const fromCompare = location.state?.fromCompare;
   const fromExplorer = location.state?.fromExplorer;
@@ -31,6 +35,9 @@ export default function Catalog() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedWeaponType, setSelectedWeaponType] = useState(null);
   const [hidePresetVariants, setHidePresetVariants] = useState(false);
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedTree, setSelectedTree] = useState(null);
 
   const selectedWeapons = useMemo(() => {
     if (!selectedWeaponType) return [];
@@ -55,6 +62,7 @@ export default function Catalog() {
   const catalog = useMemo(() => {
     return buildCatalog({
       skillsData,
+      skillGroupsData,
       loadoutData,
       armorPlatesData: platesData,
       weaponTypesBySlot: weaponTypeIndex.typesBySlot,
@@ -68,6 +76,8 @@ export default function Catalog() {
   const suggestionsWithDividers = useMemo(() => {
     return buildSuggestionsWithDividers(suggestions);
   }, [suggestions]);
+
+  const emptyBuild = { skills: {} };
 
   useEffect(() => {
     if (!key) {
@@ -94,6 +104,54 @@ export default function Catalog() {
       weaponType: decodeURIComponent(weaponType),
     });
   }, [slot, weaponType]);
+
+  // hook que detecta category
+  useEffect(() => {
+  if (!groupId) {
+    setSelectedCategory(null);
+    return;
+  }
+
+  const group = skillGroupsData?.[groupId];
+  if (!group) {
+    setSelectedCategory(null);
+    return;
+  }
+
+  setSelectedItem(null);
+  setSelectedWeaponType(null);
+  setSelectedTree(null);
+
+  setSelectedCategory(group);
+}, [groupId]);
+
+// hook que detecta tree
+useEffect(() => {
+  if (!treeId) {
+    setSelectedTree(null);
+    return;
+  }
+
+  let foundTree = null;
+
+  Object.values(skillGroupsData ?? {}).forEach((group) => {
+    const tree = group.trees?.[treeId];
+    if (tree) {
+      foundTree = { ...tree, group };
+    }
+  });
+
+  if (!foundTree) {
+    setSelectedTree(null);
+    return;
+  }
+
+  setSelectedItem(null);
+  setSelectedWeaponType(null);
+  setSelectedCategory(null);
+
+  setSelectedTree(foundTree);
+}, [treeId]);
 
   useEffect(() => {
     if (slot && weaponType) {
@@ -138,7 +196,7 @@ export default function Catalog() {
           </Section>
         )}
 
-        {!fromCompare || !fromExplorer &&
+        {!fromCompare && !fromExplorer &&
         <Section title="//Catalog_search">
           <input
             className={styles.input}
@@ -172,6 +230,17 @@ export default function Catalog() {
                         setQuery("");
                         return;
                       }
+                      if (s.kind === "category") {
+                        navigate(`/catalog/category/${s.groupId}`);
+                        setQuery("");
+                        return;
+                      }
+
+                      if (s.kind === "tree") {
+                        navigate(`/catalog/tree/${s.treeId}`);
+                        setQuery("");
+                        return;
+                      }
                       navigate(`/catalog/${s.key}`);
                       setQuery("");
                     }}
@@ -194,6 +263,37 @@ export default function Catalog() {
 
         {selectedItem && (
           <CatalogDetails item={selectedItem} />
+        )}
+
+        {selectedCategory && (
+          <Section title={`//${selectedCategory.name.toUpperCase()}`}>
+            <SkillsEditor
+              build={emptyBuild}
+              setBuild={() => {}}
+              skillsData={skillsData}
+              skillGroupsData={skillGroupsData}
+              catalogMode={true}
+              forcedGroupId={selectedCategory.id}
+              highlightSkillKey={highlightSkill}
+              highlightTreeId={highlightTree}
+            />
+          </Section>
+        )}
+
+        {selectedTree && (
+          <Section title={`//${selectedTree.name.toUpperCase()}`}>
+            <SkillsEditor
+              build={emptyBuild}
+              setBuild={() => {}}
+              skillsData={skillsData}
+              skillGroupsData={skillGroupsData}
+              catalogMode={true}
+              forcedGroupId={selectedTree.group.id}
+              forcedTreeId={selectedTree.id}
+              highlightSkillKey={highlightSkill}
+              highlightTreeId={highlightTree}
+            />
+          </Section>
         )}
 
         {selectedWeaponType && selectedWeapons.length > 0 && (

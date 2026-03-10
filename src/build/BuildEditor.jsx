@@ -558,11 +558,11 @@ return (
           This action cannot be undone.  
           The build will be permanently removed from your library.
         </div>
-{saving && (
-  <div style={{ marginBottom: 16 }}>
-    <Spinner size="sm" label="Deleting build…" />
-  </div>
-)}
+        {saving && (
+          <div style={{ marginBottom: 16 }}>
+            <Spinner size="sm" label="Deleting build…" />
+          </div>
+        )}
         <div style={{
           display: "flex",
           justifyContent: "flex-end",

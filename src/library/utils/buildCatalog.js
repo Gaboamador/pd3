@@ -1,96 +1,3 @@
-// import { normalize } from "./normalize";
-
-// export function buildCatalog({
-//   skillsData,
-//   loadoutData,
-//   armorPlatesData,
-// }) {
-//   const catalog = [];
-
-//   // 🔹 SKILLS
-//   Object.values(skillsData).forEach(skill => {
-//     const searchText = normalize(
-//       [
-//         skill.key,
-//         skill.name,
-//         skill.base_description,
-//         skill.aced_description,
-//       ]
-//         .filter(Boolean)
-//         .join(" ")
-//     );
-
-//     catalog.push({
-//       kind: "skill",
-//       key: skill.key,
-//       label: skill.name,
-//       searchText,
-//     });
-//   });
-
-//   // 🔹 LOADOUT CATEGORIES
-//   const categories = [
-//     "primary",
-//     "secondary",
-//     "overkill",
-//     "throwable",
-//     "deployable",
-//     "tool",
-//     "armor",
-//   ];
-
-//   categories.forEach(cat => {
-//     Object.values(loadoutData?.[cat] ?? {}).forEach(item => {
-//       const searchText = normalize(
-//         [item.key, item.name].filter(Boolean).join(" ")
-//       );
-
-//       catalog.push({
-//         kind: cat,
-//         key: item.key,
-//         label: item.name,
-//         searchText,
-//       });
-//     });
-//   });
-
-//   // 🔹 ARMOR PLATES
-//   Object.values(armorPlatesData ?? {}).forEach(plate => {
-//     const searchText = normalize(
-//       [plate.key, plate.name].filter(Boolean).join(" ")
-//     );
-
-//     catalog.push({
-//       kind: "plate",
-//       key: plate.key,
-//       label: plate.name,
-//       searchText,
-//     });
-//   });
-
-//   // 🔹 Weapon type filters (por slot)
-//     ["primary", "secondary"].forEach(slot => {
-//     const weapons = Object.values(loadoutData?.[slot] ?? {});
-
-//     const types = new Set(
-//         weapons
-//         .map(w => w.weapon_type || w.type)
-//         .filter(Boolean)
-//     );
-
-//     types.forEach(type => {
-//         catalog.push({
-//         kind: "weaponType",
-//         slot,
-//         weaponType: type,
-//         label: `${type} (${slot})`,
-//         searchText: normalize(`${type} ${slot}`),
-//         });
-//     });
-//     });
-
-//   return catalog;
-// }
 import { normalize } from "./normalize";
 import { renderSkillText } from "../../build/utils/skillText.utils";
 /**
@@ -103,6 +10,7 @@ import { renderSkillText } from "../../build/utils/skillText.utils";
  */
 export function buildCatalog({
   skillsData,
+  skillGroupsData,
   loadoutData,
   armorPlatesData,
   weaponTypesBySlot, // { primary: ["shotgun", ...], secondary: ["pistol", ...] }
@@ -201,6 +109,47 @@ export function buildCatalog({
       });
     });
   });
+
+  // 🔹 SKILL CATEGORIES
+  if (skillGroupsData) {
+    Object.values(skillGroupsData).forEach((group) => {
+      const baseSearch = normalize(
+        [group.key, group.name, "skill category"]
+          .filter(Boolean)
+          .join(" ")
+      );
+
+      const searchText = `${baseSearch} ${baseSearch.replace(/\s+/g, "")}`;
+
+      catalog.push({
+        kind: "category",
+        key: `category:${group.id}`,
+        groupId: group.id,
+        label: group.name,
+        searchText,
+      });
+
+      // 🔹 SKILL TREES
+      Object.values(group.trees ?? {}).forEach((tree) => {
+        const treeSearch = normalize(
+          [tree.key, tree.name, group.name, "skill tree"]
+            .filter(Boolean)
+            .join(" ")
+        );
+
+        const treeSearchText = `${treeSearch} ${treeSearch.replace(/\s+/g, "")}`;
+
+        catalog.push({
+          kind: "tree",
+          key: `tree:${tree.id}`,
+          treeId: tree.id,
+          groupId: group.id,
+          label: tree.name,
+          searchText: treeSearchText,
+        });
+      });
+    });
+  }
 
   // 🔹 ARMOR PLATES
   Object.values(armorPlatesData ?? {}).forEach((plate) => {

@@ -9,6 +9,7 @@ export default function ConfirmModal({
   cancelLabel = "CANCEL",
   onConfirm,
   onCancel,
+  destructive = false,
 }) {
   return (
     <AnimatePresence>
@@ -20,20 +21,20 @@ export default function ConfirmModal({
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className={styles.modal}
+            className={`${styles.modal} ${destructive ? styles.danger : ""}`}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.18 }}
           >
-            <h3>{title}</h3>
-            <p>{message}</p>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.message}>{message}</p>
 
             <div className={styles.actions}>
               <button className="secondary" onClick={onCancel}>
                 {cancelLabel}
               </button>
-              <button onClick={onConfirm}>
+              <button onClick={onConfirm} className={destructive ? styles.danger : ""}>
                 {confirmLabel}
               </button>
             </div>

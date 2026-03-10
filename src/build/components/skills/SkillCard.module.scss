@@ -29,7 +29,16 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
 
   overflow: visible;
+
+  &.notClickeable {
+    cursor: default;
+  }
+
+  &.highlighted {
+  box-shadow: 0 0 0 3px rgba($pd3-lightgreen, 0.75);
 }
+}
+
 
 /* =========================
    STATES

@@ -1,10 +1,12 @@
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { renderSkillText } from "../build/utils/skillText.utils";
 import { renderSkillTextWithTotals } from "../build/utils/skillScaling.utils.jsx";
 import styles from "./SkillSection.module.scss";
 import skillGroupsData from "../data/payday3_skill_groups.json";
 
 export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false }) {
+  const navigate = useNavigate();
   if (!skill) return null;
 
   const baseRendered = enableTotals
@@ -58,16 +60,33 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
     };
   }, [showMeta, skill?.skill_category_id, skill?.skill_tree_id, skill?.tier]);
 
+  function goToCategory() {
+    if (!skill?.skill_category_id) return;
+
+    navigate(`/catalog/category/${skill.skill_category_id}`, {state: { highlightSkill: skill.key, highlightTree: skill.skill_tree_id }});
+  }
+
+  function goToTree() {
+    if (!skill?.skill_tree_id) return;
+
+    navigate(`/catalog/tree/${skill.skill_tree_id}`, {state: { highlightSkill: skill.key }});
+  }
 
   return (
     <div className={styles.wrapper}>
         {showMeta && (
             <div className={styles.metaRow}>
-            <span className={styles.metaChip}>
+            <span
+              className={`${styles.metaChip} ${styles.metaClickable}`}
+              onClick={goToCategory}
+            >
                 Category: <strong>{meta?.groupName ?? "Unknown"}</strong>
             </span>
 
-            <span className={styles.metaChip}>
+            <span
+              className={`${styles.metaChip} ${styles.metaClickable}`}
+              onClick={goToTree}
+            >
                 Tree: <strong>{meta?.treeName ?? "Unknown"}</strong>
             </span>
 

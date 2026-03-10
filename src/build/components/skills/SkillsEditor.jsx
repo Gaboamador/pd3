@@ -1,11 +1,12 @@
 // src/components/skills/SkillsEditor.jsx
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { buildSkillUIIndex } from "../../utils/skillsIndex.utils";
 import styles from "./SkillsEditor.module.scss";
 import SkillTreeGrid from "./SkillTreeGrid";
 import SkillDetailsPanel from "./SkillDetailsPanel";
 import SkillDetailsModal from "./SkillDetailsModal";
 import SkillGroupSprite from "./SkillGroupSprite";
+import ConfirmModal from "../../../components/ConfirmModal";
 import { calculateSkillPoints } from "../../utils/skillPoints.utils";
 import { MAX_SKILL_POINTS } from "../../build.constants";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -43,23 +44,78 @@ function calculateTreeEquippedSkills(treeId, skillsState, skillsData) {
   return count;
 }
 
-export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsData }) {
+export default function SkillsEditor({
+  build,
+  setBuild,
+  skillsData,
+  skillGroupsData,
+  catalogMode = false,
+  forcedGroupId = null,
+  forcedTreeId = null,
+  highlightSkillKey = null,
+  highlightTreeId = null,
+  }) {
+  
   const isMobile = useIsMobile(920);
   
-  const [activeTreeIndex, setActiveTreeIndex] = useState(0);
+  const [activeTreeIndex, setActiveTreeIndex] = useState(() => {
+    if (!catalogMode || !highlightTreeId) return 0;
+
+    const group = Object.values(skillGroupsData ?? {}).find(
+      (g) => Object.values(g.trees ?? {}).some(
+        (t) => Number(t.id) === Number(highlightTreeId)
+      )
+    );
+
+    if (!group) return 0;
+
+    const trees = Object.values(group.trees ?? {});
+
+    const idx = trees.findIndex(
+      (t) => Number(t.id) === Number(highlightTreeId)
+    );
+
+    return idx >= 0 ? idx : 0;
+  });
+
   const [swiperInstance, setSwiperInstance] = useState(null);
 
-  
   const uiIndex = useMemo(() => {
     return buildSkillUIIndex(skillsData, skillGroupsData);
   }, [skillsData, skillGroupsData]);
 
   // grupo seleccionado: por default el primero (position 0)
-  const [activeGroupId, setActiveGroupId] = useState(() => uiIndex?.[0]?.groupId ?? 1);
+  const [activeGroupId, setActiveGroupId] = useState(() => {
+    if (catalogMode && forcedGroupId) return Number(forcedGroupId);
+    return uiIndex?.[0]?.groupId ?? 1;
+  });
+
+  useEffect(() => {
+    if (catalogMode && forcedGroupId) {
+      setActiveGroupId(Number(forcedGroupId));
+      setActiveTreeIndex(0);
+    }
+  }, [catalogMode, forcedGroupId]);
 
   const activeGroup = useMemo(() => {
     return uiIndex.find(g => g.groupId === activeGroupId) ?? uiIndex?.[0] ?? null;
   }, [uiIndex, activeGroupId]);
+
+  const visibleTrees = useMemo(() => {
+    if (!activeGroup) return [];
+
+    // modo catalog tree → devolver solo el tree seleccionado
+    if (catalogMode && forcedTreeId) {
+      const found = activeGroup.trees.find(
+        (t) => Number(t.treeId) === Number(forcedTreeId)
+      );
+
+      return found ? [found] : [];
+    }
+
+    return activeGroup.trees;
+  }, [activeGroup, catalogMode, forcedTreeId]);
+
 
   // Skill seleccionada para details (desktop) o modal (mobile)
   const [selectedSkillKey, setSelectedSkillKey] = useState(null);
@@ -87,6 +143,7 @@ export default function SkillsEditor({ build, setBuild, skillsData, skillGroupsD
   }, [build.skills, skillsData]);
 
   function patchSkills(nextSkills) {
+    if (catalogMode) return;
     setBuild(prev => ({ ...prev, skills: nextSkills }));
   }
 
@@ -298,6 +355,8 @@ const groupEquipped = useMemo(() => {
 
 
 function isTierUnlocked(tier, equippedSkills) {
+  if (catalogMode) return true;
+
   switch (tier) {
     case 1:
       return true;
@@ -366,38 +425,55 @@ const groupPointsById = useMemo(() => {
 }, [uiIndex, build.skills]);
 
 
-function clearActiveGroupSkills() {
-  if (!activeGroup) return;
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null);
+  function clearActiveGroupSkills() {
+    if (!activeGroup) return;
 
-  setBuild(prev => {
-    const nextSkills = { ...(prev.skills || {}) };
+    setPendingAction("clearCategory");
+    setConfirmOpen(true);
+  }
 
-    activeGroup.trees.forEach(tree => {
-      tree.skills.forEach(skill => {
-        delete nextSkills[skill.key];
+  function clearAllSkills() {
+    setPendingAction("clearAll");
+    setConfirmOpen(true);
+  }
+
+  function executeClear() {
+    if (pendingAction === "clearCategory" && activeGroup) {
+      setBuild(prev => {
+        const nextSkills = { ...(prev.skills || {}) };
+
+        activeGroup.trees.forEach(tree => {
+          tree.skills.forEach(skill => {
+            delete nextSkills[skill.key];
+          });
+        });
+
+        return {
+          ...prev,
+          skills: nextSkills,
+        };
       });
-    });
+    }
 
-    return {
-      ...prev,
-      skills: nextSkills,
-    };
-  });
-}
+    if (pendingAction === "clearAll") {
+      setBuild(prev => ({
+        ...prev,
+        skills: {},
+      }));
+    }
 
-function clearAllSkills() {
-  setBuild(prev => ({
-    ...prev,
-    skills: {},
-  }));
-}
-
-
+    setConfirmOpen(false);
+    setPendingAction(null);
+  }
 
   if (!activeGroup) return null;
 
   return (
   <div className={styles.wrapper}>
+    {!catalogMode && (
+      <>
     {/* Header */}
     <div className={styles.header}>
 
@@ -415,7 +491,7 @@ function clearAllSkills() {
             className={styles.actionButton}
             onClick={clearActiveGroupSkills}
           >
-            CLEAR GROUP
+            CLEAR CATEGORY
           </button>
 
           <button
@@ -426,6 +502,28 @@ function clearAllSkills() {
             CLEAR ALL
           </button>
         </div>
+
+        <ConfirmModal
+          open={confirmOpen}
+          title={
+            pendingAction === "clearAll"
+              ? <><span>Clear all skills?</span></>
+              : <>Clear <span>{activeGroup?.name}</span> skills?</>
+          }
+          message={
+            pendingAction === "clearAll"
+              ? <>This will remove <span data-variant="all">ALL</span> selected skills from the build.</>
+              : <>This will remove all skills from the <span>{activeGroup?.name}</span> category.</>
+          }
+          confirmLabel="CLEAR"
+          cancelLabel="CANCEL"
+          onConfirm={executeClear}
+          onCancel={() => {
+            setConfirmOpen(false);
+            setPendingAction(null);
+          }}
+          destructive={true}
+        />
 
 
       </div>
@@ -440,6 +538,7 @@ function clearAllSkills() {
               <button
                 type="button"
                 onClick={() => {
+                  if (catalogMode) return;
                   setActiveGroupId(g.groupId);
                   setSelectedSkillKey(null);
                   setActiveTreeIndex(0);
@@ -459,6 +558,8 @@ function clearAllSkills() {
         })}
       </div>
     </div>
+    </>
+    )}
 
     {/* Body */}
     <div
@@ -470,7 +571,7 @@ function clearAllSkills() {
       <div className={styles.treesWrapper}>
         {!isMobile ? (
           <div className={styles.treesGrid}>
-            {activeGroup.trees.map((tree, idx) => {
+            {visibleTrees.map((tree, idx) => {
               const treeBgUrl = `/bg/groupbg-${activeGroup.groupId}-${idx + 1}-v1.svg`;
               return (
               <div
@@ -495,6 +596,8 @@ function clearAllSkills() {
                   onCycleDownSkill={cycleDown}
                   onSelectSkill={selectForDetails}
                   onOpenInfo={openInfo}
+                  catalogMode={catalogMode}
+                  highlightSkillKey={highlightSkillKey}
                 />
               </div>
               )
@@ -502,6 +605,7 @@ function clearAllSkills() {
           </div>
         ) : (
           <Swiper
+            initialSlide={activeTreeIndex}
             onSwiper={setSwiperInstance}
             spaceBetween={12}
             slidesPerView={1}
@@ -513,7 +617,7 @@ function clearAllSkills() {
               setActiveTreeIndex(swiper.activeIndex);
             }}
           >
-            {activeGroup.trees.map((tree, idx) => {
+            {visibleTrees.map((tree, idx) => {
           const treeBgUrl = `/bg/groupbg-${activeGroup.groupId}-${idx + 1}-v1.svg`;
 
             return (
@@ -527,9 +631,11 @@ function clearAllSkills() {
                     }}
                 >
 
-                  <div className={styles.treeIndicator}>
-                    {activeTreeIndex + 1} / {activeGroup.trees.length}
-                  </div>
+                  {!(catalogMode && forcedTreeId) && (
+                    <div className={styles.treeIndicator}>
+                      {activeTreeIndex + 1} / {visibleTrees.length}
+                    </div>
+                  )}
 
                   <SkillTreeGrid
                     tree={tree}
@@ -544,6 +650,8 @@ function clearAllSkills() {
                     onCycleDownSkill={cycleDown}
                     onSelectSkill={selectForDetails}
                     onOpenInfo={openInfo}
+                    catalogMode={catalogMode}
+                    highlightSkillKey={highlightSkillKey}
                   />
                 </div>
               </SwiperSlide>

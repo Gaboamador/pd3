@@ -1,0 +1,84 @@
+@use "../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: $space-lg;
+
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  width: min(420px, 100%);
+  background: $color-bg-elevated;
+
+  border: 1px solid $color-border;
+  border-radius: 0 0 $radius-lg $radius-lg;
+
+  box-shadow: $shadow-soft;
+
+  padding: $space-xl;
+
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  h3 {
+    margin: 0;
+    color: $color-text-primary;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.45;
+    font-family: 'DIN2014';
+  }
+
+  &.danger {
+    border: 1px solid $color-danger;
+    border-top: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: $color-accent;
+  }
+
+  &.danger::before {
+    background: $color-danger;
+  }
+
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-sm;
+
+  margin-top: $space-md;
+}
+
+button.danger {
+  background-color: $color-danger;
+}
+
+.title span, .message span {
+  color: $color-danger;
+}
+
+.title [data-variant="all"], .message [data-variant="all"] {
+  font-weight: 700;
+}

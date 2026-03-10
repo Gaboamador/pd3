@@ -2,6 +2,8 @@ import { normalize } from "./normalize";
 
   const KIND_BASE_WEIGHT = {
     weaponType: 40,
+    category: 35,
+    tree: 30,
     armor: 25,
     plate: 20,
     throwable: 15,

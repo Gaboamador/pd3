@@ -40,6 +40,8 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:key" element={<Catalog />} />
         <Route path="/catalog/type/:slot/:weaponType" element={<Catalog />} />
+        <Route path="/catalog/category/:groupId" element={<Catalog />} />
+        <Route path="/catalog/tree/:treeId" element={<Catalog />} />
         <Route path="/compare-builds" element={<CompareBuilds />} />
         <Route path="/auth" element={<AuthScreen/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />

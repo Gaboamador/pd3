@@ -15,6 +15,9 @@ export default function SkillCard({
   onCycleDown,
   onSelectForDetails,
   onOpenInfo,
+  catalogMode = false,
+  highlighted = false,
+
 }) {
   /* =========================
      STATE DERIVATION
@@ -114,7 +117,7 @@ export default function SkillCard({
       data-state={visualState}
     >
       <div
-        className={styles.slot}
+        className={`${styles.slot} ${catalogMode ? styles.notClickeable : ""} ${highlighted ? styles.highlighted : ""}`}
         onClick={handleClick}
         onContextMenu={handleContextMenu}
         onPointerDown={handlePointerDown}

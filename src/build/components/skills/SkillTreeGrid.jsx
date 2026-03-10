@@ -24,6 +24,8 @@ export default function SkillTreeGrid({
   isMobile,
   getCycleUpDisabledReason,
   getCycleDownDisabledReason,
+  catalogMode = false,
+  highlightSkillKey = null
 }) {
   // =========================
   // Points spent in this tree
@@ -188,6 +190,8 @@ export default function SkillTreeGrid({
                   onSelectSkill?.(skill)
                 }
                 onOpenInfo={() => onOpenInfo?.(skill)}
+                catalogMode={catalogMode}
+                highlighted={skill.key === highlightSkillKey}
               />
             </div>
           );
