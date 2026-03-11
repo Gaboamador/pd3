@@ -107,7 +107,7 @@ export default function LibraryExplorer() {
 
 
   const suggestions = useMemo(() => {
-  const baseSuggestions = getSuggestions(query, catalog, activeChips);
+  const baseSuggestions = getSuggestions(query, catalog, activeChips, { enableDescriptionSearch: false });
 
     const q = query.trim().toLowerCase();
     if (!q) return baseSuggestions;

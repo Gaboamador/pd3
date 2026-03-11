@@ -72,7 +72,7 @@ export default function Catalog() {
   }, [weaponTypeIndex]);
 
   const suggestions = useMemo(() => {
-    return getSuggestions(query, catalog, [], skillsData);
+    return getSuggestions(query, catalog, [], { skillsData, enableDescriptionSearch: true });
   }, [query, catalog, skillsData]);
 
   const suggestionsWithDividers = useMemo(() => {

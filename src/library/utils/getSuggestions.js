@@ -14,12 +14,9 @@ import { searchSkillDescriptions } from "../../features/catalog/components/utils
     skill: 0
   };
   
-export function getSuggestions(query, catalog, activeChips = [], skillsData) {
+export function getSuggestions(query, catalog, activeChips = [],  { skillsData = null, enableDescriptionSearch = false }) {
   const q = normalize(query).trim().replace(/\s+/g, " ");
-  const descriptionMatches =
-  q.length >= 3
-    ? searchSkillDescriptions(q, skillsData).length
-    : 0;
+  const descriptionMatches = enableDescriptionSearch && q.length >= 3 ? searchSkillDescriptions(q, skillsData).length : 0;
   const qNoSpace = q.replace(/\s+/g, "");
 
   if (!q) return [];
@@ -27,7 +24,7 @@ export function getSuggestions(query, catalog, activeChips = [], skillsData) {
   const suggestions = [];
 
   // opción especial: search in skill descriptions, solo mostrar la opción si el query tiene ≥3 caracteres
-  if (q.length >= 3 && descriptionMatches > 0) {
+  if (enableDescriptionSearch && q.length >= 3 && descriptionMatches > 0) {
     suggestions.push({
       kind: "skillDescriptionSearch",
       key: `desc:${q}`,
