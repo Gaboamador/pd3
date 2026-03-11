@@ -285,14 +285,15 @@ useEffect(() => {
               })}
             </div>
           )}
-{textQuery && (
-  <Section title={`//Skill text search: "${decodeURIComponent(textQuery)}"`}>
-    <SkillDescriptionResults
-      skills={skillDescriptionMatches}
-      query={decodeURIComponent(textQuery)}
-    />
-  </Section>
-)}
+          
+          {textQuery && (
+            <Section title={`//Skill text search: "${decodeURIComponent(textQuery)}"`}>
+              <SkillDescriptionResults
+                skills={skillDescriptionMatches}
+                query={decodeURIComponent(textQuery)}
+              />
+            </Section>
+          )}
         </Section>
         }
 

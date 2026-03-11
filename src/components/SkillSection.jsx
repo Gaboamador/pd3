@@ -106,7 +106,7 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
             <div className={styles.textBlock}>{baseText}</div>
         </Section>
 
-        <Section title="Aced" cost={skill?.req_points?.aced ?? 0}>
+        <Section title="Ace" cost={skill?.req_points?.aced ?? 0}>
             <div className={styles.textBlock}>{acedText}</div>
         </Section>
     </div>

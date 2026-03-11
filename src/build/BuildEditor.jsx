@@ -531,7 +531,8 @@ return (
         />
       </Section>
 
-      <Section title="//SKILLS">
+<div className={styles.backgroundImage}>
+      <Section title="//SKILLS" overrideBg>
         <SkillsEditor
           build={build}
           setBuild={updateBuild}
@@ -541,6 +542,7 @@ return (
           skillGroupsData={skillGroupsData}
         />
       </Section>
+</div>
 
       {/* MODAL DE CONFIRMACIÓN DE ELIMINACIÓN */}
       <Modal

@@ -57,7 +57,9 @@ export default function SkillsEditor({
   }) {
   
   const isMobile = useIsMobile(920);
-  
+
+  const [selectedSkillLocked, setSelectedSkillLocked] = useState(false);
+
   const [activeTreeIndex, setActiveTreeIndex] = useState(() => {
     if (!catalogMode || !highlightTreeId) return 0;
 
@@ -141,6 +143,8 @@ export default function SkillsEditor({
   const totalPoints = useMemo(() => {
     return calculateSkillPoints(build.skills || {}, skillsData || {});
   }, [build.skills, skillsData]);
+
+  const remainingPoints = MAX_SKILL_POINTS - totalPoints;
 
   function patchSkills(nextSkills) {
     if (catalogMode) return;
@@ -302,8 +306,9 @@ function getCycleDownDisabledReason(skill) {
     setModalOpen(true);
   }
 
-  function selectForDetails(skill) {
+  function selectForDetails(skill, isLocked) {
     setSelectedSkillKey(skill.key);
+    setSelectedSkillLocked(isLocked);
   }
 
 
@@ -480,9 +485,17 @@ const groupPointsById = useMemo(() => {
       <div className={styles.headerInfo}>
         
         <div className={styles.pointsSpent}>
-          <div className={styles.title}>// TOTAL SKILL POINTS: </div>
-          <div className={styles.points}>{totalPoints}</div>
-          <div>(Max. {MAX_SKILL_POINTS})</div>
+          <div className={styles.title}>
+            <span>SKILL POINTS AVAILABLE</span>
+            <span>//</span>
+          </div>
+          <div className={styles.points}>{remainingPoints}</div>
+          <div className={styles.pointsActivated}>
+            <span>[</span>
+            <span>{totalPoints} activated</span>
+            <span>]</span>
+          </div>
+          {/* <div>(Max. {MAX_SKILL_POINTS})</div> */}
         </div>
 
         <div className={styles.actions}>
@@ -669,6 +682,7 @@ const groupPointsById = useMemo(() => {
             showAced={showAcedInDetails}
             equippedCount={selectedTreeEquipped}
             enableTotals={true}
+            isLocked={selectedSkillLocked}
           />
         </aside>
       )}

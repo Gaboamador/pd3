@@ -1,10 +1,12 @@
 import SkillSection from "../../../components/SkillSection";
+import SkillSprite from "./SkillSprite";
 import styles from "./SkillDetailsPanel.module.scss";
 
 export default function SkillDetailsPanel({
   skill,
   equippedCount = 0,
   enableTotals = false,
+  isLocked = false
 }) {
   if (!skill) {
     return (
@@ -22,8 +24,29 @@ export default function SkillDetailsPanel({
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
+        <div className={styles.titleWrapper}>
         <div className={styles.title}>
-          {skill.name}
+          <div className={styles.titleText}>
+            {skill.name?.toUpperCase()}
+          </div>
+        </div>
+        {isLocked && (
+          <div className={styles.lockedLabel}>
+            &gt; // SKILL LOCKED &lt;
+          </div>
+        )}
+        </div>
+        <div className={`${styles.spriteWrapper} ${isLocked ? styles.hasLockedSkill : ""}`}>
+          <div className={styles.sprite}>
+            <SkillSprite spritePos={skill.sprite} height={64} scaleOverride={true} />
+          </div>
+          {isLocked && (
+            <img
+              src="/icons/padlock.png"
+              className={styles.padlock}
+              alt=""
+            />
+          )}
         </div>
       </div>
 

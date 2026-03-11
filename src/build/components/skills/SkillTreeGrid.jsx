@@ -187,7 +187,8 @@ export default function SkillTreeGrid({
                 onCycleUp={() => onCycleUpSkill(skill)}
                 onCycleDown={() => onCycleDownSkill(skill)}
                 onSelectForDetails={() =>
-                  onSelectSkill?.(skill)
+                  // onSelectSkill?.(skill)
+                  onSelectSkill?.(skill, isLocked)
                 }
                 onOpenInfo={() => onOpenInfo?.(skill)}
                 catalogMode={catalogMode}

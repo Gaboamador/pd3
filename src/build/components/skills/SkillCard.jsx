@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import SkillSprite from "./SkillSprite";
+import { LuInfo } from "react-icons/lu";
 import styles from "./SkillCard.module.scss";
 
 export default function SkillCard({
@@ -172,7 +173,8 @@ export default function SkillCard({
           aria-label="Info"
           title="Info"
         >
-          ℹ️
+          {/* ℹ️ */}
+          <LuInfo size={14} strokeWidth={2.5} />
         </div>
 
         {/* LABEL INSIDE SLOT */}

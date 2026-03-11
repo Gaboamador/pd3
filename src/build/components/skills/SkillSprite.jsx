@@ -6,7 +6,7 @@ import {
   SKILL_SPRITE_TILE_H,
 } from "../../utils/sprites/skillsSprites";
 
-export default function SkillSprite({ spritePos, height = 48 }) {
+export default function SkillSprite({ spritePos, height = 48, scaleOverride = false }) {
   if (!spritePos) return null;
 
   const { r, c } = spritePos;
@@ -29,7 +29,7 @@ export default function SkillSprite({ spritePos, height = 48 }) {
         backgroundRepeat: "no-repeat",
         backgroundSize: `${bgW}px ${bgH}px`,
         backgroundPosition: `${x}px ${y}px`,
-        scale: 1.3,
+        scale: scaleOverride ? 1 : 1.3,
       }}
     />
   );

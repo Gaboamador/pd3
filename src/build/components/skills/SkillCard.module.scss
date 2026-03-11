@@ -101,18 +101,19 @@
    ========================= */
 .infoButton {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 3px;
+  right: 3px;
 
   border: none;
   background: transparent;
   padding: 0px;
+  line-height: 0.1;
 
   font-size: 12px;
   cursor: pointer;
   z-index: 6;
 
-  color: white;
+  color: whitesmoke;
   opacity: 0.9;
 
   &:hover {

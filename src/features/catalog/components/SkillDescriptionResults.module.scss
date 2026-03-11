@@ -13,9 +13,19 @@
 }
 
 .skillName {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  border: 1px solid rgba($pd3-main, 0.5);
+  background: rgba($pd3-main, 0.2);
+
   font-size: 1rem;
   font-weight: 900;
-  cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
 .match {

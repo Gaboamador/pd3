@@ -64,3 +64,29 @@
   display: flex;
   align-items: center;
 }
+
+.backgroundImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundImage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+ background-image: url("/bg/hq720.jpg");
+  background-repeat: no-repeat;
+
+  background-size: 150%;
+  background-position: center bottom;
+
+  filter: blur(4px);
+
+  z-index: 0;
+}
+
+.backgroundImage > * {
+  position: relative;
+  z-index: 1;
+}
