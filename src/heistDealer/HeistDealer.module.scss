@@ -1,0 +1,308 @@
+@use "../styles/variables" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-lg;
+  width: 100%;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.dealButton {
+  padding: 10px 16px;
+}
+
+.deckArea {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+//   justify-content: center;
+justify-content: flex-start;
+
+}
+
+.deck {
+  position: relative;
+  width: 120px;
+  aspect-ratio: 2 / 1;
+}
+
+.deckCard,
+.deckCardTop {
+  position: absolute;
+  inset: 0;
+
+  border-radius: $radius-md;
+  background: $color-bg-elevated;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.08), 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.deckCard:nth-child(1) {
+  transform: translateY(6px) rotate(-2deg);
+  opacity: 0.6;
+}
+
+.deckCard:nth-child(2) {
+  transform: translateY(3px) rotate(1deg);
+  opacity: 0.8;
+}
+
+.deckCardTop {
+  background: $color-bg-contrast;
+  cursor:pointer;
+}
+
+.cardArea {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 2 / 1;
+
+  perspective: 800px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.card,
+.cardBack {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: $radius-md;
+  background: $color-bg-elevated;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.cardBack {
+  transform: rotateY(0deg);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.08);
+}
+
+.card {
+  transform: rotateY(0deg);
+}
+
+.deckCard,
+.deckCardTop {
+  position: absolute;
+  inset: 0;
+
+  border-radius: $radius-md;
+  background: $color-bg-elevated;
+  border: 1px solid rgba($pd3-main, 0.6);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.deckCard::before,
+.deckCardTop::before,
+.cardBack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+  repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 2px,
+    transparent 2px,
+    transparent 8px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 2px,
+    transparent 2px,
+    transparent 8px
+  ),
+  repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+
+  opacity: 0.6;
+}
+.deckCard::after,
+.deckCardTop::after,
+.cardBack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/icons/icon-512.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+
+  transform: rotate(-90deg);
+  transform-origin: center;
+
+  pointer-events: none;
+}
+.deckCard::after,
+.deckCardTop::after {
+  background-size: 40%;
+}
+
+.cardBack::after {
+  background-size: 45%;
+}
+
+.heistName {
+//   margin-top: $space-sm;
+    // padding-top: 2px;
+    padding: 4px 0;
+  font-weight: 600;
+}
+
+.filters {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.filtersHeader {
+  clip-path: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-lg;
+  padding: $space-sm;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: $color-bg-contrast;
+  color: $color-text-primary;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.filtersHeaderTitle {
+  font-family: 'DIN2014';
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  font-size: 14px;
+  color: $color-text-muted;
+
+  transform-origin: center;
+}
+
+.filtersContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  padding: $space-lg;
+}
+
+.filterActions {
+  display: flex;
+  gap: 12px;
+
+  button {
+    clip-path: none;
+    background: transparent;
+    border: 1px solid $color-border;
+    padding: 6px 10px;
+    border-radius: $radius-sm;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    border-color: $pd3-main;
+    color: $pd3-main;
+  }
+}
+
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.toggleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+
+  padding: 6px 12px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border;
+
+  background: $color-bg-surface;
+  color: $color-text-muted;
+  font-size: 12px;
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $pd3-main;
+    color: $color-text-primary;
+  }
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-border;
+  transition: all 0.15s ease;
+}
+
+.on {
+  background: rgba($pd3-main, 0.12);
+  border-color: $pd3-main;
+  color: $pd3-main;
+
+  .indicator {
+    background: $pd3-main;
+  }
+}
+
+.labelText {
+  white-space: nowrap;
+}

@@ -12,13 +12,13 @@ import ArmorSprite from "../build/components/loadout/ArmorSprite";
 import DeployableSprite from "../build/components/loadout/DeployableSprite";
 import ThrowableSprite from "../build/components/loadout/ThrowableSprite";
 import ToolSprite from "../build/components/loadout/ToolSprite";
-import HeistSprite from "../build/components/loadout/HeistSprite";
+// import HeistSprite from "../build/components/loadout/HeistSprite";
 
 import { normalizeLoadoutData } from "../build/utils/loadout.utils";
 import { buildWeaponTypeLabels, getWeaponTypeLabel, orderWeaponTypes } from "../build/utils/weaponTypeLabels";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
-import { heists } from "../data/heists";
+// import { heists } from "../data/heists";
 
 import { getArmorMaxPlates, buildEmptyPlateSlots } from "../build/utils/armor.utils";
 import ArmorPlatesPreview from "../build/components/loadout/ArmorPlatesPreview";
@@ -209,7 +209,7 @@ export default function Randomizer() {
   const armorPlates = build.loadout.armor?.plates ?? [];
   const hasAnyPlateSelected = armorPlates.some(p => p != null);
 
-  const heistValue = build.loadout.heist;
+  // const heistValue = build.loadout.heist;
 
   const filteredPrimaryWeapons = useMemo(() => {
   return Object.entries(primary)
@@ -237,7 +237,7 @@ const filteredSecondaryWeapons = useMemo(() => {
       "overkill",
       "secondary",
       "primary",
-      "heist",
+      // "heist",
     ];
 
     for (const slot of order) {
@@ -278,10 +278,10 @@ const filteredSecondaryWeapons = useMemo(() => {
         items = loadoutNormalized.tool;
         SpriteComponent = ToolSprite;
         break;
-      case "heist":
-        items = heists.map(h => ({ key: h, name: h }));
-        SpriteComponent = HeistSprite;
-        break;
+      // case "heist":
+      //   items = heists.map(h => ({ key: h, name: h }));
+      //   SpriteComponent = HeistSprite;
+      //   break;
       default:
         break;
     }
@@ -381,9 +381,9 @@ function applyResult(slot, result) {
         break;
       }
 
-      case "heist":
-        next.heist = result.key;
-        break;
+      // case "heist":
+      //   next.heist = result.key;
+      //   break;
     }
 
     return { ...prev, loadout: next };
@@ -406,7 +406,7 @@ function applyResult(slot, result) {
         throwable: null,
         deployable: null,
         tool: null,
-        heist: null,
+        // heist: null,
       },
     });
   }
@@ -431,7 +431,7 @@ function applyResult(slot, result) {
           className={styles.secondaryButton}
           onClick={resetRandomizer}
         >
-          {t('randomizer.actions.reset')}
+          {t('common.actions.reset')}
         </button>
       </div>
 
@@ -711,7 +711,7 @@ function applyResult(slot, result) {
         </div>
 
         {/* HEIST */}
-        <div className={`${styles.cell} ${styles.heist}`}>
+        {/* <div className={`${styles.cell} ${styles.heist}`}>
           <LoadoutItemCard
             use='randomizer'
             slot="heist"
@@ -736,7 +736,7 @@ function applyResult(slot, result) {
               )
             }
           />
-        </div>
+        </div> */}
 
       </div>
     </div>

@@ -8,7 +8,8 @@ import {
   LuSearch,
   LuFolderOpen,
   LuFilter,
-  LuTarget
+  LuTarget,
+  LuSpade
 } from "react-icons/lu";
 
 export default function Home() {
@@ -32,13 +33,23 @@ const { isAuthenticated } = useAuth();
           </div>
         </Link>
 
-        <Link to="/randomizer" className={styles.card}>
+        <Link to="/library-explorer" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
           <div className={styles.cardTitle}>
-            <span className={styles.homeIcon} data-service="random"><LuDice5 /></span>
-            <span>{t('home.randomizer.title')}</span>
+            <span className={styles.homeIcon} data-service="explorer"><LuFolderOpen /> <LuFilter /></span>
+            <span>{t('home.library-explorer.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            {t('home.randomizer.desc')}
+            {!isAuthenticated ? `${t('home.library-explorer.desc.not-auth')}`:`${t('home.library-explorer.desc.auth')}`}
+          </div>
+        </Link>
+
+        <Link to="/library-roulette" className={styles.card}>
+          <div className={styles.cardTitle}>
+            <span className={styles.homeIcon} data-service="roulette"><LuTarget /><LuSpade /></span>
+            <span>{t('home.library-roulette.title')}</span>
+            </div>
+          <div className={styles.cardDesc}>
+            {!isAuthenticated ? `${t('home.library-roulette.desc.not-auth')}`:`${t('home.library-roulette.desc.auth')}`}
           </div>
         </Link>
 
@@ -52,25 +63,16 @@ const { isAuthenticated } = useAuth();
           </div>
         </Link>
 
-        <Link to="/library-explorer" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
+        <Link to="/randomizer" className={styles.card}>
           <div className={styles.cardTitle}>
-            <span className={styles.homeIcon} data-service="explorer"><LuFolderOpen /> <LuFilter /></span>
-            <span>{t('home.library-explorer.title')}</span>
+            <span className={styles.homeIcon} data-service="random"><LuDice5 /></span>
+            <span>{t('home.randomizer.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            {!isAuthenticated ? `${t('home.library-explorer.desc.not-auth')}`:`${t('home.library-explorer.desc.auth')}`}
+            {t('home.randomizer.desc')}
           </div>
         </Link>
-
-        <Link to="/library-roulette" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
-          <div className={styles.cardTitle}>
-            <span className={styles.homeIcon} data-service="roulette"><LuTarget /></span>
-            <span>{t('home.library-roulette.title')}</span>
-            </div>
-          <div className={styles.cardDesc}>
-            {!isAuthenticated ? `${t('home.library-roulette.desc.not-auth')}`:`${t('home.library-roulette.desc.auth')}`}
-          </div>
-        </Link>
+        
       </nav>
     </div>
   );

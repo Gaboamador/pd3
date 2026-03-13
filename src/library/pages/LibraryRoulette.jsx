@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../auth/useAuth";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./LibraryRoulette.module.scss";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
@@ -13,6 +14,7 @@ import { filterBuilds } from "../utils/librarySearchEngine";
 import { decodeFilters } from "../utils/filterSerialization";
 import { buildWeaponTypeIndex } from "../utils/buildWeaponTypeIndex";
 
+import HeistDealer from "../../heistDealer/HeistDealer";
 import loadoutData from "../../data/payday3_loadout_items.json";
 import Spinner from "../../components/Spinner";
 import BuildWheel from "../components/BulidWheel";
@@ -30,6 +32,7 @@ function shuffleArray(arr) {
 
 export default function LibraryRoulette() {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const { library, loading } = useUserLibrary();
   const { loadBuild } = useLoadBuild();
   const location = useLocation();
@@ -210,8 +213,13 @@ export default function LibraryRoulette() {
   return (
     <div className={styles.page}>
         <div className={styles.wrapper}>
-        
 
+{!user && (
+  <div className={styles.loginHint}>
+    {t("home.library-roulette.desc.not-auth")}
+  </div>
+)}        
+{user && (<>
         <Section>
           <div className={styles.backToExplorerAndPoolWrapper}>
             {fromExplorerSearch && (
@@ -282,11 +290,11 @@ export default function LibraryRoulette() {
                     type="button"
                     onClick={() => setManualSelectedIds(basePool.map((b) => b.id))}
                   >
-                    {t('library-roulette.actions.select-all')}
+                    {t('common.actions.select-all')}
                   </button>
 
                   <button type="button" onClick={() => setManualSelectedIds([])}>
-                    {t('library-roulette.actions.deselect-all')}
+                    {t('common.actions.deselect-all')}
                   </button>
                 </div>
 
@@ -358,6 +366,11 @@ export default function LibraryRoulette() {
               selectedIndex={selectedIndex}
           />
         </div>
+        </Section>
+
+</>)}
+        <Section title={t('section.title.heist-dealer')}>
+          <HeistDealer />
         </Section>
 
         </div>
