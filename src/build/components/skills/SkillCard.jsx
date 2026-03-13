@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SkillSprite from "./SkillSprite";
 import { LuInfo } from "react-icons/lu";
 import styles from "./SkillCard.module.scss";
@@ -20,6 +21,7 @@ export default function SkillCard({
   highlighted = false,
 
 }) {
+  const { t } = useTranslation();
   /* =========================
      STATE DERIVATION
      ========================= */
@@ -178,8 +180,8 @@ export default function SkillCard({
         </div>
 
         {/* LABEL INSIDE SLOT */}
-        {isAced && <div className={styles.stateLabel} data-kind="aced">// ACED</div>}
-        {isLocked && <div className={styles.stateLabel} data-kind="locked">// LOCKED</div>}
+        {isAced && <div className={styles.stateLabel} data-kind="aced">{t('skills.label.aced')}</div>}
+        {isLocked && <div className={styles.stateLabel} data-kind="locked">{t('skills.label.locked')}</div>}
 
         {/* BOTTOM RIGHT: ace icon + cost (or ace only if aced) */}
         <div className={styles.bottomRight}>

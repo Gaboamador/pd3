@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./ConfirmModal.module.scss";
 
@@ -5,12 +6,13 @@ export default function ConfirmModal({
   open,
   title,
   message,
-  confirmLabel = "CONFIRM",
-  cancelLabel = "CANCEL",
+  confirmLabel = "modal.actions.confirm",
+  cancelLabel = "modal.actions.cancel",
   onConfirm,
   onCancel,
   destructive = false,
 }) {
+  const { t } = useTranslation();
   return (
     <AnimatePresence>
       {open && (
@@ -32,10 +34,10 @@ export default function ConfirmModal({
 
             <div className={styles.actions}>
               <button className="secondary" onClick={onCancel}>
-                {cancelLabel}
+                {t(cancelLabel)}
               </button>
               <button onClick={onConfirm} className={destructive ? styles.danger : ""}>
-                {confirmLabel}
+                {t(confirmLabel)}
               </button>
             </div>
           </motion.div>

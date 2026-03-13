@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import SkillSection from "../../../components/SkillSection";
 import SkillSprite from "./SkillSprite";
 import styles from "./SkillDetailsPanel.module.scss";
@@ -8,14 +9,15 @@ export default function SkillDetailsPanel({
   enableTotals = false,
   isLocked = false
 }) {
+  const { t } = useTranslation();
   if (!skill) {
     return (
       <div className={styles.wrapper}>
         <div className={styles.emptyTitle}>
-          Skill details
+          {t('skills.panel.title')}
         </div>
         <div className={styles.emptyText}>
-          Select a skill to see its description.
+          {t('skills.panel.msg.no-skill')}
         </div>
       </div>
     );
@@ -32,7 +34,7 @@ export default function SkillDetailsPanel({
         </div>
         {isLocked && (
           <div className={styles.lockedLabel}>
-            &gt; // SKILL LOCKED &lt;
+            &gt; {t('skills.panel.locked')} &lt;
           </div>
         )}
         </div>

@@ -1,33 +1,8 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./BuildLibrary.module.scss";
-// import loadoutData from "../data/payday3_loadout_items.json";
-// import platesData from "../data/payday3_armor_plates.json";
 import { buildPreviewParts } from "../utils/buildPreview";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-
-
-// const loadoutIndex = Object.values(loadoutData)
-//   .flatMap(category => Object.values(category))
-//   .reduce((acc, item) => {
-//     if (item?.key) {
-//       acc[item.key] = item;
-//     }
-//     return acc;
-//   }, {});
-
-// function normalizeItemName(name) {
-//   if (!name) return name;
-
-//   // Eliminar " Frame" al final
-//   return name.replace(/\s+Frame$/, "");
-// }
-
-// function getItemNameByKey(key) {
-//   if (!key) return null;
-
-//   const name = loadoutIndex[key]?.name ?? null;
-//   return normalizeItemName(name);
-// }
 
 function SlotBadge({ slot }) {
   if (slot == null) {
@@ -42,6 +17,7 @@ function SlotBadge({ slot }) {
 }
 
 function SlotSelect({ slot, onChange }) {
+  const { t } = useTranslation();
   return (
     <select
       className={styles.slotSelect}
@@ -52,51 +28,26 @@ function SlotSelect({ slot, onChange }) {
         )
       }
     >
-      <option value="">Unassigned</option>
+      <option value="">{t('build.slot.unassigned')}</option>
 
-      <optgroup label="Main builds (0–9)">
+      <optgroup label={t('build.slot.main')}>
         {Array.from({ length: 10 }).map((_, i) => (
           <option key={i} value={i}>
-            Loadout {i}
+            {t('build.slot.loadout')} {i}
           </option>
         ))}
       </optgroup>
 
-      <optgroup label="Alternative builds (10+)">
+      <optgroup label={t('build.slot.alternative')}>
         {Array.from({ length: 20 }).map((_, i) => (
           <option key={i + 10} value={i + 10}>
-            Alt {i + 10}
+            {t('build.slot.altLoadout')} {i + 10}
           </option>
         ))}
       </optgroup>
     </select>
   );
 }
-
-// function formatPlates(plates) {
-//   if (!Array.isArray(plates) || plates.length === 0) {
-//     return null;
-//   }
-
-//   const counts = {};
-
-//   plates.forEach((plateKey) => {
-//     counts[plateKey] = (counts[plateKey] || 0) + 1;
-//   });
-
-//   const parts = Object.entries(counts).map(
-//     ([plateKey, count]) => {
-//       const plateName =
-//         platesData[plateKey]?.name ?? plateKey;
-
-//       return count > 1
-//         ? `${plateName} x${count}`
-//         : plateName;
-//     }
-//   );
-
-//   return parts.join(" + ");
-// }
 
 export default function BuildLibrary({
   builds,
@@ -105,74 +56,22 @@ export default function BuildLibrary({
   onDeleteBuild,
   onAssignSlot,
 }) {
-  
+  const { t } = useTranslation();
   const [expandedId, setExpandedId] = useState(null);
 
   if (!builds.length) {
-    return <div className={styles.empty}>No saved builds</div>;
+    return <div className={styles.empty}>{t('build.library.msg.no-saved')}</div>;
   }
 
   return (
     <div className={styles.library}>
-      <h3 className={styles.title}>Saved Builds</h3>
+      <h3 className={styles.title}>{t('build.library.title.saved')}</h3>
 
       <ul className={styles.list}>
         {builds.map((build) => {
           const isActive = build.id === currentBuildId;
           const isExpanded = expandedId === build.id;
           const previewParts = buildPreviewParts(build);
-// const loadout = build.loadout ?? {};
-
-// const primaryName = getItemNameByKey(
-//   loadout.primary?.weaponKey ?? loadout.primary
-// );
-
-// const secondaryName = getItemNameByKey(
-//   loadout.secondary?.weaponKey ?? loadout.secondary
-// );
-
-// const overkillName = getItemNameByKey(
-//   loadout.overkill?.weaponKey ?? loadout.overkill
-// );
-
-// const armorName = getItemNameByKey(
-//   loadout.armor?.key ?? loadout.armor
-// );
-
-// const plateText = formatPlates(
-//   loadout.armor?.plates
-// );
-
-// let armorFull = null;
-
-// if (armorName && plateText) {
-//   armorFull = `${armorName} (${plateText})`;
-// } else if (armorName) {
-//   armorFull = armorName;
-// }
-
-// const throwableName = getItemNameByKey(
-//   loadout.throwable?.weaponKey ?? loadout.throwable
-// );
-
-// const deployableName = getItemNameByKey(
-//   loadout.deployable?.key ?? loadout.deployable
-// );
-
-// const toolName = getItemNameByKey(
-//   loadout.tool?.key ?? loadout.tool
-// );
-
-// const previewParts = [
-//   primaryName,
-//   secondaryName,
-//   overkillName,
-//   armorFull,
-//   throwableName,
-//   deployableName,
-//   toolName,
-// ].filter(Boolean);
-
           return (
             <li
               key={build.id}
@@ -190,7 +89,7 @@ export default function BuildLibrary({
                   <SlotBadge slot={build.slot} />
                   <div className={styles.meta}>
                     <div className={styles.name}>
-                      {build.name || "Unnamed build"}
+                      {build.name || t('build.library.label.fallbackName')}
                     </div>
 
                     {previewParts.length > 0 && (
@@ -204,7 +103,7 @@ export default function BuildLibrary({
                 <div className={styles.right}>
                   {isActive ? (
                     <span className={styles.activeLabel}>
-                      ACTIVE
+                      {t('build.library.label.active')}
                     </span>
                   ) : (
                     <button
@@ -214,7 +113,7 @@ export default function BuildLibrary({
                         onLoadBuild(build);
                       }}
                     >
-                      Set Active
+                      {t('build.library.actions.set-active')}
                     </button>
                   )}
 
@@ -243,7 +142,7 @@ export default function BuildLibrary({
                       onDeleteBuild(build.id)
                     }
                   >
-                    Delete
+                    {t('build.library.actions.delete-build')}
                   </button>
                 </div>
               )}

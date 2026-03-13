@@ -1,5 +1,3 @@
-// src/features/compareBuilds/utils/semantic/semanticTags.js
-
 export const TAGS = {
   // Weapons
   AR_DAMAGE: "AR_DAMAGE",
@@ -20,7 +18,10 @@ export const TAGS = {
   PISTOL_ACCURACY: "PISTOL_ACCURACY",
   PISTOL_UTILITY: "PISTOL_UTILITY",
   PISTOL_SURVIVABILITY: "PISTOL_SURVIVABILITY",
+  PISTOL_AMMO: "PISTOL_AMMO",
 
+  MARKSMAN_DAMAGE: "MARKSMAN_DAMAGE",
+  MARKSMAN_UTILITY: "MARKSMAN_UTILITY",
   MARKSMAN_AMMO: "MARKSMAN_AMMO",
 
   // Defense / sustain
@@ -46,6 +47,9 @@ export const TAGS = {
 
   SMOKE_GRENADE: "SMOKE_GRENADE",
   SMOKE_VULN: "SMOKE_VULN",
+
+  THROWING_KNIFE: "THROWING_KNIFE",
+  THROWING_KNIFE_DAMAGE: "THROWING_KNIFE_DAMAGE",
 
   // Stealth / hacking / marking
   MARKING: "MARKING",
@@ -74,12 +78,6 @@ export const TAGS = {
   // Nuevos
   ADRENALINE: "ADRENALINE",
 
-  THROWING_KNIFE: "THROWING_KNIFE",
-  THROWING_KNIFE_DAMAGE: "THROWING_KNIFE_DAMAGE",
-
-  MARKSMAN_DAMAGE: "MARKSMAN_DAMAGE",
-  MARKSMAN_UTILITY: "MARKSMAN_UTILITY",
-
   ARMOR_PENETRATION: "ARMOR_PENETRATION",
 
   BLEED: "BLEED",
@@ -91,84 +89,82 @@ export const TAGS = {
 };
 
 export const TAG_META = {
-  [TAGS.AR_DAMAGE]: { label: "Assault Rifle damage" },
-  [TAGS.AR_ACCURACY]: { label: "Assault Rifle accuracy" },
-  [TAGS.AR_STABILITY]: { label: "Assault Rifle stability" },
-  [TAGS.AR_AMMO]: { label: "Assault Rifle ammo reserve" },
+  [TAGS.AR_DAMAGE]: { labelKey: "compare.tags.ar-damage" },
+  [TAGS.AR_ACCURACY]: { labelKey: "compare.tags.ar-accuracy" },
+  [TAGS.AR_STABILITY]: { labelKey: "compare.tags.ar-stability" },
+  [TAGS.AR_AMMO]: { labelKey: "compare.tags.ar-ammo" },
 
-  [TAGS.SMG_DAMAGE]: { label: "SMG damage" },
-  [TAGS.SMG_ACCURACY]: { label: "SMG accuracy" },
-  [TAGS.SMG_STABILITY]: { label: "SMG stability" },
-  [TAGS.SMG_AMMO]: { label: "SMG ammo reserve" },
+  [TAGS.SMG_DAMAGE]: { labelKey: "compare.tags.smg-damage" },
+  [TAGS.SMG_ACCURACY]: { labelKey: "compare.tags.smg-accuracy" },
+  [TAGS.SMG_STABILITY]: { labelKey: "compare.tags.smg-stability" },
+  [TAGS.SMG_AMMO]: { labelKey: "compare.tags.smg-ammo" },
 
-  [TAGS.SHOTGUN_DAMAGE]: { label: "Shotgun damage" },
-  [TAGS.SHOTGUN_RELOAD]: { label: "Shotgun reload" },
-  [TAGS.SHOTGUN_SURVIVABILITY]: { label: "Shotgun survivability" },
+  [TAGS.SHOTGUN_DAMAGE]: { labelKey: "compare.tags.shotgun-damage" },
+  [TAGS.SHOTGUN_RELOAD]: { labelKey: "compare.tags.shotgun-reload" },
+  [TAGS.SHOTGUN_SURVIVABILITY]: { labelKey: "compare.tags.shotgun-survivability" },
 
-  [TAGS.PISTOL_DAMAGE]: { label: "Pistol damage" },
-  [TAGS.PISTOL_ACCURACY]: { label: "Pistol accuracy" },
-  [TAGS.PISTOL_UTILITY]: { label: "Pistol utility" },
-  [TAGS.PISTOL_SURVIVABILITY]: { label: "Pistol survivability" },
+  [TAGS.PISTOL_DAMAGE]: { labelKey: "compare.tags.handgun-damage" },
+  [TAGS.PISTOL_ACCURACY]: { labelKey: "compare.tags.handgun-accuracy" },
+  [TAGS.PISTOL_UTILITY]: { labelKey: "compare.tags.handgun-utility" },
+  [TAGS.PISTOL_SURVIVABILITY]: { labelKey: "compare.tags.handgun-survivability" },
+  [TAGS.PISTOL_AMMO]: {labelKey: "compare.tags.handgun-ammo"},
 
-  [TAGS.MARKSMAN_AMMO]: { label: "Marksman ammo reserve" },
+  [TAGS.MARKSMAN_DAMAGE]: { labelKey: "compare.tags.marksman-damage" },
+  [TAGS.MARKSMAN_UTILITY]: { labelKey: "compare.tags.marksman-utility" },
+  [TAGS.MARKSMAN_AMMO]: { labelKey: "compare.tags.marksman-ammo" },
 
-  [TAGS.DAMAGE_REDUCTION]: { label: "Damage reduction" },
-  [TAGS.ARMOR_REGEN]: { label: "Armor regeneration" },
-  [TAGS.HEALTH_MAX]: { label: "Max health" },
-  [TAGS.HEALING]: { label: "Healing" },
-  [TAGS.DODGE]: { label: "Dodge" },
-  // [TAGS.DOWNS]: { label: "Downs" },
-  [TAGS.ARMOR_REPAIR]: { label: "Armor repair" },
+  [TAGS.DAMAGE_REDUCTION]: { labelKey: "compare.tags.damage-reduction" },
+  [TAGS.ARMOR_REGEN]: { labelKey: "compare.tags.armor-regen" },
+  [TAGS.HEALTH_MAX]: { labelKey: "compare.tags.max-health" },
+  [TAGS.HEALING]: { labelKey: "compare.tags.healing" },
+  [TAGS.DODGE]: { labelKey: "compare.tags.dodge" },
+  [TAGS.ARMOR_REPAIR]: { labelKey: "compare.tags.armor-repair" },
 
-  [TAGS.FLASHBANG]: { label: "Flashbang mechanics" },
-  [TAGS.FLASHBANG_STUN]: { label: "Flashbang stun duration" },
-  [TAGS.FLASHBANG_VULN]: { label: "Flashbang damage vulnerability" },
+  [TAGS.FLASHBANG]: { labelKey: "compare.tags.flash-mechanic" },
+  [TAGS.FLASHBANG_STUN]: { labelKey: "compare.tags.flash-stun" },
+  [TAGS.FLASHBANG_VULN]: { labelKey: "compare.tags.flash-damage-vulnerability" },
 
-  [TAGS.SHOCK_GRENADE]: { label: "Shock Grenade mechanics" },
-  [TAGS.SHOCK_STUN]: { label: "Shock stun duration" },
-  [TAGS.SHOCK_VULN]: { label: "Shock damage vulnerability" },
+  [TAGS.SHOCK_GRENADE]: { labelKey: "compare.tags.shock-mechanic" },
+  [TAGS.SHOCK_STUN]: { labelKey: "compare.tags.shock-stun" },
+  [TAGS.SHOCK_VULN]: { labelKey: "compare.tags.shock-damage-vulnerability" },
 
-  [TAGS.FRAG_GRENADE]: { label: "Frag Grenade mechanics" },
-  [TAGS.FRAG_VULN]: { label: "Frag damage vulnerability" },
+  [TAGS.FRAG_GRENADE]: { labelKey: "compare.tags.frag-mechanic" },
+  [TAGS.FRAG_VULN]: { labelKey: "compare.tags.frag-damage-vulnerability" },
 
-  [TAGS.SMOKE_GRENADE]: { label: "Smoke Grenade mechanics" },
-  [TAGS.SMOKE_VULN]: { label: "Smoke damage vulnerability" },
+  [TAGS.SMOKE_GRENADE]: { labelKey: "compare.tags.smoke-mechanic" },
+  [TAGS.SMOKE_VULN]: { labelKey: "compare.tags.smoke-damage-vulnerability" },
 
-  [TAGS.MARKING]: { label: "Marking" },
-  [TAGS.HACKING]: { label: "Hacking / Runtime" },
-  [TAGS.CAMERA_LOOP]: { label: "Camera looping" },
-  [TAGS.STEALTH_UNMASKED]: { label: "Unmasked stealth" },
+  [TAGS.THROWING_KNIFE]: { labelKey: "compare.tags.throwing-knife-mechanic" },
+  [TAGS.THROWING_KNIFE_DAMAGE]: { labelKey: "compare.tags.throwing-knife-damage" },
 
-  [TAGS.AMMO_BAG]: { label: "Ammo Bag value" },
-  [TAGS.ARMOR_BAG]: { label: "Armor Bag value" },
-  [TAGS.MEDIC_BAG]: { label: "Medic Bag value" },
+  [TAGS.MARKING]: { labelKey: "compare.tags.marking" },
+  [TAGS.HACKING]: { labelKey: "compare.tags.hacking" },
+  [TAGS.CAMERA_LOOP]: { labelKey: "compare.tags.hacking-camera" },
+  [TAGS.STEALTH_UNMASKED]: { labelKey: "compare.tags.stealth" },
 
-  [TAGS.TURRET]: { label: "Sentry Turret value" },
-  [TAGS.TURRET_DAMAGE]: { label: "Sentry Turret damage" },
-  [TAGS.TURRET_HEAT]: { label: "Sentry Turret heat/overheat control" },
+  [TAGS.AMMO_BAG]: { labelKey: "compare.tags.ammo-bag" },
+  [TAGS.ARMOR_BAG]: { labelKey: "compare.tags.armor-bag" },
+  [TAGS.MEDIC_BAG]: { labelKey: "compare.tags.medic-bag" },
 
-  [TAGS.HOSTAGES]: { label: "Hostages / trading" },
-  [TAGS.CARRY]: { label: "Carry / bags" },
+  [TAGS.TURRET]: { labelKey: "compare.tags.sentry-value" },
+  [TAGS.TURRET_DAMAGE]: { labelKey: "compare.tags.sentry-damage" },
+  [TAGS.TURRET_HEAT]: { labelKey: "compare.tags.sentry-sustain" },
 
-  [TAGS.TOOL_RESTORE]: { label: "Tool restore" },
-  [TAGS.THROWABLE_RESTORE]: { label: "Throwable restore" },
-  [TAGS.AMMO_ECON]: { label: "Ammo economy" },
+  [TAGS.HOSTAGES]: { labelKey: "compare.tags.hostages" },
+  [TAGS.CARRY]: { labelKey: "compare.tags.carry" },
 
+  [TAGS.TOOL_RESTORE]: { labelKey: "compare.tags.tool-restore" },
+  [TAGS.THROWABLE_RESTORE]: { labelKey: "compare.tags.throwable-restore" },
+  [TAGS.AMMO_ECON]: { labelKey: "compare.tags.ammo-economy" },
 
-  [TAGS.ADRENALINE]: { label: "Adrenaline" },
+  [TAGS.ADRENALINE]: { labelKey: "compare.tags.adrenaline" },
 
-  [TAGS.THROWING_KNIFE]: { label: "Throwing knives" },
-  [TAGS.THROWING_KNIFE_DAMAGE]: { label: "Throwing knife damage" },
+  [TAGS.ARMOR_PENETRATION]: { labelKey: "compare.tags.armor-penetration" },
 
-  [TAGS.MARKSMAN_DAMAGE]: { label: "Marksman rifle damage" },
-  [TAGS.MARKSMAN_UTILITY]: { label: "Marksman rifle utility" },
+  [TAGS.BLEED]: { labelKey: "compare.tags.bleeding" },
+  [TAGS.GAS_DAMAGE]: { labelKey: "compare.tags.poison" },
 
-  [TAGS.ARMOR_PENETRATION]: { label: "Armor penetration" },
-
-  [TAGS.BLEED]: { label: "Bleeding" },
-  [TAGS.GAS_DAMAGE]: { label: "Gas damage" },
-
-  [TAGS.SURVIVABILITY]: { label: "Survivability" },
-  [TAGS.MOBILITY]: { label: "Mobility" },
-  [TAGS.OBJECTIVE_INTERACTION]: { label: "Objective interaction speed" }
+  [TAGS.SURVIVABILITY]: { labelKey: "compare.tags.survivability" },
+  [TAGS.MOBILITY]: { labelKey: "compare.tags.mobility" },
+  [TAGS.OBJECTIVE_INTERACTION]: { labelKey: "compare.tags.interaction-speed" }
 };

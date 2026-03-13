@@ -1,8 +1,9 @@
-import Modal from "../common/Modal";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../auth/useAuth";
 import { useToast } from "../../../context/ToastContext";
+import Modal from "../common/Modal";
 import Spinner from "../../../components/Spinner";
 import { WeaponPresetService } from "../../../services/weaponPresetService";
 import { getWeaponModSlots } from "../../utils/loadout.utils";
@@ -41,6 +42,7 @@ export default function WeaponModsModal({
 }) {
   
   // estados
+  const { t } = useTranslation();
   const { uid } = useAuth();
   const navigate = useNavigate();
   const [authRequired, setAuthRequired] = useState(false);
@@ -53,7 +55,7 @@ export default function WeaponModsModal({
   if (!weaponDef) {
   return (
     <div className={styles.emptyCard} onClick={onClick}>
-      Select weapon
+      {t('modal.actions.select-weapon')}
     </div>
   );
 }
@@ -132,13 +134,13 @@ export default function WeaponModsModal({
       // ✅ Toast SOLO si guardó realmente
       showToast({
         type: "success",
-        message: "Personal preset saved",
+        message: t('toast.msg.preset.saved'),
       });
     } catch (err) {
       console.error("Error saving weapon preset:", err);
       showToast({
         type: "error",
-        message: "Failed to save personal preset",
+        message: t('toast.msg.preset.failed-to-save'),
       });
     } finally {
       setPresetLoading(false);
@@ -146,7 +148,6 @@ export default function WeaponModsModal({
   }
 
   async function handleSavePreset() {
-    // if (!uid || isGamePresetWeapon) return;
     if (isGamePresetWeapon) return;
 
     if (!uid) {
@@ -173,7 +174,7 @@ export default function WeaponModsModal({
     >
       {isPreset && (
         <div className={styles.presetNotice}>
-          This weapon has preset modifications.
+          {t('modal.msg.preset-exists')}
         </div>
       )}
 
@@ -182,25 +183,25 @@ export default function WeaponModsModal({
 
           {authRequired && (
             <div className={styles.authPrompt}>
-              <span>Log in to save personal weapon presets</span>
+              <span>{t('auth.msg.login-required.presets')}</span>
               <button
                 className={styles.authLoginBtn}
                 onClick={() => navigate("/auth")}
               >
-                LOG IN
+                {t('auth.actions.login')}
               </button>
             </div>
           )}
 
           <div className={`${styles.personalPresetActions} ${(checkingPreset || presetLoading) ? styles.checkingPresetSpinner : ""}`}>
             {checkingPreset ? (
-              <Spinner size="sm" label="Checking presets…" />
+              <Spinner size="sm" label={t('spinner.presets.checking')} />
             ) : presetLoading ? (
-              <Spinner size="sm" label="Saving preset…" />
+              <Spinner size="sm" label={t('spinner.presets.saving')} />
             ) : (
               <>
                 <div className={styles.presetTitle}>
-                  <span>PERSONAL PRESET</span>
+                  <span>{t('modal.title.personal-preset')}</span>
                 </div>
 
                 <div className={styles.presetBtnWrapper}>
@@ -209,14 +210,14 @@ export default function WeaponModsModal({
                     onClick={handleLoadPreset}
                     disabled={!hasPersonalPreset}
                   >
-                    LOAD
+                    {t('build.actions.load')}
                   </button>
 
                   <button
                     className={styles.presetBtn}
                     onClick={handleSavePreset}
                   >
-                    SAVE
+                    {t('build.actions.save')}
                   </button>
                 </div>
               </>
@@ -226,7 +227,7 @@ export default function WeaponModsModal({
       )}
 
       {!modSlots.length && (
-        <div className={styles.empty}>No mods available</div>
+        <div className={styles.empty}>{t('build.loadout.msg.no-mods-available')}</div>
       )}
 
       <div className={styles.slots}>
@@ -269,11 +270,11 @@ export default function WeaponModsModal({
         <Modal
           open={confirmReplaceOpen}
           onClose={() => setConfirmReplaceOpen(false)}
-          title="Replace personal preset?"
+          title={t('modal.title.replace-preset')}
           width="520px"
         >
           <div className={styles.confirmBody}>
-            A personal preset already exists for this weapon. Replacing it will overwrite your current preset.
+            {t('modal.msg.replace-preset')}
           </div>
 
           <div className={styles.confirmActions}>
@@ -282,7 +283,7 @@ export default function WeaponModsModal({
               onClick={() => setConfirmReplaceOpen(false)}
               disabled={presetLoading}
             >
-              CANCEL
+              {t('modal.actions.cancel')}
             </button>
 
             <button
@@ -293,7 +294,7 @@ export default function WeaponModsModal({
               }}
               disabled={presetLoading}
             >
-              REPLACE
+              {t('modal.actions.replace')}
             </button>
           </div>
         </Modal>

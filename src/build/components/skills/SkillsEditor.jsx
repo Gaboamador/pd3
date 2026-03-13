@@ -1,5 +1,5 @@
-// src/components/skills/SkillsEditor.jsx
 import { useMemo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { buildSkillUIIndex } from "../../utils/skillsIndex.utils";
 import styles from "./SkillsEditor.module.scss";
 import SkillTreeGrid from "./SkillTreeGrid";
@@ -55,7 +55,7 @@ export default function SkillsEditor({
   highlightSkillKey = null,
   highlightTreeId = null,
   }) {
-  
+  const { t } = useTranslation();
   const isMobile = useIsMobile(920);
 
   const [selectedSkillLocked, setSelectedSkillLocked] = useState(false);
@@ -486,16 +486,15 @@ const groupPointsById = useMemo(() => {
         
         <div className={styles.pointsSpent}>
           <div className={styles.title}>
-            <span>SKILL POINTS AVAILABLE</span>
+            <span>{t('skills.editor.title.points-available')}</span>
             <span>//</span>
           </div>
           <div className={styles.points}>{remainingPoints}</div>
           <div className={styles.pointsActivated}>
             <span>[</span>
-            <span>{totalPoints} activated</span>
+            <span>{totalPoints} {t('skills.editor.title.points-active')}</span>
             <span>]</span>
           </div>
-          {/* <div>(Max. {MAX_SKILL_POINTS})</div> */}
         </div>
 
         <div className={styles.actions}>
@@ -504,7 +503,7 @@ const groupPointsById = useMemo(() => {
             className={styles.actionButton}
             onClick={clearActiveGroupSkills}
           >
-            CLEAR CATEGORY
+            {t('skills.editor.actions.clear.category')}
           </button>
 
           <button
@@ -512,7 +511,7 @@ const groupPointsById = useMemo(() => {
             className={`${styles.actionButton} ${styles.danger}`}
             onClick={clearAllSkills}
           >
-            CLEAR ALL
+            {t('skills.editor.actions.clear.all')}
           </button>
         </div>
 
@@ -520,16 +519,16 @@ const groupPointsById = useMemo(() => {
           open={confirmOpen}
           title={
             pendingAction === "clearAll"
-              ? <><span>Clear all skills?</span></>
-              : <>Clear <span>{activeGroup?.name}</span> skills?</>
+              ? <><span>{t('modal.title.skills.clear.all')}</span></>
+              : <>{t('modal.title.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.title.skills.clear.category2')}</>
           }
           message={
             pendingAction === "clearAll"
-              ? <>This will remove <span data-variant="all">ALL</span> selected skills from the build.</>
-              : <>This will remove all skills from the <span>{activeGroup?.name}</span> category.</>
+              ? <>{t('modal.msg.skills.clear.all1')} <span data-variant="all">{t('modal.msg.skills.clear.all2')}</span> {t('modal.msg.skills.clear.all3')}</>
+              : <>{t('modal.msg.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.msg.skills.clear.category2')}</>
           }
-          confirmLabel="CLEAR"
-          cancelLabel="CANCEL"
+          confirmLabel={t('modal.actions.clear')}
+          cancelLabel={t('modal.actions.cancel')}
           onConfirm={executeClear}
           onCancel={() => {
             setConfirmOpen(false);

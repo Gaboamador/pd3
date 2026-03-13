@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getArmorByKey,
   getArmorMaxPlates,
@@ -12,6 +13,7 @@ export default function ArmorPlatesEditor({
   loadoutData,
   onChange,
 }) {
+  const { t } = useTranslation();
   const armorDef = useMemo(
     () => (value?.key ? getArmorByKey(loadoutData, value.key) : null),
     [loadoutData, value?.key]
@@ -25,11 +27,11 @@ export default function ArmorPlatesEditor({
   }, [value?.key, value?.plates, maxPlates]);
 
   if (!value?.key) {
-    return <div style={{ opacity: 0.8 }}>Select an armor frame first</div>;
+    return <div style={{ opacity: 0.8 }}>{t('build.loadout.msg.no-armor-frame')}</div>;
   }
 
   if (maxPlates <= 0) {
-    return <div style={{ opacity: 0.8 }}>No plates available for this armor</div>;
+    return <div style={{ opacity: 0.8 }}>{t('build.loadout.msg.no-plates-available')}</div>;
   }
 
   return (

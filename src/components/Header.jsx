@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./Header.module.scss";
 import pd3_logo_alt from "../assets/pd3_logo_alt.svg";
 import { Link, useLocation } from "react-router-dom";
@@ -7,7 +8,7 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 
 
 export default function Header() {
-  
+  const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
   const location = useLocation();
 
@@ -18,11 +19,11 @@ export default function Header() {
   const pathname = location.pathname;
 
   const SUBTITLE_ROUTES = [
-    { match: "/build-editor", label: "Build Editor" },
-    { match: "/randomizer", label: "Randomizer" },
-    { match: "/library-explorer", label: "Library Explorer" },
-    { match: "/library-roulette", label: "Library Roulette" },
-    { match: "/catalog", label: "Catalog" },
+    { match: "/build-editor", label: t('home.build-editor.title') },
+    { match: "/randomizer", label: t('home.randomizer.title') },
+    { match: "/library-explorer", label: t('home.library-explorer.title') },
+    { match: "/library-roulette", label: t('home.library-roulette.title') },
+    { match: "/catalog", label: t('home.catalog.title') },
   ];
 
   const subtitle = SUBTITLE_ROUTES.find(r => pathname.startsWith(r.match))?.label ?? "";
@@ -43,7 +44,7 @@ export default function Header() {
         )}
 
       {isAuthenticated ? (
-        <button onClick={handleLogout}>LOGOUT</button>
+        <button onClick={handleLogout}>{t('auth.actions.logout')}</button>
       ) : (
         <Link to="/auth">
           <span>

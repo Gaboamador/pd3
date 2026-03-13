@@ -1,9 +1,7 @@
-// src/features/compareBuilds/utils/semantic/generateSemanticInsights.js
-
-function formatBuildList(labels) {
+function formatBuildList(labels, t) {
   if (labels.length === 1) return labels[0];
-  if (labels.length === 2) return `${labels[0]} and ${labels[1]}`;
-  return `${labels.slice(0, -1).join(", ")} and ${labels[labels.length - 1]}`;
+  if (labels.length === 2) return `${labels[0]} ${t('compare.insights.junction')} ${labels[1]}`;
+  return `${labels.slice(0, -1).join(", ")} ${t('compare.insights.junction')} ${labels[labels.length - 1]}`;
 }
 
 function topContributorsText(contrib, skillNameByKey, max = 2) {
@@ -14,11 +12,7 @@ function topContributorsText(contrib, skillNameByKey, max = 2) {
     .join(", ");
 }
 
-function getShortBuildLabel(build, idx) {
-  return build?.name || `Build ${idx + 1}`;
-}
-
-export function generateSemanticInsights({ builds, buildLabels, semanticIndex, profiles, skillsData }) {
+export function generateSemanticInsights({ builds, buildLabels, semanticIndex, profiles, skillsData, t }) {
   const tagMeta = semanticIndex?.tagMeta || {};
   const skillNameByKey = (key) => skillsData?.[key]?.name || key;
 
@@ -55,8 +49,6 @@ export function generateSemanticInsights({ builds, buildLabels, semanticIndex, p
     const top = ranked.filter(x => x.v >= best * 0.85); // allow ties-ish
     const rest = ranked.filter(x => x.v < best * 0.85);
 
-    // const topLabels = top.map(x => buildLabels[x.id] || x.id);
-    // const restLabels = rest.map(x => buildLabels[x.id] || x.id);
     const buildNameById = Object.fromEntries(
       Object.entries(buildLabels).map(([id, label]) => {
         const short = label.replace(/^\d+\s*·\s*/, "");
@@ -66,22 +58,23 @@ export function generateSemanticInsights({ builds, buildLabels, semanticIndex, p
     const topLabels = top.map(x => `[[${buildNameById[x.id]}]]`);
     const restLabels = rest.map(x => `[[${buildNameById[x.id]}]]`);
 
-    const label = tagMeta?.[tag]?.label || tag;
+    // const label = tagMeta?.[tag]?.label || tag;
+    const labelKey = tagMeta?.[tag]?.labelKey;
+    const label = labelKey ? t(labelKey) : tag;
 
-    // Add “because of …” using top contributors from the strongest build
     const strongestId = ranked[0].id;
     const contrib = profiles[strongestId]?.contributorsByTag?.[tag] || [];
     const because = topContributorsText(contrib, skillNameByKey, 2);
 
     let text;
     if (restLabels.length) {
-    text = `${formatBuildList(topLabels)} focuses more on **${label}** than ${formatBuildList(restLabels)}.`;
+    text = `${formatBuildList(topLabels, t)} ${t('compare.insights.compare1')} **${label}** ${t('compare.insights.compare2')} ${formatBuildList(restLabels, t)}.`;
     } else {
-    text = `${formatBuildList(topLabels)} strongly focuses on **${label}**.`;
+    text = `${formatBuildList(topLabels, t)} ${t('compare.insights.compare-alone')} **${label}**.`;
     }
 
     if (because) {
-    text += ` Mainly because of: ${because}.`;
+    text += ` ${t('compare.insights.explanation')} ${because}.`;
     }
 
     insights.push({

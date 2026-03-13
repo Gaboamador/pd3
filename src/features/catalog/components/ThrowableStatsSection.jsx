@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import StatsGrid from "./common/StatsGrid";
 import { prettifyKey } from "./utils/prettifyKey";
 import { formatDeployableStat } from "./utils/formatters";
 
 export default function ThrowableStatsSection({ throwable }) {
+  const { t } = useTranslation();
   if (!throwable) return null;
 
   const rows = Object.entries(throwable.stats || {})
@@ -15,7 +17,7 @@ export default function ThrowableStatsSection({ throwable }) {
   return (
     <StatsGrid
       description={throwable.description}
-      columns={["Stat", "Value"]}
+      columns={[t('catalog.header-stat'), t('catalog.header-value')]}
       rows={rows}
     />
   );

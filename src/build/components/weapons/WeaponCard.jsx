@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import WeaponSprite from "./WeaponSprite";
 import WeaponModsModal from "./WeaponModsModal";
 import { WEAPON_PLACEHOLDERS } from "../../utils/sprites/placeholders";
@@ -19,9 +20,10 @@ export default function WeaponCard({
   mode,
   spriteOverlay,
   isSpinning = false,
-  spinningLabel = "RANDOMIZING...",
+  spinningLabel = "randomizer.label.randomizing",
   use,
 }) {
+  const { t } = useTranslation();
   const [openMods, setOpenMods] = useState(false);
 
   const isItemPicker = mode === "item-picker";
@@ -32,8 +34,7 @@ const isLoadoutEditor = !isItemPicker; // default
     ? weaponDef.sprite_pos
     : WEAPON_PLACEHOLDERS[slot];
 
-  // const name = weaponDef ? weaponDef.name : "Select weapon";
-  const name = weaponDef ? weaponDef.name : use === "randomizer" ? "Randomize weapon": "Select weapon";
+  const name = weaponDef ? weaponDef.name : use === "randomizer" ? t('randomizer.label.randomize-weapon'): t('modal.actions.select-weapon');
 
   const canEdit = Boolean(weaponDef && (onBeforeEdit || onChangeMods));
 
@@ -63,7 +64,7 @@ return (
         <div className={styles.headerTitle}>
           <span>//</span>
           <span className={styles.category}>
-            {isItemPicker ? name : `${slot.toUpperCase()} WEAPON`}
+            {isItemPicker ? name : `${slot.toUpperCase()} ${t('build.loadout.weapon')}`}
           </span>
         </div>
         <button
@@ -73,7 +74,7 @@ return (
             if (!canEdit) return;
             handleEditClick();
           }}
-          aria-label="Edit mods"
+          aria-label={t('aria-label.weapon-mods-edit')}
           tabIndex={canEdit ? 0 : -1}
         >
           ⚙
@@ -82,7 +83,7 @@ return (
 
       {/* BODY */}
       <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper}`}>
-        {/* <WeaponSprite spritePos={spritePos} height={spriteHeight} /> */}
+
         {!isSpinning && (
           <WeaponSprite spritePos={spritePos} height={spriteHeight} />
         )}
@@ -108,9 +109,8 @@ return (
       {/* FOOTER */}
       {isLoadoutEditor && (
       <div className={styles.footer}>
-        {/* <div className={styles.name}>{name}</div> */}
         <div className={styles.name}>
-          {isSpinning ? spinningLabel : name}
+          {isSpinning ? t(spinningLabel) : name}
         </div>
       </div>
       )}

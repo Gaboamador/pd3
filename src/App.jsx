@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "./auth/useAuth.js";
 import AuthScreen from "./auth/AuthScreen.jsx";
 import Header from "./components/Header.jsx";
@@ -14,12 +15,12 @@ import Catalog from "./features/catalog/Catalog.jsx";
 import CompareBuilds from "./features/compareBuilds/CompareBuilds.jsx";
 
 function App() {
-
+  const { t } = useTranslation();
   const { loading } = useAuth();
 
    // Esperamos a Firebase
   if (loading) {
-    return <Spinner label="Checking session…" />;
+    return <Spinner label={t('spinner.auth-validation')} />;
   }
 
   return (

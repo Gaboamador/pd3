@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import StatsGrid from "./common/StatsGrid";
 import { prettifyKey } from "./utils/prettifyKey";
 import styles from "./WeaponStatsSection.module.scss";
@@ -15,14 +16,14 @@ const MOD_SLOT_ORDER = [
   "Grip",
 ];
 
-function buildNewStatsRows(newStats) {
+function buildNewStatsRows(newStats, t) {
   if (!newStats) return [];
 
   return [
-    ["Damage Close", formatDamageValue(newStats.close)],
-    ["Damage Medium", formatDamageValue(newStats.medium)],
-    ["Damage Far", formatDamageValue(newStats.far)],
-    ["Armor Penetration", formatNumber(newStats.ap)],
+    [t('catalog.weapon.damage-close'), formatDamageValue(newStats.close)],
+    [t('catalog.weapon.damage-med'), formatDamageValue(newStats.medium)],
+    [t('catalog.weapon.damage-far'), formatDamageValue(newStats.far)],
+    [t('catalog.weapon.ap'), formatNumber(newStats.ap)],
   ]
     .filter(([_, v]) => v != null)
     .map(([k, v]) => [{ value: k }, { value: v }]);
@@ -61,20 +62,21 @@ function buildModsInfo(weapon) {
 }
 
 export default function WeaponStatsSection({ weapon }) {
+  const { t } = useTranslation();
   if (!weapon) return null;
 
-  const rows = buildNewStatsRows(weapon.newStats);
+  const rows = buildNewStatsRows(weapon.newStats, t);
   if (rows.length === 0) return null;
 
   const modsInfo = buildModsInfo(weapon);
 
   return (
     <>
-      <StatsGrid columns={["Stat", "Value"]} rows={rows} />
+      <StatsGrid columns={[t('catalog.header-stat'), t('catalog.header-value')]} rows={rows} />
 
       {modsInfo.length > 0 && (
         <div className={styles.modsSection}>
-          <div className={styles.modsTitle}>Mods Available</div>
+          <div className={styles.modsTitle}>{t('catalog.title.weapon-mods')}</div>
 
           <div className={styles.modsGrid}>
             {modsInfo.map(({ slot, names }) => (

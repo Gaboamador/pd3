@@ -4,7 +4,7 @@ import { TAG_META } from "./semanticTags";
  * Derives archetypes and strengths from semantic profile scores.
  */
 
-export function analyzeBuildArchetype(profile) {
+export function analyzeBuildArchetype(profile, t) {
   if (!profile || !profile.scoreByTag) {
     return {
       archetypes: [],
@@ -30,7 +30,7 @@ export function analyzeBuildArchetype(profile) {
   // convert to readable labels
   const strengths = topTags.map(tag => {
     const meta = TAG_META[tag];
-    return meta ? meta.label : tag;
+    return meta ? t(meta.labelKey) : tag;
   });
 
   // archetype detection based on strongest tags

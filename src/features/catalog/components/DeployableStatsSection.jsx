@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import StatsGrid from "./common/StatsGrid";
 import { prettifyKey } from "./utils/prettifyKey";
 import { formatDeployableStat } from "./utils/formatters";
 
 export default function DeployableStatsSection({ deployable }) {
+  const { t } = useTranslation();
   if (!deployable) return null;
 
   const rows = Object.entries(deployable.stats || {})
@@ -15,7 +17,7 @@ export default function DeployableStatsSection({ deployable }) {
   return (
     <StatsGrid
       description={deployable.description}
-      columns={["Stat", "Value"]}
+      columns={[t('catalog.header-stat'), t('catalog.header-value')]}
       rows={rows}
     />
   );

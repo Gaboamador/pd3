@@ -1,9 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { QRCodeSVG } from "qrcode.react";
 import { buildPreviewParts } from "../utils/buildPreview";
 import styles from "./ShareQrModal.module.scss";
 
 export default function ShareQrModal({ url, onClose, sharedBuild }) {
-  
+  const { t } = useTranslation();
   if (!url) return null;
   
   const previewParts = buildPreviewParts(sharedBuild);
@@ -17,7 +18,7 @@ export default function ShareQrModal({ url, onClose, sharedBuild }) {
             <button
               className={styles.close}
               onClick={onClose}
-              aria-label="Close"
+              aria-label={t('aria-label.close')}
             >
               ✕
             </button>
@@ -56,7 +57,7 @@ export default function ShareQrModal({ url, onClose, sharedBuild }) {
                         navigator.clipboard.writeText(url);
                         }}
                     >
-                        Copy link
+                        {t('build.share.copy-link')}
                     </button>
                 </div>
         </div>

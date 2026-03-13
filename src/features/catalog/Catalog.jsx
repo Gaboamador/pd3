@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import styles from "./Catalog.module.scss";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
@@ -23,6 +24,7 @@ import SkillDescriptionResults from "./components/SkillDescriptionResults";
 import ScrollArrow from "../../components/ScrollArrow";
 
 export default function Catalog() {
+  const { t } = useTranslation();
   const { key, slot, weaponType, groupId, treeId, textQuery } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -195,7 +197,7 @@ useEffect(() => {
                 <button onClick={() => navigate(-1)} className={styles.backBtn}>
                   <IoChevronBackCircleSharp />
                 </button>
-                <span>BACK TO COMPARISON</span>
+                <span>{t('nav.back-to-comparison')}</span>
               </div>
           </Section>
         )}
@@ -213,18 +215,18 @@ useEffect(() => {
               >
                 <IoChevronBackCircleSharp />
               </button>
-              <span>BACK TO EXPLORER</span>
+              <span>{t('nav.back-to-explorer')}</span>
             </div>
           </Section>
         )}
 
         {!fromCompare && !fromExplorer &&
-        <Section title="//Catalog_search">
+        <Section title={t('section.title.catalog')}>
           <input
             className={styles.input}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search catalog..."
+            placeholder={t('title.placeholder.search')}
           />
           {query && suggestions.length > 0 && (
             <div className={styles.suggestions}>
@@ -287,7 +289,7 @@ useEffect(() => {
           )}
           
           {textQuery && (
-            <Section title={`//Skill text search: "${decodeURIComponent(textQuery)}"`}>
+            <Section title={`${t('section.title.skill-text-search')}"${decodeURIComponent(textQuery)}"`}>
               <SkillDescriptionResults
                 skills={skillDescriptionMatches}
                 query={decodeURIComponent(textQuery)}
@@ -347,7 +349,7 @@ useEffect(() => {
                   onChange={(e) => setHidePresetVariants(e.target.checked)}
                   className={styles.checkbox}
                 />
-                Hide preset variants
+                {t('catalog.label.hide-preset')}
               </label>
             </div>
             <WeaponTypeComparisonSection

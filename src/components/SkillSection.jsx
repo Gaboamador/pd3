@@ -1,10 +1,12 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { renderSkillTextWithTotals } from "../build/utils/skillScaling.utils.jsx";
 import styles from "./SkillSection.module.scss";
 import skillGroupsData from "../data/payday3_skill_groups.json";
 
 export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false, textTransform }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   if (!skill) return null;
 
@@ -87,26 +89,26 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
               className={`${styles.metaChip} ${styles.metaClickable}`}
               onClick={goToCategory}
             >
-                Category: <strong>{meta?.groupName ?? "Unknown"}</strong>
+                {t('skills.label.category')} <strong>{meta?.groupName ?? t('common.unknown')}</strong>
             </span>
 
             <span
               className={`${styles.metaChip} ${styles.metaClickable}`}
               onClick={goToTree}
             >
-                Tree: <strong>{meta?.treeName ?? "Unknown"}</strong>
+                {t('skills.label.tree')} <strong>{meta?.treeName ?? t('common.unknown')}</strong>
             </span>
 
             <span className={styles.metaChip}>
-                Tier: <strong>{meta?.tier ?? "—"}</strong>
+                {t('skill.label.tier')} <strong>{meta?.tier ?? "—"}</strong>
             </span>
             </div>
         )}
-        <Section title="Base" cost={skill?.req_points?.base ?? 0}>
+        <Section title={t('skills.title.base')} cost={skill?.req_points?.base ?? 0}>
             <div className={styles.textBlock}>{baseText}</div>
         </Section>
 
-        <Section title="Ace" cost={skill?.req_points?.aced ?? 0}>
+        <Section title={t('skills.title.aced')} cost={skill?.req_points?.aced ?? 0}>
             <div className={styles.textBlock}>{acedText}</div>
         </Section>
     </div>
@@ -114,11 +116,12 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
 }
 
 function Section({ title, cost, children }) {
+  const { t } = useTranslation();
   return (
     <div className={styles.section}>
       <div className={styles.sectionHeader}>
         <span className={styles.sectionTitle}>{title}</span>
-        <span className={styles.sectionCost}>Cost {cost}</span>
+        <span className={styles.sectionCost}>{t('skills.label.cost')}{cost}</span>
       </div>
 
       {children}

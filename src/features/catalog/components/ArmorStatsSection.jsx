@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import StatsGrid from "./common/StatsGrid";
 import { computeArmorStats } from "./utils/computeArmorStats";
 import { resolveDescription } from "../../../utils/resolveDescription";
@@ -7,6 +8,7 @@ import { prettifyKey } from "./utils/prettifyKey";
 import { formatArmorStat } from "./utils/formatters";
 
 export default function ArmorStatsSection({ armor, item }) {
+  const { t } = useTranslation();
   const plateDef = item?.plateKey
     ? platesData[item.plateKey]
     : null;
@@ -36,7 +38,7 @@ export default function ArmorStatsSection({ armor, item }) {
             )
           : null
       }
-      columns={["Stat", "Value"]}
+      columns={[t('catalog.header-stat'), t('catalog.header-value')]}
       rows={rows}
     />
   );

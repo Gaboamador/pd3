@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import {
   loginWithEmail,
@@ -10,6 +11,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from "./AuthScreen.module.scss";
 
 export default function AuthScreen() {
+  const { t } = useTranslation();
   const [mode, setMode] = useState("login"); 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -49,7 +51,7 @@ export default function AuthScreen() {
     } catch (err) {
       setError(
         firebaseErrorMessages[err.code] ??
-          "Error logging in"
+          t('auth.msg.login-error')
       );
     } finally {
       setLoading(false);
@@ -61,7 +63,7 @@ export default function AuthScreen() {
     resetErrors();
 
     if (password !== repeatPassword) {
-      setError("Passwords don't match");
+      setError(t('auth.msg.pass.dont-match'));
       return;
     }
 
@@ -77,7 +79,7 @@ export default function AuthScreen() {
       setError(
         firebaseErrorMessages[err.code] ??
         err?.message??
-          "Error creating account"
+          t('auth.msg.signup-error')
       );
     } finally {
       setLoading(false);
@@ -93,12 +95,12 @@ export default function AuthScreen() {
       setLoading(true);
       await recoverPassword(email);
       setMessage(
-        "If the email exists you will receive a recovery message"
+        t('auth.msg.recovery-successful')
       );
     } catch (err) {
       setError(
         firebaseErrorMessages[err.code] ??
-          "Error sending recovery message"
+          t('auth.msg.recovery-error')
       );
     } finally {
       setLoading(false);
@@ -108,9 +110,9 @@ export default function AuthScreen() {
   return (
     <div className={styles.authScreen}>
       <h2 className={styles.title}>
-        {mode === "login" && "Log in to your account"}
-        {mode === "register" && "Create Account"}
-        {mode === "recovery" && "Recover Password"}
+        {mode === "login" && t('auth.title.login')}
+        {mode === "register" && t('auth.title.signup')}
+        {mode === "recovery" && t('auth.title.recover')}
       </h2>
 
       {mode === "login" && (
@@ -120,7 +122,7 @@ export default function AuthScreen() {
         >
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t('auth.placeholder.email')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
@@ -130,7 +132,7 @@ export default function AuthScreen() {
           <div className={styles.passwordWrapper}>
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder={t('auth.placeholder.pass')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={styles.input}
@@ -150,7 +152,7 @@ export default function AuthScreen() {
             <button
               disabled={loading}
             >
-              LOG IN
+              {t('auth.actions.login')}
             </button>
           </div>
 
@@ -163,7 +165,7 @@ export default function AuthScreen() {
                 setMode("register");
               }}
             >
-              Create Account
+              {t('auth.title.signup')}
             </button>
 
             <button
@@ -174,7 +176,7 @@ export default function AuthScreen() {
                 setMode("recovery");
               }}
             >
-              Forgot your password?
+              {t('auth.actions.forgot-pass')}
             </button>
           </div>
         </form>
@@ -187,7 +189,7 @@ export default function AuthScreen() {
         >
           <input
             type="text"
-            placeholder="Username"
+            placeholder={t('auth.placeholder.username')}
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className={styles.input}
@@ -196,7 +198,7 @@ export default function AuthScreen() {
 
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t('auth.placeholder.email')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
@@ -206,7 +208,7 @@ export default function AuthScreen() {
           <div className={styles.passwordWrapper}>
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              placeholder={t('auth.placeholder.pass')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={styles.input}
@@ -225,7 +227,7 @@ export default function AuthScreen() {
           <div className={styles.passwordWrapper}>
             <input
               type={showRepeatPassword ? "text" : "password"}
-              placeholder="Repeat Password"
+              placeholder={t('auth.placeholder.pass-repeat')}
               value={repeatPassword}
               onChange={(e) => setRepeatPassword(e.target.value)}
               className={styles.input}
@@ -245,7 +247,7 @@ export default function AuthScreen() {
             className={styles.primaryButton}
             disabled={loading}
           >
-            Create account
+            {t('auth.actions.signup')}
           </button>
 
           <div className={styles.authLinks}>
@@ -257,7 +259,7 @@ export default function AuthScreen() {
                 setMode("login");
               }}
             >
-              I already have an account
+              {t('auth.actions.has-account')}
             </button>
           </div>
         </form>
@@ -270,7 +272,7 @@ export default function AuthScreen() {
         >
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t('auth.placeholder.email')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
@@ -281,7 +283,7 @@ export default function AuthScreen() {
             className={styles.primaryButton}
             disabled={loading}
           >
-            Send password recovery email
+            {t('auth.actions.recovery')}
           </button>
 
           <div className={styles.authLinks}>
@@ -293,7 +295,7 @@ export default function AuthScreen() {
                 setMode("login");
               }}
             >
-              Back to login
+              {t('nav.back-to-login')}
             </button>
           </div>
         </form>

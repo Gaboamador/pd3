@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import { nanoid } from "nanoid";
@@ -33,7 +34,7 @@ import ScrollArrow from "../components/ScrollArrow";
 import Modal from "./components/common/Modal";
 
 export default function BuildEditor({mode}) {
-
+  const { t } = useTranslation();
   const { uid } = useAuth();
   const navigate = useNavigate();
   const { encoded } = useParams();
@@ -61,26 +62,6 @@ export default function BuildEditor({mode}) {
   delete clean.__shared;
   return clean;
 }
-
-// useEffect(() => {
-//   let mounted = true;
-
-//   async function loadLibrary() {
-//     setLibraryLoading(true);
-//     const data = await BuildLibraryService.getAll(uid);
-    
-//     if (mounted) {
-//       setLibrary(data);
-//       setLibraryLoading(false);
-//     }
-//   }
-
-//   loadLibrary();
-
-//   return () => {
-//     mounted = false;
-//   };
-// }, [uid]);
 
 const [build, setBuild] = useState(() => {
   if (encoded) {
@@ -196,13 +177,13 @@ const [build, setBuild] = useState(() => {
 
         showToast({
         type: "success",
-        message: isShared || isNew ? "Build saved" : "Build updated",
+        message: isShared || isNew ? t('build.saved') : t('build.updated'),
         });
       } catch (err) {
         console.error(err);
         showToast({
           type: "error",
-          message: "Failed to save build",
+          message: t('build.failed-to-save'),
         });
       } finally {
         setSaving(false);
@@ -242,13 +223,13 @@ const [build, setBuild] = useState(() => {
 
         showToast({
           type: "success",
-          message: "Build saved as new",
+          message: t('build.saved-as-new'),
         });
       } catch (err) {
         console.error(err);
         showToast({
           type: "error",
-          message: "Failed to save build as new",
+          message: t('builds.failed-save-as-new'),
         });
       } finally {
         setSaving(false);
@@ -271,14 +252,14 @@ const [build, setBuild] = useState(() => {
 
       showToast({
         type: "success",
-        message: "Build deleted",
+        message: t('build.deleted'),
       });
 
     } catch (err) {
       console.error(err);
       showToast({
         type: "error",
-        message: "Failed to delete build",
+        message: t('build.failed-delete'),
       });
     } finally {
       setSaving(false);
@@ -331,13 +312,13 @@ const orderedLibrary = useMemo(() => {
 
       showToast({
         type: "success",
-        message: "Slot updated",
+        message: t('build.slot-updated'),
       });
     } catch (err) {
       console.error(err);
       showToast({
         type: "error",
-        message: "Failed to update slot",
+        message: t('build.failed-update-slot'),
       });
     } finally {
       setSaving(false);
@@ -346,7 +327,7 @@ const orderedLibrary = useMemo(() => {
 
 
 if (loading) {
-  return <Spinner label="Loading builds…" />;
+  return <Spinner label={t('spinner.loading')} />;
 }
 
 const canSave =
@@ -359,8 +340,7 @@ return (
 
     {mode === "share" && (
       <div className={styles.sharedBanner}>
-        Viewing a shared build.  
-        Save it to add it to your library.
+        {t('build.shared_flag')}
       </div>
     )}
 
@@ -389,13 +369,13 @@ return (
           </button>
 
           <span>
-            {fromComparison ? "BACK TO COMPARISON" : "BACK TO EXPLORER"}
+            {fromComparison ? t('nav.back-to-comparison') : t('nav.back-to-explorer')}
           </span>
         </div>
       </Section>
     )}
 
-    <Section title="//Manage_builds">
+    <Section title={t('section.title.manage_builds')}>
       <button
         className="secondary"
         onClick={() => setShowLibrary(v => !v)}
@@ -434,41 +414,41 @@ return (
         </div>
 
         <span>
-          BUILDS ({orderedLibrary.length})
+          {t('build.actions.open_library')} ({orderedLibrary.length})
         </span>
       </button>
 
       <button onClick={handleNewBuild}>
-        NEW BUILD
+        {t('build.actions.new')}
       </button>
 
       <button onClick={handleShare}>
-        SHARE BUILD
+        {t('build.actions.share')}
       </button>
 
       <div className={styles.handleSaveActionsWrapper}>
-        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? "Save is only available for existing builds" : ""}>
-          SAVE
+        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? t('build.msg.save-disabled') : ""}>
+          {t('build.actions.save')}
         </button>
-        <span className={styles.handleSaveActionsMessage}>(Update current build)</span>
+        <span className={styles.handleSaveActionsMessage}>{t('build.msg.update-current')}</span>
       </div>
       
       <div className={styles.handleSaveActionsWrapper}>
         <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
-          SAVE AS
+          {t('build.actions.save-as')}
         </button>
-        <span className={styles.handleSaveActionsMessage}>(Save as new build)</span>
+        <span className={styles.handleSaveActionsMessage}>{t('build.msg.save-as-new')}</span>
       </div>
 
-      {saving && <Spinner label="Saving..." />}
+      {saving && <Spinner label={t('spinner.saving')} />}
 
       <div className={styles.handleLoginWrapper}>
         {showAuthRequired && (
           <>
-            <span>Log in to save builds to your library</span>
+            <span>{t('auth.msg.login-required.builds')}</span>
             
             <button onClick={() => navigate("/auth")}>
-              LOG IN
+              {t('auth.actions.login')}
             </button>
           </>
         )}
@@ -506,10 +486,10 @@ return (
     )}
   </AnimatePresence>
 
-      <Section title="//BUILD_NAME">
+      <Section title={t('section.title.build_name')}>
         <input
           type="text"
-          placeholder="Build name"
+          placeholder={t('title.placeholder.build-name')}
           className={styles.buildNameInput}
           value={build.name}
           onChange={(e) =>
@@ -521,7 +501,7 @@ return (
         />
       </Section>
 
-      <Section title="//LOADOUT">
+      <Section title={t('section.title.loadout')}>
         <LoadoutEditor
           build={build}
           setBuild={updateBuild}
@@ -532,7 +512,7 @@ return (
       </Section>
 
 <div className={styles.backgroundImage}>
-      <Section title="//SKILLS" overrideBg>
+      <Section title={t('section.title.skills')} overrideBg>
         <SkillsEditor
           build={build}
           setBuild={updateBuild}
@@ -553,16 +533,15 @@ return (
             setPendingDeleteId(null);
           }
         }}
-        title="Delete build?"
+        title={t('modal.title.delete-build')}
         width="520px"
       >
         <div style={{ marginBottom: "20px" }}>
-          This action cannot be undone.  
-          The build will be permanently removed from your library.
+          {t('modal.msg.delete-build')}
         </div>
         {saving && (
           <div style={{ marginBottom: 16 }}>
-            <Spinner size="sm" label="Deleting build…" />
+            <Spinner size="sm" label={t('spinner.deleting')} />
           </div>
         )}
         <div style={{
@@ -578,14 +557,14 @@ return (
             }}
             disabled={saving}
           >
-            CANCEL
+            {t('modal.actions.cancel')}
           </button>
 
           <button
             onClick={performDeleteBuild}
             disabled={saving}
           >
-            {saving ? "DELETING..." : "DELETE"}
+            {saving ? t('modal.actions.deleting') : t('modal.actions.delete')}
           </button>
         </div>
       </Modal>

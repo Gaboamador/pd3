@@ -1,9 +1,9 @@
 import { useMemo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./LibraryRoulette.module.scss";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
-import { FaCircleChevronDown } from "react-icons/fa6";
 import { IoMdOpen } from "react-icons/io";
 import Section from "../../build/components/common/Section";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
@@ -29,6 +29,7 @@ function shuffleArray(arr) {
 }
 
 export default function LibraryRoulette() {
+  const { t } = useTranslation();
   const { library, loading } = useUserLibrary();
   const { loadBuild } = useLoadBuild();
   const location = useLocation();
@@ -147,7 +148,6 @@ export default function LibraryRoulette() {
     function spin() {
     if (!pool.length) return;
     setSpinning(true);
-    // const randomIndex = Math.floor(Math.random() * pool.length);
 
     // =========================
     // DECK LOGIC (ex randomIndex)
@@ -205,7 +205,7 @@ export default function LibraryRoulette() {
     }, 4000);
     }
 
-  if (loading) return <Spinner label="Loading builds…" />;
+  if (loading) return <Spinner label={t('spinner.loading')} />;
 
   return (
     <div className={styles.page}>
@@ -222,20 +222,20 @@ export default function LibraryRoulette() {
                 >
                   <IoChevronBackCircleSharp />
                 </button>
-                <span>BACK TO EXPLORER</span>
+                <span>{t('nav.back-to-explorer')}</span>
               </div>
             )}
 
             <div className={styles.poolHeader}>
               <div className={styles.resultsLength}>
-                {pool.length} build{pool.length !== 1 ? "s" : ""} in pool
+                {pool.length} {t('library-roulette.msg.title1')}{pool.length !== 1 ? "s" : ""} {t('library-roulette.msg.title2')}
               </div>
 
               <div className={styles.switchWrapper}>
                 <span className={styles.switchLabel}>
                   {manualMode === "all"
-                    ? "All filtered"
-                    : `${manualSelectedIds.length}/${basePool.length} selected`}
+                    ? t('library-roulette.msg.filter-all')
+                    : `${manualSelectedIds.length}/${basePool.length} ${t('library-roulette.msg.filter-some')}`}
                 </span>
 
                 <button
@@ -282,16 +282,15 @@ export default function LibraryRoulette() {
                     type="button"
                     onClick={() => setManualSelectedIds(basePool.map((b) => b.id))}
                   >
-                    Select all
+                    {t('library-roulette.actions.select-all')}
                   </button>
 
                   <button type="button" onClick={() => setManualSelectedIds([])}>
-                    Deselect all
+                    {t('library-roulette.actions.deselect-all')}
                   </button>
                 </div>
 
                 <div className={styles.manualList}>
-                  {/* {basePool.map((b) => { */}
                   {[...basePool]
                   .sort((a, b) => a.name.localeCompare(b.name))
                   .map((b) => {
@@ -324,7 +323,7 @@ export default function LibraryRoulette() {
           </AnimatePresence>
         </Section>
 
-        <Section title="//Library_Roulette">
+        <Section title={t('section.title.library-roulette')}>
         <div className={styles.rouletteSection}>
           <div className={styles.controlAndResult}>
               <div>
@@ -333,14 +332,14 @@ export default function LibraryRoulette() {
                       disabled={!pool.length || spinning}
                       onClick={spin}
                   >
-                      {spinning ? "Spinning..." : "SPIN"}
+                      {spinning ? t('library-roulette.label.spinning') : t('library-roulette.label.spin')}
                   </button>
               </div>
 
               <div className={styles.resultWrapper}>
                   {selected &&
                   <div className={styles.btnWrapper}>
-                    <div>OPEN</div>
+                    <div>{t('library-explorer.actions.open')}</div>
                     <button 
                     className={styles.btn}
                     onClick={() => loadBuild(selected, {fromExplorer: location.search,})}

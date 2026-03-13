@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { FaCircleChevronUp, FaCircleChevronDown } from "react-icons/fa6";
 import styles from "./WeaponTypeComparisonSection.module.scss";
 import {
@@ -15,6 +16,7 @@ function getSortableNumeric(value) {
 }
 
 export default function WeaponTypeComparisonSection({ weapons }) {
+  const { t } = useTranslation();
   const [sortConfig, setSortConfig] = useState({
     key: "name",
     direction: "asc",
@@ -95,7 +97,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
             <tr>
             <th onClick={() => toggleSort("name")} className={sortConfig.key === "name" ? styles.active : ""}>
                 <div className={styles.headerContent}>
-                <span>Weapon</span>
+                <span>{t('weapon.compare.name')}</span>
                 <span className={styles.sortIcon}>
                     {sortIndicator("name")}
                 </span>
@@ -104,7 +106,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
 
             <th onClick={() => toggleSort("close")} className={sortConfig.key === "close" ? styles.active : ""}>
                 <div className={styles.headerContent}>
-                <span>Close</span>
+                <span>{t('weapon.compare.close')}</span>
                 <span className={styles.sortIcon}>
                     {sortIndicator("close")}
                 </span>
@@ -113,7 +115,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
 
             <th onClick={() => toggleSort("medium")} className={sortConfig.key === "medium" ? styles.active : ""}>
                 <div className={styles.headerContent}>
-                <span>Med.</span>
+                <span>{t('weapon.compare.med')}</span>
                 <span className={styles.sortIcon}>
                     {sortIndicator("medium")}
                 </span>
@@ -122,7 +124,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
 
             <th onClick={() => toggleSort("far")} className={sortConfig.key === "far" ? styles.active : ""}>
                 <div className={styles.headerContent}>
-                <span>Far</span>
+                <span>{t('weapon.compare.far')}</span>
                 <span className={styles.sortIcon}>
                     {sortIndicator("far")}
                 </span>
@@ -131,7 +133,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
 
             <th onClick={() => toggleSort("ap")} className={sortConfig.key === "ap" ? styles.active : ""}>
                 <div className={styles.headerContent}>
-                <span>AP</span>
+                <span>{t('weapon.compare.ap')}</span>
                 <span className={styles.sortIcon}>
                     {sortIndicator("ap")}
                 </span>

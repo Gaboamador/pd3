@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Modal from "../common/Modal";
 import styles from "./LoadoutItemPickerModal.module.scss";
 import {
@@ -17,6 +18,7 @@ export default function LoadoutItemPickerModal({
   itemsByType,
   renderCard,
 }) {
+  const { t } = useTranslation();
   const [filterType, setFilterType] = useState("");
 
   const itemTypes = useMemo(
@@ -51,13 +53,13 @@ export default function LoadoutItemPickerModal({
     <div className={styles.wrapper}>
       {itemTypes.length > 1 && (
         <div className={styles.selectWrapper}>
-          <span className={styles.selectLabel}>Weapon Type</span>
+          <span className={styles.selectLabel}>{t('modal.title.weapon-type')}</span>
           <select
             className={styles.filter}
             value={filterType}
             onChange={e => setFilterType(e.target.value)}
           >
-            <option value="">All</option>
+            <option value="">{t('select.option.all')}</option>
             {orderedTypes.map(type => (
               <option key={type} value={type}>
                 {getWeaponTypeLabel(type, labelsMap)}

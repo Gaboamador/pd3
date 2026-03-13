@@ -1,9 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import styles from "./ComparisonGrid.module.scss";
 import { useLoadBuild } from "../../../hooks/useLoadBuild";
 
 export default function ComparisonGrid({ title, buildIds, builds, buildLabels, rows, showLevel = true }) {
-  
+  const { t } = useTranslation();
   const {loadBuild} = useLoadBuild();
   
   if (!rows || rows.length === 0) return null;
@@ -20,7 +21,7 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
             </colgroup>
           <thead>
             <tr>
-              <th className={styles.featureCol}>SKILL</th>
+              <th className={styles.featureCol}>{t('compare.table.header')}</th>
               {buildIds.map((id) => {
                 const build = builds?.find(b => b.id === id);
                 return (
@@ -38,7 +39,7 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
                     }}
                     style={{ cursor: build ? "pointer" : "default" }}
                   >
-                    {buildLabels?.[id] || `Build ${id}`}
+                    {buildLabels?.[id] || `{t('compare.table.build-label')} ${id}`}
                   </th>
                 );
               })}
@@ -69,7 +70,7 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
                             r.label
                         )}
                     </div>
-                    {r.kind === "level" && <div className={styles.subLabel}>level differs</div>}
+                    {r.kind === "level" && <div className={styles.subLabel}>{t('compare.table.skill-is-shared')}</div>}
                     {r.slot && <div className={styles.subLabel}>{r.slot}</div>}
                 </td>
 
@@ -77,7 +78,6 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
                   const cell = r.cells?.[id];
                   const present = !!cell?.present;
 
-                //   let badge = present ? "✓" : "–";
                   let badge = null;
                   let detail = null;
 
@@ -86,7 +86,6 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
                   }
 
                   if (showLevel && present && cell?.level) {
-                    // "aced" / "base"
                     detail = cell.level;
                   }
 

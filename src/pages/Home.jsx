@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import styles from "./Home.module.scss";
@@ -11,63 +12,63 @@ import {
 } from "react-icons/lu";
 
 export default function Home() {
-
+const { t } = useTranslation();
 const { isAuthenticated } = useAuth();
 
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <div className={styles.title}>Build tools & randomizers</div>
+        <div className={styles.title}>{t('home.title')}</div>
       </header>
 
       <nav className={styles.grid}>
         <Link to="/build-editor" className={styles.card}>
           <div className={styles.cardTitle}>
             <span className={styles.homeIcon} data-service="editor"><LuWrench /></span>
-            <span>Build Editor</span>
+            <span>{t('home.build-editor.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            Manually create and edit builds, skills and loadouts.
+            {t('home.build-editor.desc')}
           </div>
         </Link>
 
         <Link to="/randomizer" className={styles.card}>
           <div className={styles.cardTitle}>
             <span className={styles.homeIcon} data-service="random"><LuDice5 /></span>
-            <span>Randomizer</span>
+            <span>{t('home.randomizer.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            Generate random builds with configurable rules.
+            {t('home.randomizer.desc')}
           </div>
         </Link>
 
         <Link to="/catalog" className={styles.card}>
           <div className={styles.cardTitle}>
             <span className={styles.homeIcon} data-service="catalog"><LuSearch /></span>
-            <span>Catalog</span>
+            <span>{t('home.catalog.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            Search the full PD3 database: skills, weapons, armor, equipment and more.
+            {t('home.catalog.desc')}
           </div>
         </Link>
 
         <Link to="/library-explorer" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
           <div className={styles.cardTitle}>
             <span className={styles.homeIcon} data-service="explorer"><LuFolderOpen /> <LuFilter /></span>
-            <span>Library Explorer</span>
+            <span>{t('home.library-explorer.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            {!isAuthenticated ? `Sign in to search and filter your saved builds.`:`Search, filter and load builds from your personal library.`}
+            {!isAuthenticated ? `${t('home.library-explorer.desc.not-auth')}`:`${t('home.library-explorer.desc.auth')}`}
           </div>
         </Link>
 
         <Link to="/library-roulette" className={`${styles.card} ${!isAuthenticated ? styles.disabled : ""}`}>
           <div className={styles.cardTitle}>
             <span className={styles.homeIcon} data-service="roulette"><LuTarget /></span>
-            <span>Library Roulette</span>
+            <span>{t('home.library-roulette.title')}</span>
             </div>
           <div className={styles.cardDesc}>
-            {!isAuthenticated ? `Sign in to spin between your saved builds.`:`Spin a wheel using filtered builds from your library.`}
+            {!isAuthenticated ? `${t('home.library-roulette.desc.not-auth')}`:`${t('home.library-roulette.desc.auth')}`}
           </div>
         </Link>
       </nav>

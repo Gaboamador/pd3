@@ -13,7 +13,7 @@ export function BuildProvider({ value, children }) {
 export function useBuild() {
   const ctx = useContext(BuildContext);
   if (!ctx) {
-    throw new Error("useBuild debe usarse dentro de <BuildProvider />");
+    throw new Error("useBuild must be used inside <BuildProvider />");
   }
   return ctx;
 }

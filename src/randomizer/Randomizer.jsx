@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleChevronDown } from "react-icons/fa6";
 import styles from "./Randomizer.module.scss";
@@ -51,6 +52,7 @@ const RANDOMIZER_SESSION_KEY = "pd3_randomizer_build_v1";
 const RANDOMIZER_DECKS_KEY = "pd3_randomizer_decks_v1";
 
 export default function Randomizer() {
+  const { t } = useTranslation();
   const loadoutNormalized = useMemo(
     () => normalizeLoadoutData(loadoutData),
     []
@@ -422,14 +424,14 @@ function applyResult(slot, result) {
           className={styles.primaryButton}
           onClick={randomizeFullSequential}
         >
-          RANDOMIZE COMPLETE BUILD
+          {t('randomizer.actions.randomize')}
         </button>
 
         <button
           className={styles.secondaryButton}
           onClick={resetRandomizer}
         >
-          RESET
+          {t('randomizer.actions.reset')}
         </button>
       </div>
 
@@ -441,7 +443,7 @@ function applyResult(slot, result) {
         className={styles.filtersHeader}
         onClick={() => setFiltersOpen(prev => !prev)}
       >
-        <span className={styles.filtersHeaderTitle}>Filter Weapon Types</span>
+        <span className={styles.filtersHeaderTitle}>{t('randomizer.label.filter')}</span>
         <motion.span
           className={styles.chevron}
           animate={{ rotate: filtersOpen ? 180 : 0 }}
@@ -464,7 +466,7 @@ function applyResult(slot, result) {
         {/* PRIMARY */}
         <div className={styles.filterGroup}>
           <div className={styles.filterTitle}>
-            Primary Types ({primaryTypes.length})
+            {t('randomizer.label.filter.primary')} ({primaryTypes.length})
           </div>
 
           <div className={styles.filterList}>
@@ -500,7 +502,7 @@ function applyResult(slot, result) {
         {/* SECONDARY */}
         <div className={styles.filterGroup}>
           <div className={styles.filterTitle}>
-            Secondary Types ({secondaryTypes.length})
+            {t('randomizer.label.filter.secondary')} ({secondaryTypes.length})
           </div>
 
           <div className={styles.filterList}>
@@ -548,7 +550,7 @@ function applyResult(slot, result) {
           onClick={() => spinSlot("primary")}
           showWeaponMods={false}
           isSpinning={activeSpin?.slot === "primary"}
-          spinningLabel="RANDOMIZING..."
+          spinningLabel={t('randomizer.label.randomizing')}
           spriteOverlay={
             activeSpin?.slot === "primary" && (
               <SlotMachineReel
@@ -571,7 +573,7 @@ function applyResult(slot, result) {
             onClick={() => spinSlot("secondary")}
             showWeaponMods={false}
             isSpinning={activeSpin?.slot === "secondary"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "secondary" && (
                 <SlotMachineReel
@@ -594,7 +596,7 @@ function applyResult(slot, result) {
             SpriteComponent={OverkillSprite}
             onClick={() => spinSlot("overkill")}
             isSpinning={activeSpin?.slot === "overkill"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "overkill" && (
                 <SlotMachineReel
@@ -617,7 +619,7 @@ function applyResult(slot, result) {
             SpriteComponent={ArmorSprite}
             onClick={() => spinSlot("armor")}
             isSpinning={activeSpin?.slot === "armor"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             headerExtra={
               hasAnyPlateSelected ? (
                 <ArmorPlatesPreview
@@ -648,7 +650,7 @@ function applyResult(slot, result) {
             SpriteComponent={ThrowableSprite}
             onClick={() => spinSlot("throwable")}
             isSpinning={activeSpin?.slot === "throwable"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "throwable" && (
                 <SlotMachineReel
@@ -671,7 +673,7 @@ function applyResult(slot, result) {
             SpriteComponent={DeployableSprite}
             onClick={() => spinSlot("deployable")}
             isSpinning={activeSpin?.slot === "deployable"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "deployable" && (
                 <SlotMachineReel
@@ -694,7 +696,7 @@ function applyResult(slot, result) {
             SpriteComponent={ToolSprite}
             onClick={() => spinSlot("tool")}
             isSpinning={activeSpin?.slot === "tool"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "tool" && (
                 <SlotMachineReel
@@ -722,7 +724,7 @@ function applyResult(slot, result) {
             SpriteComponent={HeistSprite}
             onClick={() => spinSlot("heist")}
             isSpinning={activeSpin?.slot === "heist"}
-            spinningLabel="RANDOMIZING..."
+            spinningLabel={t('randomizer.label.randomizing')}
             spriteOverlay={
               activeSpin?.slot === "heist" && (
                 <SlotMachineReel

@@ -1,4 +1,3 @@
-// src/features/compareBuilds/utils/semantic/buildSkillSemanticIndex.js
 import { TAGS, TAG_META } from "./semanticTags";
 import { skillSemanticOverrides } from "./skillSemanticOverrides";
 
@@ -48,19 +47,7 @@ function normalizeSkillRef(v) {
 for (const [ref, override] of Object.entries(skillSemanticOverrides)) {
   normalizedOverrideIndex.set(normalizeSkillRef(ref), override);
 }
-// function getSkillOverride(skillKey, skill) {
-//   const byKey = normalizeSkillRef(skillKey);
-//   const byName = normalizeSkillRef(skill?.name);
 
-//   for (const [ref, override] of Object.entries(skillSemanticOverrides)) {
-//     const normalizedRef = normalizeSkillRef(ref);
-//     if (normalizedRef === byKey || normalizedRef === byName) {
-//       return override;
-//     }
-//   }
-
-//   return null;
-// }
 function getSkillOverride(skillKey, skill) {
   const byKey = normalizedOverrideIndex.get(normalizeSkillRef(skillKey));
   if (byKey) return byKey;
@@ -163,6 +150,7 @@ function inferTagsForSkill(skillKey, skill) {
     if (mentionsDamageBuff) addTag(tags, weights, TAGS.PISTOL_DAMAGE, 1);
     if (mentionsAccuracy) addTag(tags, weights, TAGS.PISTOL_ACCURACY, 1);
     if (mentionsDamageReduction) addTag(tags, weights, TAGS.PISTOL_SURVIVABILITY, 1);
+    if (hasInventoryAmmo || t.includes("reserve ammo")) addTag(tags, weights, TAGS.PISTOL_AMMO, 1);
     // restore/utility patterns in handgun skills often exist
     if (mentionsMarked || mentionsRestoreTool || mentionsRestoreThrowable) addTag(tags, weights, TAGS.PISTOL_UTILITY, 1);
   }

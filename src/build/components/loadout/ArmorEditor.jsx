@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getArmorByKey,
   getArmorMaxPlates,
@@ -14,6 +15,7 @@ export default function ArmorEditor({
   loadoutData,
   onChange,
 }) {
+  const { t } = useTranslation();
   const armorDef = useMemo(
     () => (value?.key ? getArmorByKey(loadoutData, value.key) : null),
     [loadoutData, value?.key]
@@ -57,12 +59,12 @@ export default function ArmorEditor({
       }}
     >
       <label style={{ display: "grid", gap: 6 }}>
-        <span style={{ fontWeight: 600 }}>Armor</span>
+        <span style={{ fontWeight: 600 }}>{t('build.loadout.armor')}</span>
         <select
           value={value?.key ?? ""}
           onChange={e => setArmorKey(e.target.value)}
         >
-          <option value="">—</option>
+          <option value="">{t('select.option.none')}</option>
           {armors.map(a => (
             <option key={a.key} value={a.key}>
               {a.name ?? a.key}

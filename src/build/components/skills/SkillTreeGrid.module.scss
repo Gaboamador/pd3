@@ -167,7 +167,8 @@
 
 /* Marca visual cuando el tier está "required" */
 .tierProtected::after {
-  content: "// REQUIRED"; // o "///" o "REQUIRED" si quisieras texto
+  // content: "// REQUIRED";
+  content: var(--tier-protected-text);
   position: absolute;
   font-family: "DIN2014";
   /* a la derecha del label */

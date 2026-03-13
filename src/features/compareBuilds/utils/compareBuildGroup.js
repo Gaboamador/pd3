@@ -4,25 +4,6 @@ import { generateSemanticInsights } from "./semantic/generateSemanticInsights";
 import { detectBuildArchetype } from "./semantic/detectBuildArchetype";
 import { analyzeBuildArchetype } from "./semantic/analyzeBuildArchetype";
 
-/**
- * Compare 2–4 builds (your real schema).
- *
- * Build shape (example):
- * {
- *   id, name, slot, version,
- *   skills: { SkillKey: { base: boolean, aced: boolean }, ... }
- *   loadout: {
- *     primary: { weaponKey, mods: { ... }, preset },
- *     secondary: { weaponKey, mods: { ... }, preset },
- *     overkill: "ThePunch",
- *     throwable: "Flashbang",
- *     deployable: "DoctorBag",
- *     tool: "ECMJammer",
- *     armor: { key: "Suit", plates: ["impact"] }
- *   }
- * }
- */
-
 const MAX_BUILDS = 3;
 
 const LOADOUT_SIMPLE_SLOTS = ["tool", "deployable", "throwable", "overkill"];
@@ -423,6 +404,7 @@ function buildWeaponRows(weaponDiffs, buildIds, resolveItemName) {
 // ------------------------
 
 export function compareBuildGroup(rawBuilds, ctx = {}) {
+  const { t } = ctx;
   if (!Array.isArray(rawBuilds) || rawBuilds.length < 2) {
     throw new Error("compareBuildGroup: provide at least 2 builds.");
   }
@@ -459,7 +441,8 @@ export function compareBuildGroup(rawBuilds, ctx = {}) {
     buildLabels,
     semanticIndex,
     profiles,
-    skillsData: ctx.skillsData
+    skillsData: ctx.skillsData,
+    t
   });
 
   // UI rows
@@ -540,7 +523,7 @@ export function compareBuildGroup(rawBuilds, ctx = {}) {
     const archetypeAnalysis = {};
 
     for (const id of buildIds) {
-    archetypeAnalysis[id] = analyzeBuildArchetype(profiles[id]);
+    archetypeAnalysis[id] = analyzeBuildArchetype(profiles[id], t);
     }
 
     // RETURN

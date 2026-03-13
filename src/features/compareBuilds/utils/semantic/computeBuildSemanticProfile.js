@@ -1,5 +1,3 @@
-// src/features/compareBuilds/utils/semantic/computeBuildSemanticProfile.js
-
 export function computeBuildSemanticProfile(build, semanticIndex) {
   const scoreByTag = {};
   const contributorsByTag = {};

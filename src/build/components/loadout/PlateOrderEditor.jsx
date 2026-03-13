@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import styles from "./PlateOrderEditor.module.scss";
 import PlateSprite from "./PlateSprite";
 
 export default function PlateOrderEditor({ plates, platesData, onChangePlates }) {
+  const { t } = useTranslation();
   const plateKeys = Object.keys(platesData || {});
 
   function setPlateAt(index, key) {
@@ -13,7 +15,7 @@ export default function PlateOrderEditor({ plates, platesData, onChangePlates })
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <span>Armor plates</span>
+        <span>{t('build.loadout.armor-plates')}</span>
         <span className={styles.count}>{plates.length}</span>
       </div>
 
@@ -37,10 +39,6 @@ export default function PlateOrderEditor({ plates, platesData, onChangePlates })
                       style={{ borderColor: plate.color }}
                       onClick={() => setPlateAt(slotIndex, plateKey)}
                     >
-                      {/* <span
-                        className={isActive ? styles.dot : styles.dotInactive}
-                        style={{ background: plate.color }}
-                      /> */}
                       <PlateSprite spritePos={plate.sprite_pos} height={32}/>
                       <span className={styles.optionLabel} style={{ color: plate.color }}>
                         {plate.name}

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import SkillCard from "./SkillCard";
 import styles from "./SkillTreeGrid.module.scss";
 
@@ -27,6 +28,7 @@ export default function SkillTreeGrid({
   catalogMode = false,
   highlightSkillKey = null
 }) {
+  const { t } = useTranslation();
   // =========================
   // Points spent in this tree
   // =========================
@@ -88,7 +90,7 @@ export default function SkillTreeGrid({
         </div>
 
         <div className={styles.treePoints}>
-          [ {treePoints} POINT{treePoints === 1 ? "" : "S"} ACTIVE ]
+          [ {treePoints} {t('skills.tree.points1')}{treePoints === 1 ? "" : "S"} {t('skills.tree.points2')} ]
         </div>
       </div>
 
@@ -98,26 +100,26 @@ export default function SkillTreeGrid({
       <div className={styles.grid}>
 
         {/* Tier background strips (por fila) */}
-<div
-  className={`${styles.tierStrip} ${styles.tier4} ${
-    isTierUnlocked(4, groupEquipped) ? styles.tierStripActive : ""
-  }`}
-/>
-<div
-  className={`${styles.tierStrip} ${styles.tier3} ${
-    isTierUnlocked(3, groupEquipped) ? styles.tierStripActive : ""
-  }`}
-/>
-<div
-  className={`${styles.tierStrip} ${styles.tier2} ${
-    isTierUnlocked(2, groupEquipped) ? styles.tierStripActive : ""
-  }`}
-/>
-<div
-  className={`${styles.tierStrip} ${styles.tier1} ${
-    isTierUnlocked(1, groupEquipped) ? styles.tierStripActive : ""
-  }`}
-/>
+        <div
+          className={`${styles.tierStrip} ${styles.tier4} ${
+            isTierUnlocked(4, groupEquipped) ? styles.tierStripActive : ""
+          }`}
+        />
+        <div
+          className={`${styles.tierStrip} ${styles.tier3} ${
+            isTierUnlocked(3, groupEquipped) ? styles.tierStripActive : ""
+          }`}
+        />
+        <div
+          className={`${styles.tierStrip} ${styles.tier2} ${
+            isTierUnlocked(2, groupEquipped) ? styles.tierStripActive : ""
+          }`}
+        />
+        <div
+          className={`${styles.tierStrip} ${styles.tier1} ${
+            isTierUnlocked(1, groupEquipped) ? styles.tierStripActive : ""
+          }`}
+        />
 
 
         {/* Tier labels */}
@@ -127,28 +129,28 @@ export default function SkillTreeGrid({
           }`}
           style={{ gridArea: "t4" }}
         >
-          <span className={styles.tierText}>TIER 4</span>
+          <span className={styles.tierText}>{t('skills.tree.tier4')}</span>
         </div>
 
         <div
           className={`${styles.tierLabel} ${protectedTiers[3] ? styles.tierProtected : ""} ${isTierUnlocked(3, groupEquipped) ? styles.tierActive : ""}`}
-          style={{ gridArea: "t3" }}
+          style={{ gridArea: "t3",  "--tier-protected-text": `"${t("skills.tree.required")}"` }}
         >
-          <span className={styles.tierText}>TIER 3</span>
+          <span className={styles.tierText}>{t('skills.tree.tier3')}</span>
         </div>
 
         <div
           className={`${styles.tierLabel} ${protectedTiers[2] ? styles.tierProtected : ""} ${isTierUnlocked(2, groupEquipped) ? styles.tierActive : ""}`}
-          style={{ gridArea: "t2" }}
+          style={{ gridArea: "t2", "--tier-protected-text": `"${t("skills.tree.required")}"` }}
         >
-          <span className={styles.tierText}>TIER 2</span>
+          <span className={styles.tierText}>{t('skills.tree.tier2')}</span>
         </div>
 
         <div
           className={`${styles.tierLabel} ${protectedTiers[1] ? styles.tierProtected : ""} ${isTierUnlocked(1, groupEquipped) ? styles.tierActive : ""}`}
-          style={{ gridArea: "t1" }}
+          style={{ gridArea: "t1", "--tier-protected-text": `"${t("skills.tree.required")}"` }}
         >
-          <span className={styles.tierText}>TIER 1</span>
+          <span className={styles.tierText}>{t('skills.tree.tier1')}</span>
         </div>
 
         {/* Skills */}
@@ -187,7 +189,6 @@ export default function SkillTreeGrid({
                 onCycleUp={() => onCycleUpSkill(skill)}
                 onCycleDown={() => onCycleDownSkill(skill)}
                 onSelectForDetails={() =>
-                  // onSelectSkill?.(skill)
                   onSelectSkill?.(skill, isLocked)
                 }
                 onOpenInfo={() => onOpenInfo?.(skill)}

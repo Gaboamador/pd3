@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./LoadoutEditor.module.scss";
 import WeaponCard from "../weapons/WeaponCard";
 import LoadoutItemPickerModal from "./LoadoutItemPickerModal";
@@ -21,6 +22,7 @@ export default function LoadoutEditor({
   platesData,
   loadoutData,
 }) {
+  const { t } = useTranslation();
   const {
     primary: weaponsPrimaryByType,
     secondary: weaponsSecondaryByType,
@@ -195,7 +197,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "primary"}
           onClose={() => setOpenPicker(null)}
-          title="Select Primary weapon"
+          title={t('build.loadout.select-primary')}
           itemsByType={weaponsPrimaryByType}
           renderCard={def => (
             <WeaponCard
@@ -239,7 +241,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "secondary"}
           onClose={() => setOpenPicker(null)}
-          title="Select Secondary weapon"
+          title={t('build.loadout.select-secondary')}
           itemsByType={weaponsSecondaryByType}
           renderCard={def => (
             <WeaponCard
@@ -272,7 +274,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "overkill"}
           onClose={() => setOpenPicker(null)}
-          title="Select Overkill Weapon"
+          title={t('build.loadout.label.select-overkill')}
           itemsByType={{ all: loadoutNormalized.overkill }}
           renderCard={def => (
             <LoadoutItemCard
@@ -311,7 +313,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "armor"}
           onClose={() => setOpenPicker(null)}
-          title="Select Armor Frame"
+          title={t('build.loadout.select-armor')}
           itemsByType={{ all: armors }}
           renderCard={def => (
             <LoadoutItemCard
@@ -336,7 +338,7 @@ return (
         <Modal
           open={openArmorEditor}
           onClose={() => setOpenArmorEditor(false)}
-          title={`Edit Armor Plates${armorDef?.name ? ` – ${armorDef.name}` : ""}`}
+          title={`${t('build.loadout.edit-armor-plates')}${armorDef?.name ? ` – ${armorDef.name}` : ""}`}
           width="720px"
         >
           <ArmorPlatesEditor
@@ -360,7 +362,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "throwable"}
           onClose={() => setOpenPicker(null)}
-          title="Select Throwable"
+          title={t('build.loadout.select-throwable')}
           itemsByType={{ all: loadoutNormalized.throwable }}
           renderCard={def => (
             <LoadoutItemCard
@@ -390,7 +392,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "deployable"}
           onClose={() => setOpenPicker(null)}
-          title="Select Deployable"
+          title={t('build.loadout.select-deployable')}
           itemsByType={{ all: loadoutNormalized.deployable }}
           renderCard={def => (
             <LoadoutItemCard
@@ -420,7 +422,7 @@ return (
         <LoadoutItemPickerModal
           open={openPicker === "tool"}
           onClose={() => setOpenPicker(null)}
-          title="Select Tool"
+          title={t('build.loadout.select-tool')}
           itemsByType={{ all: loadoutNormalized.tool }}
           renderCard={def => (
             <LoadoutItemCard

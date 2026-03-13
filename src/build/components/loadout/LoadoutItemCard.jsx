@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./LoadoutItemCard.module.scss";
 import { LOADOUT_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import useIsMobile from "../../../hooks/useIsMobile";
@@ -12,10 +13,11 @@ export default function LoadoutItemCard({
   mode,
   spriteOverlay,
   isSpinning = false,
-  spinningLabel = "RANDOMIZING...",
+  spinningLabel = "randomizer.label.randomizing",
   use,
   isHeist,
 }) {
+  const { t } = useTranslation();
   const spritePos = itemDef
     ? itemDef.sprite_pos
     : LOADOUT_PLACEHOLDERS[slot];
@@ -26,20 +28,20 @@ export default function LoadoutItemCard({
     }
 
     if (use === "randomizer") {
-      if (slot === "overkill") return "Randomize overkill weapon";
-      if (slot === "heist") return "Randomize heist";
-      return "Randomize item";
+      if (slot === "overkill") return t('randomizer.label.overkill');
+      if (slot === "heist") return t('randomizer.label.heist');
+      return t('randomizer.label.item');
     }
 
-    if (slot === "overkill") return "Select overkill weapon";
-    if (slot === "heist") return "Select heist";
+    if (slot === "overkill") return t('build.loadout.label.select-overkill');
+    if (slot === "heist") return t('build.loadout.select-heist');
 
-    return "Select item";
+    return t('build.loadout.select-item');
   })();
 
 
-      const isItemPicker = mode === "item-picker";
-const isLoadoutEditor = !isItemPicker; // default
+  const isItemPicker = mode === "item-picker";
+  const isLoadoutEditor = !isItemPicker; // default
 
   const canEdit = Boolean(itemDef && onEdit);
 
@@ -55,7 +57,7 @@ const isLoadoutEditor = !isItemPicker; // default
     <div className={styles.headerTitle}>
       <span>//</span>
       <span className={styles.category}>
-        {isItemPicker ? name : `${slot.toUpperCase()} ${slot==="overkill" ? 'WEAPON' : ""}`}
+        {isItemPicker ? name : `${slot.toUpperCase()} ${slot==="overkill" ? t('build.loadout.weapon') : ""}`}
       </span>
     </div>
 
@@ -71,7 +73,7 @@ const isLoadoutEditor = !isItemPicker; // default
           if (!canEdit) return;
           onEdit();
         }}
-        aria-label="Edit"
+        aria-label={t('aria-label.item-edit')}
         tabIndex={canEdit ? 0 : -1}
       >
         ⚙
@@ -98,7 +100,7 @@ const isLoadoutEditor = !isItemPicker; // default
     {isLoadoutEditor && (
     <div className={styles.footer}>
       <div className={styles.name}>
-        {isSpinning ? spinningLabel : name}
+        {isSpinning ? t(spinningLabel) : name}
       </div>
     </div>
     )}

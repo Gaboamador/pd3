@@ -1,8 +1,8 @@
 import { useMemo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./LibraryExplorer.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
-import { FaRandom } from "react-icons/fa";
 import { IoMdOpen } from "react-icons/io";
 import { LuTarget } from "react-icons/lu";
 import Section from "../../build/components/common/Section";
@@ -49,6 +49,7 @@ import Spinner from "../../components/Spinner";
   }
 
 export default function LibraryExplorer() {
+  const { t } = useTranslation();
   const { library, loading } = useUserLibrary();
   const { loadBuild } = useLoadBuild();
 
@@ -157,11 +158,6 @@ export default function LibraryExplorer() {
     });
   }, [activeChips]);
 
-  // const filteredBuilds = useMemo(() => {
-  //   return filterBuilds(indexedBuilds, filters, {
-  //     weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
-  //   });
-  // }, [indexedBuilds, filters, weaponTypeIndex]);
   const filteredBuilds = useMemo(() => {
   const result = filterBuilds(indexedBuilds, filters, {
     weaponTypeByKey: weaponTypeIndex.weaponTypeByKey,
@@ -276,7 +272,7 @@ useEffect(() => {
   }
 
 
-  if (loading) return <Spinner label="Loading builds…" />;
+  if (loading) return <Spinner label={t('spinner.loading')} />;
 
   return (
     <div className={styles.page}>
@@ -289,18 +285,18 @@ useEffect(() => {
           >
             <LuTarget />
           </button>
-          <div className={styles.rouletteBtnText}>Spin roulette with current filtered builds</div>
+          <div className={styles.rouletteBtnText}>{t('library-explorer.msg.spin-roulette')}</div>
         </div>
 
         </Section>
 
-        <Section title="//Input_search_query">
+        <Section title={t('section.title.input')}>
           {/* Input */}
           <input
             className={styles.input}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search..."
+            placeholder={t('title.placeholder.search')}
           />
 
           {/* Suggestions */}
@@ -321,40 +317,6 @@ useEffect(() => {
                 const s = entry;
 
                 return (
-                  // <div
-                  //   key={`${s.kind}-${s.key}`}
-                  //   className={styles.suggestion}
-                  //   onClick={() => {
-                  //     if (s.kind === "weaponType") {
-                  //       setActiveChips((prev) => [
-                  //         ...prev,
-                  //         {
-                  //           kind: "weaponType",
-                  //           key: s.key,
-                  //           slot: s.slot,
-                  //           weaponType: s.weaponType,
-                  //         },
-                  //       ]);
-                  //     } else if (s.kind === "buildName") {
-                  //       setActiveChips((prev) => [
-                  //         ...prev,
-                  //         { kind: "buildName", key: s.key, label: s.label },
-                  //       ]);
-                  //     } else {
-                  //       setActiveChips((prev) => [
-                  //         ...prev,
-                  //         { kind: s.kind, key: s.key },
-                  //       ]);
-                  //     }
-                  //     setQuery("");
-                  //   }}
-                  // >
-                  //   <strong>
-                  //     {s.kind === "weaponType"
-                  //       ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
-                  //       : s.label}
-                  //   </strong>
-                  // </div>
                   <div
                     key={`${s.kind}-${s.key}`}
                     className={styles.suggestion}
@@ -428,7 +390,7 @@ useEffect(() => {
         </Section>
 
         {activeChips?.length >= 1 &&
-          <Section title="//Applied_filters">
+          <Section title={t('section.title.filters')}>
             {/* Chips */}
             <div className={styles.chips}>
               {activeChips.map((chip, i) => (
@@ -452,8 +414,8 @@ useEffect(() => {
                       }}
                       className={styles.skillStateSelect}
                     >
-                      <option value="base">Base</option>
-                      <option value="aced">Ace</option>
+                      <option value="base">{t('select.option.base')}</option>
+                      <option value="aced">{t('select.option.aced')}</option>
                     </select>
                   )}
 
@@ -470,7 +432,7 @@ useEffect(() => {
             </div>
           </Section>
         }
-        <Section title="//Results">
+        <Section title={t('section.title.results')}>
           <div className={styles.resultsWrapper}>
 
             <div className={styles.resultsLengthAndButtonCompare}>
@@ -491,23 +453,22 @@ useEffect(() => {
                   disabled={comparisonEnabled && (selectedBuilds.length < 2 || selectedBuilds.length > 4)}
                 >
                   {comparisonEnabled
-                    ? `COMPARE (${selectedBuilds.length})`
-                    : "COMPARE"}
+                    ? `${t('library-explorer.actions.compare')} (${selectedBuilds.length})`
+                    : t('library-explorer.actions.compare')}
                 </button>
 
                 {comparisonEnabled && (
                   <button
                     className="secondary"
-                    // disabled={selectedBuilds.length === 0}
                     onClick={clearSelected}
                   >
-                    CLEAR
+                    {t('library-explorer.actions.clear')}
                   </button>
                 )}
               </div>
 
               {/* RESULTS LENGTH LINE */}
-              <div className={styles.resultsLength}>{filteredBuilds.length} results</div>
+              <div className={styles.resultsLength}>{filteredBuilds.length} {t('library-explorer.msg.results')}</div>
 
             </div>
 
@@ -528,8 +489,8 @@ useEffect(() => {
                       />
                     )}
 
-                    <span className={styles.slotNumber}>{build.slot ?? "—"}</span>
-                    <span className={styles.buildName}>{build.name || "(Unnamed Build)"}</span>
+                    <span className={styles.slotNumber}>{build.slot ?? t('select.option.none')}</span>
+                    <span className={styles.buildName}>{build.name || `(${t('build.library.label.fallbackName')})`}</span>
                   
                   </div>
 
@@ -544,7 +505,7 @@ useEffect(() => {
                     >
                       <IoMdOpen />
                     </button>
-                    <div>OPEN</div>
+                    <div>{t('library-explorer.actions.open')}</div>
                   </div>
                 </div>
                 )

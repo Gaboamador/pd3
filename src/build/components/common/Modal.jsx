@@ -36,7 +36,7 @@ export default function Modal({
             <button
               className={styles.close}
               onClick={onClose}
-              aria-label="Cerrar"
+              aria-label="Close"
             >
               ×
             </button>
