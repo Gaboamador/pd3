@@ -1,0 +1,99 @@
+@use '../styles/variables' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+
+.menu {
+  position: fixed;
+  margin-top: 0px;
+  background: #141620;
+  border: 1px solid #262a3b;
+  border-radius: 14px;
+  padding: 8px 0;
+  min-width: 260px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(2px);
+  }
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid $pd3-lightgreen;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 20px;
+
+  svg {
+    stroke-width: 2.2;
+  }
+}
+
+.label {
+  font-weight: 600;
+}
+
+/* ===== SERVICE COLORS (igual que Home) ===== */
+
+.icon[data-service="editor"] {
+  color: $color-build;
+}
+
+.icon[data-service="random"] {
+  color: $color-throwable;
+}
+
+.icon[data-service="catalog"] {
+  color: $color-weapon;
+}
+
+.icon[data-service="explorer"] {
+  color: $color-tool;
+}
+
+.icon[data-service="roulette"] {
+  color: $color-skill;
+}
+
+.icon[data-service="home"] {
+  color: white;
+}

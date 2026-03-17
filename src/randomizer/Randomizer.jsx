@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleChevronDown } from "react-icons/fa6";
@@ -56,6 +56,7 @@ const RANDOMIZER_DECKS_KEY = "pd3_randomizer_decks_v1";
 
 export default function Randomizer() {
   const { t } = useTranslation();
+  const heistDealerRef = useRef(null);
   const loadoutNormalized = useMemo(
     () => normalizeLoadoutData(loadoutData),
     []
@@ -180,7 +181,6 @@ export default function Randomizer() {
     }
 
     resolve?.();
-    console.log("TREE RESULT", result);
     return null;
   });
   }
@@ -476,23 +476,53 @@ function applyResult(slot, result) {
       },
         trees: [null, null, null, null],
     });
+
+    heistDealerRef.current?.reset();
   }
 
-    function resetTrees() {
-    
-      setRandomTrees([null, null, null, null]);
+  function resetBuild() {
+    setDecksBySlot(prev => {
+      const next = { ...prev };
+
+      delete next.primary;
+      delete next.secondary;
+      delete next.overkill;
+      delete next.armor;
+      delete next.throwable;
+      delete next.deployable;
+      delete next.tool;
+
+      return next;
+    });
 
     setBuild(prev => ({
       ...prev,
-      trees: [null, null, null, null]
+      loadout: {
+        primary: null,
+        secondary: null,
+        overkill: null,
+        armor: { key: null, plates: [] },
+        throwable: null,
+        deployable: null,
+        tool: null,
+      }
     }));
+  }
 
-    setDecksBySlot(prev => {
-      const next = { ...prev };
-      delete next.treePrimary;
-      delete next.treeSecondary;
-      return next;
-    });
+    function resetTrees() {    
+      setRandomTrees([null, null, null, null]);
+
+      setBuild(prev => ({
+        ...prev,
+        trees: [null, null, null, null]
+      }));
+
+      setDecksBySlot(prev => {
+        const next = { ...prev };
+        delete next.treePrimary;
+        delete next.treeSecondary;
+        return next;
+      });
     }
 
   // ==============================
@@ -500,341 +530,154 @@ function applyResult(slot, result) {
   // ==============================
 
   return (
-  <div className={styles.page}>
-    <div className={styles.wrapper}>
+    <div className={styles.page}>
+      <div className={styles.wrapper}>
 
-      <Section>
-      <div className={styles.buttonsWrapper}>
-        <button
-          className={styles.primaryButton}
-          onClick={randomizeFullSequential}
-        >
-          {t('randomizer.actions.randomize')}
-        </button>
-
-        <button
-          className={styles.secondaryButton}
-          onClick={resetRandomizer}
-        >
-          {t('common.actions.reset')}
-        </button>
-      </div>
-
-      <div className={styles.weaponFilters}>
-
-      {/* HEADER COLAPSABLE */}
-      <button
-        type="button"
-        className={styles.filtersHeader}
-        onClick={() => setFiltersOpen(prev => !prev)}
-      >
-        <span className={styles.filtersHeaderTitle}>{t('randomizer.label.filter')}</span>
-        <motion.span
-          className={styles.chevron}
-          animate={{ rotate: filtersOpen ? 180 : 0 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-        >
-          <FaCircleChevronDown/>
-        </motion.span>
-      </button>
-
-    
-    <AnimatePresence>
-      {filtersOpen && (
-        <motion.div
-          className={styles.filtersContent}
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          style={{ overflow: "hidden" }}
-        >
-        {/* PRIMARY */}
-        <div className={styles.filterGroup}>
-          <div className={styles.filterTitle}>
-            {t('randomizer.label.filter.primary')} ({primaryTypes.length})
-          </div>
-
-          <div className={styles.filterList}>
-            {ALL_PRIMARY_TYPES.map(type => {
-              const active = primaryTypes.includes(type);
-
-              return (
-                <label
-                  key={type}
-                  className={`${styles.toggleChip} ${active ? styles.on : ""}`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={active}
-                    onChange={() =>
-                      setPrimaryTypes(prev =>
-                        prev.includes(type)
-                          ? prev.filter(t => t !== type)
-                          : [...prev, type]
-                      )
-                    }
-                  />
-                  <span className={styles.indicator} />
-                  <span className={styles.labelText}>
-                    {getWeaponTypeLabel(type, primaryLabelsMap)}
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* SECONDARY */}
-        <div className={styles.filterGroup}>
-          <div className={styles.filterTitle}>
-            {t('randomizer.label.filter.secondary')} ({secondaryTypes.length})
-          </div>
-
-          <div className={styles.filterList}>
-            {ALL_SECONDARY_TYPES.map(type => {
-              const active = secondaryTypes.includes(type);
-
-              return (
-                <label
-                  key={type}
-                  className={`${styles.toggleChip} ${active ? styles.on : ""}`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={active}
-                    onChange={() =>
-                      setSecondaryTypes(prev =>
-                        prev.includes(type)
-                          ? prev.filter(t => t !== type)
-                          : [...prev, type]
-                      )
-                    }
-                  />
-                  <span className={styles.indicator} />
-                  <span className={styles.labelText}>
-                    {getWeaponTypeLabel(type, secondaryLabelsMap)}
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-      </div>
-      </Section>
-      <div className={styles.grid}>
-
-        <div className={`${styles.cell} ${styles.primary}`}>
-          <WeaponCard
-          use='randomizer'
-          slot="primary"
-          weaponDef={primaryWeaponDef}
-          onClick={() => spinSlot("primary")}
-          showWeaponMods={false}
-          isSpinning={activeSpin?.slot === "primary"}
-          spinningLabel={t('randomizer.label.randomizing')}
-          spriteOverlay={
-            activeSpin?.slot === "primary" && (
-              <SlotMachineReel
-                items={activeSpin.items}
-                SpriteComponent={activeSpin.SpriteComponent}
-                forcedKey={activeSpin.forcedKey}
-                onFinish={handleSpinFinish}
-              />
-            )
-          }
-        />
-        </div>
-
-        {/* SECONDARY */}
-        <div className={`${styles.cell} ${styles.secondary}`}>
-          <WeaponCard
-            use='randomizer'
-            slot="secondary"
-            weaponDef={secondaryWeaponDef}
-            onClick={() => spinSlot("secondary")}
-            showWeaponMods={false}
-            isSpinning={activeSpin?.slot === "secondary"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "secondary" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-
-        {/* OVERKILL */}
-        <div className={`${styles.cell} ${styles.overkill}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="overkill"
-            itemDef={overkillDef}
-            SpriteComponent={OverkillSprite}
-            onClick={() => spinSlot("overkill")}
-            isSpinning={activeSpin?.slot === "overkill"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "overkill" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-
-        {/* ARMOR */}
-        <div className={`${styles.cell} ${styles.armor}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="armor"
-            itemDef={armorDef}
-            SpriteComponent={ArmorSprite}
-            onClick={() => spinSlot("armor")}
-            isSpinning={activeSpin?.slot === "armor"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            headerExtra={
-              hasAnyPlateSelected ? (
-                <ArmorPlatesPreview
-                  plates={armorPlates}
-                  platesData={platesData}
-                />
-              ) : null
-            }
-            spriteOverlay={
-              activeSpin?.slot === "armor" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-
-        {/* THROWABLE */}
-        <div className={`${styles.cell} ${styles.throwable}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="throwable"
-            itemDef={throwableDef}
-            SpriteComponent={ThrowableSprite}
-            onClick={() => spinSlot("throwable")}
-            isSpinning={activeSpin?.slot === "throwable"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "throwable" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-
-        {/* DEPLOYABLE */}
-        <div className={`${styles.cell} ${styles.deployable}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="deployable"
-            itemDef={deployableDef}
-            SpriteComponent={DeployableSprite}
-            onClick={() => spinSlot("deployable")}
-            isSpinning={activeSpin?.slot === "deployable"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "deployable" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-
-        {/* TOOL */}
-        <div className={`${styles.cell} ${styles.tool}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="tool"
-            itemDef={toolDef}
-            SpriteComponent={ToolSprite}
-            onClick={() => spinSlot("tool")}
-            isSpinning={activeSpin?.slot === "tool"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "tool" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div>
-      </div>
-
-       {/* SKILL TREES */}
         <Section>
           <div className={styles.buttonsWrapper}>
             <button
-              className={styles.primaryButton}
-              onClick={randomizeTreesSequential}
+              className={styles.resetRandomizerBtn}
+              onClick={resetRandomizer}
             >
-              {t('randomizer.actions.randomize-trees')}
+              {t('randomizer.actions.reset-randomizer')}
             </button>
-          <button
-              className={styles.secondaryButton}
-              onClick={resetTrees}
-            >
-              {t('randomizer.actions.reset-trees')}
-          </button>
           </div>
         </Section>
 
-        <div className={styles.treeGrid}>
-          {[0,1,2,3].map(index => {
+        <Section title={t('section.title.randomize-build')}>
+          <div className={styles.weaponFilters}>
 
-            const tree = randomTrees[index];
+            {/* HEADER COLAPSABLE */}
+            <button
+              type="button"
+              className={styles.filtersHeader}
+              onClick={() => setFiltersOpen(prev => !prev)}
+            >
+              <span className={styles.filtersHeaderTitle}>{t('randomizer.label.filter')}</span>
+              <motion.span
+                className={styles.chevron}
+                animate={{ rotate: filtersOpen ? 180 : 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+              >
+                <FaCircleChevronDown />
+              </motion.span>
+            </button>
 
-            return (
-              <LoadoutItemCard
-                key={index}
-                use="randomizer"
-                slot="tree"
-                itemDef={tree}
-                SpriteComponent={TreeSprite}
-                onClick={() => spinSlot("tree", null, index)}
-                isSpinning={
-                  activeSpin?.slot === "tree" &&
-                  activeSpin?.treeIndex === index
-                }
+
+            <AnimatePresence>
+              {filtersOpen && (
+                <motion.div
+                  className={styles.filtersContent}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{ overflow: "hidden" }}
+                >
+                  {/* PRIMARY */}
+                  <div className={styles.filterGroup}>
+                    <div className={styles.filterTitle}>
+                      {t('randomizer.label.filter.primary')} ({primaryTypes.length})
+                    </div>
+
+                    <div className={styles.filterList}>
+                      {ALL_PRIMARY_TYPES.map(type => {
+                        const active = primaryTypes.includes(type);
+
+                        return (
+                          <label
+                            key={type}
+                            className={`${styles.toggleChip} ${active ? styles.on : ""}`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={active}
+                              onChange={() =>
+                                setPrimaryTypes(prev =>
+                                  prev.includes(type)
+                                    ? prev.filter(t => t !== type)
+                                    : [...prev, type]
+                                )
+                              }
+                            />
+                            <span className={styles.indicator} />
+                            <span className={styles.labelText}>
+                              {getWeaponTypeLabel(type, primaryLabelsMap)}
+                            </span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* SECONDARY */}
+                  <div className={styles.filterGroup}>
+                    <div className={styles.filterTitle}>
+                      {t('randomizer.label.filter.secondary')} ({secondaryTypes.length})
+                    </div>
+
+                    <div className={styles.filterList}>
+                      {ALL_SECONDARY_TYPES.map(type => {
+                        const active = secondaryTypes.includes(type);
+
+                        return (
+                          <label
+                            key={type}
+                            className={`${styles.toggleChip} ${active ? styles.on : ""}`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={active}
+                              onChange={() =>
+                                setSecondaryTypes(prev =>
+                                  prev.includes(type)
+                                    ? prev.filter(t => t !== type)
+                                    : [...prev, type]
+                                )
+                              }
+                            />
+                            <span className={styles.indicator} />
+                            <span className={styles.labelText}>
+                              {getWeaponTypeLabel(type, secondaryLabelsMap)}
+                            </span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+
+          <div className={styles.buttonsWrapper}>
+            <button
+              className={styles.primaryButton}
+              onClick={randomizeFullSequential}
+            >
+              {t('randomizer.actions.randomize')}
+            </button>
+            <button
+              className={styles.secondaryButton}
+              onClick={resetBuild}
+            >
+              {t('common.actions.reset')}
+            </button>
+          </div>
+
+          <div className={styles.grid}>
+            <div className={`${styles.cell} ${styles.primary}`}>
+              <WeaponCard
+                use='randomizer'
+                slot="primary"
+                weaponDef={primaryWeaponDef}
+                onClick={() => spinSlot("primary")}
+                showWeaponMods={false}
+                isSpinning={activeSpin?.slot === "primary"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={
-                  activeSpin?.slot === "tree" &&
-                  activeSpin?.treeIndex === index && (
+                  activeSpin?.slot === "primary" && (
                     <SlotMachineReel
                       items={activeSpin.items}
                       SpriteComponent={activeSpin.SpriteComponent}
@@ -844,15 +687,215 @@ function applyResult(slot, result) {
                   )
                 }
               />
-            );
-          })}
-        </div>
+            </div>
 
-      <Section title={t('section.title.heist-dealer')}>
-        <HeistDealer />
-      </Section>
+            {/* SECONDARY */}
+            <div className={`${styles.cell} ${styles.secondary}`}>
+              <WeaponCard
+                use='randomizer'
+                slot="secondary"
+                weaponDef={secondaryWeaponDef}
+                onClick={() => spinSlot("secondary")}
+                showWeaponMods={false}
+                isSpinning={activeSpin?.slot === "secondary"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "secondary" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
 
+            {/* OVERKILL */}
+            <div className={`${styles.cell} ${styles.overkill}`}>
+              <LoadoutItemCard
+                use='randomizer'
+                slot="overkill"
+                itemDef={overkillDef}
+                SpriteComponent={OverkillSprite}
+                onClick={() => spinSlot("overkill")}
+                isSpinning={activeSpin?.slot === "overkill"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "overkill" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
+
+            {/* ARMOR */}
+            <div className={`${styles.cell} ${styles.armor}`}>
+              <LoadoutItemCard
+                use='randomizer'
+                slot="armor"
+                itemDef={armorDef}
+                SpriteComponent={ArmorSprite}
+                onClick={() => spinSlot("armor")}
+                isSpinning={activeSpin?.slot === "armor"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                headerExtra={
+                  hasAnyPlateSelected ? (
+                    <ArmorPlatesPreview
+                      plates={armorPlates}
+                      platesData={platesData}
+                    />
+                  ) : null
+                }
+                spriteOverlay={
+                  activeSpin?.slot === "armor" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
+
+            {/* THROWABLE */}
+            <div className={`${styles.cell} ${styles.throwable}`}>
+              <LoadoutItemCard
+                use='randomizer'
+                slot="throwable"
+                itemDef={throwableDef}
+                SpriteComponent={ThrowableSprite}
+                onClick={() => spinSlot("throwable")}
+                isSpinning={activeSpin?.slot === "throwable"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "throwable" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
+
+            {/* DEPLOYABLE */}
+            <div className={`${styles.cell} ${styles.deployable}`}>
+              <LoadoutItemCard
+                use='randomizer'
+                slot="deployable"
+                itemDef={deployableDef}
+                SpriteComponent={DeployableSprite}
+                onClick={() => spinSlot("deployable")}
+                isSpinning={activeSpin?.slot === "deployable"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "deployable" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
+
+            {/* TOOL */}
+            <div className={`${styles.cell} ${styles.tool}`}>
+              <LoadoutItemCard
+                use='randomizer'
+                slot="tool"
+                itemDef={toolDef}
+                SpriteComponent={ToolSprite}
+                onClick={() => spinSlot("tool")}
+                isSpinning={activeSpin?.slot === "tool"}
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "tool" && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            </div>
+          </div>
+        </Section>
+
+        {/* SKILL TREES */}
+        <Section title={t('section.title.randomize-tree')}>
+
+          <div className={styles.buttonsWrapper}>
+            <button
+              className={styles.primaryButton}
+              onClick={randomizeTreesSequential}
+            >
+              {t('randomizer.actions.randomize')}
+            </button>
+            <button
+              className={styles.secondaryButton}
+              onClick={resetTrees}
+            >
+              {t('common.actions.reset')}
+            </button>
+          </div>
+
+
+          <div className={styles.treeGrid}>
+            {[0, 1, 2, 3].map(index => {
+
+              const tree = randomTrees[index];
+
+              return (
+                <LoadoutItemCard
+                  key={index}
+                  use="randomizer"
+                  slot="tree"
+                  itemDef={tree}
+                  SpriteComponent={TreeSprite}
+                  onClick={() => spinSlot("tree", null, index)}
+                  isSpinning={
+                    activeSpin?.slot === "tree" &&
+                    activeSpin?.treeIndex === index
+                  }
+                  spinningLabel={t('randomizer.label.randomizing')}
+                  spriteOverlay={
+                    activeSpin?.slot === "tree" &&
+                    activeSpin?.treeIndex === index && (
+                      <SlotMachineReel
+                        items={activeSpin.items}
+                        SpriteComponent={activeSpin.SpriteComponent}
+                        forcedKey={activeSpin.forcedKey}
+                        onFinish={handleSpinFinish}
+                      />
+                    )
+                  }
+                />
+              );
+            })}
+          </div>
+        </Section>
+
+        <Section title={t('section.title.heist-dealer')}>
+          <HeistDealer ref={heistDealerRef}/>
+        </Section>
+
+      </div>
     </div>
-</div>
   );
 }

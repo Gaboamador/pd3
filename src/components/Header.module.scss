@@ -2,7 +2,7 @@
 
 .header {
   width: 100%;
-  padding: 12px 0;
+  padding: 10px 0;
   backdrop-filter: blur(6px);
   background: rgba(20, 20, 20, 0.65);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -51,8 +51,56 @@
   vertical-align: middle;
 }
 
+.logoButton {
+  clip-path: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.logoButton img {
+  transition: transform 0.2s ease;
+}
+
+.logoButton.open img {
+  transform: scale(1.08) rotate(6deg);
+}
+
 .authIcon {
   color: gray;
+}
+
+.authControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border-left: 1px solid $pd3-main;
+  padding-left: 12px;
+}
+
+.userName {
+  font-family: 'DIN2014';
+  font-size: 0.9rem;
+  color: $pd3-main;
+  font-weight: 600;
+
+  &.smallerAuth {
+    font-size: 0.7rem;
+  }
+}
+
+.logoutButton {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  &.smallerAuth {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
 }
 
 @media (min-width: 600px) {

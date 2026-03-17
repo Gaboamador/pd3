@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, forwardRef, useImperativeHandle } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import HeistSprite from "../build/components/loadout/HeistSprite";
@@ -31,7 +31,8 @@ const HEIST_DECK_KEY = "pd3_heist_deck_v1";
 const HEIST_RESULT_KEY = "pd3_heist_result_v1";
 const HEIST_FILTER_KEY = "pd3_heist_filters_v1";
 
-export default function HeistDealer() {
+// export default function HeistDealer() {
+const HeistDealer = forwardRef(function HeistDealer(_, ref) {
   const { t } = useTranslation();
 
   const [deckShake, setDeckShake] = useState(false);
@@ -170,7 +171,9 @@ export default function HeistDealer() {
     setActiveHeists(ALL_HEISTS.map(h => h.key));
     }
 
-
+    useImperativeHandle(ref, () => ({
+      reset: resetHeistDealer
+    }));
 
   // ==============================
   // render
@@ -343,4 +346,5 @@ export default function HeistDealer() {
         </div>
     </div>
   );
-}
+});
+export default HeistDealer;

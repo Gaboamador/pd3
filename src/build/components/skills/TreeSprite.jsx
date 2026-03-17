@@ -14,12 +14,12 @@ export default function TreeSprite({ itemDef }) {
         backgroundImage: `url(${bgUrl})`,
         backgroundSize: itemDef ? "cover" : "contain",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
       }}
     >
       {itemDef && (
         <div className={styles.categoryIcon}>
-          <SkillGroupSprite spritePos={itemDef.sprite} height={18} />
+          <SkillGroupSprite spritePos={itemDef.sprite} height={18} randomizer={true} />
         </div>
       )}
     </div>

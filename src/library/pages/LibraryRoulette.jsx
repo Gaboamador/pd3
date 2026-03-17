@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./LibraryRoulette.module.scss";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { IoMdOpen } from "react-icons/io";
+import { FaCircleChevronDown } from "react-icons/fa6";
 import Section from "../../build/components/common/Section";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
 import { useUserLibrary } from "../hooks/useUserLibrary";
@@ -44,6 +45,7 @@ export default function LibraryRoulette() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [manualMode, setManualMode] = useState("all");
   const [manualSelectedIds, setManualSelectedIds] = useState([]);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const [rouletteDeck, setRouletteDeck] = useState(() => {
     try {
@@ -221,7 +223,9 @@ export default function LibraryRoulette() {
 )}        
 {user && (<>
         <Section>
+          {/* HEADER (back + results) */}
           <div className={styles.backToExplorerAndPoolWrapper}>
+            
             {fromExplorerSearch && (
               <div className={styles.backToExplorerWrapper}>
                 <button
@@ -236,99 +240,110 @@ export default function LibraryRoulette() {
 
             <div className={styles.poolHeader}>
               <div className={styles.resultsLength}>
-                {pool.length} {t('library-roulette.msg.title1')}{pool.length !== 1 ? "s" : ""} {t('library-roulette.msg.title2')}
-              </div>
-
-              <div className={styles.switchWrapper}>
-                <span className={styles.switchLabel}>
-                  {manualMode === "all"
-                    ? t('library-roulette.msg.filter-all')
-                    : `${manualSelectedIds.length}/${basePool.length} ${t('library-roulette.msg.filter-some')}`}
-                </span>
-
-                <button
-                  type="button"
-                  className={`${styles.switch} ${
-                    manualMode === "custom" ? styles.active : ""
-                  }`}
-                  onClick={() => {
-                    if (manualMode === "all") {
-                      // pasar a manual
-                      const ids = basePool.map((b) => b.id);
-                      setManualSelectedIds((prev) => (prev.length ? prev : ids));
-                      setManualMode("custom");
-                    } else {
-                      // volver a all
-                      setManualMode("all");
-                    }
-                  }}
-                >
-                  <span className={styles.thumb} />
-                </button>
+                {pool.length} {t('library-roulette.msg.title1')}
+                {pool.length !== 1 ? "s" : ""} {t('library-roulette.msg.title2')}
               </div>
             </div>
+
           </div>
 
-          {/* EXPANSIÓN CONTROLADA SOLO POR manualMode */}
-          <AnimatePresence initial={false}>
-            {manualMode === "custom" && (
-              <motion.div
-                key="manual-panel"
-                className={styles.manualPanel}
-                initial={{ opacity: 0, y: -8, height: 0 }}
-                animate={{ opacity: 1, y: 0, height: "auto" }}
-                exit={{ opacity: 0, y: -8, height: 0 }}
-                transition={{
-                  opacity: { duration: 0.18, ease: "easeOut" },
-                  y: { duration: 0.18, ease: "easeOut" },
-                  height: { duration: 0.25, ease: "easeOut" },
-                }}
-                style={{ overflow: "hidden" }}
+          {/* FILTERS COMO BLOQUE SEPARADO */}
+          <div className={styles.filters}>
+            
+            <button
+              type="button"
+              className={styles.filtersHeader}
+              onClick={() => setFiltersOpen(prev => !prev)}
+            >
+              <span className={styles.filtersHeaderTitle}>
+                {`${manualMode === "all" ? basePool.length : manualSelectedIds.length}/${basePool.length} ${t('library-roulette.msg.filter-some')}`}
+              </span>
+
+              <motion.span
+                className={styles.chevron}
+                animate={{ rotate: filtersOpen ? 180 : 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
               >
-                <div className={styles.manualActions}>
-                  <button
-                    type="button"
-                    onClick={() => setManualSelectedIds(basePool.map((b) => b.id))}
-                  >
-                    {t('common.actions.select-all')}
-                  </button>
+                <FaCircleChevronDown />
+              </motion.span>
+            </button>
 
-                  <button type="button" onClick={() => setManualSelectedIds([])}>
-                    {t('common.actions.deselect-all')}
-                  </button>
-                </div>
+            <AnimatePresence initial={false}>
+              {filtersOpen && (
+                <motion.div
+                  className={styles.filtersContent}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div className={styles.filterActions}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setManualMode("custom");
+                        setManualSelectedIds(basePool.map((b) => b.id));
+                      }}
+                    >
+                      {t('common.actions.select-all')}
+                    </button>
 
-                <div className={styles.manualList}>
-                  {[...basePool]
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .map((b) => {
-                    const active = manualSelectedIds.includes(b.id);
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setManualMode("custom");
+                        setManualSelectedIds([]);
+                      }}
+                    >
+                      {t('common.actions.deselect-all')}
+                    </button>
+                  </div>
 
-                    return (
-                      <label
-                        key={b.id}
-                        className={`${styles.toggleChip} ${active ? styles.on : ""}`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={active}
-                          onChange={() =>
-                            setManualSelectedIds((prev) =>
-                              prev.includes(b.id)
-                                ? prev.filter((id) => id !== b.id)
-                                : [...prev, b.id]
-                            )
-                          }
-                        />
-                        <span className={styles.indicator} />
-                        <span className={styles.labelText}>{b.name}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <div className={styles.filterList}>
+                    {[...basePool]
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((b) => {
+                        const active =
+                          manualMode === "all" ||
+                          manualSelectedIds.includes(b.id);
+
+                        return (
+                          <label
+                            key={b.id}
+                            className={`${styles.toggleChip} ${active ? styles.on : ""}`}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={active}
+                              onChange={() => {
+                                if (manualMode === "all") {
+                                  setManualMode("custom");
+                                  setManualSelectedIds(
+                                    basePool
+                                      .map((item) => item.id)
+                                      .filter((id) => id !== b.id)
+                                  );
+                                  return;
+                                }
+
+                                setManualSelectedIds((prev) =>
+                                  prev.includes(b.id)
+                                    ? prev.filter((id) => id !== b.id)
+                                    : [...prev, b.id]
+                                );
+                              }}
+                            />
+                            <span className={styles.indicator} />
+                            <span className={styles.labelText}>{b.name}</span>
+                          </label>
+                        );
+                      })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </Section>
 
         <Section title={t('section.title.library-roulette')}>

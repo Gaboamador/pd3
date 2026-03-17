@@ -38,6 +38,90 @@
   align-items: center;
 }
 
+.filters {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.filtersHeader {
+  clip-path: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-lg;
+  padding: $space-sm;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  background: $color-bg-contrast;
+  color: $color-text-primary;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.filtersHeaderTitle {
+  font-family: 'DIN2014';
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  font-size: 14px;
+  color: $color-text-muted;
+
+  transform-origin: center;
+}
+
+.filtersContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  padding: $space-lg;
+}
+
+.filterActions {
+  display: flex;
+  gap: 12px;
+
+  button {
+    clip-path: none;
+    background: transparent;
+    border: 1px solid $color-border;
+    padding: 6px 10px;
+    border-radius: $radius-sm;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    border-color: $pd3-main;
+    color: $pd3-main;
+  }
+}
+
+
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
 .resultsLength {
   font-size: 1.1rem;
   font-weight: 700;
@@ -89,7 +173,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  width: 100%;
+  // width: 100%;
 }
 
 .switchWrapper {

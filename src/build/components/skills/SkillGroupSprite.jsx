@@ -5,8 +5,9 @@ import {
   SKILL_GROUP_SPRITE_TILE_W,
   SKILL_GROUP_SPRITE_TILE_H,
 } from "../../utils/sprites/skillGroupSprites";
+import styles from "./SkillGroupSprite.module.scss"
 
-export default function SkillGroupSprite({ spritePos, height = 20 }) {
+export default function SkillGroupSprite({ spritePos, height = 20, randomizer = false }) {
   if (!spritePos) return null;
 
   const { r, c } = spritePos;
@@ -22,6 +23,7 @@ export default function SkillGroupSprite({ spritePos, height = 20 }) {
 
   return (
     <div
+      className={randomizer ? styles.randomizerStyle : ""}
       style={{
         width,
         height,
@@ -29,7 +31,6 @@ export default function SkillGroupSprite({ spritePos, height = 20 }) {
         backgroundRepeat: "no-repeat",
         backgroundSize: `${bgW}px ${bgH}px`,
         backgroundPosition: `${x}px ${y}px`,
-        // opacity: 0.9,
       }}
     />
   );
