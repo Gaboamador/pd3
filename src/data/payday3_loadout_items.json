@@ -8078,7 +8078,7 @@
                 "c": 2
             },
             "dlc_id": 2,
-            "newStats": { "close": 104.6, "medium": 100.0, "far": 95.0, "ap": 2 },
+            "newStats": { "close": 104.6, "medium": 82.0, "far": 71.0, "ap": 2 },
             "stats": {
                 "damage": 42,
                 "damage_distance": [

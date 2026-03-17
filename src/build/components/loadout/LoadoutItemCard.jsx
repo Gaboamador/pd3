@@ -24,12 +24,16 @@ export default function LoadoutItemCard({
 
   const name = (() => {
     if (itemDef) {
+      if (slot === "tree") {
+        return `${itemDef.categoryName?.toUpperCase()} | ${itemDef.name}`;
+      }
       return itemDef.name ?? itemDef.key;
     }
 
     if (use === "randomizer") {
       if (slot === "overkill") return t('randomizer.label.overkill');
       if (slot === "heist") return t('randomizer.label.heist');
+      if (slot === "tree") return t('randomizer.label.tree');
       return t('randomizer.label.item');
     }
 
@@ -83,7 +87,12 @@ export default function LoadoutItemCard({
   </div>
 
   {/* BODY */}
-  <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper} ${slot === "heist" ? styles.heist : ""}`}>
+  <div className={`
+  ${styles.body}
+  ${isItemPicker ? styles.itemPicker : ""}
+  ${styles.spriteWrapper}
+  ${slot === "heist" ? styles.heist : ""}
+  ${slot === "tree" ? styles.tree : ""}`}>
 
     <div className={styles.spriteContainer}>
       {isSpinning

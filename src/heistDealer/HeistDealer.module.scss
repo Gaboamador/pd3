@@ -64,7 +64,7 @@ justify-content: flex-start;
   max-width: 400px;
   aspect-ratio: 2 / 1;
 
-  perspective: 800px;
+  perspective: 900px;
 
   position: relative;
   overflow: hidden;
@@ -90,13 +90,35 @@ justify-content: flex-start;
   transform-style: preserve-3d;
 }
 
+.cardFront,
 .cardBack {
-  transform: rotateY(0deg);
+  position: absolute;
+  inset: 0;
+
+  backface-visibility: hidden;
+  border-radius: $radius-md;
+}
+
+.cardFront {
+  background: $color-bg-elevated;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
   box-shadow: inset 0 0 0 2px rgba(255,255,255,0.08);
 }
 
 .card {
   transform: rotateY(0deg);
+
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
 }
 
 .deckCard,

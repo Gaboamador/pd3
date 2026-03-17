@@ -14,6 +14,7 @@
 .buttonsWrapper {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
 }
 
@@ -135,6 +136,7 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   overflow: hidden;
+  width: 100%;
 }
 
 /* =========================
@@ -266,3 +268,65 @@
 .labelText {
   white-space: nowrap;
 }
+
+// SKILL TREE RANDOMIZER
+.treesWrapper {
+  border-top: 1px solid $pd3-lightgreen;
+}
+
+.treeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.treeCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.treeCardVisual {
+  position: relative;
+  min-height: 140px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.25);
+}
+
+.treePlaceholder {
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.treeMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.treeTypeLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.treeName {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.treeCategory {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.secondaryTree .treeTypeLabel {
+  opacity: 1;
+}
+// SKILL TREE RANDOMIZER

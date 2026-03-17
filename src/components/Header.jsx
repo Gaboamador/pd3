@@ -22,7 +22,7 @@ export default function Header() {
     { match: "/build-editor", label: t('home.build-editor.title') },
     { match: "/randomizer", label: t('home.randomizer.title') },
     { match: "/library-explorer", label: t('home.library-explorer.title') },
-    { match: "/library-roulette", label: t('home.library-roulette.title') },
+    { match: "/library-roulette", label: t('home.library-roulette.desc.short') },
     { match: "/catalog", label: t('home.catalog.title') },
   ];
 

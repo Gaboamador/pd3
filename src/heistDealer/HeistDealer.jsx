@@ -299,40 +299,44 @@ export default function HeistDealer() {
                     key="dealing"
                     className={styles.cardBack}
                     initial={{
+                        x: -140,
                         y: -160,
-                        scale: 0.9,
-                        rotate: -4,
+                        scale: 0.28,
+                        rotate: -6,
                         opacity: 0
                     }}
                     animate={{
-                        y: 0,
-                        scale: 1,
-                        rotate: 0,
-                        opacity: 1
+                        x: [-140, -60, 0],
+                        y: [-160, -60, 0],
+                        scale: [0.28, 0.65, 1],
+                        rotate: [-6, -3, 0],
+                        opacity: [0, 1, 1]
                     }}
                     exit={{
                         rotateY: 90,
                         opacity: 0
                     }}
                     transition={{
-                        y: { type: "spring", stiffness: 160, damping: 16 },
-                        scale: { duration: 0.25 },
-                        rotate: { duration: 0.25 }
+                        duration: 0.7,
+                        ease: "easeOut",
+                        times: [0, 0.45, 1]
                     }}
                     />
                 ) : (
                     <motion.div
                     key={heistDef?.key ?? "empty"}
                     className={styles.card}
-                    initial={{ rotateY: 90, scale: 0.9, opacity: 0 }}
+                    initial={{ rotateY: -90, scale: 0.9, opacity: 0 }}
                     animate={{ rotateY: 0, scale: 1, opacity: 1 }}
                     transition={{ duration: 0.35, ease: "easeOut" }}
                     >
-                    <HeistSprite itemDef={heistDef} height="85%" />
-
-                    <div className={styles.heistName}>
-                        {heistDef?.name ?? t('heistDealer.label.deal')}
-                    </div>
+                    <div className={styles.cardBack}/>
+                      <div className={styles.cardFront}>
+                        <HeistSprite itemDef={heistDef} height="85%" />
+                          <div className={styles.heistName}>
+                            {heistDef?.name ?? t('heistDealer.label.deal')}
+                        </div>
+                      </div>
                     </motion.div>
                 )}
             </AnimatePresence>

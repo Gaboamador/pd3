@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCircleChevronDown } from "react-icons/fa6";
 import styles from "./Randomizer.module.scss";
+import Section from "../build/components/common/Section";
 import SlotMachineReel from "./components/SlotMachineReel";
 import WeaponCard from "../build/components/weapons/WeaponCard";
 import LoadoutItemCard from "../build/components/loadout/LoadoutItemCard";
@@ -12,15 +13,17 @@ import ArmorSprite from "../build/components/loadout/ArmorSprite";
 import DeployableSprite from "../build/components/loadout/DeployableSprite";
 import ThrowableSprite from "../build/components/loadout/ThrowableSprite";
 import ToolSprite from "../build/components/loadout/ToolSprite";
-// import HeistSprite from "../build/components/loadout/HeistSprite";
+import HeistDealer from "../heistDealer/HeistDealer";
+import TreeSprite from "../build/components/skills/TreeSprite";
 
 import { normalizeLoadoutData } from "../build/utils/loadout.utils";
 import { buildWeaponTypeLabels, getWeaponTypeLabel, orderWeaponTypes } from "../build/utils/weaponTypeLabels";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
-// import { heists } from "../data/heists";
+import skillGroupsData from "../data/payday3_skill_groups.json";
 
 import { getArmorMaxPlates, buildEmptyPlateSlots } from "../build/utils/armor.utils";
+import { buildTreePool } from "./utils/buildTreePool";
 import ArmorPlatesPreview from "../build/components/loadout/ArmorPlatesPreview";
 
 // ==============================
@@ -60,6 +63,11 @@ export default function Randomizer() {
 
   const { primary, secondary, armors } = loadoutNormalized;
 
+  const { primary: primaryTrees, secondary: secondaryTrees } = useMemo(
+    () => buildTreePool(skillGroupsData),
+    []
+  );
+
   const [build, setBuild] = useState(() => {
   try {
     const saved = sessionStorage.getItem(RANDOMIZER_SESSION_KEY);
@@ -78,9 +86,20 @@ export default function Randomizer() {
       throwable: null,
       deployable: null,
       tool: null,
-      heist: null,
     },
-  };
+      trees: [null, null, null, null],
+    };
+  });
+
+  const [randomTrees, setRandomTrees] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem(RANDOMIZER_SESSION_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return parsed.trees ?? [null, null, null, null];
+      }
+    } catch {}
+    return [null, null, null, null];
   });
 
   useEffect(() => {
@@ -142,15 +161,28 @@ export default function Randomizer() {
     setActiveSpin(prev => {
       if (!prev) return prev;
 
-      const { slot, resolve } = prev;
+      const { slot, resolve, treeIndex } = prev;
 
+    if (slot === "tree") {
+      setRandomTrees(current => {
+        const next = [...current];
+        next[treeIndex] = result;
+        
+        setBuild(prev => ({
+          ...prev,
+          trees: next
+        
+        }));
+        return next;
+      });
+    } else {
       applyResult(slot, result);
+    }
 
-      // IMPORTANTE: resolvemos la promesa para randomizeFullSequential
-      resolve?.();
-
-      return null;
-    });
+    resolve?.();
+    console.log("TREE RESULT", result);
+    return null;
+  });
   }
 
   // ==============================
@@ -209,8 +241,6 @@ export default function Randomizer() {
   const armorPlates = build.loadout.armor?.plates ?? [];
   const hasAnyPlateSelected = armorPlates.some(p => p != null);
 
-  // const heistValue = build.loadout.heist;
-
   const filteredPrimaryWeapons = useMemo(() => {
   return Object.entries(primary)
     .filter(([type]) => primaryTypes.includes(type))
@@ -237,7 +267,6 @@ const filteredSecondaryWeapons = useMemo(() => {
       "overkill",
       "secondary",
       "primary",
-      // "heist",
     ];
 
     for (const slot of order) {
@@ -245,9 +274,35 @@ const filteredSecondaryWeapons = useMemo(() => {
     }
   }
 
-  function spinSlot(slot, resolve) {
+    async function randomizeTreesSequential() {
+      const primaryDeck = shuffleArray(primaryTrees);
+      const secondaryDeck = shuffleArray(secondaryTrees);
+
+      const selection = [
+        primaryDeck[0],
+        primaryDeck[1],
+        primaryDeck[2],
+        secondaryDeck[0],
+      ];
+
+      for (let i = 0; i < 4; i++) {
+        await new Promise(res => {
+          setActiveSpin({
+            slot: "tree",
+            items: i === 3 ? secondaryTrees : primaryTrees,
+            SpriteComponent: TreeSprite,
+            resolve: res,
+            forcedKey: selection[i].key,
+            treeIndex: i,
+          });
+        });
+      }
+    }
+
+  function spinSlot(slot, resolve, treeIndex = null) {
     let items = [];
     let SpriteComponent = null;
+    let deckKey = slot;
 
     switch (slot) {
       case "primary":
@@ -278,10 +333,21 @@ const filteredSecondaryWeapons = useMemo(() => {
         items = loadoutNormalized.tool;
         SpriteComponent = ToolSprite;
         break;
-      // case "heist":
-      //   items = heists.map(h => ({ key: h, name: h }));
-      //   SpriteComponent = HeistSprite;
-      //   break;
+      case "tree":
+      const isSecondarySlot = treeIndex === 3;
+      const basePool = isSecondarySlot ? secondaryTrees : primaryTrees;
+      const usedTreeKeys = randomTrees
+        .filter(Boolean)
+        .map(t => t.key);
+        items = basePool.filter(it => !usedTreeKeys.includes(it.key));
+        if (items.length === 0) {
+          resolve?.();
+          return;
+        }
+        SpriteComponent = TreeSprite;
+        deckKey = isSecondarySlot ? "treeSecondary" : "treePrimary";
+        break;
+
       default:
         break;
     }
@@ -291,13 +357,15 @@ const filteredSecondaryWeapons = useMemo(() => {
       return;
     }
 
+
     // ------------
     // DECK LOGIC (no repeat until pool is exhausted)
     // ------------
     const validKeys = items.map(it => it.key);
 
     // tomamos deck actual del slot
-    let deck = Array.isArray(decksBySlot[slot]) ? decksBySlot[slot] : [];
+    // let deck = Array.isArray(decksBySlot[slot]) ? decksBySlot[slot] : [];
+    let deck = Array.isArray(decksBySlot[deckKey]) ? decksBySlot[deckKey] : [];
 
     // filtramos keys que ya no existan (por filtros, etc.)
     deck = deck.filter(k => validKeys.includes(k));
@@ -313,7 +381,7 @@ const filteredSecondaryWeapons = useMemo(() => {
     // persistimos deck consumido (quitamos el primero)
     setDecksBySlot(prev => ({
       ...prev,
-      [slot]: deck.slice(1),
+      [deckKey]: deck.slice(1),
     }));
 
     // buscamos el itemDef para ese key (el Reel necesita items, pero también necesitamos forzar el final)
@@ -331,6 +399,7 @@ const filteredSecondaryWeapons = useMemo(() => {
       SpriteComponent,
       resolve,
       forcedKey: forcedItem.key,
+      treeIndex,
     });
 
   }
@@ -380,10 +449,6 @@ function applyResult(slot, result) {
         next.armor = { key: result.key, plates };
         break;
       }
-
-      // case "heist":
-      //   next.heist = result.key;
-      //   break;
     }
 
     return { ...prev, loadout: next };
@@ -396,6 +461,8 @@ function applyResult(slot, result) {
 
     setDecksBySlot({});
 
+    setRandomTrees([null, null, null, null]);
+
     setBuild({
       version: 1,
       loadout: {
@@ -406,10 +473,27 @@ function applyResult(slot, result) {
         throwable: null,
         deployable: null,
         tool: null,
-        // heist: null,
       },
+        trees: [null, null, null, null],
     });
   }
+
+    function resetTrees() {
+    
+      setRandomTrees([null, null, null, null]);
+
+    setBuild(prev => ({
+      ...prev,
+      trees: [null, null, null, null]
+    }));
+
+    setDecksBySlot(prev => {
+      const next = { ...prev };
+      delete next.treePrimary;
+      delete next.treeSecondary;
+      return next;
+    });
+    }
 
   // ==============================
   // RENDER
@@ -419,6 +503,7 @@ function applyResult(slot, result) {
   <div className={styles.page}>
     <div className={styles.wrapper}>
 
+      <Section>
       <div className={styles.buttonsWrapper}>
         <button
           className={styles.primaryButton}
@@ -452,6 +537,7 @@ function applyResult(slot, result) {
           <FaCircleChevronDown/>
         </motion.span>
       </button>
+
     
     <AnimatePresence>
       {filtersOpen && (
@@ -538,8 +624,7 @@ function applyResult(slot, result) {
   )}
 </AnimatePresence>
       </div>
-
-
+      </Section>
       <div className={styles.grid}>
 
         <div className={`${styles.cell} ${styles.primary}`}>
@@ -709,36 +794,64 @@ function applyResult(slot, result) {
             }
           />
         </div>
-
-        {/* HEIST */}
-        {/* <div className={`${styles.cell} ${styles.heist}`}>
-          <LoadoutItemCard
-            use='randomizer'
-            slot="heist"
-            isHeist
-            itemDef={
-              heistValue
-                ? { name: heistValue, key: heistValue }
-                : null
-            }
-            SpriteComponent={HeistSprite}
-            onClick={() => spinSlot("heist")}
-            isSpinning={activeSpin?.slot === "heist"}
-            spinningLabel={t('randomizer.label.randomizing')}
-            spriteOverlay={
-              activeSpin?.slot === "heist" && (
-                <SlotMachineReel
-                  items={activeSpin.items}
-                  SpriteComponent={activeSpin.SpriteComponent}
-                  forcedKey={activeSpin.forcedKey}
-                  onFinish={handleSpinFinish}
-                />
-              )
-            }
-          />
-        </div> */}
-
       </div>
+
+       {/* SKILL TREES */}
+        <Section>
+          <div className={styles.buttonsWrapper}>
+            <button
+              className={styles.primaryButton}
+              onClick={randomizeTreesSequential}
+            >
+              {t('randomizer.actions.randomize-trees')}
+            </button>
+          <button
+              className={styles.secondaryButton}
+              onClick={resetTrees}
+            >
+              {t('randomizer.actions.reset-trees')}
+          </button>
+          </div>
+        </Section>
+
+        <div className={styles.treeGrid}>
+          {[0,1,2,3].map(index => {
+
+            const tree = randomTrees[index];
+
+            return (
+              <LoadoutItemCard
+                key={index}
+                use="randomizer"
+                slot="tree"
+                itemDef={tree}
+                SpriteComponent={TreeSprite}
+                onClick={() => spinSlot("tree", null, index)}
+                isSpinning={
+                  activeSpin?.slot === "tree" &&
+                  activeSpin?.treeIndex === index
+                }
+                spinningLabel={t('randomizer.label.randomizing')}
+                spriteOverlay={
+                  activeSpin?.slot === "tree" &&
+                  activeSpin?.treeIndex === index && (
+                    <SlotMachineReel
+                      items={activeSpin.items}
+                      SpriteComponent={activeSpin.SpriteComponent}
+                      forcedKey={activeSpin.forcedKey}
+                      onFinish={handleSpinFinish}
+                    />
+                  )
+                }
+              />
+            );
+          })}
+        </div>
+
+      <Section title={t('section.title.heist-dealer')}>
+        <HeistDealer />
+      </Section>
+
     </div>
 </div>
   );
