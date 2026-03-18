@@ -1,9 +1,8 @@
 @use "../styles/variables" as *;
+@use "../styles/layout" as *;
 
 .page {
-  // min-height: 100vh;
-  justify-content: center;
-  padding: 1rem;
+  @extend %page;
 }
 
 .wrapper {
@@ -30,6 +29,7 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-rows: auto;
   align-items: start;
+  width: 100%;
 }
 
 .cell {

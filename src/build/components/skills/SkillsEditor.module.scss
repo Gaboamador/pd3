@@ -261,6 +261,16 @@
   grid-template-columns: 1fr 340px;
 }
 
+/* Caso: SOLO 1 tree */
+.bodyDesktop:has(.treeCard:only-child) {
+  grid-template-columns: minmax(400px, 1fr) 340px;
+}
+
+/* Caso: 2 trees */
+.bodyDesktop:has(.treesGrid > .treeCard:nth-child(2):last-child) {
+  grid-template-columns: 1fr 340px;
+}
+
 .bodyMobile {
   grid-template-columns: 1fr;
 }
@@ -277,6 +287,17 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+}
+
+/* 1 tree */
+.treesGrid:has(.treeCard:only-child) {
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+/* 2 trees */
+.treesGrid:has(.treeCard:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .treeCard {

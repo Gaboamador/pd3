@@ -48,6 +48,10 @@
   font-size: 12px;
   color: #fbbe0D;
   font-family: "DIN2014";
+  
+  @media(max-width: 380px) {
+    font-size: 10px;
+  }
 }
 
 /* BODY */
@@ -80,6 +84,9 @@
 .name {
   font-size: 13px;
   color: $color-text-primary;
+  @media(max-width: 380px) {
+    font-size: 11px;
+  }
 }
 
 /* MODS BUTTON */

@@ -1,12 +1,9 @@
 @use "../styles/variables.scss" as *;
 @use "sass:color";
+@use "../styles/layout" as *;
 
 .page {
-  // min-height: 100vh;
-  display: grid;
-  gap: 16px;
-  justify-content: center;
-  padding: 1rem;
+  @extend %page-grid;
 }
 
 .buildNameInput {

@@ -28,9 +28,11 @@
 }
 
 .sectionCost {
+  display: flex;
   font-size: 12px;
   font-weight: 700;
   opacity: 0.75;
+  gap: 5px;
 }
 
 .textBlock {

@@ -121,7 +121,10 @@ function Section({ title, cost, children }) {
     <div className={styles.section}>
       <div className={styles.sectionHeader}>
         <span className={styles.sectionTitle}>{title}</span>
-        <span className={styles.sectionCost}>{t('skills.label.cost')}{cost}</span>
+        <span className={styles.sectionCost}>
+          <span>{t('skills.label.cost')}</span>
+          <span>{cost}</span>
+        </span>
       </div>
 
       {children}

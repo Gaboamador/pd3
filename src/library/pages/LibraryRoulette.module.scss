@@ -1,11 +1,9 @@
 @use "../../styles/variables" as *;
+@use "../../styles/layout" as *;
 
 .page {
-  // min-height: 100vh;
-  justify-content: center;
-  padding: 1rem;
+  @extend %page;
 }
-
 .wrapper {
   display: grid;
   gap: 16px;
