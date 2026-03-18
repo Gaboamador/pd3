@@ -41,6 +41,7 @@ export default function BuildEditor({mode}) {
   const userHasEditedRef = useRef(false);
   const location = useLocation();
   const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
+  const [fromRoulette] = useState(() => location.state?.fromRoulette ?? null);
   const [fromComparison] = useState(() => location.state?.fromComparison ?? false);
   const [shareUrl, setShareUrl] = useState(null);
 
@@ -352,14 +353,16 @@ return (
       />
     )}
 
-    {(fromExplorerSearch !== null || fromComparison) && (
+    {(fromExplorerSearch !== null || fromRoulette !== null || fromComparison) && (
       <Section>
         <div className={styles.backToExplorerWrapper}>
           <button
-            onClick={() => {
+          onClick={() => {
               if (fromComparison) {
                 navigate(-1);
-              } else {
+              } else if (fromRoulette !== null) {
+                navigate(`/library-roulette${fromRoulette}`);
+              } else if (fromExplorerSearch !== null) {
                 navigate(`/library-explorer${fromExplorerSearch}`);
               }
             }}
@@ -369,7 +372,13 @@ return (
           </button>
 
           <span>
-            {fromComparison ? t('nav.back-to-comparison') : t('nav.back-to-explorer')}
+            {/* {fromComparison ? t('nav.back-to-comparison') : t('nav.back-to-explorer')} */}
+              {fromComparison
+                ? t('nav.back-to-comparison')
+                : fromRoulette !== null
+                ? t('nav.back-to-roulette')
+                : t('nav.back-to-explorer')
+              }
           </span>
         </div>
       </Section>

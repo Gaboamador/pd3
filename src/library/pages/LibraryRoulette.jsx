@@ -20,8 +20,6 @@ import loadoutData from "../../data/payday3_loadout_items.json";
 import Spinner from "../../components/Spinner";
 import BuildWheel from "../components/BulidWheel";
 
-const ROULETTE_DECK_KEY = "pd3_library_roulette_deck_v1";
-
 function shuffleArray(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -38,22 +36,12 @@ export default function LibraryRoulette() {
   const { loadBuild } = useLoadBuild();
   const location = useLocation();
   const navigate = useNavigate();
-  const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
-  const [selected, setSelected] = useState(null);
+  const fromExplorerSearch = location.search || null;
   const [spinning, setSpinning] = useState(false);
+  const [selected, setSelected] = useState(null);
   const [rotation, setRotation] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [manualMode, setManualMode] = useState("all");
-  const [manualSelectedIds, setManualSelectedIds] = useState([]);
   const [filtersOpen, setFiltersOpen] = useState(false);
-
-  const [rouletteDeck, setRouletteDeck] = useState(() => {
-    try {
-      const saved = sessionStorage.getItem(ROULETTE_DECK_KEY);
-      if (saved) return JSON.parse(saved);
-    } catch {}
-    return [];
-  });
 
   const indexedBuilds = useMemo(
     () => attachSearchIndexToBuilds(library ?? []),
@@ -107,6 +95,75 @@ export default function LibraryRoulette() {
     });
   }, [indexedBuilds, filters, weaponTypeIndex]);
 
+  const basePoolSignature = useMemo(() => {
+    return basePool.map(b => b.id).sort().join("|");
+  }, [basePool]);
+
+  // PERSISTENCIA DE FILTROS
+  const ROULETTE_STATE_KEY = `pd3_library_roulette_state_v1_${basePoolSignature}`;
+  
+  const [manualMode, setManualMode] = useState("all");
+  const [manualSelectedIds, setManualSelectedIds] = useState([]);
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(ROULETTE_STATE_KEY));
+
+      if (saved) {
+        setManualMode(saved.manualMode ?? "all");
+        setManualSelectedIds(saved.manualSelectedIds ?? []);
+      } else {
+        setManualMode("all");
+        setManualSelectedIds([]);
+      }
+    } catch {
+      setManualMode("all");
+      setManualSelectedIds([]);
+    }
+  }, [ROULETTE_STATE_KEY]);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(
+        ROULETTE_STATE_KEY,
+        JSON.stringify({
+          manualMode,
+          manualSelectedIds,
+        })
+      );
+    } catch {}
+  }, [manualMode, manualSelectedIds, ROULETTE_STATE_KEY]);
+  // ----------------------- //
+
+  // PERSISTENCIA DE DECK
+  const [rouletteDeck, setRouletteDeck] = useState([]);
+
+  const ROULETTE_DECK_KEY = `pd3_library_roulette_deck_v1_${basePoolSignature}`;
+
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(ROULETTE_DECK_KEY);
+
+      if (saved) {
+        setRouletteDeck(JSON.parse(saved));
+      } else {
+        setRouletteDeck([]);
+      }
+    } catch {
+      setRouletteDeck([]);
+    }
+  }, [ROULETTE_DECK_KEY]);
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(
+        ROULETTE_DECK_KEY,
+        JSON.stringify(rouletteDeck)
+      );
+    } catch {}
+  }, [rouletteDeck, ROULETTE_DECK_KEY]);
+  // ----------------------- //
+
   const pool = useMemo(() => {
     if (manualMode === "all") return basePool;
 
@@ -120,6 +177,54 @@ export default function LibraryRoulette() {
       .join("|");
   }, [pool]);
 
+  // PERSISTENCIA DE RESULTADO ACTUAL
+  const ROULETTE_UI_KEY = `pd3_library_roulette_ui_v1_${basePoolSignature}`;
+  const [uiHydrated, setUiHydrated] = useState(false);
+  
+  useEffect(() => {
+    if (!uiHydrated) return;
+
+    try {
+      sessionStorage.setItem(
+        ROULETTE_UI_KEY,
+        JSON.stringify({
+          selectedId: selected?.id ?? null,
+          rotation,
+        })
+      );
+    } catch {}
+  }, [selected, rotation, ROULETTE_UI_KEY, uiHydrated]);
+
+  useEffect(() => {
+    if (!pool.length) return;
+
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(ROULETTE_UI_KEY));
+
+      if (saved) {
+        const { selectedId, rotation } = saved;
+
+        const idx = pool.findIndex(b => b.id === selectedId);
+
+        if (idx !== -1) {
+          setSelected(pool[idx]);
+          setSelectedIndex(idx);
+          setRotation(rotation ?? 0);
+        } else {
+          setSelected(null);
+          setSelectedIndex(null);
+        }
+      }
+
+      setSpinning(false);
+      setUiHydrated(true); // 👈 clave
+
+    } catch {
+      setUiHydrated(true);
+    }
+  }, [ROULETTE_UI_KEY, pool]);
+  // ----------------------- //
+
   useEffect(() => {
     if (manualMode === "custom") {
       setManualSelectedIds(prev =>
@@ -127,16 +232,6 @@ export default function LibraryRoulette() {
       );
     }
   }, [basePool]);
-
-
-  useEffect(() => {
-    try {
-      sessionStorage.setItem(
-        ROULETTE_DECK_KEY,
-        JSON.stringify(rouletteDeck)
-      );
-    } catch {}
-  }, [rouletteDeck]);
 
   useEffect(() => {
     const ids = pool.map(b => b.id);
@@ -146,7 +241,16 @@ export default function LibraryRoulette() {
       return;
     }
 
-    setRouletteDeck(shuffleArray(ids));
+    setRouletteDeck(prev => {
+      // limpiar inválidos primero
+      const valid = prev.filter(id => ids.includes(id));
+
+      // si todavía hay deck válido → NO regenerar
+      if (valid.length > 0) return valid;
+
+      // si no → generar nuevo
+      return shuffleArray(ids);
+    });
   }, [poolSignature]);
 
 
@@ -229,7 +333,7 @@ export default function LibraryRoulette() {
             {fromExplorerSearch && (
               <div className={styles.backToExplorerWrapper}>
                 <button
-                  onClick={() => navigate(`/library-explorer${location.search}`)}
+                  onClick={() => navigate(`/library-explorer${fromExplorerSearch}`)}
                   className={styles.backBtn}
                 >
                   <IoChevronBackCircleSharp />
@@ -365,7 +469,7 @@ export default function LibraryRoulette() {
                     <div>{t('library-explorer.actions.open')}</div>
                     <button 
                     className={styles.btn}
-                    onClick={() => loadBuild(selected, {fromExplorer: location.search,})}
+                    onClick={() => loadBuild(selected, {fromRoulette: location.search,})}
                     >
                       <IoMdOpen />
                     </button>
@@ -374,12 +478,17 @@ export default function LibraryRoulette() {
                   <div className={styles.result}>{selected?.name}</div>
               </div>
           </div>
+
+            {uiHydrated && pool.length > 0 ? (
+              <BuildWheel
+                builds={pool}
+                rotation={rotation}
+                selectedIndex={selectedIndex}
+              />
+            ) : (
+              <Spinner label={t('spinner.loading')} />
+            )}
           
-          <BuildWheel
-              builds={pool}
-              rotation={rotation}
-              selectedIndex={selectedIndex}
-          />
         </div>
         </Section>
 

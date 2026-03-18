@@ -53,8 +53,9 @@ const isLoadoutEditor = !isItemPicker; // default
 
 const isMobile = useIsMobile();
 
-const spriteHeight = isMobile ? 80 : 110;
+const isMobileSmall = useIsMobile(375);
 
+const spriteHeight = isMobileSmall ? 70 : isMobile ? 80 : 110;
 
 return (
   <>
@@ -85,7 +86,7 @@ return (
       <div className={`${styles.body} ${isItemPicker ? styles.itemPicker : ""} ${styles.spriteWrapper}`}>
 
         {!isSpinning && (
-          <WeaponSprite spritePos={spritePos} height={spriteHeight} />
+          <WeaponSprite spritePos={spritePos} height={spriteHeight}/>
         )}
         
         {spriteOverlay && (

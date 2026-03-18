@@ -49,9 +49,9 @@ export default function LoadoutItemCard({
 
   const canEdit = Boolean(itemDef && onEdit);
 
-  const isMobile = useIsMobile();
-  
-  const spriteHeight = isMobile ? 80 : 110;
+  const isMobileSmall = useIsMobile(375);
+
+  const spriteHeight = isMobileSmall ? 70 : isMobile ? 80 : 110;
 
 
   return (

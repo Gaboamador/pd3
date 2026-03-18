@@ -11,7 +11,7 @@ export function useLoadBuild() {
   const navigate = useNavigate();
 
   function loadBuild(build, opts = {}) {
-    const { replace = false, fromExplorer = null, fromComparison = false } = opts;
+    const { replace = false, fromExplorer = null, fromRoulette = null, fromComparison = false } = opts;
 
     if (!build) return;
 
@@ -24,6 +24,7 @@ export function useLoadBuild() {
       // state: fromExplorer ? { fromExplorer } : undefined,
       state: {
         ...(fromExplorer !== null ? { fromExplorer } : {}),
+        ...(fromRoulette !== null ? { fromRoulette } : {}),
         ...(fromComparison ? { fromComparison } : {}),
       },
     });

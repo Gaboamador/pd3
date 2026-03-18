@@ -61,7 +61,13 @@ export default function Randomizer() {
     () => normalizeLoadoutData(loadoutData),
     []
   );
+  const selectAll = (setFn, allValues) => {
+    setFn(allValues);
+  };
 
+  const deselectAll = (setFn) => {
+    setFn([]);
+  };
   const { primary, secondary, armors } = loadoutNormalized;
 
   const { primary: primaryTrees, secondary: secondaryTrees } = useMemo(
@@ -576,8 +582,25 @@ function applyResult(slot, result) {
                 >
                   {/* PRIMARY */}
                   <div className={styles.filterGroup}>
-                    <div className={styles.filterTitle}>
-                      {t('randomizer.label.filter.primary')} ({primaryTypes.length})
+                    <div className={styles.filterTitleRow}>
+                      <div className={styles.filterTitle}>
+                        {t('randomizer.label.filter.primary')} ({primaryTypes.length})
+                      </div>
+                      <div className={styles.filterActions}>
+                        <button
+                          type="button"
+                          onClick={() => selectAll(setPrimaryTypes, ALL_PRIMARY_TYPES)}
+                        >
+                          {t('common.actions.select-all')}
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => deselectAll(setPrimaryTypes)}
+                        >
+                          {t('common.actions.deselect-all')}
+                        </button>
+                      </div>
                     </div>
 
                     <div className={styles.filterList}>
@@ -612,8 +635,26 @@ function applyResult(slot, result) {
 
                   {/* SECONDARY */}
                   <div className={styles.filterGroup}>
-                    <div className={styles.filterTitle}>
-                      {t('randomizer.label.filter.secondary')} ({secondaryTypes.length})
+                    <div className={styles.filterTitleRow}>
+                      <div className={styles.filterTitle}>
+                        {t('randomizer.label.filter.secondary')} ({secondaryTypes.length})
+                      </div>
+
+                      <div className={styles.filterActions}>
+                        <button
+                          type="button"
+                          onClick={() => selectAll(setSecondaryTypes, ALL_SECONDARY_TYPES)}
+                        >
+                          {t('common.actions.select-all')}
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => deselectAll(setSecondaryTypes)}
+                        >
+                          {t('common.actions.deselect-all')}
+                        </button>
+                      </div>
                     </div>
 
                     <div className={styles.filterList}>

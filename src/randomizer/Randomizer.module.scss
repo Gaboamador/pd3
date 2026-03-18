@@ -110,7 +110,7 @@
 }
 
 /* ===== MOBILE SMALL ===== */
-@media (max-width: 425px) {
+@media (max-width: 375px) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -191,6 +191,7 @@
   flex-direction: column;
   gap: $space-xl;
   padding: $space-lg;
+  position: relative;
 }
 
 .filterGroup {
@@ -199,11 +200,54 @@
   gap: $space-md;
 }
 
+.filterGroup + .filterGroup {
+  position: relative;
+}
+
+.filterGroup + .filterGroup::before {
+  content: "";
+  position: absolute;
+  top: calc(-#{$space-xl} / 2);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: $pd3-hover;
+}
+
+.filterTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+
 .filterTitle {
   font-size: 13px;
   font-weight: 700;
   color: $color-text-primary;
   text-transform: uppercase;
+}
+
+.filterActions {
+  display: flex;
+  gap: 12px;
+
+  button {
+    clip-path: none;
+    background: transparent;
+    border: 1px solid $color-border;
+    padding: 6px 10px;
+    border-radius: $radius-sm;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    border-color: $pd3-main;
+    color: $pd3-main;
+  }
 }
 
 .filterList {
