@@ -3,6 +3,7 @@ import { computeBuildSemanticProfile } from "./semantic/computeBuildSemanticProf
 import { generateSemanticInsights } from "./semantic/generateSemanticInsights";
 import { detectBuildArchetype } from "./semantic/detectBuildArchetype";
 import { analyzeBuildArchetype } from "./semantic/analyzeBuildArchetype";
+import { formatPlates } from "../../../utils/buildPreview";
 
 const MAX_BUILDS = 3;
 
@@ -127,6 +128,78 @@ function buildLoadoutNameResolver(loadoutData) {
     }
   }
   return (key) => (key ? (map.get(key) || key) : null);
+}
+
+function buildLoadoutSnapshotRows(builds, buildIds, resolveItemName) {
+  const rows = [];
+
+  function getWeaponLabel(w) {
+    if (!w?.weaponKey) return "None";
+
+    const name = resolveItemName(w.weaponKey);
+
+    const preset = w.preset != null ? ` · Preset ${w.preset}` : "";
+    const mods = w.mods && Object.keys(w.mods).length
+      ? ` · ${Object.keys(w.mods).length} mods`
+      : "";
+
+    // return `${name}${preset}${mods}`;
+    return name;
+  }
+
+  function getArmorLabel(a) {
+    if (!a?.key) return "None";
+
+    const name = resolveItemName(a.key);
+
+    const plateText = formatPlates(a.plates);
+
+    if (name && plateText) {
+      return `${name} (${plateText})`;
+    }
+
+    return name;
+  }
+
+  const STRUCTURE = [
+    { key: "primary", label: "Primary" },
+    { key: "secondary", label: "Secondary" },
+    { key: "overkill", label: "Overkill" },
+    { key: "armor", label: "Armor" },
+    { key: "throwable", label: "Throwable" },
+    { key: "deployable", label: "Deployable" },
+    { key: "tool", label: "Tool" }
+  ];
+
+  for (const item of STRUCTURE) {
+    const cells = {};
+
+    for (const b of builds) {
+      const l = b.loadout;
+
+      let value = null;
+
+      if (item.key === "primary" || item.key === "secondary") {
+        value = getWeaponLabel(l[item.key]);
+      } else if (item.key === "armor") {
+        value = getArmorLabel(l.armor);
+      } else {
+        const raw = l[item.key];
+        value = raw ? resolveItemName(raw) : "None";
+      }
+
+      cells[b.id] = { value };
+    }
+
+    rows.push({
+      type: "loadoutSnapshot",
+      key: item.key,
+      label: item.label,
+      cells
+    });
+  }
+
+  return rows;
 }
 
 // ------------------------
@@ -526,6 +599,13 @@ export function compareBuildGroup(rawBuilds, ctx = {}) {
     archetypeAnalysis[id] = analyzeBuildArchetype(profiles[id], t);
     }
 
+    // Weapons and Loadout items per build
+    const loadoutSnapshotRows = buildLoadoutSnapshotRows(
+      builds,
+      buildIds,
+      resolveItemName
+    );
+
     // RETURN
 
   return {
@@ -533,6 +613,7 @@ export function compareBuildGroup(rawBuilds, ctx = {}) {
     buildLabels,
     semanticInsights,
     archetypes,
+    loadoutSnapshotRows,
 
     // For custom UI
     raw: {

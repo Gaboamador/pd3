@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../../auth/useAuth";
 import styles from "./CompareBuilds.module.scss";
 import Section from "../../build/components/common/Section";
 import ComparisonGrid from "./components/ComparisonGrid";
+import LoadoutComparisonGrid from "./components/LoadoutComparisonGrid";
 import { compareBuildGroup } from "./utils/compareBuildGroup";
 import { loadCompareBuilds, saveCompareBuilds } from "./utils/compareBuildsSession";
 import ScrollArrow from "../../components/ScrollArrow";
@@ -16,7 +18,15 @@ export default function CompareBuilds() {
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
+  
   const [selectedBuilds, setSelectedBuilds] = useState([]);
 
     // 0) Volver a posición de scroll donde estaba cuando se fue a otro componente
@@ -62,6 +72,8 @@ export default function CompareBuilds() {
       t
     });
   }, [selectedBuilds, t]);
+
+  if (!isAuthenticated) return null;
 
   // 3) Go back one step
   const onBack = () => {
@@ -169,6 +181,15 @@ export default function CompareBuilds() {
               ))}
             </Section>
 
+            {/* Loadout diffs grids */}
+            <Section title={t('section.title.compare.loadout')}>
+              <LoadoutComparisonGrid
+                buildIds={result.builds}
+                buildLabels={result.buildLabels}
+                rows={result.loadoutSnapshotRows}
+              />
+            </Section>
+
             <Section title={t('section.title.compare.strenghts')}>
                 <div
                   className={styles.buildChipsWrapper}
@@ -219,13 +240,29 @@ export default function CompareBuilds() {
                       return (
                         <div key={`${id}-${row}`} className={styles.cell}>
                           {skill ? (
-                            <>
-                              {skill.label}
-                              <span className={`${styles.pill} ${skill.level === "aced" ? styles.aced : ""}`}>
-                                {skill.level}
-                              </span>
-                            </>
-                          ) : null}
+                              <>
+                                <Link
+                                  to={`/catalog/${skill.key}`}
+                                  state={{ fromCompare: true }}
+                                  className={styles.skillLink}
+                                  onClick={() => {
+                                    sessionStorage.setItem(
+                                      "pd3_compare_scroll",
+                                      String(window.scrollY)
+                                    );
+                                  }}
+                                >
+                                  {skill.label}
+                                </Link>
+                                <span
+                                  className={`${styles.pill} ${
+                                    skill.level === "aced" ? styles.aced : ""
+                                  }`}
+                                >
+                                  {skill.level}
+                                </span>
+                              </>
+                            ) : null}
                         </div>
                       );
                     })

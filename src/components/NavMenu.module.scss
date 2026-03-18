@@ -3,8 +3,16 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1000;
+
+  &.mobile {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.55) 120px
+    );
+  }
 }
 
 .menu {
@@ -15,10 +23,19 @@
   border-radius: 14px;
   padding: 8px 0;
   min-width: 260px;
-
+  border-radius: 14px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
 
+  &.mobile {
+    width: 90vw;
+    border-radius: 0;
+    border: none;
+  }
+
+  &.desktop {
+    min-width: 260px;
+  }
 }
 
 .list {
@@ -45,7 +62,12 @@
     background: rgba(255, 255, 255, 0.08);
     transform: translateX(2px);
   }
+
+  &.mobile {
+    border-radius: 0;
+  }
 }
+
 
 .active {
   background: rgba(255, 255, 255, 0.08);
@@ -62,6 +84,8 @@
   align-items: center;
   gap: 6px;
   font-size: 20px;
+  justify-content: flex-start;
+  width: 40px;
 
   svg {
     stroke-width: 2.2;

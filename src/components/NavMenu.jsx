@@ -1,66 +1,116 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import useIsMobile from "../hooks/useIsMobile";
 import styles from "./NavMenu.module.scss";
 
-export default function NavMenu({ open, onClose, items = [], anchorRef }) {
+export default function NavMenu({ open, onClose, items = [], anchorRef, headerRef }) {
 
     const location = useLocation();
+    const menuRef = useRef(null);
+    const isMobile = useIsMobile();
     const [pos, setPos] = useState({ top: 0, left: 0 });
 
+    // useEffect(() => {
+    // if (open && anchorRef?.current) {
+    //     const rect = anchorRef.current.getBoundingClientRect();
+
+    //     setPos({
+    //     top: rect.bottom + 8,
+    //     left: rect.left
+    //     });
+    // }
+    // }, [open, anchorRef]);
+
     useEffect(() => {
-    if (open && anchorRef?.current) {
-        const rect = anchorRef.current.getBoundingClientRect();
+  if (!open) return;
 
-        setPos({
-        top: rect.bottom + 8,
-        left: rect.left
-        });
-    }
-    }, [open, anchorRef]);
+  // 📱 MOBILE → anclado al header
+  if (isMobile && headerRef?.current) {
+    const rect = headerRef.current.getBoundingClientRect();
+
+    setPos({
+      top: rect.bottom,
+      left: 0
+    });
+
+    return;
+  }
+
+  // 🖥 DESKTOP → anclado al botón
+  if (!isMobile && anchorRef?.current) {
+    const rect = anchorRef.current.getBoundingClientRect();
+
+    setPos({
+      top: rect.bottom + 8,
+      left: rect.left
+    });
+  }
+}, [open, isMobile, anchorRef, headerRef]);
 
     useEffect(() => {
-    if (!open) return;
+      if (!open) return;
 
-    function handleKey(e) {
-        if (e.key === "Escape") {
-        onClose();
+      function handlePointerDown(e) {
+        const menuEl = menuRef.current;
+        const anchorEl = anchorRef?.current;
+
+        const clickedInsideMenu = menuEl?.contains(e.target);
+        const clickedAnchor = anchorEl?.contains(e.target);
+
+        if (!clickedInsideMenu && !clickedAnchor) {
+          onClose();
         }
-    }
+      }
 
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-    }, [open, onClose]);
+      document.addEventListener("pointerdown", handlePointerDown);
+
+      return () => {
+        document.removeEventListener("pointerdown", handlePointerDown);
+      };
+    }, [open, onClose, anchorRef]);
 
 
   return (
+    createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
-          className={styles.backdrop}
-          onClick={onClose}
+          className={`${styles.backdrop} ${isMobile ? styles.mobile : ""}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.2 }}
         >
           <motion.div
-            className={styles.menu}
+            ref={menuRef}
+            className={`${styles.menu} ${isMobile ? styles.mobile : styles.desktop}`}
             style={{
-                position: "fixed",
-                top: pos.top,
-                left: pos.left,
-                transformOrigin: "top left"
+              position: "fixed",
+              top: pos.top,
+              left: pos.left,
+              transformOrigin: "top left"
             }}
-            initial={{ opacity: 0, scale: 0.92, y: -4 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: -2 }}
+            initial={{
+              opacity: 0,
+              y: -6,
+              scale: 0.98,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: -4,
+              scale: 0.99,
+            }}
             transition={{
-                type: "spring",
-                stiffness: 380,
-                damping: 28,
-                mass: 0.6
+              duration: 0.28,
+              ease: [0.16, 1, 0.3, 1]
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -70,47 +120,55 @@ export default function NavMenu({ open, onClose, items = [], anchorRef }) {
               animate="visible"
               variants={{
                 hidden: { opacity: 0, y: 4 },
-visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.18, ease: "easeOut" }
-  }
-
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    staggerChildren: 0.035,
+                    delayChildren: 0.04
+                  }
+                }
               }}
             >
               {items.map((item, i) => {
                 const isActive = item.to === "/" ? location.pathname === "/" : location.pathname.startsWith(item.to);
                 return (
-                <motion.li
-                  key={i}
-                  className={styles.item}
-                  variants={{
-                    hidden: { opacity: 0, y: -6 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                >
-                  <Link
-                    to={item.disabled ? "#" : item.to}
-                    className={`${styles.link} ${isActive ? styles.active : ""} ${item.disabled ? styles.disabled : ""}`}
-                    onClick={onClose}
+                  <motion.li
+                    key={i}
+                    className={styles.item}
+                    variants={{
+                      hidden: { opacity: 0, y: -4 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] }
+                      }
+                    }}
                   >
-                    <span
-                      className={styles.icon}
-                      data-service={item.service}
+                    <Link
+                      to={item.disabled ? "#" : item.to}
+                      className={`${styles.link} ${isActive ? styles.active : ""} ${isMobile ? styles.mobile : ""} ${item.disabled ? styles.disabled : ""}`}
+                      onClick={onClose}
                     >
-                      {item.icon}
-                    </span>
+                      <span
+                        className={styles.icon}
+                        data-service={item.service}
+                      >
+                        {item.icon}
+                      </span>
 
-                    <span className={styles.label}>
-                      {item.label}
-                    </span>
-                  </Link>
-                </motion.li>
-              )})}
+                      <span className={styles.label}>
+                        {item.label}
+                      </span>
+                    </Link>
+                  </motion.li>
+                )
+              })}
             </motion.ul>
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body)
   );
 }

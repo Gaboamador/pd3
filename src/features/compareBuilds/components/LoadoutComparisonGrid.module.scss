@@ -1,0 +1,102 @@
+@use "../../../styles/variables" as *;
+
+.tableWrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* =========================
+   Columns
+========================= */
+
+.colFeature {
+  width: clamp(180px, 28%, 320px);
+}
+
+.colBuild {
+  width: auto;
+}
+
+/* =========================
+   Cells base
+========================= */
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 0;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: rgba($pd3-main, 0.15);
+  z-index: 1;
+}
+
+/* =========================
+   Header
+========================= */
+
+.headerFeature {
+  text-align: left;
+  font-weight: 600;
+}
+
+.headerBuild {
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   Left column (labels)
+========================= */
+
+.label {
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* =========================
+   Value cells
+========================= */
+
+.value {
+  text-align: center;
+  font-family: 'DIN2014';
+
+  font-size: 0.9rem;
+  line-height: 1.25;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* =========================
+   Visual polish
+========================= */
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Opcional: separar filas importantes */
+.rowPrimary td {
+  border-top: 2px solid rgba(255, 255, 255, 0.12);
+}

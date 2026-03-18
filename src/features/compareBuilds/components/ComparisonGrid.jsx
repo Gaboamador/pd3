@@ -39,7 +39,7 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
                     }}
                     style={{ cursor: build ? "pointer" : "default" }}
                   >
-                    {buildLabels?.[id] || `{t('compare.table.build-label')} ${id}`}
+                    {buildLabels?.[id] || `${t('compare.table.build-label')} ${id}`}
                   </th>
                 );
               })}

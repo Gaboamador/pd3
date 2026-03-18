@@ -29,6 +29,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const isHome = pathname === "/";
   const buttonRef = useRef(null);
+  const headerRef = useRef(null);
 
   function handleLogout() {
     logout();
@@ -40,6 +41,7 @@ export default function Header() {
     { match: "/library-explorer", label: t('home.library-explorer.title') },
     { match: "/library-roulette", label: t('home.library-roulette.desc.short') },
     { match: "/catalog", label: t('home.catalog.title') },
+    { match: "/compare-builds", label: t('home.compare.title') },
   ];
 
   const subtitle = SUBTITLE_ROUTES.find(r => pathname.startsWith(r.match))?.label ?? "";
@@ -95,7 +97,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={styles.header}>
       <div className={styles.inner}>
 
       {isHome ? (
@@ -140,6 +142,7 @@ export default function Header() {
         onClose={() => setMenuOpen(false)}
         items={navItems}
         anchorRef={buttonRef}
+        headerRef={headerRef}
       />
 
     </header>
