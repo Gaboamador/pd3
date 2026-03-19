@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { renderSkillTextWithTotals } from "../build/utils/skillScaling.utils.jsx";
+import useIsMobile from "../hooks/useIsMobile.js";
 import styles from "./SkillSection.module.scss";
 import skillGroupsData from "../data/payday3_skill_groups.json";
+import { BREAKPOINTS } from "../constants/breakpoints.js";
 
 export default function SkillSection({ skill, showMeta = false, equippedCount = 0, enableTotals = false, textTransform }) {
   const { t } = useTranslation();
@@ -117,8 +119,9 @@ export default function SkillSection({ skill, showMeta = false, equippedCount = 
 
 function Section({ title, cost, children }) {
   const { t } = useTranslation();
+  const isMobile = useIsMobile(BREAKPOINTS.skillTreeDesktop);
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${isMobile ? styles.border : ""}`}>
       <div className={styles.sectionHeader}>
         <span className={styles.sectionTitle}>{title}</span>
         <span className={styles.sectionCost}>

@@ -56,7 +56,7 @@
   color: #fbbe0D;
   font-family: "DIN2014";
 
-  @media(max-width: 380px) {
+  @include font-down(compact) {
     font-size: 10px;
   }
 }
@@ -71,7 +71,7 @@
   border-top: 1px solid #262a3b;
   padding: 0 0 10px 0;
   min-height: 120px;
-  @media (max-width: 560px) {
+  @include down(sm) {
     min-height: 90px;
   }
 
@@ -97,10 +97,15 @@
   font-family: "DIN2014";
 }
 
+.footer.treeFooter {
+  align-items: center;
+  height: 48px;
+}
+
 .name {
   font-size: 13px;
   color: $color-text-primary;
-  @media(max-width: 380px) {
+  @include font-down(compact) {
     font-size: 11px;
   }
 }

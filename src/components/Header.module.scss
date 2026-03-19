@@ -29,7 +29,6 @@
 }
 
 .inner {
-  max-width: 900px;
   margin: 0 auto;
   padding: 0 12px;
   display: flex;
@@ -103,7 +102,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@include up(sm) {
   .header {
     padding: 16px 0;
   }
@@ -118,7 +117,7 @@
   }
 }
 
-  @media (max-width: 400px) {
+  @include down (xs) {
     .subtitle {
       font-size: 1.2rem;
     }

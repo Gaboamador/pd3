@@ -2,14 +2,12 @@
 
 .meta {
   opacity: 0.7;
-  font-size: 0.85rem;
+  font-size: $font-sm;
 }
 
 .tableWrap {
   overflow-x: hidden;
   overflow-y: auto;
-//   border: 1px solid rgba(255,255,255,0.12);
-//   border-radius: 12px;
 }
 
 .table {
@@ -27,13 +25,7 @@ th, td {
 th {
   position: sticky;
   top: 0;
-//   background: rgba(0,0,0,0.25);
-background-color: rgba($pd3-main, 0.15);
-//   backdrop-filter: blur(6px);
-//   z-index: 1;
-//   text-align: left;
-//   font-size: 0.85rem;
-//   letter-spacing: 0.02em;
+  background-color: rgba($pd3-main, 0.15);
 }
 
 .colFeature {
@@ -45,13 +37,10 @@ background-color: rgba($pd3-main, 0.15);
 }
 
 .featureCol {
-//   width: 320px;
-width: auto;
+  width: auto;
 }
 
 .buildCol {
-//   width: 170px;
-// white-space: nowrap;
 white-space: normal;
   overflow-wrap: anywhere;
 }
@@ -67,7 +56,7 @@ white-space: normal;
 }
 
 .featureCell {
-  font-size: 0.95rem;
+  font-size: $font-md;
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -79,10 +68,9 @@ white-space: normal;
 }
 
 .skillLink {
-    font-family: 'DIN2014';
+  font-family: 'DIN2014';
   color: inherit;
-//   text-decoration: underline;
-text-decoration: none;
+  text-decoration: none;
   cursor: pointer;
 
 
@@ -93,7 +81,7 @@ text-decoration: none;
 
 .subLabel {
   margin-top: 4px;
-  font-size: 0.78rem;
+  font-size: $font-xs;
   opacity: 0.7;
 }
 
@@ -106,9 +94,8 @@ text-decoration: none;
   align-items: center;
   gap: 8px;
   justify-content: center;
-//   white-space: nowrap;
-flex-wrap: wrap;
-min-width: 0;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .badge {
@@ -116,7 +103,7 @@ min-width: 0;
 }
 
 .detail {
-  font-size: 0.8rem;
+  font-size: $font-xs;
   opacity: 0.8;
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 999px;
@@ -128,7 +115,7 @@ color: $pd3-lightgreen;
 }
 
 .present {
-  background: rgba(79, 138, 114, 0.12); // your $color-build vibe
+  background: rgba(79, 138, 114, 0.12);
 }
 
 .absent {

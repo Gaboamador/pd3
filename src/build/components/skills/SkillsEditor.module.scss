@@ -40,7 +40,7 @@
     0% 100%
   );
 
-  @media (max-width: 500px) {
+  @include down(sm) {
   clip-path: none;
   border-radius: $space-sm;
   box-shadow: inset 0 0 5px 0 $pd3-main;
@@ -61,7 +61,7 @@
   font-family: 'DIN2014';
   white-space: nowrap;
 
-  @media (max-width: 500px) {
+  @include down(sm) {
     font-size: 0.8rem;
   }
 }
@@ -82,7 +82,7 @@
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 500px) {
+  @include down(sm) {
     font-size: 0.9rem;
   }
 }
@@ -94,7 +94,7 @@
   gap: 10px;
   white-space: nowrap;
 
-  @media (max-width: 500px) {
+  @include down(sm) {
     font-size: 0.9rem;
     gap: 5px;
   }
@@ -153,11 +153,13 @@
   --c: 8px;
 
   // MOBILE
+  @include down(sm) {
   background-color: rgba(0,0,0,0.5);
+  }
 }
 
 // TABLET
-@media (min-width: 768px) {
+@include up(md) {
   .groupSelector::before {
     content: "";
     position: absolute;

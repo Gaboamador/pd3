@@ -6,6 +6,17 @@
   @extend %page-grid;
 }
 
+.manageBuildsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+
+  // @include font-down(compact) {
+  //   justify-content: space-between;
+  // }
+}
+
 .buildNameInput {
   width: 100%;
   background: rgba(128,128,128,0.15);

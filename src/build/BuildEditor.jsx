@@ -385,6 +385,7 @@ return (
     )}
 
     <Section title={t('section.title.manage_builds')}>
+    <div className={styles.manageBuildsWrapper}>
       <button
         className="secondary"
         onClick={() => setShowLibrary(v => !v)}
@@ -435,34 +436,35 @@ return (
         {t('build.actions.share')}
       </button>
 
-      <div className={styles.handleSaveActionsWrapper}>
-        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? t('build.msg.save-disabled') : ""}>
-          {t('build.actions.save')}
-        </button>
-        <span className={styles.handleSaveActionsMessage}>{t('build.msg.update-current')}</span>
-      </div>
       
-      <div className={styles.handleSaveActionsWrapper}>
-        <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
-          {t('build.actions.save-as')}
-        </button>
-        <span className={styles.handleSaveActionsMessage}>{t('build.msg.save-as-new')}</span>
-      </div>
+        <div className={styles.handleSaveActionsWrapper}>
+          <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? t('build.msg.save-disabled') : ""}>
+            {t('build.actions.save')}
+          </button>
+          <span className={styles.handleSaveActionsMessage}>{t('build.msg.update-current')}</span>
+        </div>
+        
+        <div className={styles.handleSaveActionsWrapper}>
+          <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
+            {t('build.actions.save-as')}
+          </button>
+          <span className={styles.handleSaveActionsMessage}>{t('build.msg.save-as-new')}</span>
+        </div>
 
-      {saving && <Spinner label={t('spinner.saving')} />}
+        {saving && <Spinner label={t('spinner.saving')} />}
 
-      <div className={styles.handleLoginWrapper}>
         {showAuthRequired && (
           <>
+          <div className={styles.handleLoginWrapper}>
             <span>{t('auth.msg.login-required.builds')}</span>
             
             <button onClick={() => navigate("/auth")}>
               {t('auth.actions.login')}
             </button>
+          </div>
           </>
         )}
-      </div>
-
+    </div>
     </Section>
 
   <AnimatePresence>

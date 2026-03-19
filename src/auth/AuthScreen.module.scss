@@ -1,7 +1,5 @@
-@use '../styles/variables' as *;
-
 .authScreen {
-  max-width: 420px;
+  max-width: bp(sm);
   width: 90%;
   padding: 2rem;
   margin: 0 auto;

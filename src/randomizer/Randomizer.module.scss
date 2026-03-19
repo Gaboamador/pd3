@@ -68,7 +68,7 @@
 }
 
 /* ===== TABLET ===== */
-@media (max-width: 920px) {
+@include down(md) {
   .grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -95,7 +95,7 @@
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 560px) {
+@include down (sm) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -110,7 +110,7 @@
 }
 
 /* ===== MOBILE SMALL ===== */
-@media (max-width: 375px) {
+@include down(xs) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -323,8 +323,10 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
-  @media (min-width: 768px) {
-    width: 400px;
+
+  @include up(md) {
+    width: 519px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   
 }

@@ -127,6 +127,8 @@
   background: white;
   padding: 12px;
   display: inline-block;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .qrLogo {
@@ -161,7 +163,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@include down(md) {
     .overlay {
     padding: 10px;
     }

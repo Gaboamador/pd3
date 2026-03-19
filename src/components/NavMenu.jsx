@@ -4,51 +4,41 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useIsMobile from "../hooks/useIsMobile";
+import { BREAKPOINTS } from "../constants/breakpoints";
 import styles from "./NavMenu.module.scss";
 
 export default function NavMenu({ open, onClose, items = [], anchorRef, headerRef }) {
 
     const location = useLocation();
     const menuRef = useRef(null);
-    const isMobile = useIsMobile();
+    const isMobile = useIsMobile(BREAKPOINTS.mobile);
     const [pos, setPos] = useState({ top: 0, left: 0 });
 
-    // useEffect(() => {
-    // if (open && anchorRef?.current) {
-    //     const rect = anchorRef.current.getBoundingClientRect();
-
-    //     setPos({
-    //     top: rect.bottom + 8,
-    //     left: rect.left
-    //     });
-    // }
-    // }, [open, anchorRef]);
-
     useEffect(() => {
-  if (!open) return;
+      if (!open) return;
 
-  // 📱 MOBILE → anclado al header
-  if (isMobile && headerRef?.current) {
-    const rect = headerRef.current.getBoundingClientRect();
+      // MOBILE → anclado al header
+      if (isMobile && headerRef?.current) {
+        const rect = headerRef.current.getBoundingClientRect();
 
-    setPos({
-      top: rect.bottom,
-      left: 0
-    });
+        setPos({
+          top: rect.bottom,
+          left: 0
+        });
 
-    return;
-  }
+        return;
+      }
 
-  // 🖥 DESKTOP → anclado al botón
-  if (!isMobile && anchorRef?.current) {
-    const rect = anchorRef.current.getBoundingClientRect();
+      // DESKTOP → anclado al botón
+      if (!isMobile && anchorRef?.current) {
+        const rect = anchorRef.current.getBoundingClientRect();
 
-    setPos({
-      top: rect.bottom + 8,
-      left: rect.left
-    });
-  }
-}, [open, isMobile, anchorRef, headerRef]);
+        setPos({
+          top: rect.bottom + 8,
+          left: rect.left
+        });
+      }
+    }, [open, isMobile, anchorRef, headerRef]);
 
     useEffect(() => {
       if (!open) return;

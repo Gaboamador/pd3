@@ -45,7 +45,6 @@
 }
 
 .buildChipTitle {
-// font-size: 1.1rem;
 font-weight: 600;
 border-bottom: 2px solid rgba($pd3-lightgreen, 0.5);
 }
@@ -73,7 +72,7 @@ gap: 5px;
 
 .h2 {
   margin: 0 0 10px;
-  font-size: 1.05rem;
+  font-size: $font-lg;
   letter-spacing: 0.02em;
 }
 
@@ -132,10 +131,10 @@ display: flex;
 }
 
 .skillLink {
-    font-family: 'DIN2014';
+  font-family: 'DIN2014';
+  font-size: $font-md;
   color: inherit;
-//   text-decoration: underline;
-text-decoration: none;
+  text-decoration: none;
   cursor: pointer;
 
 
@@ -157,13 +156,8 @@ text-decoration: none;
   margin-bottom: 10px;
 }
 
-.block {
-//   margin-bottom: 12px;
-}
-
 .subHeader {
   opacity: 0.8;
-  // margin-bottom: 6px;
   color: $pd3-main;
   font-weight: 700;
   border-radius: 5px;
@@ -182,11 +176,10 @@ text-decoration: none;
 
 .pill {
   display: inline-block;
-  // margin-left: 8px;
   padding: 1px 8px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.18);
-  font-size: 0.75rem;
+  font-size: $font-xs;
   opacity: 0.85;
   width: fit-content;
 }
@@ -202,7 +195,7 @@ text-decoration: none;
 }
 
 .tag {
-  font-size: 0.75rem;
+  font-size: $font-xs;
   padding: 4px 8px;
   border-radius: 999px;
   background: rgba(255,255,255,0.08);
@@ -238,6 +231,7 @@ text-decoration: none;
   font-family: 'DIN2014';
   text-align: justify;
   white-space: normal;
+  font-size: $font-md;
 }
 
 .muted {

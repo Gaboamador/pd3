@@ -116,7 +116,7 @@
 }
 
 /* Mobile tweaks */
-@media (max-width: 520px) {
+@include down (sm) {
   .title {
     font-size: 28px;
   }

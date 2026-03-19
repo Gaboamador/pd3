@@ -62,7 +62,7 @@ th {
 
 .label {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: $font-md;
 
   white-space: normal;
   overflow-wrap: anywhere;
@@ -77,7 +77,7 @@ th {
   text-align: center;
   font-family: 'DIN2014';
 
-  font-size: 0.9rem;
+  font-size: $font-md;
   line-height: 1.25;
 
   white-space: normal;

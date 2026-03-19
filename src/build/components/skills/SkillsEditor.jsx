@@ -7,24 +7,12 @@ import SkillDetailsPanel from "./SkillDetailsPanel";
 import SkillDetailsModal from "./SkillDetailsModal";
 import SkillGroupSprite from "./SkillGroupSprite";
 import ConfirmModal from "../../../components/ConfirmModal";
+import useIsMobile from "../../../hooks/useIsMobile";
 import { calculateSkillPoints } from "../../utils/skillPoints.utils";
 import { MAX_SKILL_POINTS } from "../../build.constants";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 import "swiper/css";
-
-function useIsMobile(breakpointPx = 920) {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth < breakpointPx;
-  });
-
-  // listener minimalista (sin hooks raros)
-  if (typeof window !== "undefined") {
-    window.onresize = () => setIsMobile(window.innerWidth < breakpointPx);
-  }
-
-  return isMobile;
-}
 
 function calculateTreeEquippedSkills(treeId, skillsState, skillsData) {
   if (!treeId || !skillsState || !skillsData) return 0;
@@ -56,7 +44,7 @@ export default function SkillsEditor({
   highlightTreeId = null,
   }) {
   const { t } = useTranslation();
-  const isMobile = useIsMobile(920);
+  const isMobile = useIsMobile(BREAKPOINTS.skillTreeDesktop);
 
   const [selectedSkillLocked, setSelectedSkillLocked] = useState(false);
 

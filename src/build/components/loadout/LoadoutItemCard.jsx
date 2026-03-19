@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./LoadoutItemCard.module.scss";
 import { LOADOUT_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import useIsMobile from "../../../hooks/useIsMobile";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 
 export default function LoadoutItemCard({
   slot,
@@ -49,9 +50,9 @@ export default function LoadoutItemCard({
 
   const canEdit = Boolean(itemDef && onEdit);
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile(BREAKPOINTS.mobile);
 
-  const isMobileSmall = useIsMobile(375);
+  const isMobileSmall = useIsMobile(BREAKPOINTS.mobileSmall);
 
   const spriteHeight = isMobileSmall ? 70 : isMobile ? 80 : 110;
 
@@ -109,7 +110,7 @@ export default function LoadoutItemCard({
 
   {/* FOOTER */}
     {isLoadoutEditor && (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} ${slot === "tree" && !isMobile ? styles.treeFooter : ""}`}>
       <div className={styles.name}>
         {isSpinning ? t(spinningLabel) : name}
       </div>

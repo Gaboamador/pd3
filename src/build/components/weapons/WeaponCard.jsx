@@ -5,6 +5,7 @@ import WeaponModsModal from "./WeaponModsModal";
 import { WEAPON_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import WeaponModSlotsRow from "./WeaponModSlotsRow";
 import useIsMobile from "../../../hooks/useIsMobile";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 import styles from "./WeaponCard.module.scss";
 
 export default function WeaponCard({
@@ -51,11 +52,11 @@ const isLoadoutEditor = !isItemPicker; // default
   setOpenMods(true);
 }
 
-const isMobile = useIsMobile();
+  const isMobile = useIsMobile(BREAKPOINTS.mobile);
 
-const isMobileSmall = useIsMobile(375);
+  const isMobileSmall = useIsMobile(BREAKPOINTS.mobileSmall);
 
-const spriteHeight = isMobileSmall ? 70 : isMobile ? 80 : 110;
+  const spriteHeight = isMobileSmall ? 70 : isMobile ? 80 : 110;
 
 return (
   <>

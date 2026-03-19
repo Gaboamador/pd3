@@ -1,5 +1,6 @@
 import styles from "./GenericItemDetailsCard.module.scss";
 import useIsMobile from "../../../hooks/useIsMobile";
+import { BREAKPOINTS } from "../../../constants/breakpoints";
 import { resolveCatalogItem } from "./utils/resolveCatalogItem";
 
 import SkillSprite from "../../../build/components/skills/SkillSprite";
@@ -18,7 +19,8 @@ import PlateStatsSection from "./PlateStatsSection";
 import OtherItemsSection from "./OtherItemsSection";
 
 export default function GenericItemDetailsCard({ item }) {
-  const isMobile = useIsMobile();
+  
+  const isMobile = useIsMobile(BREAKPOINTS.mobile);
   const spriteHeight = isMobile ? 80 : 110;
 
   const { def, kind } = resolveCatalogItem(item);
