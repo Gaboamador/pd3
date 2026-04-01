@@ -94,6 +94,13 @@
 
 .filterActions {
   display: flex;
+  justify-content: space-between;
+  gap: $space-sm;
+  align-items: center;
+}
+
+.filterButtons {
+    display: flex;
   gap: 12px;
 
   button {
@@ -147,6 +154,17 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.noSelectedBuilds {
+  width: min(80vw, 400px);
+  padding-top: 12px;
+  font-family: 'DIN2014';
+  text-transform: uppercase;
+}
+
+.spinBtn.disabled {
+  opacity: 0.5;
 }
 
 .resultWrapper {
@@ -318,4 +336,59 @@
 
 .labelText {
   white-space: nowrap;
+}
+
+.sortToggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px;
+  width: fit-content;
+  overflow: hidden;
+  align-items: center;
+}
+
+/* Opciones */
+.option {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  span {
+    display: block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s ease;
+  }
+
+  input:checked + span {
+    color: white;
+    font-weight: 600;
+  }
+}
+
+/* Slider animado */
+.slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(50% - 2px);
+  height: calc(100% - 4px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado */
+.sortToggle[data-mode="library"] .slider {
+  transform: translateX(100%);
 }

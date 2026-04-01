@@ -385,86 +385,86 @@ return (
     )}
 
     <Section title={t('section.title.manage_builds')}>
-    <div className={styles.manageBuildsWrapper}>
-      <button
-        className="secondary"
-        onClick={() => setShowLibrary(v => !v)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-        }}
-      >
-        <div style={{ position: "relative", width: 18, height: 18 }}>
-          <AnimatePresence mode="wait">
-            {showLibrary ? (
-              <motion.div
-                key="open"
-                initial={{ opacity: 0, rotate: -10, scale: 0.85 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: 10, scale: 0.85 }}
-                transition={{ duration: 0.18 }}
-                style={{ position: "absolute" }}
-              >
-                <FaFolderOpen size={18} className={styles.folderIcon}/>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="closed"
-                initial={{ opacity: 0, rotate: 10, scale: 0.85 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: -10, scale: 0.85 }}
-                transition={{ duration: 0.18 }}
-                style={{ position: "absolute" }}
-              >
-                <FaFolder size={18} className={styles.folderIcon}/>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <span>
-          {t('build.actions.open_library')} ({orderedLibrary.length})
-        </span>
-      </button>
-
-      <button onClick={handleNewBuild}>
-        {t('build.actions.new')}
-      </button>
-
-      <button onClick={handleShare}>
-        {t('build.actions.share')}
-      </button>
-
-      
-        <div className={styles.handleSaveActionsWrapper}>
-          <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? t('build.msg.save-disabled') : ""}>
-            {t('build.actions.save')}
-          </button>
-          <span className={styles.handleSaveActionsMessage}>{t('build.msg.update-current')}</span>
-        </div>
-        
-        <div className={styles.handleSaveActionsWrapper}>
-          <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
-            {t('build.actions.save-as')}
-          </button>
-          <span className={styles.handleSaveActionsMessage}>{t('build.msg.save-as-new')}</span>
-        </div>
-
-        {saving && <Spinner label={t('spinner.saving')} />}
-
-        {showAuthRequired && (
-          <>
-          <div className={styles.handleLoginWrapper}>
-            <span>{t('auth.msg.login-required.builds')}</span>
-            
-            <button onClick={() => navigate("/auth")}>
-              {t('auth.actions.login')}
-            </button>
+      <div className={styles.manageBuildsWrapper}>
+        <button
+          className="secondary"
+          onClick={() => setShowLibrary(v => !v)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <div style={{ position: "relative", width: 18, height: 18 }}>
+            <AnimatePresence mode="wait">
+              {showLibrary ? (
+                <motion.div
+                  key="open"
+                  initial={{ opacity: 0, rotate: -10, scale: 0.85 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 10, scale: 0.85 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ position: "absolute" }}
+                >
+                  <FaFolderOpen size={18} className={styles.folderIcon}/>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="closed"
+                  initial={{ opacity: 0, rotate: 10, scale: 0.85 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -10, scale: 0.85 }}
+                  transition={{ duration: 0.18 }}
+                  style={{ position: "absolute" }}
+                >
+                  <FaFolder size={18} className={styles.folderIcon}/>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          </>
-        )}
-    </div>
+
+          <span>
+            {t('build.actions.open_library')} ({orderedLibrary.length})
+          </span>
+        </button>
+
+        <button onClick={handleNewBuild}>
+          {t('build.actions.new')}
+        </button>
+
+        <button onClick={handleShare}>
+          {t('build.actions.share')}
+        </button>
+
+        
+          <div className={styles.handleSaveActionsWrapper}>
+            <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveBuild} disabled={!canSave || saving} title={!canSave ? t('build.msg.save-disabled') : ""}>
+              {t('build.actions.save')}
+            </button>
+            <span className={styles.handleSaveActionsMessage}>{t('build.msg.update-current')}</span>
+          </div>
+          
+          <div className={styles.handleSaveActionsWrapper}>
+            <button className={!canSave ? styles.handleSaveActionBtn : ''} onClick={handleSaveAs} disabled={saving}>
+              {t('build.actions.save-as')}
+            </button>
+            <span className={styles.handleSaveActionsMessage}>{t('build.msg.save-as-new')}</span>
+          </div>
+      </div>
+
+      {showAuthRequired && (
+        <>
+        <div className={styles.handleLoginWrapper}>
+          <span>{t('auth.msg.login-required.builds')}</span>
+          
+          <button onClick={() => navigate("/auth")}>
+            {t('auth.actions.login')}
+          </button>
+        </div>
+        </>
+      )}
+      
+      {saving && <Spinner label={t('spinner.saving')} />}
     </Section>
 
   <AnimatePresence>

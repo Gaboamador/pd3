@@ -12,7 +12,7 @@ export function encodeFilters(chips) {
         return {
           k: "skill",
           key: chip.key,
-          state: chip.state ?? "base",
+          state: chip.state ?? "any",
         };
 
       case "weaponType":

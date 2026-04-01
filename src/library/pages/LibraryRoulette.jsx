@@ -241,16 +241,8 @@ export default function LibraryRoulette() {
       return;
     }
 
-    setRouletteDeck(prev => {
-      // limpiar inválidos primero
-      const valid = prev.filter(id => ids.includes(id));
+    setRouletteDeck(shuffleArray(ids));
 
-      // si todavía hay deck válido → NO regenerar
-      if (valid.length > 0) return valid;
-
-      // si no → generar nuevo
-      return shuffleArray(ids);
-    });
   }, [poolSignature]);
 
 
@@ -313,6 +305,23 @@ export default function LibraryRoulette() {
         setSpinning(false);
     }, 4000);
     }
+
+    const [sortMode, setSortMode] = useState("alpha"); // "alpha" | "library"
+    const sortedBasePool = useMemo(() => {
+      if (!Array.isArray(basePool)) return [];
+
+      if (sortMode === "library") {
+        return [...basePool].sort((a, b) => {
+          const slotA = a.slot ?? Infinity;
+          const slotB = b.slot ?? Infinity;
+
+          if (slotA !== slotB) return slotA - slotB;
+          return a.name.localeCompare(b.name);
+        });
+      }
+
+      return [...basePool].sort((a, b) => a.name.localeCompare(b.name));
+    }, [basePool, sortMode]);
 
   if (loading) return <Spinner label={t('spinner.loading')} />;
 
@@ -383,31 +392,83 @@ export default function LibraryRoulette() {
                   style={{ overflow: "hidden" }}
                 >
                   <div className={styles.filterActions}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setManualMode("custom");
-                        setManualSelectedIds(basePool.map((b) => b.id));
-                      }}
-                    >
-                      {t('common.actions.select-all')}
-                    </button>
+                    <div className={styles.filterButtons}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setManualMode("custom");
+                          setManualSelectedIds(basePool.map((b) => b.id));
+                        }}
+                      >
+                        {t('common.actions.select-all')}
+                      </button>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setManualMode("custom");
-                        setManualSelectedIds([]);
-                      }}
-                    >
-                      {t('common.actions.deselect-all')}
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setManualMode("custom");
+                          setManualSelectedIds([]);
+                        }}
+                      >
+                        {t('common.actions.deselect-all')}
+                      </button>
+                    </div>
+                    <div>
+                      <div
+                        className={styles.sortToggle}
+                        data-mode={sortMode}
+                      >
+                        <label className={styles.option}>
+                          <input
+                            type="radio"
+                            name="sortMode"
+                            value="alpha"
+                            checked={sortMode === "alpha"}
+                            onChange={() => setSortMode("alpha")}
+                          />
+                          <span>A-Z</span>
+                        </label>
+
+                        <label className={styles.option}>
+                          <input
+                            type="radio"
+                            name="sortMode"
+                            value="library"
+                            checked={sortMode === "library"}
+                            onChange={() => setSortMode("library")}
+                          />
+                          <span>Library</span>
+                        </label>
+
+                        <div className={styles.slider} />
+                      </div>
+                    </div>
                   </div>
 
+{/* <div className={styles.sortToggle}>
+  <button
+    type="button"
+    className={sortMode === "alpha" ? styles.activeSort : ""}
+    onClick={() => setSortMode("alpha")}
+  >
+    A-Z
+  </button>
+
+  <button
+    type="button"
+    className={sortMode === "library" ? styles.activeSort : ""}
+    onClick={() => setSortMode("library")}
+  >
+    Library
+  </button>
+</div> */}
+
                   <div className={styles.filterList}>
-                    {[...basePool]
-                      .sort((a, b) => a.name.localeCompare(b.name))
-                      .map((b) => {
+                    {
+                    // [...basePool]
+                    //   .sort((a, b) => a.name.localeCompare(b.name))
+                    //   .map((b) => {
+                      sortedBasePool.map((b) => {
                         const active =
                           manualMode === "all" ||
                           manualSelectedIds.includes(b.id);
@@ -439,7 +500,14 @@ export default function LibraryRoulette() {
                               }}
                             />
                             <span className={styles.indicator} />
-                            <span className={styles.labelText}>{b.name}</span>
+                            <span className={styles.labelText}>
+                              {sortMode === "library" && (
+                                <span className={styles.slotBadge}>
+                                  {b.slot !== null ? `${b.slot} · ` : ""}
+                                </span>
+                              )}
+                              {b.name}
+                            </span>
                           </label>
                         );
                       })}
@@ -455,7 +523,7 @@ export default function LibraryRoulette() {
           <div className={styles.controlAndResult}>
               <div>
                   <button
-                      className={styles.spinBtn}
+                      className={`${styles.spinBtn} ${!pool.length ? styles.disabled : ""}`}
                       disabled={!pool.length || spinning}
                       onClick={spin}
                   >
@@ -486,8 +554,13 @@ export default function LibraryRoulette() {
                 selectedIndex={selectedIndex}
               />
             ) : (
+              !pool.length ? (
+                <div className={styles.noSelectedBuilds}>
+                  {t('library-roulette.msg.no-results')}
+                </div>
+              ) : (
               <Spinner label={t('spinner.loading')} />
-            )}
+            ))}
           
         </div>
         </Section>

@@ -134,7 +134,7 @@ export default function LibraryExplorer() {
         return {
           type: "skill",
           key: chip.key,
-          state: chip.state ?? "base", // base = baseOnly
+          state: chip.state ?? "any",
         };
       }
 
@@ -271,6 +271,10 @@ useEffect(() => {
     navigate("/compare-builds", { state: { builds: selectedBuilds } });
   }
 
+  function clearAllFilters() {
+    setActiveChips([]);
+    setQuery("");
+  }
 
   if (loading) return <Spinner label={t('spinner.loading')} />;
 
@@ -339,7 +343,7 @@ useEffect(() => {
                       } else {
                         setActiveChips((prev) => [
                           ...prev,
-                          { kind: s.kind, key: s.key },
+                          { kind: s.kind, key: s.key, state: s.kind === "skill" ? "any" : undefined },
                         ]);
                       }
 
@@ -391,44 +395,56 @@ useEffect(() => {
 
         {activeChips?.length >= 1 &&
           <Section title={t('section.title.filters')}>
-            {/* Chips */}
-            <div className={styles.chips}>
-              {activeChips.map((chip, i) => (
-                <div key={`${chip.kind}-${chip.key}`} className={styles.chip}>
-                  <div className={styles.chipContent}>
-                    <span className={styles.chipLabel}>
-                      {getChipLabel(chip, NAME_BY_KEY)}
-                    </span>
-                    <span className={styles.chipKindBadge} style={{ background: getChipKindColor(chip.kind) }}>
-                      {getChipKindLabel(chip)}
-                    </span>
-                  </div>
+            <div className={styles.filtersWrapper}>
+              {/* Clear all filters */}
+              <div className={styles.filtersHeaderRow}>
+                <button
+                  className={styles.clearAllBtn}
+                  onClick={clearAllFilters}
+                >
+                  {t('library-explorer.actions.clear')}
+                </button>
+              </div>
+              {/* Chips */}
+              <div className={styles.chips}>
+                {activeChips.map((chip, i) => (
+                  <div key={`${chip.kind}-${chip.key}`} className={styles.chip}>
+                    <div className={styles.chipContent}>
+                      <span className={styles.chipLabel}>
+                        {getChipLabel(chip, NAME_BY_KEY)}
+                      </span>
+                      <span className={styles.chipKindBadge} style={{ background: getChipKindColor(chip.kind) }}>
+                        {getChipKindLabel(chip)}
+                      </span>
+                    </div>
 
-                  {chip.kind === "skill" && (
-                    <select
-                      value={chip.state ?? "base"}
-                      onChange={(e) => {
-                        const next = [...activeChips];
-                        next[i] = { ...chip, state: e.target.value };
-                        setActiveChips(next);
-                      }}
-                      className={styles.skillStateSelect}
+                    {chip.kind === "skill" && (
+                      <select
+                        value={chip.state ?? "any"}
+                        onChange={(e) => {
+                          const next = [...activeChips];
+                          next[i] = { ...chip, state: e.target.value };
+                          setActiveChips(next);
+                        }}
+                        className={styles.skillStateSelect}
+                      >
+                        <option value="any">{t('select.option.any')}</option>
+                        <option value="base">{t('select.option.base')}</option>
+                        <option value="aced">{t('select.option.aced')}</option>
+                      </select>
+                    )}
+
+                    <button
+                      onClick={() =>
+                        setActiveChips((prev) => prev.filter((c) => c !== chip))
+                      }
+                      className={styles.removeChipBtn}
                     >
-                      <option value="base">{t('select.option.base')}</option>
-                      <option value="aced">{t('select.option.aced')}</option>
-                    </select>
-                  )}
-
-                  <button
-                    onClick={() =>
-                      setActiveChips((prev) => prev.filter((c) => c !== chip))
-                    }
-                    className={styles.removeChipBtn}
-                  >
-                    <IoClose />
-                  </button>
-                </div>
-              ))}
+                      <IoClose />
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </Section>
         }

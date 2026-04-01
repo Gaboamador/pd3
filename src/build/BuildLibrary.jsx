@@ -39,7 +39,7 @@ function SlotSelect({ slot, onChange }) {
       </optgroup>
 
       <optgroup label={t('build.slot.alternative')}>
-        {Array.from({ length: 20 }).map((_, i) => (
+        {Array.from({ length: 31 }).map((_, i) => (
           <option key={i + 10} value={i + 10}>
             {t('build.slot.altLoadout')} {i + 10}
           </option>

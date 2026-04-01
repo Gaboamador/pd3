@@ -7,8 +7,9 @@
   display: flex;
   flex-direction: column;
   padding: $space-md;
-  background: $color-bg-surface;
-  border: 1px solid $color-border;
+  // background: $bg;
+  background-color: black;
+  border: 1px solid rgba($pd3-main, 0.5);
   border-radius: $radius-lg;
   max-height: 80vh;
   overflow-y: auto;
@@ -25,7 +26,8 @@
   top: 0;
   z-index: 1;
 
-  background: $color-bg-surface;
+  // background: $bg;
+  background-color: black;
   padding: $space-md $space-xs;
 }
 
@@ -42,6 +44,8 @@
   margin: 0;
   padding: 0;
   display: grid;
+  padding-top: 1px;
+  // background-color: red;
   gap: $space-sm;
 }
 
@@ -208,8 +212,9 @@
   justify-content: center;
   background: $pd3-main;
   color: black;
-font-size: 0.7rem;
-padding: 4px 8px;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  text-align: center;
 }
 
 .activeLabel {
