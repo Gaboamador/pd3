@@ -7181,6 +7181,13 @@
         "r": 1,
         "c": 2
       },
+      "stats": {
+          "plates": 1,
+          "MaxDownCount": 4,
+          "LoadoutWeight": 10,
+          "ConsumableCount": 4,
+          "AmmoCapacityScale": 0.8
+      },
       "description": "First Aid Kits replenish an additional {FirstAidPackHealthPerCharge} health {FirstAidPackHealthPerCharge}|plural(one=point,other=points).",
       "desc_values": {
         "FirstAidPackHealthPerCharge": {
@@ -7198,6 +7205,13 @@
         "r": 1,
         "c": 3
       },
+      "stats": {
+          "plates": 2,
+          "MaxDownCount": 4,
+          "LoadoutWeight": 30,
+          "ConsumableCount": 3,
+          "SpeedPenalty": "Light"
+      },
       "description": "If you have a tool in your loadout, you start the heist with {ToolCount} additional {ToolCount}|plural(one=tool,other=tools) of that type. (This is applied before the Extra Pockets skill.)",
       "desc_values": {
         "ToolCount": {
@@ -7214,6 +7228,14 @@
       "sprite_pos": {
         "r": 1,
         "c": 4
+      },
+      "stats": {
+          "plates": 3,
+          "MaxDownCount": 4,
+          "LoadoutWeight": 75,
+          "ConsumableCount": 3,
+          "AmmoCapacityScale": 1.2,
+          "SpeedPenalty": "Medium"
       },
       "description": "If you have no throwable for {NoThrowableReplenishDelay} {NoThrowableReplenishDelay}|plural(one=second,other=seconds), replenish {NoThrowableReplenishCount} {NoThrowableReplenishDelay}|plural(one=throwable,other=throwables).",
       "desc_values": {
@@ -7235,6 +7257,14 @@
       "sprite_pos": {
         "r": 2,
         "c": 1
+      },
+      "stats": {
+        "plates": 4,
+        "MaxDownCount": 4,
+        "LoadoutWeight": 125,
+        "ConsumableCount": 2,
+        "AmmoCapacityScale": 1.4,
+        "SpeedPenalty": "Heavy"
       },
       "description": "Whenever you kill an enemy, restore {KillEnemyTraumaRestore} {KillEnemyTraumaRestore}|plural(one=point,other=points) of trauma to your Armor Plate.",
       "desc_values": {
