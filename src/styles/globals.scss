@@ -21,12 +21,26 @@ body,
 body {
   font-family: 'Rift', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: $text;
+  width: 100%;
+  
+  /* MODO DESKTOP */
+  background: #333;
+  background-image: url("/bg/pd3-bg.jpg");
+  background-blend-mode: multiply;
+  background-position: center center;
+}
 
-    width: 100%;
-    background: #333;
-    background-image: url("/bg/pd3-bg.jpg");
+@media (max-aspect-ratio: 16/9) {
+  body {
+    /* MODO MOBILE */
+    background-color: transparent;
+    background-image: linear-gradient(#333, #333), url("/bg/pd3-bg.jpg");
     background-blend-mode: multiply;
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 100dvh;
+    background-attachment: fixed;
+  }
 }
 
 input, select, textarea, label, .font-din {
