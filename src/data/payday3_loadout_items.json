@@ -7273,6 +7273,43 @@
           "type": "number"
         }
       }
+    },
+    "18": {
+      "id": 18,
+      "type": "armor",
+      "key": "VanguardFrame",
+      "name": "Vanguard Frame",
+      "sprite_pos": {
+        "r": 3,
+        "c": 1
+      },
+      "stats": {
+        "plates": 2,
+        "MaxDownCount": 2,
+        "LoadoutWeight": 30,
+        "ConsumableCount": 2,
+        "AmmoCapacityScale": 1.2,
+        "SpeedPenalty": "None"
+      },
+      "description": "Trading downs in favor of more ammo, this armor rewards aggression. It lets you harness the momentum of combat to replenish your armor plate trauma."
+    },
+    "19": {
+      "id": 19,
+      "type": "armor",
+      "key": "SurvivalistFrame",
+      "name": "Survivalist Frame",
+      "sprite_pos": {
+        "r": 3,
+        "c": 2
+      },
+      "stats": {
+        "plates": 3,
+        "MaxDownCount": 2,
+        "LoadoutWeight": 75,
+        "ConsumableCount": 3,
+        "SpeedPenalty": "Medium"
+      },
+      "description": "More downs and armor chunks at the cost of some added weight. It helps you recover and stay standing under pressure."
     }
   }
 }

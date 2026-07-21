@@ -402,29 +402,11 @@
         "id": 55,
         "key": "HackingExpert",
         "name": "Security Expert",
-        "base_description": "Hack cameras to view their CCTV network. Gain {BonusRuntime} Runtime to spend on Black Hat operations.\n\nFor every two skills equipped in the Black Hat branch beyond the first, receive {AdditionalRuntime} additional Runtime.\n{ComputedAdditionalRuntime}\n\nYou can obtain a maximum of {MaxRuntimeCount} Runtimes.",
-        "aced_description": "Hack drones for <Skill>1</> Runtime. Once a hack wears off, the Runtime you spent will be refunded.\n\nStealth drones stop moving and go blind for {AcedDroneHackDuration} seconds. Combat drones fight on your side for {AcedDroneHackDuration} seconds, then self-destruct.",
+        "base_description": "Spend <Skill>1</> Runtime to make a hacked camera automatically mark all guards or law enforcement within range.\n\nTargets stay marked for {MarkedTargetsDuration} seconds after leaving the Camera's field of view.",
+        "aced_description": "Hack drones by spending <Skill>1</> Runtime. Once a hack wears off, the Runtime you spent will be refunded.\n\nStealth drones stop moving and go blind for {AcedDroneHackDuration} seconds. Combat drones fight on your side for {AcedDroneHackDuration} seconds, then self-destruct.",
         "values": {
-            "BonusRuntime": {
-                "value": 1,
-                "type": "flat"
-            },
-            "AdditionalRuntime": {
-                "value": 1,
-                "type": "flat",
-                "compute": 2,
-                "skip_first": 1,
-                "max": "MaxRuntimeCount",
-                "include_base": true,
-                "total_label": "Total Runtimes"
-            },
-            "ComputedAdditionalRuntime": {
-                "value": 0,
-                "type": "flat",
-                "text": "Additional Runtimes:"
-            },
-            "MaxRuntimeCount": {
-                "value": 4,
+            "MarkedTargetsDuration": {
+                "value": 12,
                 "type": "flat"
             },
             "AcedDroneHackDuration": {
@@ -434,12 +416,12 @@
         },
         "skill_category_id": 4,
         "skill_tree_id": 10,
-        "tier": 1,
-        "position": 1,
-        "overall_position": 54,
+        "tier": 2,
+        "position": 2,
+        "overall_position": 57,
         "req_points": {
             "base": 1,
-            "aced": 1
+            "aced": 2
         },
         "sprite": {
             "r": 10,
@@ -1093,17 +1075,40 @@
         "id": 56,
         "key": "HackLooper",
         "name": "Playback",
-        "base_description": "Spend <Skill>1</> Runtime to make a hacked security camera loop its footage. Looping cameras cannot detect your crew.\n\nIf a hacked camera is destroyed, the Runtime you spent will be refunded.",
-        "aced_description": "Spend <Skill>1</> Runtime to make a hacked camera automatically mark all guards or law enforcement within range.\n\nTargets stay marked for <Skill>12</> seconds after leaving the camera's field of view.",
-        "values": null,
+        "base_description": "Gain {BonusRuntime} Runtime to spend on Black Hat operations. Spend <Skill>1</> to make a hacked security camera loop its footage for 10 seconds, stopping it from detecting your crew.\n\nOnce a hack wears off, the Runtime you spent will be refunded.\n\nFor every two skills equipped in this branch beyond the first, receive {AdditionalRuntime} additional Runtime, to a maximum of {MaxRuntimeCount}.\n{ComputedAdditionalRuntime}",
+        "aced_description": "Looping camera footage is now permanent.\n\nIf a looped camera is destroyed, the Runtime you spent will be refunded.",
+        "values": {
+            "BonusRuntime": {
+                "value": 1,
+                "type": "flat"
+            },
+            "AdditionalRuntime": {
+                "value": 1,
+                "type": "flat",
+                "compute": 2,
+                "skip_first": 1,
+                "max": "MaxRuntimeCount",
+                "include_base": true,
+                "total_label": "Total Runtimes"
+            },
+            "ComputedAdditionalRuntime": {
+                "value": 0,
+                "type": "flat",
+                "text": "Additional Runtimes:"
+            },
+            "MaxRuntimeCount": {
+                "value": 4,
+                "type": "flat"
+            }
+        },
         "skill_category_id": 4,
         "skill_tree_id": 10,
-        "tier": 2,
-        "position": 2,
-        "overall_position": 57,
+        "tier": 1,
+        "position": 1,
+        "overall_position": 54,
         "req_points": {
             "base": 1,
-            "aced": 2
+            "aced": 1
         },
         "sprite": {
             "r": 10,

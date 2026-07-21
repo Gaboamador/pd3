@@ -830,24 +830,24 @@
                         "tier": 2
                     },
                     {
-                        "id": 56,
-                        "key": "HackLooper",
-                        "name": "Playback",
-                        "sprite": {
-                            "r": 10,
-                            "c": 2
-                        },
-                        "skill_category_id": 4,
-                        "skill_tree_id": 10,
-                        "tier": 2
-                    },
-                    {
                         "id": 55,
                         "key": "HackingExpert",
                         "name": "Security Expert",
                         "sprite": {
                             "r": 10,
                             "c": 1
+                        },
+                        "skill_category_id": 4,
+                        "skill_tree_id": 10,
+                        "tier": 2
+                    },
+                    {
+                        "id": 56,
+                        "key": "HackLooper",
+                        "name": "Playback",
+                        "sprite": {
+                            "r": 10,
+                            "c": 2
                         },
                         "skill_category_id": 4,
                         "skill_tree_id": 10,

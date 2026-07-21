@@ -1,7 +1,7 @@
 // import armorsSprite from "../../../assets/armors.png";
 
 // export const ARMOR_SPRITE_URL = armorsSprite;
-export const ARMOR_SPRITE_URL = "/sprites/armorsNew.png";
+export const ARMOR_SPRITE_URL = "/sprites/armors.png";
 
 // ⬇️ AJUSTAR según PNG real
 export const ARMOR_SPRITE_IMAGE_W = 1024;

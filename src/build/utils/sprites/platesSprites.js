@@ -1,4 +1,4 @@
-export const PLATE_SPRITE_URL = "/sprites/armorsNew.png";
+export const PLATE_SPRITE_URL = "/sprites/armors.png";
 
 // ⬇️ AJUSTAR según PNG real
 export const PLATE_SPRITE_IMAGE_W = 1024;
