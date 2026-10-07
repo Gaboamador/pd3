@@ -1,6 +1,6 @@
 import { normalize } from "../../../../library/utils/normalize";
 
-export function getWeaponsByTypeSelection(loadoutData, s, { onlyWithNewStats = true } = {}) {
+export function getWeaponsByTypeSelection(loadoutData, s, { onlyWithStats = true } = {}) {
   if (!s) return [];
 
   const slot = s.slot;
@@ -15,7 +15,10 @@ export function getWeaponsByTypeSelection(loadoutData, s, { onlyWithNewStats = t
     const t = normalize(w?.type);
     if (!w?.key || !t) return false;
     if (t !== selectedType) return false;
-    if (onlyWithNewStats && !w?.newStats) return false;
+
+    const hasStats = w?.stats && typeof w.stats === "object";
+    if (onlyWithStats && !hasStats) return false;
+
     return true;
   });
 

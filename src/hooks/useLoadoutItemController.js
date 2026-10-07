@@ -25,6 +25,8 @@ export function useLoadoutItemController({
         [slotKey]: {
           weaponKey: def.key,
           preset: def.preset ?? 0,
+          // Iconic weapons have a fixed perk. Regular weapons start empty.
+          perk: def.preset === 1 ? (def.perk ?? null) : null,
           // mods: emptyMods,
           mods: initialMods,
         },

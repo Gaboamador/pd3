@@ -1,34 +1,88 @@
 @use "../../../styles/variables.scss" as *;
 
 .wrapper {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+
+  // Aísla el ancho intrínseco de la tabla para que nunca agrande
+  // el layout exterior ni genere scroll horizontal en el body.
+  contain: inline-size;
+  overflow: clip;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  margin-bottom: $space-md;
+}
+
+.filterBadge {
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-bg-elevated;
+  color: $color-text-muted;
+  padding: 6px 10px;
+  font-family: 'DIN2014';
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+  clip-path: none;
+}
+
+.filterBadge:hover {
+  color: $color-text-primary;
+  border-color: $pd3-main;
+}
+
+.filterBadgeActive {
+  color: $color-text-primary;
+  border-color: $pd3-lightgreen;
+  background: rgba(0, 255, 145, 0.08);
+}
+
+.tableScroller {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
   overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table {
-  width: 100%;
-  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
   font-family: 'DIN2014';
   font-size: 0.9rem;
 }
 
-/* Column widths */
-.colWeapon {
-  width: 40%;
+.weaponCol {
+  width: 100px;
 }
 
-.colStat {
-  width: 15%;
+.statCol {
+  width: 20px;
 }
 
 th {
   text-align: left;
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 6px;
   border-bottom: 2px solid $pd3-lightgreen;
   user-select: none;
   white-space: nowrap;
   transition: color 0.15s ease;
+  background: $color-bg-elevated;
 }
 
 .active {
@@ -37,62 +91,111 @@ th {
 }
 
 td {
-  padding: 8px;
+  padding: 8px 6px;
   border-bottom: 1px solid $pd3-main;
+  background: $color-bg-surface;
 }
 
-/* Números alineados */
-td:nth-child(n + 2),
-th:nth-child(n + 2) {
+.weaponColumn {
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+
+  // Primera columna fija mientras el resto de la tabla scrollea.
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+th.weaponColumn {
+  z-index: 4;
+  background: $color-bg-elevated;
+}
+
+.statColumn {
   text-align: right;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
-tbody tr:hover {
-  background: var(--color-bg-hover);
+.weaponRow:hover td {
+  background: var(--color-bg-hover, #161a20);
+}
+
+.weaponRow:hover .weaponColumn {
+  background: var(--color-bg-hover, #161a20);
+}
+
+.iconicWeaponRow .weaponColumn {
+  color: $color-text-primary;
+  font-weight: 700;
+}
+
+.iconicWeaponRow td {
+  border-top: 1px solid $card-border-data;
 }
 
 .headerContent {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
+  gap: 4px;
+  max-width: 100%;
+}
+
+th.statColumn .headerContent {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .sortIcon {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
   height: 16px;
 }
 
-/* ---------- Alineación general ---------- */
+.perkRow td {
+  padding-top: 5px;
+  padding-bottom: 8px;
+  background: $color-bg-surface;
+  border-bottom: 1px solid $card-border-data;
+}
 
-/* Primera columna: izquierda */
-th:first-child,
-td:first-child {
+.perkNameCell {
+  padding-left: 10px;
+  color: $color-text-primary;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
+  border-left: 3px solid transparent;
+
+  // También forma parte de la primera columna de la tabla.
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: $color-bg-surface;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.perkDescriptionCell {
+  color: $color-text-muted;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
   text-align: left;
 }
 
-/* Columnas numéricas: derecha */
-th:nth-child(n + 2),
-td:nth-child(n + 2) {
-  text-align: right;
+.perkRowEquipped .perkNameCell {
+  border-left-color: $color-perk-equipped;
 }
 
-/* ---------- Header interno ---------- */
-
-/* Primera columna: texto + icon alineados izquierda */
-th:first-child .headerContent {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  justify-content: flex-start;
-}
-
-/* Columnas numéricas: texto + icon alineados derecha */
-th:nth-child(n + 2) .headerContent {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 6px;
-  width: 100%;
+.perkRowPersistent .perkNameCell {
+  border-left-color: $color-perk-persistent;
 }

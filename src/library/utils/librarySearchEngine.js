@@ -45,6 +45,12 @@ function matchesFilter(build, filter, ctx) {
     case "plate":
       return idx.armor.plates.includes(filter.key);
 
+    case "perk":
+      return idx.perks.has(filter.key);
+
+    case "overkillAmmo":
+      return idx.overkillOptions.has(filter.key);
+
     case "weaponType": {
       const slot = filter.slot; // "primary" | "secondary"
       const weaponKey = idx.loadout?.[slot];

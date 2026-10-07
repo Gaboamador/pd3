@@ -12,8 +12,14 @@ import ThrowableSprite from "./ThrowableSprite";
 import ToolSprite from "./ToolSprite";
 import Modal from "../common/Modal";
 import ArmorPlatesEditor from "./ArmorPlatesEditor";
+import OverkillConfigModal from "./OverkillConfigModal";
 import { getArmorByKey, getArmorMaxPlates, buildEmptyPlateSlots } from "../../utils/armor.utils";
 import { useLoadoutItemController } from "../../../hooks/useLoadoutItemController";
+import {
+  buildInitialOverkillConfig,
+  getEffectiveOverkillConfig,
+  getOverkillConfigGroups,
+} from "../../utils/perks.utils";
 
 export default function LoadoutEditor({
   build,
@@ -21,6 +27,7 @@ export default function LoadoutEditor({
   loadoutNormalized,
   platesData,
   loadoutData,
+  perksData,
 }) {
   const { t } = useTranslation();
   const {
@@ -32,6 +39,7 @@ export default function LoadoutEditor({
   const [openPicker, setOpenPicker] = useState(null);
 
   const [openArmorEditor, setOpenArmorEditor] = useState(false);
+  const [openOverkillEditor, setOpenOverkillEditor] = useState(false);
 
   function updateLoadout(patch) {
     setBuild(prev => ({
@@ -56,12 +64,6 @@ export default function LoadoutEditor({
     build,
     updateLoadout,
     allowEdit: true,
-  });
-
-  const overkillCtrl = useLoadoutItemController({
-    slotKey: "overkill",
-    build,
-    updateLoadout,
   });
 
   const armorCtrl = useLoadoutItemController({
@@ -135,6 +137,34 @@ const overkillDef = useMemo(
   [loadoutNormalized.overkill, build.loadout.overkill]
 );
 
+const overkillConfigGroups = useMemo(
+  () => getOverkillConfigGroups(perksData, build.loadout.overkill),
+  [perksData, build.loadout.overkill]
+);
+
+const effectiveOverkillConfig = useMemo(
+  () =>
+    getEffectiveOverkillConfig(
+      build.loadout.overkillConfig,
+      perksData,
+      build.loadout.overkill
+    ),
+  [build.loadout.overkillConfig, build.loadout.overkill, perksData]
+);
+
+const selectedOverkillConfigCount = useMemo(() => {
+  return overkillConfigGroups.filter(
+    (group) => Boolean(effectiveOverkillConfig?.[group.slotKey])
+  ).length;
+}, [overkillConfigGroups, effectiveOverkillConfig]);
+
+const selectedOverkillConfigNames = useMemo(() => {
+  return overkillConfigGroups
+    .map((group) => perksData?.[effectiveOverkillConfig?.[group.slotKey]]?.name)
+    .filter(Boolean)
+    .join(" · ");
+}, [overkillConfigGroups, effectiveOverkillConfig, perksData]);
+
 const deployableDef = useMemo(
   () => findItem(loadoutNormalized.deployable, build.loadout.deployable),
   [loadoutNormalized.deployable, build.loadout.deployable]
@@ -180,6 +210,16 @@ return (
           slot="primary"
           weaponDef={primaryWeaponDef}
           modsState={build.loadout.primary?.mods}
+          perkState={build.loadout.primary?.perk}
+          perksData={perksData}
+          onChangePerk={perk =>
+            updateLoadout({
+              primary: {
+                ...build.loadout.primary,
+                perk,
+              },
+            })
+          }
           onChangeMods={mods =>
             updateLoadout({
               primary: {
@@ -192,6 +232,7 @@ return (
           forceOpenMods={primaryCtrl.requestEdit}
           onModsOpened={primaryCtrl.consumeEditRequest}
           showWeaponMods={true}
+          showWeaponPerk={true}
         />
 
         <LoadoutItemPickerModal
@@ -224,6 +265,16 @@ return (
           slot="secondary"
           weaponDef={secondaryWeaponDef}
           modsState={build.loadout.secondary?.mods}
+          perkState={build.loadout.secondary?.perk}
+          perksData={perksData}
+          onChangePerk={perk =>
+            updateLoadout({
+              secondary: {
+                ...build.loadout.secondary,
+                perk,
+              },
+            })
+          }
           onChangeMods={mods =>
             updateLoadout({
               secondary: {
@@ -236,6 +287,7 @@ return (
           forceOpenMods={secondaryCtrl.requestEdit}
           onModsOpened={secondaryCtrl.consumeEditRequest}
           showWeaponMods={true}
+          showWeaponPerk={true}
         />
 
         <LoadoutItemPickerModal
@@ -269,6 +321,21 @@ return (
           itemDef={overkillDef}
           SpriteComponent={OverkillSprite}
           onClick={() => setOpenPicker("overkill")}
+          onEdit={
+            overkillDef && overkillConfigGroups.length > 0
+              ? () => setOpenOverkillEditor(true)
+              : undefined
+          }
+          headerExtra={
+            overkillDef && overkillConfigGroups.length > 0 ? (
+              <span
+                className={styles.overkillConfigCount}
+                title={selectedOverkillConfigNames}
+              >
+                {selectedOverkillConfigCount}/{overkillConfigGroups.length}
+              </span>
+            ) : null
+          }
         />
 
         <LoadoutItemPickerModal
@@ -284,11 +351,26 @@ return (
               itemDef={def}
               SpriteComponent={OverkillSprite}
               onClick={() => {
-                overkillCtrl.handleSelectItem(def);
+                updateLoadout({
+                  overkill: def.key,
+                  overkillConfig: buildInitialOverkillConfig(
+                    perksData,
+                    def.key
+                  ),
+                });
                 setOpenPicker(null);
               }}
             />
           )}
+        />
+
+        <OverkillConfigModal
+          open={openOverkillEditor}
+          onClose={() => setOpenOverkillEditor(false)}
+          weaponDef={overkillDef}
+          config={build.loadout.overkillConfig ?? {}}
+          perksData={perksData}
+          onChange={(overkillConfig) => updateLoadout({ overkillConfig })}
         />
       </div>
 

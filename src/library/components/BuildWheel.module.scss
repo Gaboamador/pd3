@@ -1,8 +1,14 @@
 @use "../../styles/variables" as *;
 
+// .wrapper {
+//   position: relative;
+//   width: min(80vw, 400px);
+//   aspect-ratio: 1 / 1;
+//   margin: 2rem auto;
+// }
 .wrapper {
   position: relative;
-  width: min(80vw, 400px);
+  width: min(100%, 400px);
   aspect-ratio: 1 / 1;
   margin: 2rem auto;
 }
@@ -39,12 +45,15 @@
 }
 
 .label span {
+  display: inline-block;
+
   white-space: nowrap;
   padding: 4px 8px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   font-size: clamp(10px, 2vw, 12px);
-  transform: translateX(-50%);
+
+  transform: translateY(-50%);
 }
 
 .pointer {

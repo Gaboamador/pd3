@@ -1,0 +1,847 @@
+{
+  "perk_vampire": {
+    "key": "perk_vampire",
+    "name": "Vampire",
+    "description": "When you deal damage with this weapon, recover 0.5% of your health. Also gives Adrenaline.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "smg"
+    ],
+    "equipped": true
+  },
+  "perk_sharpshooter": {
+    "key": "perk_sharpshooter",
+    "name": "Sharpshooter",
+    "description": "Each Critical Hit increases damage of next shot by 15%, up to 200%. Missing a shot or hitting non-headshot removes the buff entirely.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "marksman"
+    ],
+    "equipped": true
+  },
+  "perk_ammo_feed": {
+    "key": "perk_ammo_feed",
+    "name": "Ammo Feed",
+    "description": "Whenever you pick up ammo box, gain 10% damage, up to 25%, for 5s. Timer refreshes on picking up ammo.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "persistent": true
+  },
+  "perk_hard_cast": {
+    "key": "perk_hard_cast",
+    "name": "Hard Cast",
+    "description": "15% of damage to armor is dealt directly into HP.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "equipped": true
+  },
+  "perk_domino_effect": {
+    "key": "perk_domino_effect",
+    "name": "Domino Effect",
+    "description": "Killing a special enemy triggers their equipment destruction effect. You are immune to that effect.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "lmg"
+    ],
+    "equipped": true
+  },
+  "perk_run_and_gun": {
+    "key": "perk_run_and_gun",
+    "name": "Run & Gun",
+    "description": "Shoot and reload while running and sliding.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle",
+      "shotgun",
+      "smg",
+      "pistol"
+    ],
+    "persistent": true
+  },
+  "perk_pin_puller": {
+    "key": "perk_pin_puller",
+    "name": "Pin Puller",
+    "description": "While using SWAT as meat shield, shove them away to drop a Smoke grenade when they drop. Only one Smoke per SWAT. 20s cooldown.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "pistol"
+    ],
+    "equipped": true
+  },
+  "perk_glass_cannon": {
+    "key": "perk_glass_cannon",
+    "name": "Glass Cannon",
+    "description": "You deal 15% additional base damage, but take 10% increased damage to your armor.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "lmg",
+      "marksman",
+      "smg",
+      "pistol",
+      "revolver"
+    ],
+    "persistent": true
+  },
+  "perk_bulky": {
+    "key": "perk_bulky",
+    "name": "Bulky",
+    "description": "You carry and start with 25% less ammo. You gain 10% damage resistance to Armor.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "revolver"
+    ],
+    "persistent": true
+  },
+  "perk_accelerator": {
+    "key": "perk_accelerator",
+    "name": "Accelerator",
+    "description": "Slide to gain RUSH for 20s.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "shotgun"
+    ],
+    "persistent": true
+  },
+  "perk_bleeding_edge": {
+    "key": "perk_bleeding_edge",
+    "name": "Bleeding Edge",
+    "description": "When you kill enemy with Critical hit, gain EDGE for 20s.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "marksman"
+    ],
+    "persistent": true
+  },
+  "perk_knockback": {
+    "key": "perk_knockback",
+    "name": "Knockback",
+    "description": "Every shot has 50% chance for medium hurt and 10% for heavy hurt reaction.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "shotgun"
+    ],
+    "equipped": true
+  },
+  "perk_haymaker": {
+    "key": "perk_haymaker",
+    "name": "Haymaker",
+    "description": "Melee SWAT to take them as meat shield.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "pistol"
+    ],
+    "persistent": true
+  },
+  "perk_battle_grit": {
+    "key": "perk_battle_grit",
+    "name": "Battle Grit",
+    "description": "When you lose Armor plate, gain GRIT for 20s.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "persistent": true
+  },
+  "perk_assassin": {
+    "key": "perk_assassin",
+    "name": "Assassin",
+    "description": "Shots from this weapon are treated as silenced.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "marksman",
+      "revolver"
+    ],
+    "equipped": true
+  },
+  "perk_bleed": {
+    "key": "perk_bleed",
+    "name": "Bleed",
+    "description": "When you do Health damage to enemy, you have 25% chance to apply Bleed (50dmg/2s, for 6s (25 DPS)).",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "marksman"
+    ],
+    "equipped": true
+  },
+  "perk_luck_of_the_draw": {
+    "key": "perk_luck_of_the_draw",
+    "name": "Luck of the draw",
+    "description": "Each shot hast 2% chance to deal 50% damage.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle",
+      "marksman",
+      "shotgun",
+      "revolver"
+    ],
+    "equipped": true
+  },
+  "perk_browbeater": {
+    "key": "perk_browbeater",
+    "name": "Browbeater",
+    "description": "Shooting unsilenced weapon makes civilians within 10m to be shouted at. Civilians remain controlled for 50% longer.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "lmg"
+    ],
+    "persistent": true
+  },
+  "perk_final_tap": {
+    "key": "perk_final_tap",
+    "name": "Final Tap",
+    "description": "Last shot in the mag deals 300% damage.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "revolver"
+    ],
+    "equipped": true
+  },
+  "perk_resilient": {
+    "key": "perk_resilient",
+    "name": "Resilient",
+    "description": "Take 10% less damage to armor. Deal 15% less damage from ALL sources.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "shotgun"
+    ],
+    "persistent": true
+  },
+  "perk_veteran": {
+    "key": "perk_veteran",
+    "name": "Veteran",
+    "description": "When you kill an enemy, you have a 15% chance to immediately add the dropped ammo into the magazine. Excess ammo goes into the ammo inventory.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_spray_and_pray": {
+    "key": "perk_spray_and_pray",
+    "name": "Spray and Pray",
+    "description": "Every 4th shot deals critical hit damage.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_quickshot": {
+    "key": "perk_quickshot",
+    "name": "Quickshot",
+    "description": "When you kill an enemy with a critical hit, you don't have to cycle the weapon to fire the next shot in the magazine. Reloading cancels the free cycle.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "marksman"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_hot_lead": {
+    "key": "perk_hot_lead",
+    "name": "Hot Lead",
+    "description": "Whenever you do a critical hit, reduce the weapon's armor penetration by 10% of its base (down to 0%) but increase damage by 15% (max 150%) for 7 seconds. Critical hits refresh the timer.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "smg"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_target_practice": {
+    "key": "perk_target_practice",
+    "name": "Target Practice",
+    "description": "When you kill an enemy with a critical hit, this weapon deals 25% extra damage for 5 seconds.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "pistol"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_trigger_happy": {
+    "key": "perk_trigger_happy",
+    "name": "Trigger Happy",
+    "description": "For every shot you fire, your damage increases by 4% until you stop firing.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "pistol"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_midas_touch": {
+    "key": "perk_midas_touch",
+    "name": "Midas Touch",
+    "description": "For each critical hit, gain 0.4 armor penetration until you reload the weapon (Max: 5). Each critical hit that penetrates armor breaks one more layer.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "smg"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "perk_fog_of_war": {
+    "key": "perk_fog_of_war",
+    "name": "Fog of War",
+    "description": "When killing an enemy, other enemies with 3 meters of that enemy lose 15% accuracy for 10s. This effect stacks to a maximum of 90%.",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": [
+      "assaultrifle"
+    ],
+    "equipped": true,
+    "iconicOnly": true
+  },
+  "ovk_het5_hard_collateral": {
+    "key": "ovk_het5_hard_collateral",
+    "name": "Hard Collateral",
+    "description": "Performing a body shot with the HET deals 20% of the original shot’s damage and performing a headshot deals 60% of the original shot’s damage to all enemies within 3m of your target. This additional damage does not bypass enemy armor.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_het5_spotter": {
+    "key": "ovk_het5_spotter",
+    "name": "Spotter",
+    "description": "All targets currently viewed through your HET scope are marked for your crew. When they are no longer in your line of sight, the marking ends. Other marking effects, such as manual marking from other players, will still be in effect.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_het5_dead_set": {
+    "key": "ovk_het5_dead_set",
+    "name": "Dead Set",
+    "description": "Marked targets in your view take 30% extra damage from all damage sources. (This includes marked targets no matter how they were marked)",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_het5_tungsten_core": {
+    "key": "ovk_het5_tungsten_core",
+    "name": "Tungsten Core",
+    "description": "You can penetrate 5 additional surfaces.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_het5_revved_up": {
+    "key": "ovk_het5_revved_up",
+    "name": "Revved Up",
+    "description": "Perks given from the HET-5 have an additional 15% increase in damage.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_het5_du_core": {
+    "key": "ovk_het5_du_core",
+    "name": "DU Core",
+    "description": "You can penetrate 5 additional surfaces.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "HET5",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_mamba_cluster_bomb": {
+    "key": "ovk_mamba_cluster_bomb",
+    "name": "Cluster Bomb",
+    "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 25% of the original explosion damage.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_mamba_blast_trauma": {
+    "key": "ovk_mamba_blast_trauma",
+    "name": "Blast Trauma",
+    "description": "Enemies within 15m of a Mamba explosion have their accuracy permanently reduced by 40%. [this effect does not stack].",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_mamba_wrecker": {
+    "key": "ovk_mamba_wrecker",
+    "name": "Wrecker",
+    "description": "Enemies directly hit by a mamba grenade impact (not in the AOE of the explosion) lose 30% of their armor plates.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_mamba_drum_loader": {
+    "key": "ovk_mamba_drum_loader",
+    "name": "Drum Loader",
+    "description": "If you kill 4 enemies without reloading the Mamba, the next reload will be 50% faster.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_mamba_shockwave": {
+    "key": "ovk_mamba_shockwave",
+    "name": "Shockwave",
+    "description": "Increases each Mamba explosion radius by 20%",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_mamba_shredding_shrapnel": {
+    "key": "ovk_mamba_shredding_shrapnel",
+    "name": "Shredding Shrapnel",
+    "description": "Mamba explosions have 50% higher armor penetration",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Mamba",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_arges_combat_resilience": {
+    "key": "ovk_arges_combat_resilience",
+    "name": "Combat Resilience",
+    "description": "For every second you fire the minigun, your armor gains 2% additional damage reduction.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_arges_kill_momentum": {
+    "key": "ovk_arges_kill_momentum",
+    "name": "Kill Momentum",
+    "description": "Every time you kill an enemy with the minigun, you gain an additional 5% armor damage reduction.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_arges_tanking_up": {
+    "key": "ovk_arges_tanking_up",
+    "name": "Tanking Up",
+    "description": "If you have zero armor plates left, and your damage reduction bonus reaches 30%, you’ll restore 1 armor plate. This effect won’t trigger again until you call in a new OVK minigun.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_arges_death_merchant": {
+    "key": "ovk_arges_death_merchant",
+    "name": "Death Merchant",
+    "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction if you are wearing a 2 plate armor or lower, or 2% if you are wearing a 3 plate armor or higher.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_arges_battle_ready": {
+    "key": "ovk_arges_battle_ready",
+    "name": "Battle Ready",
+    "description": "As long as you are spinning the minigun’s barrel, your bonus to armor damage reduction won’t go down",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_arges_killer_armor": {
+    "key": "ovk_arges_killer_armor",
+    "name": "Killer Armor",
+    "description": "Your armor damage reduction bonus will not end when you unequip the minigun; however, the bonus will decrease over time as though you were not firing the minigun.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ARGES",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_sociopath_frenzy": {
+    "key": "ovk_sociopath_frenzy",
+    "name": "Frenzy",
+    "description": "When there are 3 or more enemies within 5m of you while using this ability, you take 20% less damage",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_sociopath_master_of_mayhem": {
+    "key": "ovk_sociopath_master_of_mayhem",
+    "name": "Master of Mayhem",
+    "description": "Whenever you kill an enemy with a bat, enemies within 5m of that enemy will enter a panic and miss all their shots for 5 seconds.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_sociopath_rabid": {
+    "key": "ovk_sociopath_rabid",
+    "name": "Rabid",
+    "description": "As long as you are wielding your baseball bat, you are immune to stagger, stagger, stun, slow, disabling effects, and effects that prevent you from sprinting.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_sociopath_berserker": {
+    "key": "ovk_sociopath_berserker",
+    "name": "Berserker",
+    "description": "Killing an enemy while this ability is active will restore 5 health points.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_sociopath_killer_instinct": {
+    "key": "ovk_sociopath_killer_instinct",
+    "name": "Killer Instinct",
+    "description": "When ability isn’t active killing enemies add an additional 20% buildup to your OVERKILL meter",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_sociopath_bloodlust": {
+    "key": "ovk_sociopath_bloodlust",
+    "name": "Bloodlust",
+    "description": "Killing an enemy while this ability is active will restore an additional 20% of your OVERKILL meter.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "ThePunch",
+    "slotKey": "perk3",
+    "slotLabel": "Perk Slot 3",
+    "slotIndex": 3
+  },
+  "ovk_interceptor_threat_mapping": {
+    "key": "ovk_interceptor_threat_mapping",
+    "name": "Threat Mapping",
+    "description": "This skill now also marks all guards and cameras while active.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Operator",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_interceptor_power_efficiency": {
+    "key": "ovk_interceptor_power_efficiency",
+    "name": "Power Efficiency",
+    "description": "Decrease the rate at which your OVERKILL meter drains by 25%.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Operator",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_interceptor_signal_block": {
+    "key": "ovk_interceptor_signal_block",
+    "name": "Signal Block",
+    "description": "While this skill is active, radios can’t go off, and any currently active radios will not expire. Once this skill’s effect ends, any pending radios will activate, and any active radios will expire.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Operator",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_interceptor_spam_call": {
+    "key": "ovk_interceptor_spam_call",
+    "name": "Spam Call",
+    "description": "While this skill is active, every guard’s phone will activate, distracting them from their actions. If a guard is escorting a player, the guard will return to patrolling after this effect ends. If the guard is about to detain a player, the guard will go into Search mode instead.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Operator",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_interceptor_backup_power": {
+    "key": "ovk_interceptor_backup_power",
+    "name": "Backup Power",
+    "description": "Decrease the rate at which your OVERKILL meter drains by 40%.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "Operator",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_karlalfred_ammo_explosive": {
+    "key": "ovk_karlalfred_ammo_explosive",
+    "name": "Explosive Grenade",
+    "description": "Explodes in a large radius dealing moderate damage to all enemies within it’s area of effect. Has high probability to trigger heavy stagger in near proximity of the explosion. Can also damage and triggers enemy weakpoints.",
+    "scope": "overkill",
+    "optionType": "ammo",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "ammo",
+    "slotLabel": "Ammo",
+    "slotIndex": 0,
+    "isDefault": true
+  },
+  "ovk_karlalfred_ammo_smoke": {
+    "key": "ovk_karlalfred_ammo_smoke",
+    "name": "Smoke Grenade",
+    "description": "On impact deals a moderate amount of damage and spawns a large cloud of smoke obstructing the view for enemies. All enemies within its AOE are heavy staggered and marked. Skills affecting smoke grenades apply to this grenade.",
+    "scope": "overkill",
+    "optionType": "ammo",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "ammo",
+    "slotLabel": "Ammo",
+    "slotIndex": 0
+  },
+  "ovk_karlalfred_ammo_heat": {
+    "key": "ovk_karlalfred_ammo_heat",
+    "name": "HEAT Shaped Charge Grenade",
+    "description": "Explodes in a small radius on impact and deals high piercing damage, penetrating through the impacted target dealing the same damage to targets behind.",
+    "scope": "overkill",
+    "optionType": "ammo",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "ammo",
+    "slotLabel": "Ammo",
+    "slotIndex": 0
+  },
+  "ovk_karlalfred_cull_the_herd": {
+    "key": "ovk_karlalfred_cull_the_herd",
+    "name": "Cull the Herd",
+    "description": "Enemies that are heavy staggered from firing or being hit by the M606 take 30% additional damage for 15s",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_karlalfred_devastator": {
+    "key": "ovk_karlalfred_devastator",
+    "name": "Devastator",
+    "description": "If a grenade from an M606 directly impacts an enemy and kills them, it’s reload speed is increased by 60% and the next grenade fired deals 20% extra damage. (Does not stack)",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_karlalfred_topped_up_i": {
+    "key": "ovk_karlalfred_topped_up_i",
+    "name": "Topped Up I",
+    "description": "M606 spawns with an additional grenade",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_karlalfred_kill_zone": {
+    "key": "ovk_karlalfred_kill_zone",
+    "name": "Kill Zone",
+    "description": "The fired grenades area of effect is increased 25%",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_karlalfred_mutilator": {
+    "key": "ovk_karlalfred_mutilator",
+    "name": "Mutilator",
+    "description": "Enemies affected by the M606 deal 50% less damage permanently. (Does not stack)",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_karlalfred_topped_up_ii": {
+    "key": "ovk_karlalfred_topped_up_ii",
+    "name": "Topped Up II",
+    "description": "M606 spawns with an additional grenade",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "KarlAlfred",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_ove9050_diamond_blade": {
+    "key": "ovk_ove9050_diamond_blade",
+    "name": "Diamond Blade",
+    "description": "Deals 150% to environmental targets, but 50% to enemies. For every object cut, your Overkill bar gets a small recharge.",
+    "scope": "overkill",
+    "optionType": "blade",
+    "weaponKey": "OVE9050",
+    "slotKey": "blade",
+    "slotLabel": "Blade",
+    "slotIndex": 0
+  },
+  "ovk_ove9050_silent_blade": {
+    "key": "ovk_ove9050_silent_blade",
+    "name": "Silent Blade",
+    "description": "The saw is silent, but drains ammo faster while in use. The Overkill weapon is carried with you and can be pulled out when the Overkill bar is full.",
+    "scope": "overkill",
+    "optionType": "blade",
+    "weaponKey": "OVE9050",
+    "slotKey": "blade",
+    "slotLabel": "Blade",
+    "slotIndex": 0
+  },
+  "ovk_ove9050_shredder_blade": {
+    "key": "ovk_ove9050_shredder_blade",
+    "name": "Shredder Blade",
+    "description": "Deals 150% to enemies, but 50% to environmental targets. While the saw is equipped you are immune to being staggered.",
+    "scope": "overkill",
+    "optionType": "blade",
+    "weaponKey": "OVE9050",
+    "slotKey": "blade",
+    "slotLabel": "Blade",
+    "slotIndex": 0
+  },
+  "ovk_ove9050_revving_hard": {
+    "key": "ovk_ove9050_revving_hard",
+    "name": "Revving Hard",
+    "description": "Each object destroyed or enemy killed increases the damage by 20% up to 200% while the saw is spinning at speed, otherwise it decreases with 10% every second.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_ove9050_high_voltage": {
+    "key": "ovk_ove9050_high_voltage",
+    "name": "High Voltage",
+    "description": "OVE9050 Saw spawns with 300 extra battery. Passively recharging the Overkill bar automatically over time is 50% of the normal rate. Actions that recharge the bar do so even if the Overkill weapon is equipped.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_ove9050_blade_slinger": {
+    "key": "ovk_ove9050_blade_slinger",
+    "name": "Blade Slinger",
+    "description": "While spinning the saw at speed, you can launch the blade as a projectile by pressing the melee input, consuming a large part of the battery. The blade will deal massive damage to any enemy it hits, within a 5 meter radius, ricocheting up to 3 times.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk1",
+    "slotLabel": "Perk Slot 1",
+    "slotIndex": 1
+  },
+  "ovk_ove9050_a_slice_to_go": {
+    "key": "ovk_ove9050_a_slice_to_go",
+    "name": "A Slice to Go",
+    "description": "Spinning up the saw takes 50% of the normal rate, and you have no movement speed penalty and can sprint while spinning the saw at speed.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_ove9050_ptsd": {
+    "key": "ovk_ove9050_ptsd",
+    "name": "PTSD",
+    "description": "If an enemy dies from being dealt damage by the saw, a random enemy within 5 meters will become marked and paralyzed, stopping all their actions for 10 seconds.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  },
+  "ovk_ove9050_grave_robber": {
+    "key": "ovk_ove9050_grave_robber",
+    "name": "Grave Robber",
+    "description": "If an enemy dies by the saw, they have a high chance to drop Armor Repair Kits, First Aid Kits, or Ammo Packs.",
+    "scope": "overkill",
+    "optionType": "perk",
+    "weaponKey": "OVE9050",
+    "slotKey": "perk2",
+    "slotLabel": "Perk Slot 2",
+    "slotIndex": 2
+  }
+}

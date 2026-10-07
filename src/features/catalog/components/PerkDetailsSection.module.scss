@@ -1,0 +1,40 @@
+.wrapper {
+  display: grid;
+  gap: $space-md;
+}
+
+.metaGrid {
+  display: grid;
+  gap: $space-xs;
+}
+
+.metaRow {
+  display: grid;
+  grid-template-columns: minmax(120px, 170px) 1fr;
+  gap: $space-sm;
+  padding-bottom: $space-xs;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metaLabel {
+  color: $color-text-muted;
+  font-family: "DIN2014";
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.metaValue {
+  color: $color-text-primary;
+  font-family: "DIN2014";
+  font-size: 13px;
+}
+
+.description {
+  padding: $space-md;
+  border-left: 3px solid $pd3-hover;
+  background: $color-bg-elevated;
+  color: $color-text-primary;
+  font-family: "DIN2014";
+  font-size: 14px;
+  line-height: 1.5;
+}

@@ -4,7 +4,7 @@
         "key": "Bulwark",
         "name": "Extra Protection",
         "base_description": "For every skill equipped in the Juggernaut branch, gain {ArmorReduction} damage reduction to armor plates.\n{ComputedArmorReduction}\n\nTotal damage reduction cannot exceed {MaxArmorReduction}.",
-        "aced_description": "For each point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
+        "aced_description": "For every point of Trauma on your current armor plate, gain {AcedArmorReduction} damage reduction for every skill equipped in the Juggernaut branch.\n{ComputedAcedArmorReduction}\n\nTrauma is 'permanent' damage that cannot regenerate unless repaired or replaced by an Armor Bag.",
         "values": {
             "ArmorReduction": {
                 "value": 0.01,
@@ -17,7 +17,7 @@
                 "text": "Damage reduction:"
             },
             "MaxArmorReduction": {
-                "value": 0.8,
+                "value": 0.9,
                 "type": "rate"
             },
             "AcedArmorReduction": {
@@ -49,7 +49,7 @@
         "id": 7,
         "key": "ARProficiency",
         "name": "Rifleman",
-        "base_description": "For every skill equipped in the Commando branch, Assault Rifles and LMGs gain {IncreasedArmorPenetration} Armor Penetration.\n{ComputedIncreasedArmorPenetration}\n\nEach enemy wears a set number of armor layers. If your Armor Penetration equals or exceeds that number, attacks damage their health directly. If not, attacks damage their armor.",
+        "base_description": "For every skill equipped in the Commando branch, Assault Rifles and LMGs gain an additional {IncreasedArmorPenetration} Armor Penetration.\n{ComputedIncreasedArmorPenetration}\n\nEach enemy wears a set number of armor layers. If your Armor Penetration is equal to or higher than that number, attacks damage their health directly. If not, attacks damage their armor layers.",
         "aced_description": "Assault Rifle and LMG reload speed increases by {AcedIncreasedReloadSpeed} for every skill equipped in the Commando branch.\n{ComputedAcedIncreasedReloadSpeed}\n\nThis bonus doubles when reloading an empty magazine.",
         "values": {
             "IncreasedArmorPenetration": {
@@ -95,7 +95,7 @@
         "aced_description": "The blast radius of Frag Grenades increases by {AcedIncreasedRange} meters for every skill equipped in the Grenadier branch.\n{ComputedAcedIncreasedRange}",
         "values": {
             "IncreasedDamage": {
-                "value": 0.075,
+                "value": 0.025,
                 "type": "rate",
                 "compute": 1
             },
@@ -319,7 +319,7 @@
         "key": "ShotgunExpert",
         "name": "Calling Shotgun",
         "base_description": "For every skill equipped in the Shotgunner branch, Shotgun pellets receive a {DecreasedDamageFalloff} reduction to damage falloff.\n{ComputedDecreasedDamageFalloff}",
-        "aced_description": "For every skill equipped in the Shotgunner branch, the spread of Shotgun pellets reduces by {AcedIncreasedAccuracy} while in ADS.\n{ComputedAcedIncreasedAccuracy}",
+        "aced_description": "For every skill equipped in the Shotgunner branch, the spread of Shotgun pellets reduces by {AcedIncreasedAccuracy} while aiming down sight.\n{ComputedAcedIncreasedAccuracy}",
         "values": {
             "DecreasedDamageFalloff": {
                 "value": 0.025,
@@ -651,7 +651,7 @@
         "id": 91,
         "key": "TradingExpert",
         "name": "Trade Broker",
-        "base_description": "Each hostage you trade counts as {GainHostageCount} additional hostage. For every two skills equipped in the Puppet Master branch beyond the first, that count increases by {AdditionalHostageCount}.\n{ComputedAdditionalHostageCount}\n\nTrading hostages can delay a police assault, provide consumables, and free crewmates from custody.",
+        "base_description": "Each hostage you trade counts as {GainHostageCount} additional hostage. For every two skill points equipped in the Puppet Master branch beyond the first, that count increases by {AdditionalHostageCount}.\n{ComputedAdditionalHostageCount}\n\nTrading hostages can delay a police assault, provide consumables, and free crewmates from custody.",
         "aced_description": "For every skill equipped in the Puppet Master branch, tie and trade hostages {AcedIncreasedInteractionSpeed} faster.\n{ComputedAcedIncreasedInteractionSpeed}",
         "values": {
             "GainHostageCount": {
@@ -748,7 +748,7 @@
         "key": "AmmoExpert",
         "name": "Munitions Expert",
         "base_description": "For every skill equipped in the Ammo Specialist branch, your Ammo Bags restore {IncreasedAmmo} additional ammo to all heisters.\n{ComputedIncreasedAmmo}",
-        "aced_description": "Your Ammo Bags restore {AcedExtraCount} additional throwable for every two skills equipped in the Ammo Specialist branch.\n{ComputedAcedExtraCount}\n\nThrowables can only be restored up to your maximum carrying capacity, which you may increase through other skills.",
+        "aced_description": "Your Ammo Bags restore {AcedExtraCount} additional throwable for every two skill points equipped in the Ammo Specialist branch.\n{ComputedAcedExtraCount}\n\nThrowables can only be restored up to your maximum carrying capacity, which you may increase through other skills.",
         "values": {
             "IncreasedAmmo": {
                 "value": 0.05,
@@ -858,7 +858,7 @@
         "key": "Tenderize",
         "name": "Burn Damage",
         "base_description": "Enemies injured by your Frag Grenades suffer an additional {IncreasedDamage} damage from all sources.",
-        "aced_description": "Raise your Frag Grenade damage bonus to {AcedIncreasedDamage}.",
+        "aced_description": "Raise this damage bonus to {AcedIncreasedDamage}.",
         "values": {
             "IncreasedDamage": {
                 "value": 0.15,
@@ -1046,7 +1046,7 @@
         "key": "ElectricStunner",
         "name": "Stunned",
         "base_description": "The stun duration from Shock Grenades increases by {IncreasedDuration}.",
-        "aced_description": "Raise the duration of Shock Grenade stuns by {AcedIncreasedDuration}.",
+        "aced_description": "Raise the duration of Shock Grenade stuns to {AcedIncreasedDuration}.",
         "values": {
             "IncreasedDuration": {
                 "value": 0.25,
@@ -1158,7 +1158,7 @@
         "key": "RiotControl",
         "name": "Flash Mob",
         "base_description": "Flashbang Grenades are silent, making them undetectable to anyone outside the flash radius.",
-        "aced_description": "Civilians caught by your Flashbang Grenade cannot flee or receive help from Hostage Rescue for {AcedAffectedDuration} seconds.",
+        "aced_description": "Civilians caught by your Flashbang Grenades cannot flee or receive help from Hostage Rescue for {AcedAffectedDuration} seconds.",
         "values": {
             "AcedAffectedDuration": {
                 "value": 120,
@@ -1293,7 +1293,7 @@
     "SniperPockets": {
         "id": 98,
         "key": "SniperPockets",
-        "name": "Stockpile: Marksman",
+        "name": "Stockpile: Sniper",
         "base_description": "Carry {IncreasedInventoryAmmo} more Marksman reserve ammo.",
         "aced_description": "Raise your Marksman ammo bonus to {AcedIncreasedInventoryAmmo}.",
         "values": {
@@ -1332,7 +1332,7 @@
                 "type": "flat"
             },
             "AcedAdditionalCharges": {
-                "value": 2,
+                "value": 1,
                 "type": "flat"
             }
         },
@@ -1422,7 +1422,7 @@
                 "type": "flat"
             },
             "AcedExtraCount": {
-                "value": 3,
+                "value": 2,
                 "type": "flat"
             }
         },
@@ -1679,7 +1679,7 @@
     "ExtraFlashbangs": {
         "id": 69,
         "key": "ExtraFlashbangs",
-        "name": "Stockpile: Flashbang Grenades",
+        "name": "Stockpile: Flashbangs",
         "base_description": "If your starting loadout contains Flashbang Grenades, receive {ExtraCount} additional Flashbang Grenade.",
         "aced_description": "You now gain {AcedExtraCount} additional Flashbang {AcedExtraCount}|plural(one=Grenade,other=Grenades).",
         "values": {
@@ -1860,7 +1860,7 @@
         "id": 105,
         "key": "AmmoUpII",
         "name": "Ammo Up II",
-        "base_description": "Ammo Bags come with {AdditionalCharges} additional charge.",
+        "base_description": "The Ammo Bag comes with {AdditionalCharges} additional charge.",
         "aced_description": "If your starting loadout contains an Ammo Bag, receive {AcedExtraCount} additional Ammo Bag.",
         "values": {
             "AdditionalCharges": {
@@ -1889,7 +1889,7 @@
     "BeastOfBurdon": {
         "id": 4,
         "key": "BeastOfBurdon",
-        "name": "Beast Of Burden",
+        "name": "Beast of Burden",
         "base_description": "You can carry 2 bags at once. This will incur a movement penalty.",
         "aced_description": "You no longer suffer a movement penalty while carrying 2 bags.\n\nThis will not negate movement penalties from heavy bags.",
         "values": null,
@@ -1945,7 +1945,7 @@
         "aced_description": "The chance to restore a throwable from an ammo pickup raises to {AcedPickupChance}.",
         "values": {
             "PickupChance": {
-                "value": 0.02,
+                "value": 0.03,
                 "type": "rate"
             },
             "AcedPickupChance": {
@@ -2156,7 +2156,7 @@
         "key": "RadioExpert",
         "name": "Radio Star",
         "base_description": "Hack a guard’s radio to cause a distraction. The distracted guard will pause any action for {GuardDistractTime} seconds.\n\nWhen the disturbance passes, the guard will return to their normal routine. You must keep a line of sight on the guard to hack their radio. This ability has a cooldown of {Cooldown} seconds.",
-        "aced_description": "Radio hacks now distract a guard for {AcedGuardDistractTime} seconds.\n\nThe cooldown reduces to {AcedCooldown} seconds.",
+        "aced_description": "Radio hacks will distract a guard for {AcedGuardDistractTime} seconds.\n\nThe cooldown reduces to {AcedCooldown} seconds.",
         "values": {
             "GuardDistractTime": {
                 "value": 5,
@@ -2379,11 +2379,11 @@
         "aced_description": "The number of extra throwables you can carry raises to {AcedExtraCount}.",
         "values": {
             "ExtraCount": {
-                "value": 2,
+                "value": 1,
                 "type": "flat"
             },
             "AcedExtraCount": {
-                "value": 5,
+                "value": 2,
                 "type": "flat"
             }
         },
@@ -2529,7 +2529,7 @@
         "id": 29,
         "key": "EvenAim",
         "name": "Steady Hands",
-        "base_description": "When you use an SMG to kill an enemy within {BuffDistance} meters, gain a buff that increases your SMG's hip fire accuracy. For kills further than {BuffDistance} meters, gain a buff that increases ADS accuracy with SMGs. \n\nEach buff lasts {BuffDuration} seconds.",
+        "base_description": "When you use an SMG to kill an enemy within {BuffDistance} meters, gain a buff that increases your SMG's hip fire accuracy. For kills further than {BuffDistance} meters, gain a buff that increases ADS accuracy with SMGs. \n\nEach buff lasts for {BuffDuration} seconds.",
         "aced_description": "Killing an enemy with an SMG increases both hipfire and ADS accuracy, regardless of distance. \n\nThe duration of these buffs increases to {AcedBuffDuration} seconds.",
         "values": {
             "BuffDistance": {
@@ -2602,7 +2602,7 @@
         "key": "ExtraTurrets",
         "name": "Sentry Squad",
         "base_description": "You can now deploy an additional Sentry Turret.",
-        "aced_description": "You can deploy <Skill>2</> additional Sentry Turrets, but all turrets build up {AcedIncreasedHeatBuildup} more heat.",
+        "aced_description": "You can deploy a total of <Skill>3</> Sentry Turrets, but all turrets build up {AcedIncreasedHeatBuildup} more heat.",
         "values": {
             "AcedIncreasedHeatBuildup": {
                 "value": 1,
@@ -2853,7 +2853,7 @@
         "id": 95,
         "key": "Intimidator",
         "name": "Scare Tactics",
-        "base_description": "Shout at nearby guards, SWAT or Heavy SWAT and force them to surrender. \n\nDealing damage or looking away from the target will cancel their surrender. Once taken hostage, the SWAT obeys all civilian rules. You cannot have more than <Skill>1</> SWAT hostage at a time.",
+        "base_description": "Shout at nearby guards, SWAT or Heavy SWAT and force them to surrender.\n\nIf the enemy stays in your sights, they will go down on their knees and drop their weapon. Dealing damage or looking away from the target will cancel their surrender.\n\nOnce taken hostage, the SWAT obeys all the rules of a civilian. You cannot have more than <Skill>1</> SWAT hostage at a time.",
         "aced_description": "You can now command up to {AcedMaxHostages} SWAT hostages at a time.",
         "values": {
             "AcedMaxHostages": {
@@ -2909,7 +2909,7 @@
         "id": 107,
         "key": "HighGrainAmmo",
         "name": "Bullet Frenzy",
-        "base_description": "Once a heister interacts with your Ammo Bag, they deal {IncreasedDamage} more damage with the next magazine of their primary and secondary weapons, as well as their next throwable.",
+        "base_description": "Once a heister interacts with your Ammo Bag, they deal {IncreasedDamage} more damage with their next magazine of their primary and secondary weapons, as well as their next throwable.",
         "aced_description": "Raise the damage bonus from your Ammo Bags to {AcedIncreasedDamage}.",
         "values": {
             "IncreasedDamage": {
@@ -2987,23 +2987,15 @@
         "key": "FragMaster",
         "name": "Mad Bomber",
         "base_description": "When your Frag Grenade explodes, it grants a {RestoreChance} chance to restore <Skill>1</> Frag Grenade.",
-        "aced_description": "After exploding, your Frag Grenade will break into {AcedExtraCount} smaller {AcedExtraCount}|plural(one=grenade,other=grenades) that each deal {AcedDecreasedDamage} of the original grenade's damage.\n\nSmaller grenades have a {AcedRestoreChance} chance to restore <Skill>1</> Frag Grenade.",
+        "aced_description": "After exploding, your Frag Grenade will break into {AcedExtraCount} smaller flashbang {AcedExtraCount}|plural(one=grenade,other=grenades) that are affected by other skills.",
         "values": {
             "RestoreChance": {
-                "value": 0.25,
+                "value": 0.15,
                 "type": "rate"
             },
             "AcedExtraCount": {
                 "value": 2,
                 "type": "flat"
-            },
-            "AcedDecreasedDamage": {
-                "value": 0.3,
-                "type": "rate"
-            },
-            "AcedRestoreChance": {
-                "value": 0.1,
-                "type": "rate"
             }
         },
         "skill_category_id": 1,
@@ -3066,7 +3058,7 @@
                 "type": "flat"
             },
             "BuffStack": {
-                "value": 10,
+                "value": 5,
                 "type": "flat"
             },
             "AcedBuffStack": {
@@ -3092,7 +3084,7 @@
         "id": 36,
         "key": "SmokeMaster",
         "name": "Escape Artist",
-        "base_description": "If you become downed with any Smoke Grenades in your possession, deploy one instead to gain a fixed {DodgeChance} chance to Dodge for {ImmuneDuration} seconds. \n\nThis ability refreshes after {SkillCooldown} seconds, and costs <Skill>1</> down. No other modifiers affect this Dodge chance. It does not apply to fall damage or Zapper stuns.",
+        "base_description": "If you become downed with any Smoke Grenades in your possession, deploy a Smoke Grenade instead and gain a fixed {DodgeChance} chance to Dodge for {ImmuneDuration} seconds. \n\nThis ability refreshes after {SkillCooldown} seconds, and costs <Skill>1</> down. No other modifiers affect this Dodge chance. It does not apply to fall damage or Zapper stuns.",
         "aced_description": "While this ability is active, any headshot damage you inflict while standing in a Smoke Grenade's cloud increases by {AcedIncreasedDamage}.",
         "values": {
             "DodgeChance": {
@@ -3108,7 +3100,7 @@
                 "type": "flat"
             },
             "AcedIncreasedDamage": {
-                "value": 0.04444,
+                "value": 44.44,
                 "type": "rate"
             }
         },
@@ -3283,7 +3275,7 @@
         "id": 72,
         "key": "FlashbangMaster",
         "name": "Sunburn",
-        "base_description": "Enemies affected by your Flashbang Grenades take {IncreasedIncomingDamage} more damage for every skill equipped in the Flashpoint branch.\n{ComputedIncreasedIncomingDamage}\n\nIf multiple heisters apply this skill to a single enemy, only the highest value will count.",
+        "base_description": "Enemies affected by your Flashbang Grenades take {IncreasedIncomingDamage} more damage for every skill equipped in the Flashpoint branch.\n{ComputedIncreasedIncomingDamage}",
         "aced_description": "Enemies affected by your Flashbang Grenades will lose half their armor layers.\n\nThis effect can only happen once per enemy.",
         "values": {
             "IncreasedIncomingDamage": {
@@ -3316,7 +3308,7 @@
         "key": "HulkOut",
         "name": "Seeing Red",
         "base_description": "While you have Adrenaline, gain a {IncreasedDamage} damage bonus for every skill equipped in the Imposter branch.",
-        "aced_description": "Your Adrenaline damage bonus increases to {AcedIncreasedDamage}.",
+        "aced_description": "Your Adrenaline damage bonus increases by {AcedIncreasedDamage}.",
         "values": {
             "IncreasedDamage": {
                 "value": 0.02,

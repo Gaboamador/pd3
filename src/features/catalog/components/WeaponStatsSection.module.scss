@@ -61,3 +61,40 @@
     color: $pd3-lightgreen;
   }
 }
+
+.perksSection {
+  margin-top: $space-lg;
+  padding: $space-md;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+}
+
+.perkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: $space-sm;
+}
+
+.perkCard {
+  display: grid;
+  gap: $space-xs;
+  padding: $space-sm;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-sm;
+  background: $color-bg-surface;
+}
+
+.perkName {
+  font-family: "DIN2014";
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $pd3-lightgreen;
+}
+
+.perkDescription {
+  font-family: "DIN2014";
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: $color-text-muted;
+}

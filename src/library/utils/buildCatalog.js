@@ -13,9 +13,34 @@ export function buildCatalog({
   skillGroupsData,
   loadoutData,
   armorPlatesData,
+  perksData,
   weaponTypesBySlot, // { primary: ["shotgun", ...], secondary: ["pistol", ...] }
+  includeWeaponSlots = false,
 }) {
   const catalog = [];
+
+  // 🔹 WEAPON SLOT (aggregate views used by Catalog only)
+  if (includeWeaponSlots) {
+    [
+      ["primary", "All Primary Weapons"],
+      ["secondary", "All Secondary Weapons"],
+      ["overkill", "All Overkill Weapons"],
+    ].forEach(([slot, label]) => {
+      const baseSearch = normalize(
+        `${slot} ${label} weapon weapons all ${slot} weapons`
+      );
+      const searchText = `${baseSearch} ${baseSearch.replace(/\s+/g, "")}`;
+
+      catalog.push({
+        kind: "weaponSlot",
+        key: `weapon-slot:${slot}`,
+        slot,
+        label,
+        searchText,
+      });
+    });
+  }
+
 
   // 🔹 SKILLS (incluye descripciones)
   Object.values(skillsData).forEach((skill) => {
@@ -107,6 +132,65 @@ export function buildCatalog({
         weaponType: item.type ? normalize(item.type) : undefined,
         searchText,
       });
+    });
+  });
+
+
+
+  const iconicWeaponNamesByPerkKey = {};
+  ["primary", "secondary"].forEach((slot) => {
+    Object.values(loadoutData?.[slot] ?? {}).forEach((weapon) => {
+      if (weapon?.preset !== 1 || !weapon?.perk) return;
+
+      if (!iconicWeaponNamesByPerkKey[weapon.perk]) {
+        iconicWeaponNamesByPerkKey[weapon.perk] = [];
+      }
+
+      iconicWeaponNamesByPerkKey[weapon.perk].push(
+        weapon.name ?? weapon.key
+      );
+    });
+  });
+
+  // 🔹 WEAPON / OVERKILL PERKS
+  Object.values(perksData ?? {}).forEach((perk) => {
+    const kind =
+      perk.scope === "overkill" && perk.optionType === "ammo"
+        ? "overkillAmmo"
+        : "perk";
+
+    const baseSearch = normalize(
+      [
+        perk.key,
+        perk.name,
+        perk.description,
+        ...(perk.weaponTypes ?? []),
+        perk.weaponKey,
+        perk.slotLabel,
+        perk.scope,
+        perk.optionType,
+        perk.iconicOnly ? "iconic only" : null,
+        ...(iconicWeaponNamesByPerkKey[perk.key] ?? []),
+      ]
+        .filter(Boolean)
+        .join(" ")
+    );
+
+    const searchText = `${baseSearch} ${baseSearch.replace(/\s+/g, "")}`;
+
+    catalog.push({
+      kind,
+      key: perk.key,
+      label: perk.name,
+      scope: perk.scope,
+      optionType: perk.optionType,
+      weaponTypes: perk.weaponTypes,
+      weaponKey: perk.weaponKey,
+      slotKey: perk.slotKey,
+      slotLabel: perk.slotLabel,
+      iconicOnly: perk.iconicOnly === true,
+      iconicWeaponNames: iconicWeaponNamesByPerkKey[perk.key] ?? [],
+      searchText,
     });
   });
 

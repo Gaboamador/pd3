@@ -13,6 +13,7 @@ import ScrollArrow from "../../components/ScrollArrow";
 // Data
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
+import perksData from "../../data/payday3_perks.json";
 
 export default function CompareBuilds() {
   const { t } = useTranslation();
@@ -69,6 +70,7 @@ export default function CompareBuilds() {
     return compareBuildGroup(selectedBuilds, {
       skillsData,
       loadoutData,
+      perksData,
       t
     });
   }, [selectedBuilds, t]);

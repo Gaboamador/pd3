@@ -1,0 +1,64 @@
+.wrapper {
+  display: grid;
+  gap: $space-lg;
+}
+
+.group {
+  display: grid;
+  gap: $space-sm;
+}
+
+.groupTitle {
+  font-family: "DIN2014";
+  font-weight: 700;
+  color: $pd3-hover;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: $space-sm;
+}
+
+.option {
+  clip-path: none;
+  display: grid;
+  gap: $space-xs;
+  min-height: 112px;
+  padding: $space-sm;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: $radius-sm;
+  background: $color-bg-contrast;
+  color: $color-text-primary;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
+.emptyOption {
+  align-self: start;
+  min-height: 0;
+}
+
+.active {
+  border-color: $color-accent;
+  background: rgba($pd3-hover, 0.2);
+}
+
+.optionName {
+  align-self: start;
+  font-family: "DIN2014";
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.optionDescription {
+  align-self: start;
+  font-family: "DIN2014";
+  font-size: 11px;
+  line-height: 1.4;
+  color: $color-text-muted;
+}

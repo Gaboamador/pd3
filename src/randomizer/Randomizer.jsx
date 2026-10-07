@@ -16,15 +16,24 @@ import ToolSprite from "../build/components/loadout/ToolSprite";
 import HeistDealer from "../heistDealer/HeistDealer";
 import TreeSprite from "../build/components/skills/TreeSprite";
 
-import { normalizeLoadoutData } from "../build/utils/loadout.utils";
+import {
+  buildInitialModsStateForWeapon,
+  normalizeLoadoutData,
+} from "../build/utils/loadout.utils";
 import { buildWeaponTypeLabels, getWeaponTypeLabel, orderWeaponTypes } from "../build/utils/weaponTypeLabels";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
 import skillGroupsData from "../data/payday3_skill_groups.json";
+import perksData from "../data/payday3_perks.json";
 
 import { getArmorMaxPlates, buildEmptyPlateSlots } from "../build/utils/armor.utils";
 import { buildTreePool } from "./utils/buildTreePool";
 import ArmorPlatesPreview from "../build/components/loadout/ArmorPlatesPreview";
+import {
+  getOverkillConfigGroups,
+  getWeaponPerks,
+  isIconicWeapon,
+} from "../build/utils/perks.utils";
 
 // ==============================
 // Utils
@@ -89,6 +98,7 @@ export default function Randomizer() {
       primary: null,
       secondary: null,
       overkill: null,
+      overkillConfig: {},
       armor: { key: null, plates: [] },
       throwable: null,
       deployable: null,
@@ -410,6 +420,23 @@ const filteredSecondaryWeapons = useMemo(() => {
 
   }
 
+function randomWeaponPerkKey(weaponDef) {
+  if (!weaponDef) return null;
+  if (isIconicWeapon(weaponDef)) return weaponDef.perk ?? null;
+
+  return randomFromArray(getWeaponPerks(perksData, weaponDef.type))?.key ?? null;
+}
+
+function randomOverkillConfig(weaponKey) {
+  const config = {};
+
+  getOverkillConfigGroups(perksData, weaponKey).forEach((group) => {
+    config[group.slotKey] = randomFromArray(group.options)?.key ?? null;
+  });
+
+  return config;
+}
+
 function applyResult(slot, result) {
   setBuild(prev => {
     const next = { ...prev.loadout };
@@ -418,21 +445,24 @@ function applyResult(slot, result) {
       case "primary":
         next.primary = {
           weaponKey: result.key,
-          preset: 0,
-          mods: {},
+          preset: result.preset ?? 0,
+          mods: buildInitialModsStateForWeapon(result),
+          perk: randomWeaponPerkKey(result),
         };
         break;
 
       case "secondary":
         next.secondary = {
           weaponKey: result.key,
-          preset: 0,
-          mods: {},
+          preset: result.preset ?? 0,
+          mods: buildInitialModsStateForWeapon(result),
+          perk: randomWeaponPerkKey(result),
         };
         break;
 
       case "overkill":
         next.overkill = result.key;
+        next.overkillConfig = randomOverkillConfig(result.key);
         break;
 
       case "throwable":
@@ -475,6 +505,7 @@ function applyResult(slot, result) {
         primary: null,
         secondary: null,
         overkill: null,
+        overkillConfig: {},
         armor: { key: null, plates: [] },
         throwable: null,
         deployable: null,
@@ -507,6 +538,7 @@ function applyResult(slot, result) {
         primary: null,
         secondary: null,
         overkill: null,
+        overkillConfig: {},
         armor: { key: null, plates: [] },
         throwable: null,
         deployable: null,
@@ -713,8 +745,11 @@ function applyResult(slot, result) {
                 use='randomizer'
                 slot="primary"
                 weaponDef={primaryWeaponDef}
+                perkState={build.loadout.primary?.perk}
+                perksData={perksData}
                 onClick={() => spinSlot("primary")}
                 showWeaponMods={false}
+                showWeaponPerk={true}
                 isSpinning={activeSpin?.slot === "primary"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={
@@ -736,8 +771,11 @@ function applyResult(slot, result) {
                 use='randomizer'
                 slot="secondary"
                 weaponDef={secondaryWeaponDef}
+                perkState={build.loadout.secondary?.perk}
+                perksData={perksData}
                 onClick={() => spinSlot("secondary")}
                 showWeaponMods={false}
+                showWeaponPerk={true}
                 isSpinning={activeSpin?.slot === "secondary"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={
@@ -761,6 +799,20 @@ function applyResult(slot, result) {
                 itemDef={overkillDef}
                 SpriteComponent={OverkillSprite}
                 onClick={() => spinSlot("overkill")}
+                headerExtra={
+                  overkillDef ? (
+                    <span
+                      className={styles.overkillConfigCount}
+                      title={Object.values(build.loadout.overkillConfig ?? {})
+                        .map((key) => perksData[key]?.name)
+                        .filter(Boolean)
+                        .join(" · ")}
+                    >
+                      {Object.values(build.loadout.overkillConfig ?? {}).filter(Boolean).length}/
+                      {getOverkillConfigGroups(perksData, overkillDef.key).length}
+                    </span>
+                  ) : null
+                }
                 isSpinning={activeSpin?.slot === "overkill"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={

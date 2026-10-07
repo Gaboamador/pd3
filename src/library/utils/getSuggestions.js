@@ -3,11 +3,14 @@ import { searchSkillDescriptions } from "../../features/catalog/components/utils
 
   const KIND_BASE_WEIGHT = {
     skillDescriptionSearch: 1000,
+    weaponSlot: 45,
     weaponType: 40,
     category: 35,
     tree: 30,
     armor: 25,
     plate: 20,
+    perk: 18,
+    overkillAmmo: 17,
     throwable: 15,
     deployable: 10,
     tool: 5,
@@ -65,6 +68,9 @@ export function getSuggestions(query, catalog, activeChips = [],  { skillsData =
 
     // match en searchText
     if (item.searchText.startsWith(q)) score += 5;
+
+    // Bonus si es match exacto de slot (primary / secondary / overkill)
+    if (item.kind === "weaponSlot" && item.slot === q) score += 40;
 
     // Bonus si es match exacto de tipo (pistol -> weaponType pistol)
     if (item.kind === "weaponType" && item.weaponType === q) score += 30;

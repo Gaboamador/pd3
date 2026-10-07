@@ -387,3 +387,10 @@ display: flex;
 flex-direction: column;
 width: 100%;
 }
+
+.overkillConfigCount {
+  font-family: "DIN2014";
+  font-size: 10px;
+  color: $pd3-hover;
+  white-space: nowrap;
+}

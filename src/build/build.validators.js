@@ -2,10 +2,11 @@ import { MAX_SKILL_POINTS } from "./build.constants";
 import { calculateSkillPoints } from "./utils/skillPoints.utils";
 import { validateArmorPlatesOrder } from "./utils/armor.utils";
 import { validateWeaponMods } from "./utils/loadout.utils";
+import { validateLoadoutPerks } from "./utils/perks.utils";
 
 /**
  * @param {import("./build.types").Build} build
- * @param {{ skillsData: Record<string, any>, loadoutData: any, platesData: Record<string, any> }} data
+ * @param {{ skillsData: Record<string, any>, loadoutData: any, platesData: Record<string, any>, perksData?: Record<string, any> }} data
  */
 export function validateBuild(build, data) {
   const issues = [];
@@ -36,6 +37,17 @@ export function validateBuild(build, data) {
   // Weapons & mods validity
   const modIssues = validateWeaponMods(build.loadout, data.loadoutData);
   issues.push(...modIssues);
+
+  // Weapon perks + Overkill customization. Optional data keeps this validator
+  // backwards-compatible for callers that have not supplied perks yet.
+  if (data.perksData) {
+    const perkIssues = validateLoadoutPerks(
+      build.loadout,
+      data.loadoutData,
+      data.perksData
+    );
+    issues.push(...perkIssues);
+  }
 
   return { ok: issues.length === 0, issues };
 }

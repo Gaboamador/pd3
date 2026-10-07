@@ -106,3 +106,42 @@
   display: flex;
   align-items: center;
 }
+
+.weaponSlotList {
+  display: grid;
+  gap: $space-sm;
+}
+
+.weaponSlotItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  padding: $space-md $space-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-bg-elevated;
+  color: $color-text-primary;
+  font-family: "DIN2014";
+  font-size: 0.95rem;
+  text-align: left;
+  clip-path: none;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+
+  &:hover {
+    border-color: $pd3-main;
+    background: $color-bg-contrast;
+  }
+}
+
+.weaponSlotArrow {
+  flex: 0 0 auto;
+  margin-left: $space-md;
+  color: $pd3-lightgreen;
+  font-size: 1.2rem;
+  line-height: 1;
+}

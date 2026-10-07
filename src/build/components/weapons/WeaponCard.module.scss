@@ -166,3 +166,35 @@
 
   mix-blend-mode: overlay;
 }
+
+
+/* WEAPON PERK */
+.perkRow {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  min-height: 24px;
+  padding: 3px $space-xs 5px;
+  border-top: 1px solid #262a3b;
+  background: rgba(0, 0, 0, 0.42);
+  font-family: "DIN2014";
+}
+
+.perkLabel {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: $pd3-hover;
+}
+
+.perkName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  color: $color-text-primary;
+}
+
+.perkEmpty {
+  color: $color-text-muted;
+}

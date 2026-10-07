@@ -94,6 +94,14 @@ export function encodeBuildToUrl(build) {
         [l.armor.key, l.armor.plates],
       ],
 
+      // Perks/configuración nueva se guarda fuera del array legacy para
+      // mantener estables las posiciones históricas de loadout.
+      p: [
+        l.primary?.perk ?? null,
+        l.secondary?.perk ?? null,
+        l.overkillConfig ?? {},
+      ],
+
       s: compactSkills,
     };
 
@@ -145,6 +153,10 @@ export function decodeBuildFromUrl(encoded) {
       armor,
     ] = parsed.l;
 
+    // URLs anteriores no tienen `p`: el fallback conserva compatibilidad.
+    const [primaryPerk, secondaryPerk, overkillConfig] =
+      Array.isArray(parsed.p) ? parsed.p : [null, null, {}];
+
     return {
       ...DEFAULT_BUILD,
       id: parsed.i ?? null,
@@ -157,6 +169,7 @@ export function decodeBuildFromUrl(encoded) {
               weaponKey: primary[0],
               mods: reconstructMods(primary[1]),
               preset: primary[2],
+              perk: primaryPerk ?? null,
             }
           : null,
 
@@ -165,6 +178,7 @@ export function decodeBuildFromUrl(encoded) {
               weaponKey: secondary[0],
               mods: reconstructMods(secondary[1]),
               preset: secondary[2],
+              perk: secondaryPerk ?? null,
             }
           : null,
 
@@ -172,6 +186,10 @@ export function decodeBuildFromUrl(encoded) {
         throwable,
         tool,
         overkill,
+        overkillConfig:
+          overkillConfig && typeof overkillConfig === "object"
+            ? overkillConfig
+            : {},
 
         armor: {
           key: armor[0],

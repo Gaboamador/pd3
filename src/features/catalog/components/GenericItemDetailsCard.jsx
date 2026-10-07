@@ -17,6 +17,7 @@ import OverkillStatsSection from "./OverkillsStatsSection";
 import ArmorStatsSection from "./ArmorStatsSection";
 import PlateStatsSection from "./PlateStatsSection";
 import OtherItemsSection from "./OtherItemsSection";
+import PerkDetailsSection from "./PerkDetailsSection";
 
 export default function GenericItemDetailsCard({ item }) {
   
@@ -99,6 +100,10 @@ function renderDetails(kind, def, item) {
     
     case "plate":
       return <PlateStatsSection plate={def} />;
+
+    case "perk":
+    case "overkillAmmo":
+      return <PerkDetailsSection perk={def} />;
 
     default:
       return <OtherItemsSection item={def} />;

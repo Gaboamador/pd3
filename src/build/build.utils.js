@@ -41,6 +41,7 @@ export function createEmptyBuild() {
       primary: null,
       secondary: null,
       overkill: null,
+      overkillConfig: {},
       armor: { key: null, plates: [] },
       deployable: null,
       throwable: null,

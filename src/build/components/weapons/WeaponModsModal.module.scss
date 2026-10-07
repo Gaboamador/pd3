@@ -157,3 +157,20 @@
   color: #fff;
   cursor: pointer;
 }
+.perkSection {
+  display: grid;
+  gap: $space-sm;
+  margin-bottom: $space-lg;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.perkDescription {
+  padding: $space-sm;
+  border-left: 2px solid $pd3-hover;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-text-muted;
+  font-family: "DIN2014";
+  font-size: 12px;
+  line-height: 1.45;
+}

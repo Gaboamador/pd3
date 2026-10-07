@@ -12,11 +12,16 @@
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90,
-        "medium": 85,
-        "far": 80,
-        "ap": 2
+      "stats": { 
+          "damage": 90,
+          "ap": 2.8,
+          "recoil": 75, 
+          "stability": 45,
+          "accuracy": 71,
+          "handling": 42,
+          "rof": 720,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -218,11 +223,16 @@
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 70,
-        "medium": 65,
-        "far": 65,
-        "ap": 2.2
+      "stats": { 
+          "damage": 70,
+          "ap": 2.2,
+          "recoil": 76, 
+          "stability": 49,
+          "accuracy": 71,
+          "handling": 53,
+          "rof": 750,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -407,11 +417,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 120,
-        "medium": 100,
-        "far": 90,
-        "ap": 1.75
+      "stats": { 
+          "damage": 120,
+          "ap": 0,
+          "recoil": 0, 
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 600,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -613,11 +628,16 @@
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 130,
-        "medium": 120,
-        "far": 110,
-        "ap": 2.5
+      "stats": { 
+          "damage": 130,
+          "ap": 0,
+          "recoil": 0, 
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 550,
+          "magazine": 20,
+          "ammo": 200
       },
       "dlc": null,
       "mods": {
@@ -819,11 +839,16 @@
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 92,
-        "medium": 88,
-        "far": 80,
-        "ap": 3
+      "stats": { 
+          "damage": 92,
+          "ap": 3,
+          "recoil": 49, 
+          "stability": 34,
+          "accuracy": 45,
+          "handling": 40,
+          "rof": 450,
+          "magazine": 12,
+          "ammo": 120
       },
       "dlc": null,
       "mods": {
@@ -1000,11 +1025,16 @@
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 280,
-        "medium": 280,
-        "far": 270,
-        "ap": 7
+      "stats": { 
+          "damage": 280,
+          "ap": 7,
+          "recoil": 65, 
+          "stability": 59,
+          "accuracy": 85,
+          "handling": 27,
+          "rof": 50,
+          "magazine": 5,
+          "ammo": 50
       },
       "dlc": null,
       "mods": {
@@ -1122,11 +1152,16 @@
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 65.2,
-        "medium": 35,
-        "far": 29,
-        "ap": 1.3
+      "stats": { 
+          "damage": 65.2,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 860,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -1296,11 +1331,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 60,
-        "medium": 55.2,
-        "far": 42,
-        "ap": 0.8
+      "stats": { 
+          "damage": 60,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 1100,
+          "magazine": 25,
+          "ammo": 250
       },
       "dlc": null,
       "mods": {
@@ -1423,11 +1463,16 @@
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 59.2,
-        "medium": 38,
-        "far": 32,
-        "ap": 1.4
+      "stats": { 
+          "damage": 59.2,
+          "ap": 1.4,
+          "recoil": 77,
+          "stability": 42,
+          "accuracy": 64,
+          "handling": 54,
+          "rof": 1100,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -1555,11 +1600,17 @@
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": "10 x 47.6",
-        "medium": "10 x 24",
-        "far": "10 x 20",
-        "ap": 0
+      "stats": { 
+          "damage": 47.6,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 53,
+          "stability": 59,
+          "accuracy": 27,
+          "handling": 52,
+          "rof": 75,
+          "magazine": 7,
+          "ammo": 70
       },
       "dlc": null,
       "mods": {
@@ -1687,11 +1738,17 @@
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": "10 x 67.125",
-        "medium": "10 x 42",
-        "far": "10 x 30",
-        "ap": 0
+      "stats": { 
+          "damage": 67.13,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 79,
+          "stability": 17,
+          "accuracy": 19,
+          "handling": 44,
+          "rof": 400,
+          "magazine": 2,
+          "ammo": 40
       },
       "dlc": null,
       "mods": {
@@ -1787,11 +1844,16 @@
         "c": 3
       },
       "dlc_id": 1,
-      "newStats": {
-        "close": 86.4,
-        "medium": 51,
-        "far": 43,
-        "ap": 0.9
+      "stats": { 
+          "damage": 86.4,
+          "ap": 0.9,
+          "recoil": 76,
+          "stability": 54,
+          "accuracy": 63,
+          "handling": 38,
+          "rof": 650,
+          "magazine": 25,
+          "ammo": 250
       },
       "dlc": {
         "id": 1,
@@ -1970,11 +2032,17 @@
         "c": 4
       },
       "dlc_id": 1,
-      "newStats": {
-        "close": "8 x 34.125",
-        "medium": "8 x 21",
-        "far": "8 x 13.72",
-        "ap": 0
+      "stats": { 
+          "damage": 44,
+          "pellets": 8,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 300,
+          "magazine": 10,
+          "ammo": 100
       },
       "dlc": {
         "id": 1,
@@ -2165,11 +2233,16 @@
         "c": 1
       },
       "dlc_id": 1,
-      "newStats": {
-        "close": 54,
-        "medium": 39,
-        "far": 39,
-        "ap": 1.5
+      "stats": { 
+          "damage": 54,
+          "ap": 1.5,
+          "recoil": 64,
+          "stability": 39,
+          "accuracy": 45,
+          "handling": 41,
+          "rof": 900,
+          "magazine": 25,
+          "ammo": 250
       },
       "dlc": {
         "id": 1,
@@ -2365,11 +2438,16 @@
         "c": 2
       },
       "dlc_id": 2,
-      "newStats": {
-        "close": 104.6,
-        "medium": 82,
-        "far": 71,
-        "ap": 2
+      "stats": { 
+          "damage": 104.6,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 600,
+          "magazine": 20,
+          "ammo": 200
       },
       "dlc": {
         "id": 2,
@@ -2570,11 +2648,16 @@
         "c": 1
       },
       "dlc_id": 2,
-      "newStats": {
-        "close": 79.2,
-        "medium": 38,
-        "far": 28,
-        "ap": 1.15
+      "stats": { 
+          "damage": 79.2,
+          "ap": 1.15,
+          "recoil": 80,
+          "stability": 56,
+          "accuracy": 74,
+          "handling": 44,
+          "rof": 800,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": {
         "id": 2,
@@ -2738,11 +2821,16 @@
         "c": 3
       },
       "dlc_id": 2,
-      "newStats": {
-        "close": 66.7,
-        "medium": 43,
-        "far": 31,
-        "ap": 1.5
+      "stats": { 
+          "damage": 101,
+          "ap": 1.5,
+          "recoil": 42,
+          "stability": 51,
+          "accuracy": 75,
+          "handling": 17,
+          "rof": 720,
+          "magazine": 100,
+          "ammo": 500
       },
       "dlc": {
         "id": 2,
@@ -2926,11 +3014,16 @@
         "c": 2
       },
       "dlc_id": 3,
-      "newStats": {
-        "close": 85,
-        "medium": 80,
-        "far": 70,
-        "ap": 2.8
+      "stats": { 
+          "damage": 85,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 1000,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": {
         "id": 3,
@@ -3121,11 +3214,17 @@
         "c": 4
       },
       "dlc_id": 3,
-      "newStats": {
-        "close": "10 x 43.6",
-        "medium": "10 x 22",
-        "far": "10 x 22",
-        "ap": 0
+      "stats": { 
+          "damage": 43.6,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 104,
+          "stability": 67,
+          "accuracy": 21,
+          "handling": 40,
+          "rof": 450,
+          "magazine": 12,
+          "ammo": 120
       },
       "dlc": {
         "id": 3,
@@ -3286,11 +3385,17 @@
         "c": 1
       },
       "dlc_id": 4,
-      "newStats": {
-        "close": "10 x 52",
-        "medium": "10 x 22",
-        "far": "10 x 18",
-        "ap": 0
+      "stats": { 
+          "damage": 52,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 70,
+          "stability": 59,
+          "accuracy": 31,
+          "handling": 41,
+          "rof": 65,
+          "magazine": 7,
+          "ammo": 70
       },
       "dlc": {
         "id": 4,
@@ -3417,11 +3522,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 100,
-        "medium": 95,
-        "far": 90,
-        "ap": 2.6
+      "stats": { 
+          "damage": 100,
+          "ap": 2.6,
+          "recoil": 44,
+          "stability": 47,
+          "accuracy": 32,
+          "handling": 46,
+          "rof": 600,
+          "magazine": 8,
+          "ammo": 56
       },
       "dlc": null,
       "mods": {
@@ -3601,16 +3711,22 @@
       "key": "CAR4_B1",
       "name": "CAR-4 \"Monument\"",
       "preset": 1,
+      "perk": "perk_browbeater",
       "sprite_pos": {
         "r": 11,
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90,
-        "medium": 85,
-        "far": 80,
-        "ap": 2
+      "stats": { 
+          "damage": 90,
+          "ap": 2.8,
+          "recoil": 75, 
+          "stability": 45,
+          "accuracy": 71,
+          "handling": 42,
+          "rof": 720,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -3665,16 +3781,22 @@
       "key": "R900S_B2",
       "name": "R900S \"Thunder Scythe\"",
       "preset": 1,
+      "perk": "perk_quickshot",
       "sprite_pos": {
         "r": 13,
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 280,
-        "medium": 280,
-        "far": 270,
-        "ap": 7
+      "stats": { 
+          "damage": 280,
+          "ap": 7,
+          "recoil": 62, 
+          "stability": 59,
+          "accuracy": 83,
+          "handling": 32,
+          "rof": 50,
+          "magazine": 5,
+          "ammo": 50
       },
       "dlc": null,
       "mods": {
@@ -3708,16 +3830,22 @@
       "key": "KU59_B4",
       "name": "KU-59 \"Ruthless\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 12,
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 120,
-        "medium": 100,
-        "far": 90,
-        "ap": 1.75
+      "stats": { 
+          "damage": 120,
+          "ap": 0,
+          "recoil": 0, 
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 600,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -3765,11 +3893,23 @@
       "key": "A114_B5",
       "name": "A114 \"Sentinel\"",
       "preset": 1,
+      "perk": "perk_domino_effect",
       "sprite_pos": {
         "r": 12,
         "c": 4
       },
       "dlc_id": null,
+      "stats": { 
+          "damage": 92,
+          "ap": 3,
+          "recoil": 50, 
+          "stability": 35,
+          "accuracy": 46,
+          "handling": 31,
+          "rof": 450,
+          "magazine": 12,
+          "ammo": 120
+      },
       "dlc": null,
       "mods": {
         "Grip": {
@@ -3823,16 +3963,23 @@
       "key": "Mosconi12C_B6",
       "name": "Mosconi 12C \"The Poacher\"",
       "preset": 1,
+      "perk": "perk_final_tap",
       "sprite_pos": {
         "r": 15,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": "10 x 67.125",
-        "medium": "10 x 42",
-        "far": "10 x 30",
-        "ap": 0
+      "stats": { 
+          "damage": 67.13,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 81,
+          "stability": 17,
+          "accuracy": 25,
+          "handling": 42,
+          "rof": 400,
+          "magazine": 2,
+          "ammo": 40
       },
       "dlc": null,
       "mods": {
@@ -3866,16 +4013,22 @@
       "key": "Commando_B8",
       "name": "Ziv Commando \"Kick-Murder\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 16,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 60,
-        "medium": 55.2,
-        "far": 42,
-        "ap": 0.8
+      "stats": { 
+          "damage": 60,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 1100,
+          "magazine": 25,
+          "ammo": 250
       },
       "dlc": null,
       "mods": {
@@ -3909,16 +4062,22 @@
       "key": "VF7S_B9",
       "name": "VF-7S \"Featherlight\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 12,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 130,
-        "medium": 120,
-        "far": 110,
-        "ap": 2.5
+      "stats": { 
+          "damage": 130,
+          "ap": 0,
+          "recoil": 0, 
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 550,
+          "magazine": 20,
+          "ammo": 200
       },
       "dlc": null,
       "mods": {
@@ -3952,16 +4111,23 @@
       "key": "R880_B10",
       "name": "R880 \"Porch King\"",
       "preset": 1,
+      "perk": "perk_bulky",
       "sprite_pos": {
         "r": 16,
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": "10 x 47.6",
-        "medium": "10 x 24",
-        "far": "10 x 20",
-        "ap": 0
+      "stats": { 
+          "damage": 47.6,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 53,
+          "stability": 59,
+          "accuracy": 27,
+          "handling": 52,
+          "rof": 75,
+          "magazine": 7,
+          "ammo": 70
       },
       "dlc": null,
       "mods": {
@@ -4002,16 +4168,22 @@
       "key": "CAR4_PD2Promo",
       "name": "CAR-4 \"Old Faithful\"",
       "preset": 1,
+      "perk": "perk_veteran",
       "sprite_pos": {
         "r": 11,
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90,
-        "medium": 85,
-        "far": 80,
-        "ap": 2
+      "stats": { 
+          "damage": 90,
+          "ap": 2.8,
+          "recoil": 75, 
+          "stability": 45,
+          "accuracy": 71,
+          "handling": 42,
+          "rof": 720,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -4066,16 +4238,22 @@
       "key": "Compact7_Halloween23",
       "name": "Compact7 \"Lycan\"",
       "preset": 1,
+      "perk": "perk_hot_lead",
       "sprite_pos": {
         "r": 17,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 59.2,
-        "medium": 38,
-        "far": 32,
-        "ap": 1.4
+      "stats": { 
+          "damage": 59.2,
+          "ap": 1.4,
+          "recoil": 76,
+          "stability": 42,
+          "accuracy": 63,
+          "handling": 58,
+          "rof": 1100,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -4130,16 +4308,22 @@
       "key": "CAR4_Empress",
       "name": "\"Queen's Revenge\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 17,
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90,
-        "medium": 85,
-        "far": 80,
-        "ap": 2
+      "stats": { 
+          "damage": 90,
+          "ap": 2.8,
+          "recoil": 75, 
+          "stability": 45,
+          "accuracy": 71,
+          "handling": 42,
+          "rof": 720,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -4201,16 +4385,23 @@
       "key": "Mosconi12C_P2",
       "name": "Mosconi 12C \"Maniacal Moonshiner\"",
       "preset": 1,
+      "perk": "perk_glass_cannon",
       "sprite_pos": {
         "r": 15,
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": "10 x 67.125",
-        "medium": "10 x 42",
-        "far": "10 x 30",
-        "ap": 0
+      "stats": { 
+          "damage": 67.13,
+          "pellets": 10,
+          "ap": 0,
+          "recoil": 78,
+          "stability": 15,
+          "accuracy": 27,
+          "handling": 42,
+          "rof": 400,
+          "magazine": 2,
+          "ammo": 40
       },
       "dlc": null,
       "mods": {
@@ -4258,16 +4449,22 @@
       "key": "NWB9_P4",
       "name": "NW B-9 \"Wraith\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 12,
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 70,
-        "medium": 65,
-        "far": 65,
-        "ap": 2.2
+      "stats": { 
+          "damage": 70,
+          "ap": 2.2,
+          "recoil": 76,
+          "stability": 51,
+          "accuracy": 70,
+          "handling": 51,
+          "rof": 750,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -4329,16 +4526,22 @@
       "key": "R900S_P6",
       "name": "R900S \"The Lance\"",
       "preset": 1,
+      "perk": "perk_hard_cast",
       "sprite_pos": {
         "r": 13,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 280,
-        "medium": 280,
-        "far": 270,
-        "ap": 7
+      "stats": { 
+          "damage": 280,
+          "ap": 7,
+          "recoil": 75, 
+          "stability": 59,
+          "accuracy": 89,
+          "handling": 25,
+          "rof": 50,
+          "magazine": 5,
+          "ammo": 50
       },
       "dlc": null,
       "mods": {
@@ -4379,16 +4582,22 @@
       "key": "PC9_P11",
       "name": "PC9 \"Veteran Ranger\"",
       "preset": 1,
+      "perk": "perk_vampire",
       "sprite_pos": {
         "r": 17,
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 65.2,
-        "medium": 35,
-        "far": 29,
-        "ap": 1.3
+      "stats": { 
+          "damage": 65.2,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 860,
+          "magazine": 30,
+          "ammo": 300
       },
       "dlc": null,
       "mods": {
@@ -4441,13 +4650,12 @@
           "c": 3
       },
       "dlc_id": 7,
-      "newStats": { "close": 100, "medium": 100, "far": 100, "ap": 1 },
       "stats": { 
           "damage": 100,
           "ap": 1,
           "recoil": 63, 
           "stability": 53,
-          "accurcy": 69,
+          "accuracy": 69,
           "handling": 30,
           "rof": 650,
           "magazine": 30,
@@ -4672,13 +4880,12 @@
           "c": 2
       },
       "dlc_id": 7,
-      "newStats": { "close": 110, "medium": 110, "far": 110, "ap": 0 },
       "stats": { 
           "damage": 110,
           "ap": 0,
           "recoil": 71, 
           "stability": 27,
-          "accurcy": 61,
+          "accuracy": 61,
           "handling": 23,
           "rof": 650,
           "magazine": 95,
@@ -4863,6 +5070,149 @@
           }
         }
       }
+    },
+    "66": {
+      "id": 66,
+      "slot": "primary",
+      "type": "smg",
+      "key": "WAR45Midas",
+      "name": "WAR-45 \"Midas\"",
+      "preset": 1,
+      "perk": "perk_midas_touch",
+      "sprite_pos": {
+        "r": 20,
+        "c": 1
+      },
+      "dlc_id": 8,
+      "stats": { 
+          "damage": 86.4,
+          "ap": 0.9,
+          "recoil": 75, 
+          "stability": 55,
+          "accuracy": 62,
+          "handling": 44,
+          "rof": 650,
+          "magazine": 25,
+          "ammo": 250
+      },
+      "dlc": {
+        "id": 8,
+        "name": "Brute Force Crimebond",
+        "release_date": "2026-09-22"
+      },
+      "mods": {
+        "BarrelExtension": {
+          "314": {
+            "id": 314,
+            "type": "unique",
+            "name": "Obelisk Silencer"
+          }
+        },
+        "Mag": {
+          "321": {
+            "id": 321,
+            "type": "unique",
+            "name": "Quick-Pull Mag"
+          }
+        },
+        "Stock": {
+          "328": {
+            "id": 328,
+            "type": "unique",
+            "name": "Minimized Hook Stock"
+          }
+        },
+        "Grip": {
+          "333": {
+            "id": 333,
+            "type": "default",
+            "name": "Default"
+          }
+        },
+        "VerticalGrip": {
+          "330": {
+            "id": 330,
+            "type": "unique",
+            "name": "Angled Ghost Grip"
+          }
+        },
+        "Sight": {
+          "338": {
+            "id": 338,
+            "type": "unique",
+            "name": "Compact RDS"
+          }
+        }
+      }
+    },
+    "67": {
+      "id": 67,
+      "slot": "primary",
+      "type": "lmg",
+      "key": "Zokas17Insurgent",
+      "name": "Zokas-17 \"Insurgent\"",
+      "preset": 1,
+      "perk": "perk_fog_of_war",
+      "sprite_pos": {
+          "r": 20,
+          "c": 2
+      },
+      "dlc_id": 8,
+      "stats": { 
+          "damage": 110,
+          "ap": 1,
+          "recoil": 71, 
+          "stability": 27,
+          "accuracy": 61,
+          "handling": 23,
+          "rof": 650,
+          "magazine": 95,
+          "ammo": 380
+      },
+      "dlc": {
+        "id": 8,
+        "name": "Brute Force Crimebond",
+        "release_date": "2026-09-22"
+      },
+      "mods": {
+        "BarrelExtension": {
+          "10": {
+            "id": 10,
+            "type": "unique",
+            "name": "Express Muzzle Break"
+          }
+        },
+        "ForeGrip": {
+          "17": {
+            "id": 17,
+            "type": "unique",
+            "name": "Optimal Grip"
+          }
+        },
+        "Grip": {
+          "20": {
+            "id": 20,
+            "type": "unique",
+            "name": "Perforated Grip"
+          }
+        },
+        "Stock": {
+          "29": {
+            "id": 29,
+            "type": "unique",
+            "name": "Light Frame"
+          }
+        },
+        "Sight": {
+          "8": {
+            "id": 8,
+            "type": "unique",
+            "name": "SM-2 Sight"
+          }
+        },
+        "VerticalGrip": {
+        }
+      }
     }
   },
   "secondary": {
@@ -4878,11 +5228,16 @@
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90.1,
-        "medium": 56,
-        "far": 42,
-        "ap": 1.6
+      "stats": { 
+          "damage": 90.1,
+          "ap": 1.6,
+          "recoil": 54, 
+          "stability": 32,
+          "accuracy": 73,
+          "handling": 64,
+          "rof": 450,
+          "magazine": 12,
+          "ammo": 120
       },
       "dlc": null,
       "mods": {
@@ -4983,11 +5338,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 66,
-        "medium": 49,
-        "far": 38,
-        "ap": 1.6
+      "stats": { 
+          "damage": 66,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 375,
+          "magazine": 17,
+          "ammo": 170
       },
       "dlc": null,
       "mods": {
@@ -5083,11 +5443,16 @@
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 60.6,
-        "medium": 30,
-        "far": 22,
-        "ap": 1.8
+      "stats": { 
+          "damage": 60.6,
+          "ap": 0,
+          "recoil": 60,
+          "stability": 34,
+          "accuracy": 55,
+          "handling": 66,
+          "rof": 450,
+          "magazine": 17,
+          "ammo": 170
       },
       "dlc": null,
       "mods": {
@@ -5183,11 +5548,16 @@
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 116.1,
-        "medium": 80,
-        "far": 60,
-        "ap": 2.1
+      "stats": { 
+          "damage": 116.1,
+          "ap": 2.1,
+          "recoil": 21,
+          "stability": 41,
+          "accuracy": 67,
+          "handling": 49,
+          "rof": 350,
+          "magazine": 10,
+          "ammo": 100
       },
       "dlc": null,
       "mods": {
@@ -5288,11 +5658,16 @@
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 160.1,
-        "medium": 102,
-        "far": 77,
-        "ap": 2
+      "stats": { 
+          "damage": 160.1,
+          "ap": 2,
+          "recoil": 24,
+          "stability": 36,
+          "accuracy": 54,
+          "handling": 38,
+          "rof": 300,
+          "magazine": 6,
+          "ammo": 60
       },
       "dlc": null,
       "mods": {
@@ -5388,11 +5763,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 155.6,
-        "medium": 81,
-        "far": 58,
-        "ap": 4
+      "stats": { 
+          "damage": 155.6,
+          "ap": 4,
+          "recoil": 32,
+          "stability": 33,
+          "accuracy": 60,
+          "handling": 24,
+          "rof": 400,
+          "magazine": 6,
+          "ammo": 60
       },
       "dlc": null,
       "mods": {
@@ -5483,11 +5863,16 @@
         "c": 4
       },
       "dlc_id": 2,
-      "newStats": {
-        "close": 212,
-        "medium": 167,
-        "far": 130,
-        "ap": 5
+      "stats": { 
+          "damage": 260,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 75,
+          "magazine": 5,
+          "ammo": 50
       },
       "dlc": {
         "id": 2,
@@ -5599,11 +5984,16 @@
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 49.3,
-        "medium": 30,
-        "far": 22,
-        "ap": 1.3
+      "stats": { 
+          "damage": 49.3,
+          "ap": 1.3,
+          "recoil": 94,
+          "stability": 40,
+          "accuracy": 74,
+          "handling": 84,
+          "rof": 900,
+          "magazine": 33,
+          "ammo": 330
       },
       "dlc": null,
       "mods": {
@@ -5709,11 +6099,16 @@
         "c": 4
       },
       "dlc_id": 3,
-      "newStats": {
-        "close": 49.3,
-        "medium": 30,
-        "far": 22,
-        "ap": 1.3
+      "stats": { 
+          "damage": 76.6,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 800,
+          "magazine": 15,
+          "ammo": 150
       },
       "dlc": {
         "id": 3,
@@ -5830,11 +6225,16 @@
         "c": 1
       },
       "dlc_id": 4,
-      "newStats": {
-        "close": 137,
-        "medium": 56,
-        "far": 42,
-        "ap": 5
+      "stats": { 
+          "damage": 137,
+          "ap": 5,
+          "recoil": 30,
+          "stability": 5,
+          "accuracy": 87,
+          "handling": 44,
+          "rof": 275,
+          "magazine": 7,
+          "ammo": 70
       },
       "dlc": {
         "id": 4,
@@ -5934,11 +6334,16 @@
         "c": 2
       },
       "dlc_id": 4,
-      "newStats": {
-        "close": 100.6,
-        "medium": 52,
-        "far": 37,
-        "ap": 1.4
+      "stats": { 
+          "damage": 100.6,
+          "ap": 0,
+          "recoil": 0,
+          "stability": 0,
+          "accuracy": 0,
+          "handling": 0,
+          "rof": 400,
+          "magazine": 10,
+          "ammo": 100
       },
       "dlc": {
         "id": 4,
@@ -6053,11 +6458,17 @@
         "c": 2
       },
       "dlc_id": 6,
-      "newStats": {
-        "close": "8 x 44",
-        "medium": "8 x 49.125",
-        "far": "8 x 31",
-        "ap": 0
+      "stats": { 
+          "damage": 49.13,
+          "pellets": 8,
+          "ap": 0,
+          "recoil": 64,
+          "stability": 59,
+          "accuracy": 23,
+          "handling": 41,
+          "rof": 75,
+          "magazine": 5,
+          "ammo": 35
       },
       "dlc": {
         "id": 6,
@@ -6162,16 +6573,22 @@
       "key": "Bison_B3",
       "name": "Bison \"Long Rager\"",
       "preset": 1,
+      "perk": "perk_sharpshooter",
       "sprite_pos": {
         "r": 14,
         "c": 4
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 155.6,
-        "medium": 81,
-        "far": 58,
-        "ap": 4
+      "stats": { 
+          "damage": 155.6,
+          "ap": 4,
+          "recoil": 38,
+          "stability": 33,
+          "accuracy": 60,
+          "handling": 16,
+          "rof": 400,
+          "magazine": 6,
+          "ammo": 60
       },
       "dlc": null,
       "mods": {
@@ -6212,16 +6629,22 @@
       "key": "S40_B7",
       "name": "S40 \"Square Off\"",
       "preset": 1,
+      "perk": "perk_resilient",
       "sprite_pos": {
         "r": 14,
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 90.1,
-        "medium": 56,
-        "far": 42,
-        "ap": 1.6
+      "stats": { 
+          "damage": 90.1,
+          "ap": 1.6,
+          "recoil": 54, 
+          "stability": 35,
+          "accuracy": 72,
+          "handling": 58,
+          "rof": 450,
+          "magazine": 12,
+          "ammo": 120
       },
       "dlc": null,
       "mods": {
@@ -6248,16 +6671,22 @@
       "key": "Stryk7_B11",
       "name": "Stryk 7 \"Hard Liquid\"",
       "preset": 1,
+      "perk": "perk_bleed",
       "sprite_pos": {
         "r": 14,
         "c": 3
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 60.6,
-        "medium": 30,
-        "far": 22,
-        "ap": 1.8
+      "stats": { 
+          "damage": 60.6,
+          "ap": 0,
+          "recoil": 63,
+          "stability": 34,
+          "accuracy": 55,
+          "handling": 63,
+          "rof": 450,
+          "magazine": 17,
+          "ammo": 170
       },
       "dlc": null,
       "mods": {
@@ -6284,16 +6713,22 @@
       "key": "SPM11_B12",
       "name": "SP M11 \"Hard Cough\"",
       "preset": 1,
+      "perk": "perk_bleeding_edge",
       "sprite_pos": {
         "r": 14,
         "c": 2
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 116.1,
-        "medium": 80,
-        "far": 60,
-        "ap": 2.1
+      "stats": { 
+          "damage": 116.1,
+          "ap": 2.1,
+          "recoil": 21,
+          "stability": 40,
+          "accuracy": 67,
+          "handling": 48,
+          "rof": 350,
+          "magazine": 10,
+          "ammo": 100
       },
       "dlc": null,
       "mods": {
@@ -6334,16 +6769,22 @@
       "key": "Castigo44_B13",
       "name": "Castigo 44 \"Tin Hammer\"",
       "preset": 1,
+      "perk": "perk_pin_puller",
       "sprite_pos": {
         "r": 15,
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 160.1,
-        "medium": 102,
-        "far": 77,
-        "ap": 2
+      "stats": { 
+          "damage": 160.1,
+          "ap": 2,
+          "recoil": 25,
+          "stability": 36,
+          "accuracy": 54,
+          "handling": 38,
+          "rof": 300,
+          "magazine": 6,
+          "ammo": 60
       },
       "dlc": null,
       "mods": {
@@ -6377,16 +6818,22 @@
       "key": "SPM11_Star",
       "name": "Freedom’s Fortune",
       "preset": 1,
+      "perk": "perk_target_practice",
       "sprite_pos": {
         "r": 18,
         "c": 1
       },
       "dlc_id": null,
-      "newStats": {
-        "close": 116.1,
-        "medium": 80,
-        "far": 60,
-        "ap": 2.1
+      "stats": { 
+          "damage": 116.1,
+          "ap": 2.1,
+          "recoil": 21,
+          "stability": 41,
+          "accuracy": 69,
+          "handling": 44,
+          "rof": 350,
+          "magazine": 10,
+          "ammo": 100
       },
       "dlc": null,
       "mods": {
@@ -6434,16 +6881,22 @@
       "key": "T32_Fool",
       "name": "Tribune 32 “Miami Decadence”",
       "preset": 1,
+      "perk": "perk_trigger_happy",
       "sprite_pos": {
         "r": 18,
         "c": 2
       },
       "dlc_id": 5,
-      "newStats": {
-        "close": 49.3,
-        "medium": 30,
-        "far": 22,
-        "ap": 1.3
+      "stats": { 
+          "damage": 49.3,
+          "ap": 1.3,
+          "recoil": 94,
+          "stability": 40,
+          "accuracy": 74,
+          "handling": 84,
+          "rof": 900,
+          "magazine": 45,
+          "ammo": 270
       },
       "dlc": {
         "id": 5,
@@ -6493,13 +6946,12 @@
           "c": 4
       },
       "dlc_id": 7,
-      "newStats": { "close": 48, "medium": 48, "far": 48, "ap": 0 },
       "stats": { 
           "damage": 48,
           "ap": 1,
           "recoil": 31, 
           "stability": 34,
-          "accurcy": 12,
+          "accuracy": 12,
           "handling": 51,
           "rof": 1200,
           "magazine": 30,
@@ -6649,6 +7101,165 @@
           }
         }
       }
+    },
+    "65": {
+      "id": 65,
+      "slot": "secondary",
+      "type": "shotgun",
+      "key": "Loco_12G",
+      "name": "Locomotive 12G",
+      "preset": 0,
+      "sprite_pos": {
+          "r": 19,
+          "c": 4
+      },
+      "dlc_id": 8,
+      "stats": { 
+          "damage": 55,
+          "ap": 0,
+          "recoil": 45, 
+          "stability": 59,
+          "accuracy": 100,
+          "handling": 85,
+          "rof": 100,
+          "magazine": 2,
+          "ammo": 31
+      },
+      "dlc": {
+        "id": 8,
+        "name": "Brute Force Crimebond",
+        "release_date": "2026-09-22"
+      },
+      "mods": {
+        "Grip": {
+          "18": {
+            "id": 18,
+            "type": "default",
+            "name": "Default"
+          },
+          "19": {
+            "id": 19,
+            "type": "unique",
+            "name": "Light Grip"
+          },
+          "20": {
+            "id": 20,
+            "type": "unique",
+            "name": "Molded Grip"
+          },
+          "21": {
+            "id": 21,
+            "type": "unique",
+            "name": "Raised Grip"
+          }
+        },
+        "BarrelExtension": {
+          "8": {
+            "id": 8,
+            "type": "default",
+            "name": "Default"
+          },
+          "9": {
+            "id": 9,
+            "type": "unique",
+            "name": "12G Jaw Choke"
+          },
+          "10": {
+            "id": 10,
+            "type": "unique",
+            "name": "12G Obelisk Silencer"
+          },
+          "11": {
+            "id": 11,
+            "type": "unique",
+            "name": "12G Sediment Choke"
+          },
+          "12": {
+            "id": 12,
+            "type": "unique",
+            "name": "12G Vent Compensator"
+          },
+          "13": {
+            "id": 13,
+            "type": "unique",
+            "name": "Breacher Muzzle"
+          },
+          "14": {
+            "id": 14,
+            "type": "unique",
+            "name": "Coronet Muzzle"
+          },
+          "15": {
+            "id": 15,
+            "type": "unique",
+            "name": "Ridgecyl Silencer"
+          },
+          "16": {
+            "id": 16,
+            "type": "unique",
+            "name": "The Silent Killer"
+          },
+          "17": {
+            "id": 17,
+            "type": "unique",
+            "name": "Torqued Choke"
+          }
+        },
+        "Sight": {
+          "1": {
+            "id": 1,
+            "type": "unique",
+            "name": "Classic RDS"
+          },
+          "2": {
+            "id": 2,
+            "type": "unique",
+            "name": "Compact RDS"
+          },
+          "3": {
+            "id": 3,
+            "type": "unique",
+            "name": "Sheath RDS"
+          },
+          "4": {
+            "id": 4,
+            "type": "unique",
+            "name": "Projection RDS"
+          },
+          "5": {
+            "id": 5,
+            "type": "unique",
+            "name": "Light Holographic Sight"
+          },
+          "6": {
+            "id": 6,
+            "type": "unique",
+            "name": "Square Claim"
+          },
+          "7": {
+            "id": 7,
+            "type": "unique",
+            "name": "SM-2 Sight"
+          }
+        },
+        "VerticalGrip": {
+          "31": {
+            "id": 31,
+            "type": "unique",
+            "name": "Biofit Vertical Grip"
+          },
+          "32": {
+            "id": 32,
+            "type": "unique",
+            "name": "Skeletal Vertical Grip"
+          },
+          "33": {
+            "id": 33,
+            "type": "unique",
+            "name": "Slim Vertical Grip"
+          }
+        }
+      }
     }
   },
   "overkill": {
@@ -6665,6 +7276,7 @@
       },
       "dlc_id": null,
       "description": "Performing a body shot with the HET deals 20% of the original shot's damage and performing a headshot deals 60% of the original shot's damage to all enemies within 3 meters of your target. This additional damage does not bypass enemy armor.",
+      "base_effect": "Semi-Automatic material rifle that can penetrate up to 3 surfaces equipped with a scope that can identify targets through walls.",
       "abilities": [
         {
           "tier": 0,
@@ -6719,6 +7331,7 @@
       },
       "dlc_id": null,
       "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 0.25 of the original explosion damage.",
+      "base_effect": "Drum-loaded grenade launcher with high explosive grenades that immediately detonate on impact with characters or on a fuse if hitting the environment. Players and Civilians no longer take damage from the Mamba.",
       "abilities": [
         {
           "tier": 0,
@@ -6773,6 +7386,7 @@
       },
       "dlc_id": null,
       "description": "For every second you fire the minigun, your armor gains 1% additional damage reduction. Every second you do not fire the minigun, you lose 1% of this bonus damage reduction. Your total damage reduction can't exceed 90%. Unequipping the minigun will end all active bonuses.",
+      "base_effect": "While firing the minigun or when it is spun up, you gain 10% armor damage reduction. Your total armor damage reduction from minigun perks cannot exceed 90%. Any additional bonus damage reduction will degrade by 1% per second whenever the gun is not firing. Unequipping the minigun will end all active bonuses.",
       "abilities": [
         {
           "tier": 0,
@@ -6827,6 +7441,7 @@
       },
       "dlc_id": null,
       "description": "As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill's effect will end. You can only use this skill once per heist and only if the alarm hasn't been raised. (This ability replaces your OVERKILL weapon).",
+      "base_effect": "Blackout Protocol: As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill’s effect will end. You can only use this skill once per heist and only if the alarm hasn’t been raised. [This ability replaces your OVK weapon]. This uses the “phone” player animation.",
       "abilities": [
         {
           "tier": 0,
@@ -6881,6 +7496,7 @@
       },
       "dlc_id": 5,
       "description": "If you have a full OVERKILL meter, you pull out a baseball bat on activation and drop any bag or body you are currently carrying. While you're wielding the baseball bat, all incoming damage is done to your OVERKILL meter instead. You can use light or heavy swings with the bat, inflicting light or heavy damage. You'll wield the bat until your OVERKILL meter reaches 0 or until you are downed. If you press the OVERKILL button while wielding the bat, your OVERKILL meter drops to 0. (This ability replaces your OVERKILL weapon).",
+      "base_effect": "If you have a full OVERKILL meter, you pull out a baseball bat on activation and drop any bag or body you are currently carrying. While you’re wielding the baseball bat, all incoming damage is done to your OVERKILL meter instead. You can use light or heavy swings with the bat, inflicting light or heavy damage. You’ll wield the bat until your OVERKILL meter reaches 0 or until you are downed. If you press the OVERKILL button while wielding the bat, your OVERKILL meter drops to 0. [This ability replaces your OVERKILL weapon.] Killing an enemy while this ability is active will restore 10% of your OVERKILL meter.",
       "abilities": [
         {
           "tier": 0,
@@ -6939,6 +7555,7 @@
       },
       "dlc_id": 7,
       "description": "This big, beautiful death machine has been wreaking havoc since WWII. Usually takes two people to load, but you look like you can handle it. Just don't burn off your crewmate's face in the back-blast!",
+      "base_effect": "This recoilless grenade launcher allows switching ammo types via mod options, each with different effects, damage, and behaviors. The gun gets delivered with three shots per standard. The gun also features a large backblast, causing damage and hurt reactions from enemies.",
       "abilities": [
         {
           "tier": 0,
@@ -6981,6 +7598,65 @@
         "id": 7,
         "name": "Swedish Weapon Pack",
         "release_date": "2026-05-19"
+      },
+      "mods": []
+    },
+    "64": {
+      "id": 64,
+      "slot": "overkill",
+      "type": "overskill",
+      "key": "OVE9050",
+      "name": "OVE9050",
+      "preset": 0,
+      "sprite_pos": {
+        "r": 19,
+        "c": 3
+      },
+      "dlc_id": 8,
+      "description": "Everyone's a hero until they hear the whirr of this monster from around the corner. Able to chew through most reasonably sized obstacles, this baby will turn closed to open before you have the time to say vroom-vroom.",
+      "base_effect": "",
+      "abilities": [
+        {
+          "tier": 0,
+          "name": "Base Skill",
+          "exp": 0,
+          "description": ""
+        },
+        {
+          "tier": 1,
+          "name": "",
+          "exp": 1500,
+          "description": ""
+        },
+        {
+          "tier": 2,
+          "name": "",
+          "exp": 3500,
+          "description": ""
+        },
+        {
+          "tier": 3,
+          "name": "",
+          "exp": 7500,
+          "description": ""
+        },
+        {
+          "tier": 4,
+          "name": "",
+          "exp": 11500,
+          "description": ""
+        },
+        {
+          "tier": 5,
+          "name": "",
+          "exp": 16500,
+          "description": ""
+        }
+      ],
+      "dlc": {
+        "id": 8,
+        "name": "Brute Force Crimebond",
+        "release_date": "2026-09-22"
       },
       "mods": []
     }

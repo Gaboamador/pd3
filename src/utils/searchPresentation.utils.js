@@ -37,6 +37,9 @@ export function formatWeaponTypeLabel(type) {
     lmg: "LMG",
     shotgun: "Shotgun",
     handgun: "Handgun",
+    pistol: "Pistol",
+    revolver: "Revolver",
+    marksman: "Marksman Rifle",
     marksmanrifle: "Marksman Rifle",
     sniper: "Sniper Rifle",
     overkill: "Overkill",
@@ -70,6 +73,10 @@ export function getChipLabel(chip, NAME_BY_KEY) {
     return formatWeaponTypeWithSlot(chip.slot, chip.weaponType);
   }
 
+  if (chip.kind === "weaponSlot") {
+    return `All ${formatWeaponSlotLabel(chip.slot)} Weapons`;
+  }
+
   if (chip.kind === "buildName") {
     return chip.label;
   }
@@ -83,10 +90,16 @@ export function getChipKindLabel(chip) {
   switch (chip.kind) {
     case "skill":
       return "Skill";
+    case "weaponSlot":
+      return "Weapon Slot";
     case "weaponType":
       return "Weapon Type";
     case "buildName":
       return "Build";
+    case "perk":
+      return "Perk";
+    case "overkillAmmo":
+      return "Overkill Ammo";
     default:
       return capitalizeKind(chip.kind);
   }
@@ -96,7 +109,10 @@ export function getChipKindColor(kind) {
   switch (kind) {
     case "skill":
       return "var(--color-skill)";
+    case "weaponSlot":
     case "weaponType":
+    case "perk":
+    case "overkillAmmo":
     case "primary":
     case "secondary":
     case "overkill":
@@ -126,10 +142,14 @@ export function formatKindLabel(kind) {
     skillDescriptionSearch: "Skill Text Search",
     buildName: "Builds",
     skill: "Skills",
+    weapons: "Weapons",
+    weaponSlot: "Weapons",
     weaponType: "Weapons",
     overkill: "Overkill Weapon",
     armor: "Armor",
     plate: "Plates",
+    perk: "Perks",
+    overkillAmmo: "Overkill Ammo",
     throwable: "Throwables",
     deployable: "Deployables",
     tool: "Tools",
@@ -145,12 +165,17 @@ export function buildSuggestionsWithDividers(list) {
   let lastKind = null;
 
   for (const item of list) {
-    if (item.kind !== lastKind) {
+    const groupKind =
+      item.kind === "weaponSlot" || item.kind === "weaponType"
+        ? "weapons"
+        : item.kind;
+
+    if (groupKind !== lastKind) {
       result.push({
         __type: "divider",
-        kind: item.kind,
+        kind: groupKind,
       });
-      lastKind = item.kind;
+      lastKind = groupKind;
     }
 
     result.push({

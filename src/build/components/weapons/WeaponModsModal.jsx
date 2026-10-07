@@ -7,6 +7,12 @@ import Modal from "../common/Modal";
 import Spinner from "../../../components/Spinner";
 import { WeaponPresetService } from "../../../services/weaponPresetService";
 import { getWeaponModSlots } from "../../utils/loadout.utils";
+import {
+  getEffectiveWeaponPerkKey,
+  getPerkByKey,
+  getWeaponPerks,
+  isIconicWeapon,
+} from "../../utils/perks.utils";
 import styles from "./WeaponModsModal.module.scss";
 
 const SLOT_LABEL_OVERRIDES = {
@@ -16,20 +22,17 @@ const SLOT_LABEL_OVERRIDES = {
 function formatModSlotName(slot) {
   if (!slot) return "";
 
-    // Si tiene override manual → usarlo
   if (SLOT_LABEL_OVERRIDES[slot]) {
     return SLOT_LABEL_OVERRIDES[slot];
   }
 
-  // 1. separar camelCase
   const withSpaces = slot
     .replace(/([a-z])([A-Z])/g, "$1 $2")
     .replace(/_/g, " ");
 
-  // 2. capitalizar cada palabra
   return withSpaces
     .split(" ")
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 }
 
@@ -39,32 +42,38 @@ export default function WeaponModsModal({
   weaponDef,
   modsState,
   onChangeMods,
+  perkState,
+  onChangePerk,
+  perksData,
 }) {
-  
-  // estados
   const { t } = useTranslation();
   const { uid } = useAuth();
   const navigate = useNavigate();
-  const [authRequired, setAuthRequired] = useState(false);
   const { showToast } = useToast();
+
+  const [authRequired, setAuthRequired] = useState(false);
   const [checkingPreset, setCheckingPreset] = useState(false);
   const [presetLoading, setPresetLoading] = useState(false);
   const [existingPreset, setExistingPreset] = useState(null);
   const [confirmReplaceOpen, setConfirmReplaceOpen] = useState(false);
 
-  if (!weaponDef) {
-  return (
-    <div className={styles.emptyCard} onClick={onClick}>
-      {t('modal.actions.select-weapon')}
-    </div>
-  );
-}
-
+  const isIconic = isIconicWeapon(weaponDef);
   const modSlots = getWeaponModSlots(weaponDef);
+  const compatiblePerks = getWeaponPerks(perksData, weaponDef?.type);
+  const activePerkKey = getEffectiveWeaponPerkKey(
+    { perk: perkState },
+    weaponDef
+  );
+  const activePerk = getPerkByKey(perksData, activePerkKey);
 
-  // useEffect para verificar preset
+  const selectablePerks = isIconic
+    ? activePerk
+      ? [activePerk]
+      : []
+    : compatiblePerks;
+
   useEffect(() => {
-    if (!open || !weaponDef || !uid) return;
+    if (!open || !weaponDef || !uid || isIconic) return;
 
     let mounted = true;
 
@@ -89,15 +98,15 @@ export default function WeaponModsModal({
     return () => {
       mounted = false;
     };
-  }, [open, weaponDef, uid]);
+  }, [open, weaponDef, uid, isIconic]);
 
-  // helpers y flags
-  const isPreset = weaponDef?.preset === 1;
-  const isGamePresetWeapon = weaponDef?.preset === 1;
+  if (!weaponDef) return null;
+
   const hasPersonalPreset = Boolean(existingPreset);
 
-  // funciones
   function setMod(slot, opt) {
+    if (!onChangeMods) return;
+
     const nextValue = opt?.isDefault ? null : opt?.id ?? null;
     onChangeMods({
       ...modsState,
@@ -105,12 +114,19 @@ export default function WeaponModsModal({
     });
   }
 
+  function setPerk(perkKey) {
+    if (isIconic || !onChangePerk) return;
+    onChangePerk(perkKey || null);
+  }
+
   async function handleLoadPreset() {
-    if (!existingPreset || isGamePresetWeapon) return;
+    if (!existingPreset || isIconic || !onChangeMods) return;
 
     setPresetLoading(true);
 
     try {
+      // Personal presets intentionally contain mods only. The weapon perk belongs
+      // to the build and is not changed when loading a mod preset.
       onChangeMods(existingPreset.mods ?? {});
     } finally {
       setPresetLoading(false);
@@ -118,11 +134,12 @@ export default function WeaponModsModal({
   }
 
   async function performSavePreset() {
-    if (!uid || isGamePresetWeapon) return;
+    if (!uid || isIconic) return;
 
     try {
       setPresetLoading(true);
 
+      // Keep the existing personal-preset contract: mods only.
       const saved = await WeaponPresetService.save(
         uid,
         weaponDef.key,
@@ -131,16 +148,15 @@ export default function WeaponModsModal({
 
       setExistingPreset(saved);
 
-      // ✅ Toast SOLO si guardó realmente
       showToast({
         type: "success",
-        message: t('toast.msg.preset.saved'),
+        message: t("toast.msg.preset.saved"),
       });
     } catch (err) {
       console.error("Error saving weapon preset:", err);
       showToast({
         type: "error",
-        message: t('toast.msg.preset.failed-to-save'),
+        message: t("toast.msg.preset.failed-to-save"),
       });
     } finally {
       setPresetLoading(false);
@@ -148,20 +164,18 @@ export default function WeaponModsModal({
   }
 
   async function handleSavePreset() {
-    if (isGamePresetWeapon) return;
+    if (isIconic) return;
 
     if (!uid) {
       setAuthRequired(true);
       return;
     }
 
-    // Si ya existe → pedir confirm con modal (no guardar aún)
     if (existingPreset) {
       setConfirmReplaceOpen(true);
       return;
     }
 
-    // No existe → guardar directo
     await performSavePreset();
   }
 
@@ -169,39 +183,76 @@ export default function WeaponModsModal({
     <Modal
       open={open}
       onClose={onClose}
-      title={`Edit mods – ${weaponDef.name}`}
+      title={`Edit weapon – ${weaponDef.name}`}
       width="720px"
     >
-      {isPreset && (
+      {isIconic && (
         <div className={styles.presetNotice}>
-          {t('modal.msg.preset-exists')}
+          {t("modal.msg.iconic-fixed")}
         </div>
       )}
 
-      {!isGamePresetWeapon && (
-        <>
+      <div className={styles.perkSection}>
+        <div className={styles.slotTitle}>{t("build.loadout.weapon.perk")}</div>
 
+        <div className={styles.optionsGrid}>
+          {!isIconic && (
+            <div
+              className={`${styles.option} ${!activePerkKey ? styles.active : ""}`}
+              onClick={() => setPerk(null)}
+            >
+              {t("select.option.none")}
+            </div>
+          )}
+
+          {selectablePerks.map((perk) => (
+            <div
+              key={perk.key}
+              className={`${styles.option} ${
+                activePerkKey === perk.key ? styles.active : ""
+              } ${isIconic ? styles.locked : ""}`}
+              onClick={() => setPerk(perk.key)}
+              title={perk.description}
+            >
+              {perk.name}
+            </div>
+          ))}
+        </div>
+
+        {activePerk?.description && (
+          <div className={styles.perkDescription}>{activePerk.description}</div>
+        )}
+      </div>
+
+      {!isIconic && (
+        <>
           {authRequired && (
             <div className={styles.authPrompt}>
-              <span>{t('auth.msg.login-required.presets')}</span>
+              <span>{t("auth.msg.login-required.presets")}</span>
               <button
                 className={styles.authLoginBtn}
                 onClick={() => navigate("/auth")}
               >
-                {t('auth.actions.login')}
+                {t("auth.actions.login")}
               </button>
             </div>
           )}
 
-          <div className={`${styles.personalPresetActions} ${(checkingPreset || presetLoading) ? styles.checkingPresetSpinner : ""}`}>
+          <div
+            className={`${styles.personalPresetActions} ${
+              checkingPreset || presetLoading
+                ? styles.checkingPresetSpinner
+                : ""
+            }`}
+          >
             {checkingPreset ? (
-              <Spinner size="sm" label={t('spinner.presets.checking')} />
+              <Spinner size="sm" label={t("spinner.presets.checking")} />
             ) : presetLoading ? (
-              <Spinner size="sm" label={t('spinner.presets.saving')} />
+              <Spinner size="sm" label={t("spinner.presets.saving")} />
             ) : (
               <>
                 <div className={styles.presetTitle}>
-                  <span>{t('modal.title.personal-preset')}</span>
+                  <span>{t("modal.title.personal-preset")}</span>
                 </div>
 
                 <div className={styles.presetBtnWrapper}>
@@ -210,14 +261,14 @@ export default function WeaponModsModal({
                     onClick={handleLoadPreset}
                     disabled={!hasPersonalPreset}
                   >
-                    {t('build.actions.load')}
+                    {t("build.actions.load")}
                   </button>
 
                   <button
                     className={styles.presetBtn}
                     onClick={handleSavePreset}
                   >
-                    {t('build.actions.save')}
+                    {t("build.actions.save")}
                   </button>
                 </div>
               </>
@@ -227,11 +278,13 @@ export default function WeaponModsModal({
       )}
 
       {!modSlots.length && (
-        <div className={styles.empty}>{t('build.loadout.msg.no-mods-available')}</div>
+        <div className={styles.empty}>
+          {t("build.loadout.msg.no-mods-available")}
+        </div>
       )}
 
       <div className={styles.slots}>
-        {modSlots.map(ms => {
+        {modSlots.map((ms) => {
           const activeId = modsState?.[ms.slot] ?? null;
 
           return (
@@ -239,7 +292,7 @@ export default function WeaponModsModal({
               <div className={styles.slotTitle}>{formatModSlotName(ms.slot)}</div>
 
               <div className={styles.optionsGrid}>
-                {ms.options.map(opt => {
+                {ms.options.map((opt) => {
                   const isActive = opt.isDefault
                     ? activeId == null
                     : activeId === opt.id;
@@ -249,9 +302,9 @@ export default function WeaponModsModal({
                       key={String(opt.id)}
                       className={`${styles.option} ${
                         isActive ? styles.active : ""
-                      } ${isPreset ? styles.locked : ""}`}
+                      } ${isIconic ? styles.locked : ""}`}
                       onClick={() => {
-                        if (isPreset) return;
+                        if (isIconic) return;
                         setMod(ms.slot, opt);
                       }}
                     >
@@ -263,42 +316,39 @@ export default function WeaponModsModal({
             </div>
           );
         })}
-
       </div>
 
-        {/* MODAL QUE PREGUNTA SI SE QUIERE REEMPLAZAR PERSONAL PRESET O NO */}
-        <Modal
-          open={confirmReplaceOpen}
-          onClose={() => setConfirmReplaceOpen(false)}
-          title={t('modal.title.replace-preset')}
-          width="520px"
-        >
-          <div className={styles.confirmBody}>
-            {t('modal.msg.replace-preset')}
-          </div>
+      <Modal
+        open={confirmReplaceOpen}
+        onClose={() => setConfirmReplaceOpen(false)}
+        title={t("modal.title.replace-preset")}
+        width="520px"
+      >
+        <div className={styles.confirmBody}>
+          {t("modal.msg.replace-preset")}
+        </div>
 
-          <div className={styles.confirmActions}>
-            <button
-              className={styles.confirmSecondary}
-              onClick={() => setConfirmReplaceOpen(false)}
-              disabled={presetLoading}
-            >
-              {t('modal.actions.cancel')}
-            </button>
+        <div className={styles.confirmActions}>
+          <button
+            className={styles.confirmSecondary}
+            onClick={() => setConfirmReplaceOpen(false)}
+            disabled={presetLoading}
+          >
+            {t("modal.actions.cancel")}
+          </button>
 
-            <button
-              className={styles.confirmPrimary}
-              onClick={async () => {
-                setConfirmReplaceOpen(false);
-                await performSavePreset();
-              }}
-              disabled={presetLoading}
-            >
-              {t('modal.actions.replace')}
-            </button>
-          </div>
-        </Modal>
-
+          <button
+            className={styles.confirmPrimary}
+            onClick={async () => {
+              setConfirmReplaceOpen(false);
+              await performSavePreset();
+            }}
+            disabled={presetLoading}
+          >
+            {t("modal.actions.replace")}
+          </button>
+        </div>
+      </Modal>
     </Modal>
   );
 }

@@ -72,7 +72,10 @@
   "builds.failed-save-as-new": "Failed to save build as new",
   "catalog.header-stat": "Stat",
   "catalog.header-value": "Value",
-  "catalog.label.hide-preset": "Hide preset variants",
+  "catalog.label.hide-preset": "Hide Iconic weapons",
+  "catalog.perks.associated-with": "Associated with",
+  "catalog.perks.description": "Description",
+  "catalog.perks.name": "Perk",
   "catalog.title.weapon-mods": "Mods Available",
   "catalog.weapon.ap": "Armor Penetration",
   "catalog.weapon.damage-close": "Damage Close",
@@ -284,5 +287,11 @@
   "weapon.compare.close": "Close",
   "weapon.compare.far": "Far",
   "weapon.compare.med": "Med.",
-  "weapon.compare.name": "Weapon"
+  "weapon.compare.name": "Weapon",
+  "build.loadout.weapon.perk": "Weapon Perk",
+  "build.loadout.edit-overkill": "Edit Overkill Weapon",
+  "build.loadout.overkill-config": "Overkill Weapon Configuration",
+  "modal.msg.iconic-fixed": "Iconic weapon: mods and weapon perk are fixed.",
+  "catalog.title.weapon-perks": "Available Perks",
+  "catalog.label.iconic-perk": "Iconic Perk"
 }

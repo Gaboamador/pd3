@@ -43,7 +43,7 @@
                     {
                         "id": 4,
                         "key": "BeastOfBurdon",
-                        "name": "Beast Of Burden",
+                        "name": "Beast of Burden",
                         "sprite": {
                             "r": 1,
                             "c": 4
@@ -982,7 +982,7 @@
                     {
                         "id": 69,
                         "key": "ExtraFlashbangs",
-                        "name": "Stockpile: Flashbang Grenades",
+                        "name": "Stockpile: Flashbangs",
                         "sprite": {
                             "r": 12,
                             "c": 3
@@ -1423,7 +1423,7 @@
                     {
                         "id": 98,
                         "key": "SniperPockets",
-                        "name": "Stockpile: Marksman",
+                        "name": "Stockpile: Sniper",
                         "sprite": {
                             "r": 17,
                             "c": 2

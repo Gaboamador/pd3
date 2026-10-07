@@ -6,6 +6,7 @@ import { WEAPON_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import WeaponModSlotsRow from "./WeaponModSlotsRow";
 import useIsMobile from "../../../hooks/useIsMobile";
 import { BREAKPOINTS } from "../../../constants/breakpoints";
+import { getEffectiveWeaponPerkKey, getPerkByKey } from "../../utils/perks.utils";
 import styles from "./WeaponCard.module.scss";
 
 export default function WeaponCard({
@@ -13,11 +14,15 @@ export default function WeaponCard({
   weaponDef,
   modsState,
   onChangeMods,
+  perkState,
+  onChangePerk,
+  perksData,
   onClick,
   onBeforeEdit,
   forceOpenMods,
   onModsOpened,
   showWeaponMods = false,
+  showWeaponPerk = false,
   mode,
   spriteOverlay,
   isSpinning = false,
@@ -37,7 +42,13 @@ const isLoadoutEditor = !isItemPicker; // default
 
   const name = weaponDef ? weaponDef.name : use === "randomizer" ? t('randomizer.label.randomize-weapon'): t('modal.actions.select-weapon');
 
-  const canEdit = Boolean(weaponDef && (onBeforeEdit || onChangeMods));
+  const canEdit = Boolean(weaponDef && (onBeforeEdit || onChangeMods || onChangePerk));
+
+  const effectivePerkKey = getEffectiveWeaponPerkKey(
+    { perk: perkState },
+    weaponDef
+  );
+  const effectivePerk = getPerkByKey(perksData, effectivePerkKey);
 
   useEffect(() => {
     if (forceOpenMods && weaponDef) {
@@ -106,6 +117,14 @@ return (
             height={spriteHeight/5}
           />
         )}
+        {weaponDef && showWeaponPerk && (
+          <div className={styles.perkRow}>
+            <span className={styles.perkLabel}>PERK</span>
+            <span className={`${styles.perkName} ${!effectivePerk ? styles.perkEmpty : ""}`}>
+              {effectivePerk?.name ?? "None"}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* FOOTER */}
@@ -119,13 +138,16 @@ return (
 
     </div>
 
-    {weaponDef && onChangeMods && (
+    {weaponDef && (onChangeMods || onChangePerk) && (
       <WeaponModsModal
         open={openMods}
         onClose={() => setOpenMods(false)}
         weaponDef={weaponDef}
         modsState={modsState}
         onChangeMods={onChangeMods}
+        perkState={perkState}
+        onChangePerk={onChangePerk}
+        perksData={perksData}
       />
     )}
   </>

@@ -6,17 +6,19 @@ import { IoChevronBackCircleSharp } from "react-icons/io5";
 
 import Section from "../../build/components/common/Section";
 import WeaponTypeComparisonSection from "./components/WeaponTypeComparisonSection";
+import PerksComparisonSection from "./components/PerksComparisonSection";
 import { getWeaponsByTypeSelection } from "./components/utils/getWeaponsByTypeSelection";
 import { buildCatalog } from "../../library/utils/buildCatalog";
 import { getSuggestions } from "../../library/utils/getSuggestions";
 import { buildWeaponTypeIndex } from "../../library/utils/buildWeaponTypeIndex";
-import { buildSuggestionsWithDividers, formatKindLabel, formatWeaponTypeWithSlot } from "../../utils/searchPresentation.utils";
+import { buildSuggestionsWithDividers, formatKindLabel, formatWeaponSlotLabel, formatWeaponTypeWithSlot } from "../../utils/searchPresentation.utils";
 import { searchSkillDescriptions } from "./components/utils/searchSkillDescriptions";
 
 import skillsData from "../../data/payday3_skills.json";
 import skillGroupsData from "../../data/payday3_skill_groups.json"
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
+import perksData from "../../data/payday3_perks.json";
 
 import CatalogDetails from "./components/CatalogDetails";
 import SkillsEditor from "../../build/components/skills/SkillsEditor";
@@ -25,7 +27,7 @@ import ScrollArrow from "../../components/ScrollArrow";
 
 export default function Catalog() {
   const { t } = useTranslation();
-  const { key, slot, weaponType, groupId, treeId, textQuery } = useParams();
+  const { key, slot, weaponType, weaponSlot, groupId, treeId, textQuery } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const highlightSkill = location.state?.highlightSkill ?? null;
@@ -38,26 +40,28 @@ export default function Catalog() {
   const [query, setQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedWeaponType, setSelectedWeaponType] = useState(null);
-  const [hidePresetVariants, setHidePresetVariants] = useState(false);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedTree, setSelectedTree] = useState(null);
+  const showPerksOverview = location.pathname === "/catalog/perks";
+  const selectedWeaponSlot = ["primary", "secondary", "overkill"].includes(weaponSlot)
+    ? weaponSlot
+    : null;
+
+  const selectedSlotWeapons = useMemo(() => {
+    if (!selectedWeaponSlot) return [];
+    return Object.values(loadoutData?.[selectedWeaponSlot] ?? {});
+  }, [selectedWeaponSlot]);
 
   const selectedWeapons = useMemo(() => {
     if (!selectedWeaponType) return [];
 
-    let weapons = getWeaponsByTypeSelection(
+    return getWeaponsByTypeSelection(
       loadoutData,
       selectedWeaponType,
-      { onlyWithNewStats: true }
+      { onlyWithStats: true }
     );
-
-    if (hidePresetVariants) {
-      weapons = weapons.filter((w) => w.preset !== 1);
-    }
-
-    return weapons;
-  }, [selectedWeaponType, hidePresetVariants]);
+  }, [selectedWeaponType]);
 
   const weaponTypeIndex = useMemo(() => {
     return buildWeaponTypeIndex(loadoutData);
@@ -69,12 +73,36 @@ export default function Catalog() {
       skillGroupsData,
       loadoutData,
       armorPlatesData: platesData,
+      perksData,
       weaponTypesBySlot: weaponTypeIndex.typesBySlot,
+      includeWeaponSlots: true,
     });
   }, [weaponTypeIndex]);
 
   const suggestions = useMemo(() => {
-    return getSuggestions(query, catalog, [], { skillsData, enableDescriptionSearch: true });
+    const baseSuggestions = getSuggestions(query, catalog, [], {
+      skillsData,
+      enableDescriptionSearch: true,
+    });
+
+    const q = query.trim().toLowerCase();
+    const showPerksSuggestion =
+      q.length >= 3 && ("perk".startsWith(q) || "perks".startsWith(q));
+
+    if (!showPerksSuggestion) return baseSuggestions;
+
+    const perksOverviewSuggestion = {
+      kind: "perk",
+      key: "__all_perks__",
+      label: "Perks Overview (open list)",
+      searchText: "perk perks",
+    };
+
+    const nextSuggestions = [...baseSuggestions];
+    const firstPerkIndex = nextSuggestions.findIndex((item) => item.kind === "perk");
+    nextSuggestions.splice(firstPerkIndex >= 0 ? firstPerkIndex : 0, 0, perksOverviewSuggestion);
+
+    return nextSuggestions;
   }, [query, catalog, skillsData]);
 
   const suggestionsWithDividers = useMemo(() => {
@@ -252,10 +280,20 @@ useEffect(() => {
                         setQuery("");
                         return;
                       }
+                      if (s.kind === "weaponSlot") {
+                        navigate(`/catalog/weapons/${s.slot}`);
+                        setQuery("");
+                        return;
+                      }
                       if (s.kind === "weaponType") {
                         navigate(
                           `/catalog/type/${s.slot}/${encodeURIComponent(s.weaponType)}`
                         );
+                        setQuery("");
+                        return;
+                      }
+                      if (s.kind === "perk" && s.key === "__all_perks__") {
+                        navigate("/catalog/perks");
                         setQuery("");
                         return;
                       }
@@ -275,12 +313,14 @@ useEffect(() => {
                     }}
                   >
                     <strong>
-                      {s.kind === "weaponType"
-                        ? formatWeaponTypeWithSlot(
-                            s.slot,
-                            s.weaponType ?? s.label
-                          )
-                        : s.label}
+                      {s.kind === "weaponSlot"
+                        ? s.label
+                        : s.kind === "weaponType"
+                          ? formatWeaponTypeWithSlot(
+                              s.slot,
+                              s.weaponType ?? s.label
+                            )
+                          : s.label}
                     </strong>
                   </div>
                 );
@@ -298,6 +338,39 @@ useEffect(() => {
           )}
         </Section>
         }
+
+        {showPerksOverview && (
+          <Section title="//PERKS">
+            <PerksComparisonSection
+              perksData={perksData}
+              loadoutData={loadoutData}
+            />
+          </Section>
+        )}
+
+        {selectedWeaponSlot && selectedSlotWeapons.length > 0 && (
+          <Section
+            title={`//${formatWeaponSlotLabel(selectedWeaponSlot).toUpperCase()} WEAPONS`}
+          >
+            {selectedWeaponSlot === "overkill" ? (
+              <div className={styles.weaponSlotList}>
+                {selectedSlotWeapons.map((weapon) => (
+                  <button
+                    key={weapon.key}
+                    type="button"
+                    className={styles.weaponSlotItem}
+                    onClick={() => navigate(`/catalog/${weapon.key}`)}
+                  >
+                    <span>{weapon.name ?? weapon.key}</span>
+                    <span className={styles.weaponSlotArrow}>›</span>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <WeaponTypeComparisonSection weapons={selectedSlotWeapons} />
+            )}
+          </Section>
+        )}
 
         {selectedItem && (
           <CatalogDetails item={selectedItem} />
@@ -341,17 +414,6 @@ useEffect(() => {
               selectedWeaponType.weaponType
             )}`}
           >
-            <div className={styles.options}>
-              <label className={styles.checkboxLabel}>
-                <input
-                  type="checkbox"
-                  checked={hidePresetVariants}
-                  onChange={(e) => setHidePresetVariants(e.target.checked)}
-                  className={styles.checkbox}
-                />
-                {t('catalog.label.hide-preset')}
-              </label>
-            </div>
             <WeaponTypeComparisonSection
               weapons={selectedWeapons}
             />

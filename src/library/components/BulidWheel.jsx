@@ -9,15 +9,18 @@ export default function BuildWheel({
   const [radius, setRadius] = useState(150);
 
   const segmentAngle = 360 / builds.length;
+  const LABEL_EDGE_INSET = 6;
 
   useEffect(() => {
     function updateSize() {
       if (!wheelRef.current) return;
+
       const size = wheelRef.current.offsetWidth;
-      setRadius(size / 2 - 20); // 20px padding interior
+      setRadius(size / 2 - LABEL_EDGE_INSET);
     }
 
     updateSize();
+
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, []);
@@ -68,8 +71,8 @@ const gradient = useMemo(() => {
             style={{
               transform: `
                 rotate(${angle}deg)
-                translateY(-${radius * 1.05}px)
-                rotate(85deg)
+                translateY(-${radius}px)
+                rotate(90deg)
               `,
             }}
           >

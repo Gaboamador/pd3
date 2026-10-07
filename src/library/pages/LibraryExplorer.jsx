@@ -21,11 +21,12 @@ import { saveCompareBuilds } from "../../features/compareBuilds/utils/compareBui
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
+import perksData from "../../data/payday3_perks.json";
 import Spinner from "../../components/Spinner";
 
-  const NAME_BY_KEY = buildNameByKey(skillsData, loadoutData, platesData);
+  const NAME_BY_KEY = buildNameByKey(skillsData, loadoutData, platesData, perksData);
 
-  function buildNameByKey(skillsData, loadoutData, platesData) {
+  function buildNameByKey(skillsData, loadoutData, platesData, perksData) {
     const map = {};
 
     // skillsData (es un diccionario plano key -> skill)
@@ -43,6 +44,11 @@ import Spinner from "../../components/Spinner";
     // platesData
     Object.values(platesData || {}).forEach((plate) => {
       if (plate?.key && plate?.name) map[plate.key] = plate.name;
+    });
+
+    // perksData
+    Object.values(perksData || {}).forEach((perk) => {
+      if (perk?.key && perk?.name) map[perk.key] = perk.name;
     });
 
     return map;
@@ -89,7 +95,11 @@ export default function LibraryExplorer() {
   const navigate = useNavigate();
 
   const indexedBuilds = useMemo(
-    () => attachSearchIndexToBuilds(library ?? []),
+    () =>
+      attachSearchIndexToBuilds(library ?? [], {
+        loadoutData,
+        perksData,
+      }),
     [library]
   );
 
@@ -102,6 +112,7 @@ export default function LibraryExplorer() {
       skillsData,
       loadoutData,
       armorPlatesData: platesData,
+      perksData,
       weaponTypesBySlot: weaponTypeIndex.typesBySlot,
     });
   }, [weaponTypeIndex]);

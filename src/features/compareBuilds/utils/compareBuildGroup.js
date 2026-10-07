@@ -4,6 +4,12 @@ import { generateSemanticInsights } from "./semantic/generateSemanticInsights";
 import { detectBuildArchetype } from "./semantic/detectBuildArchetype";
 import { analyzeBuildArchetype } from "./semantic/analyzeBuildArchetype";
 import { formatPlates } from "../../../utils/buildPreview";
+import {
+  findWeaponDefinition,
+  getEffectiveOverkillConfig,
+  getEffectiveWeaponPerkKey,
+  getOverkillConfigGroups,
+} from "../../../build/utils/perks.utils";
 
 const MAX_BUILDS = 3;
 
@@ -81,6 +87,10 @@ function normalizeLoadout(loadoutRaw) {
     deployable: loadoutRaw.deployable ?? null,
     throwable: loadoutRaw.throwable ?? null,
     overkill: loadoutRaw.overkill ?? null,
+    overkillConfig:
+      loadoutRaw.overkillConfig && typeof loadoutRaw.overkillConfig === "object"
+        ? { ...loadoutRaw.overkillConfig }
+        : {},
     armor: normalizeArmor(loadoutRaw.armor)
   };
   return out;
@@ -91,7 +101,8 @@ function normalizeWeapon(w) {
   return {
     weaponKey: w.weaponKey ?? null,
     preset: isNil(w.preset) ? null : w.preset,
-    mods: w.mods && typeof w.mods === "object" ? w.mods : {}
+    mods: w.mods && typeof w.mods === "object" ? w.mods : {},
+    perk: w.perk ?? null
   };
 }
 
@@ -130,28 +141,39 @@ function buildLoadoutNameResolver(loadoutData) {
   return (key) => (key ? (map.get(key) || key) : null);
 }
 
-function buildLoadoutSnapshotRows(builds, buildIds, resolveItemName) {
+function buildLoadoutSnapshotRows(builds, buildIds, resolveItemName, ctx = {}) {
   const rows = [];
+  const perkNameByKey = new Map(
+    Object.values(ctx.perksData ?? {}).map((perk) => [
+      perk.key,
+      perk.name ?? perk.key,
+    ])
+  );
+  const resolvePerkName = (key) =>
+    key ? perkNameByKey.get(key) || key : "None";
 
   function getWeaponLabel(w) {
     if (!w?.weaponKey) return "None";
+    return resolveItemName(w.weaponKey);
+  }
 
-    const name = resolveItemName(w.weaponKey);
+  function getWeaponPerkLabel(build, slotName) {
+    const state = build.loadout?.[slotName];
+    if (!state?.weaponKey) return "None";
 
-    const preset = w.preset != null ? ` · Preset ${w.preset}` : "";
-    const mods = w.mods && Object.keys(w.mods).length
-      ? ` · ${Object.keys(w.mods).length} mods`
-      : "";
-
-    // return `${name}${preset}${mods}`;
-    return name;
+    const def = findWeaponDefinition(
+      ctx.loadoutData,
+      slotName,
+      state.weaponKey
+    );
+    const perkKey = getEffectiveWeaponPerkKey(state, def);
+    return resolvePerkName(perkKey);
   }
 
   function getArmorLabel(a) {
     if (!a?.key) return "None";
 
     const name = resolveItemName(a.key);
-
     const plateText = formatPlates(a.plates);
 
     if (name && plateText) {
@@ -161,43 +183,85 @@ function buildLoadoutSnapshotRows(builds, buildIds, resolveItemName) {
     return name;
   }
 
-  const STRUCTURE = [
-    { key: "primary", label: "Primary" },
-    { key: "secondary", label: "Secondary" },
-    { key: "overkill", label: "Overkill" },
-    { key: "armor", label: "Armor" },
-    { key: "throwable", label: "Throwable" },
-    { key: "deployable", label: "Deployable" },
-    { key: "tool", label: "Tool" }
-  ];
-
-  for (const item of STRUCTURE) {
+  function pushRow(key, label, getValue) {
     const cells = {};
 
-    for (const b of builds) {
-      const l = b.loadout;
-
-      let value = null;
-
-      if (item.key === "primary" || item.key === "secondary") {
-        value = getWeaponLabel(l[item.key]);
-      } else if (item.key === "armor") {
-        value = getArmorLabel(l.armor);
-      } else {
-        const raw = l[item.key];
-        value = raw ? resolveItemName(raw) : "None";
-      }
-
-      cells[b.id] = { value };
+    for (const build of builds) {
+      cells[build.id] = { value: getValue(build) };
     }
 
     rows.push({
       type: "loadoutSnapshot",
-      key: item.key,
-      label: item.label,
-      cells
+      key,
+      label,
+      cells,
     });
   }
+
+  pushRow("primary", "Primary", (b) => getWeaponLabel(b.loadout.primary));
+  pushRow("primaryPerk", "Primary Perk", (b) =>
+    getWeaponPerkLabel(b, "primary")
+  );
+
+  pushRow("secondary", "Secondary", (b) => getWeaponLabel(b.loadout.secondary));
+  pushRow("secondaryPerk", "Secondary Perk", (b) =>
+    getWeaponPerkLabel(b, "secondary")
+  );
+
+  pushRow("overkill", "Overkill", (b) => {
+    const raw = b.loadout.overkill;
+    return raw ? resolveItemName(raw) : "None";
+  });
+
+  const overkillGroups = new Map();
+  for (const build of builds) {
+    getOverkillConfigGroups(ctx.perksData, build.loadout.overkill).forEach(
+      (group) => {
+        const current = overkillGroups.get(group.slotKey);
+        if (!current || group.slotIndex < current.slotIndex) {
+          overkillGroups.set(group.slotKey, group);
+        }
+      }
+    );
+  }
+
+  Array.from(overkillGroups.values())
+    .sort((a, b) => a.slotIndex - b.slotIndex)
+    .forEach((group) => {
+      const label =
+        group.optionType === "ammo"
+          ? "Overkill Ammo"
+          : `Overkill ${group.slotLabel.replace("Slot ", "")}`;
+
+      pushRow(`overkillConfig:${group.slotKey}`, label, (build) => {
+        const groupsForWeapon = getOverkillConfigGroups(
+          ctx.perksData,
+          build.loadout.overkill
+        );
+        const supportsGroup = groupsForWeapon.some(
+          (candidate) => candidate.slotKey === group.slotKey
+        );
+        if (!supportsGroup) return "—";
+
+        const effectiveConfig = getEffectiveOverkillConfig(
+          build.loadout.overkillConfig,
+          ctx.perksData,
+          build.loadout.overkill
+        );
+        return resolvePerkName(effectiveConfig[group.slotKey]);
+      });
+    });
+
+  pushRow("armor", "Armor", (b) => getArmorLabel(b.loadout.armor));
+  pushRow("throwable", "Throwable", (b) =>
+    b.loadout.throwable ? resolveItemName(b.loadout.throwable) : "None"
+  );
+  pushRow("deployable", "Deployable", (b) =>
+    b.loadout.deployable ? resolveItemName(b.loadout.deployable) : "None"
+  );
+  pushRow("tool", "Tool", (b) =>
+    b.loadout.tool ? resolveItemName(b.loadout.tool) : "None"
+  );
 
   return rows;
 }
@@ -603,7 +667,11 @@ export function compareBuildGroup(rawBuilds, ctx = {}) {
     const loadoutSnapshotRows = buildLoadoutSnapshotRows(
       builds,
       buildIds,
-      resolveItemName
+      resolveItemName,
+      {
+        loadoutData: ctx.loadoutData,
+        perksData: ctx.perksData,
+      }
     );
 
     // RETURN

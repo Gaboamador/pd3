@@ -1,6 +1,7 @@
 import loadoutData from "../../../../data/payday3_loadout_items.json";
 import skillsData from "../../../../data/payday3_skills.json";
 import platesData from "../../../../data/payday3_armor_plates.json";
+import perksData from "../../../../data/payday3_perks.json";
 
 export function resolveCatalogItem(item) {
   if (!item) return { def: null, kind: null };
@@ -21,6 +22,10 @@ export function resolveCatalogItem(item) {
 
     case "plate":
       return { def: platesData[key], kind };
+
+    case "perk":
+    case "overkillAmmo":
+      return { def: perksData[key], kind };
 
     case "primary":
     case "secondary":

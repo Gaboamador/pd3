@@ -40,6 +40,8 @@ function App() {
         <Route path="/library-roulette" element={<LibraryRoulette />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/skill-text/:textQuery" element={<Catalog />} />
+        <Route path="/catalog/perks" element={<Catalog />} />
+        <Route path="/catalog/weapons/:weaponSlot" element={<Catalog />} />
         <Route path="/catalog/:key" element={<Catalog />} />
         <Route path="/catalog/type/:slot/:weaponType" element={<Catalog />} />
         <Route path="/catalog/category/:groupId" element={<Catalog />} />

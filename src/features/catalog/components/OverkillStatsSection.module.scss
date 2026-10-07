@@ -68,3 +68,27 @@
   opacity: 0.9;
   text-align: justify;
 }
+.configGroups {
+  display: grid;
+  gap: 18px;
+}
+
+.configGroup {
+  display: grid;
+  gap: 10px;
+}
+
+.configTitle {
+  font-family: "DIN2014";
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: $pd3-hover;
+  text-transform: uppercase;
+}
+
+.configOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
