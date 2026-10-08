@@ -29,9 +29,12 @@ import perksData from "../data/payday3_perks.json";
 import { getArmorMaxPlates, buildEmptyPlateSlots } from "../build/utils/armor.utils";
 import { buildTreePool } from "./utils/buildTreePool";
 import ArmorPlatesPreview from "../build/components/loadout/ArmorPlatesPreview";
+import RandomizerPerksModal from "./components/RandomizerPerksModal";
+import { LuListChecks } from "react-icons/lu";
 import {
   getOverkillConfigGroups,
   getWeaponPerks,
+  getEffectiveWeaponPerkKey,
   isIconicWeapon,
 } from "../build/utils/perks.utils";
 
@@ -155,6 +158,7 @@ export default function Randomizer() {
   const [secondaryTypes, setSecondaryTypes] = useState(ALL_SECONDARY_TYPES);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [activeSpin, setActiveSpin] = useState(null);
+  const [openPerksSlot, setOpenPerksSlot] = useState(null);
 
   const orderedPrimaryTypes = useMemo(
     () => orderWeaponTypes(ALL_PRIMARY_TYPES),
@@ -750,6 +754,15 @@ function applyResult(slot, result) {
                 onClick={() => spinSlot("primary")}
                 showWeaponMods={false}
                 showWeaponPerk={true}
+                headerExtra={
+                  primaryWeaponDef && perksData[getEffectiveWeaponPerkKey(build.loadout.primary, primaryWeaponDef)] && activeSpin?.slot !== "primary" ? (
+                    <button type="button" className={styles.perksInfoButton}
+                      title="View perks" aria-label="View perks"
+                      onClick={(e) => { e.stopPropagation(); setOpenPerksSlot("primary"); }}>
+                      <LuListChecks />
+                    </button>
+                  ) : null
+                }
                 isSpinning={activeSpin?.slot === "primary"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={
@@ -776,6 +789,15 @@ function applyResult(slot, result) {
                 onClick={() => spinSlot("secondary")}
                 showWeaponMods={false}
                 showWeaponPerk={true}
+                headerExtra={
+                  secondaryWeaponDef && perksData[getEffectiveWeaponPerkKey(build.loadout.secondary, secondaryWeaponDef)] && activeSpin?.slot !== "secondary" ? (
+                    <button type="button" className={styles.perksInfoButton}
+                      title="View perks" aria-label="View perks"
+                      onClick={(e) => { e.stopPropagation(); setOpenPerksSlot("secondary"); }}>
+                      <LuListChecks />
+                    </button>
+                  ) : null
+                }
                 isSpinning={activeSpin?.slot === "secondary"}
                 spinningLabel={t('randomizer.label.randomizing')}
                 spriteOverlay={
@@ -800,17 +822,14 @@ function applyResult(slot, result) {
                 SpriteComponent={OverkillSprite}
                 onClick={() => spinSlot("overkill")}
                 headerExtra={
-                  overkillDef ? (
-                    <span
-                      className={styles.overkillConfigCount}
-                      title={Object.values(build.loadout.overkillConfig ?? {})
-                        .map((key) => perksData[key]?.name)
-                        .filter(Boolean)
-                        .join(" · ")}
-                    >
-                      {Object.values(build.loadout.overkillConfig ?? {}).filter(Boolean).length}/
-                      {getOverkillConfigGroups(perksData, overkillDef.key).length}
-                    </span>
+                  overkillDef &&
+                  getOverkillConfigGroups(perksData, overkillDef.key).length > 0 &&
+                  activeSpin?.slot !== "overkill" ? (
+                    <button type="button" className={styles.perksInfoButton}
+                      title="View perks" aria-label="View perks"
+                      onClick={(e) => { e.stopPropagation(); setOpenPerksSlot("overkill"); }}>
+                      <LuListChecks />
+                    </button>
                   ) : null
                 }
                 isSpinning={activeSpin?.slot === "overkill"}
@@ -826,7 +845,21 @@ function applyResult(slot, result) {
                   )
                 }
               />
+
+
             </div>
+
+            <RandomizerPerksModal
+              open={Boolean(openPerksSlot)}
+              onClose={() => setOpenPerksSlot(null)}
+              slot={openPerksSlot}
+              weaponDef={openPerksSlot === "primary" ? primaryWeaponDef : openPerksSlot === "secondary" ? secondaryWeaponDef : overkillDef}
+              perkKey={openPerksSlot === "primary"
+                ? getEffectiveWeaponPerkKey(build.loadout.primary, primaryWeaponDef)
+                : getEffectiveWeaponPerkKey(build.loadout.secondary, secondaryWeaponDef)}
+              config={build.loadout.overkillConfig ?? {}}
+              perksData={perksData}
+            />
 
             {/* ARMOR */}
             <div className={`${styles.cell} ${styles.armor}`}>

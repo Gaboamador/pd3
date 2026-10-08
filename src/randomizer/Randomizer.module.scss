@@ -394,3 +394,21 @@ width: 100%;
   color: $pd3-hover;
   white-space: nowrap;
 }
+
+/* Consulta de perks sorteadas: no modifica ni vuelve a girar el arma. */
+.perksInfoButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border: 0;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+
+  &:hover, &:focus-visible {
+    color: $color-accent;
+  }
+}

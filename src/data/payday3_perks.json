@@ -549,7 +549,7 @@
   "ovk_sociopath_rabid": {
     "key": "ovk_sociopath_rabid",
     "name": "Rabid",
-    "description": "As long as you are wielding your baseball bat, you are immune to stagger, stagger, stun, slow, disabling effects, and effects that prevent you from sprinting.",
+    "description": "As long as you are wielding your baseball bat, you are immune to stagger, stun, slow, disabling effects, and effects that prevent you from sprinting.",
     "scope": "overkill",
     "optionType": "perk",
     "weaponKey": "ThePunch",

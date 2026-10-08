@@ -24,6 +24,7 @@ export default function WeaponCard({
   onModsOpened,
   showWeaponMods = false,
   showWeaponPerk = false,
+  headerExtra,
   mode,
   spriteOverlay,
   isSpinning = false,
@@ -81,6 +82,7 @@ return (
             {isItemPicker ? name : `${slot.toUpperCase()} ${t('build.loadout.weapon')}`}
           </span>
         </div>
+        {!isSpinning && headerExtra}
         <button
           className={`${styles.modsBtn} ${!canEdit ? styles.hidden : ""}`}
           onClick={e => {
@@ -118,15 +120,15 @@ return (
             height={spriteHeight/5}
           />
         )}
-        {weaponDef && showWeaponPerk && (
+        {showWeaponPerk && (weaponDef || isSpinning) && (
           <div className={styles.perkRow}>
             <span className={styles.perkLabel}>PERK</span>
             <span className={`
                 ${styles.perkName}
-                ${!effectivePerk ? styles.perkEmpty : ""}
-                ${effectivePerk?.equipped ? styles.equipped : effectivePerk?.persistent ? styles.persistent : ""}
+                ${isSpinning || !effectivePerk ? styles.perkEmpty : ""}
+                ${!isSpinning && effectivePerk?.equipped ? styles.equipped : !isSpinning && effectivePerk?.persistent ? styles.persistent : ""}
               `}>
-              {effectivePerk?.name ?? "None"}
+              {isSpinning ? t(spinningLabel) : effectivePerk?.name ?? "None"}
             </span>
           </div>
         )}

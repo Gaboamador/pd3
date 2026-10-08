@@ -7275,48 +7275,8 @@
         "c": 1
       },
       "dlc_id": null,
-      "description": "Performing a body shot with the HET deals 20% of the original shot's damage and performing a headshot deals 60% of the original shot's damage to all enemies within 3 meters of your target. This additional damage does not bypass enemy armor.",
       "base_effect": "Semi-Automatic material rifle that can penetrate up to 3 surfaces equipped with a scope that can identify targets through walls.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": "Performing a body shot with the HET deals 20% of the original shot's damage and performing a headshot deals 60% of the original shot's damage to all enemies within 3 meters of your target. This additional damage does not bypass enemy armor."
-        },
-        {
-          "tier": 1,
-          "name": "Spotter",
-          "exp": 1500,
-          "description": "All targets currently viewed through your HET scope are marked for your crew. When they are no longer in your line of sight, the marking ends. Other marking effects, such as manual marking from other players, will still be in effect."
-        },
-        {
-          "tier": 2,
-          "name": "Tungsten Core",
-          "exp": 3500,
-          "description": "You can penetrate through 4 more surfaces."
-        },
-        {
-          "tier": 3,
-          "name": "HESH Rounds",
-          "exp": 7500,
-          "description": "The range of your base skill is increased to 5 meters."
-        },
-        {
-          "tier": 4,
-          "name": "DU Core",
-          "exp": 11500,
-          "description": "You can penetrate through 4 additional surfaces."
-        },
-        {
-          "tier": 5,
-          "name": "HEIAP Rounds",
-          "exp": 16500,
-          "description": "Your base skill now deals 60% of the original shot's damage to additional targets if the initial shot is a body shot and 100% if it is a headshot."
-        }
-      ],
-      "dlc": null,
-      "mods": []
+      "dlc": null
     },
     "19": {
       "id": 19,
@@ -7330,48 +7290,8 @@
         "c": 1
       },
       "dlc_id": null,
-      "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 0.25 of the original explosion damage.",
       "base_effect": "Drum-loaded grenade launcher with high explosive grenades that immediately detonate on impact with characters or on a fuse if hitting the environment. Players and Civilians no longer take damage from the Mamba.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 0.25 of the original explosion damage."
-        },
-        {
-          "tier": 1,
-          "name": "Shockwave",
-          "exp": 1500,
-          "description": "Increases each Mamba explosion radius by 20%."
-        },
-        {
-          "tier": 2,
-          "name": "Precise Detonation",
-          "exp": 3500,
-          "description": "Explosions from the Mamba no longer harm civilians."
-        },
-        {
-          "tier": 3,
-          "name": "Drum Loader",
-          "exp": 7500,
-          "description": "You reload the Mamba 50% faster."
-        },
-        {
-          "tier": 4,
-          "name": "Hardened",
-          "exp": 11500,
-          "description": "You no longer take damage from your Mamba explosions."
-        },
-        {
-          "tier": 5,
-          "name": "Blast Trauma",
-          "exp": 16500,
-          "description": "Enemies within 15 meters of a Mamba explosion have their accuracy permanently reduced by 20%. (This effect does not stack)."
-        }
-      ],
-      "dlc": null,
-      "mods": []
+      "dlc": null
     },
     "34": {
       "id": 34,
@@ -7385,48 +7305,8 @@
         "c": 3
       },
       "dlc_id": null,
-      "description": "For every second you fire the minigun, your armor gains 1% additional damage reduction. Every second you do not fire the minigun, you lose 1% of this bonus damage reduction. Your total damage reduction can't exceed 90%. Unequipping the minigun will end all active bonuses.",
       "base_effect": "While firing the minigun or when it is spun up, you gain 10% armor damage reduction. Your total armor damage reduction from minigun perks cannot exceed 90%. Any additional bonus damage reduction will degrade by 1% per second whenever the gun is not firing. Unequipping the minigun will end all active bonuses.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": "For every second you fire the minigun, your armor gains 1% additional damage reduction. Every second you do not fire the minigun, you lose 1% of this bonus damage reduction. Your total damage reduction can't exceed 90%. Unequipping the minigun will end all active bonuses."
-        },
-        {
-          "tier": 1,
-          "name": "Kill Momentum",
-          "exp": 1500,
-          "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction."
-        },
-        {
-          "tier": 2,
-          "name": "Tanking Up",
-          "exp": 3500,
-          "description": "If you have 0 armor plates left and your damage reduction bonus reaches 30%, you'll restore 1 armor plate. This effect won't trigger again until you call in a new OVERKILL minigun."
-        },
-        {
-          "tier": 3,
-          "name": "Battle Ready",
-          "exp": 7500,
-          "description": "As long as you are spinning the minigun's barrel, your bonus to armor damage reduction won't go down."
-        },
-        {
-          "tier": 4,
-          "name": "Death Merchant",
-          "exp": 11500,
-          "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction if you are wearing a 2 plate armor or less, or 2% if you are wearing a 3 plate armor or higher."
-        },
-        {
-          "tier": 5,
-          "name": "Killer Armor",
-          "exp": 16500,
-          "description": "Your armor damage reduction bonus will not end when you unequip the minigun; however, the bonus will decrease over time as though you were not firing the minigun."
-        }
-      ],
-      "dlc": null,
-      "mods": []
+      "dlc": null
     },
     "37": {
       "id": 37,
@@ -7440,48 +7320,8 @@
         "c": 1
       },
       "dlc_id": null,
-      "description": "As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill's effect will end. You can only use this skill once per heist and only if the alarm hasn't been raised. (This ability replaces your OVERKILL weapon).",
       "base_effect": "Blackout Protocol: As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill’s effect will end. You can only use this skill once per heist and only if the alarm hasn’t been raised. [This ability replaces your OVK weapon]. This uses the “phone” player animation.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": "As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill's effect will end. You can only use this skill once per heist and only if the alarm hasn't been raised. (This ability replaces your OVERKILL weapon)."
-        },
-        {
-          "tier": 1,
-          "name": "Threat Mapping",
-          "exp": 1500,
-          "description": "This skill now also marks all guards and cameras while active."
-        },
-        {
-          "tier": 2,
-          "name": "Power Efficiency",
-          "exp": 3500,
-          "description": "Decrease the rate at which your OVERKILL meter drains by 25%."
-        },
-        {
-          "tier": 3,
-          "name": "Signal Block",
-          "exp": 7500,
-          "description": "While this skill is active, radios can't go off, and any currently active radios will not expire. Once this skill's effect ends, any pending radios will activate, and any active radios will expire."
-        },
-        {
-          "tier": 4,
-          "name": "Backup Power",
-          "exp": 11500,
-          "description": "Decreases the rate at which your OVERKILL meter drains by an additional 25%."
-        },
-        {
-          "tier": 5,
-          "name": "Spam Call",
-          "exp": 16500,
-          "description": "While this skill is active, every guard's phone will activate, distracting them from their actions. If a guard is escorting a player, the guard will return to patrolling after this effect ends. If the guard is about to detain a player, the guard will go into Search mode instead."
-        }
-      ],
-      "dlc": null,
-      "mods": []
+      "dlc": null
     },
     "38": {
       "id": 38,
@@ -7495,52 +7335,12 @@
         "c": 4
       },
       "dlc_id": 5,
-      "description": "If you have a full OVERKILL meter, you pull out a baseball bat on activation and drop any bag or body you are currently carrying. While you're wielding the baseball bat, all incoming damage is done to your OVERKILL meter instead. You can use light or heavy swings with the bat, inflicting light or heavy damage. You'll wield the bat until your OVERKILL meter reaches 0 or until you are downed. If you press the OVERKILL button while wielding the bat, your OVERKILL meter drops to 0. (This ability replaces your OVERKILL weapon).",
       "base_effect": "If you have a full OVERKILL meter, you pull out a baseball bat on activation and drop any bag or body you are currently carrying. While you’re wielding the baseball bat, all incoming damage is done to your OVERKILL meter instead. You can use light or heavy swings with the bat, inflicting light or heavy damage. You’ll wield the bat until your OVERKILL meter reaches 0 or until you are downed. If you press the OVERKILL button while wielding the bat, your OVERKILL meter drops to 0. [This ability replaces your OVERKILL weapon.] Killing an enemy while this ability is active will restore 10% of your OVERKILL meter.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": "Base activation ability described above."
-        },
-        {
-          "tier": 1,
-          "name": "Frenzy",
-          "exp": 1500,
-          "description": "When there are 3 enemies within 5 meters of you while using this ability, you take 20% less damage."
-        },
-        {
-          "tier": 2,
-          "name": "Bloodlust",
-          "exp": 3500,
-          "description": "Killing an enemy while this ability is active will restore 20% of your OVERKILL meter."
-        },
-        {
-          "tier": 3,
-          "name": "Rabid",
-          "exp": 7500,
-          "description": "As long as you are wielding your baseball bat, you are immune to stagger, stun, slow, disabling effects, and effects that prevent you from sprinting."
-        },
-        {
-          "tier": 4,
-          "name": "Berserker",
-          "exp": 11500,
-          "description": "Killing an enemy while this ability is active will restore 5 health points."
-        },
-        {
-          "tier": 5,
-          "name": "Master of Mayhem",
-          "exp": 16500,
-          "description": "Whenever you kill an enemy with a bat, enemies within 5 meters of that enemy will enter panic and miss all their shots for 5 seconds."
-        }
-      ],
       "dlc": {
         "id": 5,
         "name": "Jacked Character Pack",
         "release_date": "2025-02-03"
-      },
-      "mods": []
+      }
     },
     "63": {
       "id": 63,
@@ -7554,52 +7354,12 @@
         "c": 1
       },
       "dlc_id": 7,
-      "description": "This big, beautiful death machine has been wreaking havoc since WWII. Usually takes two people to load, but you look like you can handle it. Just don't burn off your crewmate's face in the back-blast!",
       "base_effect": "This recoilless grenade launcher allows switching ammo types via mod options, each with different effects, damage, and behaviors. The gun gets delivered with three shots per standard. The gun also features a large backblast, causing damage and hurt reactions from enemies.",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": ""
-        },
-        {
-          "tier": 1,
-          "name": "",
-          "exp": 1500,
-          "description": ""
-        },
-        {
-          "tier": 2,
-          "name": "",
-          "exp": 3500,
-          "description": ""
-        },
-        {
-          "tier": 3,
-          "name": "",
-          "exp": 7500,
-          "description": ""
-        },
-        {
-          "tier": 4,
-          "name": "",
-          "exp": 11500,
-          "description": ""
-        },
-        {
-          "tier": 5,
-          "name": "",
-          "exp": 16500,
-          "description": ""
-        }
-      ],
       "dlc": {
         "id": 7,
         "name": "Swedish Weapon Pack",
         "release_date": "2026-05-19"
-      },
-      "mods": []
+      }
     },
     "64": {
       "id": 64,
@@ -7613,52 +7373,12 @@
         "c": 3
       },
       "dlc_id": 8,
-      "description": "Everyone's a hero until they hear the whirr of this monster from around the corner. Able to chew through most reasonably sized obstacles, this baby will turn closed to open before you have the time to say vroom-vroom.",
-      "base_effect": "",
-      "abilities": [
-        {
-          "tier": 0,
-          "name": "Base Skill",
-          "exp": 0,
-          "description": ""
-        },
-        {
-          "tier": 1,
-          "name": "",
-          "exp": 1500,
-          "description": ""
-        },
-        {
-          "tier": 2,
-          "name": "",
-          "exp": 3500,
-          "description": ""
-        },
-        {
-          "tier": 3,
-          "name": "",
-          "exp": 7500,
-          "description": ""
-        },
-        {
-          "tier": 4,
-          "name": "",
-          "exp": 11500,
-          "description": ""
-        },
-        {
-          "tier": 5,
-          "name": "",
-          "exp": 16500,
-          "description": ""
-        }
-      ],
+      "base_effect": "Everyone's a hero until they hear the whirr of this monster from around the corner. Able to chew through most reasonably sized obstacles, this baby will turn closed to open before you have the time to say vroom-vroom.",
       "dlc": {
         "id": 8,
         "name": "Brute Force Crimebond",
         "release_date": "2026-09-22"
-      },
-      "mods": []
+      }
     }
   },
   "throwable": {

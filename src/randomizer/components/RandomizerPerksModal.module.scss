@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.list {
+  display: grid;
+  gap: $space-md;
+}
+
+.perk {
+  padding-bottom: $space-md;
+  border-bottom: 1px solid $card-border;
+  &:last-child { padding-bottom: 0; border-bottom: 0; }
+}
+
+.slot {
+  margin-bottom: $space-xs;
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.name {
+  color: $color-accent;
+  font-weight: 700;
+  margin-bottom: $space-xs;
+}
+
+.description {
+  color: $color-text-primary;
+  line-height: 1.5;
+  white-space: pre-line;
+}
