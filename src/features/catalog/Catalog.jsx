@@ -420,7 +420,9 @@ useEffect(() => {
           </Section>
         )}
       </div>
-      <ScrollArrow/>
+      {(Boolean(query.trim()) || selectedItem || selectedCategory || selectedTree ||
+        selectedWeaponType || showPerksOverview || selectedWeaponSlot || decodedTextQuery) &&
+        <ScrollArrow/>}
     </div>
   );
 }

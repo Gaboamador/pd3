@@ -8,7 +8,7 @@ export default function LoadoutComparisonGrid({
   if (!rows?.length) return null;
 
   return (
-    <div className={styles.tableWrap}>
+    <div className={styles.tableWrap} style={{ "--build-count": buildIds.length }}>
       <table className={styles.table}>
         <colgroup>
             <col className={styles.colFeature} />

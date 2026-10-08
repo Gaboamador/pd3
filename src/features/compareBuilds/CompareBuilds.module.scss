@@ -247,3 +247,26 @@ display: flex;
   color: $pd3-main;
   font-weight: 700;
 }
+/* Keep intrinsic widths of text and comparison tables inside the viewport. */
+@media (max-width: 560px) {
+  .page { width: 100%; min-width: 0; max-width: 100%; }
+  .wrapper { display: flex; flex-direction: column; width: 100%; min-width: 0; }
+  .wrapper > * { min-width: 0; max-width: 100%; }
+  .headerRow, .headerActions { min-width: 0; }
+  .buildChipsWrapper, .highlightGrid {
+    width: 100%; min-width: 0;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  }
+  .buildChipTitle, .strengthCell, .header, .cell, .subHeader {
+    min-width: 0; overflow-wrap: anywhere;
+  }
+  .insightList { width: 100%; min-width: 0; max-width: 100%; }
+  .insight { min-width: 0; max-width: 100%; overflow: hidden; }
+  .insightText {
+    min-width: 0; max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    text-align: left;
+  }
+}

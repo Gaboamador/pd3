@@ -37,6 +37,7 @@ export default function SkillsEditor({
   setBuild,
   skillsData,
   skillGroupsData,
+  isVisible = true,
   catalogMode = false,
   forcedGroupId = null,
   forcedTreeId = null,
@@ -45,6 +46,15 @@ export default function SkillsEditor({
   }) {
   const { t } = useTranslation();
   const isMobile = useIsMobile(BREAKPOINTS.skillTreeDesktop);
+  const isPhone = useIsMobile(BREAKPOINTS.mobile);
+  const [showTouchHint, setShowTouchHint] = useState(() => {
+    try { return localStorage.getItem('pd3_skills_touch_hint_dismissed') !== '1'; }
+    catch { return true; }
+  });
+  function dismissTouchHint() {
+    setShowTouchHint(false);
+    try { localStorage.setItem('pd3_skills_touch_hint_dismissed', '1'); } catch { /* private browsing */ }
+  }
 
   const [selectedSkillLocked, setSelectedSkillLocked] = useState(false);
 
@@ -69,6 +79,16 @@ export default function SkillsEditor({
   });
 
   const [swiperInstance, setSwiperInstance] = useState(null);
+
+  // Tabbed mobile editor keeps the tree mounted to retain selection and
+  // group state. Swiper needs a layout refresh after the hidden panel appears.
+  useEffect(() => {
+    if (!isVisible || !swiperInstance) return;
+    const frame = window.requestAnimationFrame(() => {
+      if (!swiperInstance.destroyed) swiperInstance.update();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [isVisible, swiperInstance]);
 
   const uiIndex = useMemo(() => {
     return buildSkillUIIndex(skillsData, skillGroupsData);
@@ -559,6 +579,15 @@ const groupPointsById = useMemo(() => {
       </div>
     </div>
     </>
+    )}
+
+    {isPhone && !catalogMode && showTouchHint && (
+      <div className={styles.touchHint} role="note">
+        <span>{t('mobile.skills.hint')}</span>
+        <button type="button" onClick={dismissTouchHint} aria-label={t('mobile.skills.dismiss')}>
+          ×
+        </button>
+      </div>
     )}
 
     {/* Body */}

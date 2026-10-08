@@ -11,7 +11,7 @@ export default function ComparisonGrid({ title, buildIds, builds, buildLabels, r
 
   return (
 
-      <div className={styles.tableWrap}>
+      <div className={styles.tableWrap} style={{ "--build-count": buildIds.length }}>
         <table className={styles.table}>
             <colgroup>
                 <col className={styles.colFeature} />

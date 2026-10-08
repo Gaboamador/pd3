@@ -69,3 +69,50 @@
   font-family: 'DIN2014';
   font-size: 0.9rem;
 }
+
+
+/* On mobile dialogs open at the top. Search pickers opt into a fixed height,
+   so filtering their contents never moves the entire dialog. */
+@media (max-width: 560px) {
+  .backdrop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: calc(12px + env(safe-area-inset-top, 0px))
+             8px
+             calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+  // Opt-in exclusivo de los modales informativos compactos.
+  .backdrop.centeredMobile {
+    align-items: center;
+  }
+  .modal {
+    max-width: none !important;
+    width: 100%;
+    max-height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .fixedMobileHeight {
+    height: 100%;
+  }
+  .header {
+    padding: 12px 16px;
+    border-radius: 14px 14px 0 0;
+  }
+  .close {
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+    clip-path: none;
+    border-radius: 10px;
+  }
+  .content {
+    min-height: 0;
+    overscroll-behavior: contain;
+    padding: 16px 12px;
+  }
+}

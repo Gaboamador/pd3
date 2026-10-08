@@ -32,7 +32,7 @@ export default function RandomizerPerksModal({
         .filter((entry) => entry.perk);
 
   return (
-    <Modal open={open} onClose={onClose} title={`PERK DETAILS – ${weaponDef.name}`} width="480px">
+    <Modal open={open} onClose={onClose} title={`PERK DETAILS – ${weaponDef.name}`} width="480px" centeredMobile>
       <div className={styles.list}>
         {selected.map(({ slotKey, slotLabel, perk }) => (
           <section className={styles.perk} key={slotKey}>

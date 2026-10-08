@@ -100,3 +100,39 @@ tr:hover td {
 .rowPrimary td {
   border-top: 2px solid rgba(255, 255, 255, 0.12);
 }
+
+@media (max-width: 560px) {
+  .tableWrap { max-width: 100%; overflow-x: auto; overflow-y: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+  .table { width: max-content; min-width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+  .colFeature { width: 160px; }
+  .colBuild { width: 156px; }
+  .headerFeature, .label {
+    position: sticky; left: 0; z-index: 2;
+    min-width: 160px; width: 160px;
+    background: #192027;
+    box-shadow: 1px 0 0 rgba(255,255,255,.12);
+  }
+  .headerFeature { z-index: 4; background: #26382f; }
+  .headerBuild, .value { min-width: 156px; }
+  th, td { padding: 12px 8px; }
+}
+
+@media (max-width: 560px) {
+  .tableWrap {
+    display: block;
+    flex: 1 1 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    contain: inline-size;
+    overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x pan-y;
+  }
+  .table {
+    width: calc(160px + 156px * var(--build-count));
+    min-width: 100%;
+    max-width: none;
+    table-layout: fixed;
+  }
+}

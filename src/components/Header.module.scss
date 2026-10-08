@@ -122,3 +122,27 @@
       font-size: 1.2rem;
     }
   }
+
+.mobileAccount { display: none; }
+@media (max-width: 560px) {
+  .header { padding-top: calc(10px + env(safe-area-inset-top, 0px)); }
+  .inner { min-height: 42px; }
+  .authControls { display: none; }
+  .mobileAccount { display: block; position: relative; }
+  .accountButton, .logoButton {
+    min-width: 44px; min-height: 44px;
+    display: grid; place-items: center;
+    padding: 0; clip-path: none; border-radius: 8px;
+    background: transparent; color: $pd3-main;
+  }
+  .accountPopup {
+    position: absolute; right: 0; top: calc(100% + 10px); z-index: 1200;
+    padding: 14px; min-width: 190px;
+    background: #141620; border: 1px solid rgba($pd3-main,.5);
+    border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,.65);
+    display: grid; gap: 12px;
+  }
+  .accountName { white-space: normal; overflow-wrap: anywhere; font-family: 'DIN2014'; font-size: .8rem; }
+  .accountPopup button { min-height: 44px; }
+  .subtitle { font-size: clamp(.95rem, 4vw, 1.2rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}

@@ -91,3 +91,57 @@
     grid-column: span 1;
   }
 }
+
+
+.filters {
+  display: grid;
+  gap: 10px;
+}
+.search {
+  width: 100%;
+  min-height: 44px;
+  min-width: 0;
+  padding: 10px 12px;
+  color: $color-text-primary;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-bg-elevated;
+  font-size: 16px;
+}
+.mobileChips { display: none; }
+.empty { text-align: center; opacity: .75; font-family: 'DIN2014'; }
+@media (max-width: 560px) {
+  .filters {
+    position: sticky;
+    top: -16px;
+    z-index: 3;
+    padding: 0 0 10px;
+    background: $card-bg;
+  }
+  .selectWrapper { display: none; }
+  .mobileChips {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 2px 0 5px;
+    scrollbar-width: thin;
+    overscroll-behavior-x: contain;
+  }
+  .chip {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding: 8px 12px;
+    clip-path: none;
+    border-radius: 9px;
+    border: 1px solid $color-border;
+    background: $color-bg-elevated;
+    color: $color-text-primary;
+    font-family: 'DIN2014';
+    font-size: 12px;
+  }
+  .chipActive { border-color: $pd3-main; color: $pd3-main; }
+  .grid { gap: 10px; }
+}
+
+.wrapper, .filters { width: 100%; min-width: 0; max-width: 100%; }
+.search { display: block; width: 100%; min-width: 100%; max-width: 100%; }

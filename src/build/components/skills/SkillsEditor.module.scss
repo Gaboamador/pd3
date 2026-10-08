@@ -360,3 +360,29 @@
   top: 12px;
 }
 
+
+
+.touchHint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba($pd3-main, .65);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .83);
+  color: $pd3-main;
+  font-family: 'DIN2014';
+  font-size: .82rem;
+}
+.touchHint button {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  clip-path: none;
+  border-radius: 8px;
+  color: inherit;
+  border: 1px solid rgba($pd3-main, .3);
+  background: rgba(255,255,255,.06);
+  font-size: 1.3rem;
+}

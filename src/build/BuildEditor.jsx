@@ -33,6 +33,8 @@ import Spinner from "../components/Spinner";
 import ShareQrModal from "../components/ShareQRModal";
 import ScrollArrow from "../components/ScrollArrow";
 import Modal from "./components/common/Modal";
+import useIsMobile from "../hooks/useIsMobile";
+import { BREAKPOINTS } from "../constants/breakpoints";
 
 export default function BuildEditor({mode}) {
   const { t } = useTranslation();
@@ -52,6 +54,67 @@ export default function BuildEditor({mode}) {
 
   const [showAuthRequired, setShowAuthRequired] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
+  const mobileEditor = useIsMobile(BREAKPOINTS.mobile);
+  const [mobileTab, setMobileTab] = useState("loadout");
+  const [mobileNameDialog, setMobileNameDialog] = useState(null); // rename | saveAs
+  const [mobileNameDraft, setMobileNameDraft] = useState("");
+  const [mobileActionsOpen, setMobileActionsOpen] = useState(false);
+  const mobileActionsRef = useRef(null);
+  const libraryAnchorRef = useRef(null);
+  const mobileSectionNavRef = useRef(null);
+  function selectMobileTab(tab) {
+    setMobileTab(tab);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+  function openNameDialog(kind) {
+    setMobileActionsOpen(false);
+    setMobileNameDraft(kind === "saveAs"
+      ? makeCopyNameIfNeeded(build.name, library)
+      : build.name ?? "");
+    setMobileNameDialog(kind);
+  }
+  function submitMobileName(event) {
+    event.preventDefault();
+    const nextName = mobileNameDraft.trim();
+    if (!nextName) return;
+    const kind = mobileNameDialog;
+    setMobileNameDialog(null);
+    if (kind === "saveAs") {
+      void handleSaveAs(nextName);
+    } else if (kind === "rename" && nextName !== build.name) {
+      updateBuild(prev => ({ ...prev, name: nextName }));
+    }
+  }
+  function openBuildLibrary() {
+    setMobileActionsOpen(false);
+    setShowLibrary(wasOpen => !wasOpen);
+  }
+  useEffect(() => {
+    if (!mobileEditor || !showLibrary) return;
+    const frame = window.requestAnimationFrame(() => {
+      const panel = libraryAnchorRef.current;
+      const tabs = mobileSectionNavRef.current;
+      if (!panel || !tabs) return;
+      // Align below the actual sticky tabs, rather than using a large, fixed
+      // scroll-margin that leaves an empty band above the library.
+      const offset = panel.getBoundingClientRect().top - tabs.getBoundingClientRect().bottom - 8;
+      if (Math.abs(offset) > 8) window.scrollBy({ top: offset, behavior: "smooth" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [mobileEditor, showLibrary]);
+  useEffect(() => {
+    if (!mobileActionsOpen) return;
+    function onOutsidePointer(event) {
+      if (!mobileActionsRef.current?.contains(event.target)) setMobileActionsOpen(false);
+    }
+    function onEscape(event) { if (event.key === 'Escape') setMobileActionsOpen(false); }
+    document.addEventListener('pointerdown', onOutsidePointer);
+    document.addEventListener('keydown', onEscape);
+    return () => {
+      document.removeEventListener('pointerdown', onOutsidePointer);
+      document.removeEventListener('keydown', onEscape);
+    };
+  }, [mobileActionsOpen]);
 
   const [saving, setSaving] = useState(false);
   const { showToast } = useToast();
@@ -194,7 +257,7 @@ const [build, setBuild] = useState(() => {
   }
 
 
-  async function handleSaveAs() {
+  async function handleSaveAs(explicitName = null) {
 
     const ok = requireAuthForAction({
       uid,
@@ -209,7 +272,7 @@ const [build, setBuild] = useState(() => {
     try {
       setSaving(true);
 
-      const nextName = makeCopyNameIfNeeded(build.name, library);
+      const nextName = makeCopyNameIfNeeded(typeof explicitName === "string" ? explicitName : build.name, library);
 
       const duplicatedRaw = {
         ...build,
@@ -277,6 +340,8 @@ const [build, setBuild] = useState(() => {
   }
 
 function handleNewBuild() {
+  setMobileTab("loadout");
+  setShowLibrary(false);
   const draft = normalizeOwnedBuild(createEmptyBuild());
   setBuild(draft);
   saveBuildToSession(draft);
@@ -339,7 +404,25 @@ const canSave =
 
 
 return (
-    <div className={styles.page}>
+    <div className={styles.page} data-mobile-build-editor="true">
+
+    <nav ref={mobileSectionNavRef} className={styles.mobileSectionNav} aria-label="Build editor sections">
+      <button type="button" className={styles.mobileNameTag}
+        aria-label={t('mobile.editor.edit-name')}
+        title={t('mobile.editor.edit-name')}
+        onClick={() => openNameDialog("rename")}>
+        <span className={styles.mobileNameText}>{build.name?.trim() || t('mobile.editor.unnamed')}</span>
+        <span aria-hidden="true">✎</span>
+      </button>
+      <div className={styles.mobileTabButtons} role="group" aria-label="Editor tabs">
+        <button type="button" aria-pressed={mobileTab === "loadout"}
+          className={mobileTab === "loadout" ? styles.mobileTabActive : ""}
+          onClick={() => selectMobileTab("loadout")}>{t('mobile.editor.loadout')}</button>
+        <button type="button" aria-pressed={mobileTab === "skills"}
+          className={mobileTab === "skills" ? styles.mobileTabActive : ""}
+          onClick={() => selectMobileTab("skills")}>{t('mobile.editor.skills')}</button>
+      </div>
+    </nav>
 
     {mode === "share" && (
       <div className={styles.sharedBanner}>
@@ -386,6 +469,8 @@ return (
       </Section>
     )}
 
+    {!mobileEditor && (
+    <div className={styles.editorSection}>
     <Section title={t('section.title.manage_builds')}>
       <div className={styles.manageBuildsWrapper}>
         <button
@@ -468,10 +553,21 @@ return (
       
       {saving && <Spinner label={t('spinner.saving')} />}
     </Section>
+    </div>
+    )}
+    {mobileEditor && showAuthRequired && (
+      <div className={styles.mobileAuthMessage}>
+        <span>{t('auth.msg.login-required.builds')}</span>
+        <button type="button" onClick={() => navigate("/auth")}>{t('auth.actions.login')}</button>
+      </div>
+    )}
+    {mobileEditor && saving && <Spinner label={t('spinner.saving')} />}
 
   <AnimatePresence>
     {showLibrary && (
       <motion.div
+        ref={libraryAnchorRef}
+        className={styles.libraryPanel}
         key="build-library"
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: 1, height: "auto" }}
@@ -487,6 +583,7 @@ return (
             userHasEditedRef.current = true;
             setBuild(clean);
             setShowLibrary(false);
+            setMobileTab("loadout");
             const nextEncoded = encodeBuildToUrl(clean);
             if (nextEncoded) {
               navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
@@ -499,6 +596,7 @@ return (
     )}
   </AnimatePresence>
 
+      {!mobileEditor && <div className={styles.editorSection}>
       <Section title={t('section.title.build_name')}>
         <input
           type="text"
@@ -513,7 +611,9 @@ return (
           }
         />
       </Section>
+      </div>}
 
+      <div className={`${styles.editorSection} ${mobileEditor && mobileTab !== "loadout" ? styles.mobileTabPanelHidden : ""}`}> 
       <Section title={t('section.title.loadout')}>
         <LoadoutEditor
           build={build}
@@ -524,19 +624,41 @@ return (
           perksData={perksData}
         />
       </Section>
+      </div>
 
-<div className={styles.backgroundImage}>
+<div className={`${styles.editorSection} ${styles.backgroundImage} ${mobileEditor && mobileTab !== "skills" ? styles.mobileTabPanelHidden : ""}`}>
       <Section title={t('section.title.skills')} overrideBg>
         <SkillsEditor
           build={build}
           setBuild={updateBuild}
           skillTree={skillTree}
+          isVisible={!mobileEditor || mobileTab === "skills"}
           skillsData={skillsData}
           usedPoints={usedPoints}
           skillGroupsData={skillGroupsData}
         />
       </Section>
 </div>
+
+      <Modal open={Boolean(mobileNameDialog)}
+        onClose={() => setMobileNameDialog(null)}
+        title={mobileNameDialog === "saveAs" ? t('mobile.editor.save-as-name') : t('mobile.editor.edit-name')}
+        width="480px">
+        <form className={styles.mobileNameForm} onSubmit={submitMobileName}>
+          <label htmlFor="mobile-build-name">{t('mobile.editor.name-prompt')}</label>
+          <input id="mobile-build-name" type="text" required maxLength={120}
+            autoFocus placeholder={t('title.placeholder.build-name')}
+            value={mobileNameDraft} onChange={event => setMobileNameDraft(event.target.value)} />
+          <div className={styles.mobileNameActions}>
+            <button type="button" className="secondary" onClick={() => setMobileNameDialog(null)}>
+              {t('modal.actions.cancel')}
+            </button>
+            <button type="submit" disabled={!mobileNameDraft.trim() || saving}>
+              {mobileNameDialog === "saveAs" ? t('build.actions.save-as') : t('mobile.editor.save-name')}
+            </button>
+          </div>
+        </form>
+      </Modal>
 
       {/* MODAL DE CONFIRMACIÓN DE ELIMINACIÓN */}
       <Modal
@@ -583,7 +705,40 @@ return (
         </div>
       </Modal>
 
-      <ScrollArrow/>
+      <div className={`${styles.mobileActionsBar} ${showLibrary ? styles.mobileActionsBarLibraryOpen : ""}`}>
+        <button type="button" onClick={handleSaveBuild} disabled={!canSave || saving}
+          title={!canSave ? t('build.msg.save-disabled') : undefined}>
+          {t('build.actions.save')}
+        </button>
+        <button type="button" onClick={() => openNameDialog("saveAs")} disabled={saving}>
+          {t('build.actions.save-as')}
+        </button>
+        <div className={styles.mobileMoreWrapper} ref={mobileActionsRef}>
+          {showLibrary ? (
+            <button type="button" className={styles.mobileCloseLibraryButton}
+              onClick={() => setShowLibrary(false)}>
+              {t('mobile.editor.library-close')} ×
+            </button>
+          ) : (
+          <>
+          <button type="button" className={styles.mobileMoreButton}
+            aria-expanded={mobileActionsOpen} aria-label={t('mobile.editor.more')}
+            onClick={() => setMobileActionsOpen(value => !value)}>⋯</button>
+          {mobileActionsOpen && (
+            <div className={styles.mobileMoreMenu}>
+              <button type="button" onClick={openBuildLibrary}>
+                {showLibrary ? t('mobile.editor.library-close') : t('build.actions.open_library')} ({orderedLibrary.length})
+              </button>
+              <button type="button" onClick={() => { setMobileActionsOpen(false); handleNewBuild(); }}>{t('build.actions.new')}</button>
+              <button type="button" onClick={() => { setMobileActionsOpen(false); handleShare(); }}>{t('build.actions.share')}</button>
+            </div>
+          )}
+          </>
+          )}
+        </div>
+      </div>
+
+      <ScrollArrow editorToolbar/>
     </div>
   );
 }

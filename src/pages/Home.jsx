@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
 import styles from "./Home.module.scss";
+import { loadBuildFromSession } from "../build/build.utils";
 import {
   LuWrench,
   LuDice5,
@@ -15,12 +16,22 @@ import {
 export default function Home() {
 const { t } = useTranslation();
 const { isAuthenticated } = useAuth();
+const recentBuild = loadBuildFromSession();
+const recentBuildName = recentBuild?.name?.trim();
 
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
         <div className={styles.title}>{t('home.title')}</div>
       </header>
+
+      {recentBuildName && (
+        <Link to="/build-editor" className={styles.continueBuild}>
+          <span>{t('mobile.home.continue')}</span>
+          <strong>{recentBuildName}</strong>
+          <span aria-hidden="true">›</span>
+        </Link>
+      )}
 
       <nav className={styles.grid}>
         <Link to="/build-editor" className={styles.card}>

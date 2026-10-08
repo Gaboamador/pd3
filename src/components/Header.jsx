@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Header.module.scss";
 import pd3_logo_alt from "../assets/pd3_logo_alt.svg";
@@ -27,6 +27,21 @@ export default function Header() {
   const location = useLocation();
   const pathname = location.pathname;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const accountRef = useRef(null);
+  useEffect(() => {
+    if (!accountOpen) return;
+    function closeOnOutside(event) {
+      if (!accountRef.current?.contains(event.target)) setAccountOpen(false);
+    }
+    function closeOnEscape(event) { if (event.key === 'Escape') setAccountOpen(false); }
+    document.addEventListener('pointerdown', closeOnOutside);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutside);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [accountOpen]);
   const isHome = pathname === "/";
   const buttonRef = useRef(null);
   const headerRef = useRef(null);
@@ -125,6 +140,21 @@ export default function Header() {
         <div className={`${styles.authControls}`}>
           <div className={`${styles.userName} ${!isHome ? styles.smallerAuth : ""}`}>{user?.user?.displayName?.toUpperCase()}</div>
           <button className={`${styles.logoutButton} ${!isHome ? styles.smallerAuth : ""}`} onClick={handleLogout}>{t('auth.actions.logout')}</button>
+        </div>
+        <div className={styles.mobileAccount} ref={accountRef}>
+          <button type="button" className={styles.accountButton}
+            aria-label={t('mobile.account.menu')} aria-expanded={accountOpen}
+            onClick={() => setAccountOpen(value => !value)}>
+            <IoPersonCircleSharp size={29} />
+          </button>
+          {accountOpen && (
+            <div className={styles.accountPopup}>
+              <span className={styles.accountName}>{user?.user?.displayName || user?.user?.email || ''}</span>
+              <button type="button" onClick={() => { setAccountOpen(false); handleLogout(); }}>
+                {t('auth.actions.logout')}
+              </button>
+            </div>
+          )}
         </div>
         </>
       ) : (

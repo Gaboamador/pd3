@@ -209,3 +209,8 @@
 .perkEmpty {
   color: $color-text-muted;
 }
+
+
+@media (max-width: 560px) {
+  .modsBtn { min-width: 44px; min-height: 44px; justify-content: center; clip-path: none; touch-action: manipulation; }
+}

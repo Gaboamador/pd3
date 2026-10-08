@@ -209,3 +209,27 @@
 
   mix-blend-mode: overlay;
 }
+
+@media (max-width: 560px) {
+  .editBtn { min-width: 44px; min-height: 44px; justify-content: center; clip-path: none; touch-action: manipulation; }
+}
+
+@media (max-width: 560px) {
+  .header { padding-inline: 4px; gap: 2px; }
+  .headerTitle { gap: 3px; min-width: 0; }
+  .category { white-space: nowrap; font-size: 10px; }
+  .headerRight { flex: 0 0 auto; gap: 0; }
+  .editBtn { min-width: 32px; min-height: 32px; padding: 3px; position: relative; justify-content: center; }
+  .editBtn::before { content: ""; position: absolute; inset: -6px; }
+  .editBtn.hidden { display: none; }
+}
+
+@media (max-width: 560px) {
+  /* Overkill configuration remains visible without consuming header title width. */
+  .card[data-slot="overkill"] .headerRight > span {
+    position: absolute; right: 6px; top: 40px; z-index: 2;
+    padding: 3px 6px; border-radius: 4px;
+    background: rgba(12,16,20,.92);
+    border: 1px solid rgba($pd3-main,.3);
+  }
+}

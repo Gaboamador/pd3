@@ -59,7 +59,7 @@ export default function LoadoutItemCard({
 
 
   return (
-  <div className={`${styles.card} ${isSpinning ? styles.spinning : ""} ${isHeist ? styles.heist : ""}`} onClick={onClick}>
+  <div data-slot={slot} className={`${styles.card} ${isSpinning ? styles.spinning : ""} ${isHeist ? styles.heist : ""}`} onClick={onClick}>
   {/* HEADER */}
   <div className={styles.header}>
     <div className={styles.headerTitle}>

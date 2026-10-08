@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "./auth/useAuth.js";
 import AuthScreen from "./auth/AuthScreen.jsx";
 import Header from "./components/Header.jsx";
+import MobileNavigation from "./components/MobileNavigation.jsx";
 import Home from "./pages/Home.jsx";
 import Randomizer from "./randomizer/Randomizer.jsx";
 import BuildEditor from "./build/BuildEditor.jsx";
@@ -50,6 +51,7 @@ function App() {
         <Route path="/auth" element={<AuthScreen/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <MobileNavigation />
     </>
     </ToastProvider>
   );

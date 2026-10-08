@@ -101,3 +101,16 @@ button {
     padding: 4px 8px;
   }
 }
+
+:focus-visible { outline: 2px solid #a9ec55; outline-offset: 3px; }
+@media (max-width: 560px) {
+  :root { --pd3-mobile-nav-height: calc(66px + env(safe-area-inset-bottom, 0px)); }
+  html { overflow-x: clip; scrollbar-gutter: stable; }
+  body, #root { max-width: 100%; min-width: 0; }
+  #root { padding-bottom: var(--pd3-mobile-nav-height); }
+  button, a, input, select, textarea { touch-action: manipulation; }
+  input, select, textarea { font-size: max(16px, 1rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}

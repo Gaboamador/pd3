@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { createPortal } from "react-dom";
 import SkillSection from "../../../components/SkillSection";
 import styles from './SkillDetailsModal.module.scss'
 
@@ -6,7 +7,7 @@ export default function SkillDetailsModal({ open, onClose, skill, equippedCount,
   const { t } = useTranslation();
   if (!open || !skill) return null;
 
-  return (
+  return createPortal(
    <div role="dialog" aria-modal="true" onClick={onClose} className={styles.overlay}>
       <div onClick={(e) => e.stopPropagation()} className={styles.modal}>
         <div className={styles.header}>
@@ -18,6 +19,7 @@ export default function SkillDetailsModal({ open, onClose, skill, equippedCount,
 
         <SkillSection skill={skill} equippedCount={equippedCount} enableTotals={enableTotals}/>
       </div>
-    </div>
-);
+    </div>,
+    document.body
+  );
 }

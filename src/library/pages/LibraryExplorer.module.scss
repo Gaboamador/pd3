@@ -259,3 +259,10 @@ width: 100%;
     font-size: 1.1rem;
   }
 }
+@media (max-width: 560px) {
+  .suggestion { min-height: 44px; align-items: center; }
+  .removeChipBtn { min-width: 44px; min-height: 44px; justify-content: center; }
+  .catalogBtn { opacity: 1; pointer-events: auto; min-width: 44px; min-height: 44px; }
+  .card { min-height: 56px; gap: 8px; }
+  .compareCheckbox { min-width: 20px; min-height: 20px; }
+}
