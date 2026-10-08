@@ -220,7 +220,9 @@ export default function WeaponModsModal({
         </div>
 
         {activePerk?.description && (
-          <div className={styles.perkDescription}>{activePerk.description}</div>
+          <div className={`${styles.perkDescription} ${activePerk.equipped ? styles.equipped : ""} ${activePerk.persistent ? styles.persistent : ""}`}>
+            {activePerk.description}
+          </div>
         )}
       </div>
 

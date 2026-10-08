@@ -3830,7 +3830,7 @@
       "key": "KU59_B4",
       "name": "KU-59 \"Ruthless\"",
       "preset": 1,
-      "perk": "perk_vampire",
+      "perk": "perk_knockback",
       "sprite_pos": {
         "r": 12,
         "c": 1
@@ -4013,7 +4013,7 @@
       "key": "Commando_B8",
       "name": "Ziv Commando \"Kick-Murder\"",
       "preset": 1,
-      "perk": "perk_vampire",
+      "perk": "perk_haymaker",
       "sprite_pos": {
         "r": 16,
         "c": 3
@@ -4062,7 +4062,7 @@
       "key": "VF7S_B9",
       "name": "VF-7S \"Featherlight\"",
       "preset": 1,
-      "perk": "perk_vampire",
+      "perk": "perk_accelerator",
       "sprite_pos": {
         "r": 12,
         "c": 3
@@ -4308,7 +4308,7 @@
       "key": "CAR4_Empress",
       "name": "\"Queen's Revenge\"",
       "preset": 1,
-      "perk": "perk_vampire",
+      "perk": "perk_spray_and_pray",
       "sprite_pos": {
         "r": 17,
         "c": 4
@@ -4582,7 +4582,7 @@
       "key": "PC9_P11",
       "name": "PC9 \"Veteran Ranger\"",
       "preset": 1,
-      "perk": "perk_vampire",
+      "perk": "perk_ammo_feed",
       "sprite_pos": {
         "r": 17,
         "c": 2

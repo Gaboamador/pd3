@@ -45,7 +45,7 @@ export default function PerkDetailsSection({ perk }) {
         )}
       </div>
 
-      <div className={styles.description}>{perk.description}</div>
+      <div className={`${styles.description} ${perk.equipped ? styles.equipped : perk.persistent ? styles.persistent : ""}`}>{perk.description}</div>
     </div>
   );
 }

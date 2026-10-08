@@ -37,7 +37,7 @@ export default function OverkillConfigModal({
       open={open}
       onClose={onClose}
       title={`${t("build.loadout.edit-overkill")} – ${weaponDef.name}`}
-      width="780px"
+      width="680px"
     >
       <div className={styles.wrapper}>
         {groups.map((group) => {
@@ -46,23 +46,25 @@ export default function OverkillConfigModal({
 
           return (
             <div key={group.slotKey} className={styles.group}>
-              <div className={styles.groupTitle}>{group.slotLabel}</div>
+              
+              <div className={styles.groupHeader}>
+                <div className={styles.groupTitle}>{group.slotLabel}</div>
 
-              <div className={styles.options}>
-                {!isAmmo && (
+                {!isAmmo && activeKey && (
                   <button
                     type="button"
-                    className={`${styles.option} ${styles.emptyOption} ${
-                      !activeKey ? styles.active : ""
-                    }`}
+                    className={styles.clearButton}
                     onClick={() => setOption(group.slotKey, null)}
+                    aria-label={`Clear ${group.slotLabel}`}
+                    title={`Clear ${group.slotLabel}`}
                   >
-                    <span className={styles.optionName}>
-                      {t("select.option.none")}
-                    </span>
+                    <span aria-hidden="true">×</span>
+                    <span>Clear</span>
                   </button>
                 )}
+              </div>
 
+              <div className={styles.options}>
                 {group.options.map((option) => {
                   const active = activeKey === option.key;
 
@@ -70,12 +72,24 @@ export default function OverkillConfigModal({
                     <button
                       type="button"
                       key={option.key}
-                      className={`${styles.option} ${active ? styles.active : ""}`}
+                      className={`${styles.option} ${
+                        active ? styles.active : ""
+                      }`}
                       onClick={() => setOption(group.slotKey, option.key)}
+                      aria-pressed={active}
                     >
-                      <span className={styles.optionName}>{option.name}</span>
-                      <span className={styles.optionDescription}>
-                        {option.description}
+                      <span className={styles.optionMarker} />
+
+                      <span className={styles.optionContent}>
+                        <span className={styles.optionName}>
+                          {option.name}
+                        </span>
+
+                        {option.description && (
+                          <span className={styles.optionDescription}>
+                            {option.description}
+                          </span>
+                        )}
                       </span>
                     </button>
                   );

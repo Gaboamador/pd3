@@ -185,7 +185,7 @@
   },
   "perk_luck_of_the_draw": {
     "key": "perk_luck_of_the_draw",
-    "name": "Luck of the draw",
+    "name": "Luck of the Draw",
     "description": "Each shot hast 2% chance to deal 50% damage.",
     "scope": "weapon",
     "optionType": "perk",

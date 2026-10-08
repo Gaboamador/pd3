@@ -8,6 +8,7 @@ import useIsMobile from "../../../hooks/useIsMobile";
 import { BREAKPOINTS } from "../../../constants/breakpoints";
 import { getEffectiveWeaponPerkKey, getPerkByKey } from "../../utils/perks.utils";
 import styles from "./WeaponCard.module.scss";
+import { IoSettingsOutline } from "react-icons/io5";
 
 export default function WeaponCard({
   slot,
@@ -90,7 +91,7 @@ return (
           aria-label={t('aria-label.weapon-mods-edit')}
           tabIndex={canEdit ? 0 : -1}
         >
-          ⚙
+          <IoSettingsOutline />
         </button>
       </div>
 
@@ -120,7 +121,11 @@ return (
         {weaponDef && showWeaponPerk && (
           <div className={styles.perkRow}>
             <span className={styles.perkLabel}>PERK</span>
-            <span className={`${styles.perkName} ${!effectivePerk ? styles.perkEmpty : ""}`}>
+            <span className={`
+                ${styles.perkName}
+                ${!effectivePerk ? styles.perkEmpty : ""}
+                ${effectivePerk?.equipped ? styles.equipped : effectivePerk?.persistent ? styles.persistent : ""}
+              `}>
               {effectivePerk?.name ?? "None"}
             </span>
           </div>

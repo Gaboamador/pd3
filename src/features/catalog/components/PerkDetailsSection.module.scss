@@ -37,4 +37,12 @@
   font-family: "DIN2014";
   font-size: 14px;
   line-height: 1.5;
+
+  &.equipped {
+    border-color: $color-perk-equipped
+  }
+
+  &.persistent {
+    border-color: $color-perk-persistent
+  }
 }

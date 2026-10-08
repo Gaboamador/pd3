@@ -91,10 +91,12 @@
 /* MODS BUTTON */
 .modsBtn {
   background: transparent;
+  display: flex;
+  align-items: center;
   border: none;
   cursor: pointer;
   color: $color-text-muted;
-  font-size: 14px;
+  padding: 2px 4px;
 
   &:hover {
     color: $color-accent;
@@ -171,19 +173,18 @@
 /* WEAPON PERK */
 .perkRow {
   display: flex;
-  align-items: center;
-  gap: $space-xs;
-  min-height: 24px;
-  padding: 3px $space-xs 5px;
+  align-items: flex-end;
+  gap: $space-sm;
   border-top: 1px solid #262a3b;
   background: rgba(0, 0, 0, 0.42);
+  padding: $space-xs;
   font-family: "DIN2014";
 }
 
 .perkLabel {
   font-size: 10px;
   letter-spacing: 0.08em;
-  color: $pd3-hover;
+  color: $color-text-muted;
 }
 
 .perkName {
@@ -193,6 +194,16 @@
   white-space: nowrap;
   font-size: 11px;
   color: $color-text-primary;
+  padding-left: 3px;
+  border-left: 2px solid;
+
+  &.equipped {
+    border-color: $color-perk-equipped;
+  }
+
+  &.persistent {
+    border-color: $color-perk-persistent;
+  }
 }
 
 .perkEmpty {

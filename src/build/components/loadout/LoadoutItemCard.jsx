@@ -3,6 +3,7 @@ import styles from "./LoadoutItemCard.module.scss";
 import { LOADOUT_PLACEHOLDERS } from "../../utils/sprites/placeholders";
 import useIsMobile from "../../../hooks/useIsMobile";
 import { BREAKPOINTS } from "../../../constants/breakpoints";
+import { IoSettingsOutline } from "react-icons/io5";
 
 export default function LoadoutItemCard({
   slot,
@@ -83,7 +84,7 @@ export default function LoadoutItemCard({
         aria-label={t('aria-label.item-edit')}
         tabIndex={canEdit ? 0 : -1}
       >
-        ⚙
+        <IoSettingsOutline />
       </button>
 
     </div>

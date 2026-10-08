@@ -80,16 +80,23 @@
   display: grid;
   gap: $space-xs;
   padding: $space-sm;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: $radius-sm;
   background: $color-bg-surface;
+  border-left: 2px solid $pd3-hover;
+
+  &.equipped {
+    border-left-color: $color-perk-equipped;
+  }
+
+  &.persistent {
+    border-left-color: $color-perk-persistent;
+  }
 }
 
 .perkName {
   font-family: "DIN2014";
   font-size: 0.8rem;
   font-weight: 700;
-  color: $pd3-lightgreen;
+  color: $color-text-primary;
 }
 
 .perkDescription {

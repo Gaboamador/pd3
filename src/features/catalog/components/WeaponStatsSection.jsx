@@ -140,7 +140,7 @@ export default function WeaponStatsSection({ weapon }) {
 
           <div className={styles.perkGrid}>
             {perks.map((perk) => (
-              <div key={perk.key} className={styles.perkCard}>
+              <div key={perk.key} className={`${styles.perkCard} ${perk.equipped ? styles.equipped : ""} ${perk.persistent ? styles.persistent : ""}`}>
                 <div className={styles.perkName}>{perk.name}</div>
                 <div className={styles.perkDescription}>{perk.description}</div>
               </div>
