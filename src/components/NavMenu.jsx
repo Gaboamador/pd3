@@ -2,13 +2,16 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { IoPersonCircleSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import useIsMobile from "../hooks/useIsMobile";
 import { BREAKPOINTS } from "../constants/breakpoints";
 import styles from "./NavMenu.module.scss";
 
-export default function NavMenu({ open, onClose, items = [], anchorRef, headerRef }) {
+export default function NavMenu({ open, onClose, items = [], anchorRef, headerRef, isAuthenticated, accountName, onLogout }) {
 
+    const { t } = useTranslation();
     const location = useLocation();
     const menuRef = useRef(null);
     const isMobile = useIsMobile(BREAKPOINTS.mobile);
@@ -155,6 +158,30 @@ export default function NavMenu({ open, onClose, items = [], anchorRef, headerRe
                 )
               })}
             </motion.ul>
+
+            {isMobile && (
+              <div className={styles.accountSection}>
+                {isAuthenticated ? (
+                  <details className={styles.accountDetails}>
+                    <summary className={styles.accountToggle}>
+                      <IoPersonCircleSharp className={styles.accountIcon} aria-hidden="true" />
+                      <span className={styles.label}>{t('mobile.account.menu')}</span>
+                    </summary>
+                    <div className={styles.accountPanel}>
+                      <span className={styles.accountName}>{accountName}</span>
+                      <button type="button" onClick={() => { onClose(); onLogout(); }}>
+                        {t('auth.actions.logout')}
+                      </button>
+                    </div>
+                  </details>
+                ) : (
+                  <Link to="/auth" className={styles.accountToggle} onClick={onClose}>
+                    <IoPersonCircleSharp className={styles.accountIcon} aria-hidden="true" />
+                    <span className={styles.label}>{t('auth.actions.login')}</span>
+                  </Link>
+                )}
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}

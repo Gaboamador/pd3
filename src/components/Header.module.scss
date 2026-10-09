@@ -126,27 +126,20 @@
 /* Vacío fuera de mobile: en desktop permanece el título de la sección. */
 .editorSlot { display: none; }
 
-.mobileAccount { display: none; }
+/* En Home desktop el logo conserva su comportamiento estático. */
+.homeMenuButton { display: none; }
+
 @media (max-width: 560px) {
   .header { padding-top: calc(10px + env(safe-area-inset-top, 0px)); }
   .inner { min-height: 42px; }
-  .authControls { display: none; }
-  .mobileAccount { display: block; position: relative; }
-  .accountButton, .logoButton {
+  .authControls, .authLink { display: none; }
+  .logoButton {
     min-width: 44px; min-height: 44px;
     display: grid; place-items: center;
     padding: 0; clip-path: none; border-radius: 8px;
     background: transparent; color: $pd3-main;
   }
-  .accountPopup {
-    position: absolute; right: 0; top: calc(100% + 10px); z-index: 1200;
-    padding: 14px; min-width: 190px;
-    background: #141620; border: 1px solid rgba($pd3-main,.5);
-    border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,.65);
-    display: grid; gap: 12px;
-  }
-  .accountName { white-space: normal; overflow-wrap: anywhere; font-family: 'DIN2014'; font-size: .8rem; }
-  .accountPopup button { min-height: 44px; }
+  .homeMenuButton { display: grid; }
   .subtitle { font-size: clamp(.95rem, 4vw, 1.2rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   /* Reutilizar la fila del Header: no añadir otra barra sticky. */
@@ -158,8 +151,5 @@
     min-width: 0;
     align-items: center;
   }
-  .editorHeader .logoButton,
-  .editorHeader .accountButton { flex-shrink: 0; }
-  .editorHeader .mobileAccount { flex-shrink: 0; }
-  .editorHeader .inner > a { flex-shrink: 0; }
+  .editorHeader .logoButton { flex-shrink: 0; }
 }

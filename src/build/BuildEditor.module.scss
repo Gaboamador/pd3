@@ -200,12 +200,13 @@
      Ajustar aquí su tamaño/colores; no afectan la barra inferior.
      ================================================================ */
   .mobileHeaderEditor {
-    --be-head-tab-size: 44px;
-    --be-head-tab-gap: 2px;
-    --be-head-name-size: 12px;
-    --be-head-label-size: 9px;
-    --be-head-active: #{$pd3-main};
-    --be-head-muted: rgba(255, 255, 255, .64);
+  --be-head-tab-width: clamp(56px, 16vw, 80px);
+  --be-head-tab-gap: clamp(2px, 0.8vw, 5px);
+  --be-head-name-size: 12px;
+  --be-head-label-size: clamp(11px, 2.85vw, 13px);
+  --be-head-icon-size: clamp(23px, 5.7vw, 28px);
+  --be-head-active: #{$pd3-main};
+  --be-head-muted: rgba(255, 255, 255, .64);
 
     display: flex;
     align-items: center;
@@ -253,6 +254,8 @@
     min-width: 0;
     overflow: hidden;
 
+    font-size: clamp(13px, 3.8vw, 17px);
+
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -273,14 +276,12 @@
     display: flex;
     align-items: center;
     gap: var(--be-head-tab-gap);
-    padding-right: $space-sm;
-    border-right: 2px solid $color-border;
   }
 
   .mobileHeaderEditor .mobileHeaderTab {
     position: relative;
-    width: var(--be-head-tab-size);
-    height: var(--be-head-tab-size);
+    width: var(--be-head-tab-width);
+    height: 44px;
     flex-direction: column;
     gap: 2px;
     border-radius: 6px;
@@ -289,6 +290,16 @@
     font-weight: 700;
     line-height: 1;
     transition: color .16s ease, background-color .16s ease;
+
+    > svg {
+      width: var(--be-head-icon-size);
+      height: var(--be-head-icon-size);
+      flex-shrink: 0;
+    }
+
+    > span {
+      white-space: nowrap;
+    }
 
     &:hover { color: $pd3-main; }
 
@@ -479,6 +490,10 @@
     background: #141620;
     border-top: 1px solid rgba($pd3-main, .6);
     box-shadow: 0 -8px 28px rgba(0, 0, 0, .38);
+
+    column-rule-style: solid;
+    column-rule-width: 1px;
+    column-rule-color: $color-border;
   }
 
   .page .mobileActionsBar .mobileMoreMenuContent > .mobileMenuButton,

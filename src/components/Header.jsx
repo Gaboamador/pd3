@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Header.module.scss";
 import pd3_logo_alt from "../assets/pd3_logo_alt.svg";
@@ -23,28 +23,12 @@ import {
 
 export default function Header() {
   const { t } = useTranslation();
-  const { isAuthenticated } = useAuth();
-  const user = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const location = useLocation();
   const pathname = location.pathname;
   const isBuildEditorRoute = pathname.startsWith("/build-editor") || pathname.startsWith("/s/");
   const { setEditorSlot } = useHeaderEditorSlot();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
-  const accountRef = useRef(null);
-  useEffect(() => {
-    if (!accountOpen) return;
-    function closeOnOutside(event) {
-      if (!accountRef.current?.contains(event.target)) setAccountOpen(false);
-    }
-    function closeOnEscape(event) { if (event.key === 'Escape') setAccountOpen(false); }
-    document.addEventListener('pointerdown', closeOnOutside);
-    document.addEventListener('keydown', closeOnEscape);
-    return () => {
-      document.removeEventListener('pointerdown', closeOnOutside);
-      document.removeEventListener('keydown', closeOnEscape);
-    };
-  }, [accountOpen]);
   const isHome = pathname === "/";
   const buttonRef = useRef(null);
   const headerRef = useRef(null);
@@ -119,15 +103,30 @@ export default function Header() {
       <div className={styles.inner}>
 
       {isHome ? (
-        <img
-          src={pd3_logo_alt}
-          alt="Payday 3 Logo"
-          className={styles.logo}
-        />
+        <>
+          <img
+            src={pd3_logo_alt}
+            alt="Payday 3 Logo"
+            className={styles.logo}
+          />
+          {/* Home no tiene botón de menú en desktop. En mobile permite
+              acceder a la cuenta desde NavMenu sin ocupar lugar en el editor. */}
+          <button
+            ref={buttonRef}
+            type="button"
+            className={`${styles.logoButton} ${styles.homeMenuButton} ${menuOpen ? styles.open : ""}`}
+            aria-label={t('mobile.nav.label')}
+            onClick={() => setMenuOpen(true)}
+          >
+            <HeaderMenuIcon open={menuOpen} />
+          </button>
+        </>
       ) : (
         <button
           ref={buttonRef}
+          type="button"
           className={`${styles.logoButton} ${menuOpen ? styles.open : ""}`}
+          aria-label={t('mobile.nav.label')}
           onClick={() => setMenuOpen(true)}
         >
           <HeaderMenuIcon open={menuOpen} />
@@ -143,32 +142,13 @@ export default function Header() {
       {isBuildEditorRoute && <div ref={setEditorSlot} className={styles.editorSlot} />}
 
       {isAuthenticated ? (
-        <>
-        <div className={`${styles.authControls}`}>
-          <div className={`${styles.userName} ${!isHome ? styles.smallerAuth : ""}`}>{user?.user?.displayName?.toUpperCase()}</div>
+        <div className={styles.authControls}>
+          <div className={`${styles.userName} ${!isHome ? styles.smallerAuth : ""}`}>{user?.displayName?.toUpperCase()}</div>
           <button className={`${styles.logoutButton} ${!isHome ? styles.smallerAuth : ""}`} onClick={handleLogout}>{t('auth.actions.logout')}</button>
         </div>
-        <div className={styles.mobileAccount} ref={accountRef}>
-          <button type="button" className={styles.accountButton}
-            aria-label={t('mobile.account.menu')} aria-expanded={accountOpen}
-            onClick={() => setAccountOpen(value => !value)}>
-            <IoPersonCircleSharp size={29} />
-          </button>
-          {accountOpen && (
-            <div className={styles.accountPopup}>
-              <span className={styles.accountName}>{user?.user?.displayName || user?.user?.email || ''}</span>
-              <button type="button" onClick={() => { setAccountOpen(false); handleLogout(); }}>
-                {t('auth.actions.logout')}
-              </button>
-            </div>
-          )}
-        </div>
-        </>
       ) : (
-        <Link to="/auth">
-          <span>
-            <IoPersonCircleSharp size={30} className={styles.authIcon}/>
-          </span>
+        <Link to="/auth" className={styles.authLink} aria-label={t('auth.actions.login')}>
+          <IoPersonCircleSharp size={30} className={styles.authIcon}/>
         </Link>
       )}
 
@@ -180,6 +160,9 @@ export default function Header() {
         items={navItems}
         anchorRef={buttonRef}
         headerRef={headerRef}
+        isAuthenticated={isAuthenticated}
+        accountName={user?.displayName || user?.email || ""}
+        onLogout={handleLogout}
       />
 
     </header>

@@ -121,3 +121,72 @@
 .icon[data-service="home"] {
   color: white;
 }
+/* Cuenta al pie de la navegación, sólo en mobile. */
+.accountSection {
+  border-top: 1px solid $color-border;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.accountDetails {
+  width: 100%;
+}
+
+.accountToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  // min-height: 48px;
+  width: 100%;
+  padding: 8px 16px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  clip-path: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker { display: none; }
+  &:hover { background: rgba(255, 255, 255, 0.08); }
+}
+
+.accountIcon {
+  width: 40px;
+  height: 28px;
+  flex: 0 0 40px;
+  color: $pd3-main;
+}
+
+.accountPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 16px 12px 68px;
+}
+
+.accountName {
+  font-family: 'Rift';
+  font-weight: $font-weight-heavy;
+  letter-spacing: 0.02em;
+  color: $color-text-muted;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  border-left: 2px solid $pd3-main;
+  padding-left: $space-sm;
+}
+
+.accountPanel button {
+  // min-height: 44px;
+  width: fit-content;
+  padding: 4px 12px;
+  border: 1px solid rgba($pd3-main, .5);
+  border-radius: 6px;
+  clip-path: none;
+  background: rgba($pd3-main, .15);
+  font-family: 'DIN2014';
+  font-size: .9rem;
+}

@@ -438,7 +438,7 @@ return (
             aria-pressed={!showLibrary && mobileTab === "loadout"}
             title={t('mobile.editor.loadout')}
             onClick={() => selectMobileTab("loadout")}>
-            <LuCrosshair aria-hidden="true" size={19} />
+            <LuCrosshair aria-hidden="true" size={22} />
             <span>{t('mobile.editor.loadout')}</span>
           </button>
           <button type="button" className={`${styles.mobileHeaderButton} ${styles.mobileHeaderTab} ${!showLibrary && mobileTab === "skills" ? styles.mobileHeaderTabActive : ""}`}
@@ -446,7 +446,7 @@ return (
             aria-pressed={!showLibrary && mobileTab === "skills"}
             title={t('mobile.editor.skills')}
             onClick={() => selectMobileTab("skills")}>
-            <LuBrain aria-hidden="true" size={19} />
+            <LuBrain aria-hidden="true" size={22} />
             <span>{t('mobile.editor.skills')}</span>
           </button>
         </div>
