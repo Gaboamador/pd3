@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "./auth/useAuth.js";
 import AuthScreen from "./auth/AuthScreen.jsx";
 import Header from "./components/Header.jsx";
+import { HeaderEditorSlotProvider } from "./context/HeaderEditorSlotContext.jsx";
 import MobileNavigation from "./components/MobileNavigation.jsx";
 import Home from "./pages/Home.jsx";
 import Randomizer from "./randomizer/Randomizer.jsx";
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <ToastProvider>
-    <>
+    <HeaderEditorSlotProvider>
       <MigrationPrompt />
       <Header />
 
@@ -52,7 +53,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <MobileNavigation />
-    </>
+    </HeaderEditorSlotProvider>
     </ToastProvider>
   );
 }

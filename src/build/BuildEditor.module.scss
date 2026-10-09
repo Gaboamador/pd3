@@ -11,15 +11,11 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;
-
-  // @include font-down(compact) {
-  //   justify-content: space-between;
-  // }
 }
 
 .buildNameInput {
   width: 100%;
-  background: rgba(128,128,128,0.15);
+  background: rgba(128, 128, 128, 0.15);
   border: none;
   border-bottom: 1px solid $pd3-main;
   padding: $space-xs $space-xs;
@@ -83,7 +79,7 @@
   position: absolute;
   inset: 0;
 
- background-image: url("/bg/hq720.jpg");
+  background-image: url("/bg/hq720.jpg");
   background-repeat: no-repeat;
 
   background-size: 150%;
@@ -94,113 +90,435 @@
   z-index: 0;
 }
 
-.backgroundImage > * {
+.backgroundImage>* {
   position: relative;
   z-index: 1;
 }
 
-/* Mobile editor tabs and toolbar. Desktop layout stays untouched. */
-.mobileSectionNav, .mobileActionsBar { display: none; }
-.editorSection { min-width: 0; }
+/* La navegación superior se monta en Header sólo en mobile. */
+.mobileHeaderEditor,
+.mobileActionsBar {
+  display: none;
+}
+
+.editorSection {
+  min-width: 0;
+}
 
 @media (max-width: 560px) {
   .page {
-    width: 100%; min-width: 0; max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     grid-template-columns: minmax(0, 1fr);
     align-content: start;
     gap: 8px;
-    padding-bottom: calc(72px + 12px);
+    padding-bottom: 66px;
   }
-  .page > * { min-width: 0; }
-  .editorSection { min-width: 0; }
-  .mobileTabPanelHidden { display: none; }
-  .mobileSectionNav {
-    position: sticky;
-    // Header mobile: 10px arriba + 44px control + 10px abajo + 1px borde = 65px.
-    // Mantener el mismo gap de .5rem que existe antes del scroll (padding del page).
-    top: calc(65px + env(safe-area-inset-top, 0px) + .5rem);
-    z-index: 45;
+
+  .page>* {
     min-width: 0;
+  }
+
+  .editorSection {
+    min-width: 0;
+  }
+
+  .mobileTabPanelHidden {
+    display: none;
+  }
+
+  // El overflow hidden de backgroundImage bloqueaba position: sticky
+  // dentro de SkillsEditor. Acotamos el recorte a su imagen decorativa.
+  .backgroundImage {
+    overflow: visible;
+  }
+  .backgroundImage::before {
+    clip-path: inset(0);
+  }
+
+  /* Reset técnico exclusivo de la barra INFERIOR.
+     Los controles del Header tienen estilos propios, sin heredar los de Save. */
+  .page .mobileEditorButton,
+  .page .mobileActionsBar button {
+    all: unset;
+    box-sizing: border-box;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: filter .2s, background-color .2s;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.15);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #a9ec55;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: .4;
+    }
+  }
+
+  .mobileSavingIndicator {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+
+    > div {
+      display: flex;
+      flex-direction: row; // Este es el cambio importante
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      padding: 10px 18px;
+      background: rgba(16, 20, 23, 0.96);
+      border: 1px solid rgba($pd3-main, 0.35);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+
+  /* ================================================================
+     CONTROLES EN HEADER — sólo mobile.
+     Se montan con portal dentro del Header, sin ocupar otra fila.
+     Ajustar aquí su tamaño/colores; no afectan la barra inferior.
+     ================================================================ */
+  .mobileHeaderEditor {
+    --be-head-tab-size: 44px;
+    --be-head-tab-gap: 2px;
+    --be-head-name-size: 12px;
+    --be-head-label-size: 9px;
+    --be-head-active: #{$pd3-main};
+    --be-head-muted: rgba(255, 255, 255, .64);
+
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    gap: 3px;
+    font-family: 'DIN2014';
+  }
+
+  /* Resetea globals.scss sólo dentro de este nav, ya ubicado en Header. */
+  .mobileHeaderEditor .mobileHeaderButton {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    &:focus-visible {
+      outline: 2px solid #a9ec55;
+      outline-offset: -2px;
+      border-radius: 5px;
+    }
+  }
+
+  .mobileHeaderEditor .mobileHeaderName {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 0 3px;
+    color: $pd3-main;
+    font-size: var(--be-head-name-size);
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .mobileHeaderNameText {
+    min-width: 0;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+  }
+
+  .mobileHeaderName > svg {
+    flex-shrink: 0;
+    opacity: .72;
+  }
+
+  .mobileHeaderTabs {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: var(--be-head-tab-gap);
+    padding-right: $space-sm;
+    border-right: 2px solid $color-border;
+  }
+
+  .mobileHeaderEditor .mobileHeaderTab {
+    position: relative;
+    width: var(--be-head-tab-size);
+    height: var(--be-head-tab-size);
     flex-direction: column;
-    gap: 4px;
-    padding: 8px;
-    border: 1px solid rgba($pd3-main, .35);
-    border-radius: 8px;
-    background: rgba(16,20,23,.98);
-    backdrop-filter: blur(9px);
+    gap: 2px;
+    border-radius: 6px;
+    color: var(--be-head-muted);
+    font-size: var(--be-head-label-size);
+    font-weight: 700;
+    line-height: 1;
+    transition: color .16s ease, background-color .16s ease;
+
+    &:hover { color: $pd3-main; }
+
+    &.mobileHeaderTabActive {
+      color: var(--be-head-active);
+      background: rgba($pd3-main, .12);
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset-inline: 11px;
+        bottom: 1px;
+        height: 2px;
+        border-radius: 2px;
+        background: $pd3-main;
+      }
+    }
   }
-  .mobileNameTag {
-    width: 100%; max-width: 100%; min-width: 0;
-    min-height: 38px; display: flex; align-items: center; justify-content: center;
-    gap: 8px; padding: 5px 12px;
-    background: transparent; border: 0; clip-path: none;
-    color: $pd3-main; font-family: 'DIN2014'; font-size: 13px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+
+  .mobileAuthMessage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
   }
-  .mobileNameTag .mobileNameText { min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .mobileNameTag span[aria-hidden] { flex: none; opacity: .7; }
-  .mobileTabButtons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
-  .mobileTabButtons button {
-    width: 100%; min-width: 0; min-height: 44px;
-    background: transparent; border: 1px solid rgba($pd3-main,.35);
-    border-radius: 7px; clip-path: none;
-    color: $pd3-main; font-family: 'DIN2014'; font-size: .85rem;
+
+  .mobileNameForm {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
   }
-  .mobileTabButtons .mobileTabActive { background: rgba($pd3-main,.2); border-color: $pd3-main; }
-  .mobileAuthMessage { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
-  .libraryPanel { min-width: 0; align-self: start; }
-  .mobileNameForm { display: grid; gap: 12px; width: 100%; min-width: 0; }
-  .mobileNameForm label { font-weight: 600; }
+
+  .mobileNameForm label {
+    font-weight: 600;
+  }
+
   .mobileNameForm input {
-    width: 100%; min-width: 0; min-height: 44px;
-    background: rgba(128,128,128,.15); border: 1px solid rgba($pd3-main,.5);
-    color: white; border-radius: 8px; padding: 10px 12px; font-size: 16px;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    background: rgba(128, 128, 128, .15);
+    border: 1px solid rgba($pd3-main, .5);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 16px;
   }
-  .mobileNameActions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
-  .mobileNameActions button { min-height: 44px; }
+
+  .mobileNameActions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .mobileNameActions button {
+    min-height: 44px;
+  }
+
   .mobileActionsBar {
+    /* ===========================================================
+       BARRA INFERIOR: personalización minimalista independiente.
+       Estas variables NO alteran el nombre ni las pestañas de arriba.
+       =========================================================== */
+    --be-toolbar-button-height: 44px;
+    --be-toolbar-button-padding: 0;
+    --be-toolbar-font-size: .8rem;
+    --be-toolbar-button-weight: 700;
+    --be-toolbar-button-color: #{$color-text-primary};
+    --be-toolbar-button-bg: transparent;
+    --be-toolbar-button-radius: 0;
+    --be-toolbar-button-max-width: 140px;
+    --be-toolbar-gap: 6px;
+    --be-toolbar-padding: 4px 10px;
+    --be-toolbar-height-extra: 10px;
+    --be-toolbar-more-font-size: 1.3rem;
+    --be-toolbar-close-font-size: clamp(10px, 2.8vw, 12px);
+    --be-toolbar-close-padding: 4px;
+    --be-toolbar-menu-height: 46px;
+    --be-toolbar-menu-padding: 12px;
+    --be-toolbar-menu-font-size: 13px;
+    --be-toolbar-menu-active-bg: #{rgba($pd3-main, .2)};
+
     position: fixed;
     inset-inline: 0;
     bottom: var(--pd3-mobile-nav-height, 66px);
     z-index: 100;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 52px;
-    gap: 8px;
-    height: 66px;
-    padding: 9px 12px;
-    background: rgba(16,20,23,.98);
-    border-top: 1px solid rgba($pd3-main,.6);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 46px;
+    gap: var(--be-toolbar-gap);
+    height: calc(var(--be-toolbar-button-height) + var(--be-toolbar-height-extra));
+    padding: var(--be-toolbar-padding);
+    background: rgba(16, 20, 23, .98);
+    border-top: 1px solid rgba($pd3-main, .6);
     backdrop-filter: blur(12px);
+
+    column-rule-style: solid;
+    column-rule-width: 1px;
+    column-rule-color: $color-border;
   }
-  .mobileActionsBar > button, .mobileMoreButton {
-    width: 100%; min-height: 48px; padding: 8px 10px; font-size: .86rem;
+
+  .page .mobileActionsBar button {
+    min-height: var(--be-toolbar-button-height);
+    padding: var(--be-toolbar-button-padding);
+    border: 0;
+    border-radius: var(--be-toolbar-button-radius);
+    background: var(--be-toolbar-button-bg);
+    color: var(--be-toolbar-button-color);
+    font-family: 'DIN2014';
+    font-size: var(--be-toolbar-font-size);
+    font-weight: var(--be-toolbar-button-weight);
+    line-height: 1.15;
   }
-  .mobileActionsBar button:disabled { cursor: not-allowed; opacity: .4; }
+
+  .page .mobileActionsBar > .mobileToolbarButton,
+  .page .mobileActionsBar > button {
+    max-width: var(--be-toolbar-button-max-width);
+    justify-self: center;
+    clip-path: none;
+  }
+
   .mobileActionsBarLibraryOpen {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(98px, auto);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(100px, auto);
   }
-  .mobileMoreWrapper { position: relative; min-width: 0; }
-  .mobileMoreButton { clip-path: none; border-radius: 8px; font-size: 1.5rem; }
-  .mobileCloseLibraryButton {
-    width: 100%; height: 100%; min-width: 0;
-    min-height: 48px; padding: 6px 4px;
-    clip-path: none; border-radius: 8px;
-    font-family: 'DIN2014'; font-size: clamp(10px, 2.8vw, 12px);
-    white-space: nowrap;
+
+  .mobileMoreWrapper {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
   }
+
+  .page .mobileActionsBar .mobileMoreButton {
+    font-size: var(--be-toolbar-more-font-size);
+  }
+
+  .page .mobileActionsBar .mobileCloseLibraryButton {
+    height: 100%;
+    padding: var(--be-toolbar-close-padding);
+    font-size: var(--be-toolbar-close-font-size);
+  }
+
+  .page .mobileEditorButton.mobileCloseLibraryButton {
+    display: flex;
+    gap: $space-sm;
+  }
+  .page .mobileEditorButton.mobileCloseLibraryButton > span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    margin: 0;
+  }
+
+  /* Barra animada: el rectángulo recortador crece de derecha a izquierda.
+     Nunca se animan clip-path ni opacity; overflow:hidden permanece estable.
+     Los botones tienen ancho de viewport constante, por lo que no se mueven
+     mientras la ventana de revelación cambia de tamaño. */
   .mobileMoreMenu {
-    position: absolute; bottom: calc(100% + 12px); right: 0;
-    width: min(280px, calc(100vw - 24px));
-    padding: 8px; display: grid; gap: 4px;
-    background: #141620; border: 1px solid rgba($pd3-main,.6);
-    border-radius: 10px; box-shadow: 0 14px 40px rgba(0,0,0,.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+    pointer-events: none;
+    // Si Motion retira momentáneamente el width inline, se conserva el estado.
+    &[data-open="true"] {
+      width: 100%;
+    }
   }
-  .mobileMoreMenu button {
-    width: 100%; min-height: 46px; padding: 12px;
-    text-align: left; clip-path: none; background: transparent;
-    border-radius: 6px; font-family: 'DIN2014'; font-size: 13px;
+
+  .mobileMoreMenuContent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, .8fr) minmax(0, .8fr) 46px;
+    align-items: center;
+    gap: var(--be-toolbar-gap);
+    padding: var(--be-toolbar-padding);
+    background: #141620;
+    border-top: 1px solid rgba($pd3-main, .6);
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, .38);
   }
-  .mobileMoreMenu button:active { background: rgba($pd3-main,.2); }
-  .backBtn { min-width: 44px; min-height: 44px; justify-content: center; }
+
+  .page .mobileActionsBar .mobileMoreMenuContent > .mobileMenuButton,
+  .page .mobileActionsBar .mobileMoreMenuContent > .mobileMenuClose {
+    min-height: var(--be-toolbar-button-height);
+    height: 100%;
+    padding: 3px 5px;
+    background: transparent;
+    font-size: var(--be-toolbar-menu-font-size);
+    text-align: center;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .page .mobileActionsBar .mobileMoreMenuContent > .mobileMenuClose {
+    padding: 0;
+    font-size: var(--be-toolbar-more-font-size);
+  }
+
+  .backBtn {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .libraryPanel {
+    position: fixed;
+
+    top: calc(73px + env(safe-area-inset-top, 0px));
+    bottom: calc(var(--pd3-mobile-nav-height, 66px) + 62px);
+
+    left: 8px;
+    right: 8px;
+
+    z-index: 40;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
 }

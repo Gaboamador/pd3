@@ -13,9 +13,9 @@ export default function MobileNavigation() {
     { to: '/', icon: <LuHouse />, label: t('nav.home'), end: true },
     { to: '/build-editor', icon: <LuWrench />, label: t('home.build-editor.title') },
     { to: '/library-explorer', icon: <LuFolderOpen />, label: t('mobile.nav.library'), disabled: !isAuthenticated },
+    { to: '/library-roulette', icon: <LuTarget />, label: t('mobile.nav.roulette') },
     { to: '/catalog', icon: <LuSearch />, label: t('home.catalog.title') },
     { to: '/randomizer', icon: <LuDice5 />, label: t('home.randomizer.title') },
-    { to: '/library-roulette', icon: <LuTarget />, label: t('mobile.nav.roulette') },
   ];
   return (
     <nav className={styles.nav} aria-label={t('mobile.nav.label')}>

@@ -123,6 +123,9 @@
     }
   }
 
+/* Vacío fuera de mobile: en desktop permanece el título de la sección. */
+.editorSlot { display: none; }
+
 .mobileAccount { display: none; }
 @media (max-width: 560px) {
   .header { padding-top: calc(10px + env(safe-area-inset-top, 0px)); }
@@ -145,4 +148,18 @@
   .accountName { white-space: normal; overflow-wrap: anywhere; font-family: 'DIN2014'; font-size: .8rem; }
   .accountPopup button { min-height: 44px; }
   .subtitle { font-size: clamp(.95rem, 4vw, 1.2rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Reutilizar la fila del Header: no añadir otra barra sticky. */
+  .editorHeader .subtitle { display: none; }
+  .editorHeader .inner { gap: 5px; }
+  .editorHeader .editorSlot {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    align-items: center;
+  }
+  .editorHeader .logoButton,
+  .editorHeader .accountButton { flex-shrink: 0; }
+  .editorHeader .mobileAccount { flex-shrink: 0; }
+  .editorHeader .inner > a { flex-shrink: 0; }
 }

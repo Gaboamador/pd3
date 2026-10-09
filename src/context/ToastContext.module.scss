@@ -44,3 +44,25 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 560px) {
+  :global(body:has([data-mobile-build-editor="true"])) .container {
+    top: auto;
+    right: auto;
+    bottom: calc(
+      var(--pd3-mobile-nav-height, 66px) + 54px + 8px
+    );
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: calc(100vw - 24px);
+    align-items: center;
+  }
+
+  :global(body:has([data-mobile-build-editor="true"])) .toast {
+    box-sizing: border-box;
+    max-width: calc(100vw - 24px);
+    text-align: center;
+  }
+}

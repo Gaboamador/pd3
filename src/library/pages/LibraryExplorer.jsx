@@ -17,6 +17,7 @@ import { normalize } from "../utils/normalize";
 import { encodeFilters, decodeFilters } from "../utils/filterSerialization";
 import { formatWeaponTypeWithSlot, getChipLabel, getChipKindLabel, getChipKindColor, formatKindLabel, buildSuggestionsWithDividers } from "../../utils/searchPresentation.utils";
 import { saveCompareBuilds } from "../../features/compareBuilds/utils/compareBuildsSession";
+import ScrollArrow from "../../components/ScrollArrow";
 
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
@@ -542,6 +543,8 @@ useEffect(() => {
           </div>
         </Section>
       </div>
+
+      <ScrollArrow/>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { LuChevronDown } from "react-icons/lu";
 import { buildSkillUIIndex } from "../../utils/skillsIndex.utils";
 import styles from "./SkillsEditor.module.scss";
 import SkillTreeGrid from "./SkillTreeGrid";
@@ -47,6 +49,10 @@ export default function SkillsEditor({
   const { t } = useTranslation();
   const isMobile = useIsMobile(BREAKPOINTS.skillTreeDesktop);
   const isPhone = useIsMobile(BREAKPOINTS.mobile);
+  // HUD mobile permanente: no cambia de altura ni observa el scroll.
+  // El detalle de puntos y las acciones destructivas se despliegan a demanda.
+  const [mobileHudDetailsOpen, setMobileHudDetailsOpen] = useState(false);
+
   const [showTouchHint, setShowTouchHint] = useState(() => {
     try { return localStorage.getItem('pd3_skills_touch_hint_dismissed') !== '1'; }
     catch { return true; }
@@ -427,6 +433,27 @@ function getSkillTier(skill) {
   return 1;
 }
 
+// Total de SP reales del tree seleccionado (no cantidad de skills equipadas).
+// Comparte la misma semántica que calculateGroupPoints y totalPoints.
+const activeTreePoints = useMemo(() => {
+  const tree = visibleTrees[activeTreeIndex] ?? visibleTrees[0];
+  if (!tree) return 0;
+  return tree.skills.reduce((sum, skill) => {
+    const state = build.skills?.[skill.key];
+    const base = skill.req_points?.base ?? 0;
+    const aced = skill.req_points?.aced ?? 0;
+    return sum + (state?.aced ? base + aced : state?.base ? base : 0);
+  }, 0);
+}, [visibleTrees, activeTreeIndex, build.skills]);
+
+function selectGroup(groupId) {
+  if (catalogMode) return;
+  setActiveGroupId(groupId);
+  setSelectedSkillKey(null);
+  setActiveTreeIndex(0);
+  swiperInstance?.slideTo(0, 0);
+}
+
 const groupPointsById = useMemo(() => {
   const map = {};
 
@@ -483,14 +510,40 @@ const groupPointsById = useMemo(() => {
 
   if (!activeGroup) return null;
 
+  // Compartido por ambas vistas. En mobile se monta en body para que el
+  // encabezado sticky no encierre el overlay del modal de confirmación.
+  const clearConfirmModal = (
+        <ConfirmModal
+          open={confirmOpen}
+          title={
+            pendingAction === "clearAll"
+              ? <><span>{t('modal.title.skills.clear.all')}</span></>
+              : <>{t('modal.title.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.title.skills.clear.category2')}</>
+          }
+          message={
+            pendingAction === "clearAll"
+              ? <>{t('modal.msg.skills.clear.all1')} <span data-variant="all">{t('modal.msg.skills.clear.all2')}</span> {t('modal.msg.skills.clear.all3')}</>
+              : <>{t('modal.msg.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.msg.skills.clear.category2')}</>
+          }
+          confirmLabel={t('modal.actions.clear')}
+          cancelLabel={t('modal.actions.cancel')}
+          onConfirm={executeClear}
+          onCancel={() => {
+            setConfirmOpen(false);
+            setPendingAction(null);
+          }}
+          destructive={true}
+        />
+  );
+
   return (
   <div className={styles.wrapper}>
     {!catalogMode && (
       <>
     {/* Header */}
-    <div className={styles.header}>
+    <div className={`${styles.header} ${isPhone && mobileHudDetailsOpen ? styles.headerDetailsExpanded : ""}`}>
 
-      <div className={styles.headerInfo}>
+      <div id={isPhone ? "pd3-skills-hud-details" : undefined} className={styles.headerInfo}>
         
         <div className={styles.pointsSpent}>
           <div className={styles.title}>
@@ -523,29 +576,8 @@ const groupPointsById = useMemo(() => {
           </button>
         </div>
 
-        <ConfirmModal
-          open={confirmOpen}
-          title={
-            pendingAction === "clearAll"
-              ? <><span>{t('modal.title.skills.clear.all')}</span></>
-              : <>{t('modal.title.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.title.skills.clear.category2')}</>
-          }
-          message={
-            pendingAction === "clearAll"
-              ? <>{t('modal.msg.skills.clear.all1')} <span data-variant="all">{t('modal.msg.skills.clear.all2')}</span> {t('modal.msg.skills.clear.all3')}</>
-              : <>{t('modal.msg.skills.clear.category1')} <span>{activeGroup?.name}</span> {t('modal.msg.skills.clear.category2')}</>
-          }
-          confirmLabel={t('modal.actions.clear')}
-          cancelLabel={t('modal.actions.cancel')}
-          onConfirm={executeClear}
-          onCancel={() => {
-            setConfirmOpen(false);
-            setPendingAction(null);
-          }}
-          destructive={true}
-        />
 
-
+        {!isPhone && clearConfirmModal}
       </div>
 
       {/* Group selector */}
@@ -557,13 +589,7 @@ const groupPointsById = useMemo(() => {
             <div key={g.groupId} className={styles.groupItem}>
               <button
                 type="button"
-                onClick={() => {
-                  if (catalogMode) return;
-                  setActiveGroupId(g.groupId);
-                  setSelectedSkillKey(null);
-                  setActiveTreeIndex(0);
-                  swiperInstance?.slideTo(0, 0);
-                }}
+                onClick={() => selectGroup(g.groupId)}
                 className={`${styles.groupButton} ${
                   g.groupId === activeGroupId ? styles.groupButtonActive : ""
                 }`}
@@ -577,9 +603,51 @@ const groupPointsById = useMemo(() => {
           );
         })}
       </div>
+
+      {/* Mobile: barra permanente, sin observadores ni alternancia por scroll. */}
+      {isPhone && (
+        <div className={styles.compactHud} aria-label="Skill points and group navigation">
+          <button type="button"
+            className={styles.hudSummary}
+            aria-expanded={mobileHudDetailsOpen}
+            aria-controls="pd3-skills-hud-details"
+            aria-label={`${totalPoints} of ${MAX_SKILL_POINTS} skill points invested; ${remainingPoints} available; ${activeTreePoints} in this tree. ${mobileHudDetailsOpen ? "Hide" : "Show"} skill point details and clear actions`}
+            title={mobileHudDetailsOpen ? "Hide skill point actions" : "Show skill point actions"}
+            onClick={() => setMobileHudDetailsOpen(open => !open)}>
+            <strong className={styles.hudPointsUsed}>{totalPoints}</strong>
+            <small className={styles.hudPointsMax}>/{MAX_SKILL_POINTS}</small>
+            <small className={styles.hudTreePoints}>TREE: {activeTreePoints}</small>
+            <LuChevronDown className={styles.hudExpandIcon} aria-hidden="true" />
+          </button>
+          {uiIndex.map(g => {
+            const points = groupPointsById[g.groupId] ?? 0;
+            const active = g.groupId === activeGroupId;
+            return (
+              <button key={g.groupId} type="button"
+                className={`${styles.hudGroup} ${active ? styles.hudGroupActive : ""}`}
+                aria-label={`${g.name}: ${points} skill points invested`}
+                aria-pressed={active}
+                title={`${g.name} · ${points} SP`}
+                onClick={() => selectGroup(g.groupId)}>
+                <span className={styles.hudGroupName} aria-hidden="true">
+                  {g.name}
+                </span>
+
+                <span className={styles.hudSprite}>
+                  <SkillGroupSprite spritePos={g.sprite} height={16} />
+                </span>
+
+                <span className={styles.hudPoints}>{points}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
     </>
     )}
+
+    {isPhone && !catalogMode && createPortal(clearConfirmModal, document.body)}
 
     {isPhone && !catalogMode && showTouchHint && (
       <div className={styles.touchHint} role="note">

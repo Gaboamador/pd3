@@ -7,6 +7,7 @@ import { useAuth } from "../auth/useAuth";
 import { logout } from "../../firebaseAuth";
 import NavMenu from "./NavMenu";
 import HeaderMenuIcon from "./HeaderMenuIcon";
+import { useHeaderEditorSlot } from "../context/HeaderEditorSlotContext";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import {
   LuWrench,
@@ -26,6 +27,8 @@ export default function Header() {
   const user = useAuth();
   const location = useLocation();
   const pathname = location.pathname;
+  const isBuildEditorRoute = pathname.startsWith("/build-editor") || pathname.startsWith("/s/");
+  const { setEditorSlot } = useHeaderEditorSlot();
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const accountRef = useRef(null);
@@ -112,7 +115,7 @@ export default function Header() {
   ];
 
   return (
-    <header ref={headerRef} className={styles.header}>
+    <header ref={headerRef} className={`${styles.header} ${isBuildEditorRoute ? styles.editorHeader : ""}`}>
       <div className={styles.inner}>
 
       {isHome ? (
@@ -134,6 +137,10 @@ export default function Header() {
       {subtitle && (
         <span className={styles.subtitle}>{subtitle}</span>
       )}
+
+      {/* Punto de montaje para los controles mobile del Build Editor.
+          Header conserva su contenido habitual en el resto de las rutas. */}
+      {isBuildEditorRoute && <div ref={setEditorSlot} className={styles.editorSlot} />}
 
       {isAuthenticated ? (
         <>

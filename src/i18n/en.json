@@ -24,7 +24,8 @@
   "auth.title.signup": "Create Account",
   "build.actions.load": "LOAD",
   "build.actions.new": "NEW BUILD",
-  "build.actions.open_library": "BUILDS",
+  "build.actions.open_library1": "LIBRARY",
+  "build.actions.open_library2": "BUILDS",
   "build.actions.save": "SAVE",
   "build.actions.save-as": "SAVE AS",
   "build.actions.share": "SHARE BUILD",
@@ -33,7 +34,7 @@
   "build.failed-to-save": "Failed to save build",
   "build.failed-update-slot": "Failed to update slot",
   "build.library.actions.delete-build": "Delete",
-  "build.library.actions.set-active": "Set Active",
+  "build.library.actions.set-active": "Open",
   "build.library.label.active": "ACTIVE",
   "build.library.label.fallbackName": "Unnamed Build",
   "build.library.msg.no-saved": "No saved builds",
@@ -312,5 +313,5 @@
   "mobile.editor.name-prompt": "Build name",
   "mobile.editor.save-name": "Apply name",
   "mobile.editor.save-as-name": "Save new build as",
-  "mobile.editor.library-close": "Close builds"
+  "mobile.editor.library-close": "CLOSE BUILDS"
 }
