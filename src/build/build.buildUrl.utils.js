@@ -6,6 +6,7 @@ import {
 import skillsData from "../data/payday3_skills.json";
 import { DEFAULT_BUILD } from "./build.constants";
 import { createSkillIndexMap } from "./build.shareSkillMap";
+import { normalizeBuildWeaponMods } from "./utils/loadout.utils";
 
 /* ===============================
    MAPA SKILLS (sí conviene índice)
@@ -61,7 +62,7 @@ export function encodeBuildToUrl(build) {
 
     /* ---------- Loadout ---------- */
 
-    const l = build.loadout;
+    const l = normalizeBuildWeaponMods(build).loadout;
 
     const compact = {
       i: build.id ?? null,
@@ -157,7 +158,7 @@ export function decodeBuildFromUrl(encoded) {
     const [primaryPerk, secondaryPerk, overkillConfig] =
       Array.isArray(parsed.p) ? parsed.p : [null, null, {}];
 
-    return {
+    return normalizeBuildWeaponMods({
       ...DEFAULT_BUILD,
       id: parsed.i ?? null,
       version: parsed.v,
@@ -198,7 +199,7 @@ export function decodeBuildFromUrl(encoded) {
       },
 
       skills,
-    };
+    });
   } catch (err) {
     console.warn("Failed to decode build", err);
     return null;

@@ -1,8 +1,11 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaCircleChevronDown, FaCircleChevronUp } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import { formatWeaponTypeLabel } from "../../../utils/searchPresentation.utils";
+import WeaponPerkSearchPicker from "./WeaponPerkSearchPicker";
 import styles from "./PerksComparisonSection.module.scss";
+import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
 
 function buildOverkillNameMap(loadoutData) {
   return Object.values(loadoutData?.overkill ?? {}).reduce((map, weapon) => {
@@ -68,6 +71,8 @@ function getPerkSlotOrder(perk) {
 
 export default function PerksComparisonSection({ perksData, loadoutData }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [finderPerkKey, setFinderPerkKey] = useState("");
   const [sortConfig, setSortConfig] = useState({
     key: "name",
     direction: "asc",
@@ -281,7 +286,7 @@ export default function PerksComparisonSection({ perksData, loadoutData }) {
         >
           <td className={styles.perkName}>{perk.name ?? perk.key}</td>
           <td>{renderAssociation(perk)}</td>
-          <td className={styles.description}>{perk.description ?? "—"}</td>
+          <td className={styles.description}><PerkDescriptionText description={perk.description ?? "—"} /></td>
         </tr>
       );
     });
@@ -293,6 +298,29 @@ export default function PerksComparisonSection({ perksData, loadoutData }) {
 
   return (
     <div className={styles.wrapper}>
+      <section className={styles.overviewFinder} aria-label="Find Perk Combinations">
+        <div>
+          <h3 className={styles.sectionTitle}>Find Perk Combinations</h3>
+          <p className={styles.finderHint}>Choose a Weapon Perk, then select a second one on its detail page.</p>
+        </div>
+        <div className={styles.finderControls}>
+          <WeaponPerkSearchPicker
+            id="perks-overview-finder"
+            label="First perk"
+            perks={weaponPerks}
+            value={finderPerkKey}
+            onChange={setFinderPerkKey}
+          />
+          <button
+            type="button"
+            className={styles.finderButton}
+            disabled={!finderPerkKey}
+            onClick={() => navigate(`/catalog/${encodeURIComponent(finderPerkKey)}`)}
+          >
+            Find combinations →
+          </button>
+        </div>
+      </section>
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <div>

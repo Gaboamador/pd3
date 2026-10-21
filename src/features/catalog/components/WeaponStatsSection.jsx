@@ -2,8 +2,10 @@ import { useTranslation } from "react-i18next";
 import StatsGrid from "./common/StatsGrid";
 import { prettifyKey } from "./utils/prettifyKey";
 import styles from "./WeaponStatsSection.module.scss";
-import perksData from "../../../data/payday3_perks.json";
+import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
+import perksData from "../../../data/perksData.js";
 import { getPerkByKey, getWeaponPerks, isIconicWeapon } from "../../../build/utils/perks.utils";
+import { getWeaponModSlots } from "../../../build/utils/loadout.utils";
 
 // Orden “humano” típico (ajustalo si querés)
 const MOD_SLOT_ORDER = [
@@ -79,19 +81,10 @@ function buildStatsRows(stats, t) {
 }
 
 function buildModsInfo(weapon) {
-  const modsBySlot = weapon?.mods;
-  if (!modsBySlot || typeof modsBySlot !== "object") return [];
-
-  const entries = Object.entries(modsBySlot)
-    .filter(([_, slotMods]) => slotMods && typeof slotMods === "object")
-    .map(([slot, slotMods]) => {
-      const names = Object.values(slotMods)
-        .map((m) => m?.name)
-        .filter(Boolean);
-
-      return { slot, names };
-    })
-    .filter((x) => x.names.length > 0);
+  const entries = getWeaponModSlots(weapon).map(({ slot, options }) => ({
+    slot,
+    names: options.map(option => option.name).filter(Boolean),
+  })).filter(item => item.names.length > 0);
 
   // Ordenar slots (primero los conocidos, después alfabético)
   entries.sort((a, b) => {
@@ -142,7 +135,7 @@ export default function WeaponStatsSection({ weapon }) {
             {perks.map((perk) => (
               <div key={perk.key} className={`${styles.perkCard} ${perk.equipped ? styles.equipped : ""} ${perk.persistent ? styles.persistent : ""}`}>
                 <div className={styles.perkName}>{perk.name}</div>
-                <div className={styles.perkDescription}>{perk.description}</div>
+                <div className={styles.perkDescription}><PerkDescriptionText description={perk.description} /></div>
               </div>
             ))}
           </div>

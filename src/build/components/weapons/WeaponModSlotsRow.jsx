@@ -1,4 +1,4 @@
-import { getWeaponModSlots } from "../../utils/loadout.utils";
+import { getWeaponModSlots, isWeaponModSlotActive } from "../../utils/loadout.utils";
 import { WEAPON_MOD_SLOT_SPRITES } from "../../utils/sprites/weaponModSlotMap";
 import WeaponModSprite from "./WeaponModSprite";
 import styles from "./WeaponModSlotsRow.module.scss";
@@ -16,17 +16,15 @@ export default function WeaponModSlotsRow({ weaponDef, modsState, height }) {
         const spritePos = WEAPON_MOD_SLOT_SPRITES[ms.slot];
         if (!spritePos) return null;
 
-        // const isActive = modsState?.[ms.slot] != null;
-        const v = modsState?.[ms.slot] ?? null;
-        const isActive = v != null && v !== "";
+        const isActive = isWeaponModSlotActive(ms, modsState?.[ms.slot]);
 
         return (
           <div key={ms.slot} className={styles.icon}>
             <div className={isActive ? styles.active : styles.inactive}>
-                <WeaponModSprite
+              <WeaponModSprite
                 spritePos={spritePos}
                 height={height}
-                />
+              />
             </div>
           </div>
         );

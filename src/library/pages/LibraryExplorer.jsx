@@ -22,7 +22,7 @@ import ScrollArrow from "../../components/ScrollArrow";
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
-import perksData from "../../data/payday3_perks.json";
+import perksData from "../../data/perksData.js";
 import Spinner from "../../components/Spinner";
 
   const NAME_BY_KEY = buildNameByKey(skillsData, loadoutData, platesData, perksData);

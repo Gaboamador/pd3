@@ -7,13 +7,14 @@ import Section from "../../build/components/common/Section";
 import ComparisonGrid from "./components/ComparisonGrid";
 import LoadoutComparisonGrid from "./components/LoadoutComparisonGrid";
 import { compareBuildGroup } from "./utils/compareBuildGroup";
+import { normalizeBuildWeaponMods } from "../../build/utils/loadout.utils";
 import { loadCompareBuilds, saveCompareBuilds } from "./utils/compareBuildsSession";
 import ScrollArrow from "../../components/ScrollArrow";
 
 // Data
 import skillsData from "../../data/payday3_skills.json";
 import loadoutData from "../../data/payday3_loadout_items.json";
-import perksData from "../../data/payday3_perks.json";
+import perksData from "../../data/perksData.js";
 
 export default function CompareBuilds() {
   const { t } = useTranslation();
@@ -67,7 +68,7 @@ export default function CompareBuilds() {
   const result = useMemo(() => {
     if (!selectedBuilds || selectedBuilds.length < 2) return null;
 
-    return compareBuildGroup(selectedBuilds, {
+    return compareBuildGroup(selectedBuilds.map(normalizeBuildWeaponMods), {
       skillsData,
       loadoutData,
       perksData,

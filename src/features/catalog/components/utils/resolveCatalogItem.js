@@ -1,7 +1,7 @@
 import loadoutData from "../../../../data/payday3_loadout_items.json";
 import skillsData from "../../../../data/payday3_skills.json";
 import platesData from "../../../../data/payday3_armor_plates.json";
-import perksData from "../../../../data/payday3_perks.json";
+import perksData from "../../../../data/perksData.js";
 
 export function resolveCatalogItem(item) {
   if (!item) return { def: null, kind: null };

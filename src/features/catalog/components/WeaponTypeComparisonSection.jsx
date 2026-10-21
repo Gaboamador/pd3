@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaCircleChevronUp, FaCircleChevronDown } from "react-icons/fa6";
-import perksData from "../../../data/payday3_perks.json";
+import perksData from "../../../data/perksData.js";
 import styles from "./WeaponTypeComparisonSection.module.scss";
+import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
 
 const STAT_COLUMNS = [
   { key: "damage", label: "Dmg" },
@@ -277,7 +278,7 @@ export default function WeaponTypeComparisonSection({ weapons }) {
                       className={styles.perkDescriptionCell}
                       colSpan={STAT_COLUMNS.length}
                     >
-                      {perk.description}
+                      <PerkDescriptionText description={perk.description} />
                     </td>
                   </tr>
                 )}

@@ -18,7 +18,7 @@ import skillsData from "../../data/payday3_skills.json";
 import skillGroupsData from "../../data/payday3_skill_groups.json"
 import loadoutData from "../../data/payday3_loadout_items.json";
 import platesData from "../../data/payday3_armor_plates.json";
-import perksData from "../../data/payday3_perks.json";
+import perksData from "../../data/perksData.js";
 
 import CatalogDetails from "./components/CatalogDetails";
 import SkillsEditor from "../../build/components/skills/SkillsEditor";

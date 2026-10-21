@@ -2,62 +2,83 @@
   "perk_vampire": {
     "key": "perk_vampire",
     "name": "Vampire",
-    "description": "When you deal damage with this weapon, recover 0.5% of your health. Also gives Adrenaline.",
+    "sourceKey": "Perk_Vampire",
+    "values": {
+      "HealPercentage": {
+        "value": 0.005,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "smg"
-    ],
-    "equipped": true
+    "weaponTypes": ["smg"]
   },
   "perk_sharpshooter": {
     "key": "perk_sharpshooter",
     "name": "Sharpshooter",
-    "description": "Each Critical Hit increases damage of next shot by 15%, up to 200%. Missing a shot or hitting non-headshot removes the buff entirely.",
+    "sourceKey": "Perk_Sharpshooter",
+    "values": {
+      "IncreasedDamage": {
+        "value": 0.15,
+        "type": "rate"
+      },
+      "MaxIncreasedDamage": {
+        "value": 2,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "marksman"
-    ],
-    "equipped": true
+    "weaponTypes": ["marksman"]
   },
   "perk_ammo_feed": {
     "key": "perk_ammo_feed",
     "name": "Ammo Feed",
-    "description": "Whenever you pick up ammo box, gain 10% damage, up to 25%, for 5s. Timer refreshes on picking up ammo.",
+    "sourceKey": "Perk_LeadFed",
+    "values": {
+      "IncreasedDamage": {
+        "value": 0.1,
+        "type": "rate"
+      },
+      "MaxIncreasedDamage": {
+        "value": 0.25,
+        "type": "rate"
+      },
+      "DecayDuration": {
+        "value": 5,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "persistent": true
+    "weaponTypes": ["assaultrifle"]
   },
   "perk_hard_cast": {
     "key": "perk_hard_cast",
     "name": "Hard Cast",
-    "description": "15% of damage to armor is dealt directly into HP.",
+    "sourceKey": "Perk_Sabot",
+    "values": {
+      "ArmorPassthrough": {
+        "value": 0.15,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "equipped": true
+    "weaponTypes": ["assaultrifle"]
   },
   "perk_domino_effect": {
     "key": "perk_domino_effect",
     "name": "Domino Effect",
-    "description": "Killing a special enemy triggers their equipment destruction effect. You are immune to that effect.",
+    "sourceKey": "Perk_ChainReact",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "lmg"
-    ],
-    "equipped": true
+    "weaponTypes": ["lmg"]
   },
   "perk_run_and_gun": {
     "key": "perk_run_and_gun",
     "name": "Run & Gun",
-    "description": "Shoot and reload while running and sliding.",
+    "sourceKey": "Perk_Runner",
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": [
@@ -65,24 +86,36 @@
       "shotgun",
       "smg",
       "pistol"
-    ],
-    "persistent": true
+    ]
   },
   "perk_pin_puller": {
     "key": "perk_pin_puller",
     "name": "Pin Puller",
-    "description": "While using SWAT as meat shield, shove them away to drop a Smoke grenade when they drop. Only one Smoke per SWAT. 20s cooldown.",
+    "sourceKey": "Perk_PinPuller",
+    "values": {
+      "Cooldown": {
+        "value": 20,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "pistol"
-    ],
-    "equipped": true
+    "weaponTypes": ["pistol"]
   },
   "perk_glass_cannon": {
     "key": "perk_glass_cannon",
     "name": "Glass Cannon",
-    "description": "You deal 15% additional base damage, but take 10% increased damage to your armor.",
+    "sourceKey": "Perk_Glass",
+    "values": {
+      "IncreasedDamage": {
+        "value": 0.15,
+        "type": "rate"
+      },
+      "IncreasedIncomingArmorDamage": {
+        "value": 0.1,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": [
@@ -91,102 +124,124 @@
       "smg",
       "pistol",
       "revolver"
-    ],
-    "persistent": true
+    ]
   },
   "perk_bulky": {
     "key": "perk_bulky",
     "name": "Bulky",
-    "description": "You carry and start with 25% less ammo. You gain 10% damage resistance to Armor.",
+    "sourceKey": "Perk_Bulky",
+    "values": {
+      "DecreasedInventoryAmmo": {
+        "value": 0.25,
+        "type": "rate"
+      },
+      "DecreasedIncomingArmorDamage": {
+        "value": 0.1,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "revolver"
-    ],
-    "persistent": true
+    "weaponTypes": ["revolver"]
   },
   "perk_accelerator": {
     "key": "perk_accelerator",
     "name": "Accelerator",
-    "description": "Slide to gain RUSH for 20s.",
+    "sourceKey": "Perk_RushSlide",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "shotgun"
-    ],
-    "persistent": true
+    "weaponTypes": ["shotgun"]
   },
   "perk_bleeding_edge": {
     "key": "perk_bleeding_edge",
     "name": "Bleeding Edge",
-    "description": "When you kill enemy with Critical hit, gain EDGE for 20s.",
+    "sourceKey": "Perk_EdgeCrit",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "marksman"
-    ],
-    "persistent": true
+    "weaponTypes": ["marksman"]
   },
   "perk_knockback": {
     "key": "perk_knockback",
     "name": "Knockback",
-    "description": "Every shot has 50% chance for medium hurt and 10% for heavy hurt reaction.",
+    "sourceKey": "Perk_Trip",
+    "values": {
+      "IncreasedHurtStun": {
+        "value": 0.5,
+        "type": "rate"
+      },
+      "MinHurtStun": {
+        "value": 0.1,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "shotgun"
-    ],
-    "equipped": true
+    "weaponTypes": ["shotgun"]
   },
   "perk_haymaker": {
     "key": "perk_haymaker",
     "name": "Haymaker",
-    "description": "Melee SWAT to take them as meat shield.",
+    "sourceKey": "Perk_Slap",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "pistol"
-    ],
-    "persistent": true
+    "weaponTypes": ["pistol"]
   },
   "perk_battle_grit": {
     "key": "perk_battle_grit",
     "name": "Battle Grit",
-    "description": "When you lose Armor plate, gain GRIT for 20s.",
+    "sourceKey": "Perk_GritPlate",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "persistent": true
+    "weaponTypes": ["assaultrifle"]
   },
   "perk_assassin": {
     "key": "perk_assassin",
     "name": "Assassin",
-    "description": "Shots from this weapon are treated as silenced.",
+    "sourceKey": "Perk_Assassin",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "marksman",
-      "revolver"
-    ],
-    "equipped": true
+    "weaponTypes": ["revolver"]
   },
   "perk_bleed": {
     "key": "perk_bleed",
     "name": "Bleed",
-    "description": "When you do Health damage to enemy, you have 25% chance to apply Bleed (50dmg/2s, for 6s (25 DPS)).",
+    "sourceKey": "Perk_Bleed",
+    "values": {
+      "BleedChance": {
+        "value": 0.25,
+        "type": "rate"
+      },
+      "BleedDamage": {
+        "value": 50,
+        "type": "flat"
+      },
+      "BleedInterval": {
+        "value": 2,
+        "type": "flat"
+      },
+      "BleedDuration": {
+        "value": 6,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "marksman"
-    ],
-    "equipped": true
+    "weaponTypes": ["marksman"]
   },
   "perk_luck_of_the_draw": {
     "key": "perk_luck_of_the_draw",
     "name": "Luck of the Draw",
-    "description": "Each shot hast 2% chance to deal 50% damage.",
+    "sourceKey": "Perk_Critter",
+    "values": {
+      "HitChance": {
+        "value": 0.02,
+        "type": "rate"
+      },
+      "IncreasedDamage": {
+        "value": 0.5,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": [
@@ -194,136 +249,206 @@
       "marksman",
       "shotgun",
       "revolver"
-    ],
-    "equipped": true
+    ]
   },
   "perk_browbeater": {
     "key": "perk_browbeater",
     "name": "Browbeater",
-    "description": "Shooting unsilenced weapon makes civilians within 10m to be shouted at. Civilians remain controlled for 50% longer.",
+    "sourceKey": "Perk_Threat",
+    "values": {
+      "WithinRange": {
+        "value": 10,
+        "type": "flat"
+      },
+      "IncreasedDuration": {
+        "value": 0.5,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "lmg"
-    ],
-    "persistent": true
+    "weaponTypes": ["lmg"]
   },
   "perk_final_tap": {
     "key": "perk_final_tap",
     "name": "Final Tap",
-    "description": "Last shot in the mag deals 300% damage.",
+    "sourceKey": "Perk_Final",
+    "values": {
+      "IncreasedDamage": {
+        "value": 3,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "revolver"
-    ],
-    "equipped": true
+    "weaponTypes": ["revolver"]
   },
   "perk_resilient": {
     "key": "perk_resilient",
     "name": "Resilient",
-    "description": "Take 10% less damage to armor. Deal 15% less damage from ALL sources.",
+    "sourceKey": "Perk_Resilient",
+    "values": {
+      "DecreasedIncomingArmorDamage": {
+        "value": 0.1,
+        "type": "rate"
+      },
+      "DamageReduction": {
+        "value": 0.15,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "shotgun"
-    ],
-    "persistent": true
+    "weaponTypes": ["shotgun"]
   },
   "perk_veteran": {
     "key": "perk_veteran",
     "name": "Veteran",
-    "description": "When you kill an enemy, you have a 15% chance to immediately add the dropped ammo into the magazine. Excess ammo goes into the ammo inventory.",
+    "sourceKey": "Perk_Veteran",
+    "values": {
+      "PickupChance": {
+        "value": 0.15,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "equipped": true,
+    "weaponTypes": ["assaultrifle"],
     "iconicOnly": true
   },
   "perk_spray_and_pray": {
     "key": "perk_spray_and_pray",
     "name": "Spray and Pray",
-    "description": "Every 4th shot deals critical hit damage.",
+    "sourceKey": "Perk_LuckyShot",
+    "values": {
+      "PenetrationCount": {
+        "value": 4,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "equipped": true,
+    "weaponTypes": ["assaultrifle"],
     "iconicOnly": true
   },
   "perk_quickshot": {
     "key": "perk_quickshot",
     "name": "Quickshot",
-    "description": "When you kill an enemy with a critical hit, you don't have to cycle the weapon to fire the next shot in the magazine. Reloading cancels the free cycle.",
+    "sourceKey": "Perk_Quickshot",
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "marksman"
-    ],
-    "equipped": true,
+    "weaponTypes": ["marksman"],
     "iconicOnly": true
   },
   "perk_hot_lead": {
     "key": "perk_hot_lead",
     "name": "Hot Lead",
-    "description": "Whenever you do a critical hit, reduce the weapon's armor penetration by 10% of its base (down to 0%) but increase damage by 15% (max 150%) for 7 seconds. Critical hits refresh the timer.",
+    "sourceKey": "Perk_Bite",
+    "values": {
+      "DecreasedArmorPenetration": {
+        "value": 0.1,
+        "type": "rate"
+      },
+      "MinArmorPenetration": {
+        "value": 0,
+        "type": "rate"
+      },
+      "IncreasedDamage": {
+        "value": 0.15,
+        "type": "rate"
+      },
+      "MaxIncreasedDamage": {
+        "value": 1.5,
+        "type": "rate"
+      },
+      "BuffDuration": {
+        "value": 7,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "smg"
-    ],
-    "equipped": true,
+    "weaponTypes": ["smg"],
     "iconicOnly": true
   },
   "perk_target_practice": {
     "key": "perk_target_practice",
     "name": "Target Practice",
-    "description": "When you kill an enemy with a critical hit, this weapon deals 25% extra damage for 5 seconds.",
+    "sourceKey": "Perk_Superstar",
+    "values": {
+      "IncreasedDamage": {
+        "value": 0.25,
+        "type": "rate"
+      },
+      "DecayDuration": {
+        "value": 5,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "pistol"
-    ],
-    "equipped": true,
+    "weaponTypes": ["pistol"],
     "iconicOnly": true
   },
   "perk_trigger_happy": {
     "key": "perk_trigger_happy",
     "name": "Trigger Happy",
-    "description": "For every shot you fire, your damage increases by 4% until you stop firing.",
+    "sourceKey": "Perk_Fool",
+    "values": {
+      "IncreasedDamage": {
+        "value": 0.04,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "pistol"
-    ],
-    "equipped": true,
+    "weaponTypes": ["pistol"],
     "iconicOnly": true
   },
   "perk_midas_touch": {
     "key": "perk_midas_touch",
     "name": "Midas Touch",
-    "description": "For each critical hit, gain 0.4 armor penetration until you reload the weapon (Max: 5). Each critical hit that penetrates armor breaks one more layer.",
+    "sourceKey": "Perk_Smith",
+    "values": {
+      "DecreasedArmorPenetration": {
+        "value": 0.4,
+        "type": "flat"
+      },
+      "MaxArmorPenetration": {
+        "value": 5,
+        "type": "flat"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "smg"
-    ],
-    "equipped": true,
+    "weaponTypes": ["smg"],
     "iconicOnly": true
   },
   "perk_fog_of_war": {
     "key": "perk_fog_of_war",
     "name": "Fog of War",
-    "description": "When killing an enemy, other enemies with 3 meters of that enemy lose 15% accuracy for 10s. This effect stacks to a maximum of 90%.",
+    "sourceKey": "Perk_WestWood",
+    "values": {
+      "WithinRange": {
+        "value": 3,
+        "type": "flat"
+      },
+      "DecreasedAccuracy": {
+        "value": 0.15,
+        "type": "rate"
+      },
+      "DecayDuration": {
+        "value": 10,
+        "type": "flat"
+      },
+      "MaxDecreasedAccuracy": {
+        "value": 0.9,
+        "type": "rate"
+      }
+    },
     "scope": "weapon",
     "optionType": "perk",
-    "weaponTypes": [
-      "assaultrifle"
-    ],
-    "equipped": true,
+    "weaponTypes": ["lmg"],
     "iconicOnly": true
   },
   "ovk_het5_hard_collateral": {

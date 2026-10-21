@@ -15,14 +15,14 @@ import skillsData from "../data/payday3_skills.json";
 import skillGroupsData from "../data/payday3_skill_groups.json";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
-import perksData from "../data/payday3_perks.json";
+import perksData from "../data/perksData.js";
 
 import { useUserLibrary } from "../library/hooks/useUserLibrary";
 import { loadBuildFromSession, saveBuildToSession, createEmptyBuild } from "./build.utils";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "./build.buildUrl.utils";
 import { selectUsedSkillPoints } from "./build.selectors";
 import { buildSkillTree } from "./utils/skillTree.utils";
-import { normalizeLoadoutData } from "./utils/loadout.utils";
+import { normalizeBuildWeaponMods, normalizeLoadoutData } from "./utils/loadout.utils";
 import { validateBuild } from "./build.validators";
 import { BuildLibraryService } from "../services/buildLibraryService";
 import { makeCopyNameIfNeeded } from "../utils/makeCopyNameIfNeeded";
@@ -330,7 +330,7 @@ const [build, setBuild] = useState(() => {
 
       if (pendingDeleteId === build.id) {
         const fallback = nextLibrary[0] ?? loadBuildFromSession();
-        setBuild(fallback);
+        setBuild(normalizeBuildWeaponMods(fallback));
       }
 
       showToast({
@@ -619,7 +619,7 @@ return (
           builds={orderedLibrary}
           currentBuildId={build.id}
           onLoadBuild={(b) => {
-            const clean = normalizeOwnedBuild(b);
+            const clean = normalizeBuildWeaponMods(normalizeOwnedBuild(b));
             userHasEditedRef.current = true;
             setBuild(clean);
             setShowLibrary(false);

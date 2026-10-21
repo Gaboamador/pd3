@@ -1,5 +1,6 @@
 import { DEFAULT_BUILD } from "./build.constants";
 import { BUILD_SESSION_KEY } from "./build.constants";
+import { normalizeBuildWeaponMods } from "./utils/loadout.utils";
 
 export function loadBuildFromSession() {
   try {
@@ -13,7 +14,7 @@ export function loadBuildFromSession() {
       return DEFAULT_BUILD;
     }
 
-    return parsed;
+    return normalizeBuildWeaponMods(parsed);
   } catch (err) {
     console.warn("Failed to load build from sessionStorage", err);
     return DEFAULT_BUILD;

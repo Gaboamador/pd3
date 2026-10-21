@@ -1,3 +1,5 @@
+@use "../../../styles/variables.scss" as *;
+
 .wrapper {
   display: grid;
   gap: $space-md;
@@ -10,13 +12,15 @@
 
 .metaRow {
   display: grid;
-  grid-template-columns: minmax(120px, 170px) 1fr;
+  grid-template-columns: minmax(120px, 170px) minmax(0, 1fr);
   gap: $space-sm;
   padding-bottom: $space-xs;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.metaLabel {
+.metaLabel,
+.slotName,
+.pickerLabel {
   color: $color-text-muted;
   font-family: "DIN2014";
   font-size: 12px;
@@ -29,6 +33,55 @@
   font-size: 13px;
 }
 
+.availability {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.availabilitySlot {
+  display: grid;
+  gap: 5px;
+}
+
+.availabilityOptions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.availabilityOption {
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  background: $color-bg-elevated;
+  color: $color-text-primary;
+  font-family: "DIN2014";
+  font-size: 13px;
+}
+
+.sourceName {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.iconicTag {
+  color: $pd3-lightgreen;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sourcePerk {
+  color: $color-text-muted;
+  font-size: 12px;
+}
+
 .description {
   padding: $space-md;
   border-left: 3px solid $pd3-hover;
@@ -39,10 +92,119 @@
   line-height: 1.5;
 
   &.equipped {
-    border-color: $color-perk-equipped
+    border-color: $color-perk-equipped;
   }
 
   &.persistent {
-    border-color: $color-perk-persistent
+    border-color: $color-perk-persistent;
+  }
+}
+
+.finder {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid $pd3-main;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+  font-family: "DIN2014";
+}
+
+.finderTitle {
+  margin: 0;
+  color: rgba($pd3-lightgreen, 0.55);
+  font-family: "Rift";
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.finderDescription,
+.emptyResult {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pickerRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 12px;
+}
+
+.selectedPerk,
+.pickerField {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.selectedPerk {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: $color-bg-elevated;
+  color: $color-text-primary;
+  font-size: 14px;
+}
+
+.finderResults {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resultsTitle {
+  margin: 0;
+  color: $pd3-lightgreen;
+  font-family: "DIN2014";
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.combinationList {
+  display: grid;
+  gap: 8px;
+}
+
+.combination {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  background: $color-bg-elevated;
+}
+
+.combinationSide {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  color: $color-text-primary;
+  font-size: 13px;
+}
+
+.combinationPlus {
+  color: $pd3-lightgreen;
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .metaRow {
+    grid-template-columns: 1fr;
+  }
+
+  .pickerRow,
+  .combination {
+    grid-template-columns: 1fr;
+  }
+
+  .combinationPlus {
+    font-size: 13px;
   }
 }

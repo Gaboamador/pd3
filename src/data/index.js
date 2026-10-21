@@ -9,7 +9,12 @@ import {
 
 import { throwables, deployables, tools } from "./equipment.js";
 import { heists } from "./heists.js";
-import { weapons } from "./weapons.js";
+import loadoutData from "./payday3_loadout_items.json";
+
+export const weapons = [
+  ...Object.values(loadoutData.primary ?? {}).filter(w => w.preset !== 1).map(w => ({ ...w, category: "primary" })),
+  ...Object.values(loadoutData.secondary ?? {}).filter(w => w.preset !== 1).map(w => ({ ...w, category: "secondary" })),
+];
 
 // Helper random simple
 export const r = (list, rng = Math.random) =>

@@ -12,204 +12,18 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90,
-          "ap": 2.8,
-          "recoil": 75, 
-          "stability": 45,
-          "accuracy": 71,
-          "handling": 42,
-          "rof": 720,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 90,
+        "ap": 2.8,
+        "recoil": 75,
+        "stability": 45,
+        "accuracy": 71,
+        "handling": 42,
+        "rof": 720,
+        "magazine": 30,
+        "ammo": 300
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "8": {
-            "id": 8,
-            "type": "default",
-            "name": "Default"
-          },
-          "9": {
-            "id": 9,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "11": {
-            "id": 11,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "12": {
-            "id": 12,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "13": {
-            "id": 13,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "14": {
-            "id": 14,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "15": {
-            "id": 15,
-            "type": "default",
-            "name": "Default"
-          },
-          "16": {
-            "id": 16,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "18": {
-            "id": 18,
-            "type": "default",
-            "name": "Default"
-          },
-          "19": {
-            "id": 19,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "20": {
-            "id": 20,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "21": {
-            "id": 21,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Mag": {
-          "22": {
-            "id": 22,
-            "type": "default",
-            "name": "Default"
-          },
-          "23": {
-            "id": 23,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "24": {
-            "id": 24,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "25": {
-            "id": 25,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "26": {
-            "id": 26,
-            "type": "default",
-            "name": "Default"
-          },
-          "27": {
-            "id": 27,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "28": {
-            "id": 28,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "29": {
-            "id": 29,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "30": {
-            "id": 30,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "1": {
-            "id": 1,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "2": {
-            "id": 2,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "3": {
-            "id": 3,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "4": {
-            "id": 4,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "5": {
-            "id": 5,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "6": {
-            "id": 6,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "7": {
-            "id": 7,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "33": {
-            "id": 33,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "34": {
-            "id": 34,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "2": {
       "id": 2,
@@ -223,187 +37,18 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 70,
-          "ap": 2.2,
-          "recoil": 76, 
-          "stability": 49,
-          "accuracy": 71,
-          "handling": 53,
-          "rof": 750,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 70,
+        "ap": 2.2,
+        "recoil": 76,
+        "stability": 49,
+        "accuracy": 71,
+        "handling": 53,
+        "rof": 750,
+        "magazine": 30,
+        "ammo": 300
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "210": {
-            "id": 210,
-            "type": "default",
-            "name": "Default"
-          },
-          "211": {
-            "id": 211,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "212": {
-            "id": 212,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "213": {
-            "id": 213,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "214": {
-            "id": 214,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "215": {
-            "id": 215,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "216": {
-            "id": 216,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Grip": {
-          "217": {
-            "id": 217,
-            "type": "default",
-            "name": "Default"
-          },
-          "218": {
-            "id": 218,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "219": {
-            "id": 219,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "220": {
-            "id": 220,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Mag": {
-          "221": {
-            "id": 221,
-            "type": "default",
-            "name": "Default"
-          },
-          "222": {
-            "id": 222,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "223": {
-            "id": 223,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "224": {
-            "id": 224,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "225": {
-            "id": 225,
-            "type": "default",
-            "name": "Default"
-          },
-          "226": {
-            "id": 226,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "227": {
-            "id": 227,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "228": {
-            "id": 228,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "229": {
-            "id": 229,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "203": {
-            "id": 203,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "204": {
-            "id": 204,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "205": {
-            "id": 205,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "206": {
-            "id": 206,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "207": {
-            "id": 207,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "208": {
-            "id": 208,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "209": {
-            "id": 209,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "230": {
-            "id": 230,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "231": {
-            "id": 231,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "232": {
-            "id": 232,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "233": {
-            "id": 233,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "3": {
       "id": 3,
@@ -417,204 +62,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 120,
-          "ap": 0,
-          "recoil": 0, 
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 600,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 120,
+        "ap": 1.75,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 600,
+        "magazine": 30,
+        "ammo": 300
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "93": {
-            "id": 93,
-            "type": "default",
-            "name": "Default"
-          },
-          "94": {
-            "id": 94,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "95": {
-            "id": 95,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "96": {
-            "id": 96,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "97": {
-            "id": 97,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "98": {
-            "id": 98,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "99": {
-            "id": 99,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "100": {
-            "id": 100,
-            "type": "default",
-            "name": "Default"
-          },
-          "101": {
-            "id": 101,
-            "type": "unique",
-            "name": "Rail Barrel"
-          },
-          "102": {
-            "id": 102,
-            "type": "unique",
-            "name": "Trad Grip Barrel"
-          }
-        },
-        "Grip": {
-          "103": {
-            "id": 103,
-            "type": "default",
-            "name": "Default"
-          },
-          "104": {
-            "id": 104,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "105": {
-            "id": 105,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "106": {
-            "id": 106,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Mag": {
-          "107": {
-            "id": 107,
-            "type": "default",
-            "name": "Default"
-          },
-          "108": {
-            "id": 108,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "109": {
-            "id": 109,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "110": {
-            "id": 110,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "111": {
-            "id": 111,
-            "type": "default",
-            "name": "Default"
-          },
-          "112": {
-            "id": 112,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "113": {
-            "id": 113,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "114": {
-            "id": 114,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "115": {
-            "id": 115,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "116": {
-            "id": 116,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "117": {
-            "id": 117,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "118": {
-            "id": 118,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "119": {
-            "id": 119,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "120": {
-            "id": 120,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "121": {
-            "id": 121,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "122": {
-            "id": 122,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "123": {
-            "id": 123,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "124": {
-            "id": 124,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "125": {
-            "id": 125,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "126": {
-            "id": 126,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "4": {
       "id": 4,
@@ -628,204 +87,18 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 130,
-          "ap": 0,
-          "recoil": 0, 
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 550,
-          "magazine": 20,
-          "ammo": 200
+      "stats": {
+        "damage": 130,
+        "ap": 2.5,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 550,
+        "magazine": 20,
+        "ammo": 200
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "255": {
-            "id": 255,
-            "type": "default",
-            "name": "Default"
-          },
-          "256": {
-            "id": 256,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "257": {
-            "id": 257,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "258": {
-            "id": 258,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "259": {
-            "id": 259,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "260": {
-            "id": 260,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "261": {
-            "id": 261,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "262": {
-            "id": 262,
-            "type": "default",
-            "name": "Default"
-          },
-          "263": {
-            "id": 263,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "264": {
-            "id": 264,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "265": {
-            "id": 265,
-            "type": "default",
-            "name": "Default"
-          },
-          "266": {
-            "id": 266,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "267": {
-            "id": 267,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "268": {
-            "id": 268,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Mag": {
-          "269": {
-            "id": 269,
-            "type": "default",
-            "name": "Default"
-          },
-          "270": {
-            "id": 270,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "271": {
-            "id": 271,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "272": {
-            "id": 272,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "273": {
-            "id": 273,
-            "type": "default",
-            "name": "Default"
-          },
-          "274": {
-            "id": 274,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "275": {
-            "id": 275,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "276": {
-            "id": 276,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "277": {
-            "id": 277,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "248": {
-            "id": 248,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "249": {
-            "id": 249,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "250": {
-            "id": 250,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "251": {
-            "id": 251,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "252": {
-            "id": 252,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "253": {
-            "id": 253,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "254": {
-            "id": 254,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "278": {
-            "id": 278,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "279": {
-            "id": 279,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "280": {
-            "id": 280,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "281": {
-            "id": 281,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "5": {
       "id": 5,
@@ -839,179 +112,18 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 92,
-          "ap": 3,
-          "recoil": 49, 
-          "stability": 34,
-          "accuracy": 45,
-          "handling": 40,
-          "rof": 450,
-          "magazine": 12,
-          "ammo": 120
+      "stats": {
+        "damage": 92,
+        "ap": 3,
+        "recoil": 49,
+        "stability": 34,
+        "accuracy": 45,
+        "handling": 40,
+        "rof": 450,
+        "magazine": 12,
+        "ammo": 120
       },
-      "dlc": null,
-      "mods": {
-        "Barrel": {
-          "146": {
-            "id": 146,
-            "type": "default",
-            "name": "Default"
-          },
-          "147": {
-            "id": 147,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "148": {
-            "id": 148,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Mag": {
-          "149": {
-            "id": 149,
-            "type": "default",
-            "name": "Default"
-          },
-          "150": {
-            "id": 150,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "151": {
-            "id": 151,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "152": {
-            "id": 152,
-            "type": "default",
-            "name": "Default"
-          },
-          "153": {
-            "id": 153,
-            "type": "unique",
-            "name": "Torque Silencer"
-          },
-          "154": {
-            "id": 154,
-            "type": "unique",
-            "name": "Edge Ridged Silencer"
-          },
-          "155": {
-            "id": 155,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "156": {
-            "id": 156,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "157": {
-            "id": 157,
-            "type": "unique",
-            "name": "Indent Compensator"
-          }
-        },
-        "Grip": {
-          "162": {
-            "id": 162,
-            "type": "default",
-            "name": "Default"
-          },
-          "163": {
-            "id": 163,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "164": {
-            "id": 164,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "165": {
-            "id": 165,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Stock": {
-          "170": {
-            "id": 170,
-            "type": "default",
-            "name": "Default"
-          },
-          "171": {
-            "id": 171,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "172": {
-            "id": 172,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "173": {
-            "id": 173,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "174": {
-            "id": 174,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "158": {
-            "id": 158,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "159": {
-            "id": 159,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "160": {
-            "id": 160,
-            "type": "unique",
-            "name": "Fluted Marksman Scope"
-          },
-          "161": {
-            "id": 161,
-            "type": "unique",
-            "name": "Primed Marksman Scope"
-          }
-        },
-        "VerticalGrip": {
-          "166": {
-            "id": 166,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "167": {
-            "id": 167,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "168": {
-            "id": 168,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "169": {
-            "id": 169,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "6": {
       "id": 6,
@@ -1025,120 +137,18 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 280,
-          "ap": 7,
-          "recoil": 65, 
-          "stability": 59,
-          "accuracy": 85,
-          "handling": 27,
-          "rof": 50,
-          "magazine": 5,
-          "ammo": 50
+      "stats": {
+        "damage": 280,
+        "ap": 7,
+        "recoil": 65,
+        "stability": 59,
+        "accuracy": 85,
+        "handling": 27,
+        "rof": 50,
+        "magazine": 5,
+        "ammo": 50
       },
-      "dlc": null,
-      "mods": {
-        "Sight": {
-          "55": {
-            "id": 55,
-            "type": "default",
-            "name": "Default"
-          },
-          "56": {
-            "id": 56,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "57": {
-            "id": 57,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "58": {
-            "id": 58,
-            "type": "unique",
-            "name": "Fluted Marksman Scope"
-          },
-          "59": {
-            "id": 59,
-            "type": "unique",
-            "name": "Primed Marksman Scope"
-          }
-        },
-        "Barrel": {
-          "60": {
-            "id": 60,
-            "type": "default",
-            "name": "Default"
-          },
-          "61": {
-            "id": 61,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "62": {
-            "id": 62,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Mag": {
-          "63": {
-            "id": 63,
-            "type": "default",
-            "name": "Default"
-          },
-          "64": {
-            "id": 64,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "Stock": {
-          "65": {
-            "id": 65,
-            "type": "default",
-            "name": "Default"
-          },
-          "66": {
-            "id": 66,
-            "type": "unique",
-            "name": "Hardwood"
-          },
-          "67": {
-            "id": 67,
-            "type": "unique",
-            "name": "Lightweight"
-          }
-        },
-        "BarrelExtension": {
-          "68": {
-            "id": 68,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "69": {
-            "id": 69,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "70": {
-            "id": 70,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "71": {
-            "id": 71,
-            "type": "unique",
-            "name": "Torque Silencer"
-          },
-          "72": {
-            "id": 72,
-            "type": "unique",
-            "name": "Edge Ridged Silencer"
-          }
-        }
-      }
+      "dlc": null
     },
     "7": {
       "id": 7,
@@ -1152,172 +162,18 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 65.2,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 860,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 65.2,
+        "ap": 1.3,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 860,
+        "magazine": 30,
+        "ammo": 300
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "180": {
-            "id": 180,
-            "type": "default",
-            "name": "Default"
-          },
-          "181": {
-            "id": 181,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "182": {
-            "id": 182,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "183": {
-            "id": 183,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "184": {
-            "id": 184,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "185": {
-            "id": 185,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Mag": {
-          "186": {
-            "id": 186,
-            "type": "default",
-            "name": "Default"
-          },
-          "187": {
-            "id": 187,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "188": {
-            "id": 188,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "189": {
-            "id": 189,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "190": {
-            "id": 190,
-            "type": "default",
-            "name": "Default"
-          },
-          "191": {
-            "id": 191,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "192": {
-            "id": 192,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "193": {
-            "id": 193,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "194": {
-            "id": 194,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        },
-        "Grip": {
-          "199": {
-            "id": 199,
-            "type": "default",
-            "name": "Default"
-          },
-          "200": {
-            "id": 200,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "201": {
-            "id": 201,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "202": {
-            "id": 202,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Sight": {
-          "175": {
-            "id": 175,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "176": {
-            "id": 176,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "177": {
-            "id": 177,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "178": {
-            "id": 178,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "179": {
-            "id": 179,
-            "type": "unique",
-            "name": "Projection RDS"
-          }
-        },
-        "VerticalGrip": {
-          "195": {
-            "id": 195,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "196": {
-            "id": 196,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          },
-          "197": {
-            "id": 197,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "198": {
-            "id": 198,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "8": {
       "id": 8,
@@ -1331,125 +187,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 60,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 1100,
-          "magazine": 25,
-          "ammo": 250
+      "stats": {
+        "damage": 60,
+        "ap": 0.9,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 1100,
+        "magazine": 25,
+        "ammo": 250
       },
-      "dlc": null,
-      "mods": {
-        "Mag": {
-          "135": {
-            "id": 135,
-            "type": "default",
-            "name": "Default"
-          },
-          "136": {
-            "id": 136,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "137": {
-            "id": 137,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "138": {
-            "id": 138,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "139": {
-            "id": 139,
-            "type": "default",
-            "name": "Default"
-          },
-          "140": {
-            "id": 140,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "141": {
-            "id": 141,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "142": {
-            "id": 142,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "143": {
-            "id": 143,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        },
-        "Sight": {
-          "127": {
-            "id": 127,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "128": {
-            "id": 128,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "129": {
-            "id": 129,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        },
-        "BarrelExtension": {
-          "130": {
-            "id": 130,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "131": {
-            "id": 131,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "132": {
-            "id": 132,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "133": {
-            "id": 133,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "134": {
-            "id": 134,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "VerticalGrip": {
-          "144": {
-            "id": 144,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "145": {
-            "id": 145,
-            "type": "unique",
-            "name": "Stub Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "9": {
       "id": 9,
@@ -1463,130 +212,18 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 59.2,
-          "ap": 1.4,
-          "recoil": 77,
-          "stability": 42,
-          "accuracy": 64,
-          "handling": 54,
-          "rof": 1100,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 59.2,
+        "ap": 1.4,
+        "recoil": 77,
+        "stability": 42,
+        "accuracy": 64,
+        "handling": 54,
+        "rof": 1100,
+        "magazine": 30,
+        "ammo": 300
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "76": {
-            "id": 76,
-            "type": "default",
-            "name": "Default"
-          },
-          "77": {
-            "id": 77,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "78": {
-            "id": 78,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "79": {
-            "id": 79,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "80": {
-            "id": 80,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "81": {
-            "id": 81,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Mag": {
-          "82": {
-            "id": 82,
-            "type": "default",
-            "name": "Default"
-          },
-          "83": {
-            "id": 83,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "84": {
-            "id": 84,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "85": {
-            "id": 85,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "86": {
-            "id": 86,
-            "type": "default",
-            "name": "Default"
-          },
-          "87": {
-            "id": 87,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "88": {
-            "id": 88,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "89": {
-            "id": 89,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "90": {
-            "id": 90,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "73": {
-            "id": 73,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "74": {
-            "id": 74,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "75": {
-            "id": 75,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        },
-        "VerticalGrip": {
-          "91": {
-            "id": 91,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "92": {
-            "id": 92,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "10": {
       "id": 10,
@@ -1600,131 +237,19 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 47.6,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 53,
-          "stability": 59,
-          "accuracy": 27,
-          "handling": 52,
-          "rof": 75,
-          "magazine": 7,
-          "ammo": 70
+      "stats": {
+        "damage": 47.6,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 53,
+        "stability": 59,
+        "accuracy": 27,
+        "handling": 52,
+        "rof": 75,
+        "magazine": 7,
+        "ammo": 70
       },
-      "dlc": null,
-      "mods": {
-        "Barrel": {
-          "35": {
-            "id": 35,
-            "type": "default",
-            "name": "Default"
-          },
-          "36": {
-            "id": 36,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "37": {
-            "id": 37,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "38": {
-            "id": 38,
-            "type": "unique",
-            "name": "Comp Barrel"
-          }
-        },
-        "ForeGrip": {
-          "39": {
-            "id": 39,
-            "type": "default",
-            "name": "Default"
-          },
-          "40": {
-            "id": 40,
-            "type": "unique",
-            "name": "Biofit Fore-End"
-          },
-          "41": {
-            "id": 41,
-            "type": "unique",
-            "name": "Tactical Fore-End"
-          }
-        },
-        "Stock": {
-          "42": {
-            "id": 42,
-            "type": "default",
-            "name": "Default"
-          },
-          "43": {
-            "id": 43,
-            "type": "unique",
-            "name": "CQC"
-          },
-          "44": {
-            "id": 44,
-            "type": "unique",
-            "name": "Padded"
-          },
-          "45": {
-            "id": 45,
-            "type": "unique",
-            "name": "Fortified"
-          }
-        },
-        "Sight": {
-          "46": {
-            "id": 46,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "47": {
-            "id": 47,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "48": {
-            "id": 48,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "49": {
-            "id": 49,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "50": {
-            "id": 50,
-            "type": "unique",
-            "name": "Tagged Iron Sight"
-          }
-        },
-        "BarrelExtension": {
-          "51": {
-            "id": 51,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "52": {
-            "id": 52,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "53": {
-            "id": 53,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "54": {
-            "id": 54,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          }
-        }
-      }
+      "dlc": null
     },
     "11": {
       "id": 11,
@@ -1738,99 +263,19 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 67.13,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 79,
-          "stability": 17,
-          "accuracy": 19,
-          "handling": 44,
-          "rof": 400,
-          "magazine": 2,
-          "ammo": 40
+      "stats": {
+        "damage": 67.13,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 79,
+        "stability": 17,
+        "accuracy": 19,
+        "handling": 44,
+        "rof": 400,
+        "magazine": 2,
+        "ammo": 40
       },
-      "dlc": null,
-      "mods": {
-        "Barrel": {
-          "234": {
-            "id": 234,
-            "type": "default",
-            "name": "Default"
-          },
-          "235": {
-            "id": 235,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "236": {
-            "id": 236,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Stock": {
-          "240": {
-            "id": 240,
-            "type": "default",
-            "name": "Default"
-          },
-          "241": {
-            "id": 241,
-            "type": "unique",
-            "name": "CQC"
-          },
-          "242": {
-            "id": 242,
-            "type": "unique",
-            "name": "Padded"
-          },
-          "243": {
-            "id": 243,
-            "type": "unique",
-            "name": "Fortified"
-          }
-        },
-        "Sight": {
-          "237": {
-            "id": 237,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "238": {
-            "id": 238,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "239": {
-            "id": 239,
-            "type": "unique",
-            "name": "Tagged Iron Sight"
-          }
-        },
-        "VerticalGrip": {
-          "244": {
-            "id": 244,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "245": {
-            "id": 245,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "246": {
-            "id": 246,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "247": {
-            "id": 247,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "20": {
       "id": 20,
@@ -1844,181 +289,23 @@
         "c": 3
       },
       "dlc_id": 1,
-      "stats": { 
-          "damage": 86.4,
-          "ap": 0.9,
-          "recoil": 76,
-          "stability": 54,
-          "accuracy": 63,
-          "handling": 38,
-          "rof": 650,
-          "magazine": 25,
-          "ammo": 250
+      "stats": {
+        "damage": 86.4,
+        "ap": 0.9,
+        "recoil": 76,
+        "stability": 54,
+        "accuracy": 63,
+        "handling": 38,
+        "rof": 650,
+        "magazine": 25,
+        "ammo": 250
       },
       "dlc": {
         "id": 1,
         "name": "Syntax Error",
         "release_date": "2023-12-12"
       },
-      "mods": {
-        "BarrelExtension": {
-          "313": {
-            "id": 313,
-            "type": "default",
-            "name": "Default"
-          },
-          "314": {
-            "id": 314,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "315": {
-            "id": 315,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "316": {
-            "id": 316,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "317": {
-            "id": 317,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "318": {
-            "id": 318,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Mag": {
-          "319": {
-            "id": 319,
-            "type": "default",
-            "name": "Default"
-          },
-          "320": {
-            "id": 320,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "321": {
-            "id": 321,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "322": {
-            "id": 322,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "Stock": {
-          "323": {
-            "id": 323,
-            "type": "default",
-            "name": "Default"
-          },
-          "324": {
-            "id": 324,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "325": {
-            "id": 325,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "326": {
-            "id": 326,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "327": {
-            "id": 327,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "328": {
-            "id": 328,
-            "type": "unique",
-            "name": "Minimized Hook Stock"
-          }
-        },
-        "Grip": {
-          "333": {
-            "id": 333,
-            "type": "default",
-            "name": "Default"
-          },
-          "334": {
-            "id": 334,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "335": {
-            "id": 335,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "336": {
-            "id": 336,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "VerticalGrip": {
-          "329": {
-            "id": 329,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "330": {
-            "id": 330,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "331": {
-            "id": 331,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "332": {
-            "id": 332,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        },
-        "Sight": {
-          "337": {
-            "id": 337,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "338": {
-            "id": 338,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "339": {
-            "id": 339,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "340": {
-            "id": 340,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "341": {
-            "id": 341,
-            "type": "unique",
-            "name": "Projection RDS"
-          }
-        }
-      }
+      "sourceKey": "War45"
     },
     "21": {
       "id": 21,
@@ -2032,194 +319,24 @@
         "c": 4
       },
       "dlc_id": 1,
-      "stats": { 
-          "damage": 44,
-          "pellets": 8,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 300,
-          "magazine": 10,
-          "ammo": 100
+      "stats": {
+        "damage": 44,
+        "pellets": 8,
+        "ap": 0,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 300,
+        "magazine": 10,
+        "ammo": 100
       },
       "dlc": {
         "id": 1,
         "name": "Syntax Error",
         "release_date": "2023-12-12"
       },
-      "mods": {
-        "Barrel": {
-          "282": {
-            "id": 282,
-            "type": "default",
-            "name": "Default"
-          },
-          "283": {
-            "id": 283,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "284": {
-            "id": 284,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Mag": {
-          "285": {
-            "id": 285,
-            "type": "default",
-            "name": "Default"
-          },
-          "286": {
-            "id": 286,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "287": {
-            "id": 287,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "288": {
-            "id": 288,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "289": {
-            "id": 289,
-            "type": "default",
-            "name": "Default"
-          },
-          "290": {
-            "id": 290,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "291": {
-            "id": 291,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "292": {
-            "id": 292,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "293": {
-            "id": 293,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "BarrelExtension": {
-          "299": {
-            "id": 299,
-            "type": "default",
-            "name": "Default"
-          },
-          "300": {
-            "id": 300,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "301": {
-            "id": 301,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "302": {
-            "id": 302,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "303": {
-            "id": 303,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          }
-        },
-        "Grip": {
-          "304": {
-            "id": 304,
-            "type": "default",
-            "name": "Default"
-          },
-          "305": {
-            "id": 305,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "306": {
-            "id": 306,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "307": {
-            "id": 307,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Sight": {
-          "294": {
-            "id": 294,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "295": {
-            "id": 295,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "296": {
-            "id": 296,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "297": {
-            "id": 297,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "298": {
-            "id": 298,
-            "type": "unique",
-            "name": "Tagged Iron Sight"
-          }
-        },
-        "VerticalGrip": {
-          "308": {
-            "id": 308,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "309": {
-            "id": 309,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "310": {
-            "id": 310,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "311": {
-            "id": 311,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          },
-          "312": {
-            "id": 312,
-            "type": "unique",
-            "name": "Flat-Side STAB Grip"
-          }
-        }
-      }
+      "sourceKey": "Fsa12"
     },
     "22": {
       "id": 22,
@@ -2233,197 +350,21 @@
         "c": 1
       },
       "dlc_id": 1,
-      "stats": { 
-          "damage": 54,
-          "ap": 1.5,
-          "recoil": 64,
-          "stability": 39,
-          "accuracy": 45,
-          "handling": 41,
-          "rof": 900,
-          "magazine": 25,
-          "ammo": 250
+      "stats": {
+        "damage": 54,
+        "ap": 1.5,
+        "recoil": 64,
+        "stability": 39,
+        "accuracy": 45,
+        "handling": 41,
+        "rof": 900,
+        "magazine": 25,
+        "ammo": 250
       },
       "dlc": {
         "id": 1,
         "name": "Syntax Error",
         "release_date": "2023-12-12"
-      },
-      "mods": {
-        "Barrel": {
-          "342": {
-            "id": 342,
-            "type": "default",
-            "name": "Default"
-          },
-          "343": {
-            "id": 343,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "344": {
-            "id": 344,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Mag": {
-          "345": {
-            "id": 345,
-            "type": "default",
-            "name": "Default"
-          },
-          "346": {
-            "id": 346,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "347": {
-            "id": 347,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "348": {
-            "id": 348,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "349": {
-            "id": 349,
-            "type": "default",
-            "name": "Default"
-          },
-          "350": {
-            "id": 350,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "351": {
-            "id": 351,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "352": {
-            "id": 352,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "353": {
-            "id": 353,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "354": {
-            "id": 354,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Grip": {
-          "355": {
-            "id": 355,
-            "type": "default",
-            "name": "Default"
-          },
-          "356": {
-            "id": 356,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "357": {
-            "id": 357,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "358": {
-            "id": 358,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Stock": {
-          "359": {
-            "id": 359,
-            "type": "default",
-            "name": "Default"
-          },
-          "360": {
-            "id": 360,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "361": {
-            "id": 361,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "362": {
-            "id": 362,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "363": {
-            "id": 363,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "VerticalGrip": {
-          "364": {
-            "id": 364,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "365": {
-            "id": 365,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "366": {
-            "id": 366,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "367": {
-            "id": 367,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        },
-        "Sight": {
-          "368": {
-            "id": 368,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "369": {
-            "id": 369,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "370": {
-            "id": 370,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "371": {
-            "id": 371,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "372": {
-            "id": 372,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "373": {
-            "id": 373,
-            "type": "unique",
-            "name": "Light Holographic Sight"
-          }
-        }
       }
     },
     "23": {
@@ -2438,202 +379,21 @@
         "c": 2
       },
       "dlc_id": 2,
-      "stats": { 
-          "damage": 104.6,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 600,
-          "magazine": 20,
-          "ammo": 200
+      "stats": {
+        "damage": 104.6,
+        "ap": 2,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 600,
+        "magazine": 20,
+        "ammo": 200
       },
       "dlc": {
         "id": 2,
         "name": "Boys in Blue",
         "release_date": "2024-06-27"
-      },
-      "mods": {
-        "BarrelExtension": {
-          "381": {
-            "id": 381,
-            "type": "default",
-            "name": "Default"
-          },
-          "382": {
-            "id": 382,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "383": {
-            "id": 383,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "384": {
-            "id": 384,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "385": {
-            "id": 385,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "386": {
-            "id": 386,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "387": {
-            "id": 387,
-            "type": "default",
-            "name": "Default"
-          },
-          "388": {
-            "id": 388,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "389": {
-            "id": 389,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "390": {
-            "id": 390,
-            "type": "default",
-            "name": "Default"
-          },
-          "391": {
-            "id": 391,
-            "type": "unique",
-            "name": "Contoured Grip"
-          },
-          "392": {
-            "id": 392,
-            "type": "unique",
-            "name": "Smooth Fluted Grip"
-          },
-          "393": {
-            "id": 393,
-            "type": "unique",
-            "name": "Cut-Tac Grip"
-          }
-        },
-        "Mag": {
-          "394": {
-            "id": 394,
-            "type": "default",
-            "name": "Default"
-          },
-          "395": {
-            "id": 395,
-            "type": "unique",
-            "name": "Quick-Pull Magazine"
-          },
-          "396": {
-            "id": 396,
-            "type": "unique",
-            "name": "Extended Magazine"
-          },
-          "397": {
-            "id": 397,
-            "type": "unique",
-            "name": "Compact Magazine"
-          }
-        },
-        "Stock": {
-          "398": {
-            "id": 398,
-            "type": "default",
-            "name": "Default"
-          },
-          "399": {
-            "id": 399,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "400": {
-            "id": 400,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "401": {
-            "id": 401,
-            "type": "unique",
-            "name": "TQ"
-          }
-        },
-        "Sight": {
-          "374": {
-            "id": 374,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "375": {
-            "id": 375,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "376": {
-            "id": 376,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "377": {
-            "id": 377,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "378": {
-            "id": 378,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "379": {
-            "id": 379,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "380": {
-            "id": 380,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "402": {
-            "id": 402,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "403": {
-            "id": 403,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "404": {
-            "id": 404,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "405": {
-            "id": 405,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          },
-          "406": {
-            "id": 406,
-            "type": "unique",
-            "name": "Rigger Handstop"
-          }
-        }
       }
     },
     "25": {
@@ -2648,165 +408,21 @@
         "c": 1
       },
       "dlc_id": 2,
-      "stats": { 
-          "damage": 79.2,
-          "ap": 1.15,
-          "recoil": 80,
-          "stability": 56,
-          "accuracy": 74,
-          "handling": 44,
-          "rof": 800,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 79.2,
+        "ap": 1.15,
+        "recoil": 80,
+        "stability": 56,
+        "accuracy": 74,
+        "handling": 44,
+        "rof": 800,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": {
         "id": 2,
         "name": "Boys in Blue",
         "release_date": "2024-06-27"
-      },
-      "mods": {
-        "BarrelExtension": {
-          "407": {
-            "id": 407,
-            "type": "default",
-            "name": "Default"
-          },
-          "408": {
-            "id": 408,
-            "type": "unique",
-            "name": "Whisper Wrap Silencer"
-          },
-          "409": {
-            "id": 409,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "410": {
-            "id": 410,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "411": {
-            "id": 411,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "412": {
-            "id": 412,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Mag": {
-          "413": {
-            "id": 413,
-            "type": "default",
-            "name": "Default"
-          },
-          "414": {
-            "id": 414,
-            "type": "unique",
-            "name": "Extended Magazine"
-          },
-          "415": {
-            "id": 415,
-            "type": "unique",
-            "name": "Quick-Pull Magazine"
-          },
-          "416": {
-            "id": 416,
-            "type": "unique",
-            "name": "Compact Magazine"
-          }
-        },
-        "Stock": {
-          "417": {
-            "id": 417,
-            "type": "default",
-            "name": "Default"
-          },
-          "418": {
-            "id": 418,
-            "type": "unique",
-            "name": "Hollow Frame"
-          },
-          "419": {
-            "id": 419,
-            "type": "unique",
-            "name": "Rubber Framed Stock"
-          }
-        },
-        "Grip": {
-          "424": {
-            "id": 424,
-            "type": "default",
-            "name": "Default"
-          },
-          "425": {
-            "id": 425,
-            "type": "unique",
-            "name": "Contoured Grip"
-          },
-          "426": {
-            "id": 426,
-            "type": "unique",
-            "name": "Cut-Tac Grip"
-          },
-          "427": {
-            "id": 427,
-            "type": "unique",
-            "name": "Smooth Fluted Grip"
-          }
-        },
-        "VerticalGrip": {
-          "420": {
-            "id": 420,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "421": {
-            "id": 421,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "422": {
-            "id": 422,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "423": {
-            "id": 423,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        },
-        "Sight": {
-          "428": {
-            "id": 428,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "429": {
-            "id": 429,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "430": {
-            "id": 430,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "431": {
-            "id": 431,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "432": {
-            "id": 432,
-            "type": "unique",
-            "name": "Projection RDS"
-          }
-        }
       }
     },
     "26": {
@@ -2821,185 +437,21 @@
         "c": 3
       },
       "dlc_id": 2,
-      "stats": { 
-          "damage": 101,
-          "ap": 1.5,
-          "recoil": 42,
-          "stability": 51,
-          "accuracy": 75,
-          "handling": 17,
-          "rof": 720,
-          "magazine": 100,
-          "ammo": 500
+      "stats": {
+        "damage": 101,
+        "ap": 1.5,
+        "recoil": 42,
+        "stability": 51,
+        "accuracy": 75,
+        "handling": 17,
+        "rof": 720,
+        "magazine": 100,
+        "ammo": 500
       },
       "dlc": {
         "id": 2,
         "name": "Boys in Blue",
         "release_date": "2024-06-27"
-      },
-      "mods": {
-        "BarrelExtension": {
-          "440": {
-            "id": 440,
-            "type": "default",
-            "name": "Default"
-          },
-          "441": {
-            "id": 441,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "442": {
-            "id": 442,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "443": {
-            "id": 443,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "444": {
-            "id": 444,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "445": {
-            "id": 445,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "446": {
-            "id": 446,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "447": {
-            "id": 447,
-            "type": "default",
-            "name": "Default"
-          },
-          "448": {
-            "id": 448,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "449": {
-            "id": 449,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "450": {
-            "id": 450,
-            "type": "default",
-            "name": "Default"
-          },
-          "451": {
-            "id": 451,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "452": {
-            "id": 452,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "453": {
-            "id": 453,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Stock": {
-          "454": {
-            "id": 454,
-            "type": "default",
-            "name": "Default"
-          },
-          "455": {
-            "id": 455,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "456": {
-            "id": 456,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "457": {
-            "id": 457,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "458": {
-            "id": 458,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "Sight": {
-          "433": {
-            "id": 433,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "434": {
-            "id": 434,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "435": {
-            "id": 435,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "436": {
-            "id": 436,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "437": {
-            "id": 437,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "438": {
-            "id": 438,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "439": {
-            "id": 439,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "459": {
-            "id": 459,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "460": {
-            "id": 460,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "461": {
-            "id": 461,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "462": {
-            "id": 462,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
       }
     },
     "27": {
@@ -3014,193 +466,23 @@
         "c": 2
       },
       "dlc_id": 3,
-      "stats": { 
-          "damage": 85,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 1000,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 85,
+        "ap": 2.8,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 1000,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": {
         "id": 3,
         "name": "Houston Breakout",
         "release_date": "2024-08-19"
       },
-      "mods": {
-        "BarrelExtension": {
-          "471": {
-            "id": 471,
-            "type": "default",
-            "name": "Default"
-          },
-          "472": {
-            "id": 472,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "473": {
-            "id": 473,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "474": {
-            "id": 474,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "475": {
-            "id": 475,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "476": {
-            "id": 476,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "477": {
-            "id": 477,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "478": {
-            "id": 478,
-            "type": "default",
-            "name": "Default"
-          },
-          "479": {
-            "id": 479,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "480": {
-            "id": 480,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "481": {
-            "id": 481,
-            "type": "default",
-            "name": "Default"
-          },
-          "482": {
-            "id": 482,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Mag": {
-          "483": {
-            "id": 483,
-            "type": "default",
-            "name": "Default"
-          },
-          "484": {
-            "id": 484,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "485": {
-            "id": 485,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "486": {
-            "id": 486,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "Stock": {
-          "487": {
-            "id": 487,
-            "type": "default",
-            "name": "Default"
-          },
-          "488": {
-            "id": 488,
-            "type": "unique",
-            "name": "Refined Stock"
-          },
-          "489": {
-            "id": 489,
-            "type": "unique",
-            "name": "Fortified Stock"
-          }
-        },
-        "Sight": {
-          "463": {
-            "id": 463,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "464": {
-            "id": 464,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "465": {
-            "id": 465,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "466": {
-            "id": 466,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "467": {
-            "id": 467,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "468": {
-            "id": 468,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "469": {
-            "id": 469,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "470": {
-            "id": 470,
-            "type": "unique",
-            "name": "Square Claim"
-          }
-        },
-        "VerticalGrip": {
-          "490": {
-            "id": 490,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "491": {
-            "id": 491,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "492": {
-            "id": 492,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "493": {
-            "id": 493,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "sourceKey": "chs3"
     },
     "28": {
       "id": 28,
@@ -3214,164 +496,24 @@
         "c": 4
       },
       "dlc_id": 3,
-      "stats": { 
-          "damage": 43.6,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 104,
-          "stability": 67,
-          "accuracy": 21,
-          "handling": 40,
-          "rof": 450,
-          "magazine": 12,
-          "ammo": 120
+      "stats": {
+        "damage": 43.6,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 104,
+        "stability": 67,
+        "accuracy": 21,
+        "handling": 40,
+        "rof": 450,
+        "magazine": 12,
+        "ammo": 120
       },
       "dlc": {
         "id": 3,
         "name": "Houston Breakout",
         "release_date": "2024-08-19"
       },
-      "mods": {
-        "Barrel": {
-          "494": {
-            "id": 494,
-            "type": "default",
-            "name": "Default"
-          },
-          "495": {
-            "id": 495,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "496": {
-            "id": 496,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Mag": {
-          "497": {
-            "id": 497,
-            "type": "default",
-            "name": "Default"
-          },
-          "498": {
-            "id": 498,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "499": {
-            "id": 499,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "500": {
-            "id": 500,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "501": {
-            "id": 501,
-            "type": "default",
-            "name": "Default"
-          },
-          "502": {
-            "id": 502,
-            "type": "unique",
-            "name": "Bolstered Stock"
-          }
-        },
-        "BarrelExtension": {
-          "507": {
-            "id": 507,
-            "type": "default",
-            "name": "Default"
-          },
-          "508": {
-            "id": 508,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "509": {
-            "id": 509,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "510": {
-            "id": 510,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "511": {
-            "id": 511,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          },
-          "512": {
-            "id": 512,
-            "type": "unique",
-            "name": "Ridgecyl Silencer"
-          }
-        },
-        "Grip": {
-          "513": {
-            "id": 513,
-            "type": "default",
-            "name": "Default"
-          },
-          "514": {
-            "id": 514,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Sight": {
-          "503": {
-            "id": 503,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "504": {
-            "id": 504,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "505": {
-            "id": 505,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "506": {
-            "id": 506,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        },
-        "VerticalGrip": {
-          "515": {
-            "id": 515,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "516": {
-            "id": 516,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "517": {
-            "id": 517,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "518": {
-            "id": 518,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "sourceKey": "m7p"
     },
     "31": {
       "id": 31,
@@ -3385,129 +527,22 @@
         "c": 1
       },
       "dlc_id": 4,
-      "stats": { 
-          "damage": 52,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 70,
-          "stability": 59,
-          "accuracy": 31,
-          "handling": 41,
-          "rof": 65,
-          "magazine": 7,
-          "ammo": 70
+      "stats": {
+        "damage": 52,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 70,
+        "stability": 59,
+        "accuracy": 31,
+        "handling": 41,
+        "rof": 65,
+        "magazine": 7,
+        "ammo": 70
       },
       "dlc": {
         "id": 4,
         "name": "Fear & Greed",
         "release_date": "2024-09-16"
-      },
-      "mods": {
-        "Barrel": {
-          "519": {
-            "id": 519,
-            "type": "default",
-            "name": "Default"
-          },
-          "520": {
-            "id": 520,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "BarrelExtension": {
-          "521": {
-            "id": 521,
-            "type": "default",
-            "name": "Default"
-          },
-          "522": {
-            "id": 522,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "523": {
-            "id": 523,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "524": {
-            "id": 524,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "525": {
-            "id": 525,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          },
-          "526": {
-            "id": 526,
-            "type": "unique",
-            "name": "Coronet Muzzle"
-          }
-        },
-        "Grip": {
-          "527": {
-            "id": 527,
-            "type": "default",
-            "name": "Default"
-          },
-          "528": {
-            "id": 528,
-            "type": "unique",
-            "name": "Friction Wrapped"
-          },
-          "529": {
-            "id": 529,
-            "type": "unique",
-            "name": "Diamond Friction"
-          },
-          "530": {
-            "id": 530,
-            "type": "unique",
-            "name": "Patterned Friction"
-          }
-        },
-        "Stock": {
-          "531": {
-            "id": 531,
-            "type": "default",
-            "name": "Default"
-          },
-          "532": {
-            "id": 532,
-            "type": "unique",
-            "name": "Widened Breach Stock"
-          },
-          "533": {
-            "id": 533,
-            "type": "unique",
-            "name": "Skeleton Folding Stock"
-          }
-        },
-        "Sight": {
-          "534": {
-            "id": 534,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "535": {
-            "id": 535,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "536": {
-            "id": 536,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "537": {
-            "id": 537,
-            "type": "unique",
-            "name": "Sheath RDS"
-          }
-        }
       }
     },
     "36": {
@@ -3522,187 +557,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 100,
-          "ap": 2.6,
-          "recoil": 44,
-          "stability": 47,
-          "accuracy": 32,
-          "handling": 46,
-          "rof": 600,
-          "magazine": 8,
-          "ammo": 56
+      "stats": {
+        "damage": 100,
+        "ap": 2.6,
+        "recoil": 44,
+        "stability": 47,
+        "accuracy": 32,
+        "handling": 46,
+        "rof": 600,
+        "magazine": 8,
+        "ammo": 56
       },
-      "dlc": null,
-      "mods": {
-        "ForeGrip": {
-          "719": {
-            "id": 719,
-            "type": "default",
-            "name": "Default"
-          },
-          "720": {
-            "id": 720,
-            "type": "unique",
-            "name": "Slitted Rail Guard"
-          },
-          "721": {
-            "id": 721,
-            "type": "unique",
-            "name": "Vented Rail Guard"
-          }
-        },
-        "Stock": {
-          "722": {
-            "id": 722,
-            "type": "default",
-            "name": "Default"
-          },
-          "723": {
-            "id": 723,
-            "type": "unique",
-            "name": "CQC Slant Stock"
-          },
-          "724": {
-            "id": 724,
-            "type": "unique",
-            "name": "Padded Stock"
-          },
-          "725": {
-            "id": 725,
-            "type": "unique",
-            "name": "Supported Stock"
-          }
-        },
-        "BarrelExtension": {
-          "728": {
-            "id": 728,
-            "type": "default",
-            "name": "Default"
-          },
-          "729": {
-            "id": 729,
-            "type": "unique",
-            "name": "Torque Silencer"
-          },
-          "730": {
-            "id": 730,
-            "type": "unique",
-            "name": "Edge Ridged Silencer"
-          },
-          "731": {
-            "id": 731,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "732": {
-            "id": 732,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "733": {
-            "id": 733,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "734": {
-            "id": 734,
-            "type": "unique",
-            "name": "Piped Silencer"
-          },
-          "735": {
-            "id": 735,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          }
-        },
-        "Grip": {
-          "726": {
-            "id": 726,
-            "type": "unique",
-            "name": "Artisan Grip"
-          },
-          "727": {
-            "id": 727,
-            "type": "unique",
-            "name": "Knotted Grip"
-          }
-        },
-        "VerticalGrip": {
-          "736": {
-            "id": 736,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "737": {
-            "id": 737,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "738": {
-            "id": 738,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "739": {
-            "id": 739,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        },
-        "Sight": {
-          "740": {
-            "id": 740,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "741": {
-            "id": 741,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "742": {
-            "id": 742,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "743": {
-            "id": 743,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "744": {
-            "id": 744,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "745": {
-            "id": 745,
-            "type": "unique",
-            "name": "Fluted Marksman Scope"
-          },
-          "746": {
-            "id": 746,
-            "type": "unique",
-            "name": "Primed Marksman Scope"
-          },
-          "747": {
-            "id": 747,
-            "type": "unique",
-            "name": "Magi Sight"
-          },
-          "748": {
-            "id": 748,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "749": {
-            "id": 749,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          }
-        }
-      }
+      "dlc": null
     },
     "39": {
       "id": 39,
@@ -3717,61 +583,26 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90,
-          "ap": 2.8,
-          "recoil": 75, 
-          "stability": 45,
-          "accuracy": 71,
-          "handling": 42,
-          "rof": 720,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 90,
+        "ap": 2.8,
+        "recoil": 75,
+        "stability": 45,
+        "accuracy": 71,
+        "handling": 42,
+        "rof": 720,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "753": {
-            "id": 753,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "754": {
-            "id": 754,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "ForeGrip": {
-          "839": {
-            "id": 839,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "750": {
-            "id": 750,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Stock": {
-          "751": {
-            "id": 751,
-            "type": "unique",
-            "name": "Padded Tube"
-          }
-        },
-        "BarrelExtension": {
-          "752": {
-            "id": 752,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          }
-        }
+      "baseWeaponKey": "CAR4",
+      "fixedMods": {
+        "Grip": "CAR4_Grip_Default",
+        "Mag": "CAR4_Mag_Default",
+        "ForeGrip": "CAR4_Foregrip_Default",
+        "Barrel": "CAR4_Barrel_CQC",
+        "Stock": "Stock_PaddedTube",
+        "BarrelExtension": "BarrelExt_Express"
       }
     },
     "40": {
@@ -3787,40 +618,23 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 280,
-          "ap": 7,
-          "recoil": 62, 
-          "stability": 59,
-          "accuracy": 83,
-          "handling": 32,
-          "rof": 50,
-          "magazine": 5,
-          "ammo": 50
+      "stats": {
+        "damage": 280,
+        "ap": 7,
+        "recoil": 62,
+        "stability": 59,
+        "accuracy": 83,
+        "handling": 32,
+        "rof": 50,
+        "magazine": 5,
+        "ammo": 50
       },
       "dlc": null,
-      "mods": {
-        "Sight": {
-          "755": {
-            "id": 755,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          }
-        },
-        "Barrel": {
-          "756": {
-            "id": 756,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Stock": {
-          "757": {
-            "id": 757,
-            "type": "unique",
-            "name": "Lightweight"
-          }
-        }
+      "baseWeaponKey": "R900S",
+      "fixedMods": {
+        "Sight": "Sight_ViewPoint",
+        "Barrel": "R900S_Barrel_CQC",
+        "Stock": "R900S_Stock_Lightweight"
       }
     },
     "41": {
@@ -3836,54 +650,25 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 120,
-          "ap": 0,
-          "recoil": 0, 
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 600,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 120,
+        "ap": 1.75,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 600,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "761": {
-            "id": 761,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "762": {
-            "id": 762,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "758": {
-            "id": 758,
-            "type": "unique",
-            "name": "Rail Barrel"
-          }
-        },
-        "Sight": {
-          "759": {
-            "id": 759,
-            "type": "unique",
-            "name": "Lined Sight"
-          }
-        },
-        "Stock": {
-          "760": {
-            "id": 760,
-            "type": "unique",
-            "name": "TQ"
-          }
-        }
+      "baseWeaponKey": "KU59",
+      "fixedMods": {
+        "Grip": "KU59_Grip_Default",
+        "Mag": "KU59_Mag_Default",
+        "Barrel": "KU59_Barrel_Rail",
+        "Sight": "Sight_Lined",
+        "Stock": "Stock_TQ"
       }
     },
     "42": {
@@ -3899,61 +684,26 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 92,
-          "ap": 3,
-          "recoil": 50, 
-          "stability": 35,
-          "accuracy": 46,
-          "handling": 31,
-          "rof": 450,
-          "magazine": 12,
-          "ammo": 120
+      "stats": {
+        "damage": 92,
+        "ap": 3,
+        "recoil": 50,
+        "stability": 35,
+        "accuracy": 46,
+        "handling": 31,
+        "rof": 450,
+        "magazine": 12,
+        "ammo": 120
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "766": {
-            "id": 766,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Stock": {
-          "767": {
-            "id": 767,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "768": {
-            "id": 768,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Sight": {
-          "763": {
-            "id": 763,
-            "type": "unique",
-            "name": "Fluted Marksman Scope"
-          }
-        },
-        "Barrel": {
-          "764": {
-            "id": 764,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "BarrelExtension": {
-          "765": {
-            "id": 765,
-            "type": "unique",
-            "name": "Edge Ridged Silencer"
-          }
-        }
+      "baseWeaponKey": "A114",
+      "fixedMods": {
+        "Grip": "A114_Grip_Default",
+        "Stock": "A114_Stock_Default",
+        "Mag": "A114_Mag_Default",
+        "Sight": "Sight_Fluted",
+        "Barrel": "A114_Barrel_Ranged",
+        "BarrelExtension": "BarrelExt_Ridged"
       }
     },
     "43": {
@@ -3969,41 +719,24 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 67.13,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 81,
-          "stability": 17,
-          "accuracy": 25,
-          "handling": 42,
-          "rof": 400,
-          "magazine": 2,
-          "ammo": 40
+      "stats": {
+        "damage": 67.13,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 81,
+        "stability": 17,
+        "accuracy": 25,
+        "handling": 42,
+        "rof": 400,
+        "magazine": 2,
+        "ammo": 40
       },
       "dlc": null,
-      "mods": {
-        "ForeGrip": {
-          "840": {
-            "id": 840,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "769": {
-            "id": 769,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Stock": {
-          "770": {
-            "id": 770,
-            "type": "unique",
-            "name": "Padded"
-          }
-        }
+      "baseWeaponKey": "Mosconi12C",
+      "fixedMods": {
+        "ForeGrip": "Mosconi12C_Foregrip_Default",
+        "Barrel": "Mosconi12C_Barrel_Ranged",
+        "Stock": "Mosconi12C_Stock_Padded"
       }
     },
     "44": {
@@ -4019,40 +752,23 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 60,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 1100,
-          "magazine": 25,
-          "ammo": 250
+      "stats": {
+        "damage": 60,
+        "ap": 0.9,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 1100,
+        "magazine": 25,
+        "ammo": 250
       },
       "dlc": null,
-      "mods": {
-        "Stock": {
-          "773": {
-            "id": 773,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "771": {
-            "id": 771,
-            "type": "unique",
-            "name": "Compact Mag"
-          }
-        },
-        "BarrelExtension": {
-          "772": {
-            "id": 772,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          }
-        }
+      "baseWeaponKey": "Commando",
+      "fixedMods": {
+        "Stock": "Commando_Stock_Default",
+        "Mag": "Commando_Mag_Compact",
+        "BarrelExtension": "BarrelExt_ObeliskSilencer"
       }
     },
     "45": {
@@ -4068,40 +784,23 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 130,
-          "ap": 0,
-          "recoil": 0, 
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 550,
-          "magazine": 20,
-          "ammo": 200
+      "stats": {
+        "damage": 130,
+        "ap": 2.5,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 550,
+        "magazine": 20,
+        "ammo": 200
       },
       "dlc": null,
-      "mods": {
-        "Mag": {
-          "776": {
-            "id": 776,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Stock": {
-          "774": {
-            "id": 774,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        },
-        "Grip": {
-          "775": {
-            "id": 775,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        }
+      "baseWeaponKey": "VF7S",
+      "fixedMods": {
+        "Mag": "VF7S_Mag_Default",
+        "Stock": "Stock_LightFrame",
+        "Grip": "Grip_Perforated"
       }
     },
     "46": {
@@ -4117,48 +816,25 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 47.6,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 53,
-          "stability": 59,
-          "accuracy": 27,
-          "handling": 52,
-          "rof": 75,
-          "magazine": 7,
-          "ammo": 70
+      "stats": {
+        "damage": 47.6,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 53,
+        "stability": 59,
+        "accuracy": 27,
+        "handling": 52,
+        "rof": 75,
+        "magazine": 7,
+        "ammo": 70
       },
       "dlc": null,
-      "mods": {
-        "Stock": {
-          "778": {
-            "id": 778,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "779": {
-            "id": 779,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "777": {
-            "id": 777,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "ForeGrip": {
-          "841": {
-            "id": 841,
-            "type": "unique",
-            "name": "Biofit Fore-End"
-          }
-        }
+      "baseWeaponKey": "R880",
+      "fixedMods": {
+        "Stock": "R880_Stock_Default",
+        "Mag": "R880_Mag_Default",
+        "Barrel": "R880_Barrel_Ranged",
+        "ForeGrip": "R880_Foregrip_Biofit"
       }
     },
     "47": {
@@ -4174,61 +850,26 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90,
-          "ap": 2.8,
-          "recoil": 75, 
-          "stability": 45,
-          "accuracy": 71,
-          "handling": 42,
-          "rof": 720,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 90,
+        "ap": 2.8,
+        "recoil": 75,
+        "stability": 45,
+        "accuracy": 71,
+        "handling": 42,
+        "rof": 720,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Stock": {
-          "782": {
-            "id": 782,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Grip": {
-          "783": {
-            "id": 783,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "784": {
-            "id": 784,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "ForeGrip": {
-          "842": {
-            "id": 842,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "BarrelExtension": {
-          "780": {
-            "id": 780,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          }
-        },
-        "Mag": {
-          "781": {
-            "id": 781,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        }
+      "baseWeaponKey": "CAR4",
+      "fixedMods": {
+        "Stock": "CAR4_stock_Default",
+        "Grip": "CAR4_Grip_Default",
+        "Barrel": "CAR4_Barrel_Default",
+        "ForeGrip": "CAR4_Foregrip_Default",
+        "BarrelExtension": "BarrelExt_HybridMB",
+        "Mag": "CAR4_Mag_Quick"
       }
     },
     "48": {
@@ -4244,61 +885,26 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 59.2,
-          "ap": 1.4,
-          "recoil": 76,
-          "stability": 42,
-          "accuracy": 63,
-          "handling": 58,
-          "rof": 1100,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 59.2,
+        "ap": 1.4,
+        "recoil": 76,
+        "stability": 42,
+        "accuracy": 63,
+        "handling": 58,
+        "rof": 1100,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "789": {
-            "id": 789,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "ForeGrip": {
-          "843": {
-            "id": 843,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "VerticalGrip": {
-          "785": {
-            "id": 785,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        },
-        "Stock": {
-          "786": {
-            "id": 786,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        },
-        "Mag": {
-          "787": {
-            "id": 787,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Sight": {
-          "788": {
-            "id": 788,
-            "type": "unique",
-            "name": "Slate RDS"
-          }
-        }
+      "baseWeaponKey": "Compact7",
+      "fixedMods": {
+        "BarrelExtension": "Compact7_BarrelExt_Default",
+        "ForeGrip": "Compact7_Foregrip_Default",
+        "VerticalGrip": "VerticalGrip_AngledGhost",
+        "Stock": "Stock_LightFrame",
+        "Mag": "Compact7_Mag_Quick",
+        "Sight": "Sight_Slate"
       }
     },
     "49": {
@@ -4314,68 +920,27 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90,
-          "ap": 2.8,
-          "recoil": 75, 
-          "stability": 45,
-          "accuracy": 71,
-          "handling": 42,
-          "rof": 720,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 90,
+        "ap": 2.8,
+        "recoil": 75,
+        "stability": 45,
+        "accuracy": 71,
+        "handling": 42,
+        "rof": 720,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Sight": {
-          "790": {
-            "id": 790,
-            "type": "unique",
-            "name": "Tactical Sight"
-          }
-        },
-        "BarrelExtension": {
-          "791": {
-            "id": 791,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          }
-        },
-        "Barrel": {
-          "792": {
-            "id": 792,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "793": {
-            "id": 793,
-            "type": "unique",
-            "name": "Tac Grip"
-          }
-        },
-        "Mag": {
-          "794": {
-            "id": 794,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "795": {
-            "id": 795,
-            "type": "unique",
-            "name": "HQ"
-          }
-        },
-        "VerticalGrip": {
-          "796": {
-            "id": 796,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
+      "baseWeaponKey": "CAR4",
+      "fixedMods": {
+        "Sight": "Sight_Tactical",
+        "BarrelExtension": "BarrelExt_CylindricSilencer",
+        "Barrel": "CAR4_Barrel_Ranged",
+        "Grip": "Grip_Tac",
+        "Mag": "CAR4_Mag_Quick",
+        "Stock": "Stock_HQ",
+        "VerticalGrip": "VerticalGrip_QuickHold"
       }
     },
     "50": {
@@ -4391,55 +956,26 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 67.13,
-          "pellets": 10,
-          "ap": 0,
-          "recoil": 78,
-          "stability": 15,
-          "accuracy": 27,
-          "handling": 42,
-          "rof": 400,
-          "magazine": 2,
-          "ammo": 40
+      "stats": {
+        "damage": 67.13,
+        "pellets": 10,
+        "ap": 0,
+        "recoil": 78,
+        "stability": 15,
+        "accuracy": 27,
+        "handling": 42,
+        "rof": 400,
+        "magazine": 2,
+        "ammo": 40
       },
       "dlc": null,
-      "mods": {
-        "ForeGrip": {
-          "844": {
-            "id": 844,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Stock": {
-          "797": {
-            "id": 797,
-            "type": "unique",
-            "name": "CQC"
-          }
-        },
-        "Barrel": {
-          "798": {
-            "id": 798,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Sight": {
-          "799": {
-            "id": 799,
-            "type": "unique",
-            "name": "Tagged Iron Sight"
-          }
-        },
-        "VerticalGrip": {
-          "800": {
-            "id": 800,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          }
-        }
+      "baseWeaponKey": "Mosconi12C",
+      "fixedMods": {
+        "ForeGrip": "Mosconi12C_Foregrip_Default",
+        "Stock": "Mosconi12C_Stock_CQC",
+        "Barrel": "Mosconi12C_Barrel_CQC",
+        "Sight": "Sight_Tagged",
+        "VerticalGrip": "VerticalGrip_Cylinder"
       }
     },
     "51": {
@@ -4455,68 +991,27 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 70,
-          "ap": 2.2,
-          "recoil": 76,
-          "stability": 51,
-          "accuracy": 70,
-          "handling": 51,
-          "rof": 750,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 70,
+        "ap": 2.2,
+        "recoil": 76,
+        "stability": 51,
+        "accuracy": 70,
+        "handling": 51,
+        "rof": 750,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Mag": {
-          "806": {
-            "id": 806,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "ForeGrip": {
-          "845": {
-            "id": 845,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "BarrelExtension": {
-          "801": {
-            "id": 801,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          }
-        },
-        "Sight": {
-          "802": {
-            "id": 802,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          }
-        },
-        "Grip": {
-          "803": {
-            "id": 803,
-            "type": "unique",
-            "name": "Tac Grip"
-          }
-        },
-        "VerticalGrip": {
-          "804": {
-            "id": 804,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        },
-        "Stock": {
-          "805": {
-            "id": 805,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        }
+      "baseWeaponKey": "NWB9",
+      "fixedMods": {
+        "Mag": "NWB9_Mag_Default",
+        "ForeGrip": "NWB9_Foregrip_Default",
+        "BarrelExtension": "BarrelExt_CylindricSilencer",
+        "Sight": "Sight_ViewPoint",
+        "Grip": "Grip_Tac",
+        "VerticalGrip": "VerticalGrip_AngledGhost",
+        "Stock": "Stock_LightFrame"
       }
     },
     "52": {
@@ -4532,47 +1027,24 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 280,
-          "ap": 7,
-          "recoil": 75, 
-          "stability": 59,
-          "accuracy": 89,
-          "handling": 25,
-          "rof": 50,
-          "magazine": 5,
-          "ammo": 50
+      "stats": {
+        "damage": 280,
+        "ap": 7,
+        "recoil": 75,
+        "stability": 59,
+        "accuracy": 89,
+        "handling": 25,
+        "rof": 50,
+        "magazine": 5,
+        "ammo": 50
       },
       "dlc": null,
-      "mods": {
-        "Barrel": {
-          "807": {
-            "id": 807,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Stock": {
-          "808": {
-            "id": 808,
-            "type": "unique",
-            "name": "Hardwood"
-          }
-        },
-        "Sight": {
-          "809": {
-            "id": 809,
-            "type": "unique",
-            "name": "Primed Marksman Scope"
-          }
-        },
-        "BarrelExtension": {
-          "810": {
-            "id": 810,
-            "type": "unique",
-            "name": "Edge Ridged Silencer"
-          }
-        }
+      "baseWeaponKey": "R900S",
+      "fixedMods": {
+        "Barrel": "R900S_Barrel_Ranged",
+        "Stock": "R900S_Stock_HardWood",
+        "Sight": "Sight_Primed",
+        "BarrelExtension": "BarrelExt_Ridged"
       }
     },
     "53": {
@@ -4588,54 +1060,25 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 65.2,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 860,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 65.2,
+        "ap": 0,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 860,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": null,
-      "mods": {
-        "Barrel": {
-          "814": {
-            "id": 814,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "ForeGrip": {
-          "846": {
-            "id": 846,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Sight": {
-          "811": {
-            "id": 811,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          }
-        },
-        "VerticalGrip": {
-          "812": {
-            "id": 812,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        },
-        "BarrelExtension": {
-          "813": {
-            "id": 813,
-            "type": "unique",
-            "name": "Compact Compensator"
-          }
-        }
+      "baseWeaponKey": "PC9",
+      "fixedMods": {
+        "Barrel": "PC9_Barrel_Default",
+        "ForeGrip": "PC9_Foregrip_Default",
+        "Sight": "Sight_ViewPoint",
+        "VerticalGrip": "VerticalGrip_AngledGhost",
+        "BarrelExtension": "BarrelExt_CompactComp"
       }
     },
     "61": {
@@ -4646,227 +1089,27 @@
       "name": "Skogskrigare AG-9",
       "preset": 0,
       "sprite_pos": {
-          "r": 18,
-          "c": 3
+        "r": 18,
+        "c": 3
       },
       "dlc_id": 7,
-      "stats": { 
-          "damage": 100,
-          "ap": 1,
-          "recoil": 63, 
-          "stability": 53,
-          "accuracy": 69,
-          "handling": 30,
-          "rof": 650,
-          "magazine": 30,
-          "ammo": 360
+      "stats": {
+        "damage": 100,
+        "ap": 1,
+        "recoil": 63,
+        "stability": 53,
+        "accuracy": 69,
+        "handling": 30,
+        "rof": 650,
+        "magazine": 30,
+        "ammo": 360
       },
       "dlc": {
         "id": 7,
         "name": "Swedish Weapon Pack",
         "release_date": "2026-05-19"
       },
-      "mods": {
-        "BarrelExtension": {
-          "8": {
-            "id": 8,
-            "type": "default",
-            "name": "Default"
-          },
-          "9": {
-            "id": 9,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "Hybrid Muzzle Break"
-          },
-          "11": {
-            "id": 11,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "12": {
-            "id": 12,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "13": {
-            "id": 13,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "Barrel": {
-          "15": {
-            "id": 15,
-            "type": "default",
-            "name": "Default"
-          },
-          "16": {
-            "id": 16,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Ultralight Barrel"
-          }
-        },
-        "Grip": {
-          "18": {
-            "id": 18,
-            "type": "default",
-            "name": "Default"
-          },
-          "19": {
-            "id": 19,
-            "type": "unique",
-            "name": "Grained Grip"
-          },
-          "20": {
-            "id": 20,
-            "type": "unique",
-            "name": "Lined Grip"
-          },
-          "21": {
-            "id": 21,
-            "type": "unique",
-            "name": "Bound Grip"
-          }
-        },
-        "Mag": {
-          "22": {
-            "id": 22,
-            "type": "default",
-            "name": "Default"
-          },
-          "23": {
-            "id": 23,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "24": {
-            "id": 24,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "25": {
-            "id": 25,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "Stock": {
-          "26": {
-            "id": 26,
-            "type": "default",
-            "name": "Default"
-          },
-          "27": {
-            "id": 27,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "28": {
-            "id": 28,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "29": {
-            "id": 29,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "30": {
-            "id": 30,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Campaigner Stock"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Primus Stock"
-          }
-        },
-        "Sight": {
-          "1": {
-            "id": 1,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "2": {
-            "id": 2,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "3": {
-            "id": 3,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "4": {
-            "id": 4,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "5": {
-            "id": 5,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "6": {
-            "id": 6,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "7": {
-            "id": 7,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "8": {
-            "id": 8,
-            "type": "unique",
-            "name": "Targeter Optic"
-          }
-        },
-        "VerticalGrip": {
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "33": {
-            "id": 33,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "34": {
-            "id": 34,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          },
-          "35": {
-            "id": 35,
-            "type": "unique",
-            "name": "AG-9 Cylinder Grip"
-          }
-        }
-      }
+      "sourceKey": "Julius"
     },
     "64": {
       "id": 64,
@@ -4876,200 +1119,27 @@
       "name": "Zokas-17",
       "preset": 0,
       "sprite_pos": {
-          "r": 19,
-          "c": 2
+        "r": 19,
+        "c": 2
       },
       "dlc_id": 7,
-      "stats": { 
-          "damage": 110,
-          "ap": 0,
-          "recoil": 71, 
-          "stability": 27,
-          "accuracy": 61,
-          "handling": 23,
-          "rof": 650,
-          "magazine": 95,
-          "ammo": 380
+      "stats": {
+        "damage": 110,
+        "ap": 1,
+        "recoil": 71,
+        "stability": 27,
+        "accuracy": 61,
+        "handling": 23,
+        "rof": 650,
+        "magazine": 95,
+        "ammo": 380
       },
       "dlc": {
         "id": 7,
         "name": "Swedish Weapon Pack",
         "release_date": "2026-05-19"
       },
-      "mods": {
-        "BarrelExtension": {
-          "8": {
-            "id": 8,
-            "type": "default",
-            "name": "Default"
-          },
-          "9": {
-            "id": 9,
-            "type": "unique",
-            "name": "Beveled Silencer"
-          },
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          },
-          "11": {
-            "id": 11,
-            "type": "unique",
-            "name": "Indent Compensator"
-          },
-          "12": {
-            "id": 12,
-            "type": "unique",
-            "name": "Cylindric Silencer"
-          },
-          "13": {
-            "id": 13,
-            "type": "unique",
-            "name": "Piped Silencer"
-          }
-        },
-        "ForeGrip": {
-          "15": {
-            "id": 15,
-            "type": "default",
-            "name": "Default"
-          },
-          "16": {
-            "id": 16,
-            "type": "unique",
-            "name": "Custom Grip"
-          },
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Optimal Grip"
-          }
-        },
-        "Grip": {
-          "18": {
-            "id": 18,
-            "type": "default",
-            "name": "Default"
-          },
-          "19": {
-            "id": 19,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "20": {
-            "id": 20,
-            "type": "unique",
-            "name": "Perforated Grip"
-          },
-          "21": {
-            "id": 21,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "22": {
-            "id": 22,
-            "type": "unique",
-            "name": "Revenant Grip"
-          }
-        },
-        "Stock": {
-          "26": {
-            "id": 26,
-            "type": "default",
-            "name": "Default"
-          },
-          "27": {
-            "id": 27,
-            "type": "unique",
-            "name": "Padded Tube"
-          },
-          "28": {
-            "id": 28,
-            "type": "unique",
-            "name": "TQ"
-          },
-          "29": {
-            "id": 29,
-            "type": "unique",
-            "name": "Light Frame"
-          },
-          "30": {
-            "id": 30,
-            "type": "unique",
-            "name": "HQ"
-          },
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Adaptable Stock"
-          }
-        },
-        "Sight": {
-          "1": {
-            "id": 1,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "2": {
-            "id": 2,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "3": {
-            "id": 3,
-            "type": "unique",
-            "name": "Viewpoint Sight"
-          },
-          "4": {
-            "id": 4,
-            "type": "unique",
-            "name": "Lined Sight"
-          },
-          "5": {
-            "id": 5,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "6": {
-            "id": 6,
-            "type": "unique",
-            "name": "Tactical Sight"
-          },
-          "7": {
-            "id": 7,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "8": {
-            "id": 8,
-            "type": "unique",
-            "name": "SM-2 Sight"
-          }
-        },
-        "VerticalGrip": {
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Cylinder Grip"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "33": {
-            "id": 33,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "34": {
-            "id": 34,
-            "type": "unique",
-            "name": "Quick Hold Grip"
-          }
-        }
-      }
+      "sourceKey": "PFLK"
     },
     "66": {
       "id": 66,
@@ -5084,65 +1154,30 @@
         "c": 1
       },
       "dlc_id": 8,
-      "stats": { 
-          "damage": 86.4,
-          "ap": 0.9,
-          "recoil": 75, 
-          "stability": 55,
-          "accuracy": 62,
-          "handling": 44,
-          "rof": 650,
-          "magazine": 25,
-          "ammo": 250
+      "stats": {
+        "damage": 86.4,
+        "ap": 0.9,
+        "recoil": 75,
+        "stability": 55,
+        "accuracy": 62,
+        "handling": 44,
+        "rof": 650,
+        "magazine": 25,
+        "ammo": 250
       },
       "dlc": {
         "id": 8,
         "name": "Brute Force Crimebond",
         "release_date": "2026-09-22"
       },
-      "mods": {
-        "BarrelExtension": {
-          "314": {
-            "id": 314,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          }
-        },
-        "Mag": {
-          "321": {
-            "id": 321,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "328": {
-            "id": 328,
-            "type": "unique",
-            "name": "Minimized Hook Stock"
-          }
-        },
-        "Grip": {
-          "333": {
-            "id": 333,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "VerticalGrip": {
-          "330": {
-            "id": 330,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          }
-        },
-        "Sight": {
-          "338": {
-            "id": 338,
-            "type": "unique",
-            "name": "Compact RDS"
-          }
-        }
+      "baseWeaponKey": "WAR45",
+      "fixedMods": {
+        "BarrelExtension": "BarrelExt_ObeliskSilencer",
+        "Mag": "WAR45_Mag_Quick",
+        "Stock": "Stock_Minimized",
+        "Grip": "WAR45_Grip_Default",
+        "VerticalGrip": "VerticalGrip_AngledGhost",
+        "Sight": "Sight_Compact"
       }
     },
     "67": {
@@ -5154,64 +1189,34 @@
       "preset": 1,
       "perk": "perk_fog_of_war",
       "sprite_pos": {
-          "r": 20,
-          "c": 2
+        "r": 20,
+        "c": 2
       },
       "dlc_id": 8,
-      "stats": { 
-          "damage": 110,
-          "ap": 1,
-          "recoil": 71, 
-          "stability": 27,
-          "accuracy": 61,
-          "handling": 23,
-          "rof": 650,
-          "magazine": 95,
-          "ammo": 380
+      "stats": {
+        "damage": 110,
+        "ap": 1,
+        "recoil": 71,
+        "stability": 27,
+        "accuracy": 61,
+        "handling": 23,
+        "rof": 650,
+        "magazine": 95,
+        "ammo": 380
       },
       "dlc": {
         "id": 8,
         "name": "Brute Force Crimebond",
         "release_date": "2026-09-22"
       },
-      "mods": {
-        "BarrelExtension": {
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "Express Muzzle Break"
-          }
-        },
-        "ForeGrip": {
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Optimal Grip"
-          }
-        },
-        "Grip": {
-          "20": {
-            "id": 20,
-            "type": "unique",
-            "name": "Perforated Grip"
-          }
-        },
-        "Stock": {
-          "29": {
-            "id": 29,
-            "type": "unique",
-            "name": "Light Frame"
-          }
-        },
-        "Sight": {
-          "8": {
-            "id": 8,
-            "type": "unique",
-            "name": "SM-2 Sight"
-          }
-        },
-        "VerticalGrip": {
-        }
+      "baseWeaponKey": "Zokas17",
+      "fixedMods": {
+        "BarrelExtension": "BarrelExt_Express",
+        "ForeGrip": "PFLK_ForeGrip_Sport_Naked",
+        "Grip": "KU59_Grip_Perforated",
+        "Stock": "Stock_LightFrame",
+        "Sight": "Sight_Seymour",
+        "VerticalGrip": null
       }
     }
   },
@@ -5228,103 +1233,18 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90.1,
-          "ap": 1.6,
-          "recoil": 54, 
-          "stability": 32,
-          "accuracy": 73,
-          "handling": 64,
-          "rof": 450,
-          "magazine": 12,
-          "ammo": 120
+      "stats": {
+        "damage": 90.1,
+        "ap": 1.6,
+        "recoil": 54,
+        "stability": 32,
+        "accuracy": 73,
+        "handling": 64,
+        "rof": 450,
+        "magazine": 12,
+        "ammo": 120
       },
-      "dlc": null,
-      "mods": {
-        "Mag": {
-          "538": {
-            "id": 538,
-            "type": "default",
-            "name": "Default"
-          },
-          "539": {
-            "id": 539,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "540": {
-            "id": 540,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Grip": {
-          "549": {
-            "id": 549,
-            "type": "default",
-            "name": "Default"
-          },
-          "550": {
-            "id": 550,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          },
-          "551": {
-            "id": 551,
-            "type": "unique",
-            "name": "Embossed Grip"
-          },
-          "552": {
-            "id": 552,
-            "type": "unique",
-            "name": "Tac Grip"
-          }
-        },
-        "BarrelExtension": {
-          "541": {
-            "id": 541,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "542": {
-            "id": 542,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "543": {
-            "id": 543,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "544": {
-            "id": 544,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "545": {
-            "id": 545,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Sight": {
-          "546": {
-            "id": 546,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "547": {
-            "id": 547,
-            "type": "unique",
-            "name": "LED RDS"
-          },
-          "548": {
-            "id": 548,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        }
-      }
+      "dlc": null
     },
     "13": {
       "id": 13,
@@ -5338,98 +1258,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 66,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 375,
-          "magazine": 17,
-          "ammo": 170
+      "stats": {
+        "damage": 66,
+        "ap": 1.6,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 375,
+        "magazine": 17,
+        "ammo": 170
       },
-      "dlc": null,
-      "mods": {
-        "Mag": {
-          "596": {
-            "id": 596,
-            "type": "default",
-            "name": "Default"
-          },
-          "597": {
-            "id": 597,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "598": {
-            "id": 598,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "599": {
-            "id": 599,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "600": {
-            "id": 600,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "601": {
-            "id": 601,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "602": {
-            "id": 602,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "603": {
-            "id": 603,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Sight": {
-          "604": {
-            "id": 604,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "605": {
-            "id": 605,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "606": {
-            "id": 606,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        },
-        "Grip": {
-          "607": {
-            "id": 607,
-            "type": "unique",
-            "name": "Friction Grip"
-          },
-          "608": {
-            "id": 608,
-            "type": "unique",
-            "name": "Ribbed Grip"
-          },
-          "609": {
-            "id": 609,
-            "type": "unique",
-            "name": "Grained Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "14": {
       "id": 14,
@@ -5443,98 +1283,18 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 60.6,
-          "ap": 0,
-          "recoil": 60,
-          "stability": 34,
-          "accuracy": 55,
-          "handling": 66,
-          "rof": 450,
-          "magazine": 17,
-          "ammo": 170
+      "stats": {
+        "damage": 60.6,
+        "ap": 1.8,
+        "recoil": 60,
+        "stability": 34,
+        "accuracy": 55,
+        "handling": 66,
+        "rof": 450,
+        "magazine": 17,
+        "ammo": 170
       },
-      "dlc": null,
-      "mods": {
-        "Mag": {
-          "567": {
-            "id": 567,
-            "type": "default",
-            "name": "Default"
-          },
-          "568": {
-            "id": 568,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "569": {
-            "id": 569,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "570": {
-            "id": 570,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "571": {
-            "id": 571,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "572": {
-            "id": 572,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "573": {
-            "id": 573,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "574": {
-            "id": 574,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Sight": {
-          "575": {
-            "id": 575,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "576": {
-            "id": 576,
-            "type": "unique",
-            "name": "LED RDS"
-          },
-          "577": {
-            "id": 577,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        },
-        "Grip": {
-          "578": {
-            "id": 578,
-            "type": "unique",
-            "name": "Ribbed Grip"
-          },
-          "579": {
-            "id": 579,
-            "type": "unique",
-            "name": "Friction Grip"
-          },
-          "580": {
-            "id": 580,
-            "type": "unique",
-            "name": "Grained Grip"
-          }
-        }
-      }
+      "dlc": null
     },
     "15": {
       "id": 15,
@@ -5548,103 +1308,18 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 116.1,
-          "ap": 2.1,
-          "recoil": 21,
-          "stability": 41,
-          "accuracy": 67,
-          "handling": 49,
-          "rof": 350,
-          "magazine": 10,
-          "ammo": 100
+      "stats": {
+        "damage": 116.1,
+        "ap": 2.1,
+        "recoil": 21,
+        "stability": 41,
+        "accuracy": 67,
+        "handling": 49,
+        "rof": 350,
+        "magazine": 10,
+        "ammo": 100
       },
-      "dlc": null,
-      "mods": {
-        "Mag": {
-          "581": {
-            "id": 581,
-            "type": "default",
-            "name": "Default"
-          },
-          "582": {
-            "id": 582,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "583": {
-            "id": 583,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Grip": {
-          "592": {
-            "id": 592,
-            "type": "default",
-            "name": "Default"
-          },
-          "593": {
-            "id": 593,
-            "type": "unique",
-            "name": "Checkered Grip"
-          },
-          "594": {
-            "id": 594,
-            "type": "unique",
-            "name": "Embossed Grip"
-          },
-          "595": {
-            "id": 595,
-            "type": "unique",
-            "name": "Tac Grip"
-          }
-        },
-        "BarrelExtension": {
-          "584": {
-            "id": 584,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "585": {
-            "id": 585,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "586": {
-            "id": 586,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "587": {
-            "id": 587,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "588": {
-            "id": 588,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Sight": {
-          "589": {
-            "id": 589,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "590": {
-            "id": 590,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "591": {
-            "id": 591,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        }
-      }
+      "dlc": null
     },
     "16": {
       "id": 16,
@@ -5658,98 +1333,18 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 160.1,
-          "ap": 2,
-          "recoil": 24,
-          "stability": 36,
-          "accuracy": 54,
-          "handling": 38,
-          "rof": 300,
-          "magazine": 6,
-          "ammo": 60
+      "stats": {
+        "damage": 160.1,
+        "ap": 2,
+        "recoil": 24,
+        "stability": 36,
+        "accuracy": 54,
+        "handling": 38,
+        "rof": 300,
+        "magazine": 6,
+        "ammo": 60
       },
-      "dlc": null,
-      "mods": {
-        "Barrel": {
-          "553": {
-            "id": 553,
-            "type": "default",
-            "name": "Default"
-          },
-          "554": {
-            "id": 554,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "555": {
-            "id": 555,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "556": {
-            "id": 556,
-            "type": "unique",
-            "name": "Tac Barrel"
-          }
-        },
-        "Grip": {
-          "560": {
-            "id": 560,
-            "type": "default",
-            "name": "Default"
-          },
-          "561": {
-            "id": 561,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "562": {
-            "id": 562,
-            "type": "unique",
-            "name": "Tac Grip"
-          },
-          "563": {
-            "id": 563,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          }
-        },
-        "Sight": {
-          "557": {
-            "id": 557,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "558": {
-            "id": 558,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "559": {
-            "id": 559,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        },
-        "BarrelExtension": {
-          "564": {
-            "id": 564,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "565": {
-            "id": 565,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "566": {
-            "id": 566,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        }
-      }
+      "dlc": null
     },
     "17": {
       "id": 17,
@@ -5763,93 +1358,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 155.6,
-          "ap": 4,
-          "recoil": 32,
-          "stability": 33,
-          "accuracy": 60,
-          "handling": 24,
-          "rof": 400,
-          "magazine": 6,
-          "ammo": 60
+      "stats": {
+        "damage": 155.6,
+        "ap": 4,
+        "recoil": 32,
+        "stability": 33,
+        "accuracy": 60,
+        "handling": 24,
+        "rof": 400,
+        "magazine": 6,
+        "ammo": 60
       },
-      "dlc": null,
-      "mods": {
-        "Barrel": {
-          "610": {
-            "id": 610,
-            "type": "default",
-            "name": "Default"
-          },
-          "611": {
-            "id": 611,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "612": {
-            "id": 612,
-            "type": "unique",
-            "name": "CQC Barrel"
-          }
-        },
-        "Grip": {
-          "616": {
-            "id": 616,
-            "type": "default",
-            "name": "Default"
-          },
-          "617": {
-            "id": 617,
-            "type": "unique",
-            "name": "Tac Grip "
-          },
-          "618": {
-            "id": 618,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          },
-          "619": {
-            "id": 619,
-            "type": "unique",
-            "name": "Biofit Grip"
-          }
-        },
-        "Sight": {
-          "613": {
-            "id": 613,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "614": {
-            "id": 614,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "615": {
-            "id": 615,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        },
-        "BarrelExtension": {
-          "620": {
-            "id": 620,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "621": {
-            "id": 621,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "622": {
-            "id": 622,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        }
-      }
+      "dlc": null
     },
     "24": {
       "id": 24,
@@ -5863,114 +1383,23 @@
         "c": 4
       },
       "dlc_id": 2,
-      "stats": { 
-          "damage": 260,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 75,
-          "magazine": 5,
-          "ammo": 50
+      "stats": {
+        "damage": 260,
+        "ap": 6,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 75,
+        "magazine": 5,
+        "ammo": 50
       },
       "dlc": {
         "id": 2,
         "name": "Boys in Blue",
         "release_date": "2024-06-27"
       },
-      "mods": {
-        "Barrel": {
-          "623": {
-            "id": 623,
-            "type": "default",
-            "name": "Default"
-          },
-          "624": {
-            "id": 624,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "625": {
-            "id": 625,
-            "type": "unique",
-            "name": "CQC Barrel"
-          },
-          "626": {
-            "id": 626,
-            "type": "unique",
-            "name": "Tactical Barrel"
-          }
-        },
-        "Mag": {
-          "627": {
-            "id": 627,
-            "type": "default",
-            "name": "Default"
-          },
-          "628": {
-            "id": 628,
-            "type": "unique",
-            "name": "Unfluted Cylinder"
-          }
-        },
-        "Grip": {
-          "632": {
-            "id": 632,
-            "type": "default",
-            "name": "Default"
-          },
-          "633": {
-            "id": 633,
-            "type": "unique",
-            "name": "Biofit Grip"
-          },
-          "634": {
-            "id": 634,
-            "type": "unique",
-            "name": "Tactical Grip"
-          },
-          "635": {
-            "id": 635,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          }
-        },
-        "Sight": {
-          "629": {
-            "id": 629,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "630": {
-            "id": 630,
-            "type": "unique",
-            "name": "Snapshot Clear-Tag"
-          },
-          "631": {
-            "id": 631,
-            "type": "unique",
-            "name": "Tactical Sight"
-          }
-        },
-        "BarrelExtension": {
-          "636": {
-            "id": 636,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "637": {
-            "id": 637,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "638": {
-            "id": 638,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        }
-      }
+      "sourceKey": "bullkick500"
     },
     "29": {
       "id": 29,
@@ -5984,108 +1413,18 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 49.3,
-          "ap": 1.3,
-          "recoil": 94,
-          "stability": 40,
-          "accuracy": 74,
-          "handling": 84,
-          "rof": 900,
-          "magazine": 33,
-          "ammo": 330
+      "stats": {
+        "damage": 49.3,
+        "ap": 1.3,
+        "recoil": 94,
+        "stability": 40,
+        "accuracy": 74,
+        "handling": 84,
+        "rof": 900,
+        "magazine": 33,
+        "ammo": 330
       },
-      "dlc": null,
-      "mods": {
-        "BarrelExtension": {
-          "639": {
-            "id": 639,
-            "type": "default",
-            "name": "Default"
-          },
-          "640": {
-            "id": 640,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "641": {
-            "id": 641,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "642": {
-            "id": 642,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "643": {
-            "id": 643,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "644": {
-            "id": 644,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Mag": {
-          "645": {
-            "id": 645,
-            "type": "default",
-            "name": "Default"
-          },
-          "646": {
-            "id": 646,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "647": {
-            "id": 647,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "648": {
-            "id": 648,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "Stock": {
-          "649": {
-            "id": 649,
-            "type": "default",
-            "name": "Default"
-          },
-          "650": {
-            "id": 650,
-            "type": "unique",
-            "name": "Underline Stock"
-          },
-          "651": {
-            "id": 651,
-            "type": "unique",
-            "name": "Overline Stock"
-          }
-        },
-        "Sight": {
-          "652": {
-            "id": 652,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "653": {
-            "id": 653,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "654": {
-            "id": 654,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        }
-      }
+      "dlc": null
     },
     "30": {
       "id": 30,
@@ -6099,118 +1438,21 @@
         "c": 4
       },
       "dlc_id": 3,
-      "stats": { 
-          "damage": 76.6,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 800,
-          "magazine": 15,
-          "ammo": 150
+      "stats": {
+        "damage": 76.6,
+        "ap": 1.3,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 800,
+        "magazine": 15,
+        "ammo": 150
       },
       "dlc": {
         "id": 3,
         "name": "Houston Breakout",
         "release_date": "2024-08-19"
-      },
-      "mods": {
-        "Mag": {
-          "656": {
-            "id": 656,
-            "type": "default",
-            "name": "Default"
-          },
-          "657": {
-            "id": 657,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "658": {
-            "id": 658,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "659": {
-            "id": 659,
-            "type": "default",
-            "name": "Default"
-          },
-          "660": {
-            "id": 660,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "661": {
-            "id": 661,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "662": {
-            "id": 662,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "663": {
-            "id": 663,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "664": {
-            "id": 664,
-            "type": "unique",
-            "name": "Parted Compensator"
-          },
-          "665": {
-            "id": 665,
-            "type": "unique",
-            "name": "Vent Catch IDM2"
-          }
-        },
-        "Grip": {
-          "669": {
-            "id": 669,
-            "type": "default",
-            "name": "Default"
-          },
-          "670": {
-            "id": 670,
-            "type": "unique",
-            "name": "Tactical Grip"
-          },
-          "671": {
-            "id": 671,
-            "type": "unique",
-            "name": "Premier Grip"
-          }
-        },
-        "Stock": {
-          "655": {
-            "id": 655,
-            "type": "unique",
-            "name": "Combat Stock"
-          }
-        },
-        "Sight": {
-          "666": {
-            "id": 666,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "667": {
-            "id": 667,
-            "type": "unique",
-            "name": "LED RDS"
-          },
-          "668": {
-            "id": 668,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        }
       }
     },
     "32": {
@@ -6225,101 +1467,21 @@
         "c": 1
       },
       "dlc_id": 4,
-      "stats": { 
-          "damage": 137,
-          "ap": 5,
-          "recoil": 30,
-          "stability": 5,
-          "accuracy": 87,
-          "handling": 44,
-          "rof": 275,
-          "magazine": 7,
-          "ammo": 70
+      "stats": {
+        "damage": 137,
+        "ap": 5,
+        "recoil": 30,
+        "stability": 5,
+        "accuracy": 87,
+        "handling": 44,
+        "rof": 275,
+        "magazine": 7,
+        "ammo": 70
       },
       "dlc": {
         "id": 4,
         "name": "Fear & Greed",
         "release_date": "2024-09-16"
-      },
-      "mods": {
-        "Barrel": {
-          "672": {
-            "id": 672,
-            "type": "default",
-            "name": "Default"
-          },
-          "673": {
-            "id": 673,
-            "type": "unique",
-            "name": "Lead Reach"
-          },
-          "674": {
-            "id": 674,
-            "type": "unique",
-            "name": " Whittled Fit"
-          },
-          "675": {
-            "id": 675,
-            "type": "unique",
-            "name": " Force Vent Cut"
-          },
-          "676": {
-            "id": 676,
-            "type": "unique",
-            "name": "S-Ballers"
-          }
-        },
-        "Grip": {
-          "677": {
-            "id": 677,
-            "type": "default",
-            "name": "Default"
-          },
-          "678": {
-            "id": 678,
-            "type": "unique",
-            "name": "Coarse Ergo"
-          },
-          "679": {
-            "id": 679,
-            "type": "unique",
-            "name": "Redwood Classic"
-          }
-        },
-        "Mag": {
-          "680": {
-            "id": 680,
-            "type": "default",
-            "name": "Default"
-          },
-          "681": {
-            "id": 681,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "Sight": {
-          "682": {
-            "id": 682,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "683": {
-            "id": 683,
-            "type": "unique",
-            "name": "Voyeur Scope"
-          },
-          "684": {
-            "id": 684,
-            "type": "unique",
-            "name": "LED RDS"
-          },
-          "685": {
-            "id": 685,
-            "type": "unique",
-            "name": "Slate RDS"
-          }
-        }
       }
     },
     "33": {
@@ -6334,116 +1496,21 @@
         "c": 2
       },
       "dlc_id": 4,
-      "stats": { 
-          "damage": 100.6,
-          "ap": 0,
-          "recoil": 0,
-          "stability": 0,
-          "accuracy": 0,
-          "handling": 0,
-          "rof": 400,
-          "magazine": 10,
-          "ammo": 100
+      "stats": {
+        "damage": 100.6,
+        "ap": 1.4,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 400,
+        "magazine": 10,
+        "ammo": 100
       },
       "dlc": {
         "id": 4,
         "name": "Fear & Greed",
         "release_date": "2024-09-16"
-      },
-      "mods": {
-        "Grip": {
-          "686": {
-            "id": 686,
-            "type": "default",
-            "name": "Default"
-          },
-          "687": {
-            "id": 687,
-            "type": "unique",
-            "name": "Sigma Pane"
-          },
-          "688": {
-            "id": 688,
-            "type": "unique",
-            "name": "Strafed Handle "
-          },
-          "689": {
-            "id": 689,
-            "type": "unique",
-            "name": "Shock Panel"
-          }
-        },
-        "Mag": {
-          "690": {
-            "id": 690,
-            "type": "default",
-            "name": "Default"
-          },
-          "691": {
-            "id": 691,
-            "type": "unique",
-            "name": "Extended Mag"
-          },
-          "692": {
-            "id": 692,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          }
-        },
-        "BarrelExtension": {
-          "693": {
-            "id": 693,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "694": {
-            "id": 694,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "695": {
-            "id": 695,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "696": {
-            "id": 696,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "697": {
-            "id": 697,
-            "type": "unique",
-            "name": "Parted Compensator"
-          },
-          "698": {
-            "id": 698,
-            "type": "unique",
-            "name": "Crated Muzzle"
-          }
-        },
-        "Sight": {
-          "699": {
-            "id": 699,
-            "type": "unique",
-            "name": "Trench Iron"
-          },
-          "700": {
-            "id": 700,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "701": {
-            "id": 701,
-            "type": "unique",
-            "name": "LED RDS"
-          },
-          "702": {
-            "id": 702,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        }
       }
     },
     "35": {
@@ -6458,112 +1525,22 @@
         "c": 2
       },
       "dlc_id": 6,
-      "stats": { 
-          "damage": 49.13,
-          "pellets": 8,
-          "ap": 0,
-          "recoil": 64,
-          "stability": 59,
-          "accuracy": 23,
-          "handling": 41,
-          "rof": 75,
-          "magazine": 5,
-          "ammo": 35
+      "stats": {
+        "damage": 49.13,
+        "pellets": 8,
+        "ap": 0,
+        "recoil": 64,
+        "stability": 59,
+        "accuracy": 23,
+        "handling": 41,
+        "rof": 75,
+        "magazine": 5,
+        "ammo": 35
       },
       "dlc": {
         "id": 6,
         "name": "Party Powder",
         "release_date": "2025-05-26"
-      },
-      "mods": {
-        "Barrel": {
-          "703": {
-            "id": 703,
-            "type": "default",
-            "name": "Default"
-          },
-          "704": {
-            "id": 704,
-            "type": "unique",
-            "name": "12G Snub Barrel"
-          },
-          "705": {
-            "id": 705,
-            "type": "unique",
-            "name": "Big Game Barrel"
-          },
-          "706": {
-            "id": 706,
-            "type": "unique",
-            "name": "Potshot Barrel"
-          }
-        },
-        "Grip": {
-          "707": {
-            "id": 707,
-            "type": "default",
-            "name": "Default"
-          },
-          "708": {
-            "id": 708,
-            "type": "unique",
-            "name": "Gorge Grip "
-          },
-          "709": {
-            "id": 709,
-            "type": "unique",
-            "name": "Greenwood Grip "
-          },
-          "710": {
-            "id": 710,
-            "type": "unique",
-            "name": "Bluewood Grip "
-          }
-        },
-        "BarrelExtension": {
-          "711": {
-            "id": 711,
-            "type": "unique",
-            "name": "The Silent Killer"
-          },
-          "712": {
-            "id": 712,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "713": {
-            "id": 713,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "714": {
-            "id": 714,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "715": {
-            "id": 715,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          }
-        },
-        "Sight": {
-          "716": {
-            "id": 716,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "717": {
-            "id": 717,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "718": {
-            "id": 718,
-            "type": "unique",
-            "name": "LED RDS"
-          }
-        }
       }
     },
     "54": {
@@ -6579,47 +1556,24 @@
         "c": 4
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 155.6,
-          "ap": 4,
-          "recoil": 38,
-          "stability": 33,
-          "accuracy": 60,
-          "handling": 16,
-          "rof": 400,
-          "magazine": 6,
-          "ammo": 60
+      "stats": {
+        "damage": 155.6,
+        "ap": 4,
+        "recoil": 38,
+        "stability": 33,
+        "accuracy": 60,
+        "handling": 16,
+        "rof": 400,
+        "magazine": 6,
+        "ammo": 60
       },
       "dlc": null,
-      "mods": {
-        "Mag": {
-          "818": {
-            "id": 818,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "815": {
-            "id": 815,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "816": {
-            "id": 816,
-            "type": "unique",
-            "name": "Tac Grip "
-          }
-        },
-        "Sight": {
-          "817": {
-            "id": 817,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        }
+      "baseWeaponKey": "Bison",
+      "fixedMods": {
+        "Mag": "Bison_Mag_Default",
+        "Barrel": "Bison_Barrel_Ranged",
+        "Grip": "Bison_Grip_Tac",
+        "Sight": "Sight_Box"
       }
     },
     "55": {
@@ -6635,33 +1589,22 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 90.1,
-          "ap": 1.6,
-          "recoil": 54, 
-          "stability": 35,
-          "accuracy": 72,
-          "handling": 58,
-          "rof": 450,
-          "magazine": 12,
-          "ammo": 120
+      "stats": {
+        "damage": 90.1,
+        "ap": 1.6,
+        "recoil": 54,
+        "stability": 35,
+        "accuracy": 72,
+        "handling": 58,
+        "rof": 450,
+        "magazine": 12,
+        "ammo": 120
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "819": {
-            "id": 819,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          }
-        },
-        "Sight": {
-          "820": {
-            "id": 820,
-            "type": "unique",
-            "name": "Box RDS"
-          }
-        }
+      "baseWeaponKey": "S40",
+      "fixedMods": {
+        "Grip": "S40_Grip_Hardwood",
+        "Sight": "Sight_Box"
       }
     },
     "56": {
@@ -6677,33 +1620,22 @@
         "c": 3
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 60.6,
-          "ap": 0,
-          "recoil": 63,
-          "stability": 34,
-          "accuracy": 55,
-          "handling": 63,
-          "rof": 450,
-          "magazine": 17,
-          "ammo": 170
+      "stats": {
+        "damage": 60.6,
+        "ap": 1.8,
+        "recoil": 63,
+        "stability": 34,
+        "accuracy": 55,
+        "handling": 63,
+        "rof": 450,
+        "magazine": 17,
+        "ammo": 170
       },
       "dlc": null,
-      "mods": {
-        "Mag": {
-          "821": {
-            "id": 821,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "BarrelExtension": {
-          "822": {
-            "id": 822,
-            "type": "unique",
-            "name": "Compact Compensator"
-          }
-        }
+      "baseWeaponKey": "Stryk7",
+      "fixedMods": {
+        "Mag": "Stryk7_Mag_Extended",
+        "BarrelExtension": "BarrelExt_CompactComp"
       }
     },
     "57": {
@@ -6719,47 +1651,24 @@
         "c": 2
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 116.1,
-          "ap": 2.1,
-          "recoil": 21,
-          "stability": 40,
-          "accuracy": 67,
-          "handling": 48,
-          "rof": 350,
-          "magazine": 10,
-          "ammo": 100
+      "stats": {
+        "damage": 116.1,
+        "ap": 2.1,
+        "recoil": 21,
+        "stability": 40,
+        "accuracy": 67,
+        "handling": 48,
+        "rof": 350,
+        "magazine": 10,
+        "ammo": 100
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "825": {
-            "id": 825,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "826": {
-            "id": 826,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "BarrelExtension": {
-          "823": {
-            "id": 823,
-            "type": "unique",
-            "name": "Snub Silencer"
-          }
-        },
-        "Sight": {
-          "824": {
-            "id": 824,
-            "type": "unique",
-            "name": "Slate RDS"
-          }
-        }
+      "baseWeaponKey": "SPM11",
+      "fixedMods": {
+        "Grip": "SPM11_Grip_Default",
+        "Barrel": "SPM11_Barrel_Default",
+        "BarrelExtension": "BarrelExt_SnubSilencer",
+        "Sight": "Sight_Slate"
       }
     },
     "58": {
@@ -6775,40 +1684,23 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 160.1,
-          "ap": 2,
-          "recoil": 25,
-          "stability": 36,
-          "accuracy": 54,
-          "handling": 38,
-          "rof": 300,
-          "magazine": 6,
-          "ammo": 60
+      "stats": {
+        "damage": 160.1,
+        "ap": 2,
+        "recoil": 25,
+        "stability": 36,
+        "accuracy": 54,
+        "handling": 38,
+        "rof": 300,
+        "magazine": 6,
+        "ammo": 60
       },
       "dlc": null,
-      "mods": {
-        "Mag": {
-          "829": {
-            "id": 829,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "827": {
-            "id": 827,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          }
-        },
-        "Grip": {
-          "828": {
-            "id": 828,
-            "type": "unique",
-            "name": "Hardwood Grip"
-          }
-        }
+      "baseWeaponKey": "Castigo44",
+      "fixedMods": {
+        "Mag": "Castigo44_Mag_Default",
+        "Barrel": "Castigo44_Barrel_Ranged",
+        "Grip": "Castigo44_Grip_Hardwood"
       }
     },
     "59": {
@@ -6824,54 +1716,25 @@
         "c": 1
       },
       "dlc_id": null,
-      "stats": { 
-          "damage": 116.1,
-          "ap": 2.1,
-          "recoil": 21,
-          "stability": 41,
-          "accuracy": 69,
-          "handling": 44,
-          "rof": 350,
-          "magazine": 10,
-          "ammo": 100
+      "stats": {
+        "damage": 116.1,
+        "ap": 2.1,
+        "recoil": 21,
+        "stability": 41,
+        "accuracy": 69,
+        "handling": 44,
+        "rof": 350,
+        "magazine": 10,
+        "ammo": 100
       },
       "dlc": null,
-      "mods": {
-        "Grip": {
-          "832": {
-            "id": 832,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "833": {
-            "id": 833,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "BarrelExtension": {
-          "830": {
-            "id": 830,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          }
-        },
-        "Sight": {
-          "831": {
-            "id": 831,
-            "type": "unique",
-            "name": "Slate RDS"
-          }
-        },
-        "Mag": {
-          "834": {
-            "id": 834,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        }
+      "baseWeaponKey": "SPM11",
+      "fixedMods": {
+        "Grip": "SPM11_Grip_Default",
+        "Barrel": "SPM11_Barrel_Default",
+        "BarrelExtension": "BarrelExt_ObeliskSilencer",
+        "Sight": "Sight_Slate",
+        "Mag": "SPM11_Mag_Extended"
       }
     },
     "60": {
@@ -6887,51 +1750,28 @@
         "c": 2
       },
       "dlc_id": 5,
-      "stats": { 
-          "damage": 49.3,
-          "ap": 1.3,
-          "recoil": 94,
-          "stability": 40,
-          "accuracy": 74,
-          "handling": 84,
-          "rof": 900,
-          "magazine": 45,
-          "ammo": 270
+      "stats": {
+        "damage": 49.3,
+        "ap": 1.3,
+        "recoil": 94,
+        "stability": 40,
+        "accuracy": 74,
+        "handling": 84,
+        "rof": 900,
+        "magazine": 45,
+        "ammo": 270
       },
       "dlc": {
         "id": 5,
         "name": "Jacked Character Pack",
         "release_date": "2025-02-03"
       },
-      "mods": {
-        "BarrelExtension": {
-          "835": {
-            "id": 835,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Grip": {
-          "836": {
-            "id": 836,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Barrel": {
-          "837": {
-            "id": 837,
-            "type": "default",
-            "name": "Default"
-          }
-        },
-        "Mag": {
-          "838": {
-            "id": 838,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        }
+      "baseWeaponKey": "T32",
+      "fixedMods": {
+        "BarrelExtension": "T32_BarrelExtension_Default",
+        "Grip": "T32_Grip_Default",
+        "Barrel": "T32_Barrel_Default",
+        "Mag": "T32_Mag_Extended"
       }
     },
     "62": {
@@ -6942,165 +1782,27 @@
       "name": "Russell JB-9",
       "preset": 0,
       "sprite_pos": {
-          "r": 18,
-          "c": 4
+        "r": 18,
+        "c": 4
       },
       "dlc_id": 7,
-      "stats": { 
-          "damage": 48,
-          "ap": 1,
-          "recoil": 31, 
-          "stability": 34,
-          "accuracy": 12,
-          "handling": 51,
-          "rof": 1200,
-          "magazine": 30,
-          "ammo": 300
+      "stats": {
+        "damage": 48,
+        "ap": 0,
+        "recoil": 31,
+        "stability": 34,
+        "accuracy": 12,
+        "handling": 51,
+        "rof": 1200,
+        "magazine": 30,
+        "ammo": 300
       },
       "dlc": {
         "id": 7,
         "name": "Swedish Weapon Pack",
         "release_date": "2026-05-19"
       },
-      "mods": {
-        "BarrelExtension": {
-          "8": {
-            "id": 8,
-            "type": "default",
-            "name": "Default"
-          },
-          "9": {
-            "id": 9,
-            "type": "unique",
-            "name": "Lo-Pan Suppressor"
-          },
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "Snub Silencer"
-          },
-          "11": {
-            "id": 11,
-            "type": "unique",
-            "name": "Obelisk Silencer"
-          },
-          "12": {
-            "id": 12,
-            "type": "unique",
-            "name": "Compact Compensator"
-          },
-          "13": {
-            "id": 13,
-            "type": "unique",
-            "name": "Skeletonized Compensator"
-          },
-          "14": {
-            "id": 14,
-            "type": "unique",
-            "name": "Parted Compensator"
-          }
-        },
-        "Barrel": {
-          "15": {
-            "id": 15,
-            "type": "default",
-            "name": "Default"
-          },
-          "16": {
-            "id": 16,
-            "type": "unique",
-            "name": "Ranged Barrel"
-          },
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Extended Barrel"
-          }
-        },
-        "Mag": {
-          "22": {
-            "id": 22,
-            "type": "default",
-            "name": "Default"
-          },
-          "23": {
-            "id": 23,
-            "type": "unique",
-            "name": "Compact Mag"
-          },
-          "24": {
-            "id": 24,
-            "type": "unique",
-            "name": "Quick-Pull Mag"
-          },
-          "25": {
-            "id": 25,
-            "type": "unique",
-            "name": "Extended Mag"
-          }
-        },
-        "Stock": {
-          "26": {
-            "id": 26,
-            "type": "default",
-            "name": "Default"
-          },
-          "27": {
-            "id": 27,
-            "type": "unique",
-            "name": "Qin Frame Stock"
-          },
-          "28": {
-            "id": 28,
-            "type": "unique",
-            "name": "Shen Retracted Stock"
-          }
-        },
-        "Sight": {
-          "1": {
-            "id": 1,
-            "type": "unique",
-            "name": "Slate RDS"
-          },
-          "2": {
-            "id": 2,
-            "type": "unique",
-            "name": "Box RDS"
-          },
-          "3": {
-            "id": 3,
-            "type": "unique",
-            "name": "LED Sight"
-          },
-          "4": {
-            "id": 4,
-            "type": "unique",
-            "name": "Lucid RDS"
-          }
-        },
-        "VerticalGrip": {
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Angled Ghost Grip"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Stub Grip"
-          },
-          "33": {
-            "id": 33,
-            "type": "unique",
-            "name": "Polymer Vertical Grip"
-          },
-          "34": {
-            "id": 34,
-            "type": "unique",
-            "name": "Biofit Vertical Grip"
-          }
-        }
-      }
+      "sourceKey": "Yates"
     },
     "65": {
       "id": 65,
@@ -7110,156 +1812,27 @@
       "name": "Locomotive 12G",
       "preset": 0,
       "sprite_pos": {
-          "r": 19,
-          "c": 4
+        "r": 19,
+        "c": 4
       },
       "dlc_id": 8,
-      "stats": { 
-          "damage": 55,
-          "ap": 0,
-          "recoil": 45, 
-          "stability": 59,
-          "accuracy": 100,
-          "handling": 85,
-          "rof": 100,
-          "magazine": 2,
-          "ammo": 31
+      "stats": {
+        "damage": 55,
+        "ap": 0,
+        "recoil": 45,
+        "stability": 59,
+        "accuracy": 100,
+        "handling": 85,
+        "rof": 100,
+        "magazine": 2,
+        "ammo": 31
       },
       "dlc": {
         "id": 8,
         "name": "Brute Force Crimebond",
         "release_date": "2026-09-22"
       },
-      "mods": {
-        "Grip": {
-          "18": {
-            "id": 18,
-            "type": "default",
-            "name": "Default"
-          },
-          "19": {
-            "id": 19,
-            "type": "unique",
-            "name": "Light Grip"
-          },
-          "20": {
-            "id": 20,
-            "type": "unique",
-            "name": "Molded Grip"
-          },
-          "21": {
-            "id": 21,
-            "type": "unique",
-            "name": "Raised Grip"
-          }
-        },
-        "BarrelExtension": {
-          "8": {
-            "id": 8,
-            "type": "default",
-            "name": "Default"
-          },
-          "9": {
-            "id": 9,
-            "type": "unique",
-            "name": "12G Jaw Choke"
-          },
-          "10": {
-            "id": 10,
-            "type": "unique",
-            "name": "12G Obelisk Silencer"
-          },
-          "11": {
-            "id": 11,
-            "type": "unique",
-            "name": "12G Sediment Choke"
-          },
-          "12": {
-            "id": 12,
-            "type": "unique",
-            "name": "12G Vent Compensator"
-          },
-          "13": {
-            "id": 13,
-            "type": "unique",
-            "name": "Breacher Muzzle"
-          },
-          "14": {
-            "id": 14,
-            "type": "unique",
-            "name": "Coronet Muzzle"
-          },
-          "15": {
-            "id": 15,
-            "type": "unique",
-            "name": "Ridgecyl Silencer"
-          },
-          "16": {
-            "id": 16,
-            "type": "unique",
-            "name": "The Silent Killer"
-          },
-          "17": {
-            "id": 17,
-            "type": "unique",
-            "name": "Torqued Choke"
-          }
-        },
-        "Sight": {
-          "1": {
-            "id": 1,
-            "type": "unique",
-            "name": "Classic RDS"
-          },
-          "2": {
-            "id": 2,
-            "type": "unique",
-            "name": "Compact RDS"
-          },
-          "3": {
-            "id": 3,
-            "type": "unique",
-            "name": "Sheath RDS"
-          },
-          "4": {
-            "id": 4,
-            "type": "unique",
-            "name": "Projection RDS"
-          },
-          "5": {
-            "id": 5,
-            "type": "unique",
-            "name": "Light Holographic Sight"
-          },
-          "6": {
-            "id": 6,
-            "type": "unique",
-            "name": "Square Claim"
-          },
-          "7": {
-            "id": 7,
-            "type": "unique",
-            "name": "SM-2 Sight"
-          }
-        },
-        "VerticalGrip": {
-          "31": {
-            "id": 31,
-            "type": "unique",
-            "name": "Biofit Vertical Grip"
-          },
-          "32": {
-            "id": 32,
-            "type": "unique",
-            "name": "Skeletal Vertical Grip"
-          },
-          "33": {
-            "id": 33,
-            "type": "unique",
-            "name": "Slim Vertical Grip"
-          }
-        }
-      }
+      "sourceKey": "Pocket"
     }
   },
   "overkill": {
@@ -7578,11 +2151,11 @@
         "c": 2
       },
       "stats": {
-          "plates": 1,
-          "MaxDownCount": 4,
-          "LoadoutWeight": 10,
-          "ConsumableCount": 4,
-          "AmmoCapacityScale": 0.8
+        "plates": 1,
+        "MaxDownCount": 4,
+        "LoadoutWeight": 10,
+        "ConsumableCount": 4,
+        "AmmoCapacityScale": 0.8
       },
       "description": "First Aid Kits replenish an additional {FirstAidPackHealthPerCharge} health {FirstAidPackHealthPerCharge}|plural(one=point,other=points).",
       "desc_values": {
@@ -7602,11 +2175,11 @@
         "c": 3
       },
       "stats": {
-          "plates": 2,
-          "MaxDownCount": 4,
-          "LoadoutWeight": 30,
-          "ConsumableCount": 3,
-          "SpeedPenalty": "Light"
+        "plates": 2,
+        "MaxDownCount": 4,
+        "LoadoutWeight": 30,
+        "ConsumableCount": 3,
+        "SpeedPenalty": "Light"
       },
       "description": "If you have a tool in your loadout, you start the heist with {ToolCount} additional {ToolCount}|plural(one=tool,other=tools) of that type. (This is applied before the Extra Pockets skill.)",
       "desc_values": {
@@ -7626,12 +2199,12 @@
         "c": 4
       },
       "stats": {
-          "plates": 3,
-          "MaxDownCount": 4,
-          "LoadoutWeight": 75,
-          "ConsumableCount": 3,
-          "AmmoCapacityScale": 1.2,
-          "SpeedPenalty": "Medium"
+        "plates": 3,
+        "MaxDownCount": 4,
+        "LoadoutWeight": 75,
+        "ConsumableCount": 3,
+        "AmmoCapacityScale": 1.2,
+        "SpeedPenalty": "Medium"
       },
       "description": "If you have no throwable for {NoThrowableReplenishDelay} {NoThrowableReplenishDelay}|plural(one=second,other=seconds), replenish {NoThrowableReplenishCount} {NoThrowableReplenishDelay}|plural(one=throwable,other=throwables).",
       "desc_values": {

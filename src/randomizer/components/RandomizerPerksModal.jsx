@@ -5,6 +5,7 @@ import {
   getPerkByKey,
 } from "../../build/utils/perks.utils";
 import styles from "./RandomizerPerksModal.module.scss";
+import PerkDescriptionText from "../../components/PerkDescriptionText.jsx";
 
 export default function RandomizerPerksModal({
   open,
@@ -38,7 +39,7 @@ export default function RandomizerPerksModal({
           <section className={styles.perk} key={slotKey}>
             {slotLabel && <div className={styles.slot}>{slotLabel}</div>}
             <div className={styles.name}>{perk.name}</div>
-            {perk.description && <div className={styles.description}>{perk.description}</div>}
+            {perk.description && <div className={styles.description}><PerkDescriptionText description={perk.description} /></div>}
           </section>
         ))}
       </div>

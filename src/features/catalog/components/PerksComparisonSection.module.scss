@@ -225,3 +225,68 @@ tbody tr:hover {
     justify-content: flex-start;
   }
 }
+
+.overviewFinder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.finderHint {
+  max-width: 450px;
+  margin: 6px 0 0;
+  color: $color-text-muted;
+  font-family: "DIN2014";
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.finderControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+  min-width: min(100%, 380px);
+}
+
+.finderControls > :first-child {
+  flex: 1 1 230px;
+}
+
+.finderButton {
+  clip-path: none;
+  min-width: 0;
+  width: auto;
+  padding: 8px 12px;
+  border: 1px solid $pd3-lightgreen;
+  border-radius: 6px;
+  background: rgba($pd3-lightgreen, 0.10);
+  color: $pd3-lightgreen;
+  font-family: "DIN2014";
+  font-size: 13px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.finderButton:focus-visible {
+  outline: 2px solid $pd3-lightgreen;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .finderControls,
+  .finderButton {
+    width: 100%;
+    max-width: none;
+  }
+}

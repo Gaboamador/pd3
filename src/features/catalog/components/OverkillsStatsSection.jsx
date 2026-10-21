@@ -1,6 +1,7 @@
-import perksData from "../../../data/payday3_perks.json";
+import perksData from "../../../data/perksData.js";
 import { getOverkillConfigGroups } from "../../../build/utils/perks.utils";
 import styles from "./OverkillStatsSection.module.scss";
+import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
 
 export default function OverkillStatsSection({ weapon }) {
   if (!weapon) return null;
@@ -27,7 +28,7 @@ export default function OverkillStatsSection({ weapon }) {
                   <div key={option.key} className={styles.tierCard}>
                     <div className={styles.tierName}>{option.name}</div>
                     <div className={styles.tierDescription}>
-                      {option.description}
+                      <PerkDescriptionText description={option.description} />
                     </div>
                   </div>
                 ))}

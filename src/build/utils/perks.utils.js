@@ -88,6 +88,15 @@ export function buildInitialOverkillConfig(perksData, weaponKey) {
   return config;
 }
 
+// Usado tanto al seleccionar un OVERKILL como al entrar a editarlo desde el picker.
+// Cambiar de arma siempre inicia la configuración de los slots de la nueva arma.
+export function buildOverkillLoadoutSelection(perksData, weaponKey) {
+  return {
+    overkill: weaponKey,
+    overkillConfig: buildInitialOverkillConfig(perksData, weaponKey),
+  };
+}
+
 export function getEffectiveOverkillConfig(config, perksData, weaponKey) {
   return {
     ...buildInitialOverkillConfig(perksData, weaponKey),

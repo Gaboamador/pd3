@@ -6,7 +6,7 @@ import { useToast } from "../../../context/ToastContext";
 import Modal from "../common/Modal";
 import Spinner from "../../../components/Spinner";
 import { WeaponPresetService } from "../../../services/weaponPresetService";
-import { getWeaponModSlots } from "../../utils/loadout.utils";
+import { getWeaponModSlots, normalizeModsForWeapon } from "../../utils/loadout.utils";
 import {
   getEffectiveWeaponPerkKey,
   getPerkByKey,
@@ -14,6 +14,7 @@ import {
   isIconicWeapon,
 } from "../../utils/perks.utils";
 import styles from "./WeaponModsModal.module.scss";
+import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
 
 const SLOT_LABEL_OVERRIDES = {
   Mag: "Magazine",
@@ -127,7 +128,7 @@ export default function WeaponModsModal({
     try {
       // Personal presets intentionally contain mods only. The weapon perk belongs
       // to the build and is not changed when loading a mod preset.
-      onChangeMods(existingPreset.mods ?? {});
+      onChangeMods(normalizeModsForWeapon(weaponDef, existingPreset.mods));
     } finally {
       setPresetLoading(false);
     }
@@ -221,7 +222,7 @@ export default function WeaponModsModal({
 
         {activePerk?.description && (
           <div className={`${styles.perkDescription} ${activePerk.equipped ? styles.equipped : ""} ${activePerk.persistent ? styles.persistent : ""}`}>
-            {activePerk.description}
+            <PerkDescriptionText description={activePerk.description} />
           </div>
         )}
       </div>

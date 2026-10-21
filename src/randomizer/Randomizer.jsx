@@ -19,12 +19,13 @@ import TreeSprite from "../build/components/skills/TreeSprite";
 import {
   buildInitialModsStateForWeapon,
   normalizeLoadoutData,
+  normalizeBuildWeaponMods,
 } from "../build/utils/loadout.utils";
 import { buildWeaponTypeLabels, getWeaponTypeLabel, orderWeaponTypes } from "../build/utils/weaponTypeLabels";
 import loadoutData from "../data/payday3_loadout_items.json";
 import platesData from "../data/payday3_armor_plates.json";
 import skillGroupsData from "../data/payday3_skill_groups.json";
-import perksData from "../data/payday3_perks.json";
+import perksData from "../data/perksData.js";
 
 import { getArmorMaxPlates, buildEmptyPlateSlots } from "../build/utils/armor.utils";
 import { buildTreePool } from "./utils/buildTreePool";
@@ -91,7 +92,7 @@ export default function Randomizer() {
   try {
     const saved = sessionStorage.getItem(RANDOMIZER_SESSION_KEY);
     if (saved) {
-      return JSON.parse(saved);
+      return normalizeBuildWeaponMods(JSON.parse(saved));
     }
   } catch {}
 

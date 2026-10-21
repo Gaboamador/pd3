@@ -12,7 +12,7 @@ export default function WeaponModsEditor({ weaponDef, modsState, onChangeMods })
   function setMod(slot, id) {
     onChangeMods({
       ...modsState,
-      [slot]: id === "" ? null : Number(id),
+      [slot]: id === "" ? null : id,
     });
   }
 
@@ -28,7 +28,7 @@ export default function WeaponModsEditor({ weaponDef, modsState, onChangeMods })
             onChange={e => setMod(ms.slot, e.target.value)}
           >
             <option value="">{t('select.option.default')}</option>
-            {ms.options.map(o => (
+            {ms.options.filter(o => !o.isDefault).map(o => (
               <option key={o.id} value={o.id}>
                 {o.name}
               </option>

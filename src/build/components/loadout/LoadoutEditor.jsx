@@ -16,7 +16,7 @@ import OverkillConfigModal from "./OverkillConfigModal";
 import { getArmorByKey, getArmorMaxPlates, buildEmptyPlateSlots } from "../../utils/armor.utils";
 import { useLoadoutItemController } from "../../../hooks/useLoadoutItemController";
 import {
-  buildInitialOverkillConfig,
+  buildOverkillLoadoutSelection,
   getEffectiveOverkillConfig,
   getOverkillConfigGroups,
 } from "../../utils/perks.utils";
@@ -198,6 +198,12 @@ function setArmorFrame(key) {
   });
 }
 
+function handleSelectOverkill(def, openEditor = false) {
+  updateLoadout(buildOverkillLoadoutSelection(perksData, def.key));
+  setOpenPicker(null);
+  if (openEditor) setOpenOverkillEditor(true);
+}
+
 const armorPlates = build.loadout.armor?.plates ?? [];
 const hasAnyPlateSelected = armorPlates.some(p => p != null);
 
@@ -350,16 +356,12 @@ return (
               mode="item-picker"
               itemDef={def}
               SpriteComponent={OverkillSprite}
-              onClick={() => {
-                updateLoadout({
-                  overkill: def.key,
-                  overkillConfig: buildInitialOverkillConfig(
-                    perksData,
-                    def.key
-                  ),
-                });
-                setOpenPicker(null);
-              }}
+              onClick={() => handleSelectOverkill(def)}
+              onEdit={
+                getOverkillConfigGroups(perksData, def.key).length > 0
+                  ? () => handleSelectOverkill(def, true)
+                  : undefined
+              }
             />
           )}
         />
