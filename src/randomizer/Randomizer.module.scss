@@ -383,9 +383,20 @@
 // SKILL TREE RANDOMIZER
 
 .resetRandomizerBtn {
-display: flex;
-flex-direction: column;
-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 14px;
+  color: $color-text-primary;
+  background: $pd3-main;
+  font: 800 14px 'Rift', system-ui, sans-serif;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  &:hover { background: $pd3-hover; }
 }
 
 .overkillConfigCount {

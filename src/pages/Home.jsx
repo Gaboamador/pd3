@@ -10,7 +10,8 @@ import {
   LuFolderOpen,
   LuFilter,
   LuTarget,
-  LuSpade
+  LuSpade,
+  LuFolderLock
 } from "react-icons/lu";
 
 export default function Home() {
@@ -82,6 +83,14 @@ const recentBuildName = recentBuild?.name?.trim();
           <div className={styles.cardDesc}>
             {t('home.randomizer.desc')}
           </div>
+        </Link>
+
+        <Link to="/challenge-mode" className={`${styles.card} ${styles.challengeCard}`}>
+          <div className={styles.cardTitle}>
+            <span className={styles.homeIcon} data-service="challenge"><LuFolderLock /></span>
+            <span>{t('home.challenge-mode.title')}</span>
+          </div>
+          <div className={styles.cardDesc}>{t('home.challenge-mode.desc')}</div>
         </Link>
         
       </nav>

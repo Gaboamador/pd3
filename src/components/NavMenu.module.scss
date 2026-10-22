@@ -118,6 +118,10 @@
   color: $color-skill;
 }
 
+.icon[data-service="challenge"] {
+  color: $color-challenge;
+}
+
 .icon[data-service="home"] {
   color: white;
 }
@@ -189,4 +193,8 @@
   background: rgba($pd3-main, .15);
   font-family: 'DIN2014';
   font-size: .9rem;
+}
+
+.icon[data-service="challenge"] {
+  color: $color-challenge;
 }

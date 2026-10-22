@@ -151,3 +151,13 @@
   .wrapper { padding: 20px 12px; gap: 20px; }
   .continueBuild { min-height: 52px; font-size: .83rem; }
 }
+
+.homeIcon[data-service="challenge"] {
+  color: $color-challenge;
+}
+
+/* Identidad visual de Challenge Mode, independiente del acento global. */
+.challengeCard:hover {
+  border-color: $color-challenge;
+  box-shadow: 0 10px 30px rgba($color-challenge, 0.16);
+}

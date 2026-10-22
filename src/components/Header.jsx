@@ -17,7 +17,8 @@ import {
   LuFilter,
   LuTarget,
   LuSpade,
-  LuHouse
+  LuHouse,
+  LuFolderLock
 } from "react-icons/lu";
 
 
@@ -40,6 +41,7 @@ export default function Header() {
   const SUBTITLE_ROUTES = [
     { match: "/build-editor", label: t('home.build-editor.title') },
     { match: "/randomizer", label: t('home.randomizer.title') },
+    { match: "/challenge-mode", label: t('home.challenge-mode.title') },
     { match: "/library-explorer", label: t('home.library-explorer.title') },
     { match: "/library-roulette", label: t('home.library-roulette.desc.short') },
     { match: "/catalog", label: t('home.catalog.title') },
@@ -95,6 +97,12 @@ export default function Header() {
       label: t('home.randomizer.title'),
       icon: <LuDice5 />,
       service: "random"
+    },
+    {
+      to: "/challenge-mode",
+      label: t('home.challenge-mode.title'),
+      icon: <LuFolderLock />,
+      service: "challenge"
     }
   ];
 

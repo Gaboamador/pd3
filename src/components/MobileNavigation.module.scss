@@ -1,30 +1,165 @@
 @use "../styles/variables" as *;
+
 .nav { display: none; }
+
 @media (max-width: 560px) {
   .nav {
-    position: fixed; inset-inline: 0; bottom: 0; z-index: 110;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 110;
+    display: block;
     height: var(--pd3-mobile-nav-height);
-    display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
+    // El menú se despliega hacia arriba fuera del alto de la navbar.
+    overflow: visible;
+  }
+
+  .bar {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1px;
+    height: 100%;
     padding: 5px 5px calc(5px + env(safe-area-inset-bottom, 0px));
     background: rgba(16, 20, 23, .97);
     border-top: 1px solid rgba($pd3-main, .5);
     backdrop-filter: blur(12px);
   }
+
   .link {
     min-height: 50px;
     min-width: 0;
+    width: 100%;
     padding: 5px 2px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 3px;
     font-family: 'DIN2014';
     font-size: clamp(8px, 2.5vw, 10px);
     text-align: center;
-    color: rgba(255,255,255,.72);
+    color: rgba(255, 255, 255, .72);
     text-decoration: none;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: transparent;
   }
   .link svg { height: 20px; width: 20px; flex-shrink: 0; }
-  .link span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+  .link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
   .active { color: $pd3-main; }
   .disabled { opacity: .4; }
+
+  // Evita heredar el recorte diagonal y el fondo de button global.
+  .toggle {
+    clip-path: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-weight: inherit;
+    &:hover { background: rgba(255, 255, 255, .07); }
+    &:active { background: rgba(255, 255, 255, .11); }
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, .32);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .24s ease, visibility 0s linear .24s;
+  }
+  .backdropVisible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .24s ease;
+  }
+
+  .randomMenu {
+    position: absolute;
+    // El panel nace detrás de la barra y emerge por su borde superior.
+    z-index: 2;
+    right: max(8px, env(safe-area-inset-right, 0px));
+    bottom: calc(100% + 10px);
+    width: min(280px, calc(100vw - 16px));
+    max-height: calc(100dvh - var(--pd3-mobile-nav-height) - 18px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 7px;
+    border: 1px solid rgba($pd3-main, .35);
+    border-radius: 11px;
+    background: #181c24;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .55);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(calc(100% + 10px));
+    transition:
+      transform .29s cubic-bezier(.22, 1, .36, 1),
+      opacity .23s ease,
+      visibility 0s linear .29s;
+  }
+  .randomMenuVisible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      transform .29s cubic-bezier(.22, 1, .36, 1),
+      opacity .23s ease;
+  }
+
+  .menuHeading {
+    padding: 8px 11px 6px;
+    font-family: 'DIN2014';
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .52);
+  }
+
+  .menuLink {
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    color: rgba(255, 255, 255, .89);
+    font-family: 'DIN2014';
+    font-size: 14px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .16s ease;
+
+    &:hover, &:focus-visible { background: rgba(255, 255, 255, .09); }
+    &:active { background: rgba(255, 255, 255, .14); }
+  }
+  .menuIcon {
+    display: inline-flex;
+    flex: 0 0 24px;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  .roulette .menuIcon { color: $color-skill; }
+  .randomizer .menuIcon { color: $color-throwable; }
+  .challenge .menuIcon { color: $color-challenge; }
+  .menuActive {
+    background: rgba($pd3-main, .09);
+    box-shadow: inset 2px 0 0 $pd3-main;
+  }
+}
+
+@media (max-width: 560px) and (prefers-reduced-motion: reduce) {
+  .backdrop, .randomMenu, .menuLink { transition: none; }
 }
