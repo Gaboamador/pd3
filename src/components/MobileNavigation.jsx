@@ -7,6 +7,7 @@ import {
   LuDice5, LuTarget, LuFolderLock, LuShuffle,
 } from 'react-icons/lu';
 import { isToolRoute } from './mobileNavigationState.js';
+import { isBuildEditorRoute } from '../utils/isBuildEditorRoute.js';
 import styles from './MobileNavigation.module.scss';
 
 export default function MobileNavigation() {
@@ -44,7 +45,7 @@ export default function MobileNavigation() {
 
   const primaryLinks = [
     { to: '/', icon: <LuHouse />, label: t('nav.home'), end: true },
-    { to: '/build-editor', icon: <LuWrench />, label: t('home.build-editor.title'), extraActive: pathname.startsWith('/s/') },
+    { to: '/build-editor', icon: <LuWrench />, label: t('home.build-editor.title'), extraActive: isBuildEditorRoute(pathname) },
     { to: '/library-explorer', icon: <LuFolderOpen />, label: t('mobile.nav.library'), disabled: !isAuthenticated, extraActive: pathname.startsWith('/compare-builds') },
     { to: '/catalog', icon: <LuSearch />, label: t('home.catalog.title') },
   ];

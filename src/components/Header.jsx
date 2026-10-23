@@ -8,6 +8,7 @@ import { logout } from "../../firebaseAuth";
 import NavMenu from "./NavMenu";
 import HeaderMenuIcon from "./HeaderMenuIcon";
 import { useHeaderEditorSlot } from "../context/HeaderEditorSlotContext";
+import { isBuildEditorRoute as isEditorRoute } from "../utils/isBuildEditorRoute.js";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import {
   LuWrench,
@@ -27,7 +28,7 @@ export default function Header() {
   const { isAuthenticated, user } = useAuth();
   const location = useLocation();
   const pathname = location.pathname;
-  const isBuildEditorRoute = pathname.startsWith("/build-editor") || pathname.startsWith("/s/");
+  const isBuildEditorRoute = isEditorRoute(pathname);
   const { setEditorSlot } = useHeaderEditorSlot();
   const [menuOpen, setMenuOpen] = useState(false);
   const isHome = pathname === "/";
