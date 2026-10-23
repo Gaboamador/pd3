@@ -9,6 +9,7 @@ import Home from "./pages/Home.jsx";
 import Randomizer from "./randomizer/Randomizer.jsx";
 import ChallengeMode from "./challenges/ChallengeMode.jsx";
 import BuildEditor from "./build/BuildEditor.jsx";
+import ShortBuildRoute from "./build/share/ShortBuildRoute.jsx";
 import LibraryExplorer from "./library/pages/LibraryExplorer.jsx";
 import Spinner from "./components/Spinner.jsx";
 import MigrationPrompt from "./components/MigrationPrompt.jsx";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/build-editor/b/:encoded" element={<BuildEditor mode="owned" />} />
         <Route path="/build-editor/share/:encoded" element={<BuildEditor mode="share" />} />
         <Route path="/s/:encoded" element={<BuildEditor mode="share" />} />
+        <Route path="/q/:shortId" element={<ShortBuildRoute />} />
         <Route path="/library-explorer" element={<LibraryExplorer />} />
         <Route path="/library-roulette" element={<LibraryRoulette />} />
         <Route path="/catalog" element={<Catalog />} />

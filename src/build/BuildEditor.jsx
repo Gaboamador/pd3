@@ -20,6 +20,8 @@ import perksData from "../data/perksData.js";
 import { useUserLibrary } from "../library/hooks/useUserLibrary";
 import { loadBuildFromSession, saveBuildToSession, createEmptyBuild } from "./build.utils";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "./build.buildUrl.utils";
+import { createShortBuildLink } from "./share/shortBuildLinks.service.js";
+import { createPublicBuildSnapshot } from "./share/shortBuildLinks.utils.js";
 import { selectUsedSkillPoints } from "./build.selectors";
 import { buildSkillTree } from "./utils/skillTree.utils";
 import { normalizeBuildWeaponMods, normalizeLoadoutData } from "./utils/loadout.utils";
@@ -39,7 +41,7 @@ import Modal from "./components/common/Modal";
 import useIsMobile from "../hooks/useIsMobile";
 import { BREAKPOINTS } from "../constants/breakpoints";
 
-export default function BuildEditor({mode}) {
+export default function BuildEditor({mode, initialSharedBuild = null}) {
   const { t } = useTranslation();
   const { uid } = useAuth();
   const navigate = useNavigate();
@@ -49,7 +51,8 @@ export default function BuildEditor({mode}) {
   const [fromExplorerSearch] = useState(() => location.state?.fromExplorer ?? null);
   const [fromRoulette] = useState(() => location.state?.fromRoulette ?? null);
   const [fromComparison] = useState(() => location.state?.fromComparison ?? false);
-  const [shareUrl, setShareUrl] = useState(null);
+  const [shareState, setShareState] = useState(null);
+  const shareRequestRef = useRef(0);
 
   // const [library, setLibrary] = useState([]);
   // const [libraryLoading, setLibraryLoading] = useState(true);
@@ -146,6 +149,9 @@ export default function BuildEditor({mode}) {
 }
 
 const [build, setBuild] = useState(() => {
+  if (mode === "share" && initialSharedBuild) {
+    return { ...initialSharedBuild, id: null, slot: null, __shared: true };
+  }
   if (encoded) {
     const fromUrl = decodeBuildFromUrl(encoded);
 
@@ -366,14 +372,43 @@ function handleNewBuild() {
 }
 
 function handleShare() {
-  const encoded = encodeBuildToUrl(normalizeOwnedBuild(build));
+  const clean = normalizeOwnedBuild(build);
+  const encoded = encodeBuildToUrl(clean);
   if (!encoded) return;
 
-  const url =
-    // `${window.location.origin}/build-editor/share/${encoded}`;
-    `${window.location.origin}/s/${encoded}`;
+  // El mecanismo anterior funciona inmediatamente y sigue siendo el respaldo.
+  const fallbackUrl = `${window.location.origin}/s/${encoded}`;
+  const sharedBuild = createPublicBuildSnapshot(clean);
+  const requestId = ++shareRequestRef.current;
+  setShareState({ url: fallbackUrl, fallbackUrl, status: uid ? "loading" : "original", sharedBuild });
 
-  setShareUrl(url);
+  if (!uid) return; // Usuarios anónimos: exactamente el QR anterior.
+
+  // Limitar la espera de la primera escritura. Un fallo nunca impide compartir.
+  let timeoutId;
+  const timeout = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error("SHORT_LINK_TIMEOUT")), 8000);
+  });
+  Promise.race([createShortBuildLink(uid, clean), timeout])
+    .then(shortId => {
+      if (shareRequestRef.current !== requestId) return;
+      setShareState(prev => prev && ({
+        ...prev,
+        url: `${window.location.origin}/q/${shortId}`,
+        status: "short",
+      }));
+    })
+    .catch(err => {
+      console.warn("Short link unavailable; sharing original URL", err);
+      if (shareRequestRef.current !== requestId) return;
+      setShareState(prev => prev && ({ ...prev, status: "fallback" }));
+    })
+    .finally(() => clearTimeout(timeoutId));
+}
+
+function closeShare() {
+  shareRequestRef.current += 1; // Ignorar respuestas tardías de solicitudes anteriores.
+  setShareState(null);
 }
 
 const orderedLibrary = useMemo(() => {
@@ -460,11 +495,13 @@ return (
       </div>
     )}
 
-    {shareUrl && (
+    {shareState && (
       <ShareQrModal
-        url={shareUrl}
-        onClose={() => setShareUrl(null)}
-        sharedBuild={build}
+        url={shareState.url}
+        fallbackUrl={shareState.fallbackUrl}
+        status={shareState.status}
+        onClose={closeShare}
+        sharedBuild={shareState.sharedBuild}
       />
     )}
 
