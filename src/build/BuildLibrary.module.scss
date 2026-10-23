@@ -1,242 +1,300 @@
-/* BuildLibrary.module.scss */
 @use "../styles/variables" as *;
 
+/* La biblioteca conserva el panel y el scroll originales de BuildEditor.
+   Solo se rediseña la superficie interior para reproducir la maqueta aprobada. */
 .library {
   display: flex;
   flex-direction: column;
-  padding: 0 $space-md $space-md;
-  background-color: black;
-  border: 1px solid rgba($pd3-main, 0.5);
-  border-radius: $radius-lg;
+  min-width: 0;
   max-height: 80vh;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  background: #000;
+  /* El borde exterior y el padding los proporciona Section. */
+  color: #f0f0f0;
+  font-family: 'DIN2014', sans-serif;
 }
 
-.title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: $color-text-primary;
-
+.stickyHeader {
   position: sticky;
   top: 0;
-  z-index: 1;
-
-  background-color: black;
-  padding: $space-md $space-xs;
-}
-
-.empty {
-  padding: $space-md;
-  color: $color-text-muted;
-  background: $color-bg-surface;
-  border: 1px dashed $color-border;
-  border-radius: $radius-lg;
-}
-
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  z-index: 2;
+  flex: 0 0 auto;
   display: grid;
-  padding-top: 1px;
-  gap: $space-sm;
+  gap: 12px;
+  padding: 8px 0 12px;
+  background: #000;
 }
-
-
-.chevron {
-  font-size: 0.8rem;
-  opacity: 0.6;
-}
-
-.controls {
+.headerTop {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $space-sm;
-  flex-wrap: wrap;
-  padding-top: $space-xs;
-  border-top: 1px solid $color-border;
-}
-
-.slotEmpty {
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: $color-text-muted;
-  background: transparent;
-  border: 1px dashed $color-border;
-  white-space: nowrap;
-}
-
-.slotSelect {
-  min-width: 180px;
-  padding: 6px 10px;
-  border-radius: $radius-sm;
-  border: 1px solid $color-border;
-  background: $color-bg-surface;
-  color: $color-text-primary;
-  outline: none;
-
-  &:focus {
-    border-color: $color-accent;
-    box-shadow: 0 0 0 2px rgba($color-accent, 0.35);
-  }
-}
-
-
-.item {
-  position: relative;
-  padding: 10px 12px;
-  border: 1px solid $color-border;
-  border-radius: $radius-md;
-  background: $color-bg-elevated;
-  transition: all 0.15s ease;
-  display: flex;
-  flex-direction: column;
-  gap: $space-sm;
-}
-
-.item:hover {
-  border-color: color-mix(in srgb, $color-accent 50%, $color-border);
-}
-
-.active {
-  background: color-mix(in srgb, $color-accent 8%, $color-bg-elevated);
-  border-color: $color-accent;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 8px;
-    background: $color-accent;
-    border-top-left-radius: $radius-md;
-    border-bottom-left-radius: $radius-md;
-  }
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  justify-content: flex-end;
   gap: 12px;
 }
-
-.name {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: $color-text-primary;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.resultCount {
+  flex-shrink: 0;
+  color: #c7c7c7;
+  font: 400 .88rem/1.3 'DIN2014', sans-serif;
 }
-
-
-.slotBadge {
-  font-family: 'DIN2014';
-  font-weight: 800;
-  border-radius: 6px;
+.searchField {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: $pd3-main;
-  color: black;
-  font-size: 0.7rem;
-  padding: 4px 8px;
-  text-align: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 10px;
+  color: #c8c8c8;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #000;
+  &:focus-within { border-color: #414141; }
+  input {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    outline: 0;
+    background: transparent;
+    color: #f1f1f1;
+    font: 400 1rem/1.4 'DIN2014', sans-serif;
+    &::placeholder { color: #a9a9a9; opacity: 1; }
+    &::-webkit-search-cancel-button { display: none; }
+  }
 }
-
-.activeLabel {
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: $color-accent;
-}
-
-.activateBtn {
-  // Evita el recorte diagonal heredado del botón global.
+.clearButton {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #c8c8c8;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
   clip-path: none;
+  &:hover { background: #1d1d1d; color: #fff; }
+}
+.headerActions {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 1px solid $color-border;
-  background: transparent;
-  color: $color-text-muted;
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover {
-    background: rgba(60, 127, 255, 0.15);
-    border-color: $color-accent;
-    color: $color-accent;
-  }
+  min-height: 34px;
 }
-
-.deleteBtn {
-  clip-path: none;
-  font-size: 0.75rem;
-  background: transparent;
-  border: 1px solid #a33;
-  color: #a33;
-  padding: 4px 8px;
-  border-radius: 6px;
-
-  &:hover {
-    background: #a33;
-    color: white;
-  }
-}
-
-.left {
-  display: flex;
+.allDetailsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   gap: 8px;
-  min-width: 0;
-  align-items: flex-start;
+  min-height: 36px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 6px;
+  clip-path: none;
+  background: transparent;
+  color: #c9c9c9;
+  font: 500 .83rem 'DIN2014', sans-serif;
+  &:hover { background: #1b1b1b; color: #fff; }
+  &:disabled { opacity: .45; cursor: default; }
 }
-
-.right {
+.list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 10px 0 18px;
+}
+.item {
+  position: relative;
+  min-width: 0;
+  padding: 17px 18px;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  background: #000;
+  &:hover { border-color: #4a4a4a; }
+}
+.active { border-color: #565656; }
+.row {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
-
-}
-
-.meta {
-  display: flex;
-  flex-direction: column;
+  gap: 13px;
   min-width: 0;
 }
-
-.preview {
-  min-width: 0;
-  white-space: normal;
-  word-break: break-word;
-  font-size: 0.7rem;
-  color: $color-text-muted;
+.slotBadge, .slotEmpty {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 44px;
+  min-width: 44px;
+  min-height: 48px;
+  padding: 4px;
+  border-radius: 8px;
+  background: #242424;
+  color: #e8e8e8;
+  font: 700 .90rem/1.2 'DIN2014', sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.slotEmpty { border: 1px dashed #5a5a5a; background: #0c0c0c; }
+.slotBadge.activeSlot,
+.slotEmpty.activeSlot {
+  border-color: $pd3-lightgreen;
+}
+.meta { display: grid; gap: 5px; flex: 1 1 auto; min-width: 0; }
+.name {
+  color: #f3f3f3;
+  font: 700 1.10rem/1.25 'DIN2014', sans-serif;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0.85;
-  font-family: 'DIN2014';
 }
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  row-gap: 3px;
+  color: #c5c5c5;
+  font: 400 .94rem/1.25 'DIN2014', sans-serif;
+  span { overflow-wrap: anywhere; }
+}
+.rowActions { flex: 0 0 auto; display: flex; align-items: center; gap: 0; }
+.openButton, .expandButton {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  clip-path: none;
+  color: #d9d9d9;
+  background: transparent;
+  &:hover { background: #1d1d1d; color: #fff; }
+}
+.activeLabel {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  color: $pd3-lightgreen;
+  font: 700 .62rem 'DIN2014', sans-serif;
+  letter-spacing: .04em;
+}
+.expanded {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid #222;
+}
+.detailTitle {
+  margin: 0 0 15px;
+  color: #eaeaea;
+  font: 700 .95rem/1.2 'DIN2014', sans-serif;
+  text-transform: uppercase;
+}
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 30px;
+  row-gap: 14px;
+}
+.detailCell { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+.detailLabel {
+  color: #ababab;
+  font: 400 .76rem/1.3 'DIN2014', sans-serif;
+}
+.detailValue {
+  color: #eee;
+  font: 400 .9rem/1.3 'DIN2014', sans-serif;
+  overflow-wrap: anywhere;
+}
+.platesValue {
+  color: #a9a9a9;
+  font: 400 .77rem/1.25 'DIN2014', sans-serif;
+  overflow-wrap: anywhere;
+}
+.controls {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+}
+.slotField { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.slotField label { color: #ababab; font: 400 .72rem 'DIN2014', sans-serif; text-transform: uppercase; }
+.slotSelectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  svg { position: absolute; right: 3px; pointer-events: none; color: #ddd; }
+}
+.slotSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 128px;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 6px 26px 6px 0;
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  background: transparent;
+  color: #f0f0f0;
+  font: 400 .94rem 'DIN2014', sans-serif;
+  cursor: pointer;
+  &:hover { color: #fff; }
+  &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  option, optgroup { color: #fff; background: #202020; }
+}
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 6px;
+  border: 0;
+  border-radius: 6px;
+  clip-path: none;
+  background: transparent;
+  color: #ff6868;
+  font: 400 .87rem 'DIN2014', sans-serif;
+  &:hover { background: rgba(255, 104, 104, .1); color: #ff8585; }
+}
+.empty { margin: 12px 0; padding: 16px; color: #aaa; border: 1px dashed #333; border-radius: 8px; }
+.resetButton { margin-left: 10px; min-height: 44px; padding: 7px; color: #ddd; background: transparent; border: 0; border-radius: 6px; clip-path: none; }
+.openButton:focus-visible, .expandButton:focus-visible, .allDetailsButton:focus-visible,
+.clearButton:focus-visible, .deleteBtn:focus-visible, .resetButton:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 @media (max-width: 560px) {
-  .library {
-    flex: 1 1 auto;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    -webkit-overflow-scrolling: touch;
-  }
+  /* El panel de Builds ya existente controla posición y altura; este elemento
+     administra únicamente el desplazamiento de su propio contenido. */
+  .library { flex: 1 1 auto; height: 100%; min-height: 0; max-height: 100%; overflow-x: hidden; }
+  .stickyHeader { padding: 8px 0 8px; gap: 7px; }
+  .resultCount { font-size: .78rem; }
+  .searchField { min-height: 44px; padding: 0 5px; }
+  .allDetailsButton { min-height: 34px; }
+  .list { gap: 8px; padding: 6px 0 12px; }
+  .item { padding: 11px 9px; }
+  .row { gap: 8px; }
+  .slotBadge, .slotEmpty { width: 38px; min-width: 38px; min-height: 44px; font-size: .8rem; }
+  .name { font-size: .95rem; }
+  .preview { font-size: .79rem; }
+  .rowActions { gap: 0; }
+  .openButton, .expandButton { flex-basis: 44px; }
+  .expanded { margin-top: 14px; padding-top: 14px; }
+  .detailTitle { margin-bottom: 12px; }
+  .detailGrid { gap: 13px 12px; }
+  .controls { margin-top: 18px; padding-top: 14px; }
 }

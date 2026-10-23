@@ -460,13 +460,22 @@ return (
 
     {mobileEditor && editorSlot && createPortal(
       <nav className={styles.mobileHeaderEditor} aria-label="Build Editor">
-        <button type="button" className={`${styles.mobileHeaderButton} ${styles.mobileHeaderName}`}
+        <button
+          type="button"
+          className={`${styles.mobileHeaderButton} ${styles.mobileHeaderName}`}
           aria-label={`${t('mobile.editor.edit-name')}: ${build.name?.trim() || t('mobile.editor.unnamed')}`}
           title={t('mobile.editor.edit-name')}
-          onClick={() => openNameDialog("rename")}>
-          <span className={styles.mobileHeaderNameText}>{build.name?.trim() || t('mobile.editor.unnamed')}</span>
-          <LuPencil aria-hidden="true" size={12} />
+          onClick={() => openNameDialog("rename")}
+        >
+          <span className={styles.mobileHeaderNameHint} aria-hidden="true">
+            BUILD NAME
+            <LuPencil size={10} strokeWidth={2} />
+          </span>
+          <span className={styles.mobileHeaderNameText}>
+            {build.name?.trim() || t('mobile.editor.unnamed')}
+          </span>
         </button>
+
         <div className={styles.mobileHeaderTabs} role="group" aria-label="Editor tabs">
           <button type="button" className={`${styles.mobileHeaderButton} ${styles.mobileHeaderTab} ${!showLibrary && mobileTab === "loadout" ? styles.mobileHeaderTabActive : ""}`}
             aria-label={t('mobile.editor.loadout')}
@@ -652,24 +661,26 @@ return (
         }
         style={mobileEditor ? undefined : { overflow: "hidden" }}
       >
-        <BuildLibrary
-          builds={orderedLibrary}
-          currentBuildId={build.id}
-          onLoadBuild={(b) => {
-            const clean = normalizeBuildWeaponMods(normalizeOwnedBuild(b));
-            userHasEditedRef.current = true;
-            setBuild(clean);
-            setShowLibrary(false);
-            setMobileTab("loadout");
-            if (mobileEditor) window.scrollTo({ top: 0, behavior: "instant" });
-            const nextEncoded = encodeBuildToUrl(clean);
-            if (nextEncoded) {
-              navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
-            }
-          }}
-          onDeleteBuild={handleDeleteBuild}
-          onAssignSlot={handleAssignSlot}
-        />
+        <Section title={t('section.title.library')} stretch>
+          <BuildLibrary
+            builds={orderedLibrary}
+            currentBuildId={build.id}
+            onLoadBuild={(b) => {
+              const clean = normalizeBuildWeaponMods(normalizeOwnedBuild(b));
+              userHasEditedRef.current = true;
+              setBuild(clean);
+              setShowLibrary(false);
+              setMobileTab("loadout");
+              if (mobileEditor) window.scrollTo({ top: 0, behavior: "instant" });
+              const nextEncoded = encodeBuildToUrl(clean);
+              if (nextEncoded) {
+                navigate(`/build-editor/b/${nextEncoded}`, { replace: true });
+              }
+            }}
+            onDeleteBuild={handleDeleteBuild}
+            onAssignSlot={handleAssignSlot}
+          />
+        </Section>
       </motion.div>
     )}
   </AnimatePresence>

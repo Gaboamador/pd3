@@ -15,7 +15,6 @@ function normalizeItemName(name) {
 
 export function getItemNameByKey(key) {
   if (!key) return null;
-
   const name = loadoutIndex[key]?.name ?? null;
   return normalizeItemName(name);
 }
@@ -24,8 +23,7 @@ export function formatPlates(plates) {
   if (!Array.isArray(plates) || plates.length === 0) return null;
 
   const counts = {};
-
-  plates.forEach((plateKey) => {
+  plates.filter(Boolean).forEach((plateKey) => {
     counts[plateKey] = (counts[plateKey] || 0) + 1;
   });
 
@@ -34,57 +32,50 @@ export function formatPlates(plates) {
     return count > 1 ? `${plateName} x${count}` : plateName;
   });
 
-  return parts.join(" + ");
+  return parts.length ? parts.join(" + ") : null;
+}
+
+/** Información estructurada para BuildLibrary; sin modificar el contrato de buildPreviewParts. */
+export function getBuildLibraryDetails(build) {
+  const loadout = build?.loadout ?? {};
+  const item = (value) => getItemNameByKey(value) ?? null;
+  const primary = item(loadout.primary?.weaponKey ?? loadout.primary);
+  const secondary = item(loadout.secondary?.weaponKey ?? loadout.secondary);
+  const overkill = item(loadout.overkill?.weaponKey ?? loadout.overkill);
+  const armor = item(loadout.armor?.key ?? loadout.armor);
+  const plates = formatPlates(loadout.armor?.plates);
+  return {
+    primary,
+    secondary,
+    overkill,
+    armor,
+    plates,
+    throwable: item(loadout.throwable?.key ?? loadout.throwable),
+    deployable: item(loadout.deployable?.key ?? loadout.deployable),
+    tool: item(loadout.tool?.key ?? loadout.tool),
+  };
+}
+
+/** Búsqueda sin distinguir tildes, mayúsculas ni separadores. */
+export function normalizeBuildSearch(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+export function matchesBuildLibrarySearch(build, query) {
+  const words = normalizeBuildSearch(query).split(/\s+/).filter(Boolean);
+  if (!words.length) return true;
+  const details = getBuildLibraryDetails(build);
+  const text = normalizeBuildSearch([build?.name, ...Object.values(details)].join(" "));
+  return words.every(word => text.includes(word));
 }
 
 export function buildPreviewParts(build) {
-  const loadout = build.loadout ?? {};
-
-  const primaryName = getItemNameByKey(
-    loadout.primary?.weaponKey ?? loadout.primary
-  );
-
-  const secondaryName = getItemNameByKey(
-    loadout.secondary?.weaponKey ?? loadout.secondary
-  );
-
-  const overkillName = getItemNameByKey(
-    loadout.overkill?.weaponKey ?? loadout.overkill
-  );
-
-  const armorName = getItemNameByKey(
-    loadout.armor?.key ?? loadout.armor
-  );
-
-  const plateText = formatPlates(loadout.armor?.plates);
-
-  let armorFull = null;
-
-  if (armorName && plateText) {
-    armorFull = `${armorName} (${plateText})`;
-  } else if (armorName) {
-    armorFull = armorName;
-  }
-
-  const throwableName = getItemNameByKey(
-    loadout.throwable?.weaponKey ?? loadout.throwable
-  );
-
-  const deployableName = getItemNameByKey(
-    loadout.deployable?.key ?? loadout.deployable
-  );
-
-  const toolName = getItemNameByKey(
-    loadout.tool?.key ?? loadout.tool
-  );
-
-  return [
-    primaryName,
-    secondaryName,
-    overkillName,
-    armorFull,
-    throwableName,
-    deployableName,
-    toolName,
-  ].filter(Boolean);
+  const { primary, secondary, overkill, armor, plates, throwable, deployable, tool } = getBuildLibraryDetails(build);
+  const armorFull = armor && plates ? `${armor} (${plates})` : armor;
+  return [primary, secondary, overkill, armorFull, throwable, deployable, tool].filter(Boolean);
 }
