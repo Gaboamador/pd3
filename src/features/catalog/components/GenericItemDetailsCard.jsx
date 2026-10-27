@@ -10,12 +10,14 @@ import PlateSprite from "../../../build/components/loadout/PlateSprite";
 import ThrowableSprite from "../../../build/components/loadout/ThrowableSprite";
 import DeployableSprite from "../../../build/components/loadout/DeployableSprite";
 import ToolSprite from "../../../build/components/loadout/ToolSprite";
+import PerkSprite from "../../../build/components/perks/PerkSprite";
 
 import SkillSection from "../../../components/SkillSection";
 import WeaponStatsSection from "./WeaponStatsSection";
 import OverkillStatsSection from "./OverkillsStatsSection";
 import ArmorStatsSection from "./ArmorStatsSection";
 import PlateStatsSection from "./PlateStatsSection";
+import ThrowableStatsSection from "./ThrowableStatsSection";
 import OtherItemsSection from "./OtherItemsSection";
 import PerkDetailsSection from "./PerkDetailsSection";
 
@@ -33,7 +35,8 @@ export default function GenericItemDetailsCard({ item }) {
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        {SpriteComponent && def.sprite_pos && (
+        {SpriteComponent &&
+        (def.sprite_pos || (kind === "perk" && def.scope === "weapon")) && (
           <div className={styles.spriteWrapper}>
             <SpriteComponent
               spritePos={def.sprite_pos}
@@ -78,6 +81,9 @@ function getSpriteComponent(kind) {
     case "skill":
       return SkillSprite;
 
+    case "perk":
+      return PerkSprite;
+
     default:
       return null;
   }
@@ -100,6 +106,11 @@ function renderDetails(kind, def, item) {
     
     case "plate":
       return <PlateStatsSection plate={def} />;
+
+    case "throwable":
+      return Object.keys(def.stats ?? {}).length > 0
+        ? <ThrowableStatsSection throwable={def} />
+        : <OtherItemsSection item={def} />;
 
     case "perk":
     case "overkillAmmo":

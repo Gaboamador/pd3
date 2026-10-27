@@ -277,8 +277,8 @@
       },
       "dlc": null
     },
-    "20": {
-      "id": 20,
+    "12": {
+      "id": 12,
       "slot": "primary",
       "type": "smg",
       "key": "WAR45",
@@ -307,8 +307,8 @@
       },
       "sourceKey": "War45"
     },
-    "21": {
-      "id": 21,
+    "13": {
+      "id": 13,
       "slot": "primary",
       "type": "shotgun",
       "key": "FSA12",
@@ -338,8 +338,8 @@
       },
       "sourceKey": "Fsa12"
     },
-    "22": {
-      "id": 22,
+    "14": {
+      "id": 14,
       "slot": "primary",
       "type": "marksman",
       "key": "FIK22",
@@ -367,8 +367,8 @@
         "release_date": "2023-12-12"
       }
     },
-    "23": {
-      "id": 23,
+    "15": {
+      "id": 15,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "RG5",
@@ -396,8 +396,8 @@
         "release_date": "2024-06-27"
       }
     },
-    "25": {
-      "id": 25,
+    "16": {
+      "id": 16,
       "slot": "primary",
       "type": "smg",
       "key": "ATK7",
@@ -425,8 +425,8 @@
         "release_date": "2024-06-27"
       }
     },
-    "26": {
-      "id": 26,
+    "17": {
+      "id": 17,
       "slot": "primary",
       "type": "lmg",
       "key": "MX63",
@@ -454,8 +454,8 @@
         "release_date": "2024-06-27"
       }
     },
-    "27": {
-      "id": 27,
+    "18": {
+      "id": 18,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "CHS3",
@@ -484,8 +484,8 @@
       },
       "sourceKey": "chs3"
     },
-    "28": {
-      "id": 28,
+    "19": {
+      "id": 19,
       "slot": "primary",
       "type": "shotgun",
       "key": "M7P",
@@ -515,8 +515,8 @@
       },
       "sourceKey": "m7p"
     },
-    "31": {
-      "id": 31,
+    "20": {
+      "id": 20,
       "slot": "primary",
       "type": "shotgun",
       "key": "TAS12",
@@ -545,8 +545,8 @@
         "release_date": "2024-09-16"
       }
     },
-    "36": {
-      "id": 36,
+    "21": {
+      "id": 21,
       "slot": "primary",
       "type": "marksman",
       "key": "Spearfish",
@@ -570,8 +570,8 @@
       },
       "dlc": null
     },
-    "39": {
-      "id": 39,
+    "22": {
+      "id": 22,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "CAR4_B1",
@@ -605,8 +605,8 @@
         "BarrelExtension": "BarrelExt_Express"
       }
     },
-    "40": {
-      "id": 40,
+    "23": {
+      "id": 23,
       "slot": "primary",
       "type": "marksman",
       "key": "R900S_B2",
@@ -637,8 +637,8 @@
         "Stock": "R900S_Stock_Lightweight"
       }
     },
-    "41": {
-      "id": 41,
+    "24": {
+      "id": 24,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "KU59_B4",
@@ -671,8 +671,8 @@
         "Stock": "Stock_TQ"
       }
     },
-    "42": {
-      "id": 42,
+    "25": {
+      "id": 25,
       "slot": "primary",
       "type": "marksman",
       "key": "A114_B5",
@@ -706,8 +706,8 @@
         "BarrelExtension": "BarrelExt_Ridged"
       }
     },
-    "43": {
-      "id": 43,
+    "26": {
+      "id": 26,
       "slot": "primary",
       "type": "shotgun",
       "key": "Mosconi12C_B6",
@@ -739,8 +739,8 @@
         "Stock": "Mosconi12C_Stock_Padded"
       }
     },
-    "44": {
-      "id": 44,
+    "27": {
+      "id": 27,
       "slot": "primary",
       "type": "smg",
       "key": "Commando_B8",
@@ -771,8 +771,8 @@
         "BarrelExtension": "BarrelExt_ObeliskSilencer"
       }
     },
-    "45": {
-      "id": 45,
+    "28": {
+      "id": 28,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "VF7S_B9",
@@ -803,8 +803,8 @@
         "Grip": "Grip_Perforated"
       }
     },
-    "46": {
-      "id": 46,
+    "29": {
+      "id": 29,
       "slot": "primary",
       "type": "shotgun",
       "key": "R880_B10",
@@ -837,8 +837,8 @@
         "ForeGrip": "R880_Foregrip_Biofit"
       }
     },
-    "47": {
-      "id": 47,
+    "30": {
+      "id": 30,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "CAR4_PD2Promo",
@@ -872,8 +872,8 @@
         "Mag": "CAR4_Mag_Quick"
       }
     },
-    "48": {
-      "id": 48,
+    "31": {
+      "id": 31,
       "slot": "primary",
       "type": "smg",
       "key": "Compact7_Halloween23",
@@ -907,8 +907,8 @@
         "Sight": "Sight_Slate"
       }
     },
-    "49": {
-      "id": 49,
+    "32": {
+      "id": 32,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "CAR4_Empress",
@@ -943,8 +943,8 @@
         "VerticalGrip": "VerticalGrip_QuickHold"
       }
     },
-    "50": {
-      "id": 50,
+    "33": {
+      "id": 33,
       "slot": "primary",
       "type": "shotgun",
       "key": "Mosconi12C_P2",
@@ -978,8 +978,8 @@
         "VerticalGrip": "VerticalGrip_Cylinder"
       }
     },
-    "51": {
-      "id": 51,
+    "34": {
+      "id": 34,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "NWB9_P4",
@@ -1014,8 +1014,8 @@
         "Stock": "Stock_LightFrame"
       }
     },
-    "52": {
-      "id": 52,
+    "35": {
+      "id": 35,
       "slot": "primary",
       "type": "marksman",
       "key": "R900S_P6",
@@ -1047,8 +1047,8 @@
         "BarrelExtension": "BarrelExt_Ridged"
       }
     },
-    "53": {
-      "id": 53,
+    "36": {
+      "id": 36,
       "slot": "primary",
       "type": "smg",
       "key": "PC9_P11",
@@ -1081,8 +1081,8 @@
         "BarrelExtension": "BarrelExt_CompactComp"
       }
     },
-    "61": {
-      "id": 61,
+    "37": {
+      "id": 37,
       "slot": "primary",
       "type": "assaultrifle",
       "key": "Skogskrigare_AG9",
@@ -1111,8 +1111,8 @@
       },
       "sourceKey": "Julius"
     },
-    "64": {
-      "id": 64,
+    "38": {
+      "id": 38,
       "slot": "primary",
       "type": "lmg",
       "key": "Zokas17",
@@ -1141,8 +1141,8 @@
       },
       "sourceKey": "PFLK"
     },
-    "66": {
-      "id": 66,
+    "39": {
+      "id": 39,
       "slot": "primary",
       "type": "smg",
       "key": "WAR45Midas",
@@ -1180,8 +1180,8 @@
         "Sight": "Sight_Compact"
       }
     },
-    "67": {
-      "id": 67,
+    "40": {
+      "id": 40,
       "slot": "primary",
       "type": "lmg",
       "key": "Zokas17Insurgent",
@@ -1218,11 +1218,107 @@
         "Sight": "Sight_Seymour",
         "VerticalGrip": null
       }
+    },
+    "41": {
+      "id": 41,
+      "slot": "primary",
+      "type": "shotgun",
+      "key": "DualGrimshot",
+      "name": "Dual Grimshot",
+      "preset": 0,
+      "sprite_pos": {
+        "r": 20,
+        "c": 3
+      },
+      "dlc_id": 9,
+      "stats": {
+        "damage": 40,
+        "ap": 0,
+        "recoil": 26,
+        "stability": 17,
+        "accuracy": 23,
+        "handling": 47,
+        "rof": 200,
+        "magazine": 10,
+        "ammo": 96
+      },
+      "dlc": {
+        "id": 9,
+        "name": "Guns Blazin' Crimebond",
+        "release_date": "2026-10-26"
+      }
+    },
+    "42": {
+      "id": 42,
+      "slot": "primary",
+      "type": "revolver",
+      "key": "DualOutlaw",
+      "name": "Dual Outlaw",
+      "preset": 0,
+      "sprite_pos": {
+        "r": 20,
+        "c": 4
+      },
+      "dlc_id": 9,
+      "stats": {
+        "damage": 0,
+        "ap": 0,
+        "recoil": 0,
+        "stability": 0,
+        "accuracy": 0,
+        "handling": 0,
+        "rof": 0,
+        "magazine": 0,
+        "ammo": 0
+      },
+      "dlc": {
+        "id": 9,
+        "name": "Guns Blazin' Crimebond",
+        "release_date": "2026-10-26"
+      }
+    },
+    "43": {
+      "id": 43,
+      "slot": "primary",
+      "type": "marksman",
+      "key": "Spearfish_Lawman",
+      "name": "Spearfish 1895 \"Lawman\"",
+      "preset": 1,
+      "perk": "perk_quickshot_lawman",
+      "sprite_pos": {
+        "r": 21,
+        "c": 3
+      },
+      "dlc_id": 9,
+      "stats": {
+        "damage": 100,
+        "ap": 2.6,
+        "recoil": 45,
+        "stability": 46,
+        "accuracy": 29,
+        "handling": 35,
+        "rof": 600,
+        "magazine": 8,
+        "ammo": 56
+      },
+      "dlc": {
+        "id": 9,
+        "name": "Guns Blazin' Crimebond",
+        "release_date": "2026-10-26"
+      },
+      "baseWeaponKey": "Spearfish",
+      "fixedMods": {
+        "ForeGrip": "Spearfish_ForeGrip_Slitted",
+        "Grip": "Spearfish_Grip_Knotted",
+        "BarrelExtension": "BarrelExt_CylindricSilencer",
+        "VerticalGrip": "VerticalGrip_QuickHold",
+        "Sight": "Sight_LPVO"
+      }
     }
   },
   "secondary": {
-    "12": {
-      "id": 12,
+    "1": {
+      "id": 1,
       "slot": "secondary",
       "type": "pistol",
       "key": "S40",
@@ -1246,8 +1342,8 @@
       },
       "dlc": null
     },
-    "13": {
-      "id": 13,
+    "2": {
+      "id": 2,
       "slot": "secondary",
       "type": "pistol",
       "key": "S403",
@@ -1271,8 +1367,8 @@
       },
       "dlc": null
     },
-    "14": {
-      "id": 14,
+    "3": {
+      "id": 3,
       "slot": "secondary",
       "type": "pistol",
       "key": "Stryk7",
@@ -1296,8 +1392,8 @@
       },
       "dlc": null
     },
-    "15": {
-      "id": 15,
+    "4": {
+      "id": 4,
       "slot": "secondary",
       "type": "pistol",
       "key": "SPM11",
@@ -1321,8 +1417,8 @@
       },
       "dlc": null
     },
-    "16": {
-      "id": 16,
+    "5": {
+      "id": 5,
       "slot": "secondary",
       "type": "revolver",
       "key": "Castigo44",
@@ -1346,8 +1442,8 @@
       },
       "dlc": null
     },
-    "17": {
-      "id": 17,
+    "6": {
+      "id": 6,
       "slot": "secondary",
       "type": "revolver",
       "key": "Bison",
@@ -1371,8 +1467,8 @@
       },
       "dlc": null
     },
-    "24": {
-      "id": 24,
+    "7": {
+      "id": 7,
       "slot": "secondary",
       "type": "revolver",
       "key": "Bullkick500",
@@ -1401,8 +1497,8 @@
       },
       "sourceKey": "bullkick500"
     },
-    "29": {
-      "id": 29,
+    "8": {
+      "id": 8,
       "slot": "secondary",
       "type": "pistol",
       "key": "T32",
@@ -1426,8 +1522,8 @@
       },
       "dlc": null
     },
-    "30": {
-      "id": 30,
+    "9": {
+      "id": 9,
       "slot": "secondary",
       "type": "pistol",
       "key": "PD5",
@@ -1455,8 +1551,8 @@
         "release_date": "2024-08-19"
       }
     },
-    "32": {
-      "id": 32,
+    "10": {
+      "id": 10,
       "slot": "secondary",
       "type": "pistol",
       "key": "GarstiniViper",
@@ -1484,8 +1580,8 @@
         "release_date": "2024-09-16"
       }
     },
-    "33": {
-      "id": 33,
+    "11": {
+      "id": 11,
       "slot": "secondary",
       "type": "pistol",
       "key": "SE5",
@@ -1513,8 +1609,8 @@
         "release_date": "2024-09-16"
       }
     },
-    "35": {
-      "id": 35,
+    "12": {
+      "id": 12,
       "slot": "secondary",
       "type": "shotgun",
       "key": "Justicar",
@@ -1543,8 +1639,8 @@
         "release_date": "2025-05-26"
       }
     },
-    "54": {
-      "id": 54,
+    "13": {
+      "id": 13,
       "slot": "secondary",
       "type": "revolver",
       "key": "Bison_B3",
@@ -1576,8 +1672,8 @@
         "Sight": "Sight_Box"
       }
     },
-    "55": {
-      "id": 55,
+    "14": {
+      "id": 14,
       "slot": "secondary",
       "type": "pistol",
       "key": "S40_B7",
@@ -1607,8 +1703,8 @@
         "Sight": "Sight_Box"
       }
     },
-    "56": {
-      "id": 56,
+    "15": {
+      "id": 15,
       "slot": "secondary",
       "type": "pistol",
       "key": "Stryk7_B11",
@@ -1638,8 +1734,8 @@
         "BarrelExtension": "BarrelExt_CompactComp"
       }
     },
-    "57": {
-      "id": 57,
+    "16": {
+      "id": 16,
       "slot": "secondary",
       "type": "pistol",
       "key": "SPM11_B12",
@@ -1671,8 +1767,8 @@
         "Sight": "Sight_Slate"
       }
     },
-    "58": {
-      "id": 58,
+    "17": {
+      "id": 17,
       "slot": "secondary",
       "type": "revolver",
       "key": "Castigo44_B13",
@@ -1703,8 +1799,8 @@
         "Grip": "Castigo44_Grip_Hardwood"
       }
     },
-    "59": {
-      "id": 59,
+    "18": {
+      "id": 18,
       "slot": "secondary",
       "type": "pistol",
       "key": "SPM11_Star",
@@ -1737,8 +1833,8 @@
         "Mag": "SPM11_Mag_Extended"
       }
     },
-    "60": {
-      "id": 60,
+    "19": {
+      "id": 19,
       "slot": "secondary",
       "type": "pistol",
       "key": "T32_Fool",
@@ -1774,8 +1870,8 @@
         "Mag": "T32_Mag_Extended"
       }
     },
-    "62": {
-      "id": 62,
+    "20": {
+      "id": 20,
       "slot": "secondary",
       "type": "smg",
       "key": "Russell_JB9",
@@ -1804,8 +1900,8 @@
       },
       "sourceKey": "Yates"
     },
-    "65": {
-      "id": 65,
+    "21": {
+      "id": 21,
       "slot": "secondary",
       "type": "shotgun",
       "key": "Loco_12G",
@@ -1833,11 +1929,84 @@
         "release_date": "2026-09-22"
       },
       "sourceKey": "Pocket"
+    },
+    "22": {
+      "id": 22,
+      "slot": "secondary",
+      "type": "shotgun",
+      "key": "Justicar_MordidaVenenosa",
+      "name": "Justicar \"Mordida Venenosa\"",
+      "preset": 1,
+      "perk": "perk_viper_strike",
+      "sprite_pos": {
+        "r": 21,
+        "c": 1
+      },
+      "dlc_id": 9,
+      "stats": {
+        "damage": 49.13,
+        "pellets": 8,
+        "ap": 0,
+        "recoil": 66,
+        "stability": 59,
+        "accuracy": 16,
+        "handling": 44,
+        "rof": 75,
+        "magazine": 5,
+        "ammo": 35
+      },
+      "dlc": {
+        "id": 9,
+        "name": "Guns Blazin' Crimebond",
+        "release_date": "2026-10-26"
+      },
+      "baseWeaponKey": "Justicar",
+      "fixedMods": {
+        "Barrel": "Justicar_Barrel_Short",
+        "BarrelExtension": "BarrelExt_JawChoke",
+        "Sight": "Sight_LED"
+      }
+    },
+    "23": {
+      "id": 23,
+      "slot": "secondary",
+      "type": "revolver",
+      "key": "Castigo44_JH",
+      "name": "Castigo 44 \"Judge's Hammer\"",
+      "preset": 1,
+      "perk": "perk_bounce_back",
+      "sprite_pos": {
+        "r": 21,
+        "c": 2
+      },
+      "dlc_id": 9,
+      "stats": {
+        "damage": 160.1,
+        "ap": 2,
+        "recoil": 25,
+        "stability": 38,
+        "accuracy": 54,
+        "handling": 40,
+        "rof": 300,
+        "magazine": 6,
+        "ammo": 60
+      },
+      "dlc": {
+        "id": 9,
+        "name": "Guns Blazin' Crimebond",
+        "release_date": "2026-10-26"
+      },
+      "baseWeaponKey": "Castigo44",
+      "fixedMods": {
+        "Barrel": "Castigo44_Barrel_CQC",
+        "BarrelExtension": "BarrelExt_SkeletonizedComp",
+        "Grip": "Castigo44_Grip_Biofit"
+      }
     }
   },
   "overkill": {
-    "18": {
-      "id": 18,
+    "1": {
+      "id": 1,
       "slot": "overkill",
       "type": "overkill",
       "key": "HET5",
@@ -1851,8 +2020,8 @@
       "base_effect": "Semi-Automatic material rifle that can penetrate up to 3 surfaces equipped with a scope that can identify targets through walls.",
       "dlc": null
     },
-    "19": {
-      "id": 19,
+    "2": {
+      "id": 2,
       "slot": "overkill",
       "type": "overkill",
       "key": "Mamba",
@@ -1866,8 +2035,8 @@
       "base_effect": "Drum-loaded grenade launcher with high explosive grenades that immediately detonate on impact with characters or on a fuse if hitting the environment. Players and Civilians no longer take damage from the Mamba.",
       "dlc": null
     },
-    "34": {
-      "id": 34,
+    "3": {
+      "id": 3,
       "slot": "overkill",
       "type": "overkill",
       "key": "ARGES",
@@ -1881,8 +2050,8 @@
       "base_effect": "While firing the minigun or when it is spun up, you gain 10% armor damage reduction. Your total armor damage reduction from minigun perks cannot exceed 90%. Any additional bonus damage reduction will degrade by 1% per second whenever the gun is not firing. Unequipping the minigun will end all active bonuses.",
       "dlc": null
     },
-    "37": {
-      "id": 37,
+    "4": {
+      "id": 4,
       "slot": "overkill",
       "type": "overskill",
       "key": "Operator",
@@ -1896,8 +2065,8 @@
       "base_effect": "Blackout Protocol: As long as your OVERKILL meter is at least 25% full, you can activate it to disable all cameras on the heist temporarily. Once activated, your meter will drain over time. When your meter reaches 0, this skill’s effect will end. You can only use this skill once per heist and only if the alarm hasn’t been raised. [This ability replaces your OVK weapon]. This uses the “phone” player animation.",
       "dlc": null
     },
-    "38": {
-      "id": 38,
+    "5": {
+      "id": 5,
       "slot": "overkill",
       "type": "overskill",
       "key": "ThePunch",
@@ -1915,8 +2084,8 @@
         "release_date": "2025-02-03"
       }
     },
-    "63": {
-      "id": 63,
+    "6": {
+      "id": 6,
       "slot": "overkill",
       "type": "overskill",
       "key": "KarlAlfred",
@@ -1934,8 +2103,8 @@
         "release_date": "2026-05-19"
       }
     },
-    "64": {
-      "id": 64,
+    "7": {
+      "id": 7,
       "slot": "overkill",
       "type": "overskill",
       "key": "OVE9050",
@@ -1964,6 +2133,13 @@
         "r": 1,
         "c": 3
       },
+      "stats": {
+        "damage": 150,
+        "ap": 2,
+        "capacity": 3,
+        "explosionRadius": 8,
+        "detonationTime": 3
+      },
       "description": "Throw the grenade, grenade goes boom. Hold it longer, it'll go boom faster. Tale as old as time.",
       "desc_values": null
     },
@@ -1975,6 +2151,13 @@
       "sprite_pos": {
         "r": 1,
         "c": 2
+      },
+      "stats": {
+        "damage": 0,
+        "ap": 0,
+        "capacity": 3,
+        "explosionRadius": 8,
+        "detonationTime": 3
       },
       "description": "Stun your enemies with a blinding light! Flashbanged cops make the best human shields.",
       "desc_values": null
@@ -1988,6 +2171,13 @@
         "r": 1,
         "c": 4
       },
+      "stats": {
+        "damage": 0,
+        "ap": 0,
+        "capacity": 3,
+        "explosionRadius": 10,
+        "detonationTime": null
+      },
       "description": "Enemies caught in your smokescreen will aim worse and move slower. If they've got asthma, they're screwed.",
       "desc_values": null
     },
@@ -2000,11 +2190,18 @@
         "r": 2,
         "c": 1
       },
+      "stats": {
+        "damage": 150,
+        "ap": 2,
+        "capacity": 2,
+        "explosionRadius": null,
+        "detonationTime": null
+      },
       "description": "Use this ninja shit for a quiet kill, but remember to retrieve it from the body. Knives ain't cheap.",
       "desc_values": null
     },
-    "13": {
-      "id": 13,
+    "5": {
+      "id": 5,
       "type": "throwable",
       "key": "ShockGrenade",
       "name": "Shock Grenade",
@@ -2012,11 +2209,20 @@
         "r": 2,
         "c": 2
       },
+      "stats": {
+        "damage": 0,
+        "specialEffect": "Insta-kills Shields, Zappers, and Techies",
+        "ap": 0,
+        "capacity": 3,
+        "affectedEnemies": 7,
+        "detonationTime": 3,
+        "secondaryDetonationTime": 1.5
+      },
       "description": "If you want your bacon extra crispy, this is just the thing for you. Throw it into a pack of cops, and watch them fry!",
       "desc_values": null
     },
-    "14": {
-      "id": 14,
+    "6": {
+      "id": 6,
       "type": "throwable",
       "key": "Studsgranat",
       "name": "Studsgranat S18",
@@ -2024,13 +2230,37 @@
         "r": 2,
         "c": 3
       },
+      "stats": {
+        "damage": 400,
+        "ap": 0,
+        "capacity": 3,
+        "explosionRadius": 8,
+        "detonationTime": 3
+      },
       "description": "A grenade that hits the ground, then springs upward to detonate at face level.",
+      "desc_values": null
+    },
+    "7": {
+      "id": 7,
+      "type": "throwable",
+      "key": "Tomahawk",
+      "name": "Tomahawk",
+      "sprite_pos": {
+        "r": 2,
+        "c": 4
+      },
+      "stats": {
+        "damage": 350,
+        "ap": 10,
+        "capacity": 1
+      },
+      "description": "",
       "desc_values": null
     }
   },
   "deployable": {
-    "5": {
-      "id": 5,
+    "1": {
+      "id": 1,
       "type": "deployable",
       "key": "ArmorBag",
       "name": "Armor Bag",
@@ -2041,8 +2271,8 @@
       "description": "Repairs your lost armor. Bite the bullet before the bullet bites you.",
       "desc_values": null
     },
-    "6": {
-      "id": 6,
+    "2": {
+      "id": 2,
       "type": "deployable",
       "key": "DoctorBag",
       "name": "Medic Bag",
@@ -2053,8 +2283,8 @@
       "description": "Replenishes some of your health and number of downs. You'll never need a doctor again!\nIf you heal beyond your maximum health, you gain Adrenaline, which acts as a temporary layer of extra health.",
       "desc_values": null
     },
-    "7": {
-      "id": 7,
+    "3": {
+      "id": 3,
       "type": "deployable",
       "key": "AmmoBag",
       "name": "Ammo Bag",
@@ -2065,8 +2295,8 @@
       "description": "Restocks a portion of your ammo and throwables, which are key ingredients to not dying.",
       "desc_values": null
     },
-    "12": {
-      "id": 12,
+    "4": {
+      "id": 4,
       "type": "deployable",
       "key": "SentryGun",
       "name": "Sentry Turret",
@@ -2079,8 +2309,8 @@
     }
   },
   "tool": {
-    "8": {
-      "id": 8,
+    "1": {
+      "id": 1,
       "type": "tool",
       "key": "PhoneMicroCamera",
       "name": "Micro Cam",
@@ -2091,8 +2321,8 @@
       "description": "Drop this spy camera anywhere, access it any time. Good for marking enemies and stalking crushes.\n\nYou can place 4 Micro Cams at a time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
       "desc_values": null
     },
-    "9": {
-      "id": 9,
+    "2": {
+      "id": 2,
       "type": "tool",
       "key": "PlaceableSensorTool",
       "name": "Motion Sensor",
@@ -2103,8 +2333,8 @@
       "description": "Marks up to 15 enemies in a 3-meter range. If someone's voguing, you'll be the first to know.\n\nYou can place 4 Motion Sensors at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
       "desc_values": null
     },
-    "10": {
-      "id": 10,
+    "3": {
+      "id": 3,
       "type": "tool",
       "key": "ECMJammer",
       "name": "ECM Jammer",
@@ -2115,8 +2345,8 @@
       "description": "Let's jam! While active, all cameras and radios work stupid slow. Stack for stronger effects.\n\nYou can place 2 ECM Jammers at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
       "desc_values": null
     },
-    "11": {
-      "id": 11,
+    "4": {
+      "id": 4,
       "type": "tool",
       "key": "PlaceableTripMine",
       "name": "Infrasonic Mine",
@@ -2127,8 +2357,8 @@
       "description": "A sonic stun device, audible only to your victims. Be ready to shut them up when it wears off.\n\nYou can place 10 Infrasonic Mines at any time by default. This number will increase if you raise your carrying capacity with skills or armor frames.",
       "desc_values": null
     },
-    "18": {
-      "id": 18,
+    "5": {
+      "id": 5,
       "type": "tool",
       "key": "TripperLaser",
       "name": "Trip Laser",
@@ -2141,8 +2371,8 @@
     }
   },
   "armor": {
-    "14": {
-      "id": 14,
+    "1": {
+      "id": 1,
       "type": "armor",
       "key": "Suit",
       "name": "Medtech Frame",
@@ -2165,8 +2395,8 @@
         }
       }
     },
-    "15": {
-      "id": 15,
+    "2": {
+      "id": 2,
       "type": "armor",
       "key": "BallisticVest",
       "name": "Specialist Frame",
@@ -2189,8 +2419,8 @@
         }
       }
     },
-    "16": {
-      "id": 16,
+    "3": {
+      "id": 3,
       "type": "armor",
       "key": "CombatVest",
       "name": "Saboteur Frame",
@@ -2218,8 +2448,8 @@
         }
       }
     },
-    "17": {
-      "id": 17,
+    "4": {
+      "id": 4,
       "type": "armor",
       "key": "HeavyBallisticVest",
       "name": "Mercenary Frame",
@@ -2243,8 +2473,8 @@
         }
       }
     },
-    "18": {
-      "id": 18,
+    "5": {
+      "id": 5,
       "type": "armor",
       "key": "VanguardFrame",
       "name": "Vanguard Frame",
@@ -2262,8 +2492,8 @@
       },
       "description": "Trading downs in favor of more ammo, this armor rewards aggression. It lets you harness the momentum of combat to replenish your armor plate trauma."
     },
-    "19": {
-      "id": 19,
+    "6": {
+      "id": 6,
       "type": "armor",
       "key": "SurvivalistFrame",
       "name": "Survivalist Frame",

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PD3 Sprite Workshop — Editor universal de sprites</title>
+<style>
+:root{color-scheme:dark;--bg:#0e141d;--panel:#172230;--panel2:#1c2a3a;--line:#304357;--muted:#9db0c5;--txt:#f1f6fa;--blue:#65b5ff;--green:#73dfb1;--orange:#f1bd74;--red:#ed8686;font-family:Inter,Segoe UI,system-ui,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);line-height:1.45}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.4}
+a{color:var(--blue)}.container{width:min(1390px,96%);margin:auto;padding:28px 0 60px}.mast{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+h1{font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.035em;margin:0}.muted{color:var(--muted)}.kicker{color:var(--blue);text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.75rem;margin-bottom:5px}.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);border-radius:99px;color:var(--green);font-size:.82rem;background:#122a2b}.layout{display:grid;grid-template-columns:minmax(370px, 570px) minmax(340px,1fr);align-items:start;gap:18px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px;margin-bottom:16px}.card h2{font-size:1.07rem;margin:0 0 12px}.number{display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;background:#2e516d;color:#d5ecff;border-radius:7px;margin-right:8px;font-size:.8rem}.note{font-size:.82rem;color:var(--muted);margin:8px 0}.small{font-size:.79rem}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.field{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}.field label{color:#c4d2e2;font-size:.79rem;font-weight:600}.field input,.field select{border:1px solid #475c70;background:#0f1b28;color:var(--txt);border-radius:8px;padding:10px;width:100%;min-width:0}.field input:focus,.field select:focus{outline:2px solid #497eaa;outline-offset:1px}.button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 13px;border-radius:9px;background:#387eb8;color:white;border:1px solid #4d9add;font-weight:650;font-size:.85rem;min-height:40px}.button.secondary{background:#233749;border-color:#47637b;color:#e4edf4}.button.warn{background:#51392d;border-color:#aa7258;color:#ffe1cd}.button.tiny{min-height:29px;padding:4px 7px;font-size:.78rem}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.full{width:100%}.file{position:relative;overflow:hidden}.file input{position:absolute;inset:0;opacity:0;cursor:pointer}.file:focus-within{outline:2px solid #83bdfc;outline-offset:2px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{border:1px solid var(--line);border-radius:9px;background:#111d29;padding:9px;text-align:center}.stat strong{display:block;font-size:1.4rem}.stat span{display:block;font-size:.72rem;color:var(--muted)}.status{border-radius:8px;padding:10px 12px;border:1px solid #3f5368;background:#152638;color:#bfe0fa;margin:11px 0 0;font-size:.82rem;white-space:pre-wrap;overflow-wrap:anywhere}.status.error{color:#ffb4b4;background:#38242a;border-color:#8b4550}.status.success{color:#b7f7d5;background:#19382d;border-color:#377d5f}.status.warn{color:#ffe0a9;background:#342c24;border-color:#867047}.separator{height:1px;background:var(--line);margin:13px 0}.canvaspanel{position:sticky;top:12px}.canvaswrap{max-height:66vh;overflow:auto;border:1px solid #485569;border-radius:10px;background-color:#24303e;background-image:linear-gradient(45deg,#364355 25%,transparent 25%),linear-gradient(-45deg,#364355 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#364355 75%),linear-gradient(-45deg,transparent 75%,#364355 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0}.canvaswrap canvas{display:block;width:100%;height:auto;cursor:crosshair}.legend{display:flex;gap:12px;flex-wrap:wrap;padding:10px 0 0;font-size:.78rem;color:var(--muted)}.dot{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:4px}.dot.o{background:#f1bd74}.dot.n{background:#73dfb1}.dot.s{background:#65b5ff}.queue{display:flex;flex-direction:column;gap:9px;max-height:310px;overflow-y:auto;margin-top:12px}.queueitem{border:1px solid #3d5267;border-radius:10px;padding:9px;background:#111e2c}.queueitem.active{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}.queuehead{display:flex;align-items:center;gap:8px;margin-bottom:7px}.queuehead strong{flex:1;font-size:.87rem;overflow-wrap:anywhere}.queuegrid{display:grid;grid-template-columns:minmax(100px,1fr) 90px auto;gap:7px;align-items:center}.queuegrid input{width:100%;min-width:0;background:#0c1824;color:white;border:1px solid #40566c;border-radius:7px;padding:7px;font-size:.82rem}.info{border:1px solid var(--line);border-radius:10px;background:#101e2c;padding:11px;margin:12px 0;color:#cadceb;font-size:.83rem}.checkbox{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.83rem}.checkbox input{accent-color:#63b0fb}code{color:#b4dbfb}.exports{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.footer{color:var(--muted);font-size:.8rem;margin-top:14px}.notice{border-left:3px solid #b78f55;padding:8px 10px;background:#262a2b;color:#f4dcb8;border-radius:4px;margin:12px 0;font-size:.83rem}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.canvaspanel{position:static}.canvaswrap{max-height:65vh}.container{width:min(780px,95%)}}@media(max-width:550px){.grid4{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.stats{gap:5px}.card{padding:13px}.exports{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="mast"><div><div class="kicker">PAYDAY 3 · herramientas de desarrollo</div><h1>Sprite Workshop</h1><div class="muted">Actualizá sprites existentes y agregá íconos sin reorganizar la cuadrícula.</div></div><span class="pill">● 100% local · Offline</span></header>
+  <div class="layout">
+    <div>
+      <section class="card"><h2><span class="number">1</span> Cargar sprite y configuración</h2>
+        <div class="row" style="margin-bottom:10px">
+          <label class="button secondary file">Cargar sprite existente<input type="file" id="spriteFile" accept=".png,.webp,image/png,image/webp"></label>
+          <label class="button secondary file">Cargar configuración .js<input type="file" id="jsFile" accept=".js,text/javascript"></label>
+        </div>
+        <div class="field"><label for="preset">Configuración inicial</label><select id="preset"><option value="perks">Perks (4 × 21)</option><option value="weapons">Weapons (4 × 21)</option><option value="throwables">Throwables (4 × 4)</option><option value="deployables">Deployables (4 × 3)</option><option value="skills">Skills (6 × 18)</option><option value="armors">Armors (4 × 4)</option><option value="tools">Tools (4 × 4)</option><option value="overkills">Overkill / Weapons compartido (4 × 21)</option><option value="plates">Plates / Armors compartido (4 × 4)</option><option value="skillGroup">Skill Groups (6 × 1)</option><option value="weaponMods">Weapon mods (10 × 10)</option><option value="custom" selected>Personalizada</option></select></div>
+        <div class="field"><label for="spritePath">Ruta del sprite en la app</label><input id="spritePath" value="" spellcheck="false" autocomplete="off"></div>
+        <div class="grid4"><div class="field"><label for="imgW">Ancho PNG</label><input id="imgW" type="number" min="1" value="1024"></div><div class="field"><label for="imgH">Alto PNG</label><input id="imgH" type="number" min="1" value="2688"></div><div class="field"><label for="cols">Columnas</label><input id="cols" type="number" min="1" value="4"></div><div class="field"><label for="rows">Filas</label><input id="rows" type="number" min="1" value="21"></div></div>
+        <div class="row"><button id="applyGrid" class="button secondary">Aplicar cuadrícula</button><button id="addRow" class="button secondary">+ Agregar una fila</button></div>
+        <div id="geometryInfo" class="note">Cada celda: 256 × 128 px.</div><div id="sharedSpriteNote" class="note"></div>
+        <div class="notice">Con un sprite existente (PNG o WebP), conservá las columnas y el tamaño de celda. Podés agregar filas sin mover ninguno de los íconos actuales. El archivo .js se lee como texto; nunca se ejecuta.</div>
+      </section>
+      <section class="card"><h2><span class="number">2</span> Posiciones ocupadas y libres</h2>
+        <div class="stats"><div class="stat"><strong id="usedCount">0</strong><span>Ocupadas</span></div><div class="stat"><strong id="freeCount">84</strong><span>Libres</span></div><div class="stat"><strong id="firstFree">1,1</strong><span>Primera libre</span></div></div>
+        <div class="note">Al cargar un sprite (PNG o WebP), se analizan sus píxeles transparentes para detectar las celdas ocupadas. Podés corregir el resultado manualmente.</div>
+        <div class="grid2"><div class="field"><label for="lastUsed">Última posición usada (índice 1…N)</label><input id="lastUsed" type="number" min="0" max="84" value="0"></div><div class="field" style="justify-content:end"><button id="applyLast" class="button secondary full">Marcar 1…última como ocupadas</button></div></div>
+        <div class="row"><button id="markBusy" class="button secondary" disabled>Marcar seleccionada ocupada</button><button id="markFree" class="button secondary" disabled>Marcar seleccionada libre</button></div>
+        <div class="note">Tocá una celda en la vista previa para seleccionarla. Liberar una celda no borra sus píxeles; reemplazar una imagen requiere una confirmación explícita.</div>
+        <div class="separator"></div>
+        <div class="row"><label class="button secondary file">Importar posiciones JSON<input id="mapFile" type="file" accept=".json,application/json"></label><span class="note">Opcional: manifest anterior, mapa de posiciones, payday3_perks.json o payday3_loadout_items.json.</span></div>
+        <div class="note" id="importedKeys">0 identificadores importados.</div>
+      </section>
+      <section class="card"><h2><span class="number">3</span> Agregar o actualizar imágenes</h2>
+        <div class="row"><label class="button file">Seleccionar íconos<input type="file" id="iconFiles" accept=".png,.webp,.jpg,.jpeg,image/png,image/webp,image/jpeg" multiple></label><label class="button secondary file">Seleccionar carpeta<input type="file" id="iconFolder" webkitdirectory multiple></label></div>
+        <div class="note">Las nuevas imágenes se ubican automáticamente en las primeras celdas libres. Para elegir otra, seleccioná una imagen de la lista y hacé clic en su celda. Se ajustan sin deformarse.</div>
+        <div class="queue" id="queue"><div class="muted small">Todavía no agregaste imágenes nuevas.</div></div>
+        <div id="selectedInfo" class="info">Celda seleccionada: ninguna.</div>
+        <div class="row"><button id="replaceSelected" class="button warn" disabled>Reemplazar contenido de esta celda…</button><button id="undoAdded" class="button secondary" disabled>Quitar imagen seleccionada</button></div>
+        <div class="note">Los íconos individuales admiten PNG, WebP y JPG/JPEG. El sprite se exporta siempre como PNG.</div>
+        <div id="message" class="status">Cargá tu sprite PNG o WebP y la configuración correspondiente, o empezá con un lienzo vacío.</div>
+      </section>
+      <section class="card"><h2><span class="number">4</span> Exportar resultado</h2>
+        <div class="exports"><button id="exportPNG" class="button">Descargar PNG</button><button id="exportJS" class="button secondary">Descargar .js</button><button id="exportMap" class="button secondary">Descargar posiciones JSON</button><button id="exportProject" class="button secondary">Guardar proyecto JSON</button></div>
+        <div class="note">El PNG contiene solo las imágenes, sin bordes ni números. El .js se actualiza con las dimensiones y la grilla. El JSON de proyecto conserva las posiciones ocupadas y los identificadores, pero no incrusta imágenes: guardá también el PNG exportado.</div>
+      </section>
+    </div>
+    <aside class="canvaspanel card"><h2>Vista previa</h2>
+      <label class="checkbox"><input id="showGrid" type="checkbox" checked>Mostrar cuadrícula, ocupación y coordenadas (solo en la vista previa)</label>
+      <div class="row" style="margin:10px 0"><button class="button secondary tiny" id="zoomOut">− Zoom</button><button class="button secondary tiny" id="zoomIn">+ Zoom</button><button class="button secondary tiny" id="zoomReset">Ajustar</button><span id="zoomLabel" class="muted small">100%</span></div>
+      <div class="canvaswrap" id="canvaswrap"><canvas id="preview" width="1024" height="2688" aria-label="Cuadrícula interactiva de sprite"></canvas></div>
+      <div class="legend"><span><i class="dot o"></i>Ocupada</span><span><i class="dot n"></i>Imagen nueva</span><span><i class="dot s"></i>Seleccionada</span></div>
+      <div class="footer">Coordenadas <code>{r,c}</code> comienzan desde 1. Los archivos y sus imágenes se procesan exclusivamente en tu navegador.</div>
+    </aside>
+  </div>
+</div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const presets={
+ perks:{path:'/sprites/perks.png',prefix:'PERK',w:1024,h:2688,cols:4,rows:21},
+ weapons:{path:'/sprites/weapons.png',prefix:'WEAPON',w:1024,h:2688,cols:4,rows:21},
+ throwables:{path:'/sprites/throwables.png',prefix:'THROWABLE',w:1024,h:512,cols:4,rows:4},
+ deployables:{path:'/sprites/deployables.png',prefix:'DEPLOYABLE',w:1024,h:384,cols:4,rows:3},
+ skills:{path:'/sprites/skills.png',prefix:'SKILL',w:1536,h:4608,cols:6,rows:18},
+ armors:{path:'/sprites/armors.png',prefix:'ARMOR',w:1024,h:512,cols:4,rows:4},
+ tools:{path:'/sprites/tools.png',prefix:'TOOL',w:1024,h:512,cols:4,rows:4},
+ overkills:{path:'/sprites/weapons.png',prefix:'OVERKILL',w:1024,h:2688,cols:4,rows:21},
+ plates:{path:'/sprites/armors.png',prefix:'PLATE',w:1024,h:512,cols:4,rows:4},
+ skillGroup:{path:'/sprites/skill-groups.png',prefix:'SKILL_GROUP',w:1536,h:256,cols:6,rows:1},
+ weaponMods:{path:'/sprites/weapon-mod-slots.png',prefix:'WEAPON_MOD',w:500,h:500,cols:10,rows:10}
+};
+let grid={w:1024,h:2688,cols:4,rows:21};
+let prefix='SPRITE',sourceJS='',sourceJSName='spriteSprites.js';
+let sourceSprite=null,sourceSpriteName='sprite.png',sourcePixels=new Set();
+let occupied=new Set(),entries=[],selectedIndex=-1,selectedEntryId=null,importedPositions={};
+let idSerial=1, zoom=1;
+const working=document.createElement('canvas'), wc=working.getContext('2d',{willReadFrequently:true});
+const preview=$('preview'),pc=preview.getContext('2d');
+const posKey=(r,c)=>`${r},${c}`;
+const coords=i=>({r:Math.floor(i/grid.cols)+1,c:i%grid.cols+1});
+const indexOf=(r,c)=>(r-1)*grid.cols+(c-1);
+const inRange=(r,c)=>Number.isInteger(r)&&Number.isInteger(c)&&r>0&&c>0&&r<=grid.rows&&c<=grid.cols;
+const tileW=()=>grid.w/grid.cols, tileH=()=>grid.h/grid.rows;
+const positionFromIndex=i=>{const {r,c}=coords(i);return posKey(r,c)};
+const total=()=>grid.cols*grid.rows;
+const pretty=n=>Number.isInteger(n)?String(n):n.toFixed(2);
+function basename(url){return (url||'sprite.png').split(/[\\/]/).pop().split('?')[0]||'sprite.png'}
+// Independientemente del formato de entrada, exportamos el sprite como PNG.
+function pngPath(path){return path.replace(/\.(webp|jpe?g)(?=($|[?#]))/i,'.png')}
+function message(msg,type='info'){$('message').textContent=msg;$('message').className='status'+(type==='info'?'':' '+type)}
+function blobDownload(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000)}
+function jsonDownload(data,name){blobDownload(new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'}),name)}
+function changeConfigFields(){ $('imgW').value=grid.w;$('imgH').value=grid.h;$('cols').value=grid.cols;$('rows').value=grid.rows;$('geometryInfo').textContent=`Cada celda: ${pretty(tileW())} × ${pretty(tileH())} px. Capacidad total: ${total()} posiciones.`;updateSharedNote();$('lastUsed').max=total()}
+function updateSharedNote(){const name=basename($('spritePath').value).toLowerCase();const note=name==='weapons.png'?'Sprite compartido: si ampliás el lienzo, actualizá weaponSprites.js Y overkillsSprites.js.':name==='armors.png'?'Sprite compartido: si ampliás el lienzo, actualizá armorsSprites.js Y platesSprites.js.':'';$('sharedSpriteNote').textContent=note;}
+function setPreset(k){const p=presets[k];if(!p)return;applyGrid({w:p.w,h:p.h,cols:p.cols,rows:p.rows},true);prefix=p.prefix;$('spritePath').value=p.path;sourceSpriteName=basename(p.path);updateSharedNote();sourceJSName=({skillGroup:'skillGroupSprites.js',overkills:'overkillsSprites.js',plates:'platesSprites.js',weaponMods:'weaponModsSprites.js'}[k]??k+'Sprites.js');}
+function validateGrid(candidate){const {w,h,cols,rows}=candidate;const values=[w,h,cols,rows];if(values.some(x=>!Number.isSafeInteger(x)||x<1))throw Error('Ancho, alto, columnas y filas deben ser enteros positivos.');if(w>16384||h>16384||w*h>65000000)throw Error('El lienzo supera el límite preventivo (16.384 px por lado o 65 Mpx).');if(w%cols||h%rows)throw Error('La imagen debe dividirse exactamente en celdas de tamaño entero.');if(cols*rows>2500)throw Error('Demasiadas celdas; máximo recomendado: 2500.');}
+function applyGrid(candidate,quiet=false){try{
+ validateGrid(candidate);
+ if(sourceSprite){if(candidate.cols!==grid.cols)throw Error('No cambies columnas con un sprite cargado: desplazaría las posiciones. Creá un lienzo nuevo para otra estructura.');if(candidate.w/candidate.cols!==tileW()||candidate.h/candidate.rows!==tileH())throw Error(`Para preservar el sprite cargado mantené celdas de ${tileW()} × ${tileH()} px. Podés aumentar filas y alto juntos usando «+ Agregar una fila».`);if(candidate.w<sourceSprite.width||candidate.h<sourceSprite.height)throw Error('No se puede achicar por debajo de las dimensiones del sprite original.');}
+ if(entries.some(e=>!inBoundsWith(e,candidate)))throw Error('La nueva grilla dejaría fuera algunas imágenes agregadas.');
+ if(sourcePixels.size && candidate.cols===grid.cols){ // conservar análisis de las celdas originales al expandir filas
+ }
+ occupied=new Set([...occupied].filter(i=>i<candidate.cols*candidate.rows));
+ grid=candidate;changeConfigFields();autoPlaceUnassigned();rebuild();if(!quiet)message('Cuadrícula aplicada. Las posiciones existentes se mantienen.','success');return true;
+ }catch(e){message(e.message,'error');return false;}}
+function inBoundsWith(e,g){return (!e.r&&!e.c)||(e.r>=1&&e.c>=1&&e.r<=g.rows&&e.c<=g.cols)}
+function clearContent(){if(sourceSprite?.close)sourceSprite.close();sourceSprite=null;sourcePixels=new Set();occupied=new Set();entries=[];importedPositions={};selectedIndex=-1;selectedEntryId=null;idSerial=1;}
+async function bitmapOf(file){return createImageBitmap(file)}
+async function loadSprite(file){if(!file)return;try{if((sourceSprite||entries.length)&&!confirm('Cargar otro sprite reiniciará las imágenes nuevas y la selección actual. ¿Continuar?'))return;const preservedMap=(!sourceSprite&&!entries.length)?{...importedPositions}:{};if(!/\.(png|webp)$/i.test(file.name)&&!/^image\/(png|webp)$/.test(file.type))throw Error("El sprite base debe ser PNG o WebP.");const img=await bitmapOf(file);
+ // adaptar ancho/alto del sprite a la cuadrícula, conservando las columnas y tamaños cuando sea posible
+ const w=img.width,h=img.height;let cols=grid.cols,rows=grid.rows;
+ if(w%cols || h%rows){if(img.close)img.close();throw Error(`El sprite mide ${w} × ${h}; no es divisible por la cuadrícula actual (${cols} columnas, ${rows} filas). Cargá su .js primero o ajustá columnas/filas.`)}
+ clearContent();importedPositions=preservedMap;sourceSprite=img;sourceSpriteName=pngPath(file.name);
+ grid={w,h,cols,rows};changeConfigFields();detectOccupancy();for(const pos of Object.values(importedPositions))if(inRange(pos.r,pos.c))occupied.add(indexOf(pos.r,pos.c));$('lastUsed').value=occupied.size?Math.max(...occupied)+1:0;rebuild();
+ message(`Sprite «${file.name}» cargado (${w} × ${h}). Detectadas ${occupied.size} celdas con píxeles. Revisá el resultado antes de insertar íconos.`,'success');
+ }catch(e){message('No se pudo cargar el sprite: '+e.message,'error')}}
+function detectOccupancy(){sourcePixels=new Set();occupied=new Set();if(!sourceSprite)return;
+ const analyzer=document.createElement('canvas');analyzer.width=sourceSprite.width;analyzer.height=sourceSprite.height;const ac=analyzer.getContext('2d',{willReadFrequently:true});ac.drawImage(sourceSprite,0,0);const data=ac.getImageData(0,0,sourceSprite.width,sourceSprite.height).data;
+ const cw=sourceSprite.width/grid.cols,ch=sourceSprite.height/grid.rows;
+ for(let r=1;r<=grid.rows;r++)for(let c=1;c<=grid.cols;c++){
+ let present=0;const minX=(c-1)*cw,minY=(r-1)*ch;
+ for(let y=minY;y<minY+ch&&present<8;y++)for(let x=minX;x<minX+cw;x++){if(data[(y*sourceSprite.width+x)*4+3]>8){present++;if(present>=8)break}}
+ if(present>=8){const i=indexOf(r,c);sourcePixels.add(i);occupied.add(i)}
+ } analyzer.width=0;analyzer.height=0;}
+function usedByNew(i){return entries.find(e=>e.r&&e.c&&indexOf(e.r,e.c)===i)}
+function autoFree(){for(let i=0;i<total();i++)if(!occupied.has(i)&&!usedByNew(i))return i;return -1}
+function autoPlaceUnassigned(){for(const e of entries){if(inRange(e.r,e.c))continue;const i=autoFree();if(i<0){e.r=0;e.c=0;continue}const {r,c}=coords(i);e.r=r;e.c=c;}}
+function refreshStats(){const active=new Set(occupied);for(const e of entries)if(inRange(e.r,e.c))active.add(indexOf(e.r,e.c));
+ const free=total()-active.size;$('usedCount').textContent=active.size;$('freeCount').textContent=free;const first=autoFree();$('firstFree').textContent=first<0?'—':positionFromIndex(first);
+ const last=active.size?Math.max(...active)+1:0;$('lastUsed').placeholder=`Detectada: ${last}`;
+ $('importedKeys').textContent=`${Object.keys(importedPositions).length} identificadores importados.`;
+ $('markBusy').disabled=selectedIndex<0;$('markFree').disabled=selectedIndex<0;
+ $('replaceSelected').disabled=selectedIndex<0||!entries.length;$('undoAdded').disabled=!entries.length||selectedEntryId===null;
+}
+function resizeCanvases(){working.width=grid.w;working.height=grid.h;preview.width=grid.w;preview.height=grid.h;}
+function renderWorking(){wc.clearRect(0,0,grid.w,grid.h);if(sourceSprite)wc.drawImage(sourceSprite,0,0);
+ for(const e of entries){if(!inRange(e.r,e.c))continue;const x=(e.c-1)*tileW(),y=(e.r-1)*tileH();wc.clearRect(x,y,tileW(),tileH());const scale=Math.min(tileW()/e.image.width,tileH()/e.image.height);const ww=e.image.width*scale,hh=e.image.height*scale;wc.drawImage(e.image,x+(tileW()-ww)/2,y+(tileH()-hh)/2,ww,hh);}
+}
+function drawPreview(){pc.clearRect(0,0,grid.w,grid.h);pc.drawImage(working,0,0);
+ if(!$('showGrid').checked)return;const cw=tileW(),ch=tileH();pc.save();pc.lineWidth=Math.max(1,Math.min(cw,ch)*.01);pc.font=`${Math.max(11,Math.min(cw,ch)*.12)}px Segoe UI, sans-serif`;
+ for(let i=0;i<total();i++){
+ const {r,c}=coords(i),x=(c-1)*cw,y=(r-1)*ch;const newItem=usedByNew(i);
+ let color=occupied.has(i)?'rgba(246,183,97,.9)':'rgba(120,151,172,.38)';if(newItem)color='rgba(115,223,177,.98)';if(selectedIndex===i)color='rgba(101,181,255,1)';
+ pc.strokeStyle=color;pc.strokeRect(x+1.5,y+1.5,cw-3,ch-3);if(newItem||selectedIndex===i){pc.fillStyle=newItem?'rgba(22,110,84,.10)':'rgba(31,116,184,.12)';pc.fillRect(x+3,y+3,cw-6,ch-6)}
+ if(cw>=40&&ch>=25){const text=`${r},${c}`;pc.fillStyle='rgba(7,17,29,.8)';const tw=pc.measureText(text).width;pc.fillRect(x+4,y+3,tw+12,Math.max(17,Math.min(ch*.18,25)));pc.fillStyle='#e9f6ff';pc.fillText(text,x+10,y+Math.max(16,Math.min(ch*.18,22)));}
+ }pc.restore();}
+function rebuild(){resizeCanvases();renderWorking();drawPreview();renderQueue();refreshStats();updateSelectionInfo()}
+function updateSelectionInfo(){if(selectedIndex<0){$('selectedInfo').textContent='Celda seleccionada: ninguna.';return}const {r,c}=coords(selectedIndex);
+ const e=usedByNew(selectedIndex),filled=occupied.has(selectedIndex),pixel=sourcePixels.has(selectedIndex);
+ $('selectedInfo').textContent=`Celda ${r},${c} · ${e?'Imagen nueva: '+e.file.name:filled?'Ocupada':'Libre'}${pixel?' · El sprite original contiene píxeles':''}. ${selectedEntryId?'Imagen activa: '+(entries.find(x=>x.id===selectedEntryId)?.file.name??'—'):''}`;}
+function renderQueue(){const list=$('queue');list.replaceChildren();if(!entries.length){const p=document.createElement('p');p.className='muted small';p.textContent='Todavía no agregaste imágenes nuevas.';list.append(p);return;}
+ for(const e of entries){const el=document.createElement('div');el.className='queueitem'+(e.id===selectedEntryId?' active':'');el.dataset.id=e.id;
+ const head=document.createElement('div');head.className='queuehead';const label=document.createElement('strong');label.textContent=e.file.name;
+ const select=document.createElement('button');select.className='button secondary tiny';select.textContent=e.id===selectedEntryId?'Activa':'Seleccionar';select.onclick=()=>{selectedEntryId=e.id;renderQueue();refreshStats();updateSelectionInfo()};
+ const remove=document.createElement('button');remove.className='button secondary tiny';remove.textContent='Quitar';remove.onclick=()=>removeEntry(e.id);
+ head.append(label,select,remove);
+ const edit=document.createElement('div');edit.className='queuegrid';const idInput=document.createElement('input');idInput.placeholder='key (opcional)';idInput.value=e.key;idInput.title='Identificador del ítem en el JSON';idInput.onchange=()=>{e.key=idInput.value.trim();message(`Identificador actualizado para ${e.file.name}.`)};
+ const where=document.createElement('input');where.value=inRange(e.r,e.c)?`${e.r},${e.c}`:'SIN LUGAR';where.title='Ingresá fila,columna';where.onchange=()=>{const m=where.value.trim().match(/^(\d+)\s*[,;:]\s*(\d+)$/);if(!m){message('Usá fila,columna, por ejemplo 8,1.','error');renderQueue();return}placeEntry(e,Number(m[1]),Number(m[2]));};
+ const note=document.createElement('span');note.className='muted small';note.textContent=`${e.image.width}×${e.image.height}`;
+ edit.append(idInput,where,note);el.append(head,edit);list.append(el);}}
+function removeEntry(id){const at=entries.findIndex(e=>e.id===id);if(at<0)return;entries[at].image.close?.();entries.splice(at,1);if(selectedEntryId===id)selectedEntryId=entries[0]?.id??null;autoPlaceUnassigned();rebuild();message('Imagen quitada; el sprite original no se modificó.','success')}
+function placeEntry(e,r,c,force=false){if(!inRange(r,c)){message('La posición no existe. Ampliá la cuadrícula o elegí una celda válida.','error');renderQueue();return false}
+ const i=indexOf(r,c);const other=usedByNew(i);
+ if(other&&other!==e){message(`La celda ${r},${c} está asignada a «${other.file.name}». Elegí otra.`, 'error');renderQueue();return false}
+ if(occupied.has(i)&&!force){message(`La celda ${r},${c} está marcada como ocupada. Para reemplazarla, seleccioná esa celda y usá «Reemplazar contenido».`, 'warn');renderQueue();return false}
+ if(sourcePixels.has(i)&&!force&&!occupied.has(i)&&!confirm(`La posición ${r},${c} contiene píxeles en el sprite original aunque la marcaste libre. ¿Querés reemplazar ese contenido?`)){renderQueue();return false}
+ e.r=r;e.c=c;selectedIndex=i;selectedEntryId=e.id;rebuild();message(`«${e.file.name}» ubicada en ${r},${c}.`,'success');return true;
+}
+async function addIcons(files){const images=Array.from(files??[]).filter(f=>/^image\//.test(f.type)||/\.(png|webp|jpe?g)$/i.test(f.name));images.sort((a,b)=>a.name.localeCompare(b.name));let count=0,errors=[];
+ for(const f of images){try{const img=await bitmapOf(f);const i=autoFree();let r=0,c=0;if(i>=0)({r,c}=coords(i));const e={id:idSerial++,file:f,image:img,r,c,key:''};entries.push(e);selectedEntryId=e.id;count++}catch(err){errors.push(f.name)}}
+ rebuild();message(`Agregadas ${count} imágenes.${entries.filter(x=>!inRange(x.r,x.c)).length?' Algunas quedaron sin celda disponible; agregá filas.':''}${errors.length?' Fallaron: '+errors.join(', '):''}`,errors.length?'warn':'success')}
+function parseJS(js){const entries=[...js.matchAll(/export\s+const\s+([A-Z][A-Z0-9_]*)_SPRITE_(IMAGE_W|IMAGE_H|COLS|ROWS|URL)\s*=\s*([^;\r\n]+)/g)];const byPrefix={};for(const [,p,k,v]of entries)(byPrefix[p]??={})[k]=v.trim();const group=Object.entries(byPrefix).find(([,x])=>x.IMAGE_W&&x.IMAGE_H&&x.COLS&&x.ROWS);
+ if(!group)throw Error('No encontré export const PREFIJO_SPRITE_IMAGE_W / _IMAGE_H / _COLS / _ROWS en el archivo.');
+ const [p,v]=group;const parseNum=k=>{const n=Number(v[k]);if(!Number.isFinite(n))throw Error(`No pude interpretar ${p}_SPRITE_${k}.`);return n};const path=(v.URL??'').match(/["']([^"']+)["']/)?.[1]||null;
+ return {prefix:p,grid:{w:parseNum('IMAGE_W'),h:parseNum('IMAGE_H'),cols:parseNum('COLS'),rows:parseNum('ROWS')},path};}
+async function loadJS(file){if(!file)return;try{const raw=await file.text();const parsed=parseJS(raw);if(!applyGrid(parsed.grid,true))return;
+ sourceJS=raw;sourceJSName=file.name;prefix=parsed.prefix;if(parsed.path){$('spritePath').value=parsed.path;sourceSpriteName=basename(parsed.path)}
+ $('preset').value='custom';updateSharedNote();message(`Configuración «${file.name}» cargada. Grilla ${grid.cols}×${grid.rows}, celdas ${tileW()}×${tileH()}.`,'success');
+ }catch(e){message(`Error en archivo .js: ${e.message}`,'error')}}
+function allPositions(){const positions={...importedPositions};for(const e of entries){if(e.key&&inRange(e.r,e.c))positions[e.key]={r:e.r,c:e.c}}return positions}
+function readPositions(json){if(json&&typeof json==='object'){
+ const imported={};const collect=(key,v)=>{const pos=v?.sprite_pos??(v?.r!==undefined&&v?.c!==undefined?v:null);if(pos&&inRange(Number(pos.r),Number(pos.c)))imported[key]={r:Number(pos.r),c:Number(pos.c)}};
+ if(Array.isArray(json.tiles)){for(const x of json.tiles)if(x.key)collect(x.key,x)}
+ if(Array.isArray(json.items)){for(const x of json.items)if(x.key)collect(x.key,x)}
+ const others=json.mapping??json.positions??json;
+ for(const [key,v]of Object.entries(others))if(typeof v==='object'&&v)collect(key,v);
+ // Los archivos de loadout agrupan elementos por slot. Importar únicamente
+ // las categorías correspondientes al sprite seleccionado.
+ const spriteBase=basename($('spritePath').value).toLowerCase();
+ const slotBySprite={
+  'weapons.png':['primary','secondary','overkill'],
+  'throwables.png':['throwable'],
+  'deployables.png':['deployable'],
+  'tools.png':['tool'],
+  'armors.png':['armor'],
+  'overkills.png':['overkill']
+ };
+ for(const slot of slotBySprite[spriteBase]??[]){
+  const category=others[slot];
+  if(!category||typeof category!=='object')continue;
+  for(const item of Object.values(category))if(item?.key)collect(item.key,item);
+ }
+ return imported}return {};
+}
+async function loadMap(file){try{const data=JSON.parse(await file.text());const positions=readPositions(data);importedPositions={...importedPositions,...positions};
+ for(const pos of Object.values(positions))occupied.add(indexOf(pos.r,pos.c));
+ if(Array.isArray(data.occupiedIndices))for(const i of data.occupiedIndices)if(Number.isInteger(i)&&i>=0&&i<total())occupied.add(i);
+ if(data.projectConfig?.prefix)prefix=data.projectConfig.prefix;
+ rebuild();message(`Importado el archivo «${file.name}»: ${Object.keys(positions).length} identificadores. Se conservarán al exportar posiciones.`,'success');
+ }catch(e){message(`JSON no válido: ${e.message}`,'error')}}
+function patchedJS(){const path=pngPath($('spritePath').value.trim()||`/sprites/${sourceSpriteName}`);
+ if(!sourceJS)return `export const ${prefix}_SPRITE_URL = ${JSON.stringify(path)};\n\nexport const ${prefix}_SPRITE_IMAGE_W = ${grid.w};\nexport const ${prefix}_SPRITE_IMAGE_H = ${grid.h};\n\nexport const ${prefix}_SPRITE_COLS = ${grid.cols};\nexport const ${prefix}_SPRITE_ROWS = ${grid.rows};\n\nexport const ${prefix}_SPRITE_TILE_W = ${prefix}_SPRITE_IMAGE_W / ${prefix}_SPRITE_COLS;\nexport const ${prefix}_SPRITE_TILE_H = ${prefix}_SPRITE_IMAGE_H / ${prefix}_SPRITE_ROWS;\n`;
+ let output=sourceJS;
+ for(const [k,v]of Object.entries({IMAGE_W:grid.w,IMAGE_H:grid.h,COLS:grid.cols,ROWS:grid.rows,URL:JSON.stringify(path)})){
+ const pattern=new RegExp(`(^\\s*export\\s+const\\s+${prefix}_SPRITE_${k}\\s*=\\s*)([^;\\r\\n]+)(;?)`,'m');if(pattern.test(output))output=output.replace(pattern,(_,a,b,c)=>a+v+c);
+ }
+ return output;
+}
+function exportPNG(){working.toBlob(blob=>{if(blob)blobDownload(blob,basename(pngPath($('spritePath').value||sourceSpriteName)));else message('No se pudo generar el PNG.','error')},'image/png')}
+function exportProject(){const used=new Set(occupied);for(const e of entries)if(inRange(e.r,e.c))used.add(indexOf(e.r,e.c));jsonDownload({version:1,projectConfig:{...grid,prefix,path:pngPath($('spritePath').value)},occupiedIndices:[...used].sort((a,b)=>a-b),lastUsed:used.size?Math.max(...used)+1:0,positions:allPositions(),items:entries.map(e=>({filename:e.file.name,key:e.key||null,r:e.r,c:e.c}))},'pd3_sprite_project.json')}
+function clickedCanvas(ev){const rect=preview.getBoundingClientRect();const x=(ev.clientX-rect.left)/rect.width*grid.w,y=(ev.clientY-rect.top)/rect.height*grid.h;
+ const c=Math.floor(x/tileW())+1,r=Math.floor(y/tileH())+1;if(!inRange(r,c))return;selectedIndex=indexOf(r,c);
+ if(selectedEntryId!==null){const e=entries.find(e=>e.id===selectedEntryId);if(e&&!usedByNew(selectedIndex)){placeEntry(e,r,c);return}}
+ drawPreview();refreshStats();updateSelectionInfo()}
+$('spriteFile').addEventListener('change',e=>loadSprite(e.target.files[0]));$('jsFile').addEventListener('change',e=>loadJS(e.target.files[0]));$('mapFile').addEventListener('change',e=>loadMap(e.target.files[0]));
+$('iconFiles').addEventListener('change',e=>addIcons(e.target.files));$('iconFolder').addEventListener('change',e=>addIcons(e.target.files));
+$('preset').addEventListener('change',e=>{if(e.target.value==='custom')return;if(sourceSprite||entries.length){if(!confirm('Cambiar de preset reinicia el PNG cargado, las imágenes nuevas y las posiciones importadas. ¿Continuar?')){e.target.value='custom';return}}clearContent();sourceJS='';setPreset(e.target.value);rebuild();message('Preset listo. Cargá el PNG que corresponda, o empezá un sprite vacío.');});
+$('spritePath').addEventListener('input',updateSharedNote);
+$('applyGrid').addEventListener('click',()=>applyGrid({w:Number($('imgW').value),h:Number($('imgH').value),cols:Number($('cols').value),rows:Number($('rows').value)}));
+$('addRow').addEventListener('click',()=>applyGrid({w:grid.w,h:grid.h+tileH(),cols:grid.cols,rows:grid.rows+1}));
+$('applyLast').addEventListener('click',()=>{const n=Number($('lastUsed').value);if(!Number.isInteger(n)||n<0||n>total()){message(`Ingresá una cantidad entre 0 y ${total()}.`,'error');return}
+ if(sourcePixels.size&&n<[...sourcePixels].reduce((a,b)=>Math.max(a,b),-1)+1&&!confirm('El rango indicado deja celdas con píxeles del PNG original marcadas como libres. ¿Continuar?'))return;
+ occupied=new Set(Array.from({length:n},(_,i)=>i));for(const e of entries)if(inRange(e.r,e.c)&&occupied.has(indexOf(e.r,e.c))){e.r=0;e.c=0}autoPlaceUnassigned();rebuild();message(`Marcadas las primeras ${n} celdas como ocupadas.`, 'success')});
+$('markBusy').addEventListener('click',()=>{if(selectedIndex<0)return;const e=usedByNew(selectedIndex);if(e){message('Esta celda ya está asignada a una imagen nueva.','warn');return}occupied.add(selectedIndex);rebuild()});
+$('markFree').addEventListener('click',()=>{if(selectedIndex<0)return;const e=usedByNew(selectedIndex);if(e){message('Quitá la imagen nueva antes de marcar libre la celda.','warn');return}occupied.delete(selectedIndex);rebuild()});
+$('replaceSelected').addEventListener('click',()=>{if(selectedIndex<0||selectedEntryId===null){message('Seleccioná primero una imagen nueva y la celda destino.','warn');return}
+ const e=entries.find(x=>x.id===selectedEntryId);const {r,c}=coords(selectedIndex);const other=usedByNew(selectedIndex);if(other&&other!==e){message('La celda contiene otra imagen nueva. Quitala antes de reemplazar.','error');return}
+ if(!confirm(`¿Reemplazar explícitamente el contenido de la celda ${r},${c} por «${e.file.name}»? Esta operación solo afectará al PNG descargado, no al archivo original.`))return;
+ placeEntry(e,r,c,true)});
+$('undoAdded').addEventListener('click',()=>removeEntry(selectedEntryId));$('showGrid').addEventListener('change',drawPreview);preview.addEventListener('click',clickedCanvas);
+$('exportPNG').addEventListener('click',exportPNG);$('exportJS').addEventListener('click',()=>blobDownload(new Blob([patchedJS()],{type:'text/javascript'}),sourceJSName));$('exportMap').addEventListener('click',()=>jsonDownload(allPositions(),'sprite_positions.json'));
+$('exportProject').addEventListener('click',exportProject);
+function applyZoom(){preview.style.width=`${zoom*100}%`;$('zoomLabel').textContent=`${Math.round(zoom*100)}%`}
+$('zoomIn').onclick=()=>{zoom=Math.min(3,Math.round((zoom+.25)*100)/100);applyZoom()};$('zoomOut').onclick=()=>{zoom=Math.max(.5,Math.round((zoom-.25)*100)/100);applyZoom()};$('zoomReset').onclick=()=>{zoom=1;applyZoom()};
+changeConfigFields();rebuild();
+</script>
+</body>
+</html>

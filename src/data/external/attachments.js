@@ -3144,6 +3144,11 @@ const ATTACHMENT_DATA = Object.freeze({
         "displayName": "Bleed",
         "description": "When you do health damage to an enemy you have {BleedChance} chance to affect them with bleed, causing them to take {BleedDamage} damage every {BleedInterval} seconds for {BleedDuration} seconds."
     },
+    "Perk_BounceBack": {
+        "perkType": "equipped",
+        "displayName": "Bounce Back",
+        "description": "Every critical hit has a {HitChance} chance to deal damage to an enemy within a {WithinRange} meter radius."
+    },
     "Perk_Bulky": {
         "perkType": "persistent",
         "displayName": "Bulky",
@@ -3158,6 +3163,11 @@ const ATTACHMENT_DATA = Object.freeze({
         "perkType": "equipped",
         "displayName": "Luck of the Draw",
         "description": "Each shot has a {HitChance} chance to do {IncreasedDamage} extra damage."
+    },
+    "Perk_DoubleCross": {
+        "perkType": "equipped",
+        "displayName": "Double-Cross",
+        "description": "The more pellets that hit your target, the higher the damage increase of your next shot, for a maximum {MaxIncreasedDamage} increase. This effect resets after {DecayDuration} seconds."
     },
     "Perk_EdgeCrit": {
         "perkType": "persistent",
@@ -3186,6 +3196,11 @@ const ATTACHMENT_DATA = Object.freeze({
         "displayName": "Battle Grit",
         "description": "When you lose an armor plate, you gain GRIT: take 10% less damage for 20s."
     },
+    "Perk_HighNoon": {
+        "perkType": "equipped",
+        "displayName": "High Noon",
+        "description": "This weapon's swap speed is increased by {IncreasedSwapSpeed}. When you swap to this weapon, it deals {IncreasedDamage} extra damage for {BuffDuration} seconds."
+    },
     "Perk_LeadFed": {
         "perkType": "persistent",
         "persistentDamageEffect": { "perAmmoPickup": 0.1, "maxBonus": 0.25 },
@@ -3206,6 +3221,11 @@ const ATTACHMENT_DATA = Object.freeze({
         "perkType": "equipped",
         "displayName": "Quickshot",
         "description": "When you kill an enemy with a critical hit, you don’t have to cycle the weapon to fire the next shot in the magazine. Reload cancels the free cycle."
+    },
+    "Perk_Quickshot_Lawman": {
+        "perkType": "equipped",
+        "displayName": "Quickshot (Lawman)",
+        "description": "After a critical hit, your weapon cycle speed is increased by {CycleSpeedIncrease}."
     },
     "Perk_Resilient": {
         "perkType": "persistent",
@@ -3267,6 +3287,11 @@ const ATTACHMENT_DATA = Object.freeze({
         "perkType": "equipped",
         "displayName": "Veteran",
         "description": "When you kill an enemy, you have {PickupChance} chance to immediately add the dropped ammo into the magazine. Excess ammo goes into the ammo inventory."
+    },
+    "Perk_ViperStrike": {
+        "perkType": "equipped",
+        "displayName": "Viper Strike",
+        "description": "After reloading, your ADS, reload, and weapon swap speed are increased for a duration."
     },
     "Perk_WestWood": {
         "perkType": "equipped",

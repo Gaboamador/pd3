@@ -3,6 +3,10 @@
     "key": "perk_vampire",
     "name": "Vampire",
     "sourceKey": "Perk_Vampire",
+    "sprite_pos": {
+      "r": 5,
+      "c": 4
+    },
     "values": {
       "HealPercentage": {
         "value": 0.005,
@@ -17,6 +21,10 @@
     "key": "perk_sharpshooter",
     "name": "Sharpshooter",
     "sourceKey": "Perk_Sharpshooter",
+    "sprite_pos": {
+      "r": 5,
+      "c": 2
+    },
     "values": {
       "IncreasedDamage": {
         "value": 0.15,
@@ -35,6 +43,10 @@
     "key": "perk_ammo_feed",
     "name": "Ammo Feed",
     "sourceKey": "Perk_LeadFed",
+    "sprite_pos": {
+      "r": 2,
+      "c": 3
+    },
     "values": {
       "IncreasedDamage": {
         "value": 0.1,
@@ -57,6 +69,10 @@
     "key": "perk_hard_cast",
     "name": "Hard Cast",
     "sourceKey": "Perk_Sabot",
+    "sprite_pos": {
+      "r": 5,
+      "c": 1
+    },
     "values": {
       "ArmorPassthrough": {
         "value": 0.15,
@@ -71,6 +87,10 @@
     "key": "perk_domino_effect",
     "name": "Domino Effect",
     "sourceKey": "Perk_ChainReact",
+    "sprite_pos": {
+      "r": 4,
+      "c": 1
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["lmg"]
@@ -79,6 +99,10 @@
     "key": "perk_run_and_gun",
     "name": "Run & Gun",
     "sourceKey": "Perk_Runner",
+    "sprite_pos": {
+      "r": 3,
+      "c": 1
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": [
@@ -92,6 +116,10 @@
     "key": "perk_pin_puller",
     "name": "Pin Puller",
     "sourceKey": "Perk_PinPuller",
+    "sprite_pos": {
+      "r": 4,
+      "c": 4
+    },
     "values": {
       "Cooldown": {
         "value": 20,
@@ -106,6 +134,10 @@
     "key": "perk_glass_cannon",
     "name": "Glass Cannon",
     "sourceKey": "Perk_Glass",
+    "sprite_pos": {
+      "r": 2,
+      "c": 2
+    },
     "values": {
       "IncreasedDamage": {
         "value": 0.15,
@@ -130,6 +162,10 @@
     "key": "perk_bulky",
     "name": "Bulky",
     "sourceKey": "Perk_Bulky",
+    "sprite_pos": {
+      "r": 2,
+      "c": 1
+    },
     "values": {
       "DecreasedInventoryAmmo": {
         "value": 0.25,
@@ -148,6 +184,10 @@
     "key": "perk_accelerator",
     "name": "Accelerator",
     "sourceKey": "Perk_RushSlide",
+    "sprite_pos": {
+      "r": 1,
+      "c": 4
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["shotgun"]
@@ -156,6 +196,10 @@
     "key": "perk_bleeding_edge",
     "name": "Bleeding Edge",
     "sourceKey": "Perk_EdgeCrit",
+    "sprite_pos": {
+      "r": 1,
+      "c": 2
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["marksman"]
@@ -164,6 +208,10 @@
     "key": "perk_knockback",
     "name": "Knockback",
     "sourceKey": "Perk_Trip",
+    "sprite_pos": {
+      "r": 5,
+      "c": 3
+    },
     "values": {
       "IncreasedHurtStun": {
         "value": 0.5,
@@ -182,6 +230,10 @@
     "key": "perk_haymaker",
     "name": "Haymaker",
     "sourceKey": "Perk_Slap",
+    "sprite_pos": {
+      "r": 3,
+      "c": 2
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["pistol"]
@@ -190,6 +242,10 @@
     "key": "perk_battle_grit",
     "name": "Battle Grit",
     "sourceKey": "Perk_GritPlate",
+    "sprite_pos": {
+      "r": 1,
+      "c": 3
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["assaultrifle"]
@@ -198,6 +254,10 @@
     "key": "perk_assassin",
     "name": "Assassin",
     "sourceKey": "Perk_Assassin",
+    "sprite_pos": {
+      "r": 7,
+      "c": 3
+    },
     "scope": "weapon",
     "optionType": "perk",
     "weaponTypes": ["revolver"]
@@ -206,6 +266,10 @@
     "key": "perk_bleed",
     "name": "Bleed",
     "sourceKey": "Perk_Bleed",
+    "sprite_pos": {
+      "r": 3,
+      "c": 4
+    },
     "values": {
       "BleedChance": {
         "value": 0.25,
@@ -232,6 +296,10 @@
     "key": "perk_luck_of_the_draw",
     "name": "Luck of the Draw",
     "sourceKey": "Perk_Critter",
+    "sprite_pos": {
+      "r": 4,
+      "c": 2
+    },
     "values": {
       "HitChance": {
         "value": 0.02,
@@ -255,6 +323,10 @@
     "key": "perk_browbeater",
     "name": "Browbeater",
     "sourceKey": "Perk_Threat",
+    "sprite_pos": {
+      "r": 3,
+      "c": 3
+    },
     "values": {
       "WithinRange": {
         "value": 10,
@@ -273,6 +345,10 @@
     "key": "perk_final_tap",
     "name": "Final Tap",
     "sourceKey": "Perk_Final",
+    "sprite_pos": {
+      "r": 4,
+      "c": 3
+    },
     "values": {
       "IncreasedDamage": {
         "value": 3,
@@ -287,6 +363,10 @@
     "key": "perk_resilient",
     "name": "Resilient",
     "sourceKey": "Perk_Resilient",
+    "sprite_pos": {
+      "r": 2,
+      "c": 4
+    },
     "values": {
       "DecreasedIncomingArmorDamage": {
         "value": 0.1,
@@ -305,6 +385,10 @@
     "key": "perk_veteran",
     "name": "Veteran",
     "sourceKey": "Perk_Veteran",
+    "sprite_pos": {
+      "r": 7,
+      "c": 1
+    },
     "values": {
       "PickupChance": {
         "value": 0.15,
@@ -340,10 +424,29 @@
     "weaponTypes": ["marksman"],
     "iconicOnly": true
   },
+  "perk_quickshot_lawman": {
+    "key": "perk_quickshot_lawman",
+    "name": "Quickshot (Lawman)",
+    "sourceKey": "Perk_Quickshot_Lawman",
+    "values": {
+      "CycleSpeedIncrease": {
+        "value": 1.5,
+        "type": "rate"
+      }
+    },
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": ["marksman"],
+    "iconicOnly": true
+  },
   "perk_hot_lead": {
     "key": "perk_hot_lead",
     "name": "Hot Lead",
     "sourceKey": "Perk_Bite",
+    "sprite_pos": {
+      "r": 6,
+      "c": 1
+    },
     "values": {
       "DecreasedArmorPenetration": {
         "value": 0.1,
@@ -375,6 +478,10 @@
     "key": "perk_target_practice",
     "name": "Target Practice",
     "sourceKey": "Perk_Superstar",
+    "sprite_pos": {
+      "r": 6,
+      "c": 4
+    },
     "values": {
       "IncreasedDamage": {
         "value": 0.25,
@@ -394,6 +501,10 @@
     "key": "perk_trigger_happy",
     "name": "Trigger Happy",
     "sourceKey": "Perk_Fool",
+    "sprite_pos": {
+      "r": 6,
+      "c": 2
+    },
     "values": {
       "IncreasedDamage": {
         "value": 0.04,
@@ -409,6 +520,10 @@
     "key": "perk_midas_touch",
     "name": "Midas Touch",
     "sourceKey": "Perk_Smith",
+    "sprite_pos": {
+      "r": 6,
+      "c": 3
+    },
     "values": {
       "DecreasedArmorPenetration": {
         "value": 0.4,
@@ -428,6 +543,10 @@
     "key": "perk_fog_of_war",
     "name": "Fog of War",
     "sourceKey": "Perk_WestWood",
+    "sprite_pos": {
+      "r": 7,
+      "c": 2
+    },
     "values": {
       "WithinRange": {
         "value": 3,
@@ -450,6 +569,82 @@
     "optionType": "perk",
     "weaponTypes": ["lmg"],
     "iconicOnly": true
+  },
+  "perk_viper_strike": {
+    "key": "perk_viper_strike",
+    "name": "Viper Strike",
+    "sourceKey": "Perk_ViperStrike",
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": ["shotgun"],
+    "iconicOnly": true
+  },
+  "perk_bounce_back": {
+    "key": "perk_bounce_back",
+    "name": "Bounce Back",
+    "sourceKey": "Perk_BounceBack",
+    "values": {
+      "HitChance": {
+        "value": 0.25,
+        "type": "rate"
+      },
+      "WithinRange": {
+        "value": 5,
+        "type": "flat"
+      }
+    },
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": ["revolver"],
+    "iconicOnly": true
+  },
+  "perk_double_cross": {
+    "key": "perk_double_cross",
+    "name": "Double-Cross",
+    "sourceKey": "Perk_DoubleCross",
+    "sprite_pos": {
+      "r": 7,
+      "c": 4
+    },
+    "values": {
+      "MaxIncreasedDamage": {
+        "value": 0.5,
+        "type": "rate"
+      },
+      "DecayDuration": {
+        "value": 2,
+        "type": "flat"
+      }
+    },
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": ["shotgun"]
+  },
+  "perk_high_noon": {
+    "key": "perk_high_noon",
+    "name": "High Noon",
+    "sourceKey": "Perk_HighNoon",
+    "sprite_pos": {
+      "r": 8,
+      "c": 1
+    },
+    "values": {
+      "IncreasedSwapSpeed": {
+        "value": 2,
+        "type": "rate"
+      },
+      "IncreasedDamage": {
+        "value": 0.2,
+        "type": "rate"
+      },
+      "BuffDuration": {
+        "value": 3,
+        "type": "flat"
+      }
+    },
+    "scope": "weapon",
+    "optionType": "perk",
+    "weaponTypes": ["revolver"]
   },
   "ovk_het5_hard_collateral": {
     "key": "ovk_het5_hard_collateral",
