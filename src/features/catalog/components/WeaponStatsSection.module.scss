@@ -1,6 +1,7 @@
 @use "../../../styles/variables" as *;
 
 .modsSection {
+  min-width: 0;
   margin-top: $space-lg;
   padding: $space-md;
   background: $color-bg-elevated;
@@ -17,12 +18,14 @@
 }
 
 .modsGrid {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: $space-sm;
 }
 
 .modRow {
+  min-width: 0;
   padding-bottom: $space-xs;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 
@@ -42,11 +45,26 @@
 
 .modNames {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: $space-xs;
+
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .modChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+
+  flex-shrink: 0;
+
+  max-width: 100%;
+  min-width: 0;
   font-size: 0.75rem;
   padding: 4px 8px;
   border-radius: $radius-sm;
@@ -60,6 +78,11 @@
     border-color: $pd3-lightgreen;
     color: $pd3-lightgreen;
   }
+}
+
+.modName {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .perksSection {
@@ -90,6 +113,13 @@
   &.persistent {
     border-left-color: $color-perk-persistent;
   }
+}
+
+.perkHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  min-width: 0;
 }
 
 .perkName {

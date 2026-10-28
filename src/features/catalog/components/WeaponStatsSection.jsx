@@ -6,17 +6,20 @@ import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
 import perksData from "../../../data/perksData.js";
 import { getPerkByKey, getWeaponPerks, isIconicWeapon } from "../../../build/utils/perks.utils";
 import { getWeaponModSlots } from "../../../build/utils/loadout.utils";
+import PerkSprite from "../../../build/components/perks/PerkSprite";
+import WeaponAttachmentSprite from "../../../build/components/weapons/WeaponAttachmentSprite";
+import { getWeaponAttachmentSpritePos } from "../../../build/utils/sprites/weaponAttachmentSprites";
 
 // Orden “humano” típico (ajustalo si querés)
 const MOD_SLOT_ORDER = [
-  "Magazine",
   "Barrel",
   "BarrelExtension",
   "ForeGrip",
+  "Grip",
+  "Mag",
+  "Receiver",
   "Stock",
   "Sight",
-  "Receiver",
-  "Grip",
 ];
 
 const STAT_DEFINITIONS = [
@@ -81,10 +84,12 @@ function buildStatsRows(stats, t) {
 }
 
 function buildModsInfo(weapon) {
+  // Conservar id y nombre: las coordenadas del sprite se buscan por
+  // arma original + attachmentKey. El nombre visible no es una clave segura.
   const entries = getWeaponModSlots(weapon).map(({ slot, options }) => ({
     slot,
-    names: options.map(option => option.name).filter(Boolean),
-  })).filter(item => item.names.length > 0);
+    options: options.filter(option => option.name),
+  })).filter(item => item.options.length > 0);
 
   // Ordenar slots (primero los conocidos, después alfabético)
   entries.sort((a, b) => {
@@ -109,6 +114,10 @@ export default function WeaponStatsSection({ weapon }) {
 
   const rows = buildStatsRows(weapon.stats, t);
   const modsInfo = buildModsInfo(weapon);
+  // Las Iconic usan los attachments y el mapeo visual del arma base.
+  const sourceWeaponKey = weapon.preset === 1
+    ? (weapon.baseWeaponKey ?? weapon.sourceKey ?? weapon.key)
+    : (weapon.sourceKey ?? weapon.key);
 
   const isIconic = isIconicWeapon(weapon);
   const perks = isIconic
@@ -134,7 +143,14 @@ export default function WeaponStatsSection({ weapon }) {
           <div className={styles.perkGrid}>
             {perks.map((perk) => (
               <div key={perk.key} className={`${styles.perkCard} ${perk.equipped ? styles.equipped : ""} ${perk.persistent ? styles.persistent : ""}`}>
-                <div className={styles.perkName}>{perk.name}</div>
+                <div className={styles.perkHeader}>
+                  <PerkSprite
+                    spritePos={perk.sprite_pos}
+                    perkType={perk.perkType}
+                    height={42}
+                  />
+                  <div className={styles.perkName}>{perk.name}</div>
+                </div>
                 <div className={styles.perkDescription}><PerkDescriptionText description={perk.description} /></div>
               </div>
             ))}
@@ -147,18 +163,25 @@ export default function WeaponStatsSection({ weapon }) {
           <div className={styles.modsTitle}>{t('catalog.title.weapon-mods')}</div>
 
           <div className={styles.modsGrid}>
-            {modsInfo.map(({ slot, names }) => (
+            {modsInfo.map(({ slot, options }) => (
               <div key={slot} className={styles.modRow}>
                 <div className={styles.modSlot}>
-                  {prettifyKey(slot)}
+                  {slot === "Mag" ? "Magazine" : prettifyKey(slot)}
                 </div>
 
                 <div className={styles.modNames}>
-                  {names.map((name) => (
-                    <span key={name} className={styles.modChip}>
-                      {name}
-                    </span>
-                  ))}
+                  {options.map((option) => {
+                    const spritePos = getWeaponAttachmentSpritePos(sourceWeaponKey, option.id);
+
+                    return (
+                      <span key={String(option.id ?? "default")} className={styles.modChip}>
+                        {spritePos && (
+                          <WeaponAttachmentSprite spritePos={spritePos} height={36} />
+                        )}
+                        <span className={styles.modName}>{option.name}</span>
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}

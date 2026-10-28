@@ -7,4 +7,5 @@ export const WEAPON_MOD_SLOT_SPRITES = {
   Stock:           { r: 1, c: 7 },
   VerticalGrip:    { r: 1, c: 8 },
   ForeGrip:        { r: 1, c: 9 },
+  ChargingHandle:  { r: 1, c: 10 },
 };

@@ -11,6 +11,7 @@ import ThrowableSprite from "../../../build/components/loadout/ThrowableSprite";
 import DeployableSprite from "../../../build/components/loadout/DeployableSprite";
 import ToolSprite from "../../../build/components/loadout/ToolSprite";
 import PerkSprite from "../../../build/components/perks/PerkSprite";
+import OverkillModSprite from "../../../build/components/loadout/OverkillModSprite";
 
 import SkillSection from "../../../components/SkillSection";
 import WeaponStatsSection from "./WeaponStatsSection";
@@ -27,20 +28,25 @@ export default function GenericItemDetailsCard({ item }) {
   const spriteHeight = isMobile ? 80 : 110;
 
   const { def, kind } = resolveCatalogItem(item);
-
   if (!def) return null;
 
-  const SpriteComponent = getSpriteComponent(kind);
+  const isPerkItem = kind === "perk" || kind === "overkillAmmo";
+  const isOverkillOption = isPerkItem && def.scope === "overkill";
+  const SpriteComponent = getSpriteComponent(kind, def);
 
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        {SpriteComponent &&
-        (def.sprite_pos || (kind === "perk" && def.scope === "weapon")) && (
+        {SpriteComponent && (def.sprite_pos || (isPerkItem && !isOverkillOption)) && (
           <div className={styles.spriteWrapper}>
             <SpriteComponent
               spritePos={def.sprite_pos}
               height={spriteHeight}
+              {...(isOverkillOption
+                ? { optionType: def.optionType }
+                : isPerkItem
+                  ? { perkType: def.perkType }
+                  : {})}
             />
           </div>
         )}
@@ -56,7 +62,7 @@ export default function GenericItemDetailsCard({ item }) {
   );
 }
 
-function getSpriteComponent(kind) {
+function getSpriteComponent(kind, def) {
   switch (kind) {
     case "primary":
     case "secondary":
@@ -82,7 +88,8 @@ function getSpriteComponent(kind) {
       return SkillSprite;
 
     case "perk":
-      return PerkSprite;
+    case "overkillAmmo":
+      return def.scope === "overkill" ? OverkillModSprite : PerkSprite;
 
     default:
       return null;

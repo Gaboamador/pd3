@@ -1,0 +1,9 @@
+@use "../../../styles/variables.scss" as *;
+
+.equipped {
+  background-color: $color-perk-equipped;
+}
+
+.persistent {
+  background-color: $color-perk-persistent;
+}

@@ -1,0 +1,1439 @@
+{
+  "Classic_RDS.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "FIK PC9",
+    "ATK-7",
+    "WAR-45",
+    "Locomotive 12G"
+  ],
+  "Tactical_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Bullkick 500"
+  ],
+  "Compact_RDS.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "FIK PC9",
+    "ATK-7",
+    "WAR-45",
+    "Locomotive 12G"
+  ],
+  "Projection_RDS.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "FIK PC9",
+    "ATK-7",
+    "WAR-45",
+    "Locomotive 12G"
+  ],
+  "Viewpoint_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "FIK PC9",
+    "WAR-45"
+  ],
+  "Lined_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "FIK PC9",
+    "WAR-45"
+  ],
+  "Sheath_RDS.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "ATK-7",
+    "Locomotive 12G"
+  ],
+  "Angled_Ghost_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Russell JB-9"
+  ],
+  "Beveled_Silencer.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "CAR4_Compact_Mag.png": [
+    "CAR-4"
+  ],
+  "CAR4_CQC_Barrel.png": [
+    "CAR-4"
+  ],
+  "CAR4_Extended_Mag.png": [
+    "CAR-4"
+  ],
+  "CAR4_Quick-Pull_Mag.png": [
+    "CAR-4"
+  ],
+  "CAR4_Ranged_Barrel.png": [
+    "CAR-4"
+  ],
+  "Square_Claim.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "ATK-7",
+    "Locomotive 12G"
+  ],
+  "Cylinder_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "FIK PC9",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Russell JB-9"
+  ],
+  "Cylindric_Silencer.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "Express_Muzzle_Break.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "Light_Holographic_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "ATK-7",
+    "Locomotive 12G"
+  ],
+  "Flat-Side_STAB_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "FSA-12G",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Russell JB-9"
+  ],
+  "Voyeur_Scope.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Garstini Viper .50AE"
+  ],
+  "Hybrid_Muzzle_Break.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "Indent_Compensator.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "NWB9_Compact_Mag.png": [
+    "Northwest B-9"
+  ],
+  "NWB9_Extended_Mag.png": [
+    "Northwest B-9"
+  ],
+  "NWB9_Quick-Pull_Mag.png": [
+    "Northwest B-9"
+  ],
+  "Piped_Silencer.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "Quick_Hold_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "FIK PC9",
+    "ATK-7",
+    "WAR-45"
+  ],
+  "Rigger_Handstop.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Adelig RG5",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "ATK-7",
+    "WAR-45"
+  ],
+  "Stub_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "KU-59",
+    "Adelig RG5",
+    "Chanit S3",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR",
+    "Mosconi 12 Classic",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Russell JB-9"
+  ],
+  "Biofit_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "WAR-45"
+  ],
+  "HQ.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "WAR-45"
+  ],
+  "Light_Frame.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "WAR-45"
+  ],
+  "Padded_Tube.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "KU-59",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "FSA-12G",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "WAR-45"
+  ],
+  "Perforated_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "VF-7S",
+    "Chanit S3",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "FIK PC9",
+    "WAR-45"
+  ],
+  "Tac_Grip.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "WAR-45"
+  ],
+  "TQ.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "WAR-45"
+  ],
+  "Minimized_Hook_Stock.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "SA A144",
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "WAR-45"
+  ],
+  "Magi_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR"
+  ],
+  "SM-2_Sight.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Spearfish 1895",
+    "Reinfeld 880",
+    "ATK-7",
+    "Locomotive 12G"
+  ],
+  "Targeter_Optic.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144",
+    "FIK-22 TLR"
+  ],
+  "Run_&_Gun_Perk_Icon.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "SP Model 11",
+    "Justicar",
+    "Locomotive 12G",
+    "Russell JB-9"
+  ],
+  "Luck_of_the_Draw_Perk_Icon.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9",
+    "Dual Grimshot",
+    "Dual Outlaw",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "FIK-22 TLR",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "J&M Castigo 44",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Hard_Cast_Perk_Icon.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9"
+  ],
+  "Ammo_Feed_Perk_Icon.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9"
+  ],
+  "Battle_Grit_Perk_Icon.png": [
+    "CAR-4",
+    "Northwest B-9",
+    "Skogskrigare AG-9"
+  ],
+  "The_Silent_Killer_PD3.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "12G_Jaw_Choke.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "12G_Obelisk_Silencer.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "12G_Sediment_Choke.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "12G_Vent_Compensator.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "FSA-12G",
+    "M7 Pursuivant",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Compact_Compensator.png": [
+    "Dual Outlaw",
+    "FIK-22 TLR",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "Stryk 7",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "J&M Castigo 44",
+    "Sforza Bison",
+    "Bullkick 500",
+    "Russell JB-9"
+  ],
+  "Contoured_Grip.png": [
+    "Adelig RG5",
+    "ATK-7"
+  ],
+  "CS3_Refined_Stock.png": [
+    "Chanit S3"
+  ],
+  "Cut-Tac_Grip.png": [
+    "Adelig RG5",
+    "ATK-7"
+  ],
+  "KU59_Perforated_Grip.png": [
+    "KU-59",
+    "Zokas-17"
+  ],
+  "KU59_Rail_Barrel.png": [
+    "KU-59"
+  ],
+  "KU59_Trad_Grip_Barrel.png": [
+    "KU-59"
+  ],
+  "Ridgecyl_Silencer.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "M7 Pursuivant",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Parted_Compensator.png": [
+    "Dual Outlaw",
+    "FIK-22 TLR",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "J&M Castigo 44",
+    "Sforza Bison",
+    "Bullkick 500",
+    "Russell JB-9"
+  ],
+  "Skeletonized_Compensator.png": [
+    "Dual Outlaw",
+    "FIK-22 TLR",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "J&M Castigo 44",
+    "Sforza Bison",
+    "Bullkick 500",
+    "Russell JB-9"
+  ],
+  "Smooth_Fluted_Grip.png": [
+    "Adelig RG5",
+    "ATK-7"
+  ],
+  "Coronet_Muzzle.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "SAG9_Ultralight_Barrel.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Ranged_Barrel.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Campaigner_Stock.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Bound_Grip.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Grained_Grip.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Extended_Mag.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_AG-9_Cylinder_Grip.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Compact_Mag.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Primus_Stock.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Lined_Grip.png": [
+    "Skogskrigare AG-9"
+  ],
+  "SAG9_Quick-Pull_Mag.png": [
+    "Skogskrigare AG-9"
+  ],
+  "Breacher_Muzzle.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Torqued_Choke.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Knockback_Perk_Icon.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Accelerator_Perk_Icon.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Resilient_Perk_Icon.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Double-Cross_Perk_Icon.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "Brute_Compensator.png": [
+    "Dual Outlaw"
+  ],
+  "G_Medium_Barrel.png": [
+    "Dual Grimshot"
+  ],
+  "G_Ranger_Grip.png": [
+    "Dual Grimshot"
+  ],
+  "O_Brute_Cylinder.png": [
+    "Dual Outlaw"
+  ],
+  "G_Swift_Charging_Handle.png": [
+    "Dual Grimshot"
+  ],
+  "G_Octagon_Barrel.png": [
+    "Dual Grimshot"
+  ],
+  "12G_Grim_Compensator.png": [
+    "Dual Grimshot",
+    "Reinfeld 880",
+    "TAS-12",
+    "Justicar",
+    "Locomotive 12G"
+  ],
+  "O_CQC_Barrel.png": [
+    "Dual Outlaw"
+  ],
+  "G_Birdhead_Grip.png": [
+    "Dual Grimshot"
+  ],
+  "O_Ranged_Barrel.png": [
+    "Dual Outlaw"
+  ],
+  "G_CQC_Barrel.png": [
+    "Dual Grimshot"
+  ],
+  "G_Stable_Charging_Handle.png": [
+    "Dual Grimshot"
+  ],
+  "Fluted_Marksman_Scope.png": [
+    "Reinfeld 900S",
+    "SA A144",
+    "FIK-22 TLR"
+  ],
+  "Primed_Marksman_Scope.png": [
+    "Reinfeld 900S",
+    "SA A144",
+    "FIK-22 TLR"
+  ],
+  "SAA144_CQC_Barrel.png": [
+    "SA A144"
+  ],
+  "SAA144_Extended_Mag.png": [
+    "SA A144"
+  ],
+  "SAA144_Quick-Pull_Mag.png": [
+    "SA A144"
+  ],
+  "SAA144_Ranged_Barrel.png": [
+    "SA A144"
+  ],
+  "Whisper_Wrap_Silencer.png": [
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Tribune 32",
+    "Russell JB-9"
+  ],
+  "Edge_Ridged_Silencer.png": [
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "FIK22TLR_CQC_Barrel.png": [
+    "FIK-22 TLR"
+  ],
+  "FIK22TLR_Ranged_Barrel.png": [
+    "FIK-22 TLR"
+  ],
+  "Crated_Muzzle.png": [
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Tribune 32",
+    "Jackknife SE5",
+    "Russell JB-9"
+  ],
+  "KU59_Biofit_Grip.png": [
+    "Zokas-17"
+  ],
+  "KU59_Tac_Grip.png": [
+    "Zokas-17"
+  ],
+  "BMX63_CQC_Barrel.png": [
+    "Blyspruta MX63"
+  ],
+  "BMX63_Ranged_Barrel.png": [
+    "Blyspruta MX63"
+  ],
+  "Obelisk_Silencer.png": [
+    "FIK-22 TLR",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "Russell JB-9"
+  ],
+  "Vent_Catch_IDM2.png": [
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Tribune 32",
+    "Picchio Duro 5",
+    "Russell JB-9"
+  ],
+  "R900S_CQC_Barrel.png": [
+    "Reinfeld 900S"
+  ],
+  "R900S_Extended_Mag.png": [
+    "Reinfeld 900S"
+  ],
+  "R900S_Hardwood.png": [
+    "Reinfeld 900S"
+  ],
+  "R900S_Lightweight.png": [
+    "Reinfeld 900S"
+  ],
+  "R900S_Ranged_Barrel.png": [
+    "Reinfeld 900S"
+  ],
+  "Snub_Silencer.png": [
+    "FIK-22 TLR",
+    "FIK PC9",
+    "Ziv Commando",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "Russell JB-9"
+  ],
+  "Torque_Silencer.png": [
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "SA A144"
+  ],
+  "S1895_Knotted_Grip.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_Artisan_Grip.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_Slitted_Rail_Guard.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_Vented_Rail_Guard.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_CQC_Slant_Stock.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_Padded_Stock.png": [
+    "Spearfish 1895"
+  ],
+  "S1895_Supported_Stock.png": [
+    "Spearfish 1895"
+  ],
+  "Z17_Adaptable_Stock.png": [
+    "Zokas-17"
+  ],
+  "Z17_Revenant_Grip.png": [
+    "Zokas-17"
+  ],
+  "Z17_Custom_Grip.png": [
+    "Zokas-17"
+  ],
+  "Z17_Optimal_Grip.png": [
+    "Zokas-17"
+  ],
+  "Glass_Cannon_Perk_Icon.png": [
+    "Dual Outlaw",
+    "Zokas-17",
+    "Blyspruta MX63",
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "FIK-22 TLR",
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "SP Model 11",
+    "J&M Castigo 44",
+    "Russell JB-9"
+  ],
+  "Bleeding_Edge_Perk_Icon.png": [
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "FIK-22 TLR"
+  ],
+  "Domino_Effect_Perk_Icon.png": [
+    "Zokas-17",
+    "Blyspruta MX63"
+  ],
+  "Final_Tap_Perk_Icon.png": [
+    "Dual Outlaw",
+    "J&M Castigo 44"
+  ],
+  "Sharpshooter_Perk_Icon.png": [
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "FIK-22 TLR"
+  ],
+  "Bleed_Perk_Icon.png": [
+    "Reinfeld 900S",
+    "Spearfish 1895",
+    "FIK-22 TLR"
+  ],
+  "Assassin_Perk_Icon.png": [
+    "Dual Outlaw",
+    "J&M Castigo 44"
+  ],
+  "Bulky_Perk_Icon.png": [
+    "Dual Outlaw",
+    "J&M Castigo 44"
+  ],
+  "Browbeater_Perk_Icon.png": [
+    "Zokas-17",
+    "Blyspruta MX63"
+  ],
+  "Trickshot_Perk_Icon.png": [
+    "Dual Outlaw",
+    "J&M Castigo 44"
+  ],
+  "O_Smooth_Cylinder.png": [
+    "Dual Outlaw"
+  ],
+  "O_Timber_Grip.png": [
+    "Dual Outlaw"
+  ],
+  "O_Tactical_Grip.png": [
+    "Dual Outlaw"
+  ],
+  "O_Engraved_Cylinder.png": [
+    "Dual Outlaw"
+  ],
+  "O_Ivory_Grip.png": [
+    "Dual Outlaw"
+  ],
+  "Tagged_Iron_Sight.png": [
+    "Reinfeld 880",
+    "Mosconi 12 Classic",
+    "FSA-12G"
+  ],
+  "LED_RDS.png": [
+    "Ziv Commando",
+    "SG Compact-7",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Garstini Viper .50AE",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "Sforza Bison",
+    "Justicar",
+    "Russell JB-9"
+  ],
+  "Slate_RDS.png": [
+    "Ziv Commando",
+    "SG Compact-7",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Garstini Viper .50AE",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "J&M Castigo 44",
+    "Sforza Bison",
+    "Justicar",
+    "Russell JB-9"
+  ],
+  "Box_RDS.png": [
+    "Ziv Commando",
+    "SG Compact-7",
+    "Signature 40",
+    "Tribune 32",
+    "Signature 403",
+    "SP Model 11",
+    "Stryk 7",
+    "Garstini Viper .50AE",
+    "Jackknife SE5",
+    "Picchio Duro 5",
+    "J&M Castigo 44",
+    "Sforza Bison",
+    "Bullkick 500",
+    "Justicar",
+    "Russell JB-9"
+  ],
+  "ATK7_Compact_Mag.png": [
+    "ATK-7"
+  ],
+  "ATK7_Extended_Mag.png": [
+    "ATK-7"
+  ],
+  "ATK7_Quick-Pull_Mag.png": [
+    "ATK-7"
+  ],
+  "R880_Biofit_Fore-End.png": [
+    "Reinfeld 880"
+  ],
+  "Snapshot_Clear-Tag.png": [
+    "SG Compact-7",
+    "Tribune 32",
+    "Bullkick 500",
+    "Justicar",
+    "Russell JB-9"
+  ],
+  "SGC7_Compact_Mag.png": [
+    "SG Compact-7"
+  ],
+  "SGC7_Extended_Mag.png": [
+    "SG Compact-7"
+  ],
+  "SGC7_Quick-Pull_Mag.png": [
+    "SG Compact-7"
+  ],
+  "FIK22TLR_Compact_Mag.png": [
+    "FIK-22 TLR"
+  ],
+  "FIK22TLR_Extended_Mag.png": [
+    "FIK-22 TLR"
+  ],
+  "FIK22TLR_Quick-Pull_Mag.png": [
+    "FIK-22 TLR"
+  ],
+  "ATK7_Hollow_Frame.png": [
+    "ATK-7"
+  ],
+  "M7P_Bolstered_Stock.png": [
+    "M7 Pursuivant"
+  ],
+  "M7P_Compact_Mag.png": [
+    "M7 Pursuivant"
+  ],
+  "M7P_CQC_Barrel.png": [
+    "M7 Pursuivant"
+  ],
+  "M7P_Extended_Mag.png": [
+    "M7 Pursuivant"
+  ],
+  "M7P_Quick-Pull_Mag.png": [
+    "M7 Pursuivant"
+  ],
+  "M7P_Ranged_Barrel.png": [
+    "M7 Pursuivant"
+  ],
+  "M12C_CQC_Barrel.png": [
+    "Mosconi 12 Classic"
+  ],
+  "M12C_CQC_Stock.png": [
+    "Mosconi 12 Classic"
+  ],
+  "M12C_Fortified_Stock.png": [
+    "Mosconi 12 Classic"
+  ],
+  "M12C_Padded_Stock.png": [
+    "Mosconi 12 Classic"
+  ],
+  "M12C_Ranged_Barrel.png": [
+    "Mosconi 12 Classic"
+  ],
+  "R880_Comp_Barrel.png": [
+    "Reinfeld 880"
+  ],
+  "R880_CQC_Barrel.png": [
+    "Reinfeld 880"
+  ],
+  "R880_CQC_Stock.png": [
+    "Reinfeld 880"
+  ],
+  "R880_Fortified_Stock.png": [
+    "Reinfeld 880"
+  ],
+  "R880_Padded_Stock.png": [
+    "Reinfeld 880"
+  ],
+  "R880_Ranged_Barrel.png": [
+    "Reinfeld 880"
+  ],
+  "ATK7_Rubber_Framed_Stock.png": [
+    "ATK-7"
+  ],
+  "S40_Embossed_Grip.png": [
+    "Signature 40"
+  ],
+  "S40_Extended_Mag.png": [
+    "Signature 40"
+  ],
+  "S40_Hardwood_Grip.png": [
+    "Signature 40"
+  ],
+  "S40_Quick-Pull_Mag.png": [
+    "Signature 40"
+  ],
+  "S40_Tac_Grip.png": [
+    "Signature 40"
+  ],
+  "T32_Compact_Mag.png": [
+    "Tribune 32"
+  ],
+  "T32_Extended_Mag.png": [
+    "Tribune 32"
+  ],
+  "R880_Tactical_Fore-End.png": [
+    "Reinfeld 880"
+  ],
+  "TAS12_CQC_Barrel.png": [
+    "TAS-12"
+  ],
+  "TAS12_Diamond_Friction.png": [
+    "TAS-12"
+  ],
+  "TAS12_Friction_Wrapped.png": [
+    "TAS-12"
+  ],
+  "TAS12_Patterned_Friction.png": [
+    "TAS-12"
+  ],
+  "TAS12_Skeleton_Folding_Stock.png": [
+    "TAS-12"
+  ],
+  "TAS12_Widened_Breach_Stock.png": [
+    "TAS-12"
+  ],
+  "Lucid_RDS.png": [
+    "SG Compact-7",
+    "Tribune 32",
+    "Justicar",
+    "Russell JB-9"
+  ],
+  "Vampire_Perk_Icon.png": [
+    "SG Compact-7",
+    "ATK-7",
+    "WAR-45",
+    "Russell JB-9"
+  ],
+  "J_12G_Snub_Barrel.png": [
+    "Justicar"
+  ],
+  "J_Big_Game_Barrel.png": [
+    "Justicar"
+  ],
+  "J_Potshot_Barrel.png": [
+    "Justicar"
+  ],
+  "J_Bluewood_Grip.png": [
+    "Justicar"
+  ],
+  "J_Gorge_Grip.png": [
+    "Justicar"
+  ],
+  "J_Greenwood_Grip.png": [
+    "Justicar"
+  ],
+  "SB_Biofit_Grip.png": [
+    "Sforza Bison"
+  ],
+  "SB_CQC_Barrel.png": [
+    "Sforza Bison"
+  ],
+  "SB_Hardwood_Grip.png": [
+    "Sforza Bison"
+  ],
+  "SB_Ranged_Barrel.png": [
+    "Sforza Bison"
+  ],
+  "SB_Tac_Grip.png": [
+    "Sforza Bison"
+  ],
+  "JMC44_Biofit_Grip.png": [
+    "J&M Castigo 44"
+  ],
+  "JMC44_CQC_Barrel.png": [
+    "J&M Castigo 44"
+  ],
+  "JMC44_Hardwood_Grip.png": [
+    "J&M Castigo 44"
+  ],
+  "JMC44_Ranged_Barrel.png": [
+    "J&M Castigo 44"
+  ],
+  "JMC44_Tac_Barrel.png": [
+    "J&M Castigo 44"
+  ],
+  "JMC44_Tac_Grip.png": [
+    "J&M Castigo 44"
+  ],
+  "B500_Unfluted_Cylinder.png": [
+    "Bullkick 500"
+  ],
+  "GV50AE_Coarse_Ergo.png": [
+    "Garstini Viper .50AE"
+  ],
+  "GV50AE_Force_Vent_Cut.png": [
+    "Garstini Viper .50AE"
+  ],
+  "GV50AE_Lead_Reach.png": [
+    "Garstini Viper .50AE"
+  ],
+  "GV50AE_Redwood_Classic.png": [
+    "Garstini Viper .50AE"
+  ],
+  "GV50AE_S-Ballers.png": [
+    "Garstini Viper .50AE"
+  ],
+  "GV50AE_Whittled_Fit.png": [
+    "Garstini Viper .50AE"
+  ],
+  "JSE5_Shock_Panel.png": [
+    "Jackknife SE5"
+  ],
+  "JSE5_Sigma_Pane.png": [
+    "Jackknife SE5"
+  ],
+  "JSE5_Strafed_Handle.png": [
+    "Jackknife SE5"
+  ],
+  "JSE5_Trench_Iron.png": [
+    "Jackknife SE5"
+  ],
+  "PD5_Combat_Stock.png": [
+    "Picchio Duro 5"
+  ],
+  "PD5_Premier_Grip.png": [
+    "Picchio Duro 5"
+  ],
+  "S403_Extended_Mag.png": [
+    "Signature 403"
+  ],
+  "S403_Friction_Grip.png": [
+    "Signature 403"
+  ],
+  "S403_Quick-Pull_Mag.png": [
+    "Signature 403"
+  ],
+  "S403_Ribbed_Grip.png": [
+    "Signature 403"
+  ],
+  "SPM11_Checkered_Grip.png": [
+    "SP Model 11"
+  ],
+  "SPM11_Embossed_Grip.png": [
+    "SP Model 11"
+  ],
+  "SPM11_Extended_Mag.png": [
+    "SP Model 11"
+  ],
+  "SPM11_Quick-Pull_Mag.png": [
+    "SP Model 11"
+  ],
+  "SPM11_Tac_Grip.png": [
+    "SP Model 11"
+  ],
+  "S7_Extended_Mag.png": [
+    "Stryk 7"
+  ],
+  "S7_Friction_Grip.png": [
+    "Stryk 7"
+  ],
+  "S7_Grained_Grip.png": [
+    "Stryk 7"
+  ],
+  "S7_Quick-Pull_Mag.png": [
+    "Stryk 7"
+  ],
+  "S7_Ribbed_Grip.png": [
+    "Stryk 7"
+  ],
+  "T32_Overline_Stock.png": [
+    "Tribune 32"
+  ],
+  "T32_Quick-Pull_Mag.png": [
+    "Tribune 32"
+  ],
+  "T32_Underline_Stock.png": [
+    "Tribune 32"
+  ],
+  "Pin_Puller_Perk_Icon.png": [
+    "SP Model 11"
+  ],
+  "Haymaker_Perk_Icon.png": [
+    "SP Model 11"
+  ],
+  "RJB9_Compact_Mag.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Quick-Pull_Mag.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Polymer_Vertical_Grip.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Biofit_Vertical_Grip.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Ranged_Barrel.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Lo-Pan_Suppressor.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Extended_Barrel.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Shen_Retracted_Stock.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Extended_Mag.png": [
+    "Russell JB-9"
+  ],
+  "RJB9_Qin_Frame_Stock.png": [
+    "Russell JB-9"
+  ],
+  "L12G_Light_Grip.png": [
+    "Locomotive 12G"
+  ],
+  "L12G_Raised_Grip.png": [
+    "Locomotive 12G"
+  ],
+  "L12G_Molded_Grip.png": [
+    "Locomotive 12G"
+  ],
+  "L12G_Skeletal_Vertical_Grip.png": [
+    "Locomotive 12G"
+  ],
+  "L12G_Biofit_Vertical_Grip.png": [
+    "Locomotive 12G"
+  ],
+  "L12G_Slim_Vertical_Grip.png": [
+    "Locomotive 12G"
+  ]
+}

@@ -4,11 +4,11 @@
   gap: 22px;
 }
 
-/* ---------- BASE OVERSKILL ---------- */
+/* ---------- BASE OVERKILL ---------- */
 
 .baseBlock {
   padding: 16px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-left: 4px solid $color-accent;
   border-radius: 6px;
 }
@@ -27,47 +27,8 @@
   text-align: justify;
 }
 
-/* ---------- TIERS ---------- */
+/* ---------- OVERKILL CONFIG OPTIONS ---------- */
 
-.tiers {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.tierCard {
-  padding: 14px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 6px;
-}
-
-.tierHeader {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  opacity: 0.75;
-  margin-bottom: 4px;
-}
-
-.tierLabel {
-  font-weight: 600;
-}
-
-.exp {
-  font-weight: 500;
-}
-
-.tierName {
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.tierDescription {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  opacity: 0.9;
-  text-align: justify;
-}
 .configGroups {
   display: grid;
   gap: 18px;
@@ -89,6 +50,36 @@
 
 .configOptions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  // Mantiene espacio suficiente para un icono Ammo (2:1) y el título.
+  // En pantallas angostas, la tarjeta ocupa una sola columna.
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 10px;
+}
+
+.tierCard {
+  min-width: 0;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+
+.tierHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.tierName {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.tierDescription {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  text-align: justify;
 }

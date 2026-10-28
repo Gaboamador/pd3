@@ -1,0 +1,4055 @@
+{
+  "A114": {
+    "A114_Barrel_Ranged": {
+      "r": 11,
+      "c": 15
+    },
+    "A114_Barrel_CQC": {
+      "r": 11,
+      "c": 12
+    },
+    "A114_Mag_Extended": {
+      "r": 11,
+      "c": 13
+    },
+    "A114_Mag_Quick": {
+      "r": 11,
+      "c": 14
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "BarrelExt_Torque": {
+      "r": 15,
+      "c": 1
+    },
+    "BarrelExt_Ridged": {
+      "r": 3,
+      "c": 3
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "Sight_Fluted": {
+      "r": 3,
+      "c": 11
+    },
+    "Sight_Primed": {
+      "r": 8,
+      "c": 11
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    }
+  },
+  "ATK7": {
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "ATK7_Mag_Extended": {
+      "r": 1,
+      "c": 8
+    },
+    "ATK7_Mag_Quick": {
+      "r": 1,
+      "c": 10
+    },
+    "ATK7_Mag_Compact": {
+      "r": 1,
+      "c": 7
+    },
+    "ATK7_Stock_HollowFrame": {
+      "r": 1,
+      "c": 9
+    },
+    "ATK7_Stock_RubberFramed": {
+      "r": 1,
+      "c": 11
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "ATK7_Grip_Contoured": {
+      "r": 2,
+      "c": 12
+    },
+    "ATK7_Grip_Tac": {
+      "r": 2,
+      "c": 16
+    },
+    "ATK7_Grip_SmoothFluted": {
+      "r": 13,
+      "c": 7
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    }
+  },
+  "Bison": {
+    "Bison_Barrel_Ranged": {
+      "r": 12,
+      "c": 14
+    },
+    "Bison_Barrel_CQC": {
+      "r": 12,
+      "c": 12
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "Bison_Grip_Tac": {
+      "r": 12,
+      "c": 15
+    },
+    "Bison_Grip_Hardwood": {
+      "r": 12,
+      "c": 13
+    },
+    "Bison_Grip_Biofit": {
+      "r": 12,
+      "c": 11
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    }
+  },
+  "CAR4": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "CAR4_Barrel_CQC": {
+      "r": 2,
+      "c": 5
+    },
+    "CAR4_Barrel_Ranged": {
+      "r": 2,
+      "c": 8
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "CAR4_Mag_Quick": {
+      "r": 2,
+      "c": 7
+    },
+    "CAR4_Mag_Extended": {
+      "r": 2,
+      "c": 6
+    },
+    "CAR4_Mag_Compact": {
+      "r": 2,
+      "c": 4
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "Castigo44": {
+    "Castigo44_Barrel_Ranged": {
+      "r": 5,
+      "c": 5
+    },
+    "Castigo44_Barrel_CQC": {
+      "r": 5,
+      "c": 3
+    },
+    "Castigo44_Barrel_Tac": {
+      "r": 5,
+      "c": 6
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "Castigo44_Grip_Biofit": {
+      "r": 5,
+      "c": 2
+    },
+    "Castigo44_Grip_Tac": {
+      "r": 5,
+      "c": 7
+    },
+    "Castigo44_Grip_Hardwood": {
+      "r": 5,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    }
+  },
+  "Commando": {
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Commando_Mag_Extended": null,
+    "Commando_Mag_Compact": null,
+    "Commando_Mag_Quick": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    }
+  },
+  "Compact7": {
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Compact7_Mag_Extended": {
+      "r": 13,
+      "c": 1
+    },
+    "Compact7_Mag_Quick": {
+      "r": 13,
+      "c": 2
+    },
+    "Compact7_Mag_Compact": {
+      "r": 12,
+      "c": 16
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    }
+  },
+  "FIK22": {
+    "FIK22_Barrel_Ranged": {
+      "r": 3,
+      "c": 9
+    },
+    "FIK22_Barrel_CQC": {
+      "r": 3,
+      "c": 6
+    },
+    "FIK22_Mag_Extended": {
+      "r": 3,
+      "c": 7
+    },
+    "FIK22_Mag_Compact": {
+      "r": 3,
+      "c": 5
+    },
+    "FIK22_Mag_Quick": {
+      "r": 3,
+      "c": 8
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    }
+  },
+  "Fsa12": {
+    "FSA12_Barrel_CQC": null,
+    "FSA12_Barrel_Ranged": null,
+    "FSA12_Mag_Extended": null,
+    "FSA12_Mag_Compact": null,
+    "FSA12_Mag_Quick": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_Tagged": {
+      "r": 14,
+      "c": 8
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "GarstiniViper": {
+    "GarstiniViper_Barrel_GarstiniViper_Barrel_Extended": {
+      "r": 4,
+      "c": 5
+    },
+    "GarstiniViper_Barrel_GarstiniViper_Barrel_Fluted": {
+      "r": 4,
+      "c": 8
+    },
+    "GarstiniViper_Barrel_GarstiniViper_Barrel_Ported": {
+      "r": 4,
+      "c": 4
+    },
+    "GarstiniViper_Barrel_GarstiniViper_Barrel_Supressed": {
+      "r": 4,
+      "c": 7
+    },
+    "GarstiniViper_Grip_GarstiniViper_Grip_Ergonomic": {
+      "r": 4,
+      "c": 3
+    },
+    "GarstiniViper_Grip_GarstiniViper_Grip_Wood": {
+      "r": 4,
+      "c": 6
+    },
+    "GarstiniViper_Mag_GarstiniViper_Mag_extended": null,
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    }
+  },
+  "Julius": {
+    "Julius_Barrel_Ranged": {
+      "r": 12,
+      "c": 9
+    },
+    "Julius_Barrel_Ultralight": {
+      "r": 12,
+      "c": 10
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "Julius_Grip_Grained": {
+      "r": 12,
+      "c": 5
+    },
+    "Julius_Grip_Saw": {
+      "r": 12,
+      "c": 6
+    },
+    "Julius_Grip_Wrapped": {
+      "r": 12,
+      "c": 1
+    },
+    "Julius_Mag_Compact": {
+      "r": 12,
+      "c": 3
+    },
+    "Julius_Mag_Quick": {
+      "r": 12,
+      "c": 8
+    },
+    "Julius_Mag_Extended": {
+      "r": 12,
+      "c": 4
+    },
+    "Julius_Stock_Albert": {
+      "r": 12,
+      "c": 2
+    },
+    "Julius_Stock_Reinforced": {
+      "r": 12,
+      "c": 7
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "Julius_VerticalGrip_Standard": {
+      "r": 11,
+      "c": 16
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    }
+  },
+  "Justicar": {
+    "Justicar_Barrel_Short": {
+      "r": 4,
+      "c": 12
+    },
+    "Justicar_Barrel_Long": {
+      "r": 4,
+      "c": 13
+    },
+    "Justicar_Barrel_Extended": {
+      "r": 5,
+      "c": 1
+    },
+    "Justicar_Grip_Tactical": {
+      "r": 4,
+      "c": 15
+    },
+    "Justicar_Grip_Wood": {
+      "r": 4,
+      "c": 16
+    },
+    "Justicar_Grip_WoodAgain": {
+      "r": 4,
+      "c": 14
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    }
+  },
+  "KU59": {
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "KU59_Barrel_Rail": {
+      "r": 5,
+      "c": 14
+    },
+    "KU59_Barrel_TradGrip": {
+      "r": 5,
+      "c": 16
+    },
+    "KU59_Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "KU59_Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "KU59_Grip_Perforated": {
+      "r": 5,
+      "c": 13
+    },
+    "Grip_Revenant": {
+      "r": 15,
+      "c": 11
+    },
+    "KU59_Mag_Quick": null,
+    "KU59_Mag_Extended": null,
+    "KU59_Mag_Compact": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "MX63": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "MX63_Barrel_CQC": {
+      "r": 1,
+      "c": 15
+    },
+    "MX63_Barrel_Ranged": {
+      "r": 1,
+      "c": 16
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "Mosconi12C": {
+    "Mosconi12C_Barrel_CQC": {
+      "r": 6,
+      "c": 12
+    },
+    "Mosconi12C_Barrel_Ranged": {
+      "r": 6,
+      "c": 16
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_Tagged": {
+      "r": 14,
+      "c": 8
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Mosconi12C_Stock_CQC": {
+      "r": 6,
+      "c": 13
+    },
+    "Mosconi12C_Stock_Padded": {
+      "r": 6,
+      "c": 15
+    },
+    "Mosconi12C_Stock_Fortified": {
+      "r": 6,
+      "c": 14
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "NWB9": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "NWB9_Mag_Quick": {
+      "r": 7,
+      "c": 11
+    },
+    "NWB9_Mag_Extended": {
+      "r": 7,
+      "c": 10
+    },
+    "NWB9_Mag_Compact": {
+      "r": 7,
+      "c": 9
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "PC9": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "PC9_Mag_Extended": null,
+    "PC9_Mag_Compact": null,
+    "PC9_Mag_Quick": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    }
+  },
+  "PD5": {
+    "PD5_Stock_Combat": {
+      "r": 8,
+      "c": 7
+    },
+    "PD5_Mag_Extended": null,
+    "PD5_Mag_Quick": null,
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "PD5_Grip_Tac": {
+      "r": 8,
+      "c": 2
+    },
+    "PD5_Grip_Premier": {
+      "r": 8,
+      "c": 8
+    }
+  },
+  "PFLK": {
+    "PFLK_ForeGrip_Sport_Alt": {
+      "r": 15,
+      "c": 9
+    },
+    "PFLK_ForeGrip_Sport_Naked": {
+      "r": 15,
+      "c": 10
+    },
+    "KU59_Grip_Biofit": {
+      "r": 5,
+      "c": 12
+    },
+    "KU59_Grip_Perforated": {
+      "r": 5,
+      "c": 13
+    },
+    "KU59_Grip_Tac": {
+      "r": 5,
+      "c": 15
+    },
+    "Grip_Revenant": {
+      "r": 15,
+      "c": 11
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "PFLK_Stock_Robust": {
+      "r": 15,
+      "c": 8
+    },
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    }
+  },
+  "Pocket": {
+    "Pocket_StockAdapter_Light": {
+      "r": 6,
+      "c": 2
+    },
+    "Pocket_StockAdapter_Molded": {
+      "r": 6,
+      "c": 3
+    },
+    "Pocket_StockAdapter_Raised": {
+      "r": 6,
+      "c": 4
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "Pocket_VerticalGrip_Biofit": {
+      "r": 6,
+      "c": 1
+    },
+    "Pocket_VerticalGrip_Skeletal": {
+      "r": 6,
+      "c": 5
+    },
+    "Pocket_VerticalGrip_Slim": {
+      "r": 6,
+      "c": 6
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    }
+  },
+  "R880": {
+    "R880_Barrel_CQC": {
+      "r": 8,
+      "c": 16
+    },
+    "R880_Barrel_Ranged": {
+      "r": 9,
+      "c": 4
+    },
+    "R880_Barrel_Comp": {
+      "r": 8,
+      "c": 15
+    },
+    "R880_Foregrip_Biofit": {
+      "r": 8,
+      "c": 14
+    },
+    "R880_Foregrip_Tactical": {
+      "r": 9,
+      "c": 5
+    },
+    "R880_Stock_CQC": {
+      "r": 9,
+      "c": 1
+    },
+    "R880_Stock_Padded": {
+      "r": 9,
+      "c": 3
+    },
+    "R880_Stock_Fortified": {
+      "r": 9,
+      "c": 2
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_Tagged": {
+      "r": 14,
+      "c": 8
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    }
+  },
+  "R900S": {
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "Sight_Fluted": {
+      "r": 3,
+      "c": 11
+    },
+    "Sight_Primed": {
+      "r": 8,
+      "c": 11
+    },
+    "R900S_Barrel_Ranged": {
+      "r": 9,
+      "c": 10
+    },
+    "R900S_Barrel_CQC": {
+      "r": 9,
+      "c": 6
+    },
+    "R900S_Mag_Extended": {
+      "r": 9,
+      "c": 7
+    },
+    "R900S_Stock_HardWood": {
+      "r": 9,
+      "c": 8
+    },
+    "R900S_Stock_Lightweight": {
+      "r": 9,
+      "c": 9
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "BarrelExt_Torque": {
+      "r": 15,
+      "c": 1
+    },
+    "BarrelExt_Ridged": {
+      "r": 3,
+      "c": 3
+    }
+  },
+  "RG5": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "RG5_Barrel_CQC": null,
+    "RG5_Barrel_Ranged": null,
+    "RG5_Grip_Contoured": {
+      "r": 2,
+      "c": 12
+    },
+    "RG5_Grip_SmoothFluted": {
+      "r": 13,
+      "c": 7
+    },
+    "RG5_Grip_Tac": {
+      "r": 2,
+      "c": 16
+    },
+    "RG5_Mag_Quick": null,
+    "RG5_Mag_Extended": null,
+    "RG5_Mag_Compact": null,
+    "RG5_Stock_Light": {
+      "r": 6,
+      "c": 8
+    },
+    "RG5_Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "RG5_Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "S40": {
+    "S40_Mag_Extended": {
+      "r": 10,
+      "c": 15
+    },
+    "S40_Mag_Quick": {
+      "r": 11,
+      "c": 1
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "S40_Grip_Hardwood": {
+      "r": 10,
+      "c": 16
+    },
+    "S40_Grip_Embossed": {
+      "r": 10,
+      "c": 14
+    },
+    "S40_Grip_Tac": {
+      "r": 11,
+      "c": 2
+    }
+  },
+  "S403": {
+    "S403_Mag_Extended": {
+      "r": 11,
+      "c": 3
+    },
+    "S403_Mag_Quick": {
+      "r": 11,
+      "c": 5
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "S403_Grip_Friction": {
+      "r": 11,
+      "c": 4
+    },
+    "S403_Grip_Ribbed": {
+      "r": 11,
+      "c": 6
+    },
+    "S403_Grip_Grained": null
+  },
+  "SE5": {
+    "SE5_Grip_Ergonomic": {
+      "r": 5,
+      "c": 9
+    },
+    "SE5_Grip_Simple": {
+      "r": 5,
+      "c": 10
+    },
+    "SE5_Grip_Tactical": {
+      "r": 5,
+      "c": 8
+    },
+    "SE5_Mag_Extended": null,
+    "SE5_Mag_quickpull": null,
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "SE5_Sight_Custom": {
+      "r": 5,
+      "c": 11
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    }
+  },
+  "SPM11": {
+    "SPM11_Mag_Extended": {
+      "r": 13,
+      "c": 12
+    },
+    "SPM11_Mag_Quick": {
+      "r": 13,
+      "c": 13
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "SPM11_Grip_Checkered": {
+      "r": 13,
+      "c": 10
+    },
+    "SPM11_Grip_Embossed": {
+      "r": 13,
+      "c": 11
+    },
+    "SPM11_Grip_Tac": {
+      "r": 13,
+      "c": 14
+    }
+  },
+  "Spearfish": {
+    "Spearfish_ForeGrip_Slitted": {
+      "r": 10,
+      "c": 11
+    },
+    "Spearfish_ForeGrip_Vented": {
+      "r": 10,
+      "c": 13
+    },
+    "Spearfish_Stock_CQC": {
+      "r": 10,
+      "c": 8
+    },
+    "Spearfish_Stock_Padded": {
+      "r": 10,
+      "c": 10
+    },
+    "Spearfish_Stock_Supported": {
+      "r": 10,
+      "c": 12
+    },
+    "Spearfish_Grip_Artisan": {
+      "r": 10,
+      "c": 7
+    },
+    "Spearfish_Grip_Knotted": {
+      "r": 10,
+      "c": 9
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "BarrelExt_Torque": {
+      "r": 15,
+      "c": 1
+    },
+    "BarrelExt_Ridged": {
+      "r": 3,
+      "c": 3
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    }
+  },
+  "Stryk7": {
+    "Stryk7_Mag_Extended": {
+      "r": 11,
+      "c": 7
+    },
+    "Stryk7_Mag_Quick": {
+      "r": 11,
+      "c": 10
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "Stryk7_Grip_Ribbed": {
+      "r": 11,
+      "c": 11
+    },
+    "Stryk7_Grip_Friction": {
+      "r": 11,
+      "c": 8
+    },
+    "Stryk7_Grip_Grained": {
+      "r": 11,
+      "c": 9
+    }
+  },
+  "T32": {
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "T32_Mag_Extended": {
+      "r": 14,
+      "c": 2
+    },
+    "T32_Mag_Compact": {
+      "r": 14,
+      "c": 1
+    },
+    "T32_Mag_QuickPull": {
+      "r": 14,
+      "c": 4
+    },
+    "T32_Stock_Underline": {
+      "r": 14,
+      "c": 5
+    },
+    "T32_Stock_Overline": {
+      "r": 14,
+      "c": 3
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    }
+  },
+  "TAS12": {
+    "TAS12_Barrel_TAS12_Barrel_Short": {
+      "r": 14,
+      "c": 10
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "TAS12_Grip_TAS12_Grip_Ergonomic": {
+      "r": 14,
+      "c": 12
+    },
+    "TAS12_Grip_TAS12_Grip_Rubber": {
+      "r": 14,
+      "c": 11
+    },
+    "TAS12_Grip_TAS12_Grip_Tactical": {
+      "r": 14,
+      "c": 13
+    },
+    "TAS12_Stock_TAS12_Stock_Fixed": {
+      "r": 14,
+      "c": 15
+    },
+    "TAS12_Stock_TAS12_Stock_Foldable": {
+      "r": 14,
+      "c": 14
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    }
+  },
+  "VF7S": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "VF7S_Barrel_CQC": null,
+    "VF7S_Barrel_Ranged": null,
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "VF7S_Mag_Quick": null,
+    "VF7S_Mag_Extended": null,
+    "VF7S_Mag_Compact": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "War45": {
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "WAR45_Mag_Extended": null,
+    "WAR45_Mag_Quick": null,
+    "WAR45_Mag_Compact": null,
+    "Stock_PaddedTube": {
+      "r": 8,
+      "c": 5
+    },
+    "Stock_TQ": {
+      "r": 15,
+      "c": 3
+    },
+    "Stock_LightFrame": {
+      "r": 6,
+      "c": 8
+    },
+    "Stock_HQ": {
+      "r": 4,
+      "c": 9
+    },
+    "Stock_Minimized": {
+      "r": 7,
+      "c": 8
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    }
+  },
+  "Yates": {
+    "Yates_Mag_Short": {
+      "r": 9,
+      "c": 14
+    },
+    "Yates_Mag_Extended": {
+      "r": 9,
+      "c": 16
+    },
+    "Yates_Mag_Speedpull": {
+      "r": 10,
+      "c": 4
+    },
+    "Yates_VerticalGrip_Polymer": {
+      "r": 10,
+      "c": 2
+    },
+    "Yates_VerticalGrip_Tommy": {
+      "r": 9,
+      "c": 13
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "Yates_Stock_Frame": {
+      "r": 10,
+      "c": 3
+    },
+    "Yates_Stock_Retracted": {
+      "r": 10,
+      "c": 6
+    },
+    "Yates_BarrelExtension_Suppressor": {
+      "r": 10,
+      "c": 1
+    },
+    "BarrelExt_SnubSilencer": {
+      "r": 13,
+      "c": 9
+    },
+    "BarrelExt_ObeliskSilencer": {
+      "r": 8,
+      "c": 4
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_WhisperWrap": {
+      "r": 15,
+      "c": 7
+    },
+    "BarrelExt_IDM2": {
+      "r": 15,
+      "c": 4
+    },
+    "BarrelExt_CratedMuzzle": {
+      "r": 2,
+      "c": 14
+    },
+    "Yates_Barrel_Medium": {
+      "r": 10,
+      "c": 5
+    },
+    "Yates_Barrel_Long": {
+      "r": 9,
+      "c": 15
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    }
+  },
+  "bullkick500": {
+    "Bullkick500_Barrel_Ranged": null,
+    "Bullkick500_Barrel_CQC": null,
+    "Bullkick500_Barrel_Tactical": null,
+    "Bullkick500_Mag_Unfluted": {
+      "r": 1,
+      "c": 12
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Slate": {
+      "r": 13,
+      "c": 5
+    },
+    "Sight_Box": {
+      "r": 2,
+      "c": 1
+    },
+    "Sight_LED": {
+      "r": 6,
+      "c": 7
+    },
+    "Sight_Snapshot": {
+      "r": 13,
+      "c": 8
+    },
+    "Sight_LucidRDS": {
+      "r": 6,
+      "c": 11
+    },
+    "Bullkick500_Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Bullkick500_Grip_Tac": {
+      "r": 8,
+      "c": 2
+    },
+    "Bullkick500_Grip_Hardwood": null,
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    }
+  },
+  "chs3": {
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "Sight_Lined": {
+      "r": 6,
+      "c": 10
+    },
+    "Sight_ViewPoint": {
+      "r": 15,
+      "c": 5
+    },
+    "Sight_Tactical": {
+      "r": 14,
+      "c": 7
+    },
+    "Sight_Voyeur": {
+      "r": 15,
+      "c": 6
+    },
+    "Sight_TargeterOptic": {
+      "r": 14,
+      "c": 9
+    },
+    "Sight_LPVO": {
+      "r": 7,
+      "c": 7
+    },
+    "BarrelExt_BeveledSilencer": {
+      "r": 1,
+      "c": 13
+    },
+    "BarrelExt_Express": {
+      "r": 3,
+      "c": 4
+    },
+    "BarrelExt_HybridMB": {
+      "r": 4,
+      "c": 10
+    },
+    "BarrelExt_IndentComp": {
+      "r": 4,
+      "c": 11
+    },
+    "BarrelExt_CylindricSilencer": {
+      "r": 3,
+      "c": 2
+    },
+    "BarrelExt_PipedSilencer": {
+      "r": 8,
+      "c": 10
+    },
+    "CHS3_Barrel_CQC": null,
+    "CHS3_Barrel_Ranged": null,
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "CHS3_Mag_Quick": null,
+    "CHS3_Mag_Compact": null,
+    "CHS3_Mag_Extended": null,
+    "CHS3_Stock_Refined": {
+      "r": 2,
+      "c": 15
+    },
+    "CHS3_Stock_Fortified": null,
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    }
+  },
+  "m7p": {
+    "M7P_Barrel_CQC": {
+      "r": 7,
+      "c": 3
+    },
+    "M7P_Barrel_Ranged": {
+      "r": 7,
+      "c": 6
+    },
+    "M7P_Mag_Extended": {
+      "r": 7,
+      "c": 4
+    },
+    "M7P_Mag_Compact": {
+      "r": 7,
+      "c": 2
+    },
+    "M7P_Mag_Quick": {
+      "r": 7,
+      "c": 5
+    },
+    "M7P_Stock_Bolstered": {
+      "r": 7,
+      "c": 1
+    },
+    "Sight_ClassicRDS": {
+      "r": 2,
+      "c": 9
+    },
+    "Sight_Compact": {
+      "r": 2,
+      "c": 11
+    },
+    "Sight_Sheath": {
+      "r": 13,
+      "c": 3
+    },
+    "Sight_Projection": {
+      "r": 8,
+      "c": 12
+    },
+    "Sight_LightHolographic": {
+      "r": 6,
+      "c": 9
+    },
+    "Sight_SquareClaim": {
+      "r": 13,
+      "c": 15
+    },
+    "Sight_Seymour": {
+      "r": 13,
+      "c": 6
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "Grip_Biofit": {
+      "r": 1,
+      "c": 14
+    },
+    "Grip_Tac": {
+      "r": 14,
+      "c": 6
+    },
+    "Grip_Perforated": {
+      "r": 8,
+      "c": 9
+    },
+    "VerticalGrip_Cylinder": {
+      "r": 3,
+      "c": 1
+    },
+    "VerticalGrip_AngledGhost": {
+      "r": 1,
+      "c": 6
+    },
+    "VerticalGrip_Stub": {
+      "r": 13,
+      "c": 16
+    },
+    "VerticalGrip_FlatSide": {
+      "r": 3,
+      "c": 10
+    },
+    "VerticalGrip_QuickHold": {
+      "r": 8,
+      "c": 13
+    },
+    "VerticalGrip_RiggerHandstop": {
+      "r": 9,
+      "c": 12
+    }
+  },
+  "DualOutlaw": {
+    "DualOutlaw_Barrel_Ranged": {
+      "r": 7,
+      "c": 16
+    },
+    "DualOutlaw_Barrel_CQC": {
+      "r": 7,
+      "c": 13
+    },
+    "BarrelExt_BruteComp": {
+      "r": 2,
+      "c": 3
+    },
+    "BarrelExt_CompactComp": {
+      "r": 2,
+      "c": 10
+    },
+    "BarrelExt_PartedComp": {
+      "r": 8,
+      "c": 6
+    },
+    "BarrelExt_SkeletonizedComp": {
+      "r": 13,
+      "c": 4
+    },
+    "DualOutlaw_Mag_Brute": {
+      "r": 7,
+      "c": 12
+    },
+    "DualOutlaw_Mag_Engraved": {
+      "r": 7,
+      "c": 14
+    },
+    "DualOutlaw_Mag_Smooth": {
+      "r": 8,
+      "c": 1
+    },
+    "DualOutlaw_Grip_Ivory": {
+      "r": 7,
+      "c": 15
+    },
+    "DualOutlaw_Grip_Tactical": {
+      "r": 8,
+      "c": 2
+    },
+    "DualOutlaw_Grip_Timber": {
+      "r": 8,
+      "c": 3
+    }
+  },
+  "DualGrimshot": {
+    "DualGrimshot_Barrel_Medium": {
+      "r": 3,
+      "c": 14
+    },
+    "DualGrimshot_Barrel_Octagon": {
+      "r": 3,
+      "c": 15
+    },
+    "DualGrimshot_Barrel_CQC": {
+      "r": 3,
+      "c": 13
+    },
+    "BarrelExt_12GGrimComp": {
+      "r": 1,
+      "c": 1
+    },
+    "BarrelExt_JawChoke": {
+      "r": 1,
+      "c": 2
+    },
+    "BarrelExt_12GObelisk": {
+      "r": 1,
+      "c": 3
+    },
+    "BarrelExt_SedimentChoke": {
+      "r": 1,
+      "c": 4
+    },
+    "BarrelExt_12GVentComp": {
+      "r": 1,
+      "c": 5
+    },
+    "BarrelExt_Breacher": {
+      "r": 2,
+      "c": 2
+    },
+    "BarrelExt_12GCoronetMuzzle": {
+      "r": 2,
+      "c": 13
+    },
+    "BarrelExt_Ridgecyl": {
+      "r": 9,
+      "c": 11
+    },
+    "BarrelExt_SilentKiller": {
+      "r": 14,
+      "c": 16
+    },
+    "BarrelExt_12GTorqued": {
+      "r": 15,
+      "c": 2
+    },
+    "DualGrimshot_ChargingHandle_Swift": {
+      "r": 4,
+      "c": 2
+    },
+    "DualGrimshot_ChargingHandle_Stable": {
+      "r": 4,
+      "c": 1
+    },
+    "DualGrimshot_Grip_Birdhead": {
+      "r": 3,
+      "c": 12
+    },
+    "DualGrimshot_Grip_Ranger": {
+      "r": 3,
+      "c": 16
+    }
+  }
+}

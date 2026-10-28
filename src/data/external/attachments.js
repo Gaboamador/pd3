@@ -1465,6 +1465,144 @@ const ATTACHMENT_DATA = Object.freeze({
     "Compact7_RearSight_Default": {},
     "Compact7_StockMount_Default": {},
     "Compact7_Stock_Default": {},
+    
+    "DualOutlaw_Barrel_Ranged": {
+        "displayName": "Ranged Barrel",
+        "attributeModifierMap": [
+            { "attribute": "DamageDistance", "value": 10 },
+            { "attribute": "OverallRecoil", "value": 5 },
+            { "attribute": "TargetingTransitionTime", "value": -5 },
+            { "attribute": "OverallGunkick", "value": -5 }
+        ]
+    },
+    "DualOutlaw_Barrel_CQC": {
+        "displayName": "CQC Barrel",
+        "attributeModifierMap": [
+            { "attribute": "TargetingTransitionTime", "value": 5 },
+            { "attribute": "OverallGunkick", "value": 10 },
+            { "attribute": "DamageDistance", "value": -5 },
+            { "attribute": "OverallRecoil", "value": -5 }
+        ]
+    },
+    "BarrelExt_BruteComp": {
+        "displayName": "Brute Compensator",
+        "attributeModifierMap": [
+            { "attribute": "VerticalRecoil", "value": 30 },
+            { "attribute": "SpreadIncrement", "value": -5 },
+            { "attribute": "OverallGunkick", "value": -10 },
+            { "attribute": "OverallSwapSpeed", "value": -10 }
+        ]
+    },
+    "DualOutlaw_Mag_Brute": {
+        "displayName": "Brute Cylinder",
+        "attributeModifierMap": [
+            { "attribute": "EndCycleReloadPlayRate", "value": 15 },
+            { "attribute": "OverallGunkick", "value": -10 }
+        ]
+    },
+    "DualOutlaw_Mag_Engraved": {
+        "displayName": "Engraved Cylinder",
+        "attributeModifierMap": [
+            { "attribute": "OverallGunkick", "value": 10 },
+            { "attribute": "OverallReloadPlayRate", "value": 5 },
+            { "attribute": "SpreadIncrement", "value": -5 }
+        ]
+    },
+    "DualOutlaw_Mag_Smooth": {
+        "displayName": "Smooth Cylinder",
+        "attributeModifierMap": [
+            { "attribute": "OverallRecoil", "value": 10 },
+            { "attribute": "OverallReloadPlayRate", "value": -5 }
+        ]
+    },
+    "DualOutlaw_Grip_Ivory": {
+        "displayName": "Ivory Grip",
+        "attributeModifierMap": [
+            { "attribute": "VerticalRecoil", "value": 5 },
+            { "attribute": "VerticalGunkick", "value": 5 },
+            { "attribute": "HorizontalRecoil", "value": -5 }
+        ]
+    },
+    "DualOutlaw_Grip_Tactical": {
+        "displayName": "Tactical Grip",
+        "attributeModifierMap": [
+            { "attribute": "OverallRecoil", "value": 5 },
+            { "attribute": "OverallSwapSpeed", "value": 5 },
+            { "attribute": "HipfireSpread", "value": -5 }
+        ]
+    },
+    "DualOutlaw_Grip_Timber": {
+        "displayName": "Timber Grip",
+        "attributeModifierMap": [
+            { "attribute": "OverallGunkick", "value": 5 },
+            { "attribute": "TargetingSpread", "value": 5 },
+            { "attribute": "VerticalRecoil", "value": -5 }
+        ]
+    },
+    "DualGrimshot_Barrel_Medium": {
+        "displayName": "Medium Barrel",
+        "attributeModifierMap": [
+            { "attribute": "VerticalRecoil", "value": 5 },
+            { "attribute": "OverallReloadPlayRate", "value": 5 },
+            { "attribute": "OverallSpread", "value": -5 }
+        ]
+    },
+    "DualGrimshot_Barrel_Octagon": {
+        "displayName": "Octagon Barrel",
+        "attributeModifierMap": [
+            { "attribute": "DamageDistance", "value": 5 },
+            { "attribute": "OverallSpread", "value": 5 },
+            { "attribute": "OverallGunkick", "value": -10 }
+        ]
+    },
+    "DualGrimshot_Barrel_CQC": {
+        "displayName": "CQC Barrel",
+        "attributeModifierMap": [
+            { "attribute": "OverallReloadPlayRate", "value": 10 },
+            { "attribute": "OverallSpread", "value": 10 },
+            { "attribute": "DamageDistance", "value": -10 },
+            { "attribute": "OverallRecoil", "value": -5 }
+        ]
+    },
+    "BarrelExt_12GGrimComp": {
+        "displayName": "12G Grim Compensator",
+        "attributeModifierMap": [
+            { "attribute": "OverallRecoil", "value": 5 },
+            { "attribute": "ViewKickRecoveryDelay", "value": 5 },
+            { "attribute": "OverallSpread", "value": -5 }
+        ]
+    },
+    "DualGrimshot_ChargingHandle_Swift": {
+        "displayName": "Swift Charging Handle",
+        "attributeModifierMap": [
+            { "attribute": "EndCycleReloadPlayRate", "value": 15 },
+            { "attribute": "OverallGunkick", "value": -10 }
+        ]
+    },
+    "DualGrimshot_ChargingHandle_Stable": {
+        "displayName": "Stable Charging Handle",
+        "attributeModifierMap": [
+            { "attribute": "OverallSpread", "value": 10 },
+            { "attribute": "SpreadIncrement", "value": 10 },
+            { "attribute": "EndCycleReloadPlayRate", "value": -15 }
+        ]
+    },
+    "DualGrimshot_Grip_Birdhead": {
+        "displayName": "Birdhead Grip",
+        "attributeModifierMap": [
+            { "attribute": "OverallRecoil", "value": 5 },
+            { "attribute": "OverallSwapSpeed", "value": 5 },
+            { "attribute": "HipfireSpread", "value": -5 }
+        ]
+    },
+    "DualGrimshot_Grip_Ranger": {
+        "displayName": "Ranger Grip",
+        "attributeModifierMap": [
+            { "attribute": "OverallGunkick", "value": 5 },
+            { "attribute": "TargetingSpread", "value": 5 },
+            { "attribute": "VerticalRecoil", "value": -5 }
+        ]
+    },
     "FIK22_Ammo_Default": {},
     "FIK22_BarrelExt_MuzzleBreak": {},
     "FIK22_Barrel_CQC": {
@@ -3196,9 +3334,9 @@ const ATTACHMENT_DATA = Object.freeze({
         "displayName": "Battle Grit",
         "description": "When you lose an armor plate, you gain GRIT: take 10% less damage for 20s."
     },
-    "Perk_HighNoon": {
+    "Perk_Trickshot": {
         "perkType": "equipped",
-        "displayName": "High Noon",
+        "displayName": "Trickshot",
         "description": "This weapon's swap speed is increased by {IncreasedSwapSpeed}. When you swap to this weapon, it deals {IncreasedDamage} extra damage for {BuffDuration} seconds."
     },
     "Perk_LeadFed": {

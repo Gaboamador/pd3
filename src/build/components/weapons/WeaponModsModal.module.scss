@@ -18,6 +18,10 @@
 
 .slotTitle {
   font-weight: 600;
+  background: rgba($pd3-hover, 0.2);
+  padding: $space-xs $space-xs;
+  text-transform: uppercase;
+
 }
 
 .optionsGrid {
@@ -39,6 +43,43 @@
   &:hover {
     border-color: $color-accent;
   }
+}
+
+// Las Weapon Perks mantienen los íconos del Catalog; los attachments
+// se renderizan con WeaponAttachmentSprite cuando existe una imagen.
+.perkOption {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  gap: $space-sm;
+  min-height: 62px;
+
+  &.noPerk {
+    justify-content: center;
+  }
+}
+
+.perkName {
+  min-width: 0;
+  text-align: left;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+
+// Imágenes de attachments en las tarjetas de selección.
+.modOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  min-height: 88px;
+}
+
+.modName {
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .active {

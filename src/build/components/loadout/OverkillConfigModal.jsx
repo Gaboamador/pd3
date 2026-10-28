@@ -12,6 +12,7 @@ import {
 } from "../../utils/perks.utils";
 import styles from "./OverkillConfigModal.module.scss";
 import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
+import OverkillModSprite from "./OverkillModSprite";
 
 // El servicio de presets guarda la configuración en el campo `mods`, igual que
 // para Primary/Secondary. Cada slot de OVERKILL contiene la key de una opción.
@@ -237,15 +238,24 @@ export default function OverkillConfigModal({
                       key={option.key}
                       className={`${styles.option} ${
                         active ? styles.active : ""
-                      }`}
+                      } ${option.sprite_pos ? styles.optionWithSprite : ""}`}
                       onClick={() => setOption(group.slotKey, option.key)}
                       aria-pressed={active}
                     >
                       <span className={styles.optionMarker} />
 
                       <span className={styles.optionContent}>
-                        <span className={styles.optionName}>
-                          {option.name}
+                        <span className={styles.optionHeading}>
+                          {option.sprite_pos && (
+                            <OverkillModSprite
+                              spritePos={option.sprite_pos}
+                              optionType={option.optionType}
+                              height={40}
+                            />
+                          )}
+                          <span className={styles.optionName}>
+                            {option.name}
+                          </span>
                         </span>
 
                         {option.description && (

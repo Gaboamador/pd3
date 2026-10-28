@@ -10549,5 +10549,110 @@ const WEAPON_DATA = Object.freeze({
         "sprintExitTime": 0.3333333,
         "reloadTime": 2.3999999,
         "reloadEmptyTime": 2.6666667
+    },
+    "DualOutlaw": {
+        "displayName": "Dual Outlaw",
+        "class": "Revolver",
+        "dlc": "9",
+        "modularConfiguration": {
+            "barrel": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualOutlaw_Barrel_Ranged",
+                    "DualOutlaw_Barrel_CQC"
+                ]
+            },
+            "barrelExtension": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "BarrelExt_BruteComp",
+                    "BarrelExt_CompactComp",
+                    "BarrelExt_PartedComp",
+                    "BarrelExt_SkeletonizedComp"
+                ]
+            },
+            "mag": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualOutlaw_Mag_Brute",
+                    "DualOutlaw_Mag_Engraved",
+                    "DualOutlaw_Mag_Smooth"
+                ]
+            },
+            "grip": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualOutlaw_Grip_Ivory",
+                    "DualOutlaw_Grip_Tactical",
+                    "DualOutlaw_Grip_Timber"
+                ]
+            },
+            "perk1": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "Perk_Final",
+                    "Perk_Assassin",
+                    "Perk_Bulky",
+                    "Perk_Glass",
+                    "Perk_Critter",
+                    "Perk_Trickshot"
+                ]
+            }
+        }
+    },
+    "DualGrimshot": {
+        "displayName": "Dual Grimshot",
+        "class": "Shotgun",
+        "dlc": "9",
+        "modularConfiguration": {
+            "barrel": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualGrimshot_Barrel_Medium",
+                    "DualGrimshot_Barrel_Octagon",
+                    "DualGrimshot_Barrel_CQC"
+                ]
+            },
+            "barrelExtension": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "BarrelExt_12GGrimComp",
+                    "BarrelExt_JawChoke",
+                    "BarrelExt_12GObelisk",
+                    "BarrelExt_SedimentChoke",
+                    "BarrelExt_12GVentComp",
+                    "BarrelExt_Breacher",
+                    "BarrelExt_12GCoronetMuzzle",
+                    "BarrelExt_Ridgecyl",
+                    "BarrelExt_SilentKiller",
+                    "BarrelExt_12GTorqued"
+                ]
+            },
+            "chargingHandle": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualGrimshot_ChargingHandle_Swift",
+                    "DualGrimshot_ChargingHandle_Stable"
+                ]
+            },
+            "grip": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "DualGrimshot_Grip_Birdhead",
+                    "DualGrimshot_Grip_Ranger"
+                ]
+            },
+            "perk1": {
+                "defaultPart": null,
+                "uniqueParts": [
+                    "Perk_Trip",
+                    "Perk_RushSlide",
+                    "Perk_Runner",
+                    "Perk_Resilient",
+                    "Perk_Critter",
+                    "Perk_DoubleCross"
+                ]
+            }
+        }
     }
 });

@@ -15,6 +15,9 @@ import {
 } from "../../utils/perks.utils";
 import styles from "./WeaponModsModal.module.scss";
 import PerkDescriptionText from "../../../components/PerkDescriptionText.jsx";
+import PerkSprite from "../perks/PerkSprite";
+import WeaponAttachmentSprite from "./WeaponAttachmentSprite";
+import { getWeaponAttachmentSpritePos } from "../../utils/sprites/weaponAttachmentSprites";
 
 const SLOT_LABEL_OVERRIDES = {
   Mag: "Magazine",
@@ -60,6 +63,10 @@ export default function WeaponModsModal({
 
   const isIconic = isIconicWeapon(weaponDef);
   const modSlots = getWeaponModSlots(weaponDef);
+  // Las Iconic heredan la configuración de attachments del arma base.
+  const sourceWeaponKey = weaponDef?.preset === 1
+    ? weaponDef.baseWeaponKey
+    : (weaponDef?.sourceKey ?? weaponDef?.key);
   const compatiblePerks = getWeaponPerks(perksData, weaponDef?.type);
   const activePerkKey = getEffectiveWeaponPerkKey(
     { perk: perkState },
@@ -199,7 +206,7 @@ export default function WeaponModsModal({
         <div className={styles.optionsGrid}>
           {!isIconic && (
             <div
-              className={`${styles.option} ${!activePerkKey ? styles.active : ""}`}
+              className={`${styles.option} ${styles.perkOption} ${!activePerkKey ? styles.active : ""} ${styles.noPerk}`}
               onClick={() => setPerk(null)}
             >
               {t("select.option.none")}
@@ -209,13 +216,18 @@ export default function WeaponModsModal({
           {selectablePerks.map((perk) => (
             <div
               key={perk.key}
-              className={`${styles.option} ${
+              className={`${styles.option} ${styles.perkOption} ${
                 activePerkKey === perk.key ? styles.active : ""
               } ${isIconic ? styles.locked : ""}`}
               onClick={() => setPerk(perk.key)}
               title={perk.description}
             >
-              {perk.name}
+              <PerkSprite
+                spritePos={perk.sprite_pos}
+                perkType={perk.perkType}
+                height={40}
+              />
+              <span className={styles.perkName}>{perk.name}</span>
             </div>
           ))}
         </div>
@@ -299,11 +311,12 @@ export default function WeaponModsModal({
                   const isActive = opt.isDefault
                     ? activeId == null
                     : activeId === opt.id;
+                  const spritePos = getWeaponAttachmentSpritePos(sourceWeaponKey, opt.id);
 
                   return (
                     <div
                       key={String(opt.id)}
-                      className={`${styles.option} ${
+                      className={`${styles.option} ${styles.modOption} ${
                         isActive ? styles.active : ""
                       } ${isIconic ? styles.locked : ""}`}
                       onClick={() => {
@@ -311,7 +324,10 @@ export default function WeaponModsModal({
                         setMod(ms.slot, opt);
                       }}
                     >
-                      {opt.name}
+                      {spritePos && (
+                        <WeaponAttachmentSprite spritePos={spritePos} height={44} />
+                      )}
+                      <span className={styles.modName}>{opt.name}</span>
                     </div>
                   );
                 })}

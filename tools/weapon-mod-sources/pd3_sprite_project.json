@@ -1,0 +1,1662 @@
+{
+  "version": 1,
+  "projectConfig": {
+    "w": 4096,
+    "h": 2560,
+    "cols": 16,
+    "rows": 20,
+    "prefix": "SPRITE",
+    "path": ""
+  },
+  "occupiedIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234
+  ],
+  "lastUsed": 235,
+  "positions": {},
+  "items": [
+    {
+      "filename": "12G_Grim_Compensator.png",
+      "key": null,
+      "r": 1,
+      "c": 1
+    },
+    {
+      "filename": "12G_Jaw_Choke.png",
+      "key": null,
+      "r": 1,
+      "c": 2
+    },
+    {
+      "filename": "12G_Obelisk_Silencer.png",
+      "key": null,
+      "r": 1,
+      "c": 3
+    },
+    {
+      "filename": "12G_Sediment_Choke.png",
+      "key": null,
+      "r": 1,
+      "c": 4
+    },
+    {
+      "filename": "12G_Vent_Compensator.png",
+      "key": null,
+      "r": 1,
+      "c": 5
+    },
+    {
+      "filename": "Angled_Ghost_Grip.png",
+      "key": null,
+      "r": 1,
+      "c": 6
+    },
+    {
+      "filename": "ATK7_Compact_Mag.png",
+      "key": null,
+      "r": 1,
+      "c": 7
+    },
+    {
+      "filename": "ATK7_Extended_Mag.png",
+      "key": null,
+      "r": 1,
+      "c": 8
+    },
+    {
+      "filename": "ATK7_Hollow_Frame.png",
+      "key": null,
+      "r": 1,
+      "c": 9
+    },
+    {
+      "filename": "ATK7_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 1,
+      "c": 10
+    },
+    {
+      "filename": "ATK7_Rubber_Framed_Stock.png",
+      "key": null,
+      "r": 1,
+      "c": 11
+    },
+    {
+      "filename": "B500_Unfluted_Cylinder.png",
+      "key": null,
+      "r": 1,
+      "c": 12
+    },
+    {
+      "filename": "Beveled_Silencer.png",
+      "key": null,
+      "r": 1,
+      "c": 13
+    },
+    {
+      "filename": "Biofit_Grip.png",
+      "key": null,
+      "r": 1,
+      "c": 14
+    },
+    {
+      "filename": "BMX63_CQC_Barrel.png",
+      "key": null,
+      "r": 1,
+      "c": 15
+    },
+    {
+      "filename": "BMX63_Ranged_Barrel.png",
+      "key": null,
+      "r": 1,
+      "c": 16
+    },
+    {
+      "filename": "Box_RDS.png",
+      "key": null,
+      "r": 2,
+      "c": 1
+    },
+    {
+      "filename": "Breacher_Muzzle.png",
+      "key": null,
+      "r": 2,
+      "c": 2
+    },
+    {
+      "filename": "Brute_Compensator.png",
+      "key": null,
+      "r": 2,
+      "c": 3
+    },
+    {
+      "filename": "CAR4_Compact_Mag.png",
+      "key": null,
+      "r": 2,
+      "c": 4
+    },
+    {
+      "filename": "CAR4_CQC_Barrel.png",
+      "key": null,
+      "r": 2,
+      "c": 5
+    },
+    {
+      "filename": "CAR4_Extended_Mag.png",
+      "key": null,
+      "r": 2,
+      "c": 6
+    },
+    {
+      "filename": "CAR4_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 2,
+      "c": 7
+    },
+    {
+      "filename": "CAR4_Ranged_Barrel.png",
+      "key": null,
+      "r": 2,
+      "c": 8
+    },
+    {
+      "filename": "Classic_RDS.png",
+      "key": null,
+      "r": 2,
+      "c": 9
+    },
+    {
+      "filename": "Compact_Compensator.png",
+      "key": null,
+      "r": 2,
+      "c": 10
+    },
+    {
+      "filename": "Compact_RDS.png",
+      "key": null,
+      "r": 2,
+      "c": 11
+    },
+    {
+      "filename": "Contoured_Grip.png",
+      "key": null,
+      "r": 2,
+      "c": 12
+    },
+    {
+      "filename": "Coronet_Muzzle.png",
+      "key": null,
+      "r": 2,
+      "c": 13
+    },
+    {
+      "filename": "Crated_Muzzle.png",
+      "key": null,
+      "r": 2,
+      "c": 14
+    },
+    {
+      "filename": "CS3_Refined_Stock.png",
+      "key": null,
+      "r": 2,
+      "c": 15
+    },
+    {
+      "filename": "Cut-Tac_Grip.png",
+      "key": null,
+      "r": 2,
+      "c": 16
+    },
+    {
+      "filename": "Cylinder_Grip.png",
+      "key": null,
+      "r": 3,
+      "c": 1
+    },
+    {
+      "filename": "Cylindric_Silencer.png",
+      "key": null,
+      "r": 3,
+      "c": 2
+    },
+    {
+      "filename": "Edge_Ridged_Silencer.png",
+      "key": null,
+      "r": 3,
+      "c": 3
+    },
+    {
+      "filename": "Express_Muzzle_Break.png",
+      "key": null,
+      "r": 3,
+      "c": 4
+    },
+    {
+      "filename": "FIK22TLR_Compact_Mag.png",
+      "key": null,
+      "r": 3,
+      "c": 5
+    },
+    {
+      "filename": "FIK22TLR_CQC_Barrel.png",
+      "key": null,
+      "r": 3,
+      "c": 6
+    },
+    {
+      "filename": "FIK22TLR_Extended_Mag.png",
+      "key": null,
+      "r": 3,
+      "c": 7
+    },
+    {
+      "filename": "FIK22TLR_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 3,
+      "c": 8
+    },
+    {
+      "filename": "FIK22TLR_Ranged_Barrel.png",
+      "key": null,
+      "r": 3,
+      "c": 9
+    },
+    {
+      "filename": "Flat-Side_STAB_Grip.png",
+      "key": null,
+      "r": 3,
+      "c": 10
+    },
+    {
+      "filename": "Fluted_Marksman_Scope.png",
+      "key": null,
+      "r": 3,
+      "c": 11
+    },
+    {
+      "filename": "G_Birdhead_Grip.png",
+      "key": null,
+      "r": 3,
+      "c": 12
+    },
+    {
+      "filename": "G_CQC_Barrel.png",
+      "key": null,
+      "r": 3,
+      "c": 13
+    },
+    {
+      "filename": "G_Medium_Barrel.png",
+      "key": null,
+      "r": 3,
+      "c": 14
+    },
+    {
+      "filename": "G_Octagon_Barrel.png",
+      "key": null,
+      "r": 3,
+      "c": 15
+    },
+    {
+      "filename": "G_Ranger_Grip.png",
+      "key": null,
+      "r": 3,
+      "c": 16
+    },
+    {
+      "filename": "G_Stable_Charging_Handle.png",
+      "key": null,
+      "r": 4,
+      "c": 1
+    },
+    {
+      "filename": "G_Swift_Charging_Handle.png",
+      "key": null,
+      "r": 4,
+      "c": 2
+    },
+    {
+      "filename": "GV50AE_Coarse_Ergo.png",
+      "key": null,
+      "r": 4,
+      "c": 3
+    },
+    {
+      "filename": "GV50AE_Force_Vent_Cut.png",
+      "key": null,
+      "r": 4,
+      "c": 4
+    },
+    {
+      "filename": "GV50AE_Lead_Reach.png",
+      "key": null,
+      "r": 4,
+      "c": 5
+    },
+    {
+      "filename": "GV50AE_Redwood_Classic.png",
+      "key": null,
+      "r": 4,
+      "c": 6
+    },
+    {
+      "filename": "GV50AE_S-Ballers.png",
+      "key": null,
+      "r": 4,
+      "c": 7
+    },
+    {
+      "filename": "GV50AE_Whittled_Fit.png",
+      "key": null,
+      "r": 4,
+      "c": 8
+    },
+    {
+      "filename": "HQ.png",
+      "key": null,
+      "r": 4,
+      "c": 9
+    },
+    {
+      "filename": "Hybrid_Muzzle_Break.png",
+      "key": null,
+      "r": 4,
+      "c": 10
+    },
+    {
+      "filename": "Indent_Compensator.png",
+      "key": null,
+      "r": 4,
+      "c": 11
+    },
+    {
+      "filename": "J_12G_Snub_Barrel.png",
+      "key": null,
+      "r": 4,
+      "c": 12
+    },
+    {
+      "filename": "J_Big_Game_Barrel.png",
+      "key": null,
+      "r": 4,
+      "c": 13
+    },
+    {
+      "filename": "J_Bluewood_Grip.png",
+      "key": null,
+      "r": 4,
+      "c": 14
+    },
+    {
+      "filename": "J_Gorge_Grip.png",
+      "key": null,
+      "r": 4,
+      "c": 15
+    },
+    {
+      "filename": "J_Greenwood_Grip.png",
+      "key": null,
+      "r": 4,
+      "c": 16
+    },
+    {
+      "filename": "J_Potshot_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 1
+    },
+    {
+      "filename": "JMC44_Biofit_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 2
+    },
+    {
+      "filename": "JMC44_CQC_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 3
+    },
+    {
+      "filename": "JMC44_Hardwood_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 4
+    },
+    {
+      "filename": "JMC44_Ranged_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 5
+    },
+    {
+      "filename": "JMC44_Tac_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 6
+    },
+    {
+      "filename": "JMC44_Tac_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 7
+    },
+    {
+      "filename": "JSE5_Shock_Panel.png",
+      "key": null,
+      "r": 5,
+      "c": 8
+    },
+    {
+      "filename": "JSE5_Sigma_Pane.png",
+      "key": null,
+      "r": 5,
+      "c": 9
+    },
+    {
+      "filename": "JSE5_Strafed_Handle.png",
+      "key": null,
+      "r": 5,
+      "c": 10
+    },
+    {
+      "filename": "JSE5_Trench_Iron.png",
+      "key": null,
+      "r": 5,
+      "c": 11
+    },
+    {
+      "filename": "KU59_Biofit_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 12
+    },
+    {
+      "filename": "KU59_Perforated_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 13
+    },
+    {
+      "filename": "KU59_Rail_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 14
+    },
+    {
+      "filename": "KU59_Tac_Grip.png",
+      "key": null,
+      "r": 5,
+      "c": 15
+    },
+    {
+      "filename": "KU59_Trad_Grip_Barrel.png",
+      "key": null,
+      "r": 5,
+      "c": 16
+    },
+    {
+      "filename": "L12G_Biofit_Vertical_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 1
+    },
+    {
+      "filename": "L12G_Light_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 2
+    },
+    {
+      "filename": "L12G_Molded_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 3
+    },
+    {
+      "filename": "L12G_Raised_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 4
+    },
+    {
+      "filename": "L12G_Skeletal_Vertical_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 5
+    },
+    {
+      "filename": "L12G_Slim_Vertical_Grip.png",
+      "key": null,
+      "r": 6,
+      "c": 6
+    },
+    {
+      "filename": "LED_RDS.png",
+      "key": null,
+      "r": 6,
+      "c": 7
+    },
+    {
+      "filename": "Light_Frame.png",
+      "key": null,
+      "r": 6,
+      "c": 8
+    },
+    {
+      "filename": "Light_Holographic_Sight.png",
+      "key": null,
+      "r": 6,
+      "c": 9
+    },
+    {
+      "filename": "Lined_Sight.png",
+      "key": null,
+      "r": 6,
+      "c": 10
+    },
+    {
+      "filename": "Lucid_RDS.png",
+      "key": null,
+      "r": 6,
+      "c": 11
+    },
+    {
+      "filename": "M12C_CQC_Barrel.png",
+      "key": null,
+      "r": 6,
+      "c": 12
+    },
+    {
+      "filename": "M12C_CQC_Stock.png",
+      "key": null,
+      "r": 6,
+      "c": 13
+    },
+    {
+      "filename": "M12C_Fortified_Stock.png",
+      "key": null,
+      "r": 6,
+      "c": 14
+    },
+    {
+      "filename": "M12C_Padded_Stock.png",
+      "key": null,
+      "r": 6,
+      "c": 15
+    },
+    {
+      "filename": "M12C_Ranged_Barrel.png",
+      "key": null,
+      "r": 6,
+      "c": 16
+    },
+    {
+      "filename": "M7P_Bolstered_Stock.png",
+      "key": null,
+      "r": 7,
+      "c": 1
+    },
+    {
+      "filename": "M7P_Compact_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 2
+    },
+    {
+      "filename": "M7P_CQC_Barrel.png",
+      "key": null,
+      "r": 7,
+      "c": 3
+    },
+    {
+      "filename": "M7P_Extended_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 4
+    },
+    {
+      "filename": "M7P_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 5
+    },
+    {
+      "filename": "M7P_Ranged_Barrel.png",
+      "key": null,
+      "r": 7,
+      "c": 6
+    },
+    {
+      "filename": "Magi_Sight.png",
+      "key": null,
+      "r": 7,
+      "c": 7
+    },
+    {
+      "filename": "Minimized_Hook_Stock.png",
+      "key": null,
+      "r": 7,
+      "c": 8
+    },
+    {
+      "filename": "NWB9_Compact_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 9
+    },
+    {
+      "filename": "NWB9_Extended_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 10
+    },
+    {
+      "filename": "NWB9_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 7,
+      "c": 11
+    },
+    {
+      "filename": "O_Brute_Cylinder.png",
+      "key": null,
+      "r": 7,
+      "c": 12
+    },
+    {
+      "filename": "O_CQC_Barrel.png",
+      "key": null,
+      "r": 7,
+      "c": 13
+    },
+    {
+      "filename": "O_Engraved_Cylinder.png",
+      "key": null,
+      "r": 7,
+      "c": 14
+    },
+    {
+      "filename": "O_Ivory_Grip.png",
+      "key": null,
+      "r": 7,
+      "c": 15
+    },
+    {
+      "filename": "O_Ranged_Barrel.png",
+      "key": null,
+      "r": 7,
+      "c": 16
+    },
+    {
+      "filename": "O_Smooth_Cylinder.png",
+      "key": null,
+      "r": 8,
+      "c": 1
+    },
+    {
+      "filename": "O_Tactical_Grip.png",
+      "key": null,
+      "r": 8,
+      "c": 2
+    },
+    {
+      "filename": "O_Timber_Grip.png",
+      "key": null,
+      "r": 8,
+      "c": 3
+    },
+    {
+      "filename": "Obelisk_Silencer.png",
+      "key": null,
+      "r": 8,
+      "c": 4
+    },
+    {
+      "filename": "Padded_Tube.png",
+      "key": null,
+      "r": 8,
+      "c": 5
+    },
+    {
+      "filename": "Parted_Compensator.png",
+      "key": null,
+      "r": 8,
+      "c": 6
+    },
+    {
+      "filename": "PD5_Combat_Stock.png",
+      "key": null,
+      "r": 8,
+      "c": 7
+    },
+    {
+      "filename": "PD5_Premier_Grip.png",
+      "key": null,
+      "r": 8,
+      "c": 8
+    },
+    {
+      "filename": "Perforated_Grip.png",
+      "key": null,
+      "r": 8,
+      "c": 9
+    },
+    {
+      "filename": "Piped_Silencer.png",
+      "key": null,
+      "r": 8,
+      "c": 10
+    },
+    {
+      "filename": "Primed_Marksman_Scope.png",
+      "key": null,
+      "r": 8,
+      "c": 11
+    },
+    {
+      "filename": "Projection_RDS.png",
+      "key": null,
+      "r": 8,
+      "c": 12
+    },
+    {
+      "filename": "Quick_Hold_Grip.png",
+      "key": null,
+      "r": 8,
+      "c": 13
+    },
+    {
+      "filename": "R880_Biofit_Fore-End.png",
+      "key": null,
+      "r": 8,
+      "c": 14
+    },
+    {
+      "filename": "R880_Comp_Barrel.png",
+      "key": null,
+      "r": 8,
+      "c": 15
+    },
+    {
+      "filename": "R880_CQC_Barrel.png",
+      "key": null,
+      "r": 8,
+      "c": 16
+    },
+    {
+      "filename": "R880_CQC_Stock.png",
+      "key": null,
+      "r": 9,
+      "c": 1
+    },
+    {
+      "filename": "R880_Fortified_Stock.png",
+      "key": null,
+      "r": 9,
+      "c": 2
+    },
+    {
+      "filename": "R880_Padded_Stock.png",
+      "key": null,
+      "r": 9,
+      "c": 3
+    },
+    {
+      "filename": "R880_Ranged_Barrel.png",
+      "key": null,
+      "r": 9,
+      "c": 4
+    },
+    {
+      "filename": "R880_Tactical_Fore-End.png",
+      "key": null,
+      "r": 9,
+      "c": 5
+    },
+    {
+      "filename": "R900S_CQC_Barrel.png",
+      "key": null,
+      "r": 9,
+      "c": 6
+    },
+    {
+      "filename": "R900S_Extended_Mag.png",
+      "key": null,
+      "r": 9,
+      "c": 7
+    },
+    {
+      "filename": "R900S_Hardwood.png",
+      "key": null,
+      "r": 9,
+      "c": 8
+    },
+    {
+      "filename": "R900S_Lightweight.png",
+      "key": null,
+      "r": 9,
+      "c": 9
+    },
+    {
+      "filename": "R900S_Ranged_Barrel.png",
+      "key": null,
+      "r": 9,
+      "c": 10
+    },
+    {
+      "filename": "Ridgecyl_Silencer.png",
+      "key": null,
+      "r": 9,
+      "c": 11
+    },
+    {
+      "filename": "Rigger_Handstop.png",
+      "key": null,
+      "r": 9,
+      "c": 12
+    },
+    {
+      "filename": "RJB9_Biofit_Vertical_Grip.png",
+      "key": null,
+      "r": 9,
+      "c": 13
+    },
+    {
+      "filename": "RJB9_Compact_Mag.png",
+      "key": null,
+      "r": 9,
+      "c": 14
+    },
+    {
+      "filename": "RJB9_Extended_Barrel.png",
+      "key": null,
+      "r": 9,
+      "c": 15
+    },
+    {
+      "filename": "RJB9_Extended_Mag.png",
+      "key": null,
+      "r": 9,
+      "c": 16
+    },
+    {
+      "filename": "RJB9_Lo-Pan_Suppressor.png",
+      "key": null,
+      "r": 10,
+      "c": 1
+    },
+    {
+      "filename": "RJB9_Polymer_Vertical_Grip.png",
+      "key": null,
+      "r": 10,
+      "c": 2
+    },
+    {
+      "filename": "RJB9_Qin_Frame_Stock.png",
+      "key": null,
+      "r": 10,
+      "c": 3
+    },
+    {
+      "filename": "RJB9_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 10,
+      "c": 4
+    },
+    {
+      "filename": "RJB9_Ranged_Barrel.png",
+      "key": null,
+      "r": 10,
+      "c": 5
+    },
+    {
+      "filename": "RJB9_Shen_Retracted_Stock.png",
+      "key": null,
+      "r": 10,
+      "c": 6
+    },
+    {
+      "filename": "S1895_Artisan_Grip.png",
+      "key": null,
+      "r": 10,
+      "c": 7
+    },
+    {
+      "filename": "S1895_CQC_Slant_Stock.png",
+      "key": null,
+      "r": 10,
+      "c": 8
+    },
+    {
+      "filename": "S1895_Knotted_Grip.png",
+      "key": null,
+      "r": 10,
+      "c": 9
+    },
+    {
+      "filename": "S1895_Padded_Stock.png",
+      "key": null,
+      "r": 10,
+      "c": 10
+    },
+    {
+      "filename": "S1895_Slitted_Rail_Guard.png",
+      "key": null,
+      "r": 10,
+      "c": 11
+    },
+    {
+      "filename": "S1895_Supported_Stock.png",
+      "key": null,
+      "r": 10,
+      "c": 12
+    },
+    {
+      "filename": "S1895_Vented_Rail_Guard.png",
+      "key": null,
+      "r": 10,
+      "c": 13
+    },
+    {
+      "filename": "S40_Embossed_Grip.png",
+      "key": null,
+      "r": 10,
+      "c": 14
+    },
+    {
+      "filename": "S40_Extended_Mag.png",
+      "key": null,
+      "r": 10,
+      "c": 15
+    },
+    {
+      "filename": "S40_Hardwood_Grip.png",
+      "key": null,
+      "r": 10,
+      "c": 16
+    },
+    {
+      "filename": "S40_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 1
+    },
+    {
+      "filename": "S40_Tac_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 2
+    },
+    {
+      "filename": "S403_Extended_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 3
+    },
+    {
+      "filename": "S403_Friction_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 4
+    },
+    {
+      "filename": "S403_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 5
+    },
+    {
+      "filename": "S403_Ribbed_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 6
+    },
+    {
+      "filename": "S7_Extended_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 7
+    },
+    {
+      "filename": "S7_Friction_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 8
+    },
+    {
+      "filename": "S7_Grained_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 9
+    },
+    {
+      "filename": "S7_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 10
+    },
+    {
+      "filename": "S7_Ribbed_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 11
+    },
+    {
+      "filename": "SAA144_CQC_Barrel.png",
+      "key": null,
+      "r": 11,
+      "c": 12
+    },
+    {
+      "filename": "SAA144_Extended_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 13
+    },
+    {
+      "filename": "SAA144_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 11,
+      "c": 14
+    },
+    {
+      "filename": "SAA144_Ranged_Barrel.png",
+      "key": null,
+      "r": 11,
+      "c": 15
+    },
+    {
+      "filename": "SAG9_AG-9_Cylinder_Grip.png",
+      "key": null,
+      "r": 11,
+      "c": 16
+    },
+    {
+      "filename": "SAG9_Bound_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 1
+    },
+    {
+      "filename": "SAG9_Campaigner_Stock.png",
+      "key": null,
+      "r": 12,
+      "c": 2
+    },
+    {
+      "filename": "SAG9_Compact_Mag.png",
+      "key": null,
+      "r": 12,
+      "c": 3
+    },
+    {
+      "filename": "SAG9_Extended_Mag.png",
+      "key": null,
+      "r": 12,
+      "c": 4
+    },
+    {
+      "filename": "SAG9_Grained_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 5
+    },
+    {
+      "filename": "SAG9_Lined_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 6
+    },
+    {
+      "filename": "SAG9_Primus_Stock.png",
+      "key": null,
+      "r": 12,
+      "c": 7
+    },
+    {
+      "filename": "SAG9_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 12,
+      "c": 8
+    },
+    {
+      "filename": "SAG9_Ranged_Barrel.png",
+      "key": null,
+      "r": 12,
+      "c": 9
+    },
+    {
+      "filename": "SAG9_Ultralight_Barrel.png",
+      "key": null,
+      "r": 12,
+      "c": 10
+    },
+    {
+      "filename": "SB_Biofit_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 11
+    },
+    {
+      "filename": "SB_CQC_Barrel.png",
+      "key": null,
+      "r": 12,
+      "c": 12
+    },
+    {
+      "filename": "SB_Hardwood_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 13
+    },
+    {
+      "filename": "SB_Ranged_Barrel.png",
+      "key": null,
+      "r": 12,
+      "c": 14
+    },
+    {
+      "filename": "SB_Tac_Grip.png",
+      "key": null,
+      "r": 12,
+      "c": 15
+    },
+    {
+      "filename": "SGC7_Compact_Mag.png",
+      "key": null,
+      "r": 12,
+      "c": 16
+    },
+    {
+      "filename": "SGC7_Extended_Mag.png",
+      "key": null,
+      "r": 13,
+      "c": 1
+    },
+    {
+      "filename": "SGC7_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 13,
+      "c": 2
+    },
+    {
+      "filename": "Sheath_RDS.png",
+      "key": null,
+      "r": 13,
+      "c": 3
+    },
+    {
+      "filename": "Skeletonized_Compensator.png",
+      "key": null,
+      "r": 13,
+      "c": 4
+    },
+    {
+      "filename": "Slate_RDS.png",
+      "key": null,
+      "r": 13,
+      "c": 5
+    },
+    {
+      "filename": "SM-2_Sight.png",
+      "key": null,
+      "r": 13,
+      "c": 6
+    },
+    {
+      "filename": "Smooth_Fluted_Grip.png",
+      "key": null,
+      "r": 13,
+      "c": 7
+    },
+    {
+      "filename": "Snapshot_Clear-Tag.png",
+      "key": null,
+      "r": 13,
+      "c": 8
+    },
+    {
+      "filename": "Snub_Silencer.png",
+      "key": null,
+      "r": 13,
+      "c": 9
+    },
+    {
+      "filename": "SPM11_Checkered_Grip.png",
+      "key": null,
+      "r": 13,
+      "c": 10
+    },
+    {
+      "filename": "SPM11_Embossed_Grip.png",
+      "key": null,
+      "r": 13,
+      "c": 11
+    },
+    {
+      "filename": "SPM11_Extended_Mag.png",
+      "key": null,
+      "r": 13,
+      "c": 12
+    },
+    {
+      "filename": "SPM11_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 13,
+      "c": 13
+    },
+    {
+      "filename": "SPM11_Tac_Grip.png",
+      "key": null,
+      "r": 13,
+      "c": 14
+    },
+    {
+      "filename": "Square_Claim.png",
+      "key": null,
+      "r": 13,
+      "c": 15
+    },
+    {
+      "filename": "Stub_Grip.png",
+      "key": null,
+      "r": 13,
+      "c": 16
+    },
+    {
+      "filename": "T32_Compact_Mag.png",
+      "key": null,
+      "r": 14,
+      "c": 1
+    },
+    {
+      "filename": "T32_Extended_Mag.png",
+      "key": null,
+      "r": 14,
+      "c": 2
+    },
+    {
+      "filename": "T32_Overline_Stock.png",
+      "key": null,
+      "r": 14,
+      "c": 3
+    },
+    {
+      "filename": "T32_Quick-Pull_Mag.png",
+      "key": null,
+      "r": 14,
+      "c": 4
+    },
+    {
+      "filename": "T32_Underline_Stock.png",
+      "key": null,
+      "r": 14,
+      "c": 5
+    },
+    {
+      "filename": "Tac_Grip.png",
+      "key": null,
+      "r": 14,
+      "c": 6
+    },
+    {
+      "filename": "Tactical_Sight.png",
+      "key": null,
+      "r": 14,
+      "c": 7
+    },
+    {
+      "filename": "Tagged_Iron_Sight.png",
+      "key": null,
+      "r": 14,
+      "c": 8
+    },
+    {
+      "filename": "Targeter_Optic.png",
+      "key": null,
+      "r": 14,
+      "c": 9
+    },
+    {
+      "filename": "TAS12_CQC_Barrel.png",
+      "key": null,
+      "r": 14,
+      "c": 10
+    },
+    {
+      "filename": "TAS12_Diamond_Friction.png",
+      "key": null,
+      "r": 14,
+      "c": 11
+    },
+    {
+      "filename": "TAS12_Friction_Wrapped.png",
+      "key": null,
+      "r": 14,
+      "c": 12
+    },
+    {
+      "filename": "TAS12_Patterned_Friction.png",
+      "key": null,
+      "r": 14,
+      "c": 13
+    },
+    {
+      "filename": "TAS12_Skeleton_Folding_Stock.png",
+      "key": null,
+      "r": 14,
+      "c": 14
+    },
+    {
+      "filename": "TAS12_Widened_Breach_Stock.png",
+      "key": null,
+      "r": 14,
+      "c": 15
+    },
+    {
+      "filename": "The_Silent_Killer_PD3.png",
+      "key": null,
+      "r": 14,
+      "c": 16
+    },
+    {
+      "filename": "Torque_Silencer.png",
+      "key": null,
+      "r": 15,
+      "c": 1
+    },
+    {
+      "filename": "Torqued_Choke.png",
+      "key": null,
+      "r": 15,
+      "c": 2
+    },
+    {
+      "filename": "TQ.png",
+      "key": null,
+      "r": 15,
+      "c": 3
+    },
+    {
+      "filename": "Vent_Catch_IDM2.png",
+      "key": null,
+      "r": 15,
+      "c": 4
+    },
+    {
+      "filename": "Viewpoint_Sight.png",
+      "key": null,
+      "r": 15,
+      "c": 5
+    },
+    {
+      "filename": "Voyeur_Scope.png",
+      "key": null,
+      "r": 15,
+      "c": 6
+    },
+    {
+      "filename": "Whisper_Wrap_Silencer.png",
+      "key": null,
+      "r": 15,
+      "c": 7
+    },
+    {
+      "filename": "Z17_Adaptable_Stock.png",
+      "key": null,
+      "r": 15,
+      "c": 8
+    },
+    {
+      "filename": "Z17_Custom_Grip.png",
+      "key": null,
+      "r": 15,
+      "c": 9
+    },
+    {
+      "filename": "Z17_Optimal_Grip.png",
+      "key": null,
+      "r": 15,
+      "c": 10
+    },
+    {
+      "filename": "Z17_Revenant_Grip.png",
+      "key": null,
+      "r": 15,
+      "c": 11
+    }
+  ]
+}

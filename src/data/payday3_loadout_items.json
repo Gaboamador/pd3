@@ -1261,15 +1261,15 @@
       },
       "dlc_id": 9,
       "stats": {
-        "damage": 0,
-        "ap": 0,
-        "recoil": 0,
-        "stability": 0,
-        "accuracy": 0,
-        "handling": 0,
-        "rof": 0,
-        "magazine": 0,
-        "ammo": 0
+        "damage": 125,
+        "ap": 2,
+        "recoil": 38,
+        "stability": 50,
+        "accuracy": 55,
+        "handling": 56,
+        "rof": 500,
+        "magazine": 12,
+        "ammo": 72
       },
       "dlc": {
         "id": 9,

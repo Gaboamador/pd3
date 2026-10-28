@@ -620,10 +620,10 @@
     "optionType": "perk",
     "weaponTypes": ["shotgun"]
   },
-  "perk_high_noon": {
-    "key": "perk_high_noon",
-    "name": "High Noon",
-    "sourceKey": "Perk_HighNoon",
+  "perk_trickshot": {
+    "key": "perk_trickshot",
+    "name": "Trickshot",
+    "sourceKey": "Perk_Trickshot",
     "sprite_pos": {
       "r": 8,
       "c": 1
@@ -649,6 +649,10 @@
   "ovk_het5_hard_collateral": {
     "key": "ovk_het5_hard_collateral",
     "name": "Hard Collateral",
+    "sprite_pos": {
+      "r": 1,
+      "c": 1
+    },
     "description": "Performing a body shot with the HET deals 20% of the original shot’s damage and performing a headshot deals 60% of the original shot’s damage to all enemies within 3m of your target. This additional damage does not bypass enemy armor.",
     "scope": "overkill",
     "optionType": "perk",
@@ -660,6 +664,10 @@
   "ovk_het5_spotter": {
     "key": "ovk_het5_spotter",
     "name": "Spotter",
+    "sprite_pos": {
+      "r": 1,
+      "c": 1
+    },
     "description": "All targets currently viewed through your HET scope are marked for your crew. When they are no longer in your line of sight, the marking ends. Other marking effects, such as manual marking from other players, will still be in effect.",
     "scope": "overkill",
     "optionType": "perk",
@@ -671,6 +679,10 @@
   "ovk_het5_dead_set": {
     "key": "ovk_het5_dead_set",
     "name": "Dead Set",
+    "sprite_pos": {
+      "r": 1,
+      "c": 2
+    },
     "description": "Marked targets in your view take 30% extra damage from all damage sources. (This includes marked targets no matter how they were marked)",
     "scope": "overkill",
     "optionType": "perk",
@@ -682,6 +694,10 @@
   "ovk_het5_tungsten_core": {
     "key": "ovk_het5_tungsten_core",
     "name": "Tungsten Core",
+    "sprite_pos": {
+      "r": 1,
+      "c": 2
+    },
     "description": "You can penetrate 5 additional surfaces.",
     "scope": "overkill",
     "optionType": "perk",
@@ -693,6 +709,10 @@
   "ovk_het5_revved_up": {
     "key": "ovk_het5_revved_up",
     "name": "Revved Up",
+    "sprite_pos": {
+      "r": 1,
+      "c": 3
+    },
     "description": "Perks given from the HET-5 have an additional 15% increase in damage.",
     "scope": "overkill",
     "optionType": "perk",
@@ -704,6 +724,10 @@
   "ovk_het5_du_core": {
     "key": "ovk_het5_du_core",
     "name": "DU Core",
+    "sprite_pos": {
+      "r": 1,
+      "c": 3
+    },
     "description": "You can penetrate 5 additional surfaces.",
     "scope": "overkill",
     "optionType": "perk",
@@ -715,6 +739,10 @@
   "ovk_mamba_cluster_bomb": {
     "key": "ovk_mamba_cluster_bomb",
     "name": "Cluster Bomb",
+    "sprite_pos": {
+      "r": 4,
+      "c": 2
+    },
     "description": "Explosions from the Mamba fragment into 4 smaller cluster grenades, each dealing 25% of the original explosion damage.",
     "scope": "overkill",
     "optionType": "perk",
@@ -726,6 +754,10 @@
   "ovk_mamba_blast_trauma": {
     "key": "ovk_mamba_blast_trauma",
     "name": "Blast Trauma",
+    "sprite_pos": {
+      "r": 4,
+      "c": 2
+    },
     "description": "Enemies within 15m of a Mamba explosion have their accuracy permanently reduced by 40%. [this effect does not stack].",
     "scope": "overkill",
     "optionType": "perk",
@@ -737,6 +769,10 @@
   "ovk_mamba_wrecker": {
     "key": "ovk_mamba_wrecker",
     "name": "Wrecker",
+    "sprite_pos": {
+      "r": 4,
+      "c": 2
+    },
     "description": "Enemies directly hit by a mamba grenade impact (not in the AOE of the explosion) lose 30% of their armor plates.",
     "scope": "overkill",
     "optionType": "perk",
@@ -748,6 +784,10 @@
   "ovk_mamba_drum_loader": {
     "key": "ovk_mamba_drum_loader",
     "name": "Drum Loader",
+    "sprite_pos": {
+      "r": 4,
+      "c": 3
+    },
     "description": "If you kill 4 enemies without reloading the Mamba, the next reload will be 50% faster.",
     "scope": "overkill",
     "optionType": "perk",
@@ -759,6 +799,10 @@
   "ovk_mamba_shockwave": {
     "key": "ovk_mamba_shockwave",
     "name": "Shockwave",
+    "sprite_pos": {
+      "r": 4,
+      "c": 3
+    },
     "description": "Increases each Mamba explosion radius by 20%",
     "scope": "overkill",
     "optionType": "perk",
@@ -770,6 +814,10 @@
   "ovk_mamba_shredding_shrapnel": {
     "key": "ovk_mamba_shredding_shrapnel",
     "name": "Shredding Shrapnel",
+    "sprite_pos": {
+      "r": 4,
+      "c": 3
+    },
     "description": "Mamba explosions have 50% higher armor penetration",
     "scope": "overkill",
     "optionType": "perk",
@@ -781,6 +829,10 @@
   "ovk_arges_combat_resilience": {
     "key": "ovk_arges_combat_resilience",
     "name": "Combat Resilience",
+    "sprite_pos": {
+      "r": 3,
+      "c": 3
+    },
     "description": "For every second you fire the minigun, your armor gains 2% additional damage reduction.",
     "scope": "overkill",
     "optionType": "perk",
@@ -792,6 +844,10 @@
   "ovk_arges_kill_momentum": {
     "key": "ovk_arges_kill_momentum",
     "name": "Kill Momentum",
+    "sprite_pos": {
+      "r": 3,
+      "c": 3
+    },
     "description": "Every time you kill an enemy with the minigun, you gain an additional 5% armor damage reduction.",
     "scope": "overkill",
     "optionType": "perk",
@@ -800,10 +856,14 @@
     "slotLabel": "Perk Slot 1",
     "slotIndex": 1
   },
-  "ovk_arges_tanking_up": {
-    "key": "ovk_arges_tanking_up",
-    "name": "Tanking Up",
-    "description": "If you have zero armor plates left, and your damage reduction bonus reaches 30%, you’ll restore 1 armor plate. This effect won’t trigger again until you call in a new OVK minigun.",
+  "ovk_arges_killer_motor": {
+    "key": "ovk_arges_killer_motor",
+    "name": "Killer Motor",
+    "sprite_pos": {
+      "r": 3,
+      "c": 4
+    },
+    "description": "The minigun's barrel spins up to 30% faster, and your minigun's starting hipfire spread is reduced up to 50%. Based on your armor's damage resistance.",
     "scope": "overkill",
     "optionType": "perk",
     "weaponKey": "ARGES",
@@ -814,6 +874,10 @@
   "ovk_arges_death_merchant": {
     "key": "ovk_arges_death_merchant",
     "name": "Death Merchant",
+    "sprite_pos": {
+      "r": 3,
+      "c": 4
+    },
     "description": "Every time you kill an enemy with the minigun, you gain an additional 1% armor damage reduction if you are wearing a 2 plate armor or lower, or 2% if you are wearing a 3 plate armor or higher.",
     "scope": "overkill",
     "optionType": "perk",
@@ -825,6 +889,10 @@
   "ovk_arges_battle_ready": {
     "key": "ovk_arges_battle_ready",
     "name": "Battle Ready",
+    "sprite_pos": {
+      "r": 4,
+      "c": 1
+    },
     "description": "As long as you are spinning the minigun’s barrel, your bonus to armor damage reduction won’t go down",
     "scope": "overkill",
     "optionType": "perk",
@@ -833,10 +901,14 @@
     "slotLabel": "Perk Slot 3",
     "slotIndex": 3
   },
-  "ovk_arges_killer_armor": {
-    "key": "ovk_arges_killer_armor",
-    "name": "Killer Armor",
-    "description": "Your armor damage reduction bonus will not end when you unequip the minigun; however, the bonus will decrease over time as though you were not firing the minigun.",
+  "ovk_arges_tanking_up": {
+    "key": "ovk_arges_tanking_up",
+    "name": "Tanking Up",
+    "sprite_pos": {
+      "r": 4,
+      "c": 1
+    },
+    "description": "If you have zero armor plates left, and your damage reduction bonus reaches 30%, you’ll restore 1 armor plate. This effect won’t trigger again until you call in a new OVK minigun.",
     "scope": "overkill",
     "optionType": "perk",
     "weaponKey": "ARGES",
@@ -847,6 +919,10 @@
   "ovk_sociopath_frenzy": {
     "key": "ovk_sociopath_frenzy",
     "name": "Frenzy",
+    "sprite_pos": {
+      "r": 6,
+      "c": 1
+    },
     "description": "When there are 3 or more enemies within 5m of you while using this ability, you take 20% less damage",
     "scope": "overkill",
     "optionType": "perk",
@@ -858,6 +934,10 @@
   "ovk_sociopath_master_of_mayhem": {
     "key": "ovk_sociopath_master_of_mayhem",
     "name": "Master of Mayhem",
+    "sprite_pos": {
+      "r": 6,
+      "c": 1
+    },
     "description": "Whenever you kill an enemy with a bat, enemies within 5m of that enemy will enter a panic and miss all their shots for 5 seconds.",
     "scope": "overkill",
     "optionType": "perk",
@@ -869,6 +949,10 @@
   "ovk_sociopath_rabid": {
     "key": "ovk_sociopath_rabid",
     "name": "Rabid",
+    "sprite_pos": {
+      "r": 6,
+      "c": 2
+    },
     "description": "As long as you are wielding your baseball bat, you are immune to stagger, stun, slow, disabling effects, and effects that prevent you from sprinting.",
     "scope": "overkill",
     "optionType": "perk",
@@ -880,6 +964,10 @@
   "ovk_sociopath_berserker": {
     "key": "ovk_sociopath_berserker",
     "name": "Berserker",
+    "sprite_pos": {
+      "r": 6,
+      "c": 2
+    },
     "description": "Killing an enemy while this ability is active will restore 5 health points.",
     "scope": "overkill",
     "optionType": "perk",
@@ -891,6 +979,10 @@
   "ovk_sociopath_killer_instinct": {
     "key": "ovk_sociopath_killer_instinct",
     "name": "Killer Instinct",
+    "sprite_pos": {
+      "r": 6,
+      "c": 3
+    },
     "description": "When ability isn’t active killing enemies add an additional 20% buildup to your OVERKILL meter",
     "scope": "overkill",
     "optionType": "perk",
@@ -902,6 +994,10 @@
   "ovk_sociopath_bloodlust": {
     "key": "ovk_sociopath_bloodlust",
     "name": "Bloodlust",
+    "sprite_pos": {
+      "r": 6,
+      "c": 3
+    },
     "description": "Killing an enemy while this ability is active will restore an additional 20% of your OVERKILL meter.",
     "scope": "overkill",
     "optionType": "perk",
@@ -913,6 +1009,10 @@
   "ovk_interceptor_threat_mapping": {
     "key": "ovk_interceptor_threat_mapping",
     "name": "Threat Mapping",
+    "sprite_pos": {
+      "r": 1,
+      "c": 4
+    },
     "description": "This skill now also marks all guards and cameras while active.",
     "scope": "overkill",
     "optionType": "perk",
@@ -924,6 +1024,10 @@
   "ovk_interceptor_power_efficiency": {
     "key": "ovk_interceptor_power_efficiency",
     "name": "Power Efficiency",
+    "sprite_pos": {
+      "r": 1,
+      "c": 4
+    },
     "description": "Decrease the rate at which your OVERKILL meter drains by 25%.",
     "scope": "overkill",
     "optionType": "perk",
@@ -935,6 +1039,10 @@
   "ovk_interceptor_signal_block": {
     "key": "ovk_interceptor_signal_block",
     "name": "Signal Block",
+    "sprite_pos": {
+      "r": 2,
+      "c": 1
+    },
     "description": "While this skill is active, radios can’t go off, and any currently active radios will not expire. Once this skill’s effect ends, any pending radios will activate, and any active radios will expire.",
     "scope": "overkill",
     "optionType": "perk",
@@ -946,6 +1054,10 @@
   "ovk_interceptor_spam_call": {
     "key": "ovk_interceptor_spam_call",
     "name": "Spam Call",
+    "sprite_pos": {
+      "r": 2,
+      "c": 1
+    },
     "description": "While this skill is active, every guard’s phone will activate, distracting them from their actions. If a guard is escorting a player, the guard will return to patrolling after this effect ends. If the guard is about to detain a player, the guard will go into Search mode instead.",
     "scope": "overkill",
     "optionType": "perk",
@@ -957,6 +1069,10 @@
   "ovk_interceptor_backup_power": {
     "key": "ovk_interceptor_backup_power",
     "name": "Backup Power",
+    "sprite_pos": {
+      "r": 2,
+      "c": 1
+    },
     "description": "Decrease the rate at which your OVERKILL meter drains by 40%.",
     "scope": "overkill",
     "optionType": "perk",
@@ -968,6 +1084,10 @@
   "ovk_karlalfred_ammo_explosive": {
     "key": "ovk_karlalfred_ammo_explosive",
     "name": "Explosive Grenade",
+    "sprite_pos": {
+      "r": 2,
+      "c": 3
+    },
     "description": "Explodes in a large radius dealing moderate damage to all enemies within it’s area of effect. Has high probability to trigger heavy stagger in near proximity of the explosion. Can also damage and triggers enemy weakpoints.",
     "scope": "overkill",
     "optionType": "ammo",
@@ -980,6 +1100,10 @@
   "ovk_karlalfred_ammo_smoke": {
     "key": "ovk_karlalfred_ammo_smoke",
     "name": "Smoke Grenade",
+    "sprite_pos": {
+      "r": 2,
+      "c": 4
+    },
     "description": "On impact deals a moderate amount of damage and spawns a large cloud of smoke obstructing the view for enemies. All enemies within its AOE are heavy staggered and marked. Skills affecting smoke grenades apply to this grenade.",
     "scope": "overkill",
     "optionType": "ammo",
@@ -991,6 +1115,10 @@
   "ovk_karlalfred_ammo_heat": {
     "key": "ovk_karlalfred_ammo_heat",
     "name": "HEAT Shaped Charge Grenade",
+    "sprite_pos": {
+      "r": 2,
+      "c": 2
+    },
     "description": "Explodes in a small radius on impact and deals high piercing damage, penetrating through the impacted target dealing the same damage to targets behind.",
     "scope": "overkill",
     "optionType": "ammo",
@@ -1002,6 +1130,10 @@
   "ovk_karlalfred_cull_the_herd": {
     "key": "ovk_karlalfred_cull_the_herd",
     "name": "Cull the Herd",
+    "sprite_pos": {
+      "r": 3,
+      "c": 1
+    },
     "description": "Enemies that are heavy staggered from firing or being hit by the M606 take 30% additional damage for 15s",
     "scope": "overkill",
     "optionType": "perk",
@@ -1013,6 +1145,10 @@
   "ovk_karlalfred_devastator": {
     "key": "ovk_karlalfred_devastator",
     "name": "Devastator",
+    "sprite_pos": {
+      "r": 3,
+      "c": 1
+    },
     "description": "If a grenade from an M606 directly impacts an enemy and kills them, it’s reload speed is increased by 60% and the next grenade fired deals 20% extra damage. (Does not stack)",
     "scope": "overkill",
     "optionType": "perk",
@@ -1024,6 +1160,10 @@
   "ovk_karlalfred_topped_up_i": {
     "key": "ovk_karlalfred_topped_up_i",
     "name": "Topped Up I",
+    "sprite_pos": {
+      "r": 3,
+      "c": 1
+    },
     "description": "M606 spawns with an additional grenade",
     "scope": "overkill",
     "optionType": "perk",
@@ -1035,6 +1175,10 @@
   "ovk_karlalfred_kill_zone": {
     "key": "ovk_karlalfred_kill_zone",
     "name": "Kill Zone",
+    "sprite_pos": {
+      "r": 3,
+      "c": 2
+    },
     "description": "The fired grenades area of effect is increased 25%",
     "scope": "overkill",
     "optionType": "perk",
@@ -1046,6 +1190,10 @@
   "ovk_karlalfred_mutilator": {
     "key": "ovk_karlalfred_mutilator",
     "name": "Mutilator",
+    "sprite_pos": {
+      "r": 3,
+      "c": 2
+    },
     "description": "Enemies affected by the M606 deal 50% less damage permanently. (Does not stack)",
     "scope": "overkill",
     "optionType": "perk",
@@ -1057,6 +1205,10 @@
   "ovk_karlalfred_topped_up_ii": {
     "key": "ovk_karlalfred_topped_up_ii",
     "name": "Topped Up II",
+    "sprite_pos": {
+      "r": 3,
+      "c": 2
+    },
     "description": "M606 spawns with an additional grenade",
     "scope": "overkill",
     "optionType": "perk",
@@ -1068,6 +1220,10 @@
   "ovk_ove9050_diamond_blade": {
     "key": "ovk_ove9050_diamond_blade",
     "name": "Diamond Blade",
+    "sprite_pos": {
+      "r": 4,
+      "c": 4
+    },
     "description": "Deals 150% to environmental targets, but 50% to enemies. For every object cut, your Overkill bar gets a small recharge.",
     "scope": "overkill",
     "optionType": "blade",
@@ -1079,6 +1235,10 @@
   "ovk_ove9050_silent_blade": {
     "key": "ovk_ove9050_silent_blade",
     "name": "Silent Blade",
+    "sprite_pos": {
+      "r": 5,
+      "c": 4
+    },
     "description": "The saw is silent, but drains ammo faster while in use. The Overkill weapon is carried with you and can be pulled out when the Overkill bar is full.",
     "scope": "overkill",
     "optionType": "blade",
@@ -1090,6 +1250,10 @@
   "ovk_ove9050_shredder_blade": {
     "key": "ovk_ove9050_shredder_blade",
     "name": "Shredder Blade",
+    "sprite_pos": {
+      "r": 5,
+      "c": 3
+    },
     "description": "Deals 150% to enemies, but 50% to environmental targets. While the saw is equipped you are immune to being staggered.",
     "scope": "overkill",
     "optionType": "blade",
@@ -1101,6 +1265,10 @@
   "ovk_ove9050_revving_hard": {
     "key": "ovk_ove9050_revving_hard",
     "name": "Revving Hard",
+    "sprite_pos": {
+      "r": 5,
+      "c": 1
+    },
     "description": "Each object destroyed or enemy killed increases the damage by 20% up to 200% while the saw is spinning at speed, otherwise it decreases with 10% every second.",
     "scope": "overkill",
     "optionType": "perk",
@@ -1112,6 +1280,10 @@
   "ovk_ove9050_high_voltage": {
     "key": "ovk_ove9050_high_voltage",
     "name": "High Voltage",
+    "sprite_pos": {
+      "r": 5,
+      "c": 1
+    },
     "description": "OVE9050 Saw spawns with 300 extra battery. Passively recharging the Overkill bar automatically over time is 50% of the normal rate. Actions that recharge the bar do so even if the Overkill weapon is equipped.",
     "scope": "overkill",
     "optionType": "perk",
@@ -1123,6 +1295,10 @@
   "ovk_ove9050_blade_slinger": {
     "key": "ovk_ove9050_blade_slinger",
     "name": "Blade Slinger",
+    "sprite_pos": {
+      "r": 5,
+      "c": 1
+    },
     "description": "While spinning the saw at speed, you can launch the blade as a projectile by pressing the melee input, consuming a large part of the battery. The blade will deal massive damage to any enemy it hits, within a 5 meter radius, ricocheting up to 3 times.",
     "scope": "overkill",
     "optionType": "perk",
@@ -1134,6 +1310,10 @@
   "ovk_ove9050_a_slice_to_go": {
     "key": "ovk_ove9050_a_slice_to_go",
     "name": "A Slice to Go",
+    "sprite_pos": {
+      "r": 5,
+      "c": 2
+    },
     "description": "Spinning up the saw takes 50% of the normal rate, and you have no movement speed penalty and can sprint while spinning the saw at speed.",
     "scope": "overkill",
     "optionType": "perk",
@@ -1145,6 +1325,10 @@
   "ovk_ove9050_ptsd": {
     "key": "ovk_ove9050_ptsd",
     "name": "PTSD",
+    "sprite_pos": {
+      "r": 5,
+      "c": 2
+    },
     "description": "If an enemy dies from being dealt damage by the saw, a random enemy within 5 meters will become marked and paralyzed, stopping all their actions for 10 seconds.",
     "scope": "overkill",
     "optionType": "perk",
@@ -1156,6 +1340,10 @@
   "ovk_ove9050_grave_robber": {
     "key": "ovk_ove9050_grave_robber",
     "name": "Grave Robber",
+    "sprite_pos": {
+      "r": 5,
+      "c": 2
+    },
     "description": "If an enemy dies by the saw, they have a high chance to drop Armor Repair Kits, First Aid Kits, or Ammo Packs.",
     "scope": "overkill",
     "optionType": "perk",

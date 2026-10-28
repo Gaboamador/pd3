@@ -123,12 +123,28 @@
 
 .optionContent {
   display: grid;
-  gap: 2px;
+  gap: 5px;
 
+  min-width: 0;
+  flex: 1;
+}
+
+// Encabezado con icono. La descripción conserva todo el ancho disponible,
+// evitando comprimir el texto junto a las municiones de formato 2:1.
+.optionHeading {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
   min-width: 0;
 }
 
+.optionWithSprite .optionMarker {
+  margin-top: 15px;
+}
+
 .optionName {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "DIN2014";
   font-size: 13px;
   line-height: 1.2;

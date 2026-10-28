@@ -10,6 +10,7 @@ const SLOT_NAMES = {
   barrelExtension: 'BarrelExtension', barrel: 'Barrel', grip: 'Grip',
   mag: 'Mag', stock: 'Stock', sight: 'Sight',
   verticalGrip: 'VerticalGrip', foreGrip: 'ForeGrip',
+  chargingHandle: 'ChargingHandle',
 };
 
 function parseFrozenJson(source, variable) {
