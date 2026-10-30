@@ -3360,9 +3360,9 @@ const ATTACHMENT_DATA = Object.freeze({
         "displayName": "Quickshot",
         "description": "When you kill an enemy with a critical hit, you don’t have to cycle the weapon to fire the next shot in the magazine. Reload cancels the free cycle."
     },
-    "Perk_Quickshot_Lawman": {
+    "Perk_Lethal_Cadence": {
         "perkType": "equipped",
-        "displayName": "Quickshot (Lawman)",
+        "displayName": "Lethal Cadence",
         "description": "After a critical hit, your weapon cycle speed is increased by {CycleSpeedIncrease}."
     },
     "Perk_Resilient": {

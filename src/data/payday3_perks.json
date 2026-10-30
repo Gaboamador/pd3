@@ -424,10 +424,10 @@
     "weaponTypes": ["marksman"],
     "iconicOnly": true
   },
-  "perk_quickshot_lawman": {
-    "key": "perk_quickshot_lawman",
-    "name": "Quickshot (Lawman)",
-    "sourceKey": "Perk_Quickshot_Lawman",
+  "perk_lethal_cadence": {
+    "key": "perk_lethal_cadence",
+    "name": "Lethal Cadence",
+    "sourceKey": "Perk_Lethal_Cadence",
     "values": {
       "CycleSpeedIncrease": {
         "value": 1.5,

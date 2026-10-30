@@ -1284,7 +1284,7 @@
       "key": "Spearfish_Lawman",
       "name": "Spearfish 1895 \"Lawman\"",
       "preset": 1,
-      "perk": "perk_quickshot_lawman",
+      "perk": "perk_lethal_cadence",
       "sprite_pos": {
         "r": 21,
         "c": 3
