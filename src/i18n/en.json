@@ -372,5 +372,15 @@
   "build.library.results.filtered": "{{visible}} of {{total}} builds",
   "build.library.field.primary": "Primary",
   "build.library.field.secondary": "Secondary",
-  "build.library.details.title": "Loadout Details"
+  "build.library.details.title": "Loadout Details",
+  "build.library.legacy.title": "Legacy Builds",
+  "build.library.legacy.archive": "Mark as Legacy",
+  "build.library.legacy.restore": "Restore Build",
+  "build.library.legacy.no-active": "No active builds",
+  "build.library.legacy.no-matches": "No matching legacy builds.",
+  "build.library.legacy.archived": "Build moved to Legacy Builds",
+  "build.library.legacy.restored": "Build restored to active builds (unassigned)",
+  "build.library.legacy.failed": "Failed to update Legacy status",
+  "library-explorer.legacy.include": "Include Legacy Builds",
+  "library-explorer.legacy.badge": "Legacy"
 }

@@ -1,3 +1,4 @@
+import { withLegacyStatus } from "../library/utils/legacyBuilds";
 import { BUILDS_LIBRARY_KEY } from "../build/build.constants";
 
 export function loadBuildLibrary() {
@@ -79,6 +80,16 @@ export function clearBuildSlot(id) {
   if (!target) return builds;
 
   target.slot = null;
+  saveBuildLibrary(builds);
+  return builds;
+}
+
+export function setBuildLegacy(id, isLegacy) {
+  const builds = loadBuildLibrary();
+  const index = builds.findIndex(build => build.id === id);
+  if (index < 0) throw new Error("Build not found");
+
+  builds[index] = withLegacyStatus(builds[index], isLegacy);
   saveBuildLibrary(builds);
   return builds;
 }

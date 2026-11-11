@@ -160,7 +160,7 @@ width: 100%;
 
   @include up(md) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     
   }
 }
@@ -266,3 +266,56 @@ width: 100%;
   .card { min-height: 56px; gap: 8px; }
   .compareCheckbox { min-width: 20px; min-height: 20px; }
 }
+
+.legacyToggle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: fit-content;
+  gap: 9px;
+  margin-top: 11px;
+  cursor: pointer;
+  color: #ccc;
+  font: 500 .93rem/1.35 'DIN2014', sans-serif;
+  input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  input:focus-visible + .legacySwitch { outline: 2px solid #fff; outline-offset: 3px; }
+  input:checked + .legacySwitch { border-color: $pd3-lightgreen; background: rgba(0, 255, 145, .14); }
+  input:checked + .legacySwitch::after { transform: translateX(18px); background: $pd3-lightgreen; }
+}
+.legacySwitch {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 23px;
+  flex: 0 0 40px;
+  border: 1px solid #606060;
+  border-radius: 999px;
+  background: #272727;
+  transition: background .15s, border-color .15s;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #aaa;
+    transition: transform .15s, background .15s;
+  }
+}
+.legacyToggleCount { color: #888; }
+.legacyBadge {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 2px 6px;
+  border: 1px solid #626262;
+  border-radius: 4px;
+  color: #c3c3c3;
+  font: 700 .65rem/1.15 'DIN2014', sans-serif;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.buildNameWrapper { flex-wrap: wrap; min-width: 0; }
+.buildName { overflow-wrap: anywhere; }

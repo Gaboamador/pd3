@@ -5,6 +5,7 @@ import {
   deleteBuild as deleteRemoteBuild,
   assignBuildSlot as assignRemoteSlot,
   clearBuildSlot as clearRemoteSlot,
+  setBuildLegacy as setRemoteLegacy,
 } from "../../firebaseUtils";
 
 import {
@@ -15,6 +16,7 @@ import {
   deleteBuildFromLibrary,
   assignBuildSlot as assignLocalSlot,
   clearBuildSlot as clearLocalSlot,
+  setBuildLegacy as setLocalLegacy,
 } from "../utils/buildLibrary.local";
 
 /**
@@ -90,6 +92,14 @@ export const BuildLibraryService = {
     }
 
     return assignLocalSlot(buildId, slot);
+  },
+
+  async setLegacy(uid, buildId, isLegacy) {
+    if (isRemote(uid)) {
+      return await setRemoteLegacy(uid, buildId, isLegacy);
+    }
+
+    return setLocalLegacy(buildId, isLegacy);
   },
 
   async clearSlot(uid, buildId) {

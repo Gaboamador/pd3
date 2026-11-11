@@ -45,10 +45,10 @@
   min-height: 48px;
   padding: 0 10px;
   color: #c8c8c8;
-  border: 1px solid transparent;
+  border: 1px solid #414141;
   border-radius: 7px;
   background: #000;
-  &:focus-within { border-color: #414141; }
+  &:focus-within { border-width: 2px }
   input {
     flex: 1 1 auto;
     width: 100%;
@@ -104,6 +104,7 @@
 .list {
   list-style: none;
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 0;
   padding: 10px 0 18px;
@@ -111,7 +112,7 @@
 .item {
   position: relative;
   min-width: 0;
-  padding: 17px 18px;
+  padding: 11px 9px;
   border: 1px solid #2d2d2d;
   border-radius: 12px;
   background: #000;
@@ -285,7 +286,7 @@
   .resultCount { font-size: .78rem; }
   .searchField { min-height: 44px; padding: 0 5px; }
   .allDetailsButton { min-height: 34px; }
-  .list { gap: 8px; padding: 6px 0 12px; }
+  .list { grid-template-columns: 1fr; gap: 8px; padding: 6px 0 12px; }
   .item { padding: 11px 9px; }
   .row { gap: 8px; }
   .slotBadge, .slotEmpty { width: 38px; min-width: 38px; min-height: 44px; font-size: .8rem; }
@@ -297,4 +298,73 @@
   .detailTitle { margin-bottom: 12px; }
   .detailGrid { gap: 13px 12px; }
   .controls { margin-top: 18px; padding-top: 14px; }
+}
+
+/* Legacy Builds: archivo separado, cerrado por defecto y reversible. */
+.legacySection {
+  margin: 10px 0 12px;
+  border-top: 1px solid #303030;
+}
+.legacyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #c8c8c8;
+  clip-path: none;
+  cursor: pointer;
+  font: 700 .95rem/1.2 'DIN2014', sans-serif;
+  text-align: left;
+  &:hover { color: #fff; background: #1a1a1a; }
+  &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+}
+.legacyHeaderLabel { display: inline-flex; align-items: center; gap: 10px; }
+.legacyCount {
+  padding: 2px 8px;
+  background: #252525;
+  color: #aaa;
+  border-radius: 999px;
+  font-size: .76rem;
+}
+.legacyList { padding: 5px 0 8px; }
+.legacyItem { background: #0a0a0a; border-color: #292929; }
+.legacySlot {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  min-height: 48px;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  background: #171717;
+  color: #a5a5a5;
+}
+.legacyEmpty { padding: 8px 12px; color: #888; font: 400 .9rem 'DIN2014', sans-serif; }
+.managementActions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 7px; }
+.legacyActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #bbb;
+  clip-path: none;
+  font: 400 .87rem 'DIN2014', sans-serif;
+  &:hover:not(:disabled) { background: #242424; color: #fff; }
+}
+.legacyActionBtn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.legacyActionBtn:disabled, .deleteBtn:disabled { opacity: .5; cursor: default; }
+@media (max-width: 560px) {
+  .legacySlot { flex-basis: 38px; width: 38px; min-height: 44px; }
+  .controls { flex-wrap: wrap; }
+  .managementActions { flex: 1 1 auto; }
 }

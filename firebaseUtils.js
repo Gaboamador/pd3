@@ -2,6 +2,7 @@ import { db } from "./firebase";
 import {
   doc,
   setDoc,
+  updateDoc,
   getDoc,
   getDocs,
   deleteDoc,
@@ -111,5 +112,14 @@ export const clearBuildSlot = async (uid, buildId) => {
   if (!build) return null;
 
   await saveBuild(uid, { ...build, slot: null });
+  return await getAllBuilds(uid);
+};
+/** Alterna el estado de archivo sin reemplazar los datos del build. */
+export const setBuildLegacy = async (uid, buildId, isLegacy) => {
+  if (!uid) throw new Error("setBuildLegacy: uid requerido");
+  if (!buildId) throw new Error("setBuildLegacy: buildId requerido");
+
+  const buildRef = doc(db, "users", uid, "builds", buildId);
+  await updateDoc(buildRef, { isLegacy: Boolean(isLegacy), slot: null });
   return await getAllBuilds(uid);
 };

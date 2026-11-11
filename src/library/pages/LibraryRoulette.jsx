@@ -10,6 +10,7 @@ import { FaCircleChevronDown } from "react-icons/fa6";
 import Section from "../../build/components/common/Section";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
 import { useUserLibrary } from "../hooks/useUserLibrary";
+import { filterActiveBuilds } from "../utils/legacyBuilds";
 import { attachSearchIndexToBuilds } from "../utils/buildSearchIndex";
 import { filterBuilds } from "../utils/librarySearchEngine";
 import { decodeFilters } from "../utils/filterSerialization";
@@ -44,7 +45,7 @@ export default function LibraryRoulette() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const indexedBuilds = useMemo(
-    () => attachSearchIndexToBuilds(library ?? []),
+    () => attachSearchIndexToBuilds(filterActiveBuilds(library)),
     [library]
   );
 
@@ -196,7 +197,13 @@ export default function LibraryRoulette() {
   }, [selected, rotation, ROULETTE_UI_KEY, uiHydrated]);
 
   useEffect(() => {
-    if (!pool.length) return;
+    if (!pool.length) {
+      setSelected(null);
+      setSelectedIndex(null);
+      setSpinning(false);
+      setUiHydrated(true);
+      return;
+    }
 
     try {
       const saved = JSON.parse(sessionStorage.getItem(ROULETTE_UI_KEY));
@@ -214,6 +221,9 @@ export default function LibraryRoulette() {
           setSelected(null);
           setSelectedIndex(null);
         }
+      } else {
+        setSelected(null);
+        setSelectedIndex(null);
       }
 
       setSpinning(false);

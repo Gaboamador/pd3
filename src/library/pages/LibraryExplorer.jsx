@@ -7,6 +7,7 @@ import { IoMdOpen } from "react-icons/io";
 import { LuTarget } from "react-icons/lu";
 import Section from "../../build/components/common/Section";
 import { useUserLibrary } from "../hooks/useUserLibrary";
+import { filterActiveBuilds, filterLegacyBuilds, isLegacyBuild } from "../utils/legacyBuilds";
 import { useLoadBuild } from "../../hooks/useLoadBuild";
 import { attachSearchIndexToBuilds } from "../utils/buildSearchIndex";
 import { filterBuilds } from "../utils/librarySearchEngine";
@@ -60,8 +61,19 @@ export default function LibraryExplorer() {
   const { library, loading } = useUserLibrary();
   const { loadBuild } = useLoadBuild();
 
+  const location = useLocation();
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [activeChips, setActiveChips] = useState([]);
+  // El toggle queda también en la URL para conservarlo al abrir un build o la ruleta.
+  const [includeLegacy, setIncludeLegacy] = useState(
+    () => new URLSearchParams(location.search).get("includeLegacy") === "1"
+  );
+  const legacyCount = filterLegacyBuilds(library).length;
+  const searchableLibrary = useMemo(
+    () => includeLegacy ? library : filterActiveBuilds(library),
+    [library, includeLegacy]
+  );
 
   const [comparisonEnabled, setComparisonEnabled] = useState(false);
     const [selectedIds, setSelectedIds] = useState([]);
@@ -92,16 +104,13 @@ export default function LibraryExplorer() {
       setComparisonEnabled(false);
     }
 
-  const location = useLocation();
-  const navigate = useNavigate();
-
   const indexedBuilds = useMemo(
     () =>
-      attachSearchIndexToBuilds(library ?? [], {
+      attachSearchIndexToBuilds(searchableLibrary ?? [], {
         loadoutData,
         perksData,
       }),
-    [library]
+    [searchableLibrary]
   );
 
   const weaponTypeIndex = useMemo(() => {
@@ -125,7 +134,7 @@ export default function LibraryExplorer() {
     const q = query.trim().toLowerCase();
     if (!q) return baseSuggestions;
 
-    const buildSuggestions = library
+    const buildSuggestions = searchableLibrary
       .filter(b => b.name && b.name.toLowerCase().includes(q))
       .slice(0, 5)
       .map(b => ({
@@ -137,7 +146,7 @@ export default function LibraryExplorer() {
       }));
 
     return [...buildSuggestions, ...baseSuggestions];
-  }, [query, catalog, activeChips, library]);
+  }, [query, catalog, activeChips, searchableLibrary]);
 
   // Chips → filtros reales
   const filters = useMemo(() => {
@@ -176,10 +185,15 @@ export default function LibraryExplorer() {
   });
 
   return result.sort((a, b) => {
-    const slotA = a.slot ?? Infinity;
-    const slotB = b.slot ?? Infinity;
-
-    return slotA - slotB;
+    if (a.slot == null && b.slot == null) {
+      return (a.name ?? "").trim().localeCompare((b.name ?? "").trim(), "en", {
+        sensitivity: "base",
+        numeric: true,
+      });
+    }
+    if (a.slot == null) return 1;
+    if (b.slot == null) return -1;
+    return a.slot - b.slot;
   });
 }, [indexedBuilds, filters, weaponTypeIndex]);
 
@@ -236,6 +250,11 @@ export default function LibraryExplorer() {
     } else {
       params.delete("filters");
     }
+    if (includeLegacy) {
+      params.set("includeLegacy", "1");
+    } else {
+      params.delete("includeLegacy");
+    }
 
     navigate(
       {
@@ -244,7 +263,7 @@ export default function LibraryExplorer() {
       },
       { replace: true }
     );
-  }, [activeChips]);
+  }, [activeChips, includeLegacy]);
 
     useEffect(() => {
       const allowed = new Set((filteredBuilds ?? []).map(b => b.id));
@@ -315,6 +334,17 @@ useEffect(() => {
             placeholder={t('title.placeholder.search')}
           />
 
+          <label className={styles.legacyToggle}>
+            <input
+              type="checkbox"
+              checked={includeLegacy}
+              onChange={event => setIncludeLegacy(event.target.checked)}
+            />
+            <span className={styles.legacySwitch} aria-hidden="true" />
+            <span>{t("library-explorer.legacy.include")}</span>
+            <span className={styles.legacyToggleCount}>({legacyCount})</span>
+          </label>
+
           {/* Suggestions */}
           {query && suggestions.length > 0 && (
             <div className={styles.suggestions}>
@@ -368,6 +398,9 @@ useEffect(() => {
                           ? formatWeaponTypeWithSlot(s.slot, s.weaponType ?? s.label)
                           : s.label}
                       </strong>
+                      {s.kind === "buildName" && isLegacyBuild(library.find(b => b.id === s.key)) && (
+                        <span className={styles.legacyBadge}>{t("library-explorer.legacy.badge")}</span>
+                      )}
                     </div>
 
                     {s.kind !== "buildName" && (
@@ -519,6 +552,9 @@ useEffect(() => {
 
                     <span className={styles.slotNumber}>{build.slot ?? t('select.option.none')}</span>
                     <span className={styles.buildName}>{build.name || `(${t('build.library.label.fallbackName')})`}</span>
+                    {isLegacyBuild(build) && (
+                      <span className={styles.legacyBadge}>{t("library-explorer.legacy.badge")}</span>
+                    )}
                   
                   </div>
 

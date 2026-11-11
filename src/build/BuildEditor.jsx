@@ -18,6 +18,7 @@ import platesData from "../data/payday3_armor_plates.json";
 import perksData from "../data/perksData.js";
 
 import { useUserLibrary } from "../library/hooks/useUserLibrary";
+import { filterActiveBuilds, isLegacyBuild } from "../library/utils/legacyBuilds";
 import { loadBuildFromSession, saveBuildToSession, createEmptyBuild } from "./build.utils";
 import { encodeBuildToUrl, decodeBuildFromUrl } from "./build.buildUrl.utils";
 import { createShortBuildLink } from "./share/shortBuildLinks.service.js";
@@ -247,10 +248,14 @@ const [build, setBuild] = useState(() => {
       const isShared = Boolean(build.__shared);
       const isNew = !build.id;
 
+      // Los metadatos de biblioteca no viajan en el enlace comprimido.
+      // En una recarga, preservar el estado real (slot y Legacy) desde la library.
+      const savedBuild = library.find(item => item.id === build.id);
       const nextRaw = {
         ...build,
         id: (isShared || isNew) ? nanoid() : build.id,
-        slot: isShared ? null : build.slot ?? null,
+        slot: isShared ? null : savedBuild ? (savedBuild.slot ?? null) : (build.slot ?? null),
+        isLegacy: isShared ? false : isLegacyBuild(savedBuild ?? build),
       };
 
       const next = normalizeOwnedBuild(nextRaw);
@@ -301,6 +306,7 @@ const [build, setBuild] = useState(() => {
         ...build,
         id: nanoid(),
         slot: null,
+        isLegacy: false,
         name: nextName,
       };
 
@@ -411,6 +417,8 @@ function closeShare() {
   setShareState(null);
 }
 
+const activeBuildCount = filterActiveBuilds(library).length;
+
 const orderedLibrary = useMemo(() => {
   if (!Array.isArray(library)) return [];
 
@@ -427,6 +435,23 @@ const orderedLibrary = useMemo(() => {
   });
 }, [library]);
 
+
+  async function handleSetLegacy(id, isLegacy) {
+    try {
+      setSaving(true);
+      const updated = await BuildLibraryService.setLegacy(uid, id, isLegacy);
+      setLibrary(updated);
+      showToast({
+        type: "success",
+        message: t(isLegacy ? "build.library.legacy.archived" : "build.library.legacy.restored"),
+      });
+    } catch (err) {
+      console.error(err);
+      showToast({ type: "error", message: t("build.library.legacy.failed") });
+    } finally {
+      setSaving(false);
+    }
+  }
 
   async function handleAssignSlot(id, slot) {
     try {
@@ -592,7 +617,7 @@ return (
           </div>
 
           <span>
-            {t('build.actions.open_library2')} ({orderedLibrary.length})
+            {t('build.actions.open_library2')} ({activeBuildCount})
           </span>
         </button>
 
@@ -684,6 +709,8 @@ return (
             }}
             onDeleteBuild={handleDeleteBuild}
             onAssignSlot={handleAssignSlot}
+            onSetLegacy={handleSetLegacy}
+            disabled={saving}
           />
         </Section>
       </motion.div>
@@ -868,7 +895,7 @@ return (
           <button type="button" className={`${styles.mobileEditorButton} ${styles.mobileMenuButton}`}
             tabIndex={mobileActionsOpen && !showLibrary ? 0 : -1}
             onClick={openBuildLibrary}>
-            {`${t('build.actions.open_library1')} (${orderedLibrary.length} ${t('build.actions.open_library2')})`}
+            {`${t('build.actions.open_library1')} (${activeBuildCount} ${t('build.actions.open_library2')})`}
           </button>
           <button type="button" className={`${styles.mobileEditorButton} ${styles.mobileMenuButton}`}
             tabIndex={mobileActionsOpen && !showLibrary ? 0 : -1}
