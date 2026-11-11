@@ -838,7 +838,8 @@ const WEAPON_DATA = Object.freeze({
                 "uniqueParts": [
                     "BarrelExt_CompactComp",
                     "BarrelExt_SkeletonizedComp",
-                    "BarrelExt_PartedComp"
+                    "BarrelExt_PartedComp",
+                    "BarrelExt_BruteComp"
                 ]
             },
             "perk1": {
@@ -849,7 +850,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Bulky",
                     "Perk_Glass",
                     "Perk_Critter",
-                    "Perk_Sharpshooter"
+                    "Perk_Sharpshooter",
+                    "Perk_Trickshot"
                 ]
             }
         },
@@ -1436,7 +1438,8 @@ const WEAPON_DATA = Object.freeze({
                 "uniqueParts": [
                     "BarrelExt_CompactComp",
                     "BarrelExt_SkeletonizedComp",
-                    "BarrelExt_PartedComp"
+                    "BarrelExt_PartedComp",
+                    "BarrelExt_BruteComp"
                 ]
             },
             "sightMount": {
@@ -1451,7 +1454,9 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Bulky",
                     "Perk_Glass",
                     "Perk_Critter",
-                    "Perk_PinPuller"
+                    "Perk_PinPuller",
+                    "Perk_Trickshot",
+                    "Perk_BounceBack"
                 ]
             }
         },
@@ -2626,7 +2631,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "chargingHandle": {
@@ -2659,7 +2665,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_RushSlide",
                     "Perk_Runner",
                     "Perk_Resilient",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -3418,7 +3425,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "sight": {
@@ -3442,7 +3450,9 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_RushSlide",
                     "Perk_Runner",
                     "Perk_Resilient",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_DoubleCross",
+                    "Perk_ViperStrike"
                 ]
             }
         },
@@ -3818,7 +3828,7 @@ const WEAPON_DATA = Object.freeze({
             ],
             "criticalDamageMultiplierDistanceArray": [
                 {
-                    "multiplier": 2,
+                    "multiplier": 2.3,
                     "distance": 1000
                 },
                 {
@@ -4402,7 +4412,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Resilient",
                     "Perk_Critter",
                     "Perk_Final",
-                    "Perk_Glass"
+                    "Perk_Glass",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -5838,7 +5849,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "verticalGrip": {
@@ -5872,7 +5884,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_RushSlide",
                     "Perk_Runner",
                     "Perk_Resilient",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -5894,12 +5907,8 @@ const WEAPON_DATA = Object.freeze({
         "fireData": {
             "damageDistanceArray": [
                 {
-                    "damage": 47.6,
-                    "distance": 200
-                },
-                {
-                    "damage": 47.6,
-                    "distance": 10000
+                    "damage": 48,
+                    "distance": 1000
                 },
                 {
                     "damage": 24,
@@ -6082,7 +6091,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "perk1": {
@@ -6093,7 +6103,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Runner",
                     "Perk_Resilient",
                     "Perk_Critter",
-                    "Perk_Bulky"
+                    "Perk_Bulky",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -6322,12 +6333,8 @@ const WEAPON_DATA = Object.freeze({
         "fireData": {
             "damageDistanceArray": [
                 {
-                    "damage": 104.6,
-                    "distance": 200
-                },
-                {
-                    "damage": 104.6,
-                    "distance": 1500
+                    "damage": 105,
+                    "distance": 2000
                 },
                 {
                     "damage": 100,
@@ -6341,15 +6348,15 @@ const WEAPON_DATA = Object.freeze({
             "criticalDamageMultiplierDistanceArray": [
                 {
                     "multiplier": 4.2,
-                    "distance": 1500
-                },
-                {
-                    "multiplier": 4.1,
-                    "distance": 3000
+                    "distance": 2500
                 },
                 {
                     "multiplier": 4,
-                    "distance": 4000
+                    "distance": 3500
+                },
+                {
+                    "multiplier": 3.8,
+                    "distance": 4500
                 }
             ],
             "ammoLoaded": 20,
@@ -7750,19 +7757,15 @@ const WEAPON_DATA = Object.freeze({
             "damageDistanceArray": [
                 {
                     "damage": 100,
-                    "distance": 900
-                },
-                {
-                    "damage": 95,
                     "distance": 2000
                 },
                 {
                     "damage": 95,
-                    "distance": 2500
+                    "distance": 3000
                 },
                 {
                     "damage": 90,
-                    "distance": 3000
+                    "distance": 3500
                 }
             ],
             "criticalDamageMultiplierDistanceArray": [
@@ -8044,7 +8047,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Bleed",
                     "Perk_Sharpshooter",
                     "Perk_Glass",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_Lethal_Cadence"
                 ]
             }
         },
@@ -8621,11 +8625,7 @@ const WEAPON_DATA = Object.freeze({
         "fireData": {
             "damageDistanceArray": [
                 {
-                    "damage": 52,
-                    "distance": 200
-                },
-                {
-                    "damage": 52,
+                    "damage": 62,
                     "distance": 1000
                 },
                 {
@@ -8748,7 +8748,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "body": {
@@ -8813,7 +8814,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_RushSlide",
                     "Perk_Runner",
                     "Perk_Resilient",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -9969,7 +9971,8 @@ const WEAPON_DATA = Object.freeze({
                 "uniqueParts": [
                     "BarrelExt_CompactComp",
                     "BarrelExt_SkeletonizedComp",
-                    "BarrelExt_PartedComp"
+                    "BarrelExt_PartedComp",
+                    "BarrelExt_BruteComp"
                 ]
             },
             "sightMount": {
@@ -9983,7 +9986,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Assassin",
                     "Perk_Bulky",
                     "Perk_Glass",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_Trickshot"
                 ]
             }
         },
@@ -10503,7 +10507,8 @@ const WEAPON_DATA = Object.freeze({
                     "BarrelExt_12GCoronetMuzzle",
                     "BarrelExt_SilentKiller",
                     "BarrelExt_Breacher",
-                    "BarrelExt_12GTorqued"
+                    "BarrelExt_12GTorqued",
+                    "BarrelExt_12GGrimComp"
                 ]
             },
             "chargingHandle": {
@@ -10540,7 +10545,8 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_RushSlide",
                     "Perk_Runner",
                     "Perk_Resilient",
-                    "Perk_Critter"
+                    "Perk_Critter",
+                    "Perk_DoubleCross"
                 ]
             }
         },
@@ -10598,7 +10604,193 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_Trickshot"
                 ]
             }
-        }
+        },
+        "category": "Dual",
+        "displayIcon": {
+            "offset": {
+                "x": 256,
+                "y": 128
+            },
+            "source": "SS_UI_Inventory_00252-Western_Weapons.png"
+        },
+        "fireData": {
+            "damageDistanceArray": [
+                {
+                    "damage": 125,
+                    "distance": 1500
+                },
+                {
+                    "damage": 100,
+                    "distance": 2500
+                },
+                {
+                    "damage": 80,
+                    "distance": 10000
+                },
+                {
+                    "damage": 60,
+                    "distance": 2500
+                }
+            ],
+            "criticalDamageMultiplierDistanceArray": [
+                {
+                    "multiplier": 2,
+                    "distance": 1500
+                },
+                {
+                    "multiplier": 1.5,
+                    "distance": 5000
+                },
+                {
+                    "multiplier": 1.25,
+                    "distance": 10000
+                }
+            ],
+            "ammoLoaded": 12,
+            "ammoInventory": 72,
+            "ammoInventoryMax": 72,
+            "ammoPickup": {
+                "min": 3,
+                "max": 5
+            },
+            "armorPenetration": 2,
+            "roundsPerMinute": 500
+        },
+        "spreadData": {
+            "start": 0.3,
+            "increase": 0.2,
+            "decayRate": 0,
+            "cap": 3,
+            "stanceMultipliers": {
+                "standMove": {
+                    "spread": 1.5
+                },
+                "crouch": {
+                    "spread": 0.5
+                },
+                "target": {
+                    "spread": 0.25
+                },
+                "targetMove": {
+                    "spread": 0.5
+                }
+            },
+            "radiusMultipliers": {}
+        },
+        "recoilData": {
+            "viewKick": {
+                "deflectSpeed": 30,
+                "recoverSpeed": 20,
+                "recoverWaitTime": 0.2,
+                "recoilPattern": [
+                    {
+                        "x": 0.4385388,
+                        "y": 0.39867172
+                    },
+                    {
+                        "x": 0.33222628,
+                        "y": 1.0631249
+                    },
+                    {
+                        "x": 0.13289079,
+                        "y": 2.6179454
+                    },
+                    {
+                        "x": -0.46511713,
+                        "y": 3.9867184
+                    },
+                    {
+                        "x": -0.0265783,
+                        "y": 5.3156247
+                    },
+                    {
+                        "x": 0.6511638,
+                        "y": 6.8305783
+                    },
+                    {
+                        "x": 0.5049842,
+                        "y": 8.478421
+                    },
+                    {
+                        "x": 0.19933619,
+                        "y": 9.568124
+                    },
+                    {
+                        "x": -0.6112967,
+                        "y": 10.631249
+                    },
+                    {
+                        "x": -0.212625,
+                        "y": 11.907
+                    },
+                    {
+                        "x": 0.119601294,
+                        "y": 13.076437
+                    },
+                    {
+                        "x": -0.19933619,
+                        "y": 14.405343
+                    },
+                    {
+                        "x": -0.0398671,
+                        "y": 15.800696
+                    },
+                    {
+                        "x": 0.18604669,
+                        "y": 17.142889
+                    },
+                    {
+                        "x": -0.053155903,
+                        "y": 18.219305
+                    },
+                    {
+                        "x": -0.2790704,
+                        "y": 19.322296
+                    },
+                    {
+                        "x": 0.19933619,
+                        "y": 20.624626
+                    },
+                    {
+                        "x": 0.5714296,
+                        "y": 21.701038
+                    },
+                    {
+                        "x": -0.2259138,
+                        "y": 23.362171
+                    },
+                    {
+                        "x": -0.066445395,
+                        "y": 24.544895
+                    }
+                ],
+                "resetTime": 0.15,
+                "hipfireMultiplier": 1.6
+            },
+            "gunKick": {
+                "deflectSpeed": 40,
+                "recoverSpeed": 30,
+                "verticalTop": {
+                    "max": 0.3
+                },
+                "verticalBottom": {},
+                "verticalMultiplier": {},
+                "horizontalRight": {
+                    "min": 0.2,
+                    "max": 0.4
+                },
+                "horizontalLeft": {
+                    "min": 0.2,
+                    "max": 0.4
+                },
+                "horizontalMultiplier": {}
+            }
+        },
+        "equipTime": 0.466667,
+        "unequipTime": 0.56665,
+        "sprintExitTime": 0.12640484,
+        "reloadTime": 2.4999998,
+        "reloadEmptyTime": 2.4999998
     },
     "DualGrimshot": {
         "displayName": "Dual Grimshot",
@@ -10653,6 +10845,138 @@ const WEAPON_DATA = Object.freeze({
                     "Perk_DoubleCross"
                 ]
             }
-        }
+        },
+        "category": "Dual",
+        "displayIcon": {
+            "offset": {
+                "x": 0,
+                "y": 128
+            },
+            "source": "SS_UI_Inventory_00252-Western_Weapons.png"
+        },
+        "fireData": {
+            "damageDistanceArray": [
+                {
+                    "damage": 63,
+                    "distance": 1500
+                },
+                {
+                    "damage": 33.4,
+                    "distance": 35
+                },
+                {
+                    "damage": 25,
+                    "distance": 5000
+                }
+            ],
+            "criticalDamageMultiplierDistanceArray": [
+                {
+                    "multiplier": 2,
+                    "distance": 2000
+                },
+                {
+                    "multiplier": 1.2,
+                    "distance": 3000
+                }
+            ],
+            "ammoInventory": 72,
+            "ammoInventoryMax": 96,
+            "ammoPickup": {
+                "min": 2,
+                "max": 3
+            },
+            "fireType": "Pump",
+            "projectilesPerFiredRound": 6,
+            "roundsPerMinute": 200
+        },
+        "spreadData": {
+            "start": 0.66,
+            "increase": 0.25,
+            "stanceMultipliers": {
+                "stand": {
+                    "spread": 3
+                },
+                "standMove": {
+                    "spread": 3.5
+                },
+                "crouch": {
+                    "spread": 2.5
+                },
+                "crouchMove": {
+                    "spread": 3
+                },
+                "target": {
+                    "spread": 2
+                },
+                "targetMove": {
+                    "spread": 2.25
+                }
+            },
+            "radiusMultipliers": {}
+        },
+        "recoilData": {
+            "viewKick": {
+                "deflectSpeed": 45,
+                "recoverSpeed": 30,
+                "recoverWaitTime": 0.1,
+                "recoilPattern": [
+                    {
+                        "x": 1.3,
+                        "y": 3
+                    },
+                    {
+                        "x": 2.4,
+                        "y": 6.5
+                    },
+                    {
+                        "x": 1,
+                        "y": 8.7
+                    },
+                    {
+                        "x": 0.48,
+                        "y": 11
+                    },
+                    {
+                        "x": -1,
+                        "y": 13
+                    },
+                    {
+                        "x": 0.3,
+                        "y": 15.5
+                    }
+                ],
+                "resetTime": 0.3,
+                "loopStart": 1,
+                "initialNum": 1,
+                "hipfireMultiplier": 1.2
+            },
+            "gunKick": {
+                "deflectSpeed": 50,
+                "recoverSpeed": 35,
+                "verticalTop": {
+                    "min": 1,
+                    "max": 1.5
+                },
+                "verticalBottom": {
+                    "min": 0.02,
+                    "max": 0.1
+                },
+                "verticalMultiplier": {},
+                "horizontalRight": {
+                    "min": 0.2,
+                    "max": 0.8
+                },
+                "horizontalLeft": {
+                    "min": 0.2,
+                    "max": 0.8
+                },
+                "horizontalMultiplier": {}
+            }
+        },
+        "equipTime": 0.9,
+        "unequipTime": 0.6666667,
+        "sprintExitTime": 0.73333335,
+        "reloadTime": 4.633333,
+        "reloadEmptyTime": 4.633333
     }
 });

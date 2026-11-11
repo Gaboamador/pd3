@@ -415,7 +415,12 @@ const orderedLibrary = useMemo(() => {
   if (!Array.isArray(library)) return [];
 
   return [...library].sort((a, b) => {
-    if (a.slot == null && b.slot == null) return 0;
+    if (a.slot == null && b.slot == null) {
+      return (a.name ?? "").trim().localeCompare((b.name ?? "").trim(), "en", {
+        sensitivity: "base",
+        numeric: true,
+      });
+    }
     if (a.slot == null) return 1;
     if (b.slot == null) return -1;
     return a.slot - b.slot;

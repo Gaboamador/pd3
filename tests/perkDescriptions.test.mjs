@@ -55,7 +55,7 @@ test('Vampire conserva precisión decimal y Final Tap presenta 300% adicional', 
 });
 
 test('Target Practice y Luck of the Draw utilizan la mecánica oficial, no la descripción antigua', () => {
-  assert.match(perksData.perk_target_practice.description, /When you hit an enemy with a critical hit/);
+  assert.match(perksData.perk_target_practice.description, /When you kill an enemy with a critical hit/);
   assert.match(perksData.perk_luck_of_the_draw.description, /50% extra damage/);
   assert.match(perksData.perk_luck_of_the_draw.description, /2% chance/);
 });

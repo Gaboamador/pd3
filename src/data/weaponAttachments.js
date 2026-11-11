@@ -79,9 +79,9 @@ export function getSourceModSlots(weaponDef, { includeDefaultOnly = false } = {}
   const overrides = AVAILABILITY_OVERRIDES[sourceKey] ?? {};
   const result = [];
 
-  for (const [sourceSlot, slot] of Object.entries(SLOT_NAMES)) {
-    const definition = config[sourceSlot];
-    if (!definition) continue;
+  for (const [sourceSlot, definition] of Object.entries(config)) {
+    const slot = SLOT_NAMES[sourceSlot];
+    if (!slot || !definition) continue;
     const defaultKey = resolveAttachmentKey(definition.defaultPart);
     const seen = new Set(defaultKey ? [defaultKey] : []);
     const options = [getDefaultOption(defaultKey)];
@@ -108,15 +108,32 @@ export function getSourceModSlots(weaponDef, { includeDefaultOnly = false } = {}
  * exista, o que no corresponda a su arma base, cae silenciosamente a Default/None.
  */
 export function getIconicModSlots(weaponDef, baseWeaponDef) {
-  const baseSlots = new Map(getSourceModSlots(baseWeaponDef, { includeDefaultOnly: true }).map(s => [s.slot, s]));
+  const baseSlots = getSourceModSlots(baseWeaponDef, {
+    includeDefaultOnly: true
+  });
+
+  const baseSlotsByName = new Map(
+    baseSlots.map(s => [s.slot, s])
+  );
+
+  const slotOrder = new Map(
+    baseSlots.map((s, index) => [s.slot, index])
+  );
+
   const result = [];
+
   for (const [slot, rawFixed] of Object.entries(weaponDef.fixedMods ?? {})) {
-    const parentSlot = baseSlots.get(slot);
+    const parentSlot = baseSlotsByName.get(slot);
     const defaultOpt = parentSlot?.options[0] ?? getDefaultOption(null);
     const fixed = resolveAttachmentKey(rawFixed);
     const matched = parentSlot?.options.find(o => o.id === fixed);
     const selected = matched ?? defaultOpt;
+
     result.push({ slot, options: [selected] });
   }
-  return result;
+
+  return result.sort((a, b) =>
+    (slotOrder.get(a.slot) ?? Infinity) -
+    (slotOrder.get(b.slot) ?? Infinity)
+  );
 }

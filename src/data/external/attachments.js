@@ -1496,8 +1496,18 @@ const ATTACHMENT_DATA = Object.freeze({
     "DualOutlaw_Mag_Brute": {
         "displayName": "Brute Cylinder",
         "attributeModifierMap": [
-            { "attribute": "EndCycleReloadPlayRate", "value": 15 },
-            { "attribute": "OverallGunkick", "value": -10 }
+            {
+                "attribute": "OverallSwapSpeed",
+                "value": 5
+            },
+            {
+                "attribute": "SpreadIncrement",
+                "value": 5
+            },
+            {
+                "attribute": "OverallRecoil",
+                "value": -5
+            }
         ]
     },
     "DualOutlaw_Mag_Engraved": {
@@ -1518,9 +1528,18 @@ const ATTACHMENT_DATA = Object.freeze({
     "DualOutlaw_Grip_Ivory": {
         "displayName": "Ivory Grip",
         "attributeModifierMap": [
-            { "attribute": "VerticalRecoil", "value": 5 },
-            { "attribute": "VerticalGunkick", "value": 5 },
-            { "attribute": "HorizontalRecoil", "value": -5 }
+            {
+                "attribute": "VerticalRecoil",
+                "value": 10
+            },
+            {
+                "attribute": "VerticalGunkick",
+                "value": 5
+            },
+            {
+                "attribute": "HorizontalRecoil",
+                "value": -5
+            }
         ]
     },
     "DualOutlaw_Grip_Tactical": {
@@ -1542,34 +1561,99 @@ const ATTACHMENT_DATA = Object.freeze({
     "DualGrimshot_Barrel_Medium": {
         "displayName": "Medium Barrel",
         "attributeModifierMap": [
-            { "attribute": "VerticalRecoil", "value": 5 },
-            { "attribute": "OverallReloadPlayRate", "value": 5 },
-            { "attribute": "OverallSpread", "value": -5 }
-        ]
+            {
+                "attribute": "VerticalRecoil",
+                "value": 5
+            },
+            {
+                "attribute": "OverallReloadPlayRate",
+                "value": 5
+            },
+            {
+                "attribute": "OverallSpread",
+                "value": -5
+            }
+        ],
+        "magazineData": {
+            "ammoLoaded": 8,
+            "ammoInventory": 72,
+            "ammoInventoryMax": 96,
+            "ammoPickup": {
+                "min": 2,
+                "max": 3
+            }
+        }
     },
     "DualGrimshot_Barrel_Octagon": {
         "displayName": "Octagon Barrel",
         "attributeModifierMap": [
-            { "attribute": "DamageDistance", "value": 5 },
-            { "attribute": "OverallSpread", "value": 5 },
-            { "attribute": "OverallGunkick", "value": -10 }
-        ]
+            {
+                "attribute": "DamageDistance",
+                "value": 5
+            },
+            {
+                "attribute": "OverallSpread",
+                "value": 5
+            },
+            {
+                "attribute": "OverallGunkick",
+                "value": -10
+            }
+        ],
+        "magazineData": {
+            "ammoInventory": 72,
+            "ammoInventoryMax": 96,
+            "ammoPickup": {
+                "min": 2,
+                "max": 3
+            }
+        }
     },
     "DualGrimshot_Barrel_CQC": {
         "displayName": "CQC Barrel",
         "attributeModifierMap": [
-            { "attribute": "OverallReloadPlayRate", "value": 10 },
-            { "attribute": "OverallSpread", "value": 10 },
-            { "attribute": "DamageDistance", "value": -10 },
-            { "attribute": "OverallRecoil", "value": -5 }
-        ]
+            {
+                "attribute": "OverallReloadPlayRate",
+                "value": 10
+            },
+            {
+                "attribute": "OverallSpread",
+                "value": 10
+            },
+            {
+                "attribute": "DamageDistance",
+                "value": -10
+            },
+            {
+                "attribute": "OverallRecoil",
+                "value": -5
+            }
+        ],
+        "magazineData": {
+            "ammoLoaded": 6,
+            "ammoInventory": 108,
+            "ammoInventoryMax": 120,
+            "ammoPickup": {
+                "min": 2,
+                "max": 3
+            }
+        }
     },
     "BarrelExt_12GGrimComp": {
         "displayName": "12G Grim Compensator",
         "attributeModifierMap": [
-            { "attribute": "OverallRecoil", "value": 5 },
-            { "attribute": "ViewKickRecoveryDelay", "value": 5 },
-            { "attribute": "OverallSpread", "value": -5 }
+            {
+                "attribute": "ViewKickRecoverySpeed",
+                "value": 5
+            },
+            {
+                "attribute": "OverallGunkick",
+                "value": 5
+            },
+            {
+                "attribute": "OverallSpread",
+                "value": -5
+            }
         ]
     },
     "DualGrimshot_ChargingHandle_Swift": {
@@ -3404,7 +3488,7 @@ const ATTACHMENT_DATA = Object.freeze({
     "Perk_Superstar": {
         "perkType": "equipped",
         "displayName": "Target Practice",
-        "description": "When you hit an enemy with a critical hit, this weapon deals {IncreasedDamage} extra damage for {DecayDuration} seconds."
+        "description": "When you kill an enemy with a critical hit, this weapon deals {IncreasedDamage} extra damage for {DecayDuration} seconds."
     },
     "Perk_Threat": {
         "perkType": "persistent",
